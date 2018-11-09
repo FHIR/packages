@@ -20,7 +20,6 @@ cd fhir.test.data\1.0.2
 "C:\Program Files\7-Zip\7z.exe" a -ttar package.tar package
 "C:\Program Files\7-Zip\7z.exe" a -tgzip package.tgz package.tar
 cd ..\..
-cd ..\..
 
 cd fhir.test.data\3.0.1 
 "C:\Program Files\7-Zip\7z.exe" a -ttar package.tar package
