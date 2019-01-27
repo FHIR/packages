@@ -11,7 +11,7 @@ cd fhir.tx.support\3.0.1
 "C:\Program Files\7-Zip\7z.exe" a -tgzip package.tgz package.tar
 cd ..\..
 
-cd fhir.tx.support\3.6.0 
+cd fhir.tx.support\4.0.0 
 "C:\Program Files\7-Zip\7z.exe" a -ttar package.tar package
 "C:\Program Files\7-Zip\7z.exe" a -tgzip package.tgz package.tar
 cd ..\..
@@ -26,7 +26,7 @@ cd fhir.test.data\3.0.1
 "C:\Program Files\7-Zip\7z.exe" a -tgzip package.tgz package.tar
 cd ..\..
 
-cd fhir.test.data\3.6.0 
+cd fhir.test.data\4.0.0 
 "C:\Program Files\7-Zip\7z.exe" a -ttar package.tar package
 "C:\Program Files\7-Zip\7z.exe" a -tgzip package.tgz package.tar
 cd ..\..
