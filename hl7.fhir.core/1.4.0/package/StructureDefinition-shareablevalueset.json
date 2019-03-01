@@ -48,14 +48,14 @@
             "key": "vsd-5",
             "severity": "error",
             "human": "Value set SHALL contain at least one of a a compose, or an expansion element",
-            "expression": "compose or expansion",
+            "expression": "compose.exists() or expansion.exists()",
             "xpath": "exists(f:compose) or exists(f:expansion)"
           },
           {
             "key": "vsd-2",
             "severity": "error",
             "human": "A value set with only one import SHALL also have an include and/or an exclude unless the value set includes an inline code system",
-            "expression": "compose.import.count() != 1 or compose.include or compose.exclude",
+            "expression": "compose.import.count() != 1 or compose.include.exists() or compose.exclude.exists()",
             "xpath": "not(exists(f:compose)) or (count(f:compose/f:import)!=1 or exists(f:compose/f:include) or exists(f:compose/f:exclude))"
           }
         ],
@@ -834,7 +834,7 @@
             "key": "vsd-1",
             "severity": "error",
             "human": "A value set composition SHALL have an include or an import",
-            "expression": "include or import",
+            "expression": "include.exists() or import.exists()",
             "xpath": "exists(f:include) or exists(f:import)"
           }
         ]
@@ -2038,21 +2038,21 @@
             "key": "vsd-9",
             "severity": "error",
             "human": "Must have a code if not abstract",
-            "expression": "code or abstract = true",
+            "expression": "code.exists() or abstract = true",
             "xpath": "exists(f:code) or (f:abstract/@value = true())"
           },
           {
             "key": "vsd-6",
             "severity": "error",
             "human": "SHALL have a code or a display",
-            "expression": "code or display",
+            "expression": "code.exists() or display.exists()",
             "xpath": "exists(f:code) or exists(f:display)"
           },
           {
             "key": "vsd-10",
             "severity": "error",
             "human": "Must have a system if a code is present",
-            "expression": "code.empty() or system",
+            "expression": "code.empty() or system.exists()",
             "xpath": "exists(f:system) or not(exists(f:code))"
           }
         ]

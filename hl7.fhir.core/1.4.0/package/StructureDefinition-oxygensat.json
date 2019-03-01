@@ -1782,7 +1782,7 @@
 						"key": "obs-3",
 						"severity": "error",
 						"human": "Must have at least a low or a high or text",
-						"expression": "low or high or text",
+						"expression": "low.exists() or high.exists() or text.exists()",
 						"xpath": "(exists(f:low) or exists(f:high)or exists(f:text))"
 					}
 				],
@@ -1901,7 +1901,7 @@
 						"key": "qty-3",
 						"severity": "error",
 						"human": "If a code for the unit is present, the system SHALL also be present",
-						"expression": "code.empty() or system",
+						"expression": "code.empty() or system.exists()",
 						"xpath": "not(exists(f:code)) or exists(f:system)"
 					}, {
 						"key": "sqty-1",
@@ -2153,7 +2153,7 @@
 						"key": "qty-3",
 						"severity": "error",
 						"human": "If a code for the unit is present, the system SHALL also be present",
-						"expression": "code.empty() or system",
+						"expression": "code.empty() or system.exists()",
 						"xpath": "not(exists(f:code)) or exists(f:system)"
 					}, {
 						"key": "sqty-1",

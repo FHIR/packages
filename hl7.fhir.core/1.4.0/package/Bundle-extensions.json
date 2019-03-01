@@ -2481,14 +2481,14 @@
                   "key": "qty-3",
                   "severity": "error",
                   "human": "If a code for the unit is present, the system SHALL also be present",
-                  "expression": "code.empty() or system",
+                  "expression": "code.empty() or system.exists()",
                   "xpath": "not(exists(f:code)) or exists(f:system)"
                 },
                 {
                   "key": "drt-1",
                   "severity": "error",
                   "human": "There SHALL be a code if there is a value and it SHALL be an expression of time.  If system is present, it SHALL be UCUM.",
-                  "expression": "(code or value.empty()) and (system.empty() or system = %ucum)",
+                  "expression": "(code.exists() or value.empty()) and (system.empty() or system = %ucum)",
                   "xpath": "(f:code or not(f:value)) and (not(exists(f:system)) or f:system/@value='http://unitsofmeasure.org')"
                 }
               ],
@@ -19969,14 +19969,14 @@
                   "key": "qty-3",
                   "severity": "error",
                   "human": "If a code for the unit is present, the system SHALL also be present",
-                  "expression": "code.empty() or system",
+                  "expression": "code.empty() or system.exists()",
                   "xpath": "not(exists(f:code)) or exists(f:system)"
                 },
                 {
                   "key": "drt-1",
                   "severity": "error",
                   "human": "There SHALL be a code if there is a value and it SHALL be an expression of time.  If system is present, it SHALL be UCUM.",
-                  "expression": "(code or value.empty()) and (system.empty() or system = %ucum)",
+                  "expression": "(code.exists() or value.empty()) and (system.empty() or system = %ucum)",
                   "xpath": "(f:code or not(f:value)) and (not(exists(f:system)) or f:system/@value='http://unitsofmeasure.org')"
                 }
               ],
@@ -30386,7 +30386,7 @@
                   "key": "inv-1",
                   "severity": "error",
                   "human": "minOccurs can't be more than one if required is false",
-                  "expression": "valueInteger = 0 or $parent.required",
+                  "expression": "valueInteger = 0 or $parent.required.exists()",
                   "xpath": "f:valueInteger/@value=0 or parent::*/f:required/@value=true()"
                 }
               ],
@@ -30520,7 +30520,7 @@
                   "key": "inv-1",
                   "severity": "error",
                   "human": "minOccurs can't be more than one if required is false",
-                  "expression": "valueInteger = 0 or $parent.required",
+                  "expression": "valueInteger = 0 or $parent.required.exists()",
                   "xpath": "f:valueInteger/@value=0 or parent::*/f:required/@value=true()"
                 }
               ],
@@ -53316,7 +53316,7 @@
                   "key": "inv-2",
                   "severity": "error",
                   "human": "maxOccurs can't be more than one if repeats is false",
-                  "expression": "valueInteger <= 1 or $parent.repeats",
+                  "expression": "valueInteger <= 1 or $parent.repeats.exists()",
                   "xpath": "f:valueInteger/@value<=1 or parent::*/f:repeats/@value=true()"
                 },
                 {
@@ -53450,7 +53450,7 @@
                   "key": "inv-2",
                   "severity": "error",
                   "human": "maxOccurs can't be more than one if repeats is false",
-                  "expression": "valueInteger <= 1 or $parent.repeats",
+                  "expression": "valueInteger <= 1 or $parent.repeats.exists()",
                   "xpath": "f:valueInteger/@value<=1 or parent::*/f:repeats/@value=true()"
                 },
                 {
@@ -55421,14 +55421,14 @@
                   "key": "qty-3",
                   "severity": "error",
                   "human": "If a code for the unit is present, the system SHALL also be present",
-                  "expression": "code.empty() or system",
+                  "expression": "code.empty() or system.exists()",
                   "xpath": "not(exists(f:code)) or exists(f:system)"
                 },
                 {
                   "key": "drt-1",
                   "severity": "error",
                   "human": "There SHALL be a code if there is a value and it SHALL be an expression of time.  If system is present, it SHALL be UCUM.",
-                  "expression": "(code or value.empty()) and (system.empty() or system = %ucum)",
+                  "expression": "(code.exists() or value.empty()) and (system.empty() or system = %ucum)",
                   "xpath": "(f:code or not(f:value)) and (not(exists(f:system)) or f:system/@value='http://unitsofmeasure.org')"
                 }
               ],
@@ -61932,14 +61932,14 @@
                   "key": "qty-3",
                   "severity": "error",
                   "human": "If a code for the unit is present, the system SHALL also be present",
-                  "expression": "code.empty() or system",
+                  "expression": "code.empty() or system.exists()",
                   "xpath": "not(exists(f:code)) or exists(f:system)"
                 },
                 {
                   "key": "drt-1",
                   "severity": "error",
                   "human": "There SHALL be a code if there is a value and it SHALL be an expression of time.  If system is present, it SHALL be UCUM.",
-                  "expression": "(code or value.empty()) and (system.empty() or system = %ucum)",
+                  "expression": "(code.exists() or value.empty()) and (system.empty() or system = %ucum)",
                   "xpath": "(f:code or not(f:value)) and (not(exists(f:system)) or f:system/@value='http://unitsofmeasure.org')"
                 }
               ],
@@ -62538,14 +62538,14 @@
                   "key": "qty-3",
                   "severity": "error",
                   "human": "If a code for the unit is present, the system SHALL also be present",
-                  "expression": "code.empty() or system",
+                  "expression": "code.empty() or system.exists()",
                   "xpath": "not(exists(f:code)) or exists(f:system)"
                 },
                 {
                   "key": "drt-1",
                   "severity": "error",
                   "human": "There SHALL be a code if there is a value and it SHALL be an expression of time.  If system is present, it SHALL be UCUM.",
-                  "expression": "(code or value.empty()) and (system.empty() or system = %ucum)",
+                  "expression": "(code.exists() or value.empty()) and (system.empty() or system = %ucum)",
                   "xpath": "(f:code or not(f:value)) and (not(exists(f:system)) or f:system/@value='http://unitsofmeasure.org')"
                 }
               ],
@@ -69049,14 +69049,14 @@
                   "key": "qty-3",
                   "severity": "error",
                   "human": "If a code for the unit is present, the system SHALL also be present",
-                  "expression": "code.empty() or system",
+                  "expression": "code.empty() or system.exists()",
                   "xpath": "not(exists(f:code)) or exists(f:system)"
                 },
                 {
                   "key": "age-1",
                   "severity": "error",
                   "human": "There SHALL be a code if there is a value and it SHALL be an expression of time.  If system is present, it SHALL be UCUM.  If value is present, it SHALL be positive.",
-                  "expression": "(code or value.empty()) and (system.empty() or system = %ucum) and (value.empty() or value.contains('.').not())",
+                  "expression": "(code.exists() or value.empty()) and (system.empty() or system = %ucum) and (value.empty() or value.contains('.').not())",
                   "xpath": "(f:code or not(f:value)) and (not(exists(f:system)) or f:system/@value='http://unitsofmeasure.org') and not(contains(f:value/@value, '-'))"
                 }
               ],

@@ -424,7 +424,7 @@
             "key": "eld-1",
             "severity": "error",
             "human": "If there are no discriminators, there must be a definition",
-            "expression": "discriminator or description",
+            "expression": "discriminator.exists() or description.exists()",
             "xpath": "(f:discriminator) or (f:description)"
           }
         ],
@@ -2464,7 +2464,7 @@
             "key": "eld-10",
             "severity": "error",
             "human": "provide either a reference or a description (or both)",
-            "expression": "valueSet or description",
+            "expression": "valueSet.exists() or description.exists()",
             "xpath": "(exists(f:valueSetUri) or exists(f:valueSetReference)) or exists(f:description)"
           }
         ],
