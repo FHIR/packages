@@ -13541,7 +13541,7 @@
                   "key": "tim-3",
                   "severity": "error",
                   "human": "Either frequency or when can exist, not both",
-                  "expression": "((period.exists() or frequency.exists()) and when.exsts()).not()",
+                  "expression": "((period.exists() or frequency.exists()) and when.exists()).not()",
                   "xpath": "not((f:period or f:frequency) and f:when)"
                 },
                 {
@@ -13735,7 +13735,7 @@
                   "key": "tim-4",
                   "severity": "error",
                   "human": "duration SHALL be a non-negative value",
-                  "expression": "duration >= 0",
+                  "expression": "duration.exists() implies duration >= 0",
                   "xpath": "@value >= 0 or not(@value)"
                 }
               ],
@@ -14037,7 +14037,7 @@
                   "key": "tim-3",
                   "severity": "error",
                   "human": "Either frequency or when can exist, not both",
-                  "expression": "((period.exists() or frequency.exists()) and when.exsts()).not()",
+                  "expression": "((period.exists() or frequency.exists()) and when.exists()).not()",
                   "xpath": "not((f:period or f:frequency) and f:when)"
                 },
                 {
@@ -14177,7 +14177,7 @@
                   "key": "tim-4",
                   "severity": "error",
                   "human": "duration SHALL be a non-negative value",
-                  "expression": "duration >= 0",
+                  "expression": "duration.exists() implies duration >= 0",
                   "xpath": "@value >= 0 or not(@value)"
                 }
               ],
@@ -14291,7 +14291,7 @@
                   "key": "tim-5",
                   "severity": "error",
                   "human": "period SHALL be a non-negative value",
-                  "expression": "period >= 0",
+                  "expression": "period.exists() implies period >= 0",
                   "xpath": "@value >= 0 or not(@value)"
                 }
               ],
