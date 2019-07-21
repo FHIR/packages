@@ -1,10 +1,6 @@
 {
   "resourceType" : "StructureDefinition",
   "id" : "ldlcholesterol",
-  "text" : {
-    "status" : "generated",
-    "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\">to do</div>"
-  },
   "extension" : [{
     "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm",
     "valueInteger" : 1
@@ -868,8 +864,54 @@
       }]
     },
     {
-      "id" : "Observation.valueQuantity",
-      "path" : "Observation.valueQuantity",
+      "id" : "Observation.value[x]",
+      "path" : "Observation.value[x]",
+      "slicing" : {
+        "discriminator" : [{
+          "type" : "type",
+          "path" : "$this"
+        }],
+        "ordered" : false,
+        "rules" : "closed"
+      },
+      "short" : "Actual result",
+      "definition" : "The information determined as a result of making the observation, if the information has a simple value.",
+      "comment" : "An observation may have; 1)  a single value here, 2)  both a value and a set of related or component values,  or 3)  only a set of related or component values. If a value is present, the datatype for this element should be determined by Observation.code.  A CodeableConcept with just a text would be used instead of a string if the field was usually coded, or if the type associated with the Observation.code defines a coded value.  For additional guidance, see the [Notes section](observation.html#notes) below.",
+      "requirements" : "An observation exists to have a value, though it might not if it is in error, or if it represents a group of observations.",
+      "min" : 0,
+      "max" : "1",
+      "base" : {
+        "path" : "Observation.value[x]",
+        "min" : 0,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "Quantity"
+      }],
+      "condition" : ["obs-7"],
+      "isModifier" : false,
+      "isSummary" : true,
+      "mapping" : [{
+        "identity" : "sct-concept",
+        "map" : "< 441742003 |Evaluation finding|"
+      },
+      {
+        "identity" : "v2",
+        "map" : "OBX.2, OBX.5, OBX.6"
+      },
+      {
+        "identity" : "rim",
+        "map" : "value"
+      },
+      {
+        "identity" : "sct-attr",
+        "map" : "363714003 |Interprets|"
+      }]
+    },
+    {
+      "id" : "Observation.value[x]:Quantity",
+      "path" : "Observation.value[x]",
+      "sliceName" : "Quantity",
       "short" : "LDL Cholesterol value",
       "definition" : "LDL Cholesterol value. If a result is not available, use the comments field.",
       "comment" : "An observation may have; 1)  a single value here, 2)  both a value and a set of related or component values,  or 3)  only a set of related or component values. If a value is present, the datatype for this element should be determined by Observation.code.  A CodeableConcept with just a text would be used instead of a string if the field was usually coded, or if the type associated with the Observation.code defines a coded value.  For additional guidance, see the [Notes section](observation.html#notes) below.",

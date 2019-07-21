@@ -1,10 +1,6 @@
 {
   "resourceType" : "StructureDefinition",
   "id" : "devicemetricobservation",
-  "text" : {
-    "status" : "generated",
-    "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\">to do</div>"
-  },
   "extension" : [{
     "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm",
     "valueInteger" : 5
@@ -752,8 +748,54 @@
       }]
     },
     {
-      "id" : "Observation.effectiveDateTime",
-      "path" : "Observation.effectiveDateTime",
+      "id" : "Observation.effective[x]",
+      "path" : "Observation.effective[x]",
+      "slicing" : {
+        "discriminator" : [{
+          "type" : "type",
+          "path" : "$this"
+        }],
+        "ordered" : false,
+        "rules" : "closed"
+      },
+      "short" : "Clinically relevant time/time-period for observation",
+      "definition" : "The time or time-period the observed value is asserted as being true. For biological subjects - e.g. human patients - this is usually called the \"physiologically relevant time\". This is usually either the time of the procedure or of specimen collection, but very often the source of the date/time is not known, only the date/time itself.",
+      "comment" : "At least a date should be present unless this observation is a historical report.  For recording imprecise or \"fuzzy\" times (For example, a blood glucose measurement taken \"after breakfast\") use the [Timing](datatypes.html#timing) datatype which allow the measurement to be tied to regular life events.",
+      "requirements" : "Knowing when an observation was deemed true is important to its relevance as well as determining trends.",
+      "alias" : ["Occurrence"],
+      "min" : 0,
+      "max" : "1",
+      "base" : {
+        "path" : "Observation.effective[x]",
+        "min" : 0,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "dateTime"
+      }],
+      "isModifier" : false,
+      "isSummary" : true,
+      "mapping" : [{
+        "identity" : "workflow",
+        "map" : "Event.occurrence[x]"
+      },
+      {
+        "identity" : "w5",
+        "map" : "FiveWs.done[x]"
+      },
+      {
+        "identity" : "v2",
+        "map" : "OBX-14, and/or OBX-19 after v2.4  (depends on who observation made)"
+      },
+      {
+        "identity" : "rim",
+        "map" : "effectiveTime"
+      }]
+    },
+    {
+      "id" : "Observation.effective[x]:dateTime",
+      "path" : "Observation.effective[x]",
+      "sliceName" : "dateTime",
       "short" : "Clinically relevant time/time-period for observation",
       "definition" : "The time or time-period the observed value is asserted as being true. For biological subjects - e.g. human patients - this is usually called the \"physiologically relevant time\". This is usually either the time of the procedure or of specimen collection, but very often the source of the date/time is not known, only the date/time itself.",
       "comment" : "At least a date should be present unless this observation is a historical report.  For recording imprecise or \"fuzzy\" times (For example, a blood glucose measurement taken \"after breakfast\") use the [Timing](datatypes.html#timing) datatype which allow the measurement to be tied to regular life events.",

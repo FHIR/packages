@@ -1,10 +1,6 @@
 {
   "resourceType" : "StructureDefinition",
   "id" : "elementdefinition-de",
-  "text" : {
-    "status" : "generated",
-    "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\">to do</div>"
-  },
   "extension" : [{
     "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg",
     "valueCode" : "fhir"
@@ -369,8 +365,39 @@
       }]
     },
     {
-      "id" : "ElementDefinition.extension:Question.valueString",
-      "path" : "ElementDefinition.extension.valueString",
+      "id" : "ElementDefinition.extension:Question.value[x]",
+      "path" : "ElementDefinition.extension.value[x]",
+      "slicing" : {
+        "discriminator" : [{
+          "type" : "type",
+          "path" : "$this"
+        }],
+        "ordered" : false,
+        "rules" : "closed"
+      },
+      "short" : "Value of extension",
+      "definition" : "Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).",
+      "min" : 0,
+      "max" : "1",
+      "base" : {
+        "path" : "Extension.value[x]",
+        "min" : 0,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "string"
+      }],
+      "isModifier" : false,
+      "isSummary" : false,
+      "mapping" : [{
+        "identity" : "rim",
+        "map" : "N/A"
+      }]
+    },
+    {
+      "id" : "ElementDefinition.extension:Question.value[x]:string",
+      "path" : "ElementDefinition.extension.value[x]",
+      "sliceName" : "string",
       "short" : "Value of extension",
       "definition" : "Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).",
       "min" : 0,

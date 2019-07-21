@@ -1,10 +1,6 @@
 {
   "resourceType" : "StructureDefinition",
   "id" : "heartrate",
-  "text" : {
-    "status" : "generated",
-    "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\">to do</div>"
-  },
   "extension" : [{
     "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-summary",
     "valueMarkdown" : "#### Complete Summary of the Mandatory Requirements\r\r1.  One code in `Observation.code` which must have\r    -   a fixed `Observation.code.coding.system`=**'http ://loinc.org'**\r    -   a fixed  `Observation.code.coding.code`= **'8867-4'**\r    -   Other additional Codings are allowed in `Observation.code`- e.g. more specific LOINC\r        Codes, SNOMED CT concepts, system specific codes. All codes\r        SHALL have an system value\r1. Either one Observation.valueQuantity or, if there is no value, one code in Observation.DataAbsentReason\r   - Each Observation.valueQuantity must have:\r     - One numeric value in Observation.valueQuantity.value\r     - a fixed Observation.valueQuantity.system=\"http://unitsofmeasure.org\"\r     - a UCUM unit code in Observation.valueQuantity.code = **'/min'**"
@@ -1670,6 +1666,14 @@
     {
       "id" : "Observation.value[x]",
       "path" : "Observation.value[x]",
+      "slicing" : {
+        "discriminator" : [{
+          "type" : "type",
+          "path" : "$this"
+        }],
+        "ordered" : false,
+        "rules" : "closed"
+      },
       "short" : "Vital Signs value are recorded using the Quantity data type. For supporting observations such as Cuff size could use other datatypes such as CodeableConcept.",
       "definition" : "Vital Signs value are recorded using the Quantity data type. For supporting observations such as Cuff size could use other datatypes such as CodeableConcept.",
       "comment" : "An observation may have; 1)  a single value here, 2)  both a value and a set of related or component values,  or 3)  only a set of related or component values. If a value is present, the datatype for this element should be determined by Observation.code.  A CodeableConcept with just a text would be used instead of a string if the field was usually coded, or if the type associated with the Observation.code defines a coded value.  For additional guidance, see the [Notes section](observation.html#notes) below.",
@@ -1706,7 +1710,46 @@
       }]
     },
     {
-      "id" : "Observation.value[x].id",
+      "id" : "Observation.value[x]:Quantity",
+      "path" : "Observation.value[x]",
+      "sliceName" : "Quantity",
+      "short" : "Vital Signs value are recorded using the Quantity data type. For supporting observations such as Cuff size could use other datatypes such as CodeableConcept.",
+      "definition" : "Vital Signs value are recorded using the Quantity data type. For supporting observations such as Cuff size could use other datatypes such as CodeableConcept.",
+      "comment" : "An observation may have; 1)  a single value here, 2)  both a value and a set of related or component values,  or 3)  only a set of related or component values. If a value is present, the datatype for this element should be determined by Observation.code.  A CodeableConcept with just a text would be used instead of a string if the field was usually coded, or if the type associated with the Observation.code defines a coded value.  For additional guidance, see the [Notes section](observation.html#notes) below.",
+      "requirements" : "9. SHALL contain exactly one [1..1] value with @xsi:type=\"PQ\" (CONF:7305).",
+      "min" : 0,
+      "max" : "1",
+      "base" : {
+        "path" : "Observation.value[x]",
+        "min" : 0,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "Quantity"
+      }],
+      "condition" : ["obs-7"],
+      "mustSupport" : true,
+      "isModifier" : false,
+      "isSummary" : true,
+      "mapping" : [{
+        "identity" : "sct-concept",
+        "map" : "< 441742003 |Evaluation finding|"
+      },
+      {
+        "identity" : "v2",
+        "map" : "OBX.2, OBX.5, OBX.6"
+      },
+      {
+        "identity" : "rim",
+        "map" : "value"
+      },
+      {
+        "identity" : "sct-attr",
+        "map" : "363714003 |Interprets|"
+      }]
+    },
+    {
+      "id" : "Observation.value[x]:Quantity.id",
       "path" : "Observation.value[x].id",
       "representation" : ["xmlAttr"],
       "short" : "Unique id for inter-element referencing",
@@ -1729,7 +1772,7 @@
       }]
     },
     {
-      "id" : "Observation.value[x].extension",
+      "id" : "Observation.value[x]:Quantity.extension",
       "path" : "Observation.value[x].extension",
       "slicing" : {
         "discriminator" : [{
@@ -1762,7 +1805,7 @@
       }]
     },
     {
-      "id" : "Observation.value[x].value",
+      "id" : "Observation.value[x]:Quantity.value",
       "path" : "Observation.value[x].value",
       "short" : "Numerical value (with implicit precision)",
       "definition" : "The value of the measured amount. The value includes an implicit precision in the presentation of the value.",
@@ -1791,7 +1834,7 @@
       }]
     },
     {
-      "id" : "Observation.value[x].comparator",
+      "id" : "Observation.value[x]:Quantity.comparator",
       "path" : "Observation.value[x].comparator",
       "short" : "< | <= | >= | > - how to understand the value",
       "definition" : "How the value should be understood and represented - whether the actual value is greater or less than the stated value due to measurement issues; e.g. if the comparator is \"<\" , then the real value is < stated value.",
@@ -1829,7 +1872,7 @@
       }]
     },
     {
-      "id" : "Observation.value[x].unit",
+      "id" : "Observation.value[x]:Quantity.unit",
       "extension" : [{
         "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable",
         "valueBoolean" : true
@@ -1861,7 +1904,7 @@
       }]
     },
     {
-      "id" : "Observation.value[x].system",
+      "id" : "Observation.value[x]:Quantity.system",
       "path" : "Observation.value[x].system",
       "short" : "System that defines coded unit form",
       "definition" : "The identification of the system that provides the coded form of the unit.",
@@ -1891,7 +1934,7 @@
       }]
     },
     {
-      "id" : "Observation.value[x].code",
+      "id" : "Observation.value[x]:Quantity.code",
       "path" : "Observation.value[x].code",
       "short" : "Coded responses from the common UCUM units for vital signs value set.",
       "definition" : "Coded responses from the common UCUM units for vital signs value set.",
