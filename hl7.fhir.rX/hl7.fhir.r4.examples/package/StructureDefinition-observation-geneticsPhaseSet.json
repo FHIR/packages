@@ -591,8 +591,23 @@
       "fixedUri" : "Id"
     },
     {
+      "id" : "Extension.extension:Id.value[x]",
+      "path" : "Extension.extension.value[x]",
+      "slicing" : {
+        "discriminator" : [{
+          "type" : "type",
+          "path" : "$this"
+        }],
+        "rules" : "closed"
+      },
+      "type" : [{
+        "code" : "uri"
+      }]
+    },
+    {
       "id" : "Extension.extension:Id.valueUri",
       "path" : "Extension.extension.valueUri",
+      "sliceName" : "uri",
       "type" : [{
         "code" : "uri"
       }]
@@ -623,8 +638,23 @@
       "fixedUri" : "MolecularSequence"
     },
     {
+      "id" : "Extension.extension:MolecularSequence.value[x]",
+      "path" : "Extension.extension.value[x]",
+      "slicing" : {
+        "discriminator" : [{
+          "type" : "type",
+          "path" : "$this"
+        }],
+        "rules" : "closed"
+      },
+      "type" : [{
+        "code" : "Reference"
+      }]
+    },
+    {
       "id" : "Extension.extension:MolecularSequence.valueReference",
       "path" : "Extension.extension.valueReference",
+      "sliceName" : "Reference",
       "type" : [{
         "code" : "Reference",
         "targetProfile" : ["http://hl7.org/fhir/StructureDefinition/MolecularSequence"]

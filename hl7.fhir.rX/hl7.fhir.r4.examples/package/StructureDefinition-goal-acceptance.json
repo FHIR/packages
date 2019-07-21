@@ -763,8 +763,23 @@
       "fixedUri" : "status"
     },
     {
+      "id" : "Extension.extension:status.value[x]",
+      "path" : "Extension.extension.value[x]",
+      "slicing" : {
+        "discriminator" : [{
+          "type" : "type",
+          "path" : "$this"
+        }],
+        "rules" : "closed"
+      },
+      "type" : [{
+        "code" : "code"
+      }]
+    },
+    {
       "id" : "Extension.extension:status.valueCode",
       "path" : "Extension.extension.valueCode",
+      "sliceName" : "code",
       "type" : [{
         "code" : "code"
       }],
@@ -804,8 +819,23 @@
       "fixedUri" : "priority"
     },
     {
+      "id" : "Extension.extension:priority.value[x]",
+      "path" : "Extension.extension.value[x]",
+      "slicing" : {
+        "discriminator" : [{
+          "type" : "type",
+          "path" : "$this"
+        }],
+        "rules" : "closed"
+      },
+      "type" : [{
+        "code" : "CodeableConcept"
+      }]
+    },
+    {
       "id" : "Extension.extension:priority.valueCodeableConcept",
       "path" : "Extension.extension.valueCodeableConcept",
+      "sliceName" : "CodeableConcept",
       "type" : [{
         "code" : "CodeableConcept"
       }],

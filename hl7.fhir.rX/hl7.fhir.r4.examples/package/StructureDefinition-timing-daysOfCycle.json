@@ -482,8 +482,23 @@
       "fixedUri" : "day"
     },
     {
+      "id" : "Extension.extension:day.value[x]",
+      "path" : "Extension.extension.value[x]",
+      "slicing" : {
+        "discriminator" : [{
+          "type" : "type",
+          "path" : "$this"
+        }],
+        "rules" : "closed"
+      },
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
       "id" : "Extension.extension:day.valueInteger",
       "path" : "Extension.extension.valueInteger",
+      "sliceName" : "integer",
       "type" : [{
         "code" : "integer"
       }]

@@ -641,8 +641,23 @@
       "fixedUri" : "required"
     },
     {
+      "id" : "Extension.extension:required.value[x]",
+      "path" : "Extension.extension.value[x]",
+      "slicing" : {
+        "discriminator" : [{
+          "type" : "type",
+          "path" : "$this"
+        }],
+        "rules" : "closed"
+      },
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
       "id" : "Extension.extension:required.valueString",
       "path" : "Extension.extension.valueString",
+      "sliceName" : "string",
       "type" : [{
         "code" : "string"
       }]
@@ -683,8 +698,23 @@
       "fixedUri" : "optional"
     },
     {
+      "id" : "Extension.extension:optional.value[x]",
+      "path" : "Extension.extension.value[x]",
+      "slicing" : {
+        "discriminator" : [{
+          "type" : "type",
+          "path" : "$this"
+        }],
+        "rules" : "closed"
+      },
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
       "id" : "Extension.extension:optional.valueString",
       "path" : "Extension.extension.valueString",
+      "sliceName" : "string",
       "type" : [{
         "code" : "string"
       }]

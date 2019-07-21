@@ -590,8 +590,23 @@
       "fixedUri" : "url"
     },
     {
+      "id" : "Extension.extension:url.value[x]",
+      "path" : "Extension.extension.value[x]",
+      "slicing" : {
+        "discriminator" : [{
+          "type" : "type",
+          "path" : "$this"
+        }],
+        "rules" : "closed"
+      },
+      "type" : [{
+        "code" : "uri"
+      }]
+    },
+    {
       "id" : "Extension.extension:url.valueUri",
       "path" : "Extension.extension.valueUri",
+      "sliceName" : "uri",
       "type" : [{
         "code" : "uri"
       }]
@@ -622,8 +637,23 @@
       "fixedUri" : "text"
     },
     {
+      "id" : "Extension.extension:text.value[x]",
+      "path" : "Extension.extension.value[x]",
+      "slicing" : {
+        "discriminator" : [{
+          "type" : "type",
+          "path" : "$this"
+        }],
+        "rules" : "closed"
+      },
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
       "id" : "Extension.extension:text.valueString",
       "path" : "Extension.extension.valueString",
+      "sliceName" : "string",
       "type" : [{
         "code" : "string"
       }]

@@ -764,8 +764,23 @@
       "fixedUri" : "relationship"
     },
     {
+      "id" : "Extension.extension:relationship.value[x]",
+      "path" : "Extension.extension.value[x]",
+      "slicing" : {
+        "discriminator" : [{
+          "type" : "type",
+          "path" : "$this"
+        }],
+        "rules" : "closed"
+      },
+      "type" : [{
+        "code" : "code"
+      }]
+    },
+    {
       "id" : "Extension.extension:relationship.valueCode",
       "path" : "Extension.extension.valueCode",
+      "sliceName" : "code",
       "type" : [{
         "code" : "code"
       }],
@@ -805,8 +820,23 @@
       "fixedUri" : "offset"
     },
     {
+      "id" : "Extension.extension:offset.value[x]",
+      "path" : "Extension.extension.value[x]",
+      "slicing" : {
+        "discriminator" : [{
+          "type" : "type",
+          "path" : "$this"
+        }],
+        "rules" : "closed"
+      },
+      "type" : [{
+        "code" : "Duration"
+      }]
+    },
+    {
       "id" : "Extension.extension:offset.valueDuration",
       "path" : "Extension.extension.valueDuration",
+      "sliceName" : "Duration",
       "type" : [{
         "code" : "Duration"
       }]

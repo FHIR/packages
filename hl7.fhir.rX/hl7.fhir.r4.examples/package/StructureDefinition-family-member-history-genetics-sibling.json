@@ -604,8 +604,23 @@
       "fixedUri" : "type"
     },
     {
+      "id" : "Extension.extension:type.value[x]",
+      "path" : "Extension.extension.value[x]",
+      "slicing" : {
+        "discriminator" : [{
+          "type" : "type",
+          "path" : "$this"
+        }],
+        "rules" : "closed"
+      },
+      "type" : [{
+        "code" : "CodeableConcept"
+      }]
+    },
+    {
       "id" : "Extension.extension:type.valueCodeableConcept",
       "path" : "Extension.extension.valueCodeableConcept",
+      "sliceName" : "CodeableConcept",
       "type" : [{
         "code" : "CodeableConcept"
       }],
@@ -646,8 +661,23 @@
       "fixedUri" : "reference"
     },
     {
+      "id" : "Extension.extension:reference.value[x]",
+      "path" : "Extension.extension.value[x]",
+      "slicing" : {
+        "discriminator" : [{
+          "type" : "type",
+          "path" : "$this"
+        }],
+        "rules" : "closed"
+      },
+      "type" : [{
+        "code" : "Reference"
+      }]
+    },
+    {
       "id" : "Extension.extension:reference.valueReference",
       "path" : "Extension.extension.valueReference",
+      "sliceName" : "Reference",
       "type" : [{
         "code" : "Reference",
         "targetProfile" : ["http://hl7.org/fhir/StructureDefinition/FamilyMemberHistory"]
