@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?><ValueSet xmlns="http://hl7.org/fhir"><id value="example-extensional"/><meta><lastUpdated value="2015-10-24T07:41:03.495+11:00"/><profile value="http://hl7.org/fhir/StructureDefinition/valueset-shareable-definition"/></meta><!--      
+	  for this example, we use a real URI, since this example does have a canonical address
+		at which it's posted. Alternatively, We could have used an OID, or a UUID.
+ 
+    Mote that this isn't the identifier for the LOINC codes themeselves - they belong to LOINC, and 
+		it has it's own identifier. This is the identifier for this set of codes, and that doesn't 
+		change the codes.
+       --><url value="http://hl7.org/fhir/ValueSet/example-extensional"/><!--      an imaginary identifier. This is a non FHIR identifier - might be used in a 
+	  v2 context (though you always need to translate namespaces for v2)      --><identifier><system value="http://acme.com/identifiers/valuesets"/><value value="loinc-cholesterol-int"/></identifier><!--      for version, we are going to simply use the day of publication. This is also 
+    arbitrary - whatever is here is what people use to refer to the version. 
+    Could also be a UUID too      --><version value="20150622"/><!--      set of loinc codes for cholesterol for LONC 2.36      --><name value="LOINC Codes for Cholesterol in Serum/Plasma"/><status value="draft"/><experimental value="true"/><publisher value="HL7 International"/><contact><name value="FHIR project team"/><telecom><system value="other"/><value value="http://hl7.org/fhir"/></telecom></contact><date value="2015-06-22"/><!--      
+	  if we didn't specify the version of LOINC on the include, then
+	  we could specify it implicitly by specifying the locked date for the value set
+		
+		So we show this example here, but it's not actually necessary since we also 
+    have LOINC version. Note: if you do what this example does, and specify both,
+		you better get it right, and specify the current version of LOINC at the time
+       --><lockedDate value="2012-06-13"/><description value="This is an example value set that includes all the LOINC codes for serum/plasma cholesterol from v2.36."/><copyright value="This content from LOINC&#xC2;&#xAE; is copyright &#xC2;&#xA9; 1995 Regenstrief Institute, Inc. and the LOINC Committee, and available at no cost under the license at http://loinc.org/terms-of-use."/><compose><!--      you could have multiple includes, if you wanted to include codes from more than
+     one code system, or include codes with different modes. we don't, in this case      --><include><system value="http://loinc.org"/><version value="2.36"/><!--      for LOINC, we simply include the listed codes - no subsumption in LOINC      --><!--      these were selected by hand      --><concept><code value="14647-2"/><!--      
+				  In this value set, we provide our own displays. 
+					
+					You have to be very careful doing this; it's all too 
+					easy to specify a different or lesser meaning, and then
+					people use codes wrongly ()with obvious consequences for clinical safety)
+				
+				  You're allowed to do this in a value set for 2 reasons:
+					  - people do it anyway
+						- it does make sense to remove common text that's fixed in the context
+						
+			    In this case, that's what we're doing here - removing
+					'serum/plasma' from the names, since that's specified in the
+					value set name      --><display value="Cholesterol [Moles/Volume]"/></concept><concept><code value="2093-3"/><display value="Cholesterol [Mass/Volume]"/></concept><concept><code value="35200-5"/><display value="Cholesterol [Mass Or Moles/Volume]"/></concept><!--      this is a different kind of code; whether it should be 
+			  in a value set like this is a matter of clinical judgement.
+				it's here in this example value set to raise the question
+				for implementers      --><concept><code value="9342-7"/><display value="Cholesterol [Percentile]"/></concept></include></compose></ValueSet>
