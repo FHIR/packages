@@ -1,0 +1,12 @@
+map "http://hl7.org/fhir/StructureMap/Narrative4to3" = "R4 to R3 Conversion for Narrative"
+
+uses "http://hl7.org/fhir/StructureDefinition/Narrative" alias Narrative as source
+uses "http://hl7.org/fhir/3.0/StructureDefinition/Narrative" alias NarrativeR3 as target
+
+imports "http://hl7.org/fhir/StructureMap/*4to3"
+
+group Narrative(source src : Narrative, target tgt : NarrativeR3) extends Element <<type+>> {
+  src.status -> tgt.status;
+  src.div -> tgt.div;
+}
+
