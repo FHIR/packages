@@ -1,6 +1,11 @@
 del *.tgz /s /q
 del *.tar /s /q
 
+cd hl7.fhir.xver-extensions 
+"C:\Program Files\7-Zip\7z.exe" a -ttar package.tar package
+"C:\Program Files\7-Zip\7z.exe" a -tgzip package.tgz package.tar
+cd ..
+
 cd hl7.fhir.pubpack 
 "C:\Program Files\7-Zip\7z.exe" a -ttar package.tar package
 "C:\Program Files\7-Zip\7z.exe" a -tgzip package.tgz package.tar
