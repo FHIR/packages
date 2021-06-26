@@ -9,8 +9,8 @@
       "status": "active",
       "description": "Type options for Coverage.costToBeneficiary.value[x]",
       "expansion": {
-        "identifier": "urn:uuid:c8723fd8-c711-401b-af5b-86d118b55352",
-        "timestamp": "2020-08-20T17:45:10+10:00",
+        "identifier": "urn:uuid:8a63af42-e6b6-4a97-a80a-6ae59ed4c8d1",
+        "timestamp": "2021-05-03T22:03:14+10:00",
         "contains": [
           {
             "system": "http://hl7.org/fhir/resource-types",
@@ -31,9 +31,9 @@
       "system": "urn:ietf:rfc:3986"
     }
   ],
-  "version": "4.5.0",
+  "version": "4.6.0",
   "status": "draft",
-  "date": "2020-08-20T17:41:31+10:00",
+  "date": "2021-05-03T21:59:52+10:00",
   "publisher": "Health Level Seven International (Financial Management)",
   "item": [
     {
@@ -96,7 +96,7 @@
                   }
                 }
               ],
-              "text": "The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes. The only time that a resource does not have an id is when it is being submitted to the server using a create operation.",
+              "text": "The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes. Typically, the resource has an id except for cases like the create operation, conditional updates.",
               "type": "display"
             },
             {
@@ -221,9 +221,10 @@
             {
               "linkId": "Coverage.language.value",
               "text": "language",
-              "type": "choice",
+              "type": "coding",
               "required": false,
-              "repeats": false
+              "repeats": false,
+              "answerConstraint": "optionsOnly"
             }
           ]
         },
@@ -436,9 +437,10 @@
             {
               "linkId": "Coverage.status.value",
               "text": "status",
-              "type": "choice",
+              "type": "coding",
               "required": false,
-              "repeats": false
+              "repeats": false,
+              "answerConstraint": "optionsOrType"
             }
           ]
         },
@@ -480,9 +482,10 @@
             {
               "linkId": "Coverage.type.coding",
               "text": "code:",
-              "type": "open-choice",
+              "type": "coding",
               "required": false,
-              "repeats": false
+              "repeats": false,
+              "answerConstraint": "optionsOnly"
             },
             {
               "linkId": "Coverage.type.text",
@@ -795,9 +798,10 @@
             {
               "linkId": "Coverage.relationship.coding",
               "text": "code:",
-              "type": "open-choice",
+              "type": "coding",
               "required": false,
-              "repeats": false
+              "repeats": false,
+              "answerConstraint": "optionsOnly"
             },
             {
               "linkId": "Coverage.relationship.text",
@@ -1080,9 +1084,10 @@
                 {
                   "linkId": "Coverage.class.type.coding",
                   "text": "code:",
-                  "type": "open-choice",
+                  "type": "coding",
                   "required": false,
-                  "repeats": false
+                  "repeats": false,
+                  "answerConstraint": "optionsOnly"
                 },
                 {
                   "linkId": "Coverage.class.type.text",
@@ -1435,9 +1440,10 @@
                 {
                   "linkId": "Coverage.costToBeneficiary.type.coding",
                   "text": "code:",
-                  "type": "open-choice",
+                  "type": "coding",
                   "required": false,
-                  "repeats": false
+                  "repeats": false,
+                  "answerConstraint": "optionsOnly"
                 },
                 {
                   "linkId": "Coverage.costToBeneficiary.type.text",
@@ -1486,9 +1492,10 @@
                 {
                   "linkId": "Coverage.costToBeneficiary.value[x]._type",
                   "text": "type",
-                  "type": "choice",
+                  "type": "coding",
                   "required": false,
                   "repeats": false,
+                  "answerConstraint": "optionsOnly",
                   "answerValueSet": "#vs2",
                   "item": [
                     {
@@ -1504,9 +1511,10 @@
                         {
                           "linkId": "Coverage.costToBeneficiary.value[x]._null.comparator",
                           "text": "comp:",
-                          "type": "choice",
+                          "type": "coding",
                           "required": false,
-                          "repeats": false
+                          "repeats": false,
+                          "answerConstraint": "optionsOnly"
                         },
                         {
                           "linkId": "Coverage.costToBeneficiary.value[x]._null.value",
@@ -1551,9 +1559,10 @@
                         {
                           "linkId": "Coverage.costToBeneficiary.value[x]._null.comparator",
                           "text": "comp:",
-                          "type": "choice",
+                          "type": "coding",
                           "required": false,
-                          "repeats": false
+                          "repeats": false,
+                          "answerConstraint": "optionsOnly"
                         },
                         {
                           "linkId": "Coverage.costToBeneficiary.value[x]._null.value",
@@ -1753,9 +1762,10 @@
                     {
                       "linkId": "Coverage.costToBeneficiary.exception.type.coding",
                       "text": "code:",
-                      "type": "open-choice",
+                      "type": "coding",
                       "required": false,
-                      "repeats": false
+                      "repeats": false,
+                      "answerConstraint": "optionsOnly"
                     },
                     {
                       "linkId": "Coverage.costToBeneficiary.exception.type.text",

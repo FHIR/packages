@@ -9,8 +9,8 @@
       "status": "active",
       "description": "Type options for NutritionIntake.occurrence[x]",
       "expansion": {
-        "identifier": "urn:uuid:ec3d39e3-8e11-4c63-b607-0c2bae76398b",
-        "timestamp": "2020-08-20T17:46:07+10:00",
+        "identifier": "urn:uuid:c439b0a9-c101-498c-af60-92dff4e8394e",
+        "timestamp": "2021-05-03T22:04:08+10:00",
         "contains": [
           {
             "system": "http://hl7.org/fhir/data-types",
@@ -32,8 +32,8 @@
       "status": "active",
       "description": "Type options for NutritionIntake.reported[x]",
       "expansion": {
-        "identifier": "urn:uuid:d447515d-2d34-486a-85d0-34c98d947a76",
-        "timestamp": "2020-08-20T17:46:07+10:00",
+        "identifier": "urn:uuid:3a6e3ddd-3d64-4d18-8802-16701547155d",
+        "timestamp": "2021-05-03T22:04:08+10:00",
         "contains": [
           {
             "system": "http://hl7.org/fhir/data-types",
@@ -74,9 +74,9 @@
       "system": "urn:ietf:rfc:3986"
     }
   ],
-  "version": "4.5.0",
+  "version": "4.6.0",
   "status": "draft",
-  "date": "2020-08-20T17:41:31+10:00",
+  "date": "2021-05-03T21:59:52+10:00",
   "publisher": "Health Level Seven International (Orders and Observations)",
   "item": [
     {
@@ -135,7 +135,7 @@
                   }
                 }
               ],
-              "text": "The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes. The only time that a resource does not have an id is when it is being submitted to the server using a create operation.",
+              "text": "The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes. Typically, the resource has an id except for cases like the create operation, conditional updates.",
               "type": "display"
             },
             {
@@ -260,9 +260,10 @@
             {
               "linkId": "NutritionIntake.language.value",
               "text": "language",
-              "type": "choice",
+              "type": "coding",
               "required": false,
-              "repeats": false
+              "repeats": false,
+              "answerConstraint": "optionsOnly"
             }
           ]
         },
@@ -651,9 +652,10 @@
             {
               "linkId": "NutritionIntake.status.value",
               "text": "status",
-              "type": "choice",
+              "type": "coding",
               "required": false,
-              "repeats": false
+              "repeats": false,
+              "answerConstraint": "optionsOrType"
             }
           ]
         },
@@ -691,9 +693,10 @@
             {
               "linkId": "NutritionIntake.statusReason.coding",
               "text": "code:",
-              "type": "open-choice",
+              "type": "coding",
               "required": false,
-              "repeats": false
+              "repeats": false,
+              "answerConstraint": "optionsOnly"
             },
             {
               "linkId": "NutritionIntake.statusReason.text",
@@ -742,9 +745,10 @@
             {
               "linkId": "NutritionIntake.code.coding",
               "text": "code:",
-              "type": "open-choice",
+              "type": "coding",
               "required": false,
-              "repeats": false
+              "repeats": false,
+              "answerConstraint": "optionsOnly"
             },
             {
               "linkId": "NutritionIntake.code.text",
@@ -899,9 +903,10 @@
             {
               "linkId": "NutritionIntake.occurrence[x]._type",
               "text": "type",
-              "type": "choice",
+              "type": "coding",
               "required": false,
               "repeats": false,
+              "answerConstraint": "optionsOnly",
               "answerValueSet": "#vs2",
               "item": [
                 {
@@ -1029,9 +1034,10 @@
             {
               "linkId": "NutritionIntake.reported[x]._type",
               "text": "type",
-              "type": "choice",
+              "type": "coding",
               "required": false,
               "repeats": false,
+              "answerConstraint": "optionsOnly",
               "answerValueSet": "#vs3",
               "item": [
                 {
@@ -1254,9 +1260,10 @@
                 {
                   "linkId": "NutritionIntake.consumedItem.type.coding",
                   "text": "code:",
-                  "type": "open-choice",
+                  "type": "coding",
                   "required": false,
-                  "repeats": false
+                  "repeats": false,
+                  "answerConstraint": "optionsOnly"
                 },
                 {
                   "linkId": "NutritionIntake.consumedItem.type.text",
@@ -1418,9 +1425,10 @@
                 {
                   "linkId": "NutritionIntake.consumedItem.amount.comparator",
                   "text": "comp:",
-                  "type": "choice",
+                  "type": "coding",
                   "required": false,
-                  "repeats": false
+                  "repeats": false,
+                  "answerConstraint": "optionsOnly"
                 },
                 {
                   "linkId": "NutritionIntake.consumedItem.amount.value",
@@ -1490,9 +1498,10 @@
                 {
                   "linkId": "NutritionIntake.consumedItem.rate.comparator",
                   "text": "comp:",
-                  "type": "choice",
+                  "type": "coding",
                   "required": false,
-                  "repeats": false
+                  "repeats": false,
+                  "answerConstraint": "optionsOnly"
                 },
                 {
                   "linkId": "NutritionIntake.consumedItem.rate.value",
@@ -1605,9 +1614,10 @@
                 {
                   "linkId": "NutritionIntake.consumedItem.notConsumedReason.coding",
                   "text": "code:",
-                  "type": "open-choice",
+                  "type": "coding",
                   "required": false,
-                  "repeats": false
+                  "repeats": false,
+                  "answerConstraint": "optionsOnly"
                 },
                 {
                   "linkId": "NutritionIntake.consumedItem.notConsumedReason.text",
@@ -1825,9 +1835,10 @@
                 {
                   "linkId": "NutritionIntake.ingredientLabel.amount.comparator",
                   "text": "comp:",
-                  "type": "choice",
+                  "type": "coding",
                   "required": false,
-                  "repeats": false
+                  "repeats": false,
+                  "answerConstraint": "optionsOnly"
                 },
                 {
                   "linkId": "NutritionIntake.ingredientLabel.amount.value",
@@ -2021,9 +2032,10 @@
                 {
                   "linkId": "NutritionIntake.performer.function.coding",
                   "text": "code:",
-                  "type": "open-choice",
+                  "type": "coding",
                   "required": false,
-                  "repeats": false
+                  "repeats": false,
+                  "answerConstraint": "optionsOnly"
                 },
                 {
                   "linkId": "NutritionIntake.performer.function.text",

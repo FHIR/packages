@@ -9,8 +9,8 @@
       "status": "active",
       "description": "Type options for ImagingStudy.procedure.value[x]",
       "expansion": {
-        "identifier": "urn:uuid:3901618b-0f5e-42b8-95dc-cdf6871fb851",
-        "timestamp": "2020-08-20T17:45:35+10:00",
+        "identifier": "urn:uuid:51f0198f-c7f1-45a1-b4fb-b1e3f8b1fd79",
+        "timestamp": "2021-05-03T22:03:37+10:00",
         "contains": [
           {
             "system": "http://hl7.org/fhir/resource-types",
@@ -31,9 +31,9 @@
       "system": "urn:ietf:rfc:3986"
     }
   ],
-  "version": "4.5.0",
+  "version": "4.6.0",
   "status": "draft",
-  "date": "2020-08-20T17:41:31+10:00",
+  "date": "2021-05-03T21:59:52+10:00",
   "publisher": "Health Level Seven International (Imaging Integration)",
   "item": [
     {
@@ -92,7 +92,7 @@
                   }
                 }
               ],
-              "text": "The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes. The only time that a resource does not have an id is when it is being submitted to the server using a create operation.",
+              "text": "The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes. Typically, the resource has an id except for cases like the create operation, conditional updates.",
               "type": "display"
             },
             {
@@ -217,9 +217,10 @@
             {
               "linkId": "ImagingStudy.language.value",
               "text": "language",
-              "type": "choice",
+              "type": "coding",
               "required": false,
-              "repeats": false
+              "repeats": false,
+              "answerConstraint": "optionsOnly"
             }
           ]
         },
@@ -365,7 +366,7 @@
                   }
                 }
               ],
-              "text": "Identifiers for the ImagingStudy such as DICOM Study Instance UID, and Accession Number. See discussion under [Imaging Study Implementation Notes](imagingstudy.html#notes) for encoding of DICOM Study Instance UID. Accession Number should use ACSN Identifier type.",
+              "text": "Identifiers for the ImagingStudy such as DICOM Study Instance UID. See discussion under [Imaging Study Implementation Notes](imagingstudy.html#notes) for encoding of DICOM Study Instance UID. ",
               "type": "display"
             },
             {
@@ -426,15 +427,16 @@
                   }
                 }
               ],
-              "text": "The current state of the ImagingStudy. Unknown does not represent \"other\" - one of the defined statuses must apply.  Unknown is used when the authoring system is not sure what the current status is.",
+              "text": "The current state of the ImagingStudy resource. This is not the status of any ServiceRequest or Task resources associated with the ImagingStudy. Unknown does not represent \"other\" - one of the defined statuses must apply.  Unknown is used when the authoring system is not sure what the current status is.",
               "type": "display"
             },
             {
               "linkId": "ImagingStudy.status.value",
               "text": "status",
-              "type": "choice",
+              "type": "coding",
               "required": false,
-              "repeats": false
+              "repeats": false,
+              "answerConstraint": "optionsOrType"
             }
           ]
         },
@@ -465,15 +467,16 @@
                   }
                 }
               ],
-              "text": "A list of all the distinct values of series.modality. This may include both aquisition and non-aquisition modalities.",
+              "text": "A list of all the distinct values of series.modality. This may include both acquisition and non-acquisition modalities.",
               "type": "display"
             },
             {
               "linkId": "ImagingStudy.modality.value",
               "text": "All of the distinct values for series\u0027 modalities",
-              "type": "open-choice",
+              "type": "coding",
               "required": false,
-              "repeats": false
+              "repeats": false,
+              "answerConstraint": "optionsOnly"
             }
           ]
         },
@@ -1076,9 +1079,10 @@
                 {
                   "linkId": "ImagingStudy.procedure.value[x]._type",
                   "text": "type",
-                  "type": "choice",
+                  "type": "coding",
                   "required": false,
                   "repeats": false,
+                  "answerConstraint": "optionsOnly",
                   "answerValueSet": "#vs2",
                   "item": [
                     {
@@ -1122,9 +1126,10 @@
                         {
                           "linkId": "ImagingStudy.procedure.value[x]._null.coding",
                           "text": "code:",
-                          "type": "open-choice",
+                          "type": "coding",
                           "required": false,
-                          "repeats": false
+                          "repeats": false,
+                          "answerConstraint": "optionsOnly"
                         },
                         {
                           "linkId": "ImagingStudy.procedure.value[x]._null.text",
@@ -1544,15 +1549,16 @@
                       }
                     }
                   ],
-                  "text": "The distinct modality for this series. This may include both aquisition and non-aquisition modalities.",
+                  "text": "The distinct modality for this series. This may include both acquisition and non-acquisition modalities.",
                   "type": "display"
                 },
                 {
                   "linkId": "ImagingStudy.series.modality.value",
                   "text": "The modality used for this series",
-                  "type": "open-choice",
+                  "type": "coding",
                   "required": false,
-                  "repeats": false
+                  "repeats": false,
+                  "answerConstraint": "optionsOnly"
                 }
               ]
             },
@@ -1728,9 +1734,10 @@
                 {
                   "linkId": "ImagingStudy.series.bodySite.value",
                   "text": "Body part examined",
-                  "type": "open-choice",
+                  "type": "coding",
                   "required": false,
-                  "repeats": false
+                  "repeats": false,
+                  "answerConstraint": "optionsOnly"
                 }
               ]
             },
@@ -1771,9 +1778,10 @@
                 {
                   "linkId": "ImagingStudy.series.laterality.value",
                   "text": "Body part laterality",
-                  "type": "open-choice",
+                  "type": "coding",
                   "required": false,
-                  "repeats": false
+                  "repeats": false,
+                  "answerConstraint": "optionsOnly"
                 }
               ]
             },
@@ -2033,9 +2041,10 @@
                     {
                       "linkId": "ImagingStudy.series.performer.function.coding",
                       "text": "code:",
-                      "type": "open-choice",
+                      "type": "coding",
                       "required": false,
-                      "repeats": false
+                      "repeats": false,
+                      "answerConstraint": "optionsOnly"
                     },
                     {
                       "linkId": "ImagingStudy.series.performer.function.text",
@@ -2315,9 +2324,10 @@
                     {
                       "linkId": "ImagingStudy.series.instance.sopClass.value",
                       "text": "DICOM class type",
-                      "type": "open-choice",
+                      "type": "coding",
                       "required": false,
-                      "repeats": false
+                      "repeats": false,
+                      "answerConstraint": "optionsOnly"
                     }
                   ]
                 },

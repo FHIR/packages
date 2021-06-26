@@ -6,9 +6,9 @@
       "system": "urn:ietf:rfc:3986"
     }
   ],
-  "version": "4.5.0",
+  "version": "4.6.0",
   "status": "draft",
-  "date": "2020-08-20T17:41:31+10:00",
+  "date": "2021-05-03T21:59:52+10:00",
   "publisher": "Health Level Seven International (Public Health and Emergency Response)",
   "item": [
     {
@@ -67,7 +67,7 @@
                   }
                 }
               ],
-              "text": "The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes. The only time that a resource does not have an id is when it is being submitted to the server using a create operation.",
+              "text": "The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes. Typically, the resource has an id except for cases like the create operation, conditional updates.",
               "type": "display"
             },
             {
@@ -192,9 +192,10 @@
             {
               "linkId": "ImmunizationRecommendation.language.value",
               "text": "language",
-              "type": "choice",
+              "type": "coding",
               "required": false,
-              "repeats": false
+              "repeats": false,
+              "answerConstraint": "optionsOnly"
             }
           ]
         },
@@ -767,9 +768,10 @@
                 {
                   "linkId": "ImmunizationRecommendation.recommendation.vaccineCode.coding",
                   "text": "code:",
-                  "type": "open-choice",
+                  "type": "coding",
                   "required": false,
-                  "repeats": false
+                  "repeats": false,
+                  "answerConstraint": "optionsOnly"
                 },
                 {
                   "linkId": "ImmunizationRecommendation.recommendation.vaccineCode.text",
@@ -814,9 +816,10 @@
                 {
                   "linkId": "ImmunizationRecommendation.recommendation.targetDisease.coding",
                   "text": "code:",
-                  "type": "open-choice",
+                  "type": "coding",
                   "required": false,
-                  "repeats": false
+                  "repeats": false,
+                  "answerConstraint": "optionsOnly"
                 },
                 {
                   "linkId": "ImmunizationRecommendation.recommendation.targetDisease.text",
@@ -861,9 +864,10 @@
                 {
                   "linkId": "ImmunizationRecommendation.recommendation.contraindicatedVaccineCode.coding",
                   "text": "code:",
-                  "type": "open-choice",
+                  "type": "coding",
                   "required": false,
-                  "repeats": false
+                  "repeats": false,
+                  "answerConstraint": "optionsOnly"
                 },
                 {
                   "linkId": "ImmunizationRecommendation.recommendation.contraindicatedVaccineCode.text",
@@ -916,9 +920,10 @@
                 {
                   "linkId": "ImmunizationRecommendation.recommendation.forecastStatus.coding",
                   "text": "code:",
-                  "type": "open-choice",
+                  "type": "coding",
                   "required": false,
-                  "repeats": false
+                  "repeats": false,
+                  "answerConstraint": "optionsOnly"
                 },
                 {
                   "linkId": "ImmunizationRecommendation.recommendation.forecastStatus.text",
@@ -963,9 +968,10 @@
                 {
                   "linkId": "ImmunizationRecommendation.recommendation.forecastReason.coding",
                   "text": "code:",
-                  "type": "open-choice",
+                  "type": "coding",
                   "required": false,
-                  "repeats": false
+                  "repeats": false,
+                  "answerConstraint": "optionsOnly"
                 },
                 {
                   "linkId": "ImmunizationRecommendation.recommendation.forecastReason.text",
@@ -1140,9 +1146,10 @@
                     {
                       "linkId": "ImmunizationRecommendation.recommendation.dateCriterion.code.coding",
                       "text": "code:",
-                      "type": "open-choice",
+                      "type": "coding",
                       "required": false,
-                      "repeats": false
+                      "repeats": false,
+                      "answerConstraint": "optionsOnly"
                     },
                     {
                       "linkId": "ImmunizationRecommendation.recommendation.dateCriterion.code.text",

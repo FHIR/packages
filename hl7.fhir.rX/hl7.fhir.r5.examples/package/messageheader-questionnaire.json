@@ -9,8 +9,8 @@
       "status": "active",
       "description": "Type options for MessageHeader.event[x]",
       "expansion": {
-        "identifier": "urn:uuid:de01ca8c-1ab0-4065-adca-8ab42beb39b5",
-        "timestamp": "2020-08-20T17:46:02+10:00",
+        "identifier": "urn:uuid:fb92a648-4bf9-4fcd-81c9-5721ad4093b0",
+        "timestamp": "2021-05-03T22:04:03+10:00",
         "contains": [
           {
             "system": "http://hl7.org/fhir/data-types",
@@ -31,9 +31,9 @@
       "system": "urn:ietf:rfc:3986"
     }
   ],
-  "version": "4.5.0",
+  "version": "4.6.0",
   "status": "draft",
-  "date": "2020-08-20T17:41:31+10:00",
+  "date": "2021-05-03T21:59:52+10:00",
   "publisher": "Health Level Seven International (Infrastructure And Messaging)",
   "item": [
     {
@@ -92,7 +92,7 @@
                   }
                 }
               ],
-              "text": "The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes. The only time that a resource does not have an id is when it is being submitted to the server using a create operation.",
+              "text": "The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes. Typically, the resource has an id except for cases like the create operation, conditional updates.",
               "type": "display"
             },
             {
@@ -217,9 +217,10 @@
             {
               "linkId": "MessageHeader.language.value",
               "text": "language",
-              "type": "choice",
+              "type": "coding",
               "required": false,
-              "repeats": false
+              "repeats": false,
+              "answerConstraint": "optionsOnly"
             }
           ]
         },
@@ -375,9 +376,10 @@
             {
               "linkId": "MessageHeader.event[x]._type",
               "text": "type",
-              "type": "choice",
+              "type": "coding",
               "required": false,
               "repeats": false,
+              "answerConstraint": "optionsOnly",
               "answerValueSet": "#vs2",
               "item": [
                 {
@@ -392,9 +394,10 @@
                   "item": [
                     {
                       "linkId": "MessageHeader.event[x]._null.value",
-                      "type": "open-choice",
+                      "type": "coding",
                       "required": false,
-                      "repeats": false
+                      "repeats": false,
+                      "answerConstraint": "optionsOnly"
                     }
                   ]
                 },
@@ -1202,9 +1205,10 @@
                 {
                   "linkId": "MessageHeader.source.contact.system",
                   "text": "type:",
-                  "type": "choice",
+                  "type": "coding",
                   "required": false,
-                  "repeats": false
+                  "repeats": false,
+                  "answerConstraint": "optionsOnly"
                 },
                 {
                   "linkId": "MessageHeader.source.contact.value",
@@ -1216,9 +1220,10 @@
                 {
                   "linkId": "MessageHeader.source.contact.use",
                   "text": "use:",
-                  "type": "choice",
+                  "type": "coding",
                   "required": false,
-                  "repeats": false
+                  "repeats": false,
+                  "answerConstraint": "optionsOnly"
                 }
               ]
             },
@@ -1362,9 +1367,10 @@
             {
               "linkId": "MessageHeader.reason.coding",
               "text": "code:",
-              "type": "open-choice",
+              "type": "coding",
               "required": false,
-              "repeats": false
+              "repeats": false,
+              "answerConstraint": "optionsOnly"
             },
             {
               "linkId": "MessageHeader.reason.text",
@@ -1591,9 +1597,10 @@
                 {
                   "linkId": "MessageHeader.response.code.value",
                   "text": "code",
-                  "type": "choice",
+                  "type": "coding",
                   "required": false,
-                  "repeats": false
+                  "repeats": false,
+                  "answerConstraint": "optionsOrType"
                 }
               ]
             },

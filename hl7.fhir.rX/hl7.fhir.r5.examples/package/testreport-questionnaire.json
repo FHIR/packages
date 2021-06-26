@@ -6,9 +6,9 @@
       "system": "urn:ietf:rfc:3986"
     }
   ],
-  "version": "4.5.0",
+  "version": "4.6.0",
   "status": "draft",
-  "date": "2020-08-20T17:41:31+10:00",
+  "date": "2021-05-03T21:59:52+10:00",
   "publisher": "Health Level Seven International (FHIR Infrastructure)",
   "item": [
     {
@@ -67,7 +67,7 @@
                   }
                 }
               ],
-              "text": "The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes. The only time that a resource does not have an id is when it is being submitted to the server using a create operation.",
+              "text": "The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes. Typically, the resource has an id except for cases like the create operation, conditional updates.",
               "type": "display"
             },
             {
@@ -192,9 +192,10 @@
             {
               "linkId": "TestReport.language.value",
               "text": "language",
-              "type": "choice",
+              "type": "coding",
               "required": false,
-              "repeats": false
+              "repeats": false,
+              "answerConstraint": "optionsOnly"
             }
           ]
         },
@@ -454,9 +455,10 @@
             {
               "linkId": "TestReport.status.value",
               "text": "status",
-              "type": "choice",
+              "type": "coding",
               "required": false,
-              "repeats": false
+              "repeats": false,
+              "answerConstraint": "optionsOrType"
             }
           ]
         },
@@ -558,9 +560,10 @@
             {
               "linkId": "TestReport.result.value",
               "text": "result",
-              "type": "choice",
+              "type": "coding",
               "required": false,
-              "repeats": false
+              "repeats": false,
+              "answerConstraint": "optionsOrType"
             }
           ]
         },
@@ -856,9 +859,10 @@
                 {
                   "linkId": "TestReport.participant.type.value",
                   "text": "type",
-                  "type": "choice",
+                  "type": "coding",
                   "required": false,
-                  "repeats": false
+                  "repeats": false,
+                  "answerConstraint": "optionsOrType"
                 }
               ]
             },
@@ -1383,9 +1387,10 @@
                         {
                           "linkId": "TestReport.setup.action.operation.result.value",
                           "text": "result",
-                          "type": "choice",
+                          "type": "coding",
                           "required": false,
-                          "repeats": false
+                          "repeats": false,
+                          "answerConstraint": "optionsOrType"
                         }
                       ]
                     },
@@ -1646,9 +1651,10 @@
                         {
                           "linkId": "TestReport.setup.action.assert.result.value",
                           "text": "result",
-                          "type": "choice",
+                          "type": "coding",
                           "required": false,
-                          "repeats": false
+                          "repeats": false,
+                          "answerConstraint": "optionsOrType"
                         }
                       ]
                     },
@@ -2114,236 +2120,6 @@
                       ],
                       "text": "An operation would involve a REST request to a server.",
                       "type": "display"
-                    },
-                    {
-                      "extension": [
-                        {
-                          "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-maxOccurs",
-                          "valueInteger": 1
-                        },
-                        {
-                          "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-fhirType",
-                          "valueString": "string"
-                        }
-                      ],
-                      "linkId": "TestReport.setup.action.operation.id",
-                      "type": "group",
-                      "required": false,
-                      "repeats": true,
-                      "item": [
-                        {
-                          "extension": [
-                            {
-                              "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
-                              "valueCodeableConcept": {
-                                "coding": [
-                                  {
-                                    "system": "http://hl7.org/fhir/questionnaire-item-control",
-                                    "code": "flyover",
-                                    "display": "Fly-over"
-                                  }
-                                ]
-                              }
-                            }
-                          ],
-                          "text": "Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.",
-                          "type": "display"
-                        },
-                        {
-                          "linkId": "TestReport.setup.action.operation.id.value",
-                          "text": "Unique id for inter-element referencing",
-                          "type": "string",
-                          "required": false,
-                          "repeats": false
-                        }
-                      ]
-                    },
-                    {
-                      "linkId": "TestReport.setup.action.operation.extension",
-                      "text": "Additional content defined by implementations",
-                      "type": "group",
-                      "required": false,
-                      "repeats": true,
-                      "item": [
-                        {
-                          "extension": [
-                            {
-                              "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
-                              "valueCodeableConcept": {
-                                "coding": [
-                                  {
-                                    "system": "http://hl7.org/fhir/questionnaire-item-control",
-                                    "code": "flyover",
-                                    "display": "Fly-over"
-                                  }
-                                ]
-                              }
-                            }
-                          ],
-                          "text": "May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.",
-                          "type": "display"
-                        }
-                      ]
-                    },
-                    {
-                      "linkId": "TestReport.setup.action.operation.modifierExtension",
-                      "text": "Extensions that cannot be ignored even if unrecognized",
-                      "type": "group",
-                      "required": false,
-                      "repeats": true,
-                      "item": [
-                        {
-                          "extension": [
-                            {
-                              "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
-                              "valueCodeableConcept": {
-                                "coding": [
-                                  {
-                                    "system": "http://hl7.org/fhir/questionnaire-item-control",
-                                    "code": "flyover",
-                                    "display": "Fly-over"
-                                  }
-                                ]
-                              }
-                            }
-                          ],
-                          "text": "May be used to represent additional information that is not part of the basic definition of the element and that modifies the understanding of the element in which it is contained and/or the understanding of the containing element\u0027s descendants. Usually modifier elements provide negation or qualification. To make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.\n\nModifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself). There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.",
-                          "type": "display"
-                        }
-                      ]
-                    },
-                    {
-                      "extension": [
-                        {
-                          "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-minOccurs",
-                          "valueInteger": 1
-                        },
-                        {
-                          "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-maxOccurs",
-                          "valueInteger": 1
-                        },
-                        {
-                          "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-fhirType",
-                          "valueString": "code"
-                        }
-                      ],
-                      "linkId": "TestReport.setup.action.operation.result",
-                      "type": "group",
-                      "required": true,
-                      "repeats": true,
-                      "item": [
-                        {
-                          "extension": [
-                            {
-                              "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
-                              "valueCodeableConcept": {
-                                "coding": [
-                                  {
-                                    "system": "http://hl7.org/fhir/questionnaire-item-control",
-                                    "code": "flyover",
-                                    "display": "Fly-over"
-                                  }
-                                ]
-                              }
-                            }
-                          ],
-                          "text": "The result of this operation.",
-                          "type": "display"
-                        },
-                        {
-                          "linkId": "TestReport.setup.action.operation.result.value",
-                          "text": "result",
-                          "type": "choice",
-                          "required": false,
-                          "repeats": false
-                        }
-                      ]
-                    },
-                    {
-                      "extension": [
-                        {
-                          "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-maxOccurs",
-                          "valueInteger": 1
-                        },
-                        {
-                          "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-fhirType",
-                          "valueString": "string"
-                        }
-                      ],
-                      "linkId": "TestReport.setup.action.operation.message",
-                      "type": "group",
-                      "required": false,
-                      "repeats": true,
-                      "item": [
-                        {
-                          "extension": [
-                            {
-                              "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
-                              "valueCodeableConcept": {
-                                "coding": [
-                                  {
-                                    "system": "http://hl7.org/fhir/questionnaire-item-control",
-                                    "code": "flyover",
-                                    "display": "Fly-over"
-                                  }
-                                ]
-                              }
-                            }
-                          ],
-                          "text": "An explanatory message associated with the result.",
-                          "type": "display"
-                        },
-                        {
-                          "linkId": "TestReport.setup.action.operation.message.value",
-                          "text": "A message associated with the result",
-                          "type": "string",
-                          "required": false,
-                          "repeats": false
-                        }
-                      ]
-                    },
-                    {
-                      "extension": [
-                        {
-                          "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-maxOccurs",
-                          "valueInteger": 1
-                        },
-                        {
-                          "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-fhirType",
-                          "valueString": "uri"
-                        }
-                      ],
-                      "linkId": "TestReport.setup.action.operation.detail",
-                      "type": "group",
-                      "required": false,
-                      "repeats": true,
-                      "item": [
-                        {
-                          "extension": [
-                            {
-                              "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
-                              "valueCodeableConcept": {
-                                "coding": [
-                                  {
-                                    "system": "http://hl7.org/fhir/questionnaire-item-control",
-                                    "code": "flyover",
-                                    "display": "Fly-over"
-                                  }
-                                ]
-                              }
-                            }
-                          ],
-                          "text": "A link to further details on the result.",
-                          "type": "display"
-                        },
-                        {
-                          "linkId": "TestReport.setup.action.operation.detail.value",
-                          "text": "A link to further details on the result",
-                          "type": "string",
-                          "required": false,
-                          "repeats": false
-                        }
-                      ]
                     }
                   ]
                 },
@@ -2377,236 +2153,6 @@
                       ],
                       "text": "The results of the assertion performed on the previous operations.",
                       "type": "display"
-                    },
-                    {
-                      "extension": [
-                        {
-                          "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-maxOccurs",
-                          "valueInteger": 1
-                        },
-                        {
-                          "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-fhirType",
-                          "valueString": "string"
-                        }
-                      ],
-                      "linkId": "TestReport.setup.action.assert.id",
-                      "type": "group",
-                      "required": false,
-                      "repeats": true,
-                      "item": [
-                        {
-                          "extension": [
-                            {
-                              "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
-                              "valueCodeableConcept": {
-                                "coding": [
-                                  {
-                                    "system": "http://hl7.org/fhir/questionnaire-item-control",
-                                    "code": "flyover",
-                                    "display": "Fly-over"
-                                  }
-                                ]
-                              }
-                            }
-                          ],
-                          "text": "Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.",
-                          "type": "display"
-                        },
-                        {
-                          "linkId": "TestReport.setup.action.assert.id.value",
-                          "text": "Unique id for inter-element referencing",
-                          "type": "string",
-                          "required": false,
-                          "repeats": false
-                        }
-                      ]
-                    },
-                    {
-                      "linkId": "TestReport.setup.action.assert.extension",
-                      "text": "Additional content defined by implementations",
-                      "type": "group",
-                      "required": false,
-                      "repeats": true,
-                      "item": [
-                        {
-                          "extension": [
-                            {
-                              "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
-                              "valueCodeableConcept": {
-                                "coding": [
-                                  {
-                                    "system": "http://hl7.org/fhir/questionnaire-item-control",
-                                    "code": "flyover",
-                                    "display": "Fly-over"
-                                  }
-                                ]
-                              }
-                            }
-                          ],
-                          "text": "May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.",
-                          "type": "display"
-                        }
-                      ]
-                    },
-                    {
-                      "linkId": "TestReport.setup.action.assert.modifierExtension",
-                      "text": "Extensions that cannot be ignored even if unrecognized",
-                      "type": "group",
-                      "required": false,
-                      "repeats": true,
-                      "item": [
-                        {
-                          "extension": [
-                            {
-                              "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
-                              "valueCodeableConcept": {
-                                "coding": [
-                                  {
-                                    "system": "http://hl7.org/fhir/questionnaire-item-control",
-                                    "code": "flyover",
-                                    "display": "Fly-over"
-                                  }
-                                ]
-                              }
-                            }
-                          ],
-                          "text": "May be used to represent additional information that is not part of the basic definition of the element and that modifies the understanding of the element in which it is contained and/or the understanding of the containing element\u0027s descendants. Usually modifier elements provide negation or qualification. To make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.\n\nModifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself). There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.",
-                          "type": "display"
-                        }
-                      ]
-                    },
-                    {
-                      "extension": [
-                        {
-                          "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-minOccurs",
-                          "valueInteger": 1
-                        },
-                        {
-                          "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-maxOccurs",
-                          "valueInteger": 1
-                        },
-                        {
-                          "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-fhirType",
-                          "valueString": "code"
-                        }
-                      ],
-                      "linkId": "TestReport.setup.action.assert.result",
-                      "type": "group",
-                      "required": true,
-                      "repeats": true,
-                      "item": [
-                        {
-                          "extension": [
-                            {
-                              "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
-                              "valueCodeableConcept": {
-                                "coding": [
-                                  {
-                                    "system": "http://hl7.org/fhir/questionnaire-item-control",
-                                    "code": "flyover",
-                                    "display": "Fly-over"
-                                  }
-                                ]
-                              }
-                            }
-                          ],
-                          "text": "The result of this assertion.",
-                          "type": "display"
-                        },
-                        {
-                          "linkId": "TestReport.setup.action.assert.result.value",
-                          "text": "result",
-                          "type": "choice",
-                          "required": false,
-                          "repeats": false
-                        }
-                      ]
-                    },
-                    {
-                      "extension": [
-                        {
-                          "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-maxOccurs",
-                          "valueInteger": 1
-                        },
-                        {
-                          "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-fhirType",
-                          "valueString": "string"
-                        }
-                      ],
-                      "linkId": "TestReport.setup.action.assert.message",
-                      "type": "group",
-                      "required": false,
-                      "repeats": true,
-                      "item": [
-                        {
-                          "extension": [
-                            {
-                              "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
-                              "valueCodeableConcept": {
-                                "coding": [
-                                  {
-                                    "system": "http://hl7.org/fhir/questionnaire-item-control",
-                                    "code": "flyover",
-                                    "display": "Fly-over"
-                                  }
-                                ]
-                              }
-                            }
-                          ],
-                          "text": "An explanatory message associated with the result.",
-                          "type": "display"
-                        },
-                        {
-                          "linkId": "TestReport.setup.action.assert.message.value",
-                          "text": "A message associated with the result",
-                          "type": "string",
-                          "required": false,
-                          "repeats": false
-                        }
-                      ]
-                    },
-                    {
-                      "extension": [
-                        {
-                          "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-maxOccurs",
-                          "valueInteger": 1
-                        },
-                        {
-                          "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-fhirType",
-                          "valueString": "string"
-                        }
-                      ],
-                      "linkId": "TestReport.setup.action.assert.detail",
-                      "type": "group",
-                      "required": false,
-                      "repeats": true,
-                      "item": [
-                        {
-                          "extension": [
-                            {
-                              "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
-                              "valueCodeableConcept": {
-                                "coding": [
-                                  {
-                                    "system": "http://hl7.org/fhir/questionnaire-item-control",
-                                    "code": "flyover",
-                                    "display": "Fly-over"
-                                  }
-                                ]
-                              }
-                            }
-                          ],
-                          "text": "A link to further details on the result.",
-                          "type": "display"
-                        },
-                        {
-                          "linkId": "TestReport.setup.action.assert.detail.value",
-                          "text": "A link to further details on the result",
-                          "type": "string",
-                          "required": false,
-                          "repeats": false
-                        }
-                      ]
                     }
                   ]
                 }
@@ -2908,236 +2454,6 @@
                       ],
                       "text": "An operation would involve a REST request to a server.",
                       "type": "display"
-                    },
-                    {
-                      "extension": [
-                        {
-                          "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-maxOccurs",
-                          "valueInteger": 1
-                        },
-                        {
-                          "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-fhirType",
-                          "valueString": "string"
-                        }
-                      ],
-                      "linkId": "TestReport.setup.action.operation.id",
-                      "type": "group",
-                      "required": false,
-                      "repeats": true,
-                      "item": [
-                        {
-                          "extension": [
-                            {
-                              "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
-                              "valueCodeableConcept": {
-                                "coding": [
-                                  {
-                                    "system": "http://hl7.org/fhir/questionnaire-item-control",
-                                    "code": "flyover",
-                                    "display": "Fly-over"
-                                  }
-                                ]
-                              }
-                            }
-                          ],
-                          "text": "Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.",
-                          "type": "display"
-                        },
-                        {
-                          "linkId": "TestReport.setup.action.operation.id.value",
-                          "text": "Unique id for inter-element referencing",
-                          "type": "string",
-                          "required": false,
-                          "repeats": false
-                        }
-                      ]
-                    },
-                    {
-                      "linkId": "TestReport.setup.action.operation.extension",
-                      "text": "Additional content defined by implementations",
-                      "type": "group",
-                      "required": false,
-                      "repeats": true,
-                      "item": [
-                        {
-                          "extension": [
-                            {
-                              "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
-                              "valueCodeableConcept": {
-                                "coding": [
-                                  {
-                                    "system": "http://hl7.org/fhir/questionnaire-item-control",
-                                    "code": "flyover",
-                                    "display": "Fly-over"
-                                  }
-                                ]
-                              }
-                            }
-                          ],
-                          "text": "May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.",
-                          "type": "display"
-                        }
-                      ]
-                    },
-                    {
-                      "linkId": "TestReport.setup.action.operation.modifierExtension",
-                      "text": "Extensions that cannot be ignored even if unrecognized",
-                      "type": "group",
-                      "required": false,
-                      "repeats": true,
-                      "item": [
-                        {
-                          "extension": [
-                            {
-                              "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
-                              "valueCodeableConcept": {
-                                "coding": [
-                                  {
-                                    "system": "http://hl7.org/fhir/questionnaire-item-control",
-                                    "code": "flyover",
-                                    "display": "Fly-over"
-                                  }
-                                ]
-                              }
-                            }
-                          ],
-                          "text": "May be used to represent additional information that is not part of the basic definition of the element and that modifies the understanding of the element in which it is contained and/or the understanding of the containing element\u0027s descendants. Usually modifier elements provide negation or qualification. To make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.\n\nModifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself). There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.",
-                          "type": "display"
-                        }
-                      ]
-                    },
-                    {
-                      "extension": [
-                        {
-                          "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-minOccurs",
-                          "valueInteger": 1
-                        },
-                        {
-                          "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-maxOccurs",
-                          "valueInteger": 1
-                        },
-                        {
-                          "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-fhirType",
-                          "valueString": "code"
-                        }
-                      ],
-                      "linkId": "TestReport.setup.action.operation.result",
-                      "type": "group",
-                      "required": true,
-                      "repeats": true,
-                      "item": [
-                        {
-                          "extension": [
-                            {
-                              "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
-                              "valueCodeableConcept": {
-                                "coding": [
-                                  {
-                                    "system": "http://hl7.org/fhir/questionnaire-item-control",
-                                    "code": "flyover",
-                                    "display": "Fly-over"
-                                  }
-                                ]
-                              }
-                            }
-                          ],
-                          "text": "The result of this operation.",
-                          "type": "display"
-                        },
-                        {
-                          "linkId": "TestReport.setup.action.operation.result.value",
-                          "text": "result",
-                          "type": "choice",
-                          "required": false,
-                          "repeats": false
-                        }
-                      ]
-                    },
-                    {
-                      "extension": [
-                        {
-                          "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-maxOccurs",
-                          "valueInteger": 1
-                        },
-                        {
-                          "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-fhirType",
-                          "valueString": "string"
-                        }
-                      ],
-                      "linkId": "TestReport.setup.action.operation.message",
-                      "type": "group",
-                      "required": false,
-                      "repeats": true,
-                      "item": [
-                        {
-                          "extension": [
-                            {
-                              "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
-                              "valueCodeableConcept": {
-                                "coding": [
-                                  {
-                                    "system": "http://hl7.org/fhir/questionnaire-item-control",
-                                    "code": "flyover",
-                                    "display": "Fly-over"
-                                  }
-                                ]
-                              }
-                            }
-                          ],
-                          "text": "An explanatory message associated with the result.",
-                          "type": "display"
-                        },
-                        {
-                          "linkId": "TestReport.setup.action.operation.message.value",
-                          "text": "A message associated with the result",
-                          "type": "string",
-                          "required": false,
-                          "repeats": false
-                        }
-                      ]
-                    },
-                    {
-                      "extension": [
-                        {
-                          "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-maxOccurs",
-                          "valueInteger": 1
-                        },
-                        {
-                          "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-fhirType",
-                          "valueString": "uri"
-                        }
-                      ],
-                      "linkId": "TestReport.setup.action.operation.detail",
-                      "type": "group",
-                      "required": false,
-                      "repeats": true,
-                      "item": [
-                        {
-                          "extension": [
-                            {
-                              "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
-                              "valueCodeableConcept": {
-                                "coding": [
-                                  {
-                                    "system": "http://hl7.org/fhir/questionnaire-item-control",
-                                    "code": "flyover",
-                                    "display": "Fly-over"
-                                  }
-                                ]
-                              }
-                            }
-                          ],
-                          "text": "A link to further details on the result.",
-                          "type": "display"
-                        },
-                        {
-                          "linkId": "TestReport.setup.action.operation.detail.value",
-                          "text": "A link to further details on the result",
-                          "type": "string",
-                          "required": false,
-                          "repeats": false
-                        }
-                      ]
                     }
                   ]
                 }

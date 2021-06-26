@@ -9,8 +9,8 @@
       "status": "active",
       "description": "Type options for Condition.onset[x]",
       "expansion": {
-        "identifier": "urn:uuid:368ea221-d871-4020-8ebd-881e10e02ce4",
-        "timestamp": "2020-08-20T17:45:05+10:00",
+        "identifier": "urn:uuid:66f3cb83-c2b0-431b-a21b-6830c515f21f",
+        "timestamp": "2021-05-03T22:03:09+10:00",
         "contains": [
           {
             "system": "http://hl7.org/fhir/data-types",
@@ -47,8 +47,8 @@
       "status": "active",
       "description": "Type options for Condition.abatement[x]",
       "expansion": {
-        "identifier": "urn:uuid:da86b15d-9275-4e51-9cc7-7e2e5503d324",
-        "timestamp": "2020-08-20T17:45:05+10:00",
+        "identifier": "urn:uuid:f9d8ab27-7bfd-4128-80db-7964a6c3fc1b",
+        "timestamp": "2021-05-03T22:03:09+10:00",
         "contains": [
           {
             "system": "http://hl7.org/fhir/data-types",
@@ -84,9 +84,9 @@
       "system": "urn:ietf:rfc:3986"
     }
   ],
-  "version": "4.5.0",
+  "version": "4.6.0",
   "status": "draft",
-  "date": "2020-08-20T17:41:31+10:00",
+  "date": "2021-05-03T21:59:52+10:00",
   "publisher": "Health Level Seven International (Patient Care)",
   "item": [
     {
@@ -145,7 +145,7 @@
                   }
                 }
               ],
-              "text": "The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes. The only time that a resource does not have an id is when it is being submitted to the server using a create operation.",
+              "text": "The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes. Typically, the resource has an id except for cases like the create operation, conditional updates.",
               "type": "display"
             },
             {
@@ -270,9 +270,10 @@
             {
               "linkId": "Condition.language.value",
               "text": "language",
-              "type": "choice",
+              "type": "coding",
               "required": false,
-              "repeats": false
+              "repeats": false,
+              "answerConstraint": "optionsOnly"
             }
           ]
         },
@@ -447,6 +448,10 @@
         {
           "extension": [
             {
+              "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-minOccurs",
+              "valueInteger": 1
+            },
+            {
               "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-maxOccurs",
               "valueInteger": 1
             },
@@ -458,7 +463,7 @@
           "linkId": "Condition.clinicalStatus",
           "text": "active | recurrence | relapse | inactive | remission | resolved",
           "type": "group",
-          "required": false,
+          "required": true,
           "repeats": true,
           "item": [
             {
@@ -476,15 +481,16 @@
                   }
                 }
               ],
-              "text": "The clinical status of the condition. The data type is CodeableConcept because clinicalStatus has some clinical judgment involved, such that there might need to be more specificity than the required FHIR value set allows. For example, a SNOMED coding might allow for additional specificity.",
+              "text": "The clinical status of the condition. The data type is CodeableConcept because clinicalStatus has some clinical judgment involved, such that there might need to be more specificity than the required FHIR value set allows. For example, a SNOMED coding might allow for additional specificity.  clinicalStatus is required since it is a modifier element.  For conditions that are problems list items, the clinicalStatus should not be unknown.  For conditions that are not problem list items, the clinicalStatus may be unknown.  For example, conditions derived from a claim are point in time, so those conditions may have a clinicalStatus of unknown",
               "type": "display"
             },
             {
               "linkId": "Condition.clinicalStatus.coding",
               "text": "code:",
-              "type": "choice",
+              "type": "coding",
               "required": false,
-              "repeats": false
+              "repeats": false,
+              "answerConstraint": "optionsOrType"
             },
             {
               "linkId": "Condition.clinicalStatus.text",
@@ -527,15 +533,16 @@
                   }
                 }
               ],
-              "text": "The verification status to support the clinical status of the condition. verificationStatus is not required.  For example, when a patient has abdominal pain in the ED, there is not likely going to be a verification status.\nThe data type is CodeableConcept because verificationStatus has some clinical judgment involved, such that there might need to be more specificity than the required FHIR value set allows. For example, a SNOMED coding might allow for additional specificity.",
+              "text": "The verification status to support the clinical status of the condition.  The verification status pertains to the condition, itself, not to any specific condition attribute. verificationStatus is not required.  For example, when a patient has abdominal pain in the ED, there is not likely going to be a verification status.\nThe data type is CodeableConcept because verificationStatus has some clinical judgment involved, such that there might need to be more specificity than the required FHIR value set allows. For example, a SNOMED coding might allow for additional specificity.",
               "type": "display"
             },
             {
               "linkId": "Condition.verificationStatus.coding",
               "text": "code:",
-              "type": "choice",
+              "type": "coding",
               "required": false,
-              "repeats": false
+              "repeats": false,
+              "answerConstraint": "optionsOrType"
             },
             {
               "linkId": "Condition.verificationStatus.text",
@@ -580,9 +587,10 @@
             {
               "linkId": "Condition.category.coding",
               "text": "code:",
-              "type": "open-choice",
+              "type": "coding",
               "required": false,
-              "repeats": false
+              "repeats": false,
+              "answerConstraint": "optionsOnly"
             },
             {
               "linkId": "Condition.category.text",
@@ -631,9 +639,10 @@
             {
               "linkId": "Condition.severity.coding",
               "text": "code:",
-              "type": "open-choice",
+              "type": "coding",
               "required": false,
-              "repeats": false
+              "repeats": false,
+              "answerConstraint": "optionsOnly"
             },
             {
               "linkId": "Condition.severity.text",
@@ -682,9 +691,10 @@
             {
               "linkId": "Condition.code.coding",
               "text": "code:",
-              "type": "open-choice",
+              "type": "coding",
               "required": false,
-              "repeats": false
+              "repeats": false,
+              "answerConstraint": "optionsOnly"
             },
             {
               "linkId": "Condition.code.text",
@@ -729,9 +739,10 @@
             {
               "linkId": "Condition.bodySite.coding",
               "text": "code:",
-              "type": "open-choice",
+              "type": "coding",
               "required": false,
-              "repeats": false
+              "repeats": false,
+              "answerConstraint": "optionsOnly"
             },
             {
               "linkId": "Condition.bodySite.text",
@@ -886,9 +897,10 @@
             {
               "linkId": "Condition.onset[x]._type",
               "text": "type",
-              "type": "choice",
+              "type": "coding",
               "required": false,
               "repeats": false,
+              "answerConstraint": "optionsOnly",
               "answerValueSet": "#vs2",
               "item": [
                 {
@@ -922,9 +934,10 @@
                     {
                       "linkId": "Condition.onset[x]._null.comparator",
                       "text": "comp:",
-                      "type": "choice",
+                      "type": "coding",
                       "required": false,
-                      "repeats": false
+                      "repeats": false,
+                      "answerConstraint": "optionsOnly"
                     },
                     {
                       "linkId": "Condition.onset[x]._null.value",
@@ -1071,9 +1084,10 @@
             {
               "linkId": "Condition.abatement[x]._type",
               "text": "type",
-              "type": "choice",
+              "type": "coding",
               "required": false,
               "repeats": false,
+              "answerConstraint": "optionsOnly",
               "answerValueSet": "#vs3",
               "item": [
                 {
@@ -1107,9 +1121,10 @@
                     {
                       "linkId": "Condition.abatement[x]._null.comparator",
                       "text": "comp:",
-                      "type": "choice",
+                      "type": "coding",
                       "required": false,
-                      "repeats": false
+                      "repeats": false,
+                      "answerConstraint": "optionsOnly"
                     },
                     {
                       "linkId": "Condition.abatement[x]._null.value",
@@ -1253,7 +1268,7 @@
                   }
                 }
               ],
-              "text": "The recordedDate represents when this particular Condition record was created in the system, which is often a system-generated date.",
+              "text": "The recordedDate represents when this particular Condition record was created in the system, which is often a system-generated date. If the recordedDate is known via a sending system, it is preferred that the receiving system preserve the date.  If the recorded date is not provided by the sending system, it is acceptable for the receiving system to assert their system-generated date.",
               "type": "display"
             },
             {
@@ -1393,7 +1408,7 @@
                   }
                 }
               ],
-              "text": "Clinical stage or grade of a condition. May include formal severity assessments.",
+              "text": "A simple summary of the stage such as \"Stage 3\" or \"Early Onset\". The determination of the stage is disease-specific, such as cancer, retinopathy of prematurity, kidney diseases, Alzheimer\u0027s, or Parkinson disease.",
               "type": "display"
             },
             {
@@ -1525,15 +1540,16 @@
                       }
                     }
                   ],
-                  "text": "A simple summary of the stage such as \"Stage 3\". The determination of the stage is disease-specific.",
+                  "text": "A simple summary of the stage such as \"Stage 3\" or \"Early Onset\". The determination of the stage is disease-specific, such as cancer, retinopathy of prematurity, kidney diseases, Alzheimer\u0027s, or Parkinson disease.",
                   "type": "display"
                 },
                 {
                   "linkId": "Condition.stage.summary.coding",
                   "text": "code:",
-                  "type": "open-choice",
+                  "type": "coding",
                   "required": false,
-                  "repeats": false
+                  "repeats": false,
+                  "answerConstraint": "optionsOnly"
                 },
                 {
                   "linkId": "Condition.stage.summary.text",
@@ -1631,9 +1647,10 @@
                 {
                   "linkId": "Condition.stage.type.coding",
                   "text": "code:",
-                  "type": "open-choice",
+                  "type": "coding",
                   "required": false,
-                  "repeats": false
+                  "repeats": false,
+                  "answerConstraint": "optionsOnly"
                 },
                 {
                   "linkId": "Condition.stage.type.text",
@@ -1806,9 +1823,10 @@
                 {
                   "linkId": "Condition.evidence.code.coding",
                   "text": "code:",
-                  "type": "open-choice",
+                  "type": "coding",
                   "required": false,
-                  "repeats": false
+                  "repeats": false,
+                  "answerConstraint": "optionsOnly"
                 },
                 {
                   "linkId": "Condition.evidence.code.text",

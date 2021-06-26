@@ -9,8 +9,8 @@
       "status": "active",
       "description": "Type options for AllergyIntolerance.onset[x]",
       "expansion": {
-        "identifier": "urn:uuid:e36d48e1-00b8-442d-b710-1867cb88fa9b",
-        "timestamp": "2020-08-20T17:44:43+10:00",
+        "identifier": "urn:uuid:6c463517-6588-498d-a866-13a19a5f2c73",
+        "timestamp": "2021-05-03T22:02:49+10:00",
         "contains": [
           {
             "system": "http://hl7.org/fhir/data-types",
@@ -46,9 +46,9 @@
       "system": "urn:ietf:rfc:3986"
     }
   ],
-  "version": "4.5.0",
+  "version": "4.6.0",
   "status": "draft",
-  "date": "2020-08-20T17:41:31+10:00",
+  "date": "2021-05-03T21:59:52+10:00",
   "publisher": "Health Level Seven International (Patient Care)",
   "item": [
     {
@@ -111,7 +111,7 @@
                   }
                 }
               ],
-              "text": "The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes. The only time that a resource does not have an id is when it is being submitted to the server using a create operation.",
+              "text": "The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes. Typically, the resource has an id except for cases like the create operation, conditional updates.",
               "type": "display"
             },
             {
@@ -236,9 +236,10 @@
             {
               "linkId": "AllergyIntolerance.language.value",
               "text": "language",
-              "type": "choice",
+              "type": "coding",
               "required": false,
-              "repeats": false
+              "repeats": false,
+              "answerConstraint": "optionsOnly"
             }
           ]
         },
@@ -448,9 +449,10 @@
             {
               "linkId": "AllergyIntolerance.clinicalStatus.coding",
               "text": "code:",
-              "type": "choice",
+              "type": "coding",
               "required": false,
-              "repeats": false
+              "repeats": false,
+              "answerConstraint": "optionsOrType"
             },
             {
               "linkId": "AllergyIntolerance.clinicalStatus.text",
@@ -493,15 +495,16 @@
                   }
                 }
               ],
-              "text": "Assertion about certainty associated with the propensity, or potential risk, of a reaction to the identified substance (including pharmaceutical product). The data type is CodeableConcept because verificationStatus has some clinical judgment involved, such that there might need to be more specificity than the required FHIR value set allows. For example, a SNOMED coding might allow for additional specificity.",
+              "text": "Assertion about certainty associated with the propensity, or potential risk, of a reaction to the identified substance (including pharmaceutical product).  The verification status pertains to the allergy or intolerance, itself, not to any specific AllergyIntolerance attribute. The data type is CodeableConcept because verificationStatus has some clinical judgment involved, such that there might need to be more specificity than the required FHIR value set allows. For example, a SNOMED coding might allow for additional specificity.",
               "type": "display"
             },
             {
               "linkId": "AllergyIntolerance.verificationStatus.coding",
               "text": "code:",
-              "type": "choice",
+              "type": "coding",
               "required": false,
-              "repeats": false
+              "repeats": false,
+              "answerConstraint": "optionsOrType"
             },
             {
               "linkId": "AllergyIntolerance.verificationStatus.text",
@@ -549,9 +552,10 @@
             {
               "linkId": "AllergyIntolerance.type.value",
               "text": "type",
-              "type": "choice",
+              "type": "coding",
               "required": false,
-              "repeats": false
+              "repeats": false,
+              "answerConstraint": "optionsOrType"
             }
           ]
         },
@@ -588,9 +592,10 @@
             {
               "linkId": "AllergyIntolerance.category.value",
               "text": "category",
-              "type": "choice",
+              "type": "coding",
               "required": false,
-              "repeats": false
+              "repeats": false,
+              "answerConstraint": "optionsOrType"
             }
           ]
         },
@@ -631,9 +636,10 @@
             {
               "linkId": "AllergyIntolerance.criticality.value",
               "text": "criticality",
-              "type": "choice",
+              "type": "coding",
               "required": false,
-              "repeats": false
+              "repeats": false,
+              "answerConstraint": "optionsOrType"
             }
           ]
         },
@@ -675,9 +681,10 @@
             {
               "linkId": "AllergyIntolerance.code.coding",
               "text": "code:",
-              "type": "open-choice",
+              "type": "coding",
               "required": false,
-              "repeats": false
+              "repeats": false,
+              "answerConstraint": "optionsOnly"
             },
             {
               "linkId": "AllergyIntolerance.code.text",
@@ -832,9 +839,10 @@
             {
               "linkId": "AllergyIntolerance.onset[x]._type",
               "text": "type",
-              "type": "choice",
+              "type": "coding",
               "required": false,
               "repeats": false,
+              "answerConstraint": "optionsOnly",
               "answerValueSet": "#vs2",
               "item": [
                 {
@@ -868,9 +876,10 @@
                     {
                       "linkId": "AllergyIntolerance.onset[x]._null.comparator",
                       "text": "comp:",
-                      "type": "choice",
+                      "type": "coding",
                       "required": false,
-                      "repeats": false
+                      "repeats": false,
+                      "answerConstraint": "optionsOnly"
                     },
                     {
                       "linkId": "AllergyIntolerance.onset[x]._null.value",
@@ -1368,9 +1377,10 @@
                 {
                   "linkId": "AllergyIntolerance.reaction.substance.coding",
                   "text": "code:",
-                  "type": "open-choice",
+                  "type": "coding",
                   "required": false,
-                  "repeats": false
+                  "repeats": false,
+                  "answerConstraint": "optionsOnly"
                 },
                 {
                   "linkId": "AllergyIntolerance.reaction.substance.text",
@@ -1386,10 +1396,6 @@
                 {
                   "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-minOccurs",
                   "valueInteger": 1
-                },
-                {
-                  "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-fhirType",
-                  "valueString": "CodeableConcept"
                 }
               ],
               "linkId": "AllergyIntolerance.reaction.manifestation",
@@ -1398,6 +1404,10 @@
               "required": true,
               "repeats": true,
               "item": [
+                {
+                  "text": "Manifestation can be expressed as a single word, phrase or brief description. For example: nausea, rash or no reaction. It is preferable that manifestation should be coded with a terminology, where possible. The values entered here may be used to display on an application screen as part of a list of adverse reactions, as recommended in the UK NHS CUI guidelines.  Terminologies commonly used include, but are not limited to, SNOMED CT or ICD10.",
+                  "type": "display"
+                },
                 {
                   "extension": [
                     {
@@ -1413,22 +1423,8 @@
                       }
                     }
                   ],
-                  "text": "Clinical symptoms and/or signs that are observed or associated with the adverse reaction event. Manifestation can be expressed as a single word, phrase or brief description. For example: nausea, rash or no reaction. It is preferable that manifestation should be coded with a terminology, where possible. The values entered here may be used to display on an application screen as part of a list of adverse reactions, as recommended in the UK NHS CUI guidelines.  Terminologies commonly used include, but are not limited to, SNOMED CT or ICD10.",
+                  "text": "Clinical symptoms and/or signs that are observed or associated with the adverse reaction event.",
                   "type": "display"
-                },
-                {
-                  "linkId": "AllergyIntolerance.reaction.manifestation.coding",
-                  "text": "code:",
-                  "type": "open-choice",
-                  "required": false,
-                  "repeats": false
-                },
-                {
-                  "linkId": "AllergyIntolerance.reaction.manifestation.text",
-                  "text": "text:",
-                  "type": "string",
-                  "required": false,
-                  "repeats": false
                 }
               ]
             },
@@ -1555,9 +1551,10 @@
                 {
                   "linkId": "AllergyIntolerance.reaction.severity.value",
                   "text": "severity",
-                  "type": "choice",
+                  "type": "coding",
                   "required": false,
-                  "repeats": false
+                  "repeats": false,
+                  "answerConstraint": "optionsOrType"
                 }
               ]
             },
@@ -1599,9 +1596,10 @@
                 {
                   "linkId": "AllergyIntolerance.reaction.exposureRoute.coding",
                   "text": "code:",
-                  "type": "open-choice",
+                  "type": "coding",
                   "required": false,
-                  "repeats": false
+                  "repeats": false,
+                  "answerConstraint": "optionsOnly"
                 },
                 {
                   "linkId": "AllergyIntolerance.reaction.exposureRoute.text",

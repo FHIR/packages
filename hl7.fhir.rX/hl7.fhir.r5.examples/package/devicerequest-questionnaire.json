@@ -9,8 +9,8 @@
       "status": "active",
       "description": "Type options for DeviceRequest.parameter.value[x]",
       "expansion": {
-        "identifier": "urn:uuid:ad8e8676-cd0b-440c-9d7b-342a0e7b33d9",
-        "timestamp": "2020-08-20T17:45:14+10:00",
+        "identifier": "urn:uuid:582e6d03-ce3b-421d-8cbc-21ff3fc50ff2",
+        "timestamp": "2021-05-03T22:03:18+10:00",
         "contains": [
           {
             "system": "http://hl7.org/fhir/data-types",
@@ -42,8 +42,8 @@
       "status": "active",
       "description": "Type options for DeviceRequest.occurrence[x]",
       "expansion": {
-        "identifier": "urn:uuid:501e6e79-17fd-4b99-bdfd-ed4cf0b5bda6",
-        "timestamp": "2020-08-20T17:45:14+10:00",
+        "identifier": "urn:uuid:cede42af-ec74-43fb-9ab9-bf99117f3c74",
+        "timestamp": "2021-05-03T22:03:18+10:00",
         "contains": [
           {
             "system": "http://hl7.org/fhir/data-types",
@@ -69,9 +69,9 @@
       "system": "urn:ietf:rfc:3986"
     }
   ],
-  "version": "4.5.0",
+  "version": "4.6.0",
   "status": "draft",
-  "date": "2020-08-20T17:41:31+10:00",
+  "date": "2021-05-03T21:59:52+10:00",
   "publisher": "Health Level Seven International (Orders and Observations)",
   "item": [
     {
@@ -130,7 +130,7 @@
                   }
                 }
               ],
-              "text": "The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes. The only time that a resource does not have an id is when it is being submitted to the server using a create operation.",
+              "text": "The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes. Typically, the resource has an id except for cases like the create operation, conditional updates.",
               "type": "display"
             },
             {
@@ -255,9 +255,10 @@
             {
               "linkId": "DeviceRequest.language.value",
               "text": "language",
-              "type": "choice",
+              "type": "coding",
               "required": false,
-              "repeats": false
+              "repeats": false,
+              "answerConstraint": "optionsOnly"
             }
           ]
         },
@@ -590,7 +591,7 @@
               "extension": [
                 {
                   "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-allowedResource",
-                  "valueCode": "Resource"
+                  "valueCode": "DeviceRequest"
                 },
                 {
                   "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-referenceFilter",
@@ -700,9 +701,10 @@
             {
               "linkId": "DeviceRequest.status.value",
               "text": "status",
-              "type": "choice",
+              "type": "coding",
               "required": false,
-              "repeats": false
+              "repeats": false,
+              "answerConstraint": "optionsOrType"
             }
           ]
         },
@@ -747,9 +749,10 @@
             {
               "linkId": "DeviceRequest.intent.value",
               "text": "intent",
-              "type": "choice",
+              "type": "coding",
               "required": false,
-              "repeats": false
+              "repeats": false,
+              "answerConstraint": "optionsOrType"
             }
           ]
         },
@@ -784,13 +787,57 @@
                   }
                 }
               ],
-              "text": "Indicates how quickly the {{title}} should be addressed with respect to other requests.",
+              "text": "Indicates how quickly the request should be addressed with respect to other requests.",
               "type": "display"
             },
             {
               "linkId": "DeviceRequest.priority.value",
               "text": "priority",
-              "type": "choice",
+              "type": "coding",
+              "required": false,
+              "repeats": false,
+              "answerConstraint": "optionsOrType"
+            }
+          ]
+        },
+        {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-maxOccurs",
+              "valueInteger": 1
+            },
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-fhirType",
+              "valueString": "boolean"
+            }
+          ],
+          "linkId": "DeviceRequest.doNotPerform",
+          "type": "group",
+          "required": false,
+          "repeats": true,
+          "item": [
+            {
+              "extension": [
+                {
+                  "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
+                  "valueCodeableConcept": {
+                    "coding": [
+                      {
+                        "system": "http://hl7.org/fhir/questionnaire-item-control",
+                        "code": "flyover",
+                        "display": "Fly-over"
+                      }
+                    ]
+                  }
+                }
+              ],
+              "text": "If true, indicates that the provider is asking for the patient to either stop using or to not start using the specified device or category of devices. For example, the patient has undergone surgery and the provider is indicating that the patient should not wear contact lenses. If do not perform is not specified, the request is a positive request e.g. \"do perform\". DeviceRequest.reasonCode includes the reason for marking the DeviceRequest as \u0027do not perform\u0027.",
+              "type": "display"
+            },
+            {
+              "linkId": "DeviceRequest.doNotPerform.value",
+              "text": "True if the request is to stop or not to start using the device",
+              "type": "boolean",
               "required": false,
               "repeats": false
             }
@@ -830,6 +877,49 @@
               ],
               "text": "The details of the device to be used.",
               "type": "display"
+            }
+          ]
+        },
+        {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-maxOccurs",
+              "valueInteger": 1
+            },
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-fhirType",
+              "valueString": "integer"
+            }
+          ],
+          "linkId": "DeviceRequest.quantity",
+          "type": "group",
+          "required": false,
+          "repeats": true,
+          "item": [
+            {
+              "extension": [
+                {
+                  "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
+                  "valueCodeableConcept": {
+                    "coding": [
+                      {
+                        "system": "http://hl7.org/fhir/questionnaire-item-control",
+                        "code": "flyover",
+                        "display": "Fly-over"
+                      }
+                    ]
+                  }
+                }
+              ],
+              "text": "The number of devices to be provided.",
+              "type": "display"
+            },
+            {
+              "linkId": "DeviceRequest.quantity.value",
+              "text": "Quantity of devices to supply",
+              "type": "integer",
+              "required": false,
+              "repeats": false
             }
           ]
         },
@@ -993,9 +1083,10 @@
                 {
                   "linkId": "DeviceRequest.parameter.code.coding",
                   "text": "code:",
-                  "type": "open-choice",
+                  "type": "coding",
                   "required": false,
-                  "repeats": false
+                  "repeats": false,
+                  "answerConstraint": "optionsOnly"
                 },
                 {
                   "linkId": "DeviceRequest.parameter.code.text",
@@ -1040,9 +1131,10 @@
                 {
                   "linkId": "DeviceRequest.parameter.value[x]._type",
                   "text": "type",
-                  "type": "choice",
+                  "type": "coding",
                   "required": false,
                   "repeats": false,
+                  "answerConstraint": "optionsOnly",
                   "answerValueSet": "#vs2",
                   "item": [
                     {
@@ -1058,9 +1150,10 @@
                         {
                           "linkId": "DeviceRequest.parameter.value[x]._null.coding",
                           "text": "code:",
-                          "type": "open-choice",
+                          "type": "coding",
                           "required": false,
-                          "repeats": false
+                          "repeats": false,
+                          "answerConstraint": "optionsOnly"
                         },
                         {
                           "linkId": "DeviceRequest.parameter.value[x]._null.text",
@@ -1084,9 +1177,10 @@
                         {
                           "linkId": "DeviceRequest.parameter.value[x]._null.comparator",
                           "text": "comp:",
-                          "type": "choice",
+                          "type": "coding",
                           "required": false,
-                          "repeats": false
+                          "repeats": false,
+                          "answerConstraint": "optionsOnly"
                         },
                         {
                           "linkId": "DeviceRequest.parameter.value[x]._null.value",
@@ -1319,9 +1413,10 @@
             {
               "linkId": "DeviceRequest.occurrence[x]._type",
               "text": "type",
-              "type": "choice",
+              "type": "coding",
               "required": false,
               "repeats": false,
+              "answerConstraint": "optionsOnly",
               "answerValueSet": "#vs3",
               "item": [
                 {
@@ -1493,7 +1588,7 @@
                   }
                 }
               ],
-              "text": "The individual who initiated the request and has responsibility for its activation.",
+              "text": "The individual or entity who initiated the request and has responsibility for its activation.",
               "type": "display"
             },
             {
@@ -1508,7 +1603,7 @@
                 }
               ],
               "linkId": "DeviceRequest.requester.value",
-              "text": "Who/what is requesting diagnostics",
+              "text": "Who/what submitted the device request",
               "type": "reference",
               "required": false,
               "repeats": false
@@ -1547,15 +1642,16 @@
                   }
                 }
               ],
-              "text": "Desired type of performer for doing the diagnostic testing.",
+              "text": "The desired kind of individual or entity to provide the device to the subject of the request (e.g., patient, location).",
               "type": "display"
             },
             {
               "linkId": "DeviceRequest.performerType.coding",
               "text": "code:",
-              "type": "open-choice",
+              "type": "coding",
               "required": false,
-              "repeats": false
+              "repeats": false,
+              "answerConstraint": "optionsOnly"
             },
             {
               "linkId": "DeviceRequest.performerType.text",
@@ -1597,7 +1693,7 @@
                   }
                 }
               ],
-              "text": "The desired performer for doing the diagnostic testing.",
+              "text": "The desired individual or entity to provide the device to the subject of the request (e.g., patient, location).",
               "type": "display"
             },
             {

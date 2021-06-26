@@ -12,7 +12,7 @@
     }
   ],
   "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-referenceResource",
-  "version": "4.5.0",
+  "version": "4.6.0",
   "name": "referenceResource",
   "status": "draft",
   "date": "2013-07-04",
@@ -28,7 +28,7 @@
     }
   ],
   "description": "Where the type for a question is \"Reference\", indicates a type of resource that is permitted.",
-  "fhirVersion": "4.5.0",
+  "fhirVersion": "4.6.0",
   "mapping": [
     {
       "identity": "rim",
@@ -42,10 +42,6 @@
     {
       "type": "element",
       "expression": "Questionnaire.item"
-    },
-    {
-      "type": "element",
-      "expression": "Questionnaire.item.item"
     }
   ],
   "contextInvariant": [
@@ -61,7 +57,7 @@
         "path": "Extension",
         "short": "Allowed resource for reference",
         "definition": "Where the type for a question is \"Reference\", indicates a type of resource that is permitted.",
-        "comment": "This extension only has meaning if the question.type \u003d Reference.  If no allowedResource extensions are present, the presumption is that any type of resource is permitted.  If multiple are present, then any of the specified types are permitted.",
+        "comment": "This extension only has meaning if the question.type \u003d Reference.  If no allowedResource extensions are present, the presumption is that any type of resource is permitted.  If multiple are present, then any of the specified types are permitted.  See additional guidance and examples in the [SDC implementation guide](http://build.fhir.org/ig/HL7/sdc/behavior.html#referenceResource).",
         "min": 0,
         "max": "*",
         "base": {
@@ -257,7 +253,7 @@
           ],
           "strength": "required",
           "description": "One of the resource types defined as part of this version of FHIR.",
-          "valueSet": "http://hl7.org/fhir/ValueSet/resource-types|4.5.0"
+          "valueSet": "http://hl7.org/fhir/ValueSet/resource-types"
         },
         "mapping": [
           {
@@ -275,7 +271,7 @@
         "path": "Extension",
         "short": "Allowed resource for reference",
         "definition": "Where the type for a question is \"Reference\", indicates a type of resource that is permitted.",
-        "comment": "This extension only has meaning if the question.type \u003d Reference.  If no allowedResource extensions are present, the presumption is that any type of resource is permitted.  If multiple are present, then any of the specified types are permitted.",
+        "comment": "This extension only has meaning if the question.type \u003d Reference.  If no allowedResource extensions are present, the presumption is that any type of resource is permitted.  If multiple are present, then any of the specified types are permitted.  See additional guidance and examples in the [SDC implementation guide](http://build.fhir.org/ig/HL7/sdc/behavior.html#referenceResource).",
         "min": 0,
         "max": "*",
         "mapping": [
@@ -317,7 +313,7 @@
           ],
           "strength": "required",
           "description": "One of the resource types defined as part of this version of FHIR.",
-          "valueSet": "http://hl7.org/fhir/ValueSet/resource-types|4.5.0"
+          "valueSet": "http://hl7.org/fhir/ValueSet/resource-types"
         }
       }
     ]

@@ -9,8 +9,8 @@
       "status": "active",
       "description": "Type options for SubstanceReferenceInformation.target.amount[x]",
       "expansion": {
-        "identifier": "urn:uuid:0c255d6f-53a1-4e53-b19e-0302be1fa28a",
-        "timestamp": "2020-08-20T17:46:48+10:00",
+        "identifier": "urn:uuid:3a60e59b-2d48-4519-975a-7dd3fec23e3d",
+        "timestamp": "2021-05-03T22:04:51+10:00",
         "contains": [
           {
             "system": "http://hl7.org/fhir/data-types",
@@ -36,9 +36,9 @@
       "system": "urn:ietf:rfc:3986"
     }
   ],
-  "version": "4.5.0",
+  "version": "4.6.0",
   "status": "draft",
-  "date": "2020-08-20T17:41:31+10:00",
+  "date": "2021-05-03T21:59:52+10:00",
   "publisher": "Health Level Seven International (Biomedical Research and Regulation)",
   "item": [
     {
@@ -97,7 +97,7 @@
                   }
                 }
               ],
-              "text": "The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes. The only time that a resource does not have an id is when it is being submitted to the server using a create operation.",
+              "text": "The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes. Typically, the resource has an id except for cases like the create operation, conditional updates.",
               "type": "display"
             },
             {
@@ -222,9 +222,10 @@
             {
               "linkId": "SubstanceReferenceInformation.language.value",
               "text": "language",
-              "type": "choice",
+              "type": "coding",
               "required": false,
-              "repeats": false
+              "repeats": false,
+              "answerConstraint": "optionsOnly"
             }
           ]
         },
@@ -545,9 +546,10 @@
                 {
                   "linkId": "SubstanceReferenceInformation.gene.geneSequenceOrigin.coding",
                   "text": "code:",
-                  "type": "open-choice",
+                  "type": "coding",
                   "required": false,
-                  "repeats": false
+                  "repeats": false,
+                  "answerConstraint": "optionsOnly"
                 },
                 {
                   "linkId": "SubstanceReferenceInformation.gene.geneSequenceOrigin.text",
@@ -596,9 +598,10 @@
                 {
                   "linkId": "SubstanceReferenceInformation.gene.gene.coding",
                   "text": "code:",
-                  "type": "open-choice",
+                  "type": "coding",
                   "required": false,
-                  "repeats": false
+                  "repeats": false,
+                  "answerConstraint": "optionsOnly"
                 },
                 {
                   "linkId": "SubstanceReferenceInformation.gene.gene.text",
@@ -820,9 +823,10 @@
                 {
                   "linkId": "SubstanceReferenceInformation.geneElement.type.coding",
                   "text": "code:",
-                  "type": "open-choice",
+                  "type": "coding",
                   "required": false,
-                  "repeats": false
+                  "repeats": false,
+                  "answerConstraint": "optionsOnly"
                 },
                 {
                   "linkId": "SubstanceReferenceInformation.geneElement.type.text",
@@ -1160,9 +1164,10 @@
                 {
                   "linkId": "SubstanceReferenceInformation.target.type.coding",
                   "text": "code:",
-                  "type": "open-choice",
+                  "type": "coding",
                   "required": false,
-                  "repeats": false
+                  "repeats": false,
+                  "answerConstraint": "optionsOnly"
                 },
                 {
                   "linkId": "SubstanceReferenceInformation.target.type.text",
@@ -1211,9 +1216,10 @@
                 {
                   "linkId": "SubstanceReferenceInformation.target.interaction.coding",
                   "text": "code:",
-                  "type": "open-choice",
+                  "type": "coding",
                   "required": false,
-                  "repeats": false
+                  "repeats": false,
+                  "answerConstraint": "optionsOnly"
                 },
                 {
                   "linkId": "SubstanceReferenceInformation.target.interaction.text",
@@ -1262,9 +1268,10 @@
                 {
                   "linkId": "SubstanceReferenceInformation.target.organism.coding",
                   "text": "code:",
-                  "type": "open-choice",
+                  "type": "coding",
                   "required": false,
-                  "repeats": false
+                  "repeats": false,
+                  "answerConstraint": "optionsOnly"
                 },
                 {
                   "linkId": "SubstanceReferenceInformation.target.organism.text",
@@ -1313,9 +1320,10 @@
                 {
                   "linkId": "SubstanceReferenceInformation.target.organismType.coding",
                   "text": "code:",
-                  "type": "open-choice",
+                  "type": "coding",
                   "required": false,
-                  "repeats": false
+                  "repeats": false,
+                  "answerConstraint": "optionsOnly"
                 },
                 {
                   "linkId": "SubstanceReferenceInformation.target.organismType.text",
@@ -1360,9 +1368,10 @@
                 {
                   "linkId": "SubstanceReferenceInformation.target.amount[x]._type",
                   "text": "type",
-                  "type": "choice",
+                  "type": "coding",
                   "required": false,
                   "repeats": false,
+                  "answerConstraint": "optionsOnly",
                   "answerValueSet": "#vs2",
                   "item": [
                     {
@@ -1378,9 +1387,10 @@
                         {
                           "linkId": "SubstanceReferenceInformation.target.amount[x]._null.comparator",
                           "text": "comp:",
-                          "type": "choice",
+                          "type": "coding",
                           "required": false,
-                          "repeats": false
+                          "repeats": false,
+                          "answerConstraint": "optionsOnly"
                         },
                         {
                           "linkId": "SubstanceReferenceInformation.target.amount[x]._null.value",
@@ -1505,9 +1515,10 @@
                 {
                   "linkId": "SubstanceReferenceInformation.target.amountType.coding",
                   "text": "code:",
-                  "type": "open-choice",
+                  "type": "coding",
                   "required": false,
-                  "repeats": false
+                  "repeats": false,
+                  "answerConstraint": "optionsOnly"
                 },
                 {
                   "linkId": "SubstanceReferenceInformation.target.amountType.text",

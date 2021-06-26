@@ -9,8 +9,8 @@
       "status": "active",
       "description": "Type options for Group.characteristic.value[x]",
       "expansion": {
-        "identifier": "urn:uuid:e19ceae9-342c-4cd7-8e1c-52358f5f329d",
-        "timestamp": "2020-08-20T17:45:33+10:00",
+        "identifier": "urn:uuid:20c29553-8c91-4afc-81f9-57c1827e6d88",
+        "timestamp": "2021-05-03T22:03:36+10:00",
         "contains": [
           {
             "system": "http://hl7.org/fhir/data-types",
@@ -41,9 +41,9 @@
       "system": "urn:ietf:rfc:3986"
     }
   ],
-  "version": "4.5.0",
+  "version": "4.6.0",
   "status": "draft",
-  "date": "2020-08-20T17:41:31+10:00",
+  "date": "2020-12-28T16:55:11+11:00",
   "publisher": "HL7",
   "item": [
     {
@@ -116,7 +116,7 @@
                   }
                 }
               ],
-              "text": "The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes. The only time that a resource does not have an id is when it is being submitted to the server using a create operation.",
+              "text": "The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes. Typically, the resource has an id except for cases like the create operation, conditional updates.",
               "type": "display"
             },
             {
@@ -241,9 +241,10 @@
             {
               "linkId": "Group.language.value",
               "text": "language",
-              "type": "choice",
+              "type": "coding",
               "required": false,
-              "repeats": false
+              "repeats": false,
+              "answerConstraint": "optionsOnly"
             }
           ]
         },
@@ -499,9 +500,10 @@
             {
               "linkId": "Group.type.value",
               "text": "type",
-              "type": "choice",
+              "type": "coding",
               "required": false,
-              "repeats": false
+              "repeats": false,
+              "answerConstraint": "optionsOrType"
             }
           ]
         },
@@ -590,9 +592,10 @@
             {
               "linkId": "Group.code.coding",
               "text": "code:",
-              "type": "open-choice",
+              "type": "coding",
               "required": false,
-              "repeats": false
+              "repeats": false,
+              "answerConstraint": "optionsOnly"
             },
             {
               "linkId": "Group.code.text",
@@ -910,9 +913,10 @@
                 {
                   "linkId": "Group.characteristic.code.coding",
                   "text": "code:",
-                  "type": "open-choice",
+                  "type": "coding",
                   "required": false,
-                  "repeats": false
+                  "repeats": false,
+                  "answerConstraint": "optionsOnly"
                 },
                 {
                   "linkId": "Group.characteristic.code.text",
@@ -961,9 +965,10 @@
                 {
                   "linkId": "Group.characteristic.value[x]._type",
                   "text": "type",
-                  "type": "choice",
+                  "type": "coding",
                   "required": false,
                   "repeats": false,
+                  "answerConstraint": "optionsOnly",
                   "answerValueSet": "#vs2",
                   "item": [
                     {
@@ -979,9 +984,10 @@
                         {
                           "linkId": "Group.characteristic.value[x]._null.coding",
                           "text": "code:",
-                          "type": "open-choice",
+                          "type": "coding",
                           "required": false,
-                          "repeats": false
+                          "repeats": false,
+                          "answerConstraint": "optionsOnly"
                         },
                         {
                           "linkId": "Group.characteristic.value[x]._null.text",
@@ -1023,9 +1029,10 @@
                         {
                           "linkId": "Group.characteristic.value[x]._null.comparator",
                           "text": "comp:",
-                          "type": "choice",
+                          "type": "coding",
                           "required": false,
-                          "repeats": false
+                          "repeats": false,
+                          "answerConstraint": "optionsOnly"
                         },
                         {
                           "linkId": "Group.characteristic.value[x]._null.value",

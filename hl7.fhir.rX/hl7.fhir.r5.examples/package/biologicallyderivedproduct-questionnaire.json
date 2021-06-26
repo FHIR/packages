@@ -9,8 +9,8 @@
       "status": "active",
       "description": "Type options for BiologicallyDerivedProduct.collection.collected[x]",
       "expansion": {
-        "identifier": "urn:uuid:3124f9fa-99a3-42ab-b645-18d82e7f5339",
-        "timestamp": "2020-08-20T17:44:46+10:00",
+        "identifier": "urn:uuid:fe36e2f8-7a14-41f9-bef9-85a5180d8962",
+        "timestamp": "2021-05-03T22:02:53+10:00",
         "contains": [
           {
             "system": "http://hl7.org/fhir/data-types",
@@ -32,8 +32,8 @@
       "status": "active",
       "description": "Type options for BiologicallyDerivedProduct.processing.time[x]",
       "expansion": {
-        "identifier": "urn:uuid:b5472992-b0d0-47b9-8a7d-092b3b52e31c",
-        "timestamp": "2020-08-20T17:44:46+10:00",
+        "identifier": "urn:uuid:bf408b3c-ea37-4241-bca5-a8e5c47bb5d7",
+        "timestamp": "2021-05-03T22:02:53+10:00",
         "contains": [
           {
             "system": "http://hl7.org/fhir/data-types",
@@ -55,8 +55,8 @@
       "status": "active",
       "description": "Type options for BiologicallyDerivedProduct.manipulation.time[x]",
       "expansion": {
-        "identifier": "urn:uuid:cd187f4c-edce-4371-a218-c497fbfa624f",
-        "timestamp": "2020-08-20T17:44:46+10:00",
+        "identifier": "urn:uuid:d857cc39-08ba-46bd-a364-73b1bbc0f36f",
+        "timestamp": "2021-05-03T22:02:53+10:00",
         "contains": [
           {
             "system": "http://hl7.org/fhir/data-types",
@@ -77,9 +77,9 @@
       "system": "urn:ietf:rfc:3986"
     }
   ],
-  "version": "4.5.0",
+  "version": "4.6.0",
   "status": "draft",
-  "date": "2020-08-20T17:41:31+10:00",
+  "date": "2021-05-03T21:59:52+10:00",
   "publisher": "Health Level Seven International (Orders and Observations)",
   "item": [
     {
@@ -142,7 +142,7 @@
                   }
                 }
               ],
-              "text": "The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes. The only time that a resource does not have an id is when it is being submitted to the server using a create operation.",
+              "text": "The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes. Typically, the resource has an id except for cases like the create operation, conditional updates.",
               "type": "display"
             },
             {
@@ -267,9 +267,10 @@
             {
               "linkId": "BiologicallyDerivedProduct.language.value",
               "text": "language",
-              "type": "choice",
+              "type": "coding",
               "required": false,
-              "repeats": false
+              "repeats": false,
+              "answerConstraint": "optionsOnly"
             }
           ]
         },
@@ -478,9 +479,10 @@
             {
               "linkId": "BiologicallyDerivedProduct.productCategory.value",
               "text": "product category",
-              "type": "choice",
+              "type": "coding",
               "required": false,
-              "repeats": false
+              "repeats": false,
+              "answerConstraint": "optionsOrType"
             }
           ]
         },
@@ -522,9 +524,10 @@
             {
               "linkId": "BiologicallyDerivedProduct.productCode.coding",
               "text": "code:",
-              "type": "open-choice",
+              "type": "coding",
               "required": false,
-              "repeats": false
+              "repeats": false,
+              "answerConstraint": "optionsOnly"
             },
             {
               "linkId": "BiologicallyDerivedProduct.productCode.text",
@@ -572,9 +575,10 @@
             {
               "linkId": "BiologicallyDerivedProduct.status.value",
               "text": "status",
-              "type": "choice",
+              "type": "coding",
               "required": false,
-              "repeats": false
+              "repeats": false,
+              "answerConstraint": "optionsOrType"
             }
           ]
         },
@@ -987,9 +991,10 @@
                 {
                   "linkId": "BiologicallyDerivedProduct.collection.collected[x]._type",
                   "text": "type",
-                  "type": "choice",
+                  "type": "coding",
                   "required": false,
                   "repeats": false,
+                  "answerConstraint": "optionsOnly",
                   "answerValueSet": "#vs2",
                   "item": [
                     {
@@ -1245,9 +1250,10 @@
                 {
                   "linkId": "BiologicallyDerivedProduct.processing.procedure.coding",
                   "text": "code:",
-                  "type": "open-choice",
+                  "type": "coding",
                   "required": false,
-                  "repeats": false
+                  "repeats": false,
+                  "answerConstraint": "optionsOnly"
                 },
                 {
                   "linkId": "BiologicallyDerivedProduct.processing.procedure.text",
@@ -1345,9 +1351,10 @@
                 {
                   "linkId": "BiologicallyDerivedProduct.processing.time[x]._type",
                   "text": "type",
-                  "type": "choice",
+                  "type": "coding",
                   "required": false,
                   "repeats": false,
+                  "answerConstraint": "optionsOnly",
                   "answerValueSet": "#vs3",
                   "item": [
                     {
@@ -1605,9 +1612,10 @@
                 {
                   "linkId": "BiologicallyDerivedProduct.manipulation.time[x]._type",
                   "text": "type",
-                  "type": "choice",
+                  "type": "coding",
                   "required": false,
                   "repeats": false,
+                  "answerConstraint": "optionsOnly",
                   "answerValueSet": "#vs4",
                   "item": [
                     {
@@ -1905,9 +1913,10 @@
                 {
                   "linkId": "BiologicallyDerivedProduct.storage.scale.value",
                   "text": "scale",
-                  "type": "choice",
+                  "type": "coding",
                   "required": false,
-                  "repeats": false
+                  "repeats": false,
+                  "answerConstraint": "optionsOrType"
                 }
               ]
             },

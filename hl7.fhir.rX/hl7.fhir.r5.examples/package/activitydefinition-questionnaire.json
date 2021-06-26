@@ -9,8 +9,8 @@
       "status": "active",
       "description": "Type options for ActivityDefinition.subject[x]",
       "expansion": {
-        "identifier": "urn:uuid:fecb2998-bb02-4252-ad3a-f5d55011496d",
-        "timestamp": "2020-08-20T17:44:40+10:00",
+        "identifier": "urn:uuid:32703ed9-9595-4abf-8fae-d0a139bbc109",
+        "timestamp": "2021-05-03T22:02:44+10:00",
         "contains": [
           {
             "system": "http://hl7.org/fhir/data-types",
@@ -32,8 +32,8 @@
       "status": "active",
       "description": "Type options for ActivityDefinition.timing[x]",
       "expansion": {
-        "identifier": "urn:uuid:eff41abf-3f51-4016-832e-982567ae248a",
-        "timestamp": "2020-08-20T17:44:40+10:00",
+        "identifier": "urn:uuid:83b004a0-2538-47ac-a5b2-7eb0b0328b82",
+        "timestamp": "2021-05-03T22:02:44+10:00",
         "contains": [
           {
             "system": "http://hl7.org/fhir/data-types",
@@ -42,18 +42,8 @@
           },
           {
             "system": "http://hl7.org/fhir/data-types",
-            "code": "dateTime",
-            "display": "dateTime"
-          },
-          {
-            "system": "http://hl7.org/fhir/data-types",
             "code": "Age",
             "display": "Age"
-          },
-          {
-            "system": "http://hl7.org/fhir/data-types",
-            "code": "Period",
-            "display": "Period"
           },
           {
             "system": "http://hl7.org/fhir/data-types",
@@ -75,8 +65,8 @@
       "status": "active",
       "description": "Type options for ActivityDefinition.product[x]",
       "expansion": {
-        "identifier": "urn:uuid:5832c973-5ccf-4c3c-a643-fd2e42bf3d85",
-        "timestamp": "2020-08-20T17:44:40+10:00",
+        "identifier": "urn:uuid:eba1cb0a-7aae-4a33-82a4-1d0d17d6f5c4",
+        "timestamp": "2021-05-03T22:02:44+10:00",
         "contains": [
           {
             "system": "http://hl7.org/fhir/resource-types",
@@ -87,6 +77,11 @@
             "system": "http://hl7.org/fhir/resource-types",
             "code": "Substance",
             "display": "Substance"
+          },
+          {
+            "system": "http://hl7.org/fhir/resource-types",
+            "code": "Ingredient",
+            "display": "Ingredient"
           },
           {
             "system": "http://hl7.org/fhir/data-types",
@@ -102,9 +97,9 @@
       "system": "urn:ietf:rfc:3986"
     }
   ],
-  "version": "4.5.0",
+  "version": "4.6.0",
   "status": "draft",
-  "date": "2020-08-20T17:41:31+10:00",
+  "date": "2021-05-03T21:59:52+10:00",
   "publisher": "Health Level Seven International (Clinical Decision Support)",
   "item": [
     {
@@ -163,7 +158,7 @@
                   }
                 }
               ],
-              "text": "The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes. The only time that a resource does not have an id is when it is being submitted to the server using a create operation.",
+              "text": "The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes. Typically, the resource has an id except for cases like the create operation, conditional updates.",
               "type": "display"
             },
             {
@@ -288,9 +283,10 @@
             {
               "linkId": "ActivityDefinition.language.value",
               "text": "language",
-              "type": "choice",
+              "type": "coding",
               "required": false,
-              "repeats": false
+              "repeats": false,
+              "answerConstraint": "optionsOnly"
             }
           ]
         },
@@ -718,9 +714,10 @@
             {
               "linkId": "ActivityDefinition.status.value",
               "text": "status",
-              "type": "choice",
+              "type": "coding",
               "required": false,
-              "repeats": false
+              "repeats": false,
+              "answerConstraint": "optionsOrType"
             }
           ]
         },
@@ -795,15 +792,16 @@
                   }
                 }
               ],
-              "text": "A code or group definition that describes the intended subject of the activity being defined.",
+              "text": "A code, group definition, or canonical reference that describes  or identifies the intended subject of the activity being defined.  Canonical references are allowed to support the definition of protocols for drug and substance quality specifications, and is allowed to reference a MedicinalProductDefinition, SubstanceDefinition, AdministrableProductDefinition, ManufacturedItemDefinition, or PackagedProductDefinition resource.",
               "type": "display"
             },
             {
               "linkId": "ActivityDefinition.subject[x]._type",
               "text": "type",
-              "type": "choice",
+              "type": "coding",
               "required": false,
               "repeats": false,
+              "answerConstraint": "optionsOnly",
               "answerValueSet": "#vs2",
               "item": [
                 {
@@ -819,9 +817,10 @@
                     {
                       "linkId": "ActivityDefinition.subject[x]._null.coding",
                       "text": "code:",
-                      "type": "open-choice",
+                      "type": "coding",
                       "required": false,
-                      "repeats": false
+                      "repeats": false,
+                      "answerConstraint": "optionsOnly"
                     },
                     {
                       "linkId": "ActivityDefinition.subject[x]._null.text",
@@ -855,6 +854,24 @@
                       ],
                       "linkId": "ActivityDefinition.subject[x]._null.value",
                       "type": "reference",
+                      "required": false,
+                      "repeats": false
+                    }
+                  ]
+                },
+                {
+                  "extension": [
+                    {
+                      "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-fhirType",
+                      "valueString": "uri"
+                    }
+                  ],
+                  "linkId": "ActivityDefinition.subject[x]._null",
+                  "type": "group",
+                  "item": [
+                    {
+                      "linkId": "ActivityDefinition.subject[x]._null.value",
+                      "type": "string",
                       "required": false,
                       "repeats": false
                     }
@@ -1089,9 +1106,10 @@
             {
               "linkId": "ActivityDefinition.jurisdiction.coding",
               "text": "code:",
-              "type": "open-choice",
+              "type": "coding",
               "required": false,
-              "repeats": false
+              "repeats": false,
+              "answerConstraint": "optionsOnly"
             },
             {
               "linkId": "ActivityDefinition.jurisdiction.text",
@@ -1402,9 +1420,10 @@
             {
               "linkId": "ActivityDefinition.topic.coding",
               "text": "code:",
-              "type": "open-choice",
+              "type": "coding",
               "required": false,
-              "repeats": false
+              "repeats": false,
+              "answerConstraint": "optionsOnly"
             },
             {
               "linkId": "ActivityDefinition.topic.text",
@@ -1630,9 +1649,10 @@
             {
               "linkId": "ActivityDefinition.kind.value",
               "text": "kind",
-              "type": "choice",
+              "type": "coding",
               "required": false,
-              "repeats": false
+              "repeats": false,
+              "answerConstraint": "optionsOrType"
             }
           ]
         },
@@ -1717,9 +1737,10 @@
             {
               "linkId": "ActivityDefinition.code.coding",
               "text": "code:",
-              "type": "open-choice",
+              "type": "coding",
               "required": false,
-              "repeats": false
+              "repeats": false,
+              "answerConstraint": "optionsOnly"
             },
             {
               "linkId": "ActivityDefinition.code.text",
@@ -1767,9 +1788,10 @@
             {
               "linkId": "ActivityDefinition.intent.value",
               "text": "intent",
-              "type": "choice",
+              "type": "coding",
               "required": false,
-              "repeats": false
+              "repeats": false,
+              "answerConstraint": "optionsOrType"
             }
           ]
         },
@@ -1810,9 +1832,10 @@
             {
               "linkId": "ActivityDefinition.priority.value",
               "text": "priority",
-              "type": "choice",
+              "type": "coding",
               "required": false,
-              "repeats": false
+              "repeats": false,
+              "answerConstraint": "optionsOrType"
             }
           ]
         },
@@ -1887,15 +1910,16 @@
                   }
                 }
               ],
-              "text": "The period, timing or frequency upon which the described activity is to occur.",
+              "text": "The timing or frequency upon which the described activity is to occur. The intent of the timing element is to provide timing when the action should be performed. As a definitional resource, this timing is interpreted as part of an apply operation so that the timing of the result actions in a CarePlan or RequestGroup, for example, would be specified by evaluating the timing definition in the context of the apply and setting the resulting timing on the appropriate elements of the target resource. If the timing is an Age, the activity is expected to be performed when the subject is the given Age. When the timing is a Duration, the activity is expected to be performed within the specified duration from the apply. When the timing is a Range, it may be a range of Ages or Durations, providing a range for the expected timing of the resulting activity. When the timing is a Timing, it is establishing a schedule for the timing of the resulting activity.",
               "type": "display"
             },
             {
               "linkId": "ActivityDefinition.timing[x]._type",
               "text": "type",
-              "type": "choice",
+              "type": "coding",
               "required": false,
               "repeats": false,
+              "answerConstraint": "optionsOnly",
               "answerValueSet": "#vs3",
               "item": [
                 {
@@ -1949,24 +1973,6 @@
                   "extension": [
                     {
                       "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-fhirType",
-                      "valueString": "datetime"
-                    }
-                  ],
-                  "linkId": "ActivityDefinition.timing[x]._null",
-                  "type": "group",
-                  "item": [
-                    {
-                      "linkId": "ActivityDefinition.timing[x]._null.value",
-                      "type": "dateTime",
-                      "required": false,
-                      "repeats": false
-                    }
-                  ]
-                },
-                {
-                  "extension": [
-                    {
-                      "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-fhirType",
                       "valueString": "Quantity"
                     }
                   ],
@@ -1976,9 +1982,10 @@
                     {
                       "linkId": "ActivityDefinition.timing[x]._null.comparator",
                       "text": "comp:",
-                      "type": "choice",
+                      "type": "coding",
                       "required": false,
-                      "repeats": false
+                      "repeats": false,
+                      "answerConstraint": "optionsOnly"
                     },
                     {
                       "linkId": "ActivityDefinition.timing[x]._null.value",
@@ -2005,32 +2012,6 @@
                       "linkId": "ActivityDefinition.timing[x]._null.system",
                       "text": "units system:",
                       "type": "string",
-                      "required": false,
-                      "repeats": false
-                    }
-                  ]
-                },
-                {
-                  "extension": [
-                    {
-                      "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-fhirType",
-                      "valueString": "Period"
-                    }
-                  ],
-                  "linkId": "ActivityDefinition.timing[x]._null",
-                  "type": "group",
-                  "item": [
-                    {
-                      "linkId": "ActivityDefinition.timing[x]._null.low",
-                      "text": "start:",
-                      "type": "dateTime",
-                      "required": false,
-                      "repeats": false
-                    },
-                    {
-                      "linkId": "ActivityDefinition.timing[x]._null.end",
-                      "text": "end:",
-                      "type": "dateTime",
                       "required": false,
                       "repeats": false
                     }
@@ -2082,9 +2063,10 @@
                     {
                       "linkId": "ActivityDefinition.timing[x]._null.comparator",
                       "text": "comp:",
-                      "type": "choice",
+                      "type": "coding",
                       "required": false,
-                      "repeats": false
+                      "repeats": false,
+                      "answerConstraint": "optionsOnly"
                     },
                     {
                       "linkId": "ActivityDefinition.timing[x]._null.value",
@@ -2125,17 +2107,18 @@
             {
               "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-maxOccurs",
               "valueInteger": 1
-            },
-            {
-              "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-fhirType",
-              "valueString": "Reference"
             }
           ],
           "linkId": "ActivityDefinition.location",
+          "text": "Where it should happen",
           "type": "group",
           "required": false,
-          "repeats": true,
+          "repeats": false,
           "item": [
+            {
+              "text": "May reference a specific clinical location or may just identify a type of location.",
+              "type": "display"
+            },
             {
               "extension": [
                 {
@@ -2151,25 +2134,8 @@
                   }
                 }
               ],
-              "text": "Identifies the facility where the activity will occur; e.g. home, hospital, specific clinic, etc. May reference a specific clinical location or may just identify a type of location.",
+              "text": "Identifies the facility where the activity will occur; e.g. home, hospital, specific clinic, etc.",
               "type": "display"
-            },
-            {
-              "extension": [
-                {
-                  "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-allowedResource",
-                  "valueCode": "Location"
-                },
-                {
-                  "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-referenceFilter",
-                  "valueString": "subject\u003d$subj\u0026patient\u003d$subj\u0026encounter\u003d$encounter"
-                }
-              ],
-              "linkId": "ActivityDefinition.location.value",
-              "text": "Where it should happen",
-              "type": "reference",
-              "required": false,
-              "repeats": false
             }
           ]
         },
@@ -2298,10 +2264,6 @@
             {
               "extension": [
                 {
-                  "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-minOccurs",
-                  "valueInteger": 1
-                },
-                {
                   "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-maxOccurs",
                   "valueInteger": 1
                 },
@@ -2312,7 +2274,7 @@
               ],
               "linkId": "ActivityDefinition.participant.type",
               "type": "group",
-              "required": true,
+              "required": false,
               "repeats": true,
               "item": [
                 {
@@ -2336,7 +2298,61 @@
                 {
                   "linkId": "ActivityDefinition.participant.type.value",
                   "text": "type",
-                  "type": "choice",
+                  "type": "coding",
+                  "required": false,
+                  "repeats": false,
+                  "answerConstraint": "optionsOrType"
+                }
+              ]
+            },
+            {
+              "extension": [
+                {
+                  "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-maxOccurs",
+                  "valueInteger": 1
+                },
+                {
+                  "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-fhirType",
+                  "valueString": "Reference"
+                }
+              ],
+              "linkId": "ActivityDefinition.participant.typeReference",
+              "type": "group",
+              "required": false,
+              "repeats": true,
+              "item": [
+                {
+                  "extension": [
+                    {
+                      "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
+                      "valueCodeableConcept": {
+                        "coding": [
+                          {
+                            "system": "http://hl7.org/fhir/questionnaire-item-control",
+                            "code": "flyover",
+                            "display": "Fly-over"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "text": "The type of participant in the action. When this element is a reference, it SHOULD be a reference to a definitional resource (for example, a location type, rather than a specific location).",
+                  "type": "display"
+                },
+                {
+                  "extension": [
+                    {
+                      "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-allowedResource",
+                      "valueCode": "CareTeam, Device, Group, HealthcareService, Location, Organization, Patient, Practitioner, PractitionerRole, RelatedPerson"
+                    },
+                    {
+                      "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-referenceFilter",
+                      "valueString": "subject\u003d$subj\u0026patient\u003d$subj\u0026encounter\u003d$encounter"
+                    }
+                  ],
+                  "linkId": "ActivityDefinition.participant.typeReference.value",
+                  "text": "Who or what can participate",
+                  "type": "reference",
                   "required": false,
                   "repeats": false
                 }
@@ -2380,12 +2396,65 @@
                 {
                   "linkId": "ActivityDefinition.participant.role.coding",
                   "text": "code:",
-                  "type": "open-choice",
+                  "type": "coding",
                   "required": false,
-                  "repeats": false
+                  "repeats": false,
+                  "answerConstraint": "optionsOnly"
                 },
                 {
                   "linkId": "ActivityDefinition.participant.role.text",
+                  "text": "text:",
+                  "type": "string",
+                  "required": false,
+                  "repeats": false
+                }
+              ]
+            },
+            {
+              "extension": [
+                {
+                  "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-maxOccurs",
+                  "valueInteger": 1
+                },
+                {
+                  "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-fhirType",
+                  "valueString": "CodeableConcept"
+                }
+              ],
+              "linkId": "ActivityDefinition.participant.function",
+              "text": "E.g. Author, Reviewer, Witness, etc.",
+              "type": "group",
+              "required": false,
+              "repeats": true,
+              "item": [
+                {
+                  "extension": [
+                    {
+                      "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
+                      "valueCodeableConcept": {
+                        "coding": [
+                          {
+                            "system": "http://hl7.org/fhir/questionnaire-item-control",
+                            "code": "flyover",
+                            "display": "Fly-over"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "text": "Indicates how the actor will be involved in the action - author, reviewer, witness, etc.",
+                  "type": "display"
+                },
+                {
+                  "linkId": "ActivityDefinition.participant.function.coding",
+                  "text": "code:",
+                  "type": "coding",
+                  "required": false,
+                  "repeats": false,
+                  "answerConstraint": "optionsOnly"
+                },
+                {
+                  "linkId": "ActivityDefinition.participant.function.text",
                   "text": "text:",
                   "type": "string",
                   "required": false,
@@ -2429,9 +2498,10 @@
             {
               "linkId": "ActivityDefinition.product[x]._type",
               "text": "type",
-              "type": "choice",
+              "type": "coding",
               "required": false,
               "repeats": false,
+              "answerConstraint": "optionsOnly",
               "answerValueSet": "#vs4",
               "item": [
                 {
@@ -2448,7 +2518,7 @@
                       "extension": [
                         {
                           "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-allowedResource",
-                          "valueCode": "Medication, Substance"
+                          "valueCode": "Medication, Substance, Ingredient"
                         },
                         {
                           "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-referenceFilter",
@@ -2475,9 +2545,10 @@
                     {
                       "linkId": "ActivityDefinition.product[x]._null.coding",
                       "text": "code:",
-                      "type": "open-choice",
+                      "type": "coding",
                       "required": false,
-                      "repeats": false
+                      "repeats": false,
+                      "answerConstraint": "optionsOnly"
                     },
                     {
                       "linkId": "ActivityDefinition.product[x]._null.text",
@@ -2530,9 +2601,10 @@
             {
               "linkId": "ActivityDefinition.quantity.comparator",
               "text": "comp:",
-              "type": "choice",
+              "type": "coding",
               "required": false,
-              "repeats": false
+              "repeats": false,
+              "answerConstraint": "optionsOnly"
             },
             {
               "linkId": "ActivityDefinition.quantity.value",
@@ -2629,9 +2701,10 @@
             {
               "linkId": "ActivityDefinition.bodySite.coding",
               "text": "code:",
-              "type": "open-choice",
+              "type": "coding",
               "required": false,
-              "repeats": false
+              "repeats": false,
+              "answerConstraint": "optionsOnly"
             },
             {
               "linkId": "ActivityDefinition.bodySite.text",

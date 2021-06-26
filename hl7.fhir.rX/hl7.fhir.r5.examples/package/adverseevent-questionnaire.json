@@ -9,8 +9,8 @@
       "status": "active",
       "description": "Type options for AdverseEvent.occurrence[x]",
       "expansion": {
-        "identifier": "urn:uuid:8ec83e5f-8773-4f15-9b43-967f5cfa2566",
-        "timestamp": "2020-08-20T17:44:42+10:00",
+        "identifier": "urn:uuid:e36c3af8-e966-4f3d-8f05-09b019ae95ad",
+        "timestamp": "2021-05-03T22:02:49+10:00",
         "contains": [
           {
             "system": "http://hl7.org/fhir/data-types",
@@ -37,8 +37,8 @@
       "status": "active",
       "description": "Type options for AdverseEvent.suspectEntity.instance[x]",
       "expansion": {
-        "identifier": "urn:uuid:5e674010-c838-480f-bcec-fa69f4267aed",
-        "timestamp": "2020-08-20T17:44:42+10:00",
+        "identifier": "urn:uuid:7e6fc7b1-970b-4e3f-82ab-1442063a5c9c",
+        "timestamp": "2021-05-03T22:02:49+10:00",
         "contains": [
           {
             "system": "http://hl7.org/fhir/data-types",
@@ -90,8 +90,8 @@
       "status": "active",
       "description": "Type options for AdverseEvent.contributingFactor.item[x]",
       "expansion": {
-        "identifier": "urn:uuid:08896153-22fe-47a5-b595-f1cb5930f705",
-        "timestamp": "2020-08-20T17:44:42+10:00",
+        "identifier": "urn:uuid:98d399b6-65cb-4666-be63-78b3be7f61f2",
+        "timestamp": "2021-05-03T22:02:49+10:00",
         "contains": [
           {
             "system": "http://hl7.org/fhir/resource-types",
@@ -143,8 +143,8 @@
       "status": "active",
       "description": "Type options for AdverseEvent.preventiveAction.item[x]",
       "expansion": {
-        "identifier": "urn:uuid:17103176-6ec1-4f6b-8246-97c7973d7fff",
-        "timestamp": "2020-08-20T17:44:42+10:00",
+        "identifier": "urn:uuid:6f7dae5c-6f54-41de-bdbf-30773757e747",
+        "timestamp": "2021-05-03T22:02:49+10:00",
         "contains": [
           {
             "system": "http://hl7.org/fhir/resource-types",
@@ -186,8 +186,8 @@
       "status": "active",
       "description": "Type options for AdverseEvent.mitigatingAction.item[x]",
       "expansion": {
-        "identifier": "urn:uuid:0b17bbcd-9990-492a-a087-4fef1c41cdbf",
-        "timestamp": "2020-08-20T17:44:42+10:00",
+        "identifier": "urn:uuid:0b772a82-58e6-43fa-b6d4-8bf93f8878c5",
+        "timestamp": "2021-05-03T22:02:49+10:00",
         "contains": [
           {
             "system": "http://hl7.org/fhir/resource-types",
@@ -224,8 +224,8 @@
       "status": "active",
       "description": "Type options for AdverseEvent.supportingInfo.item[x]",
       "expansion": {
-        "identifier": "urn:uuid:8a8c2916-0b05-422c-9016-7c3dd47b2660",
-        "timestamp": "2020-08-20T17:44:42+10:00",
+        "identifier": "urn:uuid:60760d24-a89c-468a-b0ef-d22de48df0b9",
+        "timestamp": "2021-05-03T22:02:49+10:00",
         "contains": [
           {
             "system": "http://hl7.org/fhir/resource-types",
@@ -276,9 +276,9 @@
       "system": "urn:ietf:rfc:3986"
     }
   ],
-  "version": "4.5.0",
+  "version": "4.6.0",
   "status": "draft",
-  "date": "2020-08-20T17:41:31+10:00",
+  "date": "2021-05-03T21:59:52+10:00",
   "publisher": "Health Level Seven International (Patient Care)",
   "item": [
     {
@@ -337,7 +337,7 @@
                   }
                 }
               ],
-              "text": "The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes. The only time that a resource does not have an id is when it is being submitted to the server using a create operation.",
+              "text": "The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes. Typically, the resource has an id except for cases like the create operation, conditional updates.",
               "type": "display"
             },
             {
@@ -462,9 +462,10 @@
             {
               "linkId": "AdverseEvent.language.value",
               "text": "language",
-              "type": "choice",
+              "type": "coding",
               "required": false,
-              "repeats": false
+              "repeats": false,
+              "answerConstraint": "optionsOnly"
             }
           ]
         },
@@ -677,9 +678,10 @@
             {
               "linkId": "AdverseEvent.status.value",
               "text": "status",
-              "type": "choice",
+              "type": "coding",
               "required": false,
-              "repeats": false
+              "repeats": false,
+              "answerConstraint": "optionsOrType"
             }
           ]
         },
@@ -724,9 +726,10 @@
             {
               "linkId": "AdverseEvent.actuality.value",
               "text": "actuality",
-              "type": "choice",
+              "type": "coding",
               "required": false,
-              "repeats": false
+              "repeats": false,
+              "answerConstraint": "optionsOrType"
             }
           ]
         },
@@ -764,9 +767,10 @@
             {
               "linkId": "AdverseEvent.category.coding",
               "text": "code:",
-              "type": "open-choice",
+              "type": "coding",
               "required": false,
-              "repeats": false
+              "repeats": false,
+              "answerConstraint": "optionsOnly"
             },
             {
               "linkId": "AdverseEvent.category.text",
@@ -815,9 +819,10 @@
             {
               "linkId": "AdverseEvent.code.coding",
               "text": "code:",
-              "type": "open-choice",
+              "type": "coding",
               "required": false,
-              "repeats": false
+              "repeats": false,
+              "answerConstraint": "optionsOnly"
             },
             {
               "linkId": "AdverseEvent.code.text",
@@ -972,9 +977,10 @@
             {
               "linkId": "AdverseEvent.occurrence[x]._type",
               "text": "type",
-              "type": "choice",
+              "type": "coding",
               "required": false,
               "repeats": false,
+              "answerConstraint": "optionsOnly",
               "answerValueSet": "#vs2",
               "item": [
                 {
@@ -1185,7 +1191,7 @@
                   }
                 }
               ],
-              "text": "Includes information about the reaction that occurred as a result of exposure to a substance (for example, a drug or a chemical).",
+              "text": "Information about the condition that occurred as a result of the adverse event, such as hives due to the exposure to a substance (for example, a drug or a chemical) or a broken leg as a result of the fall.",
               "type": "display"
             },
             {
@@ -1298,9 +1304,10 @@
             {
               "linkId": "AdverseEvent.seriousness.coding",
               "text": "code:",
-              "type": "open-choice",
+              "type": "coding",
               "required": false,
-              "repeats": false
+              "repeats": false,
+              "answerConstraint": "optionsOnly"
             },
             {
               "linkId": "AdverseEvent.seriousness.text",
@@ -1313,10 +1320,6 @@
         },
         {
           "extension": [
-            {
-              "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-maxOccurs",
-              "valueInteger": 1
-            },
             {
               "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-fhirType",
               "valueString": "CodeableConcept"
@@ -1349,9 +1352,10 @@
             {
               "linkId": "AdverseEvent.outcome.coding",
               "text": "code:",
-              "type": "open-choice",
+              "type": "coding",
               "required": false,
-              "repeats": false
+              "repeats": false,
+              "answerConstraint": "optionsOnly"
             },
             {
               "linkId": "AdverseEvent.outcome.text",
@@ -1575,9 +1579,10 @@
                 {
                   "linkId": "AdverseEvent.participant.function.coding",
                   "text": "code:",
-                  "type": "open-choice",
+                  "type": "coding",
                   "required": false,
-                  "repeats": false
+                  "repeats": false,
+                  "answerConstraint": "optionsOnly"
                 },
                 {
                   "linkId": "AdverseEvent.participant.function.text",
@@ -1807,9 +1812,10 @@
                 {
                   "linkId": "AdverseEvent.suspectEntity.instance[x]._type",
                   "text": "type",
-                  "type": "choice",
+                  "type": "coding",
                   "required": false,
                   "repeats": false,
+                  "answerConstraint": "optionsOnly",
                   "answerValueSet": "#vs3",
                   "item": [
                     {
@@ -1825,9 +1831,10 @@
                         {
                           "linkId": "AdverseEvent.suspectEntity.instance[x]._null.coding",
                           "text": "code:",
-                          "type": "open-choice",
+                          "type": "coding",
                           "required": false,
-                          "repeats": false
+                          "repeats": false,
+                          "answerConstraint": "optionsOnly"
                         },
                         {
                           "linkId": "AdverseEvent.suspectEntity.instance[x]._null.text",
@@ -2036,9 +2043,10 @@
                     {
                       "linkId": "AdverseEvent.suspectEntity.causality.assessmentMethod.coding",
                       "text": "code:",
-                      "type": "open-choice",
+                      "type": "coding",
                       "required": false,
-                      "repeats": false
+                      "repeats": false,
+                      "answerConstraint": "optionsOnly"
                     },
                     {
                       "linkId": "AdverseEvent.suspectEntity.causality.assessmentMethod.text",
@@ -2087,9 +2095,10 @@
                     {
                       "linkId": "AdverseEvent.suspectEntity.causality.entityRelatedness.coding",
                       "text": "code:",
-                      "type": "open-choice",
+                      "type": "coding",
                       "required": false,
-                      "repeats": false
+                      "repeats": false,
+                      "answerConstraint": "optionsOnly"
                     },
                     {
                       "linkId": "AdverseEvent.suspectEntity.causality.entityRelatedness.text",
@@ -2317,9 +2326,10 @@
                 {
                   "linkId": "AdverseEvent.contributingFactor.item[x]._type",
                   "text": "type",
-                  "type": "choice",
+                  "type": "coding",
                   "required": false,
                   "repeats": false,
+                  "answerConstraint": "optionsOnly",
                   "answerValueSet": "#vs4",
                   "item": [
                     {
@@ -2363,9 +2373,10 @@
                         {
                           "linkId": "AdverseEvent.contributingFactor.item[x]._null.coding",
                           "text": "code:",
-                          "type": "open-choice",
+                          "type": "coding",
                           "required": false,
-                          "repeats": false
+                          "repeats": false,
+                          "answerConstraint": "optionsOnly"
                         },
                         {
                           "linkId": "AdverseEvent.contributingFactor.item[x]._null.text",
@@ -2542,9 +2553,10 @@
                 {
                   "linkId": "AdverseEvent.preventiveAction.item[x]._type",
                   "text": "type",
-                  "type": "choice",
+                  "type": "coding",
                   "required": false,
                   "repeats": false,
+                  "answerConstraint": "optionsOnly",
                   "answerValueSet": "#vs5",
                   "item": [
                     {
@@ -2588,9 +2600,10 @@
                         {
                           "linkId": "AdverseEvent.preventiveAction.item[x]._null.coding",
                           "text": "code:",
-                          "type": "open-choice",
+                          "type": "coding",
                           "required": false,
-                          "repeats": false
+                          "repeats": false,
+                          "answerConstraint": "optionsOnly"
                         },
                         {
                           "linkId": "AdverseEvent.preventiveAction.item[x]._null.text",
@@ -2767,9 +2780,10 @@
                 {
                   "linkId": "AdverseEvent.mitigatingAction.item[x]._type",
                   "text": "type",
-                  "type": "choice",
+                  "type": "coding",
                   "required": false,
                   "repeats": false,
+                  "answerConstraint": "optionsOnly",
                   "answerValueSet": "#vs6",
                   "item": [
                     {
@@ -2813,9 +2827,10 @@
                         {
                           "linkId": "AdverseEvent.mitigatingAction.item[x]._null.coding",
                           "text": "code:",
-                          "type": "open-choice",
+                          "type": "coding",
                           "required": false,
-                          "repeats": false
+                          "repeats": false,
+                          "answerConstraint": "optionsOnly"
                         },
                         {
                           "linkId": "AdverseEvent.mitigatingAction.item[x]._null.text",
@@ -2992,9 +3007,10 @@
                 {
                   "linkId": "AdverseEvent.supportingInfo.item[x]._type",
                   "text": "type",
-                  "type": "choice",
+                  "type": "coding",
                   "required": false,
                   "repeats": false,
+                  "answerConstraint": "optionsOnly",
                   "answerValueSet": "#vs7",
                   "item": [
                     {
@@ -3038,9 +3054,10 @@
                         {
                           "linkId": "AdverseEvent.supportingInfo.item[x]._null.coding",
                           "text": "code:",
-                          "type": "open-choice",
+                          "type": "coding",
                           "required": false,
-                          "repeats": false
+                          "repeats": false,
+                          "answerConstraint": "optionsOnly"
                         },
                         {
                           "linkId": "AdverseEvent.supportingInfo.item[x]._null.text",

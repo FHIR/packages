@@ -9,8 +9,8 @@
       "status": "active",
       "description": "Type options for CareTeam.participant.coverage[x]",
       "expansion": {
-        "identifier": "urn:uuid:1c190fd5-a272-442e-b491-3820c883363e",
-        "timestamp": "2020-08-20T17:44:52+10:00",
+        "identifier": "urn:uuid:5a359df8-38a6-47ad-bceb-d481ca95fb40",
+        "timestamp": "2021-05-03T22:02:58+10:00",
         "contains": [
           {
             "system": "http://hl7.org/fhir/data-types",
@@ -31,9 +31,9 @@
       "system": "urn:ietf:rfc:3986"
     }
   ],
-  "version": "4.5.0",
+  "version": "4.6.0",
   "status": "draft",
-  "date": "2020-08-20T17:41:31+10:00",
+  "date": "2021-05-03T21:59:52+10:00",
   "publisher": "Health Level Seven International (Patient Care)",
   "item": [
     {
@@ -92,7 +92,7 @@
                   }
                 }
               ],
-              "text": "The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes. The only time that a resource does not have an id is when it is being submitted to the server using a create operation.",
+              "text": "The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes. Typically, the resource has an id except for cases like the create operation, conditional updates.",
               "type": "display"
             },
             {
@@ -217,9 +217,10 @@
             {
               "linkId": "CareTeam.language.value",
               "text": "language",
-              "type": "choice",
+              "type": "coding",
               "required": false,
-              "repeats": false
+              "repeats": false,
+              "answerConstraint": "optionsOnly"
             }
           ]
         },
@@ -428,9 +429,10 @@
             {
               "linkId": "CareTeam.status.value",
               "text": "status",
-              "type": "choice",
+              "type": "coding",
               "required": false,
-              "repeats": false
+              "repeats": false,
+              "answerConstraint": "optionsOrType"
             }
           ]
         },
@@ -468,9 +470,10 @@
             {
               "linkId": "CareTeam.category.coding",
               "text": "code:",
-              "type": "open-choice",
+              "type": "coding",
               "required": false,
-              "repeats": false
+              "repeats": false,
+              "answerConstraint": "optionsOnly"
             },
             {
               "linkId": "CareTeam.category.text",
@@ -788,9 +791,10 @@
                 {
                   "linkId": "CareTeam.participant.role.coding",
                   "text": "code:",
-                  "type": "open-choice",
+                  "type": "coding",
                   "required": false,
-                  "repeats": false
+                  "repeats": false,
+                  "answerConstraint": "optionsOnly"
                 },
                 {
                   "linkId": "CareTeam.participant.role.text",
@@ -941,9 +945,10 @@
                 {
                   "linkId": "CareTeam.participant.coverage[x]._type",
                   "text": "type",
-                  "type": "choice",
+                  "type": "coding",
                   "required": false,
                   "repeats": false,
+                  "answerConstraint": "optionsOnly",
                   "answerValueSet": "#vs2",
                   "item": [
                     {
@@ -1135,9 +1140,10 @@
             {
               "linkId": "CareTeam.telecom.system",
               "text": "type:",
-              "type": "choice",
+              "type": "coding",
               "required": false,
-              "repeats": false
+              "repeats": false,
+              "answerConstraint": "optionsOnly"
             },
             {
               "linkId": "CareTeam.telecom.value",
@@ -1149,9 +1155,10 @@
             {
               "linkId": "CareTeam.telecom.use",
               "text": "use:",
-              "type": "choice",
+              "type": "coding",
               "required": false,
-              "repeats": false
+              "repeats": false,
+              "answerConstraint": "optionsOnly"
             }
           ]
         },

@@ -9,8 +9,8 @@
       "status": "active",
       "description": "Type options for ImplementationGuide.definition.resource.example[x]",
       "expansion": {
-        "identifier": "urn:uuid:7c5505d0-cd92-4852-a6f8-d269a8c2cd7c",
-        "timestamp": "2020-08-20T17:45:37+10:00",
+        "identifier": "urn:uuid:b7733a36-5dca-4527-8b10-25d69bcdc8da",
+        "timestamp": "2021-05-03T22:03:39+10:00",
         "contains": [
           {
             "system": "http://hl7.org/fhir/data-types",
@@ -32,8 +32,8 @@
       "status": "active",
       "description": "Type options for ImplementationGuide.definition.page.name[x]",
       "expansion": {
-        "identifier": "urn:uuid:06e1c829-d089-4bed-9ce6-0abe7c708262",
-        "timestamp": "2020-08-20T17:45:37+10:00",
+        "identifier": "urn:uuid:1110ae89-b1c6-4f9f-b22e-0299d7864fcf",
+        "timestamp": "2021-05-03T22:03:39+10:00",
         "contains": [
           {
             "system": "http://hl7.org/fhir/data-types",
@@ -51,35 +51,12 @@
     {
       "resourceType": "ValueSet",
       "id": "vs4",
-      "name": "Type options for ImplementationGuide.definition.page.name[x]",
-      "status": "active",
-      "description": "Type options for ImplementationGuide.definition.page.name[x]",
-      "expansion": {
-        "identifier": "urn:uuid:3e283bb0-422e-4f9d-bf91-3c9e7bbbf576",
-        "timestamp": "2020-08-20T17:45:37+10:00",
-        "contains": [
-          {
-            "system": "http://hl7.org/fhir/data-types",
-            "code": "url",
-            "display": "url"
-          },
-          {
-            "system": "http://hl7.org/fhir/resource-types",
-            "code": "Binary",
-            "display": "Binary"
-          }
-        ]
-      }
-    },
-    {
-      "resourceType": "ValueSet",
-      "id": "vs5",
       "name": "Type options for ImplementationGuide.manifest.resource.example[x]",
       "status": "active",
       "description": "Type options for ImplementationGuide.manifest.resource.example[x]",
       "expansion": {
-        "identifier": "urn:uuid:9d55771b-e896-42d1-a640-8ab7b933988c",
-        "timestamp": "2020-08-20T17:45:37+10:00",
+        "identifier": "urn:uuid:9319e757-a6fa-4c54-9cec-4f9113e97c55",
+        "timestamp": "2021-05-03T22:03:39+10:00",
         "contains": [
           {
             "system": "http://hl7.org/fhir/data-types",
@@ -100,9 +77,9 @@
       "system": "urn:ietf:rfc:3986"
     }
   ],
-  "version": "4.5.0",
+  "version": "4.6.0",
   "status": "draft",
-  "date": "2020-08-20T17:41:31+10:00",
+  "date": "2021-05-03T21:59:52+10:00",
   "publisher": "Health Level Seven International (FHIR Infrastructure)",
   "item": [
     {
@@ -161,7 +138,7 @@
                   }
                 }
               ],
-              "text": "The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes. The only time that a resource does not have an id is when it is being submitted to the server using a create operation.",
+              "text": "The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes. Typically, the resource has an id except for cases like the create operation, conditional updates.",
               "type": "display"
             },
             {
@@ -286,9 +263,10 @@
             {
               "linkId": "ImplementationGuide.language.value",
               "text": "language",
-              "type": "choice",
+              "type": "coding",
               "required": false,
-              "repeats": false
+              "repeats": false,
+              "answerConstraint": "optionsOnly"
             }
           ]
         },
@@ -627,9 +605,10 @@
             {
               "linkId": "ImplementationGuide.status.value",
               "text": "status",
-              "type": "choice",
+              "type": "coding",
               "required": false,
-              "repeats": false
+              "repeats": false,
+              "answerConstraint": "optionsOrType"
             }
           ]
         },
@@ -901,9 +880,10 @@
             {
               "linkId": "ImplementationGuide.jurisdiction.coding",
               "text": "code:",
-              "type": "open-choice",
+              "type": "coding",
               "required": false,
-              "repeats": false
+              "repeats": false,
+              "answerConstraint": "optionsOnly"
             },
             {
               "linkId": "ImplementationGuide.jurisdiction.text",
@@ -1041,9 +1021,10 @@
             {
               "linkId": "ImplementationGuide.license.value",
               "text": "license",
-              "type": "choice",
+              "type": "coding",
               "required": false,
-              "repeats": false
+              "repeats": false,
+              "answerConstraint": "optionsOrType"
             }
           ]
         },
@@ -1078,15 +1059,16 @@
                   }
                 }
               ],
-              "text": "The version(s) of the FHIR specification that this ImplementationGuide targets - e.g. describes how to use. The value of this element is the formal version of the specification, without the revision number, e.g. [publication].[major].[minor], which is 4.5.0. for this version. Most implementation guides target a single version - e.g. they describe how to use a particular version, and the profiles and examples etc are valid for that version. But some implementation guides describe how to use multiple different versions of FHIR to solve the same problem, or in concert with each other. Typically, the requirement to support multiple versions arises as implementation matures and different implementation communities are stuck at different versions by regulation or market dynamics.",
+              "text": "The version(s) of the FHIR specification that this ImplementationGuide targets - e.g. describes how to use. The value of this element is the formal version of the specification, without the revision number, e.g. [publication].[major].[minor], which is 4.6.0. for this version. Most implementation guides target a single version - e.g. they describe how to use a particular version, and the profiles and examples etc are valid for that version. But some implementation guides describe how to use multiple different versions of FHIR to solve the same problem, or in concert with each other. Typically, the requirement to support multiple versions arises as implementation matures and different implementation communities are stuck at different versions by regulation or market dynamics.",
               "type": "display"
             },
             {
               "linkId": "ImplementationGuide.fhirVersion.value",
               "text": "fhir version",
-              "type": "choice",
+              "type": "coding",
               "required": false,
-              "repeats": false
+              "repeats": false,
+              "answerConstraint": "optionsOrType"
             }
           ]
         },
@@ -1514,9 +1496,10 @@
                 {
                   "linkId": "ImplementationGuide.global.type.value",
                   "text": "type",
-                  "type": "choice",
+                  "type": "coding",
                   "required": false,
-                  "repeats": false
+                  "repeats": false,
+                  "answerConstraint": "optionsOrType"
                 }
               ]
             },
@@ -2137,9 +2120,10 @@
                     {
                       "linkId": "ImplementationGuide.definition.resource.fhirVersion.value",
                       "text": "fhir version",
-                      "type": "choice",
+                      "type": "coding",
                       "required": false,
-                      "repeats": false
+                      "repeats": false,
+                      "answerConstraint": "optionsOrType"
                     }
                   ]
                 },
@@ -2263,9 +2247,10 @@
                     {
                       "linkId": "ImplementationGuide.definition.resource.example[x]._type",
                       "text": "type",
-                      "type": "choice",
+                      "type": "coding",
                       "required": false,
                       "repeats": false,
+                      "answerConstraint": "optionsOnly",
                       "answerValueSet": "#vs2",
                       "item": [
                         {
@@ -2523,9 +2508,10 @@
                     {
                       "linkId": "ImplementationGuide.definition.page.name[x]._type",
                       "text": "type",
-                      "type": "choice",
+                      "type": "coding",
                       "required": false,
                       "repeats": false,
+                      "answerConstraint": "optionsOnly",
                       "answerValueSet": "#vs3",
                       "item": [
                         {
@@ -2666,9 +2652,10 @@
                     {
                       "linkId": "ImplementationGuide.definition.page.generation.value",
                       "text": "generation",
-                      "type": "choice",
+                      "type": "coding",
                       "required": false,
-                      "repeats": false
+                      "repeats": false,
+                      "answerConstraint": "optionsOrType"
                     }
                   ]
                 },
@@ -2700,290 +2687,6 @@
                       ],
                       "text": "Nested Pages/Sections under this page.",
                       "type": "display"
-                    },
-                    {
-                      "extension": [
-                        {
-                          "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-maxOccurs",
-                          "valueInteger": 1
-                        },
-                        {
-                          "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-fhirType",
-                          "valueString": "string"
-                        }
-                      ],
-                      "linkId": "ImplementationGuide.definition.page.id",
-                      "type": "group",
-                      "required": false,
-                      "repeats": true,
-                      "item": [
-                        {
-                          "extension": [
-                            {
-                              "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
-                              "valueCodeableConcept": {
-                                "coding": [
-                                  {
-                                    "system": "http://hl7.org/fhir/questionnaire-item-control",
-                                    "code": "flyover",
-                                    "display": "Fly-over"
-                                  }
-                                ]
-                              }
-                            }
-                          ],
-                          "text": "Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.",
-                          "type": "display"
-                        },
-                        {
-                          "linkId": "ImplementationGuide.definition.page.id.value",
-                          "text": "Unique id for inter-element referencing",
-                          "type": "string",
-                          "required": false,
-                          "repeats": false
-                        }
-                      ]
-                    },
-                    {
-                      "linkId": "ImplementationGuide.definition.page.extension",
-                      "text": "Additional content defined by implementations",
-                      "type": "group",
-                      "required": false,
-                      "repeats": true,
-                      "item": [
-                        {
-                          "extension": [
-                            {
-                              "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
-                              "valueCodeableConcept": {
-                                "coding": [
-                                  {
-                                    "system": "http://hl7.org/fhir/questionnaire-item-control",
-                                    "code": "flyover",
-                                    "display": "Fly-over"
-                                  }
-                                ]
-                              }
-                            }
-                          ],
-                          "text": "May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.",
-                          "type": "display"
-                        }
-                      ]
-                    },
-                    {
-                      "linkId": "ImplementationGuide.definition.page.modifierExtension",
-                      "text": "Extensions that cannot be ignored even if unrecognized",
-                      "type": "group",
-                      "required": false,
-                      "repeats": true,
-                      "item": [
-                        {
-                          "extension": [
-                            {
-                              "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
-                              "valueCodeableConcept": {
-                                "coding": [
-                                  {
-                                    "system": "http://hl7.org/fhir/questionnaire-item-control",
-                                    "code": "flyover",
-                                    "display": "Fly-over"
-                                  }
-                                ]
-                              }
-                            }
-                          ],
-                          "text": "May be used to represent additional information that is not part of the basic definition of the element and that modifies the understanding of the element in which it is contained and/or the understanding of the containing element\u0027s descendants. Usually modifier elements provide negation or qualification. To make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.\n\nModifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself). There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.",
-                          "type": "display"
-                        }
-                      ]
-                    },
-                    {
-                      "extension": [
-                        {
-                          "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-minOccurs",
-                          "valueInteger": 1
-                        },
-                        {
-                          "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-maxOccurs",
-                          "valueInteger": 1
-                        }
-                      ],
-                      "linkId": "ImplementationGuide.definition.page.name[x]",
-                      "text": "Where to find that page",
-                      "type": "group",
-                      "required": true,
-                      "repeats": true,
-                      "item": [
-                        {
-                          "extension": [
-                            {
-                              "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
-                              "valueCodeableConcept": {
-                                "coding": [
-                                  {
-                                    "system": "http://hl7.org/fhir/questionnaire-item-control",
-                                    "code": "flyover",
-                                    "display": "Fly-over"
-                                  }
-                                ]
-                              }
-                            }
-                          ],
-                          "text": "The source address for the page. The publishing tool will autogenerate source for list (source \u003d n/a) and inject included implementations for include (source \u003d uri of guide to include).",
-                          "type": "display"
-                        },
-                        {
-                          "linkId": "ImplementationGuide.definition.page.name[x]._type",
-                          "text": "type",
-                          "type": "choice",
-                          "required": false,
-                          "repeats": false,
-                          "answerValueSet": "#vs4",
-                          "item": [
-                            {
-                              "extension": [
-                                {
-                                  "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-fhirType",
-                                  "valueString": "uri"
-                                }
-                              ],
-                              "linkId": "ImplementationGuide.definition.page.name[x]._null",
-                              "type": "group",
-                              "item": [
-                                {
-                                  "linkId": "ImplementationGuide.definition.page.name[x]._null.value",
-                                  "type": "string",
-                                  "required": false,
-                                  "repeats": false
-                                }
-                              ]
-                            },
-                            {
-                              "extension": [
-                                {
-                                  "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-fhirType",
-                                  "valueString": "Reference"
-                                }
-                              ],
-                              "linkId": "ImplementationGuide.definition.page.name[x]._null",
-                              "type": "group",
-                              "item": [
-                                {
-                                  "extension": [
-                                    {
-                                      "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-allowedResource",
-                                      "valueCode": "Binary"
-                                    },
-                                    {
-                                      "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-referenceFilter",
-                                      "valueString": "subject\u003d$subj\u0026patient\u003d$subj\u0026encounter\u003d$encounter"
-                                    }
-                                  ],
-                                  "linkId": "ImplementationGuide.definition.page.name[x]._null.value",
-                                  "type": "reference",
-                                  "required": false,
-                                  "repeats": false
-                                }
-                              ]
-                            }
-                          ]
-                        }
-                      ]
-                    },
-                    {
-                      "extension": [
-                        {
-                          "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-minOccurs",
-                          "valueInteger": 1
-                        },
-                        {
-                          "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-maxOccurs",
-                          "valueInteger": 1
-                        },
-                        {
-                          "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-fhirType",
-                          "valueString": "string"
-                        }
-                      ],
-                      "linkId": "ImplementationGuide.definition.page.title",
-                      "type": "group",
-                      "required": true,
-                      "repeats": true,
-                      "item": [
-                        {
-                          "extension": [
-                            {
-                              "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
-                              "valueCodeableConcept": {
-                                "coding": [
-                                  {
-                                    "system": "http://hl7.org/fhir/questionnaire-item-control",
-                                    "code": "flyover",
-                                    "display": "Fly-over"
-                                  }
-                                ]
-                              }
-                            }
-                          ],
-                          "text": "A short title used to represent this page in navigational structures such as table of contents, bread crumbs, etc.",
-                          "type": "display"
-                        },
-                        {
-                          "linkId": "ImplementationGuide.definition.page.title.value",
-                          "text": "Short title shown for navigational assistance",
-                          "type": "string",
-                          "required": false,
-                          "repeats": false
-                        }
-                      ]
-                    },
-                    {
-                      "extension": [
-                        {
-                          "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-minOccurs",
-                          "valueInteger": 1
-                        },
-                        {
-                          "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-maxOccurs",
-                          "valueInteger": 1
-                        },
-                        {
-                          "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-fhirType",
-                          "valueString": "code"
-                        }
-                      ],
-                      "linkId": "ImplementationGuide.definition.page.generation",
-                      "type": "group",
-                      "required": true,
-                      "repeats": true,
-                      "item": [
-                        {
-                          "extension": [
-                            {
-                              "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
-                              "valueCodeableConcept": {
-                                "coding": [
-                                  {
-                                    "system": "http://hl7.org/fhir/questionnaire-item-control",
-                                    "code": "flyover",
-                                    "display": "Fly-over"
-                                  }
-                                ]
-                              }
-                            }
-                          ],
-                          "text": "A code that indicates how the page is generated.",
-                          "type": "display"
-                        },
-                        {
-                          "linkId": "ImplementationGuide.definition.page.generation.value",
-                          "text": "generation",
-                          "type": "choice",
-                          "required": false,
-                          "repeats": false
-                        }
-                      ]
                     }
                   ]
                 }
@@ -3374,9 +3077,10 @@
                     {
                       "linkId": "ImplementationGuide.definition.template.code.value",
                       "text": "code",
-                      "type": "choice",
+                      "type": "coding",
                       "required": false,
-                      "repeats": false
+                      "repeats": false,
+                      "answerConstraint": "optionsOnly"
                     }
                   ]
                 },
@@ -3864,10 +3568,11 @@
                     {
                       "linkId": "ImplementationGuide.manifest.resource.example[x]._type",
                       "text": "type",
-                      "type": "choice",
+                      "type": "coding",
                       "required": false,
                       "repeats": false,
-                      "answerValueSet": "#vs5",
+                      "answerConstraint": "optionsOnly",
+                      "answerValueSet": "#vs4",
                       "item": [
                         {
                           "extension": [

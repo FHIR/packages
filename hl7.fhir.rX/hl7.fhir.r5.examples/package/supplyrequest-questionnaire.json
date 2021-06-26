@@ -9,8 +9,8 @@
       "status": "active",
       "description": "Type options for SupplyRequest.parameter.value[x]",
       "expansion": {
-        "identifier": "urn:uuid:01630311-7876-45eb-bd29-6c064c3a1007",
-        "timestamp": "2020-08-20T17:46:49+10:00",
+        "identifier": "urn:uuid:1da9236a-e7ef-401d-baef-89f070b13b3b",
+        "timestamp": "2021-05-03T22:04:52+10:00",
         "contains": [
           {
             "system": "http://hl7.org/fhir/data-types",
@@ -42,8 +42,8 @@
       "status": "active",
       "description": "Type options for SupplyRequest.occurrence[x]",
       "expansion": {
-        "identifier": "urn:uuid:130d67a6-f123-450b-9838-be892df0b78b",
-        "timestamp": "2020-08-20T17:46:49+10:00",
+        "identifier": "urn:uuid:16dfa565-e637-4a74-92ec-04adad719eb5",
+        "timestamp": "2021-05-03T22:04:52+10:00",
         "contains": [
           {
             "system": "http://hl7.org/fhir/data-types",
@@ -69,9 +69,9 @@
       "system": "urn:ietf:rfc:3986"
     }
   ],
-  "version": "4.5.0",
+  "version": "4.6.0",
   "status": "draft",
-  "date": "2020-08-20T17:41:31+10:00",
+  "date": "2021-05-03T21:59:52+10:00",
   "publisher": "Health Level Seven International (Orders and Observations)",
   "item": [
     {
@@ -130,7 +130,7 @@
                   }
                 }
               ],
-              "text": "The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes. The only time that a resource does not have an id is when it is being submitted to the server using a create operation.",
+              "text": "The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes. Typically, the resource has an id except for cases like the create operation, conditional updates.",
               "type": "display"
             },
             {
@@ -255,9 +255,10 @@
             {
               "linkId": "SupplyRequest.language.value",
               "text": "language",
-              "type": "choice",
+              "type": "coding",
               "required": false,
-              "repeats": false
+              "repeats": false,
+              "answerConstraint": "optionsOnly"
             }
           ]
         },
@@ -466,9 +467,10 @@
             {
               "linkId": "SupplyRequest.status.value",
               "text": "status",
-              "type": "choice",
+              "type": "coding",
               "required": false,
-              "repeats": false
+              "repeats": false,
+              "answerConstraint": "optionsOrType"
             }
           ]
         },
@@ -510,9 +512,10 @@
             {
               "linkId": "SupplyRequest.category.coding",
               "text": "code:",
-              "type": "open-choice",
+              "type": "coding",
               "required": false,
-              "repeats": false
+              "repeats": false,
+              "answerConstraint": "optionsOnly"
             },
             {
               "linkId": "SupplyRequest.category.text",
@@ -560,9 +563,10 @@
             {
               "linkId": "SupplyRequest.priority.value",
               "text": "priority",
-              "type": "choice",
+              "type": "coding",
               "required": false,
-              "repeats": false
+              "repeats": false,
+              "answerConstraint": "optionsOrType"
             }
           ]
         },
@@ -649,9 +653,10 @@
             {
               "linkId": "SupplyRequest.quantity.comparator",
               "text": "comp:",
-              "type": "choice",
+              "type": "coding",
               "required": false,
-              "repeats": false
+              "repeats": false,
+              "answerConstraint": "optionsOnly"
             },
             {
               "linkId": "SupplyRequest.quantity.value",
@@ -843,9 +848,10 @@
                 {
                   "linkId": "SupplyRequest.parameter.code.coding",
                   "text": "code:",
-                  "type": "open-choice",
+                  "type": "coding",
                   "required": false,
-                  "repeats": false
+                  "repeats": false,
+                  "answerConstraint": "optionsOnly"
                 },
                 {
                   "linkId": "SupplyRequest.parameter.code.text",
@@ -890,9 +896,10 @@
                 {
                   "linkId": "SupplyRequest.parameter.value[x]._type",
                   "text": "type",
-                  "type": "choice",
+                  "type": "coding",
                   "required": false,
                   "repeats": false,
+                  "answerConstraint": "optionsOnly",
                   "answerValueSet": "#vs2",
                   "item": [
                     {
@@ -908,9 +915,10 @@
                         {
                           "linkId": "SupplyRequest.parameter.value[x]._null.coding",
                           "text": "code:",
-                          "type": "open-choice",
+                          "type": "coding",
                           "required": false,
-                          "repeats": false
+                          "repeats": false,
+                          "answerConstraint": "optionsOnly"
                         },
                         {
                           "linkId": "SupplyRequest.parameter.value[x]._null.text",
@@ -934,9 +942,10 @@
                         {
                           "linkId": "SupplyRequest.parameter.value[x]._null.comparator",
                           "text": "comp:",
-                          "type": "choice",
+                          "type": "coding",
                           "required": false,
-                          "repeats": false
+                          "repeats": false,
+                          "answerConstraint": "optionsOnly"
                         },
                         {
                           "linkId": "SupplyRequest.parameter.value[x]._null.value",
@@ -1059,9 +1068,10 @@
             {
               "linkId": "SupplyRequest.occurrence[x]._type",
               "text": "type",
-              "type": "choice",
+              "type": "coding",
               "required": false,
               "repeats": false,
+              "answerConstraint": "optionsOnly",
               "answerValueSet": "#vs3",
               "item": [
                 {
@@ -1240,7 +1250,7 @@
               "extension": [
                 {
                   "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-allowedResource",
-                  "valueCode": "Practitioner, PractitionerRole, Organization, Patient, RelatedPerson, Device"
+                  "valueCode": "Practitioner, PractitionerRole, Organization, Patient, RelatedPerson, Device, CareTeam"
                 },
                 {
                   "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-referenceFilter",

@@ -6,9 +6,9 @@
       "system": "urn:ietf:rfc:3986"
     }
   ],
-  "version": "4.5.0",
+  "version": "4.6.0",
   "status": "draft",
-  "date": "2020-08-20T17:41:31+10:00",
+  "date": "2021-05-03T21:59:52+10:00",
   "publisher": "Health Level Seven International (Biomedical Research and Regulation)",
   "item": [
     {
@@ -71,7 +71,7 @@
                   }
                 }
               ],
-              "text": "The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes. The only time that a resource does not have an id is when it is being submitted to the server using a create operation.",
+              "text": "The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes. Typically, the resource has an id except for cases like the create operation, conditional updates.",
               "type": "display"
             },
             {
@@ -196,9 +196,10 @@
             {
               "linkId": "ResearchSubject.language.value",
               "text": "language",
-              "type": "choice",
+              "type": "coding",
               "required": false,
-              "repeats": false
+              "repeats": false,
+              "answerConstraint": "optionsOnly"
             }
           ]
         },
@@ -405,15 +406,16 @@
                   }
                 }
               ],
-              "text": "The current state of the subject.",
+              "text": "The publication state of the resource (not of the subject).",
               "type": "display"
             },
             {
               "linkId": "ResearchSubject.status.value",
               "text": "status",
-              "type": "choice",
+              "type": "coding",
               "required": false,
-              "repeats": false
+              "repeats": false,
+              "answerConstraint": "optionsOrType"
             }
           ]
         },
@@ -555,7 +557,7 @@
                 }
               ],
               "linkId": "ResearchSubject.progress.type",
-              "text": "Kind of state that is being described",
+              "text": "state | milestone",
               "type": "group",
               "required": false,
               "repeats": true,
@@ -581,9 +583,10 @@
                 {
                   "linkId": "ResearchSubject.progress.type.coding",
                   "text": "code:",
-                  "type": "open-choice",
+                  "type": "coding",
                   "required": false,
-                  "repeats": false
+                  "repeats": false,
+                  "answerConstraint": "optionsOnly"
                 },
                 {
                   "linkId": "ResearchSubject.progress.type.text",
@@ -605,7 +608,7 @@
                   "valueString": "CodeableConcept"
                 }
               ],
-              "linkId": "ResearchSubject.progress.state",
+              "linkId": "ResearchSubject.progress.subjectState",
               "text": "candidate | eligible | follow-up | ineligible | not-registered | off-study | on-study | on-study-intervention | on-study-observation | pending-on-study | potential-candidate | screening | withdrawn",
               "type": "group",
               "required": false,
@@ -630,14 +633,15 @@
                   "type": "display"
                 },
                 {
-                  "linkId": "ResearchSubject.progress.state.coding",
+                  "linkId": "ResearchSubject.progress.subjectState.coding",
                   "text": "code:",
-                  "type": "open-choice",
+                  "type": "coding",
                   "required": false,
-                  "repeats": false
+                  "repeats": false,
+                  "answerConstraint": "optionsOrType"
                 },
                 {
-                  "linkId": "ResearchSubject.progress.state.text",
+                  "linkId": "ResearchSubject.progress.subjectState.text",
                   "text": "text:",
                   "type": "string",
                   "required": false,
@@ -683,9 +687,10 @@
                 {
                   "linkId": "ResearchSubject.progress.milestone.coding",
                   "text": "code:",
-                  "type": "open-choice",
+                  "type": "coding",
                   "required": false,
-                  "repeats": false
+                  "repeats": false,
+                  "answerConstraint": "optionsOnly"
                 },
                 {
                   "linkId": "ResearchSubject.progress.milestone.text",
@@ -734,9 +739,10 @@
                 {
                   "linkId": "ResearchSubject.progress.reason.coding",
                   "text": "code:",
-                  "type": "open-choice",
+                  "type": "coding",
                   "required": false,
-                  "repeats": false
+                  "repeats": false,
+                  "answerConstraint": "optionsOnly"
                 },
                 {
                   "linkId": "ResearchSubject.progress.reason.text",
@@ -750,10 +756,6 @@
             {
               "extension": [
                 {
-                  "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-minOccurs",
-                  "valueInteger": 1
-                },
-                {
                   "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-maxOccurs",
                   "valueInteger": 1
                 },
@@ -764,7 +766,7 @@
               ],
               "linkId": "ResearchSubject.progress.startDate",
               "type": "group",
-              "required": true,
+              "required": false,
               "repeats": true,
               "item": [
                 {
@@ -782,11 +784,54 @@
                       }
                     }
                   ],
-                  "text": "The date when the change in status occurred. This is NOT the date the change in state was recorded.",
+                  "text": "The date when the new status started. This is NOT the date the change in state was recorded.",
                   "type": "display"
                 },
                 {
                   "linkId": "ResearchSubject.progress.startDate.value",
+                  "text": "State change date",
+                  "type": "dateTime",
+                  "required": false,
+                  "repeats": false
+                }
+              ]
+            },
+            {
+              "extension": [
+                {
+                  "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-maxOccurs",
+                  "valueInteger": 1
+                },
+                {
+                  "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-fhirType",
+                  "valueString": "datetime"
+                }
+              ],
+              "linkId": "ResearchSubject.progress.endDate",
+              "type": "group",
+              "required": false,
+              "repeats": true,
+              "item": [
+                {
+                  "extension": [
+                    {
+                      "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
+                      "valueCodeableConcept": {
+                        "coding": [
+                          {
+                            "system": "http://hl7.org/fhir/questionnaire-item-control",
+                            "code": "flyover",
+                            "display": "Fly-over"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "text": "The date when the state ended.",
+                  "type": "display"
+                },
+                {
+                  "linkId": "ResearchSubject.progress.endDate.value",
                   "text": "State change date",
                   "type": "dateTime",
                   "required": false,
@@ -919,7 +964,7 @@
               "valueString": "Reference"
             }
           ],
-          "linkId": "ResearchSubject.individual",
+          "linkId": "ResearchSubject.subject",
           "type": "group",
           "required": true,
           "repeats": true,
@@ -939,22 +984,22 @@
                   }
                 }
               ],
-              "text": "The record of the person or animal who is involved in the study.",
+              "text": "The record of the person, animal or other entity involved in the study.",
               "type": "display"
             },
             {
               "extension": [
                 {
                   "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-allowedResource",
-                  "valueCode": "Patient"
+                  "valueCode": "Patient, Group, Specimen, Device, Medication, Substance, BiologicallyDerivedProduct"
                 },
                 {
                   "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-referenceFilter",
                   "valueString": "subject\u003d$subj\u0026patient\u003d$subj\u0026encounter\u003d$encounter"
                 }
               ],
-              "linkId": "ResearchSubject.individual.value",
-              "text": "Who is part of study",
+              "linkId": "ResearchSubject.subject.value",
+              "text": "Who or what is part of study",
               "type": "reference",
               "required": false,
               "repeats": false

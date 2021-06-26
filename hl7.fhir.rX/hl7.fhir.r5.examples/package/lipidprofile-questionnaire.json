@@ -9,8 +9,8 @@
       "status": "active",
       "description": "Type options for DiagnosticReport.effective[x]",
       "expansion": {
-        "identifier": "urn:uuid:65470451-2835-4cd6-9826-7d37a9dccc60",
-        "timestamp": "2020-08-20T17:45:18+10:00",
+        "identifier": "urn:uuid:6e92d4b4-c00e-4c90-81e3-a54c2d96f8fd",
+        "timestamp": "2021-05-03T22:03:24+10:00",
         "contains": [
           {
             "system": "http://hl7.org/fhir/data-types",
@@ -31,7 +31,7 @@
       "system": "urn:ietf:rfc:3986"
     }
   ],
-  "version": "4.5.0",
+  "version": "4.6.0",
   "status": "draft",
   "date": "2012-05-12T00:00:00+10:00",
   "publisher": "Grahame Grieve",
@@ -106,7 +106,7 @@
                   }
                 }
               ],
-              "text": "The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes. The only time that a resource does not have an id is when it is being submitted to the server using a create operation.",
+              "text": "The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes. Typically, the resource has an id except for cases like the create operation, conditional updates.",
               "type": "display"
             },
             {
@@ -231,9 +231,10 @@
             {
               "linkId": "DiagnosticReport.language.value",
               "text": "language",
-              "type": "choice",
+              "type": "coding",
               "required": false,
-              "repeats": false
+              "repeats": false,
+              "answerConstraint": "optionsOnly"
             }
           ]
         },
@@ -495,9 +496,10 @@
             {
               "linkId": "DiagnosticReport.status.value",
               "text": "status",
-              "type": "choice",
+              "type": "coding",
               "required": false,
-              "repeats": false
+              "repeats": false,
+              "answerConstraint": "optionsOrType"
             }
           ]
         },
@@ -535,9 +537,10 @@
             {
               "linkId": "DiagnosticReport.category.coding",
               "text": "code:",
-              "type": "open-choice",
+              "type": "coding",
               "required": false,
-              "repeats": false
+              "repeats": false,
+              "answerConstraint": "optionsOnly"
             },
             {
               "linkId": "DiagnosticReport.category.text",
@@ -590,9 +593,10 @@
             {
               "linkId": "DiagnosticReport.code.coding",
               "text": "code:",
-              "type": "open-choice",
+              "type": "coding",
               "required": false,
-              "repeats": false
+              "repeats": false,
+              "answerConstraint": "optionsOnly"
             },
             {
               "linkId": "DiagnosticReport.code.text",
@@ -641,7 +645,7 @@
               "extension": [
                 {
                   "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-allowedResource",
-                  "valueCode": "Patient, Group, Device, Location"
+                  "valueCode": "Patient, Group, Device, Location, Organization, Procedure, Practitioner, Medication, Substance"
                 },
                 {
                   "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-referenceFilter",
@@ -743,9 +747,10 @@
             {
               "linkId": "DiagnosticReport.effective[x]._type",
               "text": "type",
-              "type": "choice",
+              "type": "coding",
               "required": false,
               "repeats": false,
+              "answerConstraint": "optionsOnly",
               "answerValueSet": "#vs2",
               "item": [
                 {
@@ -1021,7 +1026,7 @@
                   }
                 }
               ],
-              "text": "[Observations](http://build.fhir.org/observation.html)  that are part of this diagnostic report. Observations can contain observations.",
+              "text": "[Observations](observation.html)  that are part of this diagnostic report. Observations can contain observations.",
               "type": "display"
             },
             {
@@ -1548,6 +1553,59 @@
             },
             {
               "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-fhirType",
+              "valueString": "Reference"
+            }
+          ],
+          "linkId": "DiagnosticReport.composition",
+          "type": "group",
+          "required": false,
+          "repeats": true,
+          "item": [
+            {
+              "extension": [
+                {
+                  "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
+                  "valueCodeableConcept": {
+                    "coding": [
+                      {
+                        "system": "http://hl7.org/fhir/questionnaire-item-control",
+                        "code": "flyover",
+                        "display": "Fly-over"
+                      }
+                    ]
+                  }
+                }
+              ],
+              "text": "Reference to a Composition resource instance that provides structure for organizing the contents of the DiagnosticReport. The Composition provides structure to the content of the DiagnosticReport (and only contains contents referenced in the DiagnosticReport) - e.g., to order the sections of a anatomic pathology structured report.",
+              "type": "display"
+            },
+            {
+              "extension": [
+                {
+                  "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-allowedResource",
+                  "valueCode": "Composition"
+                },
+                {
+                  "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-referenceFilter",
+                  "valueString": "subject\u003d$subj\u0026patient\u003d$subj\u0026encounter\u003d$encounter"
+                }
+              ],
+              "linkId": "DiagnosticReport.composition.value",
+              "text": "Reference to a Composition resource for the DiagnosticReport structure",
+              "type": "reference",
+              "required": false,
+              "repeats": false
+            }
+          ]
+        },
+        {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-maxOccurs",
+              "valueInteger": 1
+            },
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-fhirType",
               "valueString": "string"
             }
           ],
@@ -1621,9 +1679,10 @@
             {
               "linkId": "DiagnosticReport.conclusionCode.coding",
               "text": "code:",
-              "type": "open-choice",
+              "type": "coding",
               "required": false,
-              "repeats": false
+              "repeats": false,
+              "answerConstraint": "optionsOnly"
             },
             {
               "linkId": "DiagnosticReport.conclusionCode.text",

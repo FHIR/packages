@@ -9,8 +9,8 @@
       "status": "active",
       "description": "Type options for ChargeItem.occurrence[x]",
       "expansion": {
-        "identifier": "urn:uuid:3a67b8ca-c290-4962-a3d2-19769b3b9d9d",
-        "timestamp": "2020-08-20T17:44:53+10:00",
+        "identifier": "urn:uuid:d198743d-49a8-4179-bfed-8e39dfc7c0d6",
+        "timestamp": "2021-05-03T22:02:59+10:00",
         "contains": [
           {
             "system": "http://hl7.org/fhir/data-types",
@@ -37,8 +37,8 @@
       "status": "active",
       "description": "Type options for ChargeItem.product[x]",
       "expansion": {
-        "identifier": "urn:uuid:ad6416e7-a313-4436-8566-ca001633649d",
-        "timestamp": "2020-08-20T17:44:53+10:00",
+        "identifier": "urn:uuid:7448022c-5461-49a4-bd6d-09993855144f",
+        "timestamp": "2021-05-03T22:02:59+10:00",
         "contains": [
           {
             "system": "http://hl7.org/fhir/resource-types",
@@ -69,9 +69,9 @@
       "system": "urn:ietf:rfc:3986"
     }
   ],
-  "version": "4.5.0",
+  "version": "4.6.0",
   "status": "draft",
-  "date": "2020-08-20T17:41:31+10:00",
+  "date": "2021-05-03T21:59:52+10:00",
   "publisher": "Health Level Seven International (Patient Administration)",
   "item": [
     {
@@ -130,7 +130,7 @@
                   }
                 }
               ],
-              "text": "The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes. The only time that a resource does not have an id is when it is being submitted to the server using a create operation.",
+              "text": "The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes. Typically, the resource has an id except for cases like the create operation, conditional updates.",
               "type": "display"
             },
             {
@@ -255,9 +255,10 @@
             {
               "linkId": "ChargeItem.language.value",
               "text": "language",
-              "type": "choice",
+              "type": "coding",
               "required": false,
-              "repeats": false
+              "repeats": false,
+              "answerConstraint": "optionsOnly"
             }
           ]
         },
@@ -548,9 +549,10 @@
             {
               "linkId": "ChargeItem.status.value",
               "text": "status",
-              "type": "choice",
+              "type": "coding",
               "required": false,
-              "repeats": false
+              "repeats": false,
+              "answerConstraint": "optionsOrType"
             }
           ]
         },
@@ -645,9 +647,10 @@
             {
               "linkId": "ChargeItem.code.coding",
               "text": "code:",
-              "type": "open-choice",
+              "type": "coding",
               "required": false,
-              "repeats": false
+              "repeats": false,
+              "answerConstraint": "optionsOnly"
             },
             {
               "linkId": "ChargeItem.code.text",
@@ -802,9 +805,10 @@
             {
               "linkId": "ChargeItem.occurrence[x]._type",
               "text": "type",
-              "type": "choice",
+              "type": "coding",
               "required": false,
               "repeats": false,
+              "answerConstraint": "optionsOnly",
               "answerValueSet": "#vs2",
               "item": [
                 {
@@ -1062,9 +1066,10 @@
                 {
                   "linkId": "ChargeItem.performer.function.coding",
                   "text": "code:",
-                  "type": "open-choice",
+                  "type": "coding",
                   "required": false,
-                  "repeats": false
+                  "repeats": false,
+                  "answerConstraint": "optionsOnly"
                 },
                 {
                   "linkId": "ChargeItem.performer.function.text",
@@ -1331,9 +1336,10 @@
             {
               "linkId": "ChargeItem.quantity.comparator",
               "text": "comp:",
-              "type": "choice",
+              "type": "coding",
               "required": false,
-              "repeats": false
+              "repeats": false,
+              "answerConstraint": "optionsOnly"
             },
             {
               "linkId": "ChargeItem.quantity.value",
@@ -1399,9 +1405,10 @@
             {
               "linkId": "ChargeItem.bodysite.coding",
               "text": "code:",
-              "type": "open-choice",
+              "type": "coding",
               "required": false,
-              "repeats": false
+              "repeats": false,
+              "answerConstraint": "optionsOnly"
             },
             {
               "linkId": "ChargeItem.bodysite.text",
@@ -1493,9 +1500,10 @@
             {
               "linkId": "ChargeItem.priceOverride.comparator",
               "text": "comp:",
-              "type": "choice",
+              "type": "coding",
               "required": false,
-              "repeats": false
+              "repeats": false,
+              "answerConstraint": "optionsOnly"
             },
             {
               "linkId": "ChargeItem.priceOverride.value",
@@ -1700,9 +1708,10 @@
             {
               "linkId": "ChargeItem.reason.coding",
               "text": "code:",
-              "type": "open-choice",
+              "type": "coding",
               "required": false,
-              "repeats": false
+              "repeats": false,
+              "answerConstraint": "optionsOnly"
             },
             {
               "linkId": "ChargeItem.reason.text",
@@ -1796,9 +1805,10 @@
             {
               "linkId": "ChargeItem.product[x]._type",
               "text": "type",
-              "type": "choice",
+              "type": "coding",
               "required": false,
               "repeats": false,
+              "answerConstraint": "optionsOnly",
               "answerValueSet": "#vs3",
               "item": [
                 {
@@ -1842,9 +1852,10 @@
                     {
                       "linkId": "ChargeItem.product[x]._null.coding",
                       "text": "code:",
-                      "type": "open-choice",
+                      "type": "coding",
                       "required": false,
-                      "repeats": false
+                      "repeats": false,
+                      "answerConstraint": "optionsOnly"
                     },
                     {
                       "linkId": "ChargeItem.product[x]._null.text",

@@ -9,8 +9,8 @@
       "status": "active",
       "description": "Type options for ClinicalImpression.effective[x]",
       "expansion": {
-        "identifier": "urn:uuid:7961b150-a53b-430c-a42b-31523d69d2cb",
-        "timestamp": "2020-08-20T17:45:00+10:00",
+        "identifier": "urn:uuid:3a349b32-95d6-4e71-b81b-b3ff1ac79918",
+        "timestamp": "2021-05-03T22:03:04+10:00",
         "contains": [
           {
             "system": "http://hl7.org/fhir/data-types",
@@ -31,9 +31,9 @@
       "system": "urn:ietf:rfc:3986"
     }
   ],
-  "version": "4.5.0",
+  "version": "4.6.0",
   "status": "draft",
-  "date": "2020-08-20T17:41:31+10:00",
+  "date": "2021-05-03T21:59:52+10:00",
   "publisher": "Health Level Seven International (Patient Care)",
   "item": [
     {
@@ -92,7 +92,7 @@
                   }
                 }
               ],
-              "text": "The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes. The only time that a resource does not have an id is when it is being submitted to the server using a create operation.",
+              "text": "The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes. Typically, the resource has an id except for cases like the create operation, conditional updates.",
               "type": "display"
             },
             {
@@ -217,9 +217,10 @@
             {
               "linkId": "ClinicalImpression.language.value",
               "text": "language",
-              "type": "choice",
+              "type": "coding",
               "required": false,
-              "repeats": false
+              "repeats": false,
+              "answerConstraint": "optionsOnly"
             }
           ]
         },
@@ -432,9 +433,10 @@
             {
               "linkId": "ClinicalImpression.status.value",
               "text": "status",
-              "type": "choice",
+              "type": "coding",
               "required": false,
-              "repeats": false
+              "repeats": false,
+              "answerConstraint": "optionsOrType"
             }
           ]
         },
@@ -476,9 +478,10 @@
             {
               "linkId": "ClinicalImpression.statusReason.coding",
               "text": "code:",
-              "type": "open-choice",
+              "type": "coding",
               "required": false,
-              "repeats": false
+              "repeats": false,
+              "answerConstraint": "optionsOnly"
             },
             {
               "linkId": "ClinicalImpression.statusReason.text",
@@ -676,9 +679,10 @@
             {
               "linkId": "ClinicalImpression.effective[x]._type",
               "text": "type",
-              "type": "choice",
+              "type": "coding",
               "required": false,
               "repeats": false,
+              "answerConstraint": "optionsOnly",
               "answerValueSet": "#vs2",
               "item": [
                 {
@@ -1243,9 +1247,10 @@
             {
               "linkId": "ClinicalImpression.prognosisCodeableConcept.coding",
               "text": "code:",
-              "type": "open-choice",
+              "type": "coding",
               "required": false,
-              "repeats": false
+              "repeats": false,
+              "answerConstraint": "optionsOnly"
             },
             {
               "linkId": "ClinicalImpression.prognosisCodeableConcept.text",

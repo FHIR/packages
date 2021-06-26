@@ -9,8 +9,8 @@
       "status": "active",
       "description": "Type options for Goal.start[x]",
       "expansion": {
-        "identifier": "urn:uuid:d685dcd3-68dc-4611-ba8f-0c183601666c",
-        "timestamp": "2020-08-20T17:45:32+10:00",
+        "identifier": "urn:uuid:1f263588-ec7b-4aae-abab-e428986de0e4",
+        "timestamp": "2021-05-03T22:03:35+10:00",
         "contains": [
           {
             "system": "http://hl7.org/fhir/data-types",
@@ -32,8 +32,8 @@
       "status": "active",
       "description": "Type options for Goal.target.detail[x]",
       "expansion": {
-        "identifier": "urn:uuid:639efa72-0e65-43bf-a30b-ccfec2b9fc69",
-        "timestamp": "2020-08-20T17:45:32+10:00",
+        "identifier": "urn:uuid:5a3f1527-aa42-4b72-821b-5e3337a7ebbb",
+        "timestamp": "2021-05-03T22:03:35+10:00",
         "contains": [
           {
             "system": "http://hl7.org/fhir/data-types",
@@ -80,8 +80,8 @@
       "status": "active",
       "description": "Type options for Goal.target.due[x]",
       "expansion": {
-        "identifier": "urn:uuid:52007bfe-134d-43f0-9afc-9e8bb9baaa2e",
-        "timestamp": "2020-08-20T17:45:32+10:00",
+        "identifier": "urn:uuid:aa26597e-ad72-43d8-a00a-01c7c77809e7",
+        "timestamp": "2021-05-03T22:03:35+10:00",
         "contains": [
           {
             "system": "http://hl7.org/fhir/data-types",
@@ -102,9 +102,9 @@
       "system": "urn:ietf:rfc:3986"
     }
   ],
-  "version": "4.5.0",
+  "version": "4.6.0",
   "status": "draft",
-  "date": "2020-08-20T17:41:31+10:00",
+  "date": "2021-05-03T21:59:52+10:00",
   "publisher": "Health Level Seven International (Patient Care)",
   "item": [
     {
@@ -167,7 +167,7 @@
                   }
                 }
               ],
-              "text": "The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes. The only time that a resource does not have an id is when it is being submitted to the server using a create operation.",
+              "text": "The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes. Typically, the resource has an id except for cases like the create operation, conditional updates.",
               "type": "display"
             },
             {
@@ -292,9 +292,10 @@
             {
               "linkId": "Goal.language.value",
               "text": "language",
-              "type": "choice",
+              "type": "coding",
               "required": false,
-              "repeats": false
+              "repeats": false,
+              "answerConstraint": "optionsOnly"
             }
           ]
         },
@@ -507,9 +508,10 @@
             {
               "linkId": "Goal.lifecycleStatus.value",
               "text": "lifecycle status",
-              "type": "choice",
+              "type": "coding",
               "required": false,
-              "repeats": false
+              "repeats": false,
+              "answerConstraint": "optionsOrType"
             }
           ]
         },
@@ -551,9 +553,10 @@
             {
               "linkId": "Goal.achievementStatus.coding",
               "text": "code:",
-              "type": "open-choice",
+              "type": "coding",
               "required": false,
-              "repeats": false
+              "repeats": false,
+              "answerConstraint": "optionsOnly"
             },
             {
               "linkId": "Goal.achievementStatus.text",
@@ -598,9 +601,10 @@
             {
               "linkId": "Goal.category.coding",
               "text": "code:",
-              "type": "open-choice",
+              "type": "coding",
               "required": false,
-              "repeats": false
+              "repeats": false,
+              "answerConstraint": "optionsOnly"
             },
             {
               "linkId": "Goal.category.text",
@@ -692,9 +696,10 @@
             {
               "linkId": "Goal.priority.coding",
               "text": "code:",
-              "type": "open-choice",
+              "type": "coding",
               "required": false,
-              "repeats": false
+              "repeats": false,
+              "answerConstraint": "optionsOnly"
             },
             {
               "linkId": "Goal.priority.text",
@@ -747,9 +752,10 @@
             {
               "linkId": "Goal.description.coding",
               "text": "code:",
-              "type": "open-choice",
+              "type": "coding",
               "required": false,
-              "repeats": false
+              "repeats": false,
+              "answerConstraint": "optionsOnly"
             },
             {
               "linkId": "Goal.description.text",
@@ -851,9 +857,10 @@
             {
               "linkId": "Goal.start[x]._type",
               "text": "type",
-              "type": "choice",
+              "type": "coding",
               "required": false,
               "repeats": false,
+              "answerConstraint": "optionsOnly",
               "answerValueSet": "#vs2",
               "item": [
                 {
@@ -887,9 +894,10 @@
                     {
                       "linkId": "Goal.start[x]._null.coding",
                       "text": "code:",
-                      "type": "open-choice",
+                      "type": "coding",
                       "required": false,
-                      "repeats": false
+                      "repeats": false,
+                      "answerConstraint": "optionsOnly"
                     },
                     {
                       "linkId": "Goal.start[x]._null.text",
@@ -1068,9 +1076,10 @@
                 {
                   "linkId": "Goal.target.measure.coding",
                   "text": "code:",
-                  "type": "open-choice",
+                  "type": "coding",
                   "required": false,
-                  "repeats": false
+                  "repeats": false,
+                  "answerConstraint": "optionsOnly"
                 },
                 {
                   "linkId": "Goal.target.measure.text",
@@ -1115,9 +1124,10 @@
                 {
                   "linkId": "Goal.target.detail[x]._type",
                   "text": "type",
-                  "type": "choice",
+                  "type": "coding",
                   "required": false,
                   "repeats": false,
+                  "answerConstraint": "optionsOnly",
                   "answerValueSet": "#vs3",
                   "item": [
                     {
@@ -1133,9 +1143,10 @@
                         {
                           "linkId": "Goal.target.detail[x]._null.comparator",
                           "text": "comp:",
-                          "type": "choice",
+                          "type": "coding",
                           "required": false,
-                          "repeats": false
+                          "repeats": false,
+                          "answerConstraint": "optionsOnly"
                         },
                         {
                           "linkId": "Goal.target.detail[x]._null.value",
@@ -1213,9 +1224,10 @@
                         {
                           "linkId": "Goal.target.detail[x]._null.coding",
                           "text": "code:",
-                          "type": "open-choice",
+                          "type": "coding",
                           "required": false,
-                          "repeats": false
+                          "repeats": false,
+                          "answerConstraint": "optionsOnly"
                         },
                         {
                           "linkId": "Goal.target.detail[x]._null.text",
@@ -1351,9 +1363,10 @@
                 {
                   "linkId": "Goal.target.due[x]._type",
                   "text": "type",
-                  "type": "choice",
+                  "type": "coding",
                   "required": false,
                   "repeats": false,
+                  "answerConstraint": "optionsOnly",
                   "answerValueSet": "#vs4",
                   "item": [
                     {
@@ -1387,9 +1400,10 @@
                         {
                           "linkId": "Goal.target.due[x]._null.comparator",
                           "text": "comp:",
-                          "type": "choice",
+                          "type": "coding",
                           "required": false,
-                          "repeats": false
+                          "repeats": false,
+                          "answerConstraint": "optionsOnly"
                         },
                         {
                           "linkId": "Goal.target.due[x]._null.value",
@@ -1524,7 +1538,7 @@
               "valueString": "Reference"
             }
           ],
-          "linkId": "Goal.expressedBy",
+          "linkId": "Goal.source",
           "type": "group",
           "required": false,
           "repeats": true,
@@ -1544,21 +1558,21 @@
                   }
                 }
               ],
-              "text": "Indicates whose goal this is - patient goal, practitioner goal, etc. This is the individual responsible for establishing the goal, not necessarily who recorded it.  (For that, use the Provenance resource.).",
+              "text": "Indicates whose goal this is - patient goal, practitioner goal, etc. This is the individual or team responsible for establishing the goal, not necessarily who recorded it.  (For that, use the Provenance resource.).",
               "type": "display"
             },
             {
               "extension": [
                 {
                   "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-allowedResource",
-                  "valueCode": "Patient, Practitioner, PractitionerRole, RelatedPerson"
+                  "valueCode": "Patient, Practitioner, PractitionerRole, RelatedPerson, CareTeam"
                 },
                 {
                   "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-referenceFilter",
                   "valueString": "subject\u003d$subj\u0026patient\u003d$subj\u0026encounter\u003d$encounter"
                 }
               ],
-              "linkId": "Goal.expressedBy.value",
+              "linkId": "Goal.source.value",
               "text": "Who\u0027s responsible for creating Goal?",
               "type": "reference",
               "required": false,

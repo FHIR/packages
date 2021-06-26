@@ -9,8 +9,8 @@
       "status": "active",
       "description": "Type options for RiskAssessment.occurrence[x]",
       "expansion": {
-        "identifier": "urn:uuid:ae03c337-8306-43cb-8c7c-49b6d56f89ae",
-        "timestamp": "2020-08-20T17:46:37+10:00",
+        "identifier": "urn:uuid:14687e5a-0a1a-49b7-bb5c-16df3435c682",
+        "timestamp": "2021-05-03T22:04:41+10:00",
         "contains": [
           {
             "system": "http://hl7.org/fhir/data-types",
@@ -32,8 +32,8 @@
       "status": "active",
       "description": "Type options for RiskAssessment.prediction.probability[x]",
       "expansion": {
-        "identifier": "urn:uuid:5a22d01a-1cf9-4bbf-94e8-32d13a4bd333",
-        "timestamp": "2020-08-20T17:46:37+10:00",
+        "identifier": "urn:uuid:c972ecf8-53ea-465e-abfc-90397d7b0b70",
+        "timestamp": "2021-05-03T22:04:41+10:00",
         "contains": [
           {
             "system": "http://hl7.org/fhir/data-types",
@@ -55,8 +55,8 @@
       "status": "active",
       "description": "Type options for RiskAssessment.prediction.when[x]",
       "expansion": {
-        "identifier": "urn:uuid:2f5429ad-5b01-46db-be5a-70320538c4b7",
-        "timestamp": "2020-08-20T17:46:37+10:00",
+        "identifier": "urn:uuid:1b3882fc-36bd-4f74-852b-2078b0b81142",
+        "timestamp": "2021-05-03T22:04:41+10:00",
         "contains": [
           {
             "system": "http://hl7.org/fhir/data-types",
@@ -77,9 +77,9 @@
       "system": "urn:ietf:rfc:3986"
     }
   ],
-  "version": "4.5.0",
+  "version": "4.6.0",
   "status": "draft",
-  "date": "2020-08-20T17:41:31+10:00",
+  "date": "2021-05-03T21:59:52+10:00",
   "publisher": "Health Level Seven International (Clinical Decision Support)",
   "item": [
     {
@@ -138,7 +138,7 @@
                   }
                 }
               ],
-              "text": "The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes. The only time that a resource does not have an id is when it is being submitted to the server using a create operation.",
+              "text": "The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes. Typically, the resource has an id except for cases like the create operation, conditional updates.",
               "type": "display"
             },
             {
@@ -263,9 +263,10 @@
             {
               "linkId": "RiskAssessment.language.value",
               "text": "language",
-              "type": "choice",
+              "type": "coding",
               "required": false,
-              "repeats": false
+              "repeats": false,
+              "answerConstraint": "optionsOnly"
             }
           ]
         },
@@ -584,9 +585,10 @@
             {
               "linkId": "RiskAssessment.status.value",
               "text": "status",
-              "type": "choice",
+              "type": "coding",
               "required": false,
-              "repeats": false
+              "repeats": false,
+              "answerConstraint": "optionsOrType"
             }
           ]
         },
@@ -628,9 +630,10 @@
             {
               "linkId": "RiskAssessment.method.coding",
               "text": "code:",
-              "type": "open-choice",
+              "type": "coding",
               "required": false,
-              "repeats": false
+              "repeats": false,
+              "answerConstraint": "optionsOnly"
             },
             {
               "linkId": "RiskAssessment.method.text",
@@ -679,9 +682,10 @@
             {
               "linkId": "RiskAssessment.code.coding",
               "text": "code:",
-              "type": "open-choice",
+              "type": "coding",
               "required": false,
-              "repeats": false
+              "repeats": false,
+              "answerConstraint": "optionsOnly"
             },
             {
               "linkId": "RiskAssessment.code.text",
@@ -836,9 +840,10 @@
             {
               "linkId": "RiskAssessment.occurrence[x]._type",
               "text": "type",
-              "type": "choice",
+              "type": "coding",
               "required": false,
               "repeats": false,
+              "answerConstraint": "optionsOnly",
               "answerValueSet": "#vs2",
               "item": [
                 {
@@ -1235,9 +1240,10 @@
                 {
                   "linkId": "RiskAssessment.prediction.outcome.coding",
                   "text": "code:",
-                  "type": "open-choice",
+                  "type": "coding",
                   "required": false,
-                  "repeats": false
+                  "repeats": false,
+                  "answerConstraint": "optionsOnly"
                 },
                 {
                   "linkId": "RiskAssessment.prediction.outcome.text",
@@ -1282,9 +1288,10 @@
                 {
                   "linkId": "RiskAssessment.prediction.probability[x]._type",
                   "text": "type",
-                  "type": "choice",
+                  "type": "coding",
                   "required": false,
                   "repeats": false,
+                  "answerConstraint": "optionsOnly",
                   "answerValueSet": "#vs3",
                   "item": [
                     {
@@ -1380,9 +1387,10 @@
                 {
                   "linkId": "RiskAssessment.prediction.qualitativeRisk.coding",
                   "text": "code:",
-                  "type": "open-choice",
+                  "type": "coding",
                   "required": false,
-                  "repeats": false
+                  "repeats": false,
+                  "answerConstraint": "optionsOnly"
                 },
                 {
                   "linkId": "RiskAssessment.prediction.qualitativeRisk.text",
@@ -1470,9 +1478,10 @@
                 {
                   "linkId": "RiskAssessment.prediction.when[x]._type",
                   "text": "type",
-                  "type": "choice",
+                  "type": "coding",
                   "required": false,
                   "repeats": false,
+                  "answerConstraint": "optionsOnly",
                   "answerValueSet": "#vs4",
                   "item": [
                     {

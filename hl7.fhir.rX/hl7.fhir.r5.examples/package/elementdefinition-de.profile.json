@@ -16,7 +16,7 @@
     }
   ],
   "url": "http://hl7.org/fhir/StructureDefinition/elementdefinition-de",
-  "version": "4.5.0",
+  "version": "4.6.0",
   "name": "DataElement constraint on ElementDefinition data type",
   "status": "draft",
   "experimental": false,
@@ -33,7 +33,7 @@
     }
   ],
   "description": "Identifies how the ElementDefinition data type is used when it appears within a data element",
-  "fhirVersion": "4.5.0",
+  "fhirVersion": "4.6.0",
   "mapping": [
     {
       "identity": "v2",
@@ -428,7 +428,7 @@
         "short": "Extensions that cannot be ignored even if unrecognized",
         "definition": "May be used to represent additional information that is not part of the basic definition of the element and that modifies the understanding of the element in which it is contained and/or the understanding of the containing element\u0027s descendants. Usually modifier elements provide negation or qualification. To make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.\n\nModifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).",
         "comment": "There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.",
-        "requirements": "Modifier extensions allow for extensions that *cannot* be safely ignored to be clearly distinguished from the vast majority of extensions which can be safely ignored.  This promotes interoperability by eliminating the need for implementers to prohibit the presence of extensions. For further information, see the [definition of modifier extensions](http://build.fhir.org/extensibility.html#modifierExtension).",
+        "requirements": "Modifier extensions allow for extensions that *cannot* be safely ignored to be clearly distinguished from the vast majority of extensions which can be safely ignored.  This promotes interoperability by eliminating the need for implementers to prohibit the presence of extensions. For further information, see the [definition of modifier extensions](extensibility.html#modifierExtension).",
         "alias": [
           "extensions",
           "user content",
@@ -551,13 +551,16 @@
         "binding": {
           "extension": [
             {
+              "url": "http://hl7.org/fhir/build/StructureDefinition/definition",
+              "valueString": "How a property is represented when serialized."
+            },
+            {
               "url": "http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName",
               "valueString": "PropertyRepresentation"
             }
           ],
           "strength": "required",
-          "description": "How a property is represented when serialized.",
-          "valueSet": "http://hl7.org/fhir/ValueSet/property-representation|4.5.0"
+          "valueSet": "http://hl7.org/fhir/ValueSet/property-representation|4.6.0"
         },
         "mapping": [
           {
@@ -678,6 +681,10 @@
           {
             "url": "http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable",
             "valueBoolean": true
+          },
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable",
+            "valueBoolean": true
           }
         ],
         "path": "ElementDefinition.label",
@@ -753,12 +760,15 @@
         "binding": {
           "extension": [
             {
+              "url": "http://hl7.org/fhir/build/StructureDefinition/definition",
+              "valueString": "Codes that indicate the meaning of a data element."
+            },
+            {
               "url": "http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName",
               "valueString": "ElementDefinitionCode"
             }
           ],
           "strength": "example",
-          "description": "Codes that indicate the meaning of a data element.",
           "valueSet": "http://hl7.org/fhir/ValueSet/observation-codes"
         },
         "mapping": [
@@ -1090,13 +1100,16 @@
         "binding": {
           "extension": [
             {
+              "url": "http://hl7.org/fhir/build/StructureDefinition/definition",
+              "valueString": "How an element value is interpreted when discrimination is evaluated."
+            },
+            {
               "url": "http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName",
               "valueString": "DiscriminatorType"
             }
           ],
           "strength": "required",
-          "description": "How an element value is interpreted when discrimination is evaluated.",
-          "valueSet": "http://hl7.org/fhir/ValueSet/discriminator-type|4.5.0"
+          "valueSet": "http://hl7.org/fhir/ValueSet/discriminator-type|4.6.0"
         },
         "mapping": [
           {
@@ -1109,7 +1122,7 @@
         "id": "ElementDefinition.slicing.discriminator.path",
         "path": "ElementDefinition.slicing.discriminator.path",
         "short": "Path to element value",
-        "definition": "A FHIRPath expression, using [the simple subset of FHIRPath](http://build.fhir.org/fhirpath.html#simple), that is used to identify the element on which discrimination is based.",
+        "definition": "A FHIRPath expression, using [the simple subset of FHIRPath](fhirpath.html#simple), that is used to identify the element on which discrimination is based.",
         "comment": "The only FHIRPath functions that are allowed are as(type), resolve(), and extension(url).",
         "min": 1,
         "max": "1",
@@ -1149,6 +1162,10 @@
       {
         "id": "ElementDefinition.slicing.description",
         "extension": [
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable",
+            "valueBoolean": true
+          },
           {
             "url": "http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable",
             "valueBoolean": true
@@ -1267,13 +1284,16 @@
         "binding": {
           "extension": [
             {
+              "url": "http://hl7.org/fhir/build/StructureDefinition/definition",
+              "valueString": "How slices are interpreted when evaluating an instance."
+            },
+            {
               "url": "http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName",
               "valueString": "SlicingRules"
             }
           ],
           "strength": "required",
-          "description": "How slices are interpreted when evaluating an instance.",
-          "valueSet": "http://hl7.org/fhir/ValueSet/resource-slicing-rules|4.5.0"
+          "valueSet": "http://hl7.org/fhir/ValueSet/resource-slicing-rules|4.6.0"
         },
         "mapping": [
           {
@@ -1289,6 +1309,10 @@
       {
         "id": "ElementDefinition.short",
         "extension": [
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable",
+            "valueBoolean": true
+          },
           {
             "url": "http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable",
             "valueBoolean": true
@@ -1336,6 +1360,10 @@
       {
         "id": "ElementDefinition.definition",
         "extension": [
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable",
+            "valueBoolean": true
+          },
           {
             "url": "http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable",
             "valueBoolean": true
@@ -1398,6 +1426,10 @@
           {
             "url": "http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable",
             "valueBoolean": true
+          },
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable",
+            "valueBoolean": true
           }
         ],
         "path": "ElementDefinition.comment",
@@ -1453,6 +1485,10 @@
           {
             "url": "http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable",
             "valueBoolean": true
+          },
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable",
+            "valueBoolean": true
           }
         ],
         "path": "ElementDefinition.requirements",
@@ -1497,6 +1533,10 @@
       {
         "id": "ElementDefinition.alias",
         "extension": [
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable",
+            "valueBoolean": true
+          },
           {
             "url": "http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable",
             "valueBoolean": true
@@ -1791,7 +1831,7 @@
         "id": "ElementDefinition.base.path",
         "path": "ElementDefinition.base.path",
         "short": "Path that identifies the base element",
-        "definition": "The Path that identifies the base element - this matches the ElementDefinition.path for that element. Across FHIR, there is only one base definition of any element - that is, an element definition on a [StructureDefinition](http://build.fhir.org/structuredefinition.html#) without a StructureDefinition.base.",
+        "definition": "The Path that identifies the base element - this matches the ElementDefinition.path for that element. Across FHIR, there is only one base definition of any element - that is, an element definition on a [StructureDefinition](structuredefinition.html#) without a StructureDefinition.base.",
         "min": 1,
         "max": "1",
         "base": {
@@ -2154,12 +2194,19 @@
         "binding": {
           "extension": [
             {
+              "url": "http://hl7.org/fhir/build/StructureDefinition/definition",
+              "valueString": "Either a resource or a data type, including logical model types."
+            },
+            {
               "url": "http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName",
               "valueString": "FHIRDefinedTypeExt"
+            },
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding",
+              "valueBoolean": true
             }
           ],
           "strength": "extensible",
-          "description": "Either a resource or a data type, including logical model types.",
           "valueSet": "http://hl7.org/fhir/ValueSet/defined-types"
         },
         "mapping": [
@@ -2186,7 +2233,7 @@
         "path": "ElementDefinition.type.profile",
         "short": "Profiles (StructureDefinition or IG) - one must apply",
         "definition": "Identifies a profile structure or implementation Guide that applies to the datatype this element refers to. If any profiles are specified, then the content must conform to at least one of them. The URL can be a local reference - to a contained StructureDefinition, or a reference to another StructureDefinition or Implementation Guide by a canonical URL. When an implementation guide is specified, the type SHALL conform to at least one profile defined in the implementation guide.",
-        "comment": "It is possible to profile  backbone element (e.g. part of a resource), using the [profile-element](http://build.fhir.org/extension-elementdefinition-profile-element.html) extension.",
+        "comment": "It is possible to profile  backbone element (e.g. part of a resource), using the [profile-element](extension-elementdefinition-profile-element.html) extension.",
         "min": 0,
         "max": "0",
         "base": {
@@ -2275,7 +2322,7 @@
         "path": "ElementDefinition.type.aggregation",
         "short": "contained | referenced | bundled - how aggregated",
         "definition": "If the type is a reference to another resource, how the resource is or can be aggregated - is it a contained resource, or a reference, and if the context is a bundle, is it included in the bundle.",
-        "comment": "See [Aggregation Rules](http://build.fhir.org/elementdefinition.html#aggregation) for further clarification.",
+        "comment": "See [Aggregation Rules](elementdefinition.html#aggregation) for further clarification.",
         "min": 0,
         "max": "0",
         "base": {
@@ -2306,13 +2353,16 @@
         "binding": {
           "extension": [
             {
+              "url": "http://hl7.org/fhir/build/StructureDefinition/definition",
+              "valueString": "How resource references can be aggregated."
+            },
+            {
               "url": "http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName",
               "valueString": "AggregationMode"
             }
           ],
           "strength": "required",
-          "description": "How resource references can be aggregated.",
-          "valueSet": "http://hl7.org/fhir/ValueSet/resource-aggregation-mode|4.5.0"
+          "valueSet": "http://hl7.org/fhir/ValueSet/resource-aggregation-mode|4.6.0"
         },
         "mapping": [
           {
@@ -2330,7 +2380,7 @@
         "path": "ElementDefinition.type.versioning",
         "short": "either | independent | specific",
         "definition": "Whether this reference needs to be version specific or version independent, or whether either can be used.",
-        "comment": "The base specification never makes a rule as to which form is allowed, but implementation guides may do this. See [Aggregation Rules](http://build.fhir.org/elementdefinition.html#aggregation) for further clarification.",
+        "comment": "The base specification never makes a rule as to which form is allowed, but implementation guides may do this. See [Aggregation Rules](elementdefinition.html#aggregation) for further clarification.",
         "min": 0,
         "max": "1",
         "base": {
@@ -2358,13 +2408,16 @@
         "binding": {
           "extension": [
             {
+              "url": "http://hl7.org/fhir/build/StructureDefinition/definition",
+              "valueString": "Whether a reference needs to be version specific or version independent, or whether either can be used."
+            },
+            {
               "url": "http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName",
               "valueString": "ReferenceVersionRules"
             }
           ],
           "strength": "required",
-          "description": "Whether a reference needs to be version specific or version independent, or whether either can be used.",
-          "valueSet": "http://hl7.org/fhir/ValueSet/reference-version-rules|4.5.0"
+          "valueSet": "http://hl7.org/fhir/ValueSet/reference-version-rules|4.6.0"
         },
         "mapping": [
           {
@@ -2566,6 +2619,10 @@
       {
         "id": "ElementDefinition.meaningWhenMissing",
         "extension": [
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable",
+            "valueBoolean": true
+          },
           {
             "url": "http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable",
             "valueBoolean": true
@@ -3171,6 +3228,10 @@
           {
             "url": "http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable",
             "valueBoolean": true
+          },
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable",
+            "valueBoolean": true
           }
         ],
         "path": "ElementDefinition.example.label",
@@ -3406,7 +3467,7 @@
         "path": "ElementDefinition.minValue[x]",
         "short": "Minimum Allowed Value (for some types)",
         "definition": "The minimum allowed value for the element. The value is inclusive. This is allowed for the types date, dateTime, instant, time, decimal, integer, and Quantity.",
-        "comment": "Except for date/date/instant, the type of the minValue[x] SHALL be the same as the specified type of the element. For the date/dateTime/instant values, the type of minValue[x] SHALL be either the same, or a [Duration](http://build.fhir.org/datatypes.html#Duration) which specifies a relative time limit to the current time. The duration value is positive, and is subtracted from the current clock to determine the minimum allowable value.   A minimum value for a Quantity is interpreted as an canonical minimum - e.g. you cannot provide 100mg if the minimum value is 10g.",
+        "comment": "Except for date/date/instant, the type of the minValue[x] SHALL be the same as the specified type of the element. For the date/dateTime/instant values, the type of minValue[x] SHALL be either the same, or a [Duration](datatypes.html#Duration) which specifies a relative time limit to the current time. The duration value is positive, and is subtracted from the current clock to determine the minimum allowable value.   A minimum value for a Quantity is interpreted as an canonical minimum - e.g. you cannot provide 100mg if the minimum value is 10g.",
         "min": 0,
         "max": "1",
         "base": {
@@ -3470,7 +3531,7 @@
         "path": "ElementDefinition.maxValue[x]",
         "short": "Maximum Allowed Value (for some types)",
         "definition": "The maximum allowed value for the element. The value is inclusive. This is allowed for the types date, dateTime, instant, time, decimal, integer, and Quantity.",
-        "comment": "Except for date/date/instant, the type of the maxValue[x] SHALL be the same as the specified type of the element. For the date/dateTime/instant values, the type of maxValue[x] SHALL be either the same, or a [Duration](http://build.fhir.org/datatypes.html#Duration) which specifies a relative time limit to the current time. The duration value is positive, and is added to the current clock to determine the maximum allowable value.   A maximum value for a Quantity is interpreted as an canonical maximum - e.g. you cannot provide 10g if the maximum value is 50mg.",
+        "comment": "Except for date/date/instant, the type of the maxValue[x] SHALL be the same as the specified type of the element. For the date/dateTime/instant values, the type of maxValue[x] SHALL be either the same, or a [Duration](datatypes.html#Duration) which specifies a relative time limit to the current time. The duration value is positive, and is added to the current clock to determine the maximum allowable value.   A maximum value for a Quantity is interpreted as an canonical maximum - e.g. you cannot provide 10g if the maximum value is 50mg.",
         "min": 0,
         "max": "1",
         "base": {
@@ -3862,13 +3923,16 @@
         "binding": {
           "extension": [
             {
+              "url": "http://hl7.org/fhir/build/StructureDefinition/definition",
+              "valueString": "SHALL applications comply with this constraint?"
+            },
+            {
               "url": "http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName",
               "valueString": "ConstraintSeverity"
             }
           ],
           "strength": "required",
-          "description": "SHALL applications comply with this constraint?",
-          "valueSet": "http://hl7.org/fhir/ValueSet/constraint-severity|4.5.0"
+          "valueSet": "http://hl7.org/fhir/ValueSet/constraint-severity|4.6.0"
         },
         "mapping": [
           {
@@ -3880,6 +3944,10 @@
       {
         "id": "ElementDefinition.constraint.human",
         "extension": [
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable",
+            "valueBoolean": true
+          },
           {
             "url": "http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable",
             "valueBoolean": true
@@ -3924,7 +3992,7 @@
         "id": "ElementDefinition.constraint.expression",
         "path": "ElementDefinition.constraint.expression",
         "short": "FHIRPath expression of constraint",
-        "definition": "A [FHIRPath](http://build.fhir.org/fhirpath.html) expression of constraint that can be executed to see if this constraint is met.",
+        "definition": "A [FHIRPath](fhirpath.html) expression of constraint that can be executed to see if this constraint is met.",
         "comment": "In the absense of an expression, the expression is likely not enforceable by validators, and might be missed by many systems.",
         "requirements": "Used by validation tooling tests of the validity of the resource.",
         "min": 0,
@@ -4047,7 +4115,7 @@
         "path": "ElementDefinition.mustSupport",
         "short": "If the element must be supported",
         "definition": "If true, implementations that produce or consume resources SHALL provide \"support\" for the element in some meaningful way.  If false, the element may be ignored and not supported. If false, whether to populate or use the data element in any way is at the discretion of the implementation.",
-        "comment": "\"Something useful\" is context dependent and impossible to describe in the base FHIR specification. For this reason, tue mustSupport flag is never set to true by the FHIR specification itself - it is only set to true in profiles.  A profile on a type can always make musSupport \u003d true if it is false in the base type but cannot make mustSupport \u003d false if it is true in the base type.   This is done in [Resource Profiles](http://build.fhir.org/profiling.html#mustsupport), where the profile labels an element as mustSupport\u003dtrue. When a profile does this, it SHALL also make clear exactly what kind of \"support\" is required, as this can mean many things.    Note that an element that has the property IsModifier is not necessarily a \"key\" element (e.g. one of the important elements to make use of the resource), nor is it automatically mustSupport - however both of these things are more likely to be true for IsModifier elements than for other elements.",
+        "comment": "\"Something useful\" is context dependent and impossible to describe in the base FHIR specification. For this reason, tue mustSupport flag is never set to true by the FHIR specification itself - it is only set to true in profiles.  A profile on a type can always make musSupport \u003d true if it is false in the base type but cannot make mustSupport \u003d false if it is true in the base type.   This is done in [Resource Profiles](profiling.html#mustsupport), where the profile labels an element as mustSupport\u003dtrue. When a profile does this, it SHALL also make clear exactly what kind of \"support\" is required, as this can mean many things.    Note that an element that has the property IsModifier is not necessarily a \"key\" element (e.g. one of the important elements to make use of the resource), nor is it automatically mustSupport - however both of these things are more likely to be true for IsModifier elements than for other elements.",
         "requirements": "Allows a profile to set expectations for system capabilities beyond merely respecting cardinality constraints.",
         "min": 0,
         "max": "1",
@@ -4372,7 +4440,7 @@
         "path": "ElementDefinition.binding.strength",
         "short": "required | extensible | preferred | example",
         "definition": "Indicates the degree of conformance expectations associated with this binding - that is, the degree to which the provided value set must be adhered to in the instances.",
-        "comment": "For further discussion, see [Using Terminologies](http://build.fhir.org/terminologies.html).",
+        "comment": "For further discussion, see [Using Terminologies](terminologies.html).",
         "alias": [
           "conformance",
           "extensibility"
@@ -4404,6 +4472,10 @@
         "binding": {
           "extension": [
             {
+              "url": "http://hl7.org/fhir/build/StructureDefinition/definition",
+              "valueString": "Indication of the degree of conformance expectations associated with a binding."
+            },
+            {
               "url": "http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName",
               "valueString": "BindingStrength"
             },
@@ -4413,8 +4485,7 @@
             }
           ],
           "strength": "required",
-          "description": "Indication of the degree of conformance expectations associated with a binding.",
-          "valueSet": "http://hl7.org/fhir/ValueSet/binding-strength|4.5.0"
+          "valueSet": "http://hl7.org/fhir/ValueSet/binding-strength|4.6.0"
         },
         "mapping": [
           {
@@ -4434,6 +4505,10 @@
       {
         "id": "ElementDefinition.binding.description",
         "extension": [
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable",
+            "valueBoolean": true
+          },
           {
             "url": "http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable",
             "valueBoolean": true
@@ -4741,6 +4816,10 @@
         "binding": {
           "extension": [
             {
+              "url": "http://hl7.org/fhir/build/StructureDefinition/definition",
+              "valueString": "The mime type of an attachment. Any valid mime type is allowed."
+            },
+            {
               "url": "http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName",
               "valueString": "MimeType"
             },
@@ -4750,8 +4829,8 @@
             }
           ],
           "strength": "required",
-          "description": "The mime type of an attachment. Any valid mime type is allowed.",
-          "valueSet": "http://hl7.org/fhir/ValueSet/mimetypes|4.5.0"
+          "description": "BCP 13 (RFCs 2045, 2046, 2047, 4288, 4289 and 2049)",
+          "valueSet": "http://hl7.org/fhir/ValueSet/mimetypes|4.6.0"
         },
         "mapping": [
           {

@@ -9,8 +9,8 @@
       "status": "active",
       "description": "Type options for FamilyMemberHistory.born[x]",
       "expansion": {
-        "identifier": "urn:uuid:b7a9bcb2-04cf-46c5-9240-bf240d4ffea4",
-        "timestamp": "2020-08-20T17:45:30+10:00",
+        "identifier": "urn:uuid:31665c7d-6abe-4dc4-b5ff-06f388c84260",
+        "timestamp": "2021-05-03T22:03:34+10:00",
         "contains": [
           {
             "system": "http://hl7.org/fhir/data-types",
@@ -37,8 +37,8 @@
       "status": "active",
       "description": "Type options for FamilyMemberHistory.age[x]",
       "expansion": {
-        "identifier": "urn:uuid:4c9b40d0-c1de-4301-9e67-d973f6cce04d",
-        "timestamp": "2020-08-20T17:45:30+10:00",
+        "identifier": "urn:uuid:9e05748f-c731-4a6f-ba43-1e5b1b9acb37",
+        "timestamp": "2021-05-03T22:03:34+10:00",
         "contains": [
           {
             "system": "http://hl7.org/fhir/data-types",
@@ -65,8 +65,8 @@
       "status": "active",
       "description": "Type options for FamilyMemberHistory.deceased[x]",
       "expansion": {
-        "identifier": "urn:uuid:1159281f-8cd6-4c85-87d4-09e3c39e6789",
-        "timestamp": "2020-08-20T17:45:30+10:00",
+        "identifier": "urn:uuid:adae0655-08a6-43e2-852e-dd305d863963",
+        "timestamp": "2021-05-03T22:03:34+10:00",
         "contains": [
           {
             "system": "http://hl7.org/fhir/data-types",
@@ -103,8 +103,8 @@
       "status": "active",
       "description": "Type options for FamilyMemberHistory.condition.onset[x]",
       "expansion": {
-        "identifier": "urn:uuid:1f78c0cc-d974-4884-ab4b-f593383881ec",
-        "timestamp": "2020-08-20T17:45:30+10:00",
+        "identifier": "urn:uuid:1e3402db-736a-447f-a25f-5cce74a1985c",
+        "timestamp": "2021-05-03T22:03:34+10:00",
         "contains": [
           {
             "system": "http://hl7.org/fhir/data-types",
@@ -136,8 +136,8 @@
       "status": "active",
       "description": "Type options for FamilyMemberHistory.procedure.performed[x]",
       "expansion": {
-        "identifier": "urn:uuid:e62948e7-fc12-420e-85e9-f21960b0fc2d",
-        "timestamp": "2020-08-20T17:45:30+10:00",
+        "identifier": "urn:uuid:ede8b998-79a6-4a3c-8dbd-779f14c09050",
+        "timestamp": "2021-05-03T22:03:34+10:00",
         "contains": [
           {
             "system": "http://hl7.org/fhir/data-types",
@@ -173,9 +173,9 @@
       "system": "urn:ietf:rfc:3986"
     }
   ],
-  "version": "4.5.0",
+  "version": "4.6.0",
   "status": "draft",
-  "date": "2020-08-20T17:41:31+10:00",
+  "date": "2021-05-03T21:59:52+10:00",
   "publisher": "Health Level Seven International (Patient Care)",
   "item": [
     {
@@ -234,7 +234,7 @@
                   }
                 }
               ],
-              "text": "The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes. The only time that a resource does not have an id is when it is being submitted to the server using a create operation.",
+              "text": "The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes. Typically, the resource has an id except for cases like the create operation, conditional updates.",
               "type": "display"
             },
             {
@@ -359,9 +359,10 @@
             {
               "linkId": "FamilyMemberHistory.language.value",
               "text": "language",
-              "type": "choice",
+              "type": "coding",
               "required": false,
-              "repeats": false
+              "repeats": false,
+              "answerConstraint": "optionsOnly"
             }
           ]
         },
@@ -652,9 +653,10 @@
             {
               "linkId": "FamilyMemberHistory.status.value",
               "text": "status",
-              "type": "choice",
+              "type": "coding",
               "required": false,
-              "repeats": false
+              "repeats": false,
+              "answerConstraint": "optionsOrType"
             }
           ]
         },
@@ -696,9 +698,10 @@
             {
               "linkId": "FamilyMemberHistory.dataAbsentReason.coding",
               "text": "code:",
-              "type": "open-choice",
+              "type": "coding",
               "required": false,
-              "repeats": false
+              "repeats": false,
+              "answerConstraint": "optionsOnly"
             },
             {
               "linkId": "FamilyMemberHistory.dataAbsentReason.text",
@@ -894,9 +897,10 @@
             {
               "linkId": "FamilyMemberHistory.relationship.coding",
               "text": "code:",
-              "type": "open-choice",
+              "type": "coding",
               "required": false,
-              "repeats": false
+              "repeats": false,
+              "answerConstraint": "optionsOnly"
             },
             {
               "linkId": "FamilyMemberHistory.relationship.text",
@@ -945,9 +949,10 @@
             {
               "linkId": "FamilyMemberHistory.sex.coding",
               "text": "code:",
-              "type": "open-choice",
+              "type": "coding",
               "required": false,
-              "repeats": false
+              "repeats": false,
+              "answerConstraint": "optionsOnly"
             },
             {
               "linkId": "FamilyMemberHistory.sex.text",
@@ -992,9 +997,10 @@
             {
               "linkId": "FamilyMemberHistory.born[x]._type",
               "text": "type",
-              "type": "choice",
+              "type": "coding",
               "required": false,
               "repeats": false,
+              "answerConstraint": "optionsOnly",
               "answerValueSet": "#vs2",
               "item": [
                 {
@@ -1097,9 +1103,10 @@
             {
               "linkId": "FamilyMemberHistory.age[x]._type",
               "text": "type",
-              "type": "choice",
+              "type": "coding",
               "required": false,
               "repeats": false,
+              "answerConstraint": "optionsOnly",
               "answerValueSet": "#vs3",
               "item": [
                 {
@@ -1115,9 +1122,10 @@
                     {
                       "linkId": "FamilyMemberHistory.age[x]._null.comparator",
                       "text": "comp:",
-                      "type": "choice",
+                      "type": "coding",
                       "required": false,
-                      "repeats": false
+                      "repeats": false,
+                      "answerConstraint": "optionsOnly"
                     },
                     {
                       "linkId": "FamilyMemberHistory.age[x]._null.value",
@@ -1281,9 +1289,10 @@
             {
               "linkId": "FamilyMemberHistory.deceased[x]._type",
               "text": "type",
-              "type": "choice",
+              "type": "coding",
               "required": false,
               "repeats": false,
+              "answerConstraint": "optionsOnly",
               "answerValueSet": "#vs4",
               "item": [
                 {
@@ -1317,9 +1326,10 @@
                     {
                       "linkId": "FamilyMemberHistory.deceased[x]._null.comparator",
                       "text": "comp:",
-                      "type": "choice",
+                      "type": "coding",
                       "required": false,
-                      "repeats": false
+                      "repeats": false,
+                      "answerConstraint": "optionsOnly"
                     },
                     {
                       "linkId": "FamilyMemberHistory.deceased[x]._null.value",
@@ -1652,9 +1662,10 @@
                 {
                   "linkId": "FamilyMemberHistory.condition.code.coding",
                   "text": "code:",
-                  "type": "open-choice",
+                  "type": "coding",
                   "required": false,
-                  "repeats": false
+                  "repeats": false,
+                  "answerConstraint": "optionsOnly"
                 },
                 {
                   "linkId": "FamilyMemberHistory.condition.code.text",
@@ -1703,9 +1714,10 @@
                 {
                   "linkId": "FamilyMemberHistory.condition.outcome.coding",
                   "text": "code:",
-                  "type": "open-choice",
+                  "type": "coding",
                   "required": false,
-                  "repeats": false
+                  "repeats": false,
+                  "answerConstraint": "optionsOnly"
                 },
                 {
                   "linkId": "FamilyMemberHistory.condition.outcome.text",
@@ -1793,9 +1805,10 @@
                 {
                   "linkId": "FamilyMemberHistory.condition.onset[x]._type",
                   "text": "type",
-                  "type": "choice",
+                  "type": "coding",
                   "required": false,
                   "repeats": false,
+                  "answerConstraint": "optionsOnly",
                   "answerValueSet": "#vs5",
                   "item": [
                     {
@@ -1811,9 +1824,10 @@
                         {
                           "linkId": "FamilyMemberHistory.condition.onset[x]._null.comparator",
                           "text": "comp:",
-                          "type": "choice",
+                          "type": "coding",
                           "required": false,
-                          "repeats": false
+                          "repeats": false,
+                          "answerConstraint": "optionsOnly"
                         },
                         {
                           "linkId": "FamilyMemberHistory.condition.onset[x]._null.value",
@@ -2125,9 +2139,10 @@
                 {
                   "linkId": "FamilyMemberHistory.procedure.code.coding",
                   "text": "code:",
-                  "type": "open-choice",
+                  "type": "coding",
                   "required": false,
-                  "repeats": false
+                  "repeats": false,
+                  "answerConstraint": "optionsOnly"
                 },
                 {
                   "linkId": "FamilyMemberHistory.procedure.code.text",
@@ -2176,9 +2191,10 @@
                 {
                   "linkId": "FamilyMemberHistory.procedure.outcome.coding",
                   "text": "code:",
-                  "type": "open-choice",
+                  "type": "coding",
                   "required": false,
-                  "repeats": false
+                  "repeats": false,
+                  "answerConstraint": "optionsOnly"
                 },
                 {
                   "linkId": "FamilyMemberHistory.procedure.outcome.text",
@@ -2266,9 +2282,10 @@
                 {
                   "linkId": "FamilyMemberHistory.procedure.performed[x]._type",
                   "text": "type",
-                  "type": "choice",
+                  "type": "coding",
                   "required": false,
                   "repeats": false,
+                  "answerConstraint": "optionsOnly",
                   "answerValueSet": "#vs6",
                   "item": [
                     {
@@ -2284,9 +2301,10 @@
                         {
                           "linkId": "FamilyMemberHistory.procedure.performed[x]._null.comparator",
                           "text": "comp:",
-                          "type": "choice",
+                          "type": "coding",
                           "required": false,
-                          "repeats": false
+                          "repeats": false,
+                          "answerConstraint": "optionsOnly"
                         },
                         {
                           "linkId": "FamilyMemberHistory.procedure.performed[x]._null.value",

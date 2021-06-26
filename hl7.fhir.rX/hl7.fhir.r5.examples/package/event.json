@@ -12,11 +12,11 @@
     }
   ],
   "url": "http://hl7.org/fhir/StructureDefinition/Event",
-  "version": "4.5.0",
+  "version": "4.6.0",
   "name": "Event",
   "title": "event",
   "status": "draft",
-  "date": "2020-08-20T17:41:31+10:00",
+  "date": "2021-05-03T21:59:52+10:00",
   "publisher": "Health Level Seven International fhir",
   "contact": [
     {
@@ -29,7 +29,7 @@
     }
   ],
   "description": "Logical Model: A pattern to be followed by resources that represent the performance of some activity, possibly in accordance with a request or service definition.",
-  "fhirVersion": "4.5.0",
+  "fhirVersion": "4.6.0",
   "mapping": [
     {
       "identity": "v2",
@@ -335,7 +335,7 @@
               "http://hl7.org/fhir/StructureDefinition/Coverage",
               "http://hl7.org/fhir/StructureDefinition/CoverageEligibilityResponse",
               "http://hl7.org/fhir/StructureDefinition/DetectedIssue",
-              "http://hl7.org/fhir/StructureDefinition/DeviceUseStatement",
+              "http://hl7.org/fhir/StructureDefinition/DeviceUsage",
               "http://hl7.org/fhir/StructureDefinition/DiagnosticReport",
               "http://hl7.org/fhir/StructureDefinition/DocumentManifest",
               "http://hl7.org/fhir/StructureDefinition/DocumentReference",
@@ -348,6 +348,7 @@
               "http://hl7.org/fhir/StructureDefinition/ImagingStudy",
               "http://hl7.org/fhir/StructureDefinition/Immunization",
               "http://hl7.org/fhir/StructureDefinition/ImmunizationEvaluation",
+              "http://hl7.org/fhir/StructureDefinition/InventoryReport",
               "http://hl7.org/fhir/StructureDefinition/MedicationAdministration",
               "http://hl7.org/fhir/StructureDefinition/MedicationDispense",
               "http://hl7.org/fhir/StructureDefinition/MedicationUsage",
@@ -464,13 +465,16 @@
         "binding": {
           "extension": [
             {
+              "url": "http://hl7.org/fhir/build/StructureDefinition/definition",
+              "valueString": "Codes identifying the lifecycle stage of an event."
+            },
+            {
               "url": "http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName",
               "valueString": "EventStatus"
             }
           ],
           "strength": "required",
-          "description": "Codes identifying the lifecycle stage of an event.",
-          "valueSet": "http://hl7.org/fhir/ValueSet/event-status|4.5.0"
+          "valueSet": "http://hl7.org/fhir/ValueSet/event-status|4.6.0"
         },
         "mapping": [
           {
@@ -524,12 +528,15 @@
         "binding": {
           "extension": [
             {
+              "url": "http://hl7.org/fhir/build/StructureDefinition/definition",
+              "valueString": "Codes identifying the reason for the current state of an event."
+            },
+            {
               "url": "http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName",
               "valueString": "EventStatusReason"
             }
           ],
-          "strength": "example",
-          "description": "Codes identifying the reason for the current state of an event."
+          "strength": "example"
         },
         "mapping": [
           {
@@ -573,12 +580,15 @@
         "binding": {
           "extension": [
             {
+              "url": "http://hl7.org/fhir/build/StructureDefinition/definition",
+              "valueString": "Codes indicating the details of what is/was done.  These will vary significantly based on the type of event resource and will often be example/preferred rather than extensible/required."
+            },
+            {
               "url": "http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName",
               "valueString": "EventCode"
             }
           ],
-          "strength": "example",
-          "description": "Codes indicating the details of what is/was done.  These will vary significantly based on the type of event resource and will often be example/preferred rather than extensible/required."
+          "strength": "example"
         },
         "mapping": [
           {
@@ -916,12 +926,15 @@
         "binding": {
           "extension": [
             {
+              "url": "http://hl7.org/fhir/build/StructureDefinition/definition",
+              "valueString": "Codes that describe the specific involvement of a performer in an event.  E.g. Primary vs. secondary vs. supervising, etc."
+            },
+            {
               "url": "http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName",
               "valueString": "EventPerformerFunction"
             }
           ],
-          "strength": "example",
-          "description": "Codes that describe the specific involvement of a performer in an event.  E.g. Primary vs. secondary vs. supervising, etc."
+          "strength": "example"
         }
       },
       {
@@ -1064,12 +1077,15 @@
         "binding": {
           "extension": [
             {
+              "url": "http://hl7.org/fhir/build/StructureDefinition/definition",
+              "valueString": "Codes identifying why this event was necessary.  These may be clinical reasons (e.g. diagnoses, symptoms) and/or administrative reasons.  While the detailed constraints of relevant reasons will vary by resource, some degree of consistency across resources around recommended codes would be desirable."
+            },
+            {
               "url": "http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName",
               "valueString": "EventReason"
             }
           ],
-          "strength": "example",
-          "description": "Codes identifying why this event was necessary.  These may be clinical reasons (e.g. diagnoses, symptoms) and/or administrative reasons.  While the detailed constraints of relevant reasons will vary by resource, some degree of consistency across resources around recommended codes would be desirable."
+          "strength": "example"
         },
         "mapping": [
           {

@@ -9,8 +9,8 @@
       "status": "active",
       "description": "Type options for ManufacturedItemDefinition.property.value[x]",
       "expansion": {
-        "identifier": "urn:uuid:ae91f0b1-e07e-47ae-a7df-e80044021dfc",
-        "timestamp": "2020-08-20T17:45:47+10:00",
+        "identifier": "urn:uuid:1d8aa864-ed86-4bb5-80bf-03c5d49a91a7",
+        "timestamp": "2021-05-03T22:03:49+10:00",
         "contains": [
           {
             "system": "http://hl7.org/fhir/data-types",
@@ -46,9 +46,9 @@
       "system": "urn:ietf:rfc:3986"
     }
   ],
-  "version": "4.5.0",
+  "version": "4.6.0",
   "status": "draft",
-  "date": "2020-08-20T17:41:31+10:00",
+  "date": "2021-05-03T21:59:52+10:00",
   "publisher": "Health Level Seven International (Biomedical Research and Regulation)",
   "item": [
     {
@@ -107,7 +107,7 @@
                   }
                 }
               ],
-              "text": "The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes. The only time that a resource does not have an id is when it is being submitted to the server using a create operation.",
+              "text": "The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes. Typically, the resource has an id except for cases like the create operation, conditional updates.",
               "type": "display"
             },
             {
@@ -232,9 +232,10 @@
             {
               "linkId": "ManufacturedItemDefinition.language.value",
               "text": "language",
-              "type": "choice",
+              "type": "coding",
               "required": false,
-              "repeats": false
+              "repeats": false,
+              "answerConstraint": "optionsOnly"
             }
           ]
         },
@@ -448,9 +449,10 @@
             {
               "linkId": "ManufacturedItemDefinition.manufacturedDoseForm.coding",
               "text": "code:",
-              "type": "open-choice",
+              "type": "coding",
               "required": false,
-              "repeats": false
+              "repeats": false,
+              "answerConstraint": "optionsOnly"
             },
             {
               "linkId": "ManufacturedItemDefinition.manufacturedDoseForm.text",
@@ -499,9 +501,10 @@
             {
               "linkId": "ManufacturedItemDefinition.unitOfPresentation.coding",
               "text": "code:",
-              "type": "open-choice",
+              "type": "coding",
               "required": false,
-              "repeats": false
+              "repeats": false,
+              "answerConstraint": "optionsOnly"
             },
             {
               "linkId": "ManufacturedItemDefinition.unitOfPresentation.text",
@@ -562,13 +565,8 @@
           ]
         },
         {
-          "extension": [
-            {
-              "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-fhirType",
-              "valueString": "Reference"
-            }
-          ],
           "linkId": "ManufacturedItemDefinition.ingredient",
+          "text": "The ingredients that make up this manufactured item",
           "type": "group",
           "required": false,
           "repeats": true,
@@ -590,23 +588,6 @@
               ],
               "text": "The ingredients that make up this manufactured item.",
               "type": "display"
-            },
-            {
-              "extension": [
-                {
-                  "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-allowedResource",
-                  "valueCode": "Ingredient"
-                },
-                {
-                  "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-referenceFilter",
-                  "valueString": "subject\u003d$subj\u0026patient\u003d$subj\u0026encounter\u003d$encounter"
-                }
-              ],
-              "linkId": "ManufacturedItemDefinition.ingredient.value",
-              "text": "The ingredients that make up this manufactured item",
-              "type": "reference",
-              "required": false,
-              "repeats": false
             }
           ]
         },
@@ -774,9 +755,10 @@
                 {
                   "linkId": "ManufacturedItemDefinition.property.type.coding",
                   "text": "code:",
-                  "type": "open-choice",
+                  "type": "coding",
                   "required": false,
-                  "repeats": false
+                  "repeats": false,
+                  "answerConstraint": "optionsOnly"
                 },
                 {
                   "linkId": "ManufacturedItemDefinition.property.type.text",
@@ -821,9 +803,10 @@
                 {
                   "linkId": "ManufacturedItemDefinition.property.value[x]._type",
                   "text": "type",
-                  "type": "choice",
+                  "type": "coding",
                   "required": false,
                   "repeats": false,
+                  "answerConstraint": "optionsOnly",
                   "answerValueSet": "#vs2",
                   "item": [
                     {
@@ -839,9 +822,10 @@
                         {
                           "linkId": "ManufacturedItemDefinition.property.value[x]._null.coding",
                           "text": "code:",
-                          "type": "open-choice",
+                          "type": "coding",
                           "required": false,
-                          "repeats": false
+                          "repeats": false,
+                          "answerConstraint": "optionsOnly"
                         },
                         {
                           "linkId": "ManufacturedItemDefinition.property.value[x]._null.text",
@@ -865,9 +849,10 @@
                         {
                           "linkId": "ManufacturedItemDefinition.property.value[x]._null.comparator",
                           "text": "comp:",
-                          "type": "choice",
+                          "type": "coding",
                           "required": false,
-                          "repeats": false
+                          "repeats": false,
+                          "answerConstraint": "optionsOnly"
                         },
                         {
                           "linkId": "ManufacturedItemDefinition.property.value[x]._null.value",

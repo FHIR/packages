@@ -6,9 +6,9 @@
       "system": "urn:ietf:rfc:3986"
     }
   ],
-  "version": "4.5.0",
+  "version": "4.6.0",
   "status": "draft",
-  "date": "2020-08-20T17:41:31+10:00",
+  "date": "2021-05-03T21:59:52+10:00",
   "publisher": "Health Level Seven International (FHIR Infrastructure)",
   "item": [
     {
@@ -67,7 +67,7 @@
                   }
                 }
               ],
-              "text": "The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes. The only time that a resource does not have an id is when it is being submitted to the server using a create operation.",
+              "text": "The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes. Typically, the resource has an id except for cases like the create operation, conditional updates.",
               "type": "display"
             },
             {
@@ -192,9 +192,10 @@
             {
               "linkId": "SubscriptionTopic.language.value",
               "text": "language",
-              "type": "choice",
+              "type": "coding",
               "required": false,
-              "repeats": false
+              "repeats": false,
+              "answerConstraint": "optionsOnly"
             }
           ]
         },
@@ -579,9 +580,10 @@
             {
               "linkId": "SubscriptionTopic.status.value",
               "text": "status",
-              "type": "choice",
+              "type": "coding",
               "required": false,
-              "repeats": false
+              "repeats": false,
+              "answerConstraint": "optionsOrType"
             }
           ]
         },
@@ -863,9 +865,10 @@
             {
               "linkId": "SubscriptionTopic.jurisdiction.coding",
               "text": "code:",
-              "type": "open-choice",
+              "type": "coding",
               "required": false,
-              "repeats": false
+              "repeats": false,
+              "answerConstraint": "optionsOnly"
             },
             {
               "linkId": "SubscriptionTopic.jurisdiction.text",
@@ -1041,7 +1044,7 @@
             },
             {
               "linkId": "SubscriptionTopic.lastReviewDate.value",
-              "text": "Last review date for the SubscriptionTopic",
+              "text": "Date the Subscription Topic was last reviewed by the publisher",
               "type": "dateTime",
               "required": false,
               "repeats": false
@@ -1100,17 +1103,11 @@
           ]
         },
         {
-          "extension": [
-            {
-              "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-maxOccurs",
-              "valueInteger": 1
-            }
-          ],
           "linkId": "SubscriptionTopic.resourceTrigger",
           "text": "Criteria for including a resource update in the subscription topic",
           "type": "group",
           "required": false,
-          "repeats": false,
+          "repeats": true,
           "item": [
             {
               "extension": [
@@ -1273,8 +1270,12 @@
             {
               "extension": [
                 {
+                  "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-maxOccurs",
+                  "valueInteger": 1
+                },
+                {
                   "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-fhirType",
-                  "valueString": "code"
+                  "valueString": "uri"
                 }
               ],
               "linkId": "SubscriptionTopic.resourceTrigger.resourceType",
@@ -1297,13 +1298,13 @@
                       }
                     }
                   ],
-                  "text": "The list of resource types that are candidates for this subscription topic.  For example, the Encounter resource is updated in an \u0027admission\u0027 subscription topic.",
+                  "text": "URL of the Resource that is the type used in this trigger.  Relative URLs are relative to the StructureDefinition root of the implemented FHIR version (e.g., http://hl7.org/fhir/StructureDefinition). For example, \"Patient\" maps to http://hl7.org/fhir/StructureDefinition/Patient.  For more information, see \u003ca href\u003d\"elementdefinition-definitions.html#ElementDefinition.type.code\"\u003eElementDefinition.type.code\u003c/a\u003e.",
                   "type": "display"
                 },
                 {
                   "linkId": "SubscriptionTopic.resourceTrigger.resourceType.value",
-                  "text": "resource type",
-                  "type": "choice",
+                  "text": "Allowed Data type or Resource (reference to definition) for this definition",
+                  "type": "string",
                   "required": false,
                   "repeats": false
                 }
@@ -1342,9 +1343,10 @@
                 {
                   "linkId": "SubscriptionTopic.resourceTrigger.methodCriteria.value",
                   "text": "method criteria",
-                  "type": "choice",
+                  "type": "coding",
                   "required": false,
-                  "repeats": false
+                  "repeats": false,
+                  "answerConstraint": "optionsOrType"
                 }
               ]
             },
@@ -1527,6 +1529,50 @@
                     },
                     {
                       "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-fhirType",
+                      "valueString": "code"
+                    }
+                  ],
+                  "linkId": "SubscriptionTopic.resourceTrigger.queryCriteria.resultForCreate",
+                  "type": "group",
+                  "required": false,
+                  "repeats": true,
+                  "item": [
+                    {
+                      "extension": [
+                        {
+                          "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
+                          "valueCodeableConcept": {
+                            "coding": [
+                              {
+                                "system": "http://hl7.org/fhir/questionnaire-item-control",
+                                "code": "flyover",
+                                "display": "Fly-over"
+                              }
+                            ]
+                          }
+                        }
+                      ],
+                      "text": "What behavior a server will exhibit if the previous state of a resource does NOT exist (e.g., during a CREATE).",
+                      "type": "display"
+                    },
+                    {
+                      "linkId": "SubscriptionTopic.resourceTrigger.queryCriteria.resultForCreate.value",
+                      "text": "result for create",
+                      "type": "coding",
+                      "required": false,
+                      "repeats": false,
+                      "answerConstraint": "optionsOrType"
+                    }
+                  ]
+                },
+                {
+                  "extension": [
+                    {
+                      "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-maxOccurs",
+                      "valueInteger": 1
+                    },
+                    {
+                      "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-fhirType",
                       "valueString": "string"
                     }
                   ],
@@ -1559,6 +1605,50 @@
                       "type": "string",
                       "required": false,
                       "repeats": false
+                    }
+                  ]
+                },
+                {
+                  "extension": [
+                    {
+                      "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-maxOccurs",
+                      "valueInteger": 1
+                    },
+                    {
+                      "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-fhirType",
+                      "valueString": "code"
+                    }
+                  ],
+                  "linkId": "SubscriptionTopic.resourceTrigger.queryCriteria.resultForDelete",
+                  "type": "group",
+                  "required": false,
+                  "repeats": true,
+                  "item": [
+                    {
+                      "extension": [
+                        {
+                          "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
+                          "valueCodeableConcept": {
+                            "coding": [
+                              {
+                                "system": "http://hl7.org/fhir/questionnaire-item-control",
+                                "code": "flyover",
+                                "display": "Fly-over"
+                              }
+                            ]
+                          }
+                        }
+                      ],
+                      "text": "What behavior a server will exhibit if the current state of a resource does NOT exist (e.g., during a DELETE).",
+                      "type": "display"
+                    },
+                    {
+                      "linkId": "SubscriptionTopic.resourceTrigger.queryCriteria.resultForDelete.value",
+                      "text": "result for delete",
+                      "type": "coding",
+                      "required": false,
+                      "repeats": false,
+                      "answerConstraint": "optionsOrType"
                     }
                   ]
                 },
@@ -1645,46 +1735,10 @@
                   "repeats": false
                 }
               ]
-            }
-          ]
-        },
-        {
-          "linkId": "SubscriptionTopic.canFilterBy",
-          "text": "Properties by which a Subscription can further filter a SubscriptionTopic",
-          "type": "group",
-          "required": false,
-          "repeats": true,
-          "item": [
-            {
-              "extension": [
-                {
-                  "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
-                  "valueCodeableConcept": {
-                    "coding": [
-                      {
-                        "system": "http://hl7.org/fhir/questionnaire-item-control",
-                        "code": "flyover",
-                        "display": "Fly-over"
-                      }
-                    ]
-                  }
-                }
-              ],
-              "text": "List of properties by which Subscriptions on the subscription topic can be filtered.",
-              "type": "display"
             },
             {
-              "extension": [
-                {
-                  "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-maxOccurs",
-                  "valueInteger": 1
-                },
-                {
-                  "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-fhirType",
-                  "valueString": "string"
-                }
-              ],
-              "linkId": "SubscriptionTopic.canFilterBy.id",
+              "linkId": "SubscriptionTopic.resourceTrigger.canFilterBy",
+              "text": "Properties by which a Subscription can further filter a SubscriptionTopic",
               "type": "group",
               "required": false,
               "repeats": true,
@@ -1704,194 +1758,231 @@
                       }
                     }
                   ],
-                  "text": "Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.",
+                  "text": "List of properties by which Subscriptions on the subscription topic can be filtered.",
                   "type": "display"
                 },
                 {
-                  "linkId": "SubscriptionTopic.canFilterBy.id.value",
-                  "text": "Unique id for inter-element referencing",
-                  "type": "string",
+                  "extension": [
+                    {
+                      "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-maxOccurs",
+                      "valueInteger": 1
+                    },
+                    {
+                      "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-fhirType",
+                      "valueString": "string"
+                    }
+                  ],
+                  "linkId": "SubscriptionTopic.resourceTrigger.canFilterBy.id",
+                  "type": "group",
                   "required": false,
-                  "repeats": false
-                }
-              ]
-            },
-            {
-              "linkId": "SubscriptionTopic.canFilterBy.extension",
-              "text": "Additional content defined by implementations",
-              "type": "group",
-              "required": false,
-              "repeats": true,
-              "item": [
-                {
-                  "extension": [
+                  "repeats": true,
+                  "item": [
                     {
-                      "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
-                      "valueCodeableConcept": {
-                        "coding": [
-                          {
-                            "system": "http://hl7.org/fhir/questionnaire-item-control",
-                            "code": "flyover",
-                            "display": "Fly-over"
+                      "extension": [
+                        {
+                          "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
+                          "valueCodeableConcept": {
+                            "coding": [
+                              {
+                                "system": "http://hl7.org/fhir/questionnaire-item-control",
+                                "code": "flyover",
+                                "display": "Fly-over"
+                              }
+                            ]
                           }
-                        ]
-                      }
-                    }
-                  ],
-                  "text": "May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.",
-                  "type": "display"
-                }
-              ]
-            },
-            {
-              "linkId": "SubscriptionTopic.canFilterBy.modifierExtension",
-              "text": "Extensions that cannot be ignored even if unrecognized",
-              "type": "group",
-              "required": false,
-              "repeats": true,
-              "item": [
-                {
-                  "extension": [
+                        }
+                      ],
+                      "text": "Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.",
+                      "type": "display"
+                    },
                     {
-                      "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
-                      "valueCodeableConcept": {
-                        "coding": [
-                          {
-                            "system": "http://hl7.org/fhir/questionnaire-item-control",
-                            "code": "flyover",
-                            "display": "Fly-over"
-                          }
-                        ]
-                      }
+                      "linkId": "SubscriptionTopic.resourceTrigger.canFilterBy.id.value",
+                      "text": "Unique id for inter-element referencing",
+                      "type": "string",
+                      "required": false,
+                      "repeats": false
                     }
-                  ],
-                  "text": "May be used to represent additional information that is not part of the basic definition of the element and that modifies the understanding of the element in which it is contained and/or the understanding of the containing element\u0027s descendants. Usually modifier elements provide negation or qualification. To make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.\n\nModifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself). There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.",
-                  "type": "display"
-                }
-              ]
-            },
-            {
-              "extension": [
-                {
-                  "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-maxOccurs",
-                  "valueInteger": 1
+                  ]
                 },
                 {
-                  "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-fhirType",
-                  "valueString": "string"
-                }
-              ],
-              "linkId": "SubscriptionTopic.canFilterBy.searchParamName",
-              "type": "group",
-              "required": false,
-              "repeats": true,
-              "item": [
-                {
-                  "extension": [
-                    {
-                      "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
-                      "valueCodeableConcept": {
-                        "coding": [
-                          {
-                            "system": "http://hl7.org/fhir/questionnaire-item-control",
-                            "code": "flyover",
-                            "display": "Fly-over"
-                          }
-                        ]
-                      }
-                    }
-                  ],
-                  "text": "A search parameter (like \"patient\") which is a label for the filter. Chained parameters are allowed (like \"patient.gender\") - but can not use colons or modifiers.",
-                  "type": "display"
-                },
-                {
-                  "linkId": "SubscriptionTopic.canFilterBy.searchParamName.value",
-                  "text": "Search parameter that serves as filter key",
-                  "type": "string",
+                  "linkId": "SubscriptionTopic.resourceTrigger.canFilterBy.extension",
+                  "text": "Additional content defined by implementations",
+                  "type": "group",
                   "required": false,
-                  "repeats": false
-                }
-              ]
-            },
-            {
-              "extension": [
+                  "repeats": true,
+                  "item": [
+                    {
+                      "extension": [
+                        {
+                          "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
+                          "valueCodeableConcept": {
+                            "coding": [
+                              {
+                                "system": "http://hl7.org/fhir/questionnaire-item-control",
+                                "code": "flyover",
+                                "display": "Fly-over"
+                              }
+                            ]
+                          }
+                        }
+                      ],
+                      "text": "May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.",
+                      "type": "display"
+                    }
+                  ]
+                },
                 {
-                  "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-fhirType",
-                  "valueString": "code"
-                }
-              ],
-              "linkId": "SubscriptionTopic.canFilterBy.searchModifier",
-              "type": "group",
-              "required": false,
-              "repeats": true,
-              "item": [
+                  "linkId": "SubscriptionTopic.resourceTrigger.canFilterBy.modifierExtension",
+                  "text": "Extensions that cannot be ignored even if unrecognized",
+                  "type": "group",
+                  "required": false,
+                  "repeats": true,
+                  "item": [
+                    {
+                      "extension": [
+                        {
+                          "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
+                          "valueCodeableConcept": {
+                            "coding": [
+                              {
+                                "system": "http://hl7.org/fhir/questionnaire-item-control",
+                                "code": "flyover",
+                                "display": "Fly-over"
+                              }
+                            ]
+                          }
+                        }
+                      ],
+                      "text": "May be used to represent additional information that is not part of the basic definition of the element and that modifies the understanding of the element in which it is contained and/or the understanding of the containing element\u0027s descendants. Usually modifier elements provide negation or qualification. To make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.\n\nModifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself). There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.",
+                      "type": "display"
+                    }
+                  ]
+                },
                 {
                   "extension": [
                     {
-                      "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
-                      "valueCodeableConcept": {
-                        "coding": [
-                          {
-                            "system": "http://hl7.org/fhir/questionnaire-item-control",
-                            "code": "flyover",
-                            "display": "Fly-over"
-                          }
-                        ]
-                      }
+                      "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-maxOccurs",
+                      "valueInteger": 1
+                    },
+                    {
+                      "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-fhirType",
+                      "valueString": "string"
                     }
                   ],
-                  "text": "Allowable operators to apply when determining matches (Search Modifiers).",
-                  "type": "display"
-                },
-                {
-                  "linkId": "SubscriptionTopic.canFilterBy.searchModifier.value",
-                  "text": "search modifier",
-                  "type": "choice",
+                  "linkId": "SubscriptionTopic.resourceTrigger.canFilterBy.searchParamName",
+                  "type": "group",
                   "required": false,
-                  "repeats": false
-                }
-              ]
-            },
-            {
-              "extension": [
-                {
-                  "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-maxOccurs",
-                  "valueInteger": 1
+                  "repeats": true,
+                  "item": [
+                    {
+                      "extension": [
+                        {
+                          "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
+                          "valueCodeableConcept": {
+                            "coding": [
+                              {
+                                "system": "http://hl7.org/fhir/questionnaire-item-control",
+                                "code": "flyover",
+                                "display": "Fly-over"
+                              }
+                            ]
+                          }
+                        }
+                      ],
+                      "text": "A search parameter (like \"patient\") which is a label for the filter. Chained parameters are allowed (like \"patient.gender\") - but can not use colons or modifiers.",
+                      "type": "display"
+                    },
+                    {
+                      "linkId": "SubscriptionTopic.resourceTrigger.canFilterBy.searchParamName.value",
+                      "text": "Search parameter that serves as filter key",
+                      "type": "string",
+                      "required": false,
+                      "repeats": false
+                    }
+                  ]
                 },
-                {
-                  "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-fhirType",
-                  "valueString": "string"
-                }
-              ],
-              "linkId": "SubscriptionTopic.canFilterBy.documentation",
-              "type": "group",
-              "required": false,
-              "repeats": true,
-              "item": [
                 {
                   "extension": [
                     {
-                      "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
-                      "valueCodeableConcept": {
-                        "coding": [
-                          {
-                            "system": "http://hl7.org/fhir/questionnaire-item-control",
-                            "code": "flyover",
-                            "display": "Fly-over"
-                          }
-                        ]
-                      }
+                      "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-fhirType",
+                      "valueString": "code"
                     }
                   ],
-                  "text": "Description of how this filter parameter is intended to be used.",
-                  "type": "display"
+                  "linkId": "SubscriptionTopic.resourceTrigger.canFilterBy.searchModifier",
+                  "type": "group",
+                  "required": false,
+                  "repeats": true,
+                  "item": [
+                    {
+                      "extension": [
+                        {
+                          "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
+                          "valueCodeableConcept": {
+                            "coding": [
+                              {
+                                "system": "http://hl7.org/fhir/questionnaire-item-control",
+                                "code": "flyover",
+                                "display": "Fly-over"
+                              }
+                            ]
+                          }
+                        }
+                      ],
+                      "text": "Allowable operators to apply when determining matches (Search Modifiers).",
+                      "type": "display"
+                    },
+                    {
+                      "linkId": "SubscriptionTopic.resourceTrigger.canFilterBy.searchModifier.value",
+                      "text": "search modifier",
+                      "type": "coding",
+                      "required": false,
+                      "repeats": false,
+                      "answerConstraint": "optionsOrType"
+                    }
+                  ]
                 },
                 {
-                  "linkId": "SubscriptionTopic.canFilterBy.documentation.value",
-                  "text": "Description of this filter parameter",
-                  "type": "string",
+                  "extension": [
+                    {
+                      "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-maxOccurs",
+                      "valueInteger": 1
+                    },
+                    {
+                      "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-fhirType",
+                      "valueString": "string"
+                    }
+                  ],
+                  "linkId": "SubscriptionTopic.resourceTrigger.canFilterBy.documentation",
+                  "type": "group",
                   "required": false,
-                  "repeats": false
+                  "repeats": true,
+                  "item": [
+                    {
+                      "extension": [
+                        {
+                          "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
+                          "valueCodeableConcept": {
+                            "coding": [
+                              {
+                                "system": "http://hl7.org/fhir/questionnaire-item-control",
+                                "code": "flyover",
+                                "display": "Fly-over"
+                              }
+                            ]
+                          }
+                        }
+                      ],
+                      "text": "Description of how this filter parameter is intended to be used.",
+                      "type": "display"
+                    },
+                    {
+                      "linkId": "SubscriptionTopic.resourceTrigger.canFilterBy.documentation.value",
+                      "text": "Description of this filter parameter",
+                      "type": "string",
+                      "required": false,
+                      "repeats": false
+                    }
+                  ]
                 }
               ]
             }

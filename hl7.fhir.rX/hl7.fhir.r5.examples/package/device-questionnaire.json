@@ -1,14 +1,39 @@
 {
   "resourceType": "Questionnaire",
   "id": "qs1",
+  "contained": [
+    {
+      "resourceType": "ValueSet",
+      "id": "vs2",
+      "name": "Type options for Device.property.value[x]",
+      "status": "active",
+      "description": "Type options for Device.property.value[x]",
+      "expansion": {
+        "identifier": "urn:uuid:daf91f92-2c6e-4a50-9cec-709437055c9e",
+        "timestamp": "2021-05-03T22:03:17+10:00",
+        "contains": [
+          {
+            "system": "http://hl7.org/fhir/data-types",
+            "code": "Quantity",
+            "display": "Quantity"
+          },
+          {
+            "system": "http://hl7.org/fhir/data-types",
+            "code": "CodeableConcept",
+            "display": "CodeableConcept"
+          }
+        ]
+      }
+    }
+  ],
   "identifier": [
     {
       "system": "urn:ietf:rfc:3986"
     }
   ],
-  "version": "4.5.0",
+  "version": "4.6.0",
   "status": "draft",
-  "date": "2020-08-20T17:41:31+10:00",
+  "date": "2021-05-03T21:59:52+10:00",
   "publisher": "Health Level Seven International (Orders and Observations)",
   "item": [
     {
@@ -67,7 +92,7 @@
                   }
                 }
               ],
-              "text": "The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes. The only time that a resource does not have an id is when it is being submitted to the server using a create operation.",
+              "text": "The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes. Typically, the resource has an id except for cases like the create operation, conditional updates.",
               "type": "display"
             },
             {
@@ -192,9 +217,10 @@
             {
               "linkId": "Device.language.value",
               "text": "language",
-              "type": "choice",
+              "type": "coding",
               "required": false,
-              "repeats": false
+              "repeats": false,
+              "answerConstraint": "optionsOnly"
             }
           ]
         },
@@ -340,7 +366,7 @@
                   }
                 }
               ],
-              "text": "Unique instance identifiers assigned to a device by manufacturers other organizations or owners. The barcode string from a barcode present on a device label or package may identify the instance, include names given to the device in local usage, or may identify the type of device. If the identifier identifies the type of device, Device.type element should be used.",
+              "text": "Unique instance identifiers assigned to a device by manufacturers other organizations or owners. Certain attributes, like serial number and UDI Carrier (the HRF or AIDC barcode string) are not device instance identifiers as they are not consistently able to uniquely identify the instance of a device, thus are not appropriate to be used to value Device.identifier. The barcode string from a barcode present on a device label or package may identify the instance, include names given to the device in local usage, or may identify the type of device. If the identifier identifies the type of device, Device.type element should be used.",
               "type": "display"
             },
             {
@@ -834,9 +860,10 @@
                 {
                   "linkId": "Device.udiCarrier.entryType.value",
                   "text": "entry type",
-                  "type": "choice",
+                  "type": "coding",
                   "required": false,
-                  "repeats": false
+                  "repeats": false,
+                  "answerConstraint": "optionsOrType"
                 }
               ]
             }
@@ -879,9 +906,10 @@
             {
               "linkId": "Device.status.value",
               "text": "status",
-              "type": "choice",
+              "type": "coding",
               "required": false,
-              "repeats": false
+              "repeats": false,
+              "answerConstraint": "optionsOrType"
             }
           ]
         },
@@ -919,9 +947,10 @@
             {
               "linkId": "Device.statusReason.coding",
               "text": "code:",
-              "type": "open-choice",
+              "type": "coding",
               "required": false,
-              "repeats": false
+              "repeats": false,
+              "answerConstraint": "optionsOnly"
             },
             {
               "linkId": "Device.statusReason.text",
@@ -1400,9 +1429,10 @@
                 {
                   "linkId": "Device.deviceName.type.value",
                   "text": "type",
-                  "type": "choice",
+                  "type": "coding",
                   "required": false,
-                  "repeats": false
+                  "repeats": false,
+                  "answerConstraint": "optionsOrType"
                 }
               ]
             }
@@ -1528,9 +1558,10 @@
             {
               "linkId": "Device.type.coding",
               "text": "code:",
-              "type": "open-choice",
+              "type": "coding",
               "required": false,
-              "repeats": false
+              "repeats": false,
+              "answerConstraint": "optionsOnly"
             },
             {
               "linkId": "Device.type.text",
@@ -1705,9 +1736,10 @@
                 {
                   "linkId": "Device.specialization.systemType.coding",
                   "text": "code:",
-                  "type": "open-choice",
+                  "type": "coding",
                   "required": false,
-                  "repeats": false
+                  "repeats": false,
+                  "answerConstraint": "optionsOnly"
                 },
                 {
                   "linkId": "Device.specialization.systemType.text",
@@ -1923,9 +1955,10 @@
                 {
                   "linkId": "Device.version.type.coding",
                   "text": "code:",
-                  "type": "open-choice",
+                  "type": "coding",
                   "required": false,
-                  "repeats": false
+                  "repeats": false,
+                  "answerConstraint": "optionsOnly"
                 },
                 {
                   "linkId": "Device.version.type.text",
@@ -2207,9 +2240,10 @@
                 {
                   "linkId": "Device.property.type.coding",
                   "text": "code:",
-                  "type": "open-choice",
+                  "type": "coding",
                   "required": false,
-                  "repeats": false
+                  "repeats": false,
+                  "answerConstraint": "optionsOnly"
                 },
                 {
                   "linkId": "Device.property.type.text",
@@ -2223,12 +2257,12 @@
             {
               "extension": [
                 {
-                  "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-fhirType",
-                  "valueString": "Quantity"
+                  "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-maxOccurs",
+                  "valueInteger": 1
                 }
               ],
-              "linkId": "Device.property.valueQuantity",
-              "text": "Property value as a quantity",
+              "linkId": "Device.property.value[x]",
+              "text": "Property value - as a code or quantity",
               "type": "group",
               "required": false,
               "repeats": true,
@@ -2248,90 +2282,94 @@
                       }
                     }
                   ],
-                  "text": "Property value as a quantity.",
+                  "text": "Property value - can be a code or quantity.",
                   "type": "display"
                 },
                 {
-                  "linkId": "Device.property.valueQuantity.comparator",
-                  "text": "comp:",
-                  "type": "choice",
+                  "linkId": "Device.property.value[x]._type",
+                  "text": "type",
+                  "type": "coding",
                   "required": false,
-                  "repeats": false
-                },
-                {
-                  "linkId": "Device.property.valueQuantity.value",
-                  "text": "value:",
-                  "type": "decimal",
-                  "required": false,
-                  "repeats": false
-                },
-                {
-                  "linkId": "Device.property.valueQuantity.units",
-                  "text": "units:",
-                  "type": "string",
-                  "required": false,
-                  "repeats": false
-                },
-                {
-                  "linkId": "Device.property.valueQuantity.code",
-                  "text": "coded units:",
-                  "type": "string",
-                  "required": false,
-                  "repeats": false
-                },
-                {
-                  "linkId": "Device.property.valueQuantity.system",
-                  "text": "units system:",
-                  "type": "string",
-                  "required": false,
-                  "repeats": false
-                }
-              ]
-            },
-            {
-              "extension": [
-                {
-                  "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-fhirType",
-                  "valueString": "CodeableConcept"
-                }
-              ],
-              "linkId": "Device.property.valueCode",
-              "text": "Property value as a code, e.g., NTP4 (synced to NTP)",
-              "type": "group",
-              "required": false,
-              "repeats": true,
-              "item": [
-                {
-                  "extension": [
+                  "repeats": false,
+                  "answerConstraint": "optionsOnly",
+                  "answerValueSet": "#vs2",
+                  "item": [
                     {
-                      "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
-                      "valueCodeableConcept": {
-                        "coding": [
-                          {
-                            "system": "http://hl7.org/fhir/questionnaire-item-control",
-                            "code": "flyover",
-                            "display": "Fly-over"
-                          }
-                        ]
-                      }
+                      "extension": [
+                        {
+                          "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-fhirType",
+                          "valueString": "Quantity"
+                        }
+                      ],
+                      "linkId": "Device.property.value[x]._null",
+                      "type": "group",
+                      "item": [
+                        {
+                          "linkId": "Device.property.value[x]._null.comparator",
+                          "text": "comp:",
+                          "type": "coding",
+                          "required": false,
+                          "repeats": false,
+                          "answerConstraint": "optionsOnly"
+                        },
+                        {
+                          "linkId": "Device.property.value[x]._null.value",
+                          "text": "value:",
+                          "type": "decimal",
+                          "required": false,
+                          "repeats": false
+                        },
+                        {
+                          "linkId": "Device.property.value[x]._null.units",
+                          "text": "units:",
+                          "type": "string",
+                          "required": false,
+                          "repeats": false
+                        },
+                        {
+                          "linkId": "Device.property.value[x]._null.code",
+                          "text": "coded units:",
+                          "type": "string",
+                          "required": false,
+                          "repeats": false
+                        },
+                        {
+                          "linkId": "Device.property.value[x]._null.system",
+                          "text": "units system:",
+                          "type": "string",
+                          "required": false,
+                          "repeats": false
+                        }
+                      ]
+                    },
+                    {
+                      "extension": [
+                        {
+                          "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-fhirType",
+                          "valueString": "CodeableConcept"
+                        }
+                      ],
+                      "linkId": "Device.property.value[x]._null",
+                      "type": "group",
+                      "item": [
+                        {
+                          "linkId": "Device.property.value[x]._null.coding",
+                          "text": "code:",
+                          "type": "coding",
+                          "required": false,
+                          "repeats": false,
+                          "answerConstraint": "optionsOnly"
+                        },
+                        {
+                          "linkId": "Device.property.value[x]._null.text",
+                          "text": "text:",
+                          "type": "string",
+                          "required": false,
+                          "repeats": false
+                        }
+                      ]
                     }
-                  ],
-                  "text": "Property value as a code, e.g., NTP4 (synced to NTP).",
-                  "type": "display"
-                },
-                {
-                  "linkId": "Device.property.valueCode.coding",
-                  "text": "code:",
-                  "type": "open-choice",
-                  "required": false,
-                  "repeats": false
-                },
-                {
-                  "linkId": "Device.property.valueCode.text",
-                  "text": "text:",
-                  "type": "string",
-                  "required": false,
-                  "repeats": false
+                  ]
                 }
               ]
             }
@@ -2556,9 +2594,10 @@
                 {
                   "linkId": "Device.operationalStatus.value.coding",
                   "text": "code:",
-                  "type": "open-choice",
+                  "type": "coding",
                   "required": false,
-                  "repeats": false
+                  "repeats": false,
+                  "answerConstraint": "optionsOnly"
                 },
                 {
                   "linkId": "Device.operationalStatus.value.text",
@@ -2603,9 +2642,10 @@
                 {
                   "linkId": "Device.operationalStatus.reason.coding",
                   "text": "code:",
-                  "type": "open-choice",
+                  "type": "coding",
                   "required": false,
-                  "repeats": false
+                  "repeats": false,
+                  "answerConstraint": "optionsOnly"
                 },
                 {
                   "linkId": "Device.operationalStatus.reason.text",
@@ -2784,9 +2824,10 @@
                 {
                   "linkId": "Device.associationStatus.value.coding",
                   "text": "code:",
-                  "type": "open-choice",
+                  "type": "coding",
                   "required": false,
-                  "repeats": false
+                  "repeats": false,
+                  "answerConstraint": "optionsOnly"
                 },
                 {
                   "linkId": "Device.associationStatus.value.text",
@@ -2831,9 +2872,10 @@
                 {
                   "linkId": "Device.associationStatus.reason.coding",
                   "text": "code:",
-                  "type": "open-choice",
+                  "type": "coding",
                   "required": false,
-                  "repeats": false
+                  "repeats": false,
+                  "answerConstraint": "optionsOnly"
                 },
                 {
                   "linkId": "Device.associationStatus.reason.text",
@@ -2933,9 +2975,10 @@
             {
               "linkId": "Device.contact.system",
               "text": "type:",
-              "type": "choice",
+              "type": "coding",
               "required": false,
-              "repeats": false
+              "repeats": false,
+              "answerConstraint": "optionsOnly"
             },
             {
               "linkId": "Device.contact.value",
@@ -2947,9 +2990,10 @@
             {
               "linkId": "Device.contact.use",
               "text": "use:",
-              "type": "choice",
+              "type": "coding",
               "required": false,
-              "repeats": false
+              "repeats": false,
+              "answerConstraint": "optionsOnly"
             }
           ]
         },
@@ -3116,9 +3160,10 @@
             {
               "linkId": "Device.safety.coding",
               "text": "code:",
-              "type": "open-choice",
+              "type": "coding",
               "required": false,
-              "repeats": false
+              "repeats": false,
+              "answerConstraint": "optionsOnly"
             },
             {
               "linkId": "Device.safety.text",

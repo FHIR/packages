@@ -6,9 +6,9 @@
       "system": "urn:ietf:rfc:3986"
     }
   ],
-  "version": "4.5.0",
+  "version": "4.6.0",
   "status": "draft",
-  "date": "2020-08-20T17:41:31+10:00",
+  "date": "2021-05-03T21:59:52+10:00",
   "publisher": "Health Level Seven International (Patient Administration)",
   "item": [
     {
@@ -67,7 +67,7 @@
                   }
                 }
               ],
-              "text": "The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes. The only time that a resource does not have an id is when it is being submitted to the server using a create operation.",
+              "text": "The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes. Typically, the resource has an id except for cases like the create operation, conditional updates.",
               "type": "display"
             },
             {
@@ -192,9 +192,10 @@
             {
               "linkId": "Encounter.language.value",
               "text": "language",
-              "type": "choice",
+              "type": "coding",
               "required": false,
-              "repeats": false
+              "repeats": false,
+              "answerConstraint": "optionsOnly"
             }
           ]
         },
@@ -407,9 +408,10 @@
             {
               "linkId": "Encounter.status.value",
               "text": "status",
-              "type": "choice",
+              "type": "coding",
               "required": false,
-              "repeats": false
+              "repeats": false,
+              "answerConstraint": "optionsOrType"
             }
           ]
         },
@@ -580,9 +582,10 @@
                 {
                   "linkId": "Encounter.statusHistory.status.value",
                   "text": "status",
-                  "type": "choice",
+                  "type": "coding",
                   "required": false,
-                  "repeats": false
+                  "repeats": false,
+                  "answerConstraint": "optionsOrType"
                 }
               ]
             },
@@ -684,9 +687,10 @@
             {
               "linkId": "Encounter.class.value",
               "text": "Classification of patient encounter",
-              "type": "open-choice",
+              "type": "coding",
               "required": false,
-              "repeats": false
+              "repeats": false,
+              "answerConstraint": "optionsOnly"
             }
           ]
         },
@@ -853,9 +857,10 @@
                 {
                   "linkId": "Encounter.classHistory.class.value",
                   "text": "inpatient | outpatient | ambulatory | emergency +",
-                  "type": "open-choice",
+                  "type": "coding",
                   "required": false,
-                  "repeats": false
+                  "repeats": false,
+                  "answerConstraint": "optionsOnly"
                 }
               ]
             },
@@ -950,9 +955,10 @@
             {
               "linkId": "Encounter.type.coding",
               "text": "code:",
-              "type": "open-choice",
+              "type": "coding",
               "required": false,
-              "repeats": false
+              "repeats": false,
+              "answerConstraint": "optionsOnly"
             },
             {
               "linkId": "Encounter.type.text",
@@ -1001,9 +1007,10 @@
             {
               "linkId": "Encounter.serviceType.coding",
               "text": "code:",
-              "type": "open-choice",
+              "type": "coding",
               "required": false,
-              "repeats": false
+              "repeats": false,
+              "answerConstraint": "optionsOnly"
             },
             {
               "linkId": "Encounter.serviceType.text",
@@ -1052,9 +1059,10 @@
             {
               "linkId": "Encounter.priority.coding",
               "text": "code:",
-              "type": "open-choice",
+              "type": "coding",
               "required": false,
-              "repeats": false
+              "repeats": false,
+              "answerConstraint": "optionsOnly"
             },
             {
               "linkId": "Encounter.priority.text",
@@ -1156,9 +1164,10 @@
             {
               "linkId": "Encounter.subjectStatus.coding",
               "text": "code:",
-              "type": "open-choice",
+              "type": "coding",
               "required": false,
-              "repeats": false
+              "repeats": false,
+              "answerConstraint": "optionsOnly"
             },
             {
               "linkId": "Encounter.subjectStatus.text",
@@ -1423,9 +1432,10 @@
                 {
                   "linkId": "Encounter.participant.type.coding",
                   "text": "code:",
-                  "type": "open-choice",
+                  "type": "coding",
                   "required": false,
-                  "repeats": false
+                  "repeats": false,
+                  "answerConstraint": "optionsOnly"
                 },
                 {
                   "linkId": "Encounter.participant.type.text",
@@ -1680,9 +1690,10 @@
             {
               "linkId": "Encounter.length.comparator",
               "text": "comp:",
-              "type": "choice",
+              "type": "coding",
               "required": false,
-              "repeats": false
+              "repeats": false,
+              "answerConstraint": "optionsOnly"
             },
             {
               "linkId": "Encounter.length.value",
@@ -1962,9 +1973,10 @@
                 {
                   "linkId": "Encounter.diagnosis.use.coding",
                   "text": "code:",
-                  "type": "open-choice",
+                  "type": "coding",
                   "required": false,
-                  "repeats": false
+                  "repeats": false,
+                  "answerConstraint": "optionsOnly"
                 },
                 {
                   "linkId": "Encounter.diagnosis.use.text",
@@ -2350,9 +2362,10 @@
                 {
                   "linkId": "Encounter.hospitalization.admitSource.coding",
                   "text": "code:",
-                  "type": "open-choice",
+                  "type": "coding",
                   "required": false,
-                  "repeats": false
+                  "repeats": false,
+                  "answerConstraint": "optionsOnly"
                 },
                 {
                   "linkId": "Encounter.hospitalization.admitSource.text",
@@ -2401,9 +2414,10 @@
                 {
                   "linkId": "Encounter.hospitalization.reAdmission.coding",
                   "text": "code:",
-                  "type": "open-choice",
+                  "type": "coding",
                   "required": false,
-                  "repeats": false
+                  "repeats": false,
+                  "answerConstraint": "optionsOnly"
                 },
                 {
                   "linkId": "Encounter.hospitalization.reAdmission.text",
@@ -2448,9 +2462,10 @@
                 {
                   "linkId": "Encounter.hospitalization.dietPreference.coding",
                   "text": "code:",
-                  "type": "open-choice",
+                  "type": "coding",
                   "required": false,
-                  "repeats": false
+                  "repeats": false,
+                  "answerConstraint": "optionsOnly"
                 },
                 {
                   "linkId": "Encounter.hospitalization.dietPreference.text",
@@ -2495,9 +2510,10 @@
                 {
                   "linkId": "Encounter.hospitalization.specialCourtesy.coding",
                   "text": "code:",
-                  "type": "open-choice",
+                  "type": "coding",
                   "required": false,
-                  "repeats": false
+                  "repeats": false,
+                  "answerConstraint": "optionsOnly"
                 },
                 {
                   "linkId": "Encounter.hospitalization.specialCourtesy.text",
@@ -2542,9 +2558,10 @@
                 {
                   "linkId": "Encounter.hospitalization.specialArrangement.coding",
                   "text": "code:",
-                  "type": "open-choice",
+                  "type": "coding",
                   "required": false,
-                  "repeats": false
+                  "repeats": false,
+                  "answerConstraint": "optionsOnly"
                 },
                 {
                   "linkId": "Encounter.hospitalization.specialArrangement.text",
@@ -2646,9 +2663,10 @@
                 {
                   "linkId": "Encounter.hospitalization.dischargeDisposition.coding",
                   "text": "code:",
-                  "type": "open-choice",
+                  "type": "coding",
                   "required": false,
-                  "repeats": false
+                  "repeats": false,
+                  "answerConstraint": "optionsOnly"
                 },
                 {
                   "linkId": "Encounter.hospitalization.dischargeDisposition.text",
@@ -2881,9 +2899,10 @@
                 {
                   "linkId": "Encounter.location.status.value",
                   "text": "status",
-                  "type": "choice",
+                  "type": "coding",
                   "required": false,
-                  "repeats": false
+                  "repeats": false,
+                  "answerConstraint": "optionsOrType"
                 }
               ]
             },
@@ -2925,9 +2944,10 @@
                 {
                   "linkId": "Encounter.location.physicalType.coding",
                   "text": "code:",
-                  "type": "open-choice",
+                  "type": "coding",
                   "required": false,
-                  "repeats": false
+                  "repeats": false,
+                  "answerConstraint": "optionsOnly"
                 },
                 {
                   "linkId": "Encounter.location.physicalType.text",

@@ -9,8 +9,8 @@
       "status": "active",
       "description": "Type options for Medication.ingredient.strength[x]",
       "expansion": {
-        "identifier": "urn:uuid:bf6166eb-71aa-4e15-a3bd-967572307158",
-        "timestamp": "2020-08-20T17:45:50+10:00",
+        "identifier": "urn:uuid:e5cfe2e7-a863-469b-98ae-19d283c88347",
+        "timestamp": "2021-05-03T22:03:53+10:00",
         "contains": [
           {
             "system": "http://hl7.org/fhir/data-types",
@@ -36,9 +36,9 @@
       "system": "urn:ietf:rfc:3986"
     }
   ],
-  "version": "4.5.0",
+  "version": "4.6.0",
   "status": "draft",
-  "date": "2020-08-20T17:41:31+10:00",
+  "date": "2021-05-03T21:59:52+10:00",
   "publisher": "Health Level Seven International (Pharmacy)",
   "item": [
     {
@@ -97,7 +97,7 @@
                   }
                 }
               ],
-              "text": "The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes. The only time that a resource does not have an id is when it is being submitted to the server using a create operation.",
+              "text": "The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes. Typically, the resource has an id except for cases like the create operation, conditional updates.",
               "type": "display"
             },
             {
@@ -222,9 +222,10 @@
             {
               "linkId": "Medication.language.value",
               "text": "language",
-              "type": "choice",
+              "type": "coding",
               "required": false,
-              "repeats": false
+              "repeats": false,
+              "answerConstraint": "optionsOnly"
             }
           ]
         },
@@ -434,9 +435,10 @@
             {
               "linkId": "Medication.code.coding",
               "text": "code:",
-              "type": "open-choice",
+              "type": "coding",
               "required": false,
-              "repeats": false
+              "repeats": false,
+              "answerConstraint": "optionsOnly"
             },
             {
               "linkId": "Medication.code.text",
@@ -484,9 +486,10 @@
             {
               "linkId": "Medication.status.value",
               "text": "status",
-              "type": "choice",
+              "type": "coding",
               "required": false,
-              "repeats": false
+              "repeats": false,
+              "answerConstraint": "optionsOrType"
             }
           ]
         },
@@ -501,7 +504,7 @@
               "valueString": "Reference"
             }
           ],
-          "linkId": "Medication.manufacturer",
+          "linkId": "Medication.sponsor",
           "type": "group",
           "required": false,
           "repeats": true,
@@ -521,7 +524,7 @@
                   }
                 }
               ],
-              "text": "Describes the details of the manufacturer of the medication product.  This is not intended to represent the distributor of a medication product.",
+              "text": "Describes the details of the manufacturer of the medication product. This is not intended to represent the distributor of a medication product.  Describes the organization that is responsible for the manufacturing of the item and holds the registration to market the product in a jurisdiction.. This might not be the company that physically manufactures the product.  May be known as Market Authorization Holder.",
               "type": "display"
             },
             {
@@ -535,8 +538,8 @@
                   "valueString": "subject\u003d$subj\u0026patient\u003d$subj\u0026encounter\u003d$encounter"
                 }
               ],
-              "linkId": "Medication.manufacturer.value",
-              "text": "Manufacturer of the item",
+              "linkId": "Medication.sponsor.value",
+              "text": "Organization responsible for manufacturing the item",
               "type": "reference",
               "required": false,
               "repeats": false
@@ -581,9 +584,10 @@
             {
               "linkId": "Medication.doseForm.coding",
               "text": "code:",
-              "type": "open-choice",
+              "type": "coding",
               "required": false,
-              "repeats": false
+              "repeats": false,
+              "answerConstraint": "optionsOnly"
             },
             {
               "linkId": "Medication.doseForm.text",
@@ -892,9 +896,10 @@
                 {
                   "linkId": "Medication.ingredient.strength[x]._type",
                   "text": "type",
-                  "type": "choice",
+                  "type": "coding",
                   "required": false,
                   "repeats": false,
+                  "answerConstraint": "optionsOnly",
                   "answerValueSet": "#vs2",
                   "item": [
                     {
@@ -943,9 +948,10 @@
                         {
                           "linkId": "Medication.ingredient.strength[x]._null.coding",
                           "text": "code:",
-                          "type": "open-choice",
+                          "type": "coding",
                           "required": false,
-                          "repeats": false
+                          "repeats": false,
+                          "answerConstraint": "optionsOnly"
                         },
                         {
                           "linkId": "Medication.ingredient.strength[x]._null.text",
@@ -969,9 +975,10 @@
                         {
                           "linkId": "Medication.ingredient.strength[x]._null.comparator",
                           "text": "comp:",
-                          "type": "choice",
+                          "type": "coding",
                           "required": false,
-                          "repeats": false
+                          "repeats": false,
+                          "answerConstraint": "optionsOnly"
                         },
                         {
                           "linkId": "Medication.ingredient.strength[x]._null.value",

@@ -9,8 +9,8 @@
       "status": "active",
       "description": "Type options for Patient.deceased[x]",
       "expansion": {
-        "identifier": "urn:uuid:9898e1e5-25a8-4705-9f59-d64684b72480",
-        "timestamp": "2020-08-20T17:46:21+10:00",
+        "identifier": "urn:uuid:5114d1d7-7e22-4540-b0be-634c9d5bf0cb",
+        "timestamp": "2021-05-03T22:04:23+10:00",
         "contains": [
           {
             "system": "http://hl7.org/fhir/data-types",
@@ -32,8 +32,8 @@
       "status": "active",
       "description": "Type options for Patient.multipleBirth[x]",
       "expansion": {
-        "identifier": "urn:uuid:3358a6c6-6fc5-4396-98b3-88f14e600521",
-        "timestamp": "2020-08-20T17:46:21+10:00",
+        "identifier": "urn:uuid:9d560971-de6b-4f7a-bf9d-0191f695addb",
+        "timestamp": "2021-05-03T22:04:23+10:00",
         "contains": [
           {
             "system": "http://hl7.org/fhir/data-types",
@@ -54,9 +54,9 @@
       "system": "urn:ietf:rfc:3986"
     }
   ],
-  "version": "4.5.0",
+  "version": "4.6.0",
   "status": "active",
-  "date": "2020-08-20T17:41:31+10:00",
+  "date": "2021-05-03T21:59:52+10:00",
   "publisher": "Health Level Seven International (Patient Administration)",
   "item": [
     {
@@ -115,7 +115,7 @@
                   }
                 }
               ],
-              "text": "The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes. The only time that a resource does not have an id is when it is being submitted to the server using a create operation.",
+              "text": "The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes. Typically, the resource has an id except for cases like the create operation, conditional updates.",
               "type": "display"
             },
             {
@@ -240,9 +240,10 @@
             {
               "linkId": "Patient.language.value",
               "text": "language",
-              "type": "choice",
+              "type": "coding",
               "required": false,
-              "repeats": false
+              "repeats": false,
+              "answerConstraint": "optionsOnly"
             }
           ]
         },
@@ -545,9 +546,10 @@
             {
               "linkId": "Patient.telecom.system",
               "text": "type:",
-              "type": "choice",
+              "type": "coding",
               "required": false,
-              "repeats": false
+              "repeats": false,
+              "answerConstraint": "optionsOnly"
             },
             {
               "linkId": "Patient.telecom.value",
@@ -559,9 +561,10 @@
             {
               "linkId": "Patient.telecom.use",
               "text": "use:",
-              "type": "choice",
+              "type": "coding",
               "required": false,
-              "repeats": false
+              "repeats": false,
+              "answerConstraint": "optionsOnly"
             }
           ]
         },
@@ -602,9 +605,10 @@
             {
               "linkId": "Patient.gender.value",
               "text": "gender",
-              "type": "choice",
+              "type": "coding",
               "required": false,
-              "repeats": false
+              "repeats": false,
+              "answerConstraint": "optionsOrType"
             }
           ]
         },
@@ -685,9 +689,10 @@
             {
               "linkId": "Patient.deceased[x]._type",
               "text": "type",
-              "type": "choice",
+              "type": "coding",
               "required": false,
               "repeats": false,
+              "answerConstraint": "optionsOnly",
               "answerValueSet": "#vs2",
               "item": [
                 {
@@ -806,9 +811,10 @@
             {
               "linkId": "Patient.address.use",
               "text": "use:",
-              "type": "choice",
+              "type": "coding",
               "required": false,
-              "repeats": false
+              "repeats": false,
+              "answerConstraint": "optionsOnly"
             }
           ]
         },
@@ -850,9 +856,10 @@
             {
               "linkId": "Patient.maritalStatus.coding",
               "text": "code:",
-              "type": "open-choice",
+              "type": "coding",
               "required": false,
-              "repeats": false
+              "repeats": false,
+              "answerConstraint": "optionsOnly"
             },
             {
               "linkId": "Patient.maritalStatus.text",
@@ -897,9 +904,10 @@
             {
               "linkId": "Patient.multipleBirth[x]._type",
               "text": "type",
-              "type": "choice",
+              "type": "coding",
               "required": false,
               "repeats": false,
+              "answerConstraint": "optionsOnly",
               "answerValueSet": "#vs3",
               "item": [
                 {
@@ -1135,9 +1143,10 @@
                 {
                   "linkId": "Patient.contact.relationship.coding",
                   "text": "code:",
-                  "type": "open-choice",
+                  "type": "coding",
                   "required": false,
-                  "repeats": false
+                  "repeats": false,
+                  "answerConstraint": "optionsOnly"
                 },
                 {
                   "linkId": "Patient.contact.relationship.text",
@@ -1240,9 +1249,10 @@
                 {
                   "linkId": "Patient.contact.telecom.system",
                   "text": "type:",
-                  "type": "choice",
+                  "type": "coding",
                   "required": false,
-                  "repeats": false
+                  "repeats": false,
+                  "answerConstraint": "optionsOnly"
                 },
                 {
                   "linkId": "Patient.contact.telecom.value",
@@ -1254,9 +1264,10 @@
                 {
                   "linkId": "Patient.contact.telecom.use",
                   "text": "use:",
-                  "type": "choice",
+                  "type": "coding",
                   "required": false,
-                  "repeats": false
+                  "repeats": false,
+                  "answerConstraint": "optionsOnly"
                 }
               ]
             },
@@ -1340,9 +1351,10 @@
                 {
                   "linkId": "Patient.contact.address.use",
                   "text": "use:",
-                  "type": "choice",
+                  "type": "coding",
                   "required": false,
-                  "repeats": false
+                  "repeats": false,
+                  "answerConstraint": "optionsOnly"
                 }
               ]
             },
@@ -1383,9 +1395,10 @@
                 {
                   "linkId": "Patient.contact.gender.value",
                   "text": "gender",
-                  "type": "choice",
+                  "type": "coding",
                   "required": false,
-                  "repeats": false
+                  "repeats": false,
+                  "answerConstraint": "optionsOrType"
                 }
               ]
             },
@@ -1663,9 +1676,10 @@
                 {
                   "linkId": "Patient.communication.language.coding",
                   "text": "code:",
-                  "type": "open-choice",
+                  "type": "coding",
                   "required": false,
-                  "repeats": false
+                  "repeats": false,
+                  "answerConstraint": "optionsOnly"
                 },
                 {
                   "linkId": "Patient.communication.language.text",
@@ -2047,9 +2061,10 @@
                 {
                   "linkId": "Patient.link.type.value",
                   "text": "type",
-                  "type": "choice",
+                  "type": "coding",
                   "required": false,
-                  "repeats": false
+                  "repeats": false,
+                  "answerConstraint": "optionsOrType"
                 }
               ]
             }

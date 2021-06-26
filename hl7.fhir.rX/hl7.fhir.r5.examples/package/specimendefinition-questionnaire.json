@@ -9,8 +9,8 @@
       "status": "active",
       "description": "Type options for SpecimenDefinition.subject[x]",
       "expansion": {
-        "identifier": "urn:uuid:e853ca01-5e6f-499f-b993-0e0b7deb9bca",
-        "timestamp": "2020-08-20T17:46:41+10:00",
+        "identifier": "urn:uuid:b119ee28-3872-4449-be5f-81657f8949c9",
+        "timestamp": "2021-05-03T22:04:45+10:00",
         "contains": [
           {
             "system": "http://hl7.org/fhir/data-types",
@@ -32,8 +32,8 @@
       "status": "active",
       "description": "Type options for SpecimenDefinition.typeTested.container.minimumVolume[x]",
       "expansion": {
-        "identifier": "urn:uuid:4cc3e796-452a-49e9-9070-0c5bba942d5f",
-        "timestamp": "2020-08-20T17:46:41+10:00",
+        "identifier": "urn:uuid:b48d5c31-5ce0-4b7c-981d-eaf973d61469",
+        "timestamp": "2021-05-03T22:04:45+10:00",
         "contains": [
           {
             "system": "http://hl7.org/fhir/resource-types",
@@ -55,8 +55,8 @@
       "status": "active",
       "description": "Type options for SpecimenDefinition.typeTested.container.additive.additive[x]",
       "expansion": {
-        "identifier": "urn:uuid:34006c0c-b033-4698-8ad4-7aba4424fabb",
-        "timestamp": "2020-08-20T17:46:41+10:00",
+        "identifier": "urn:uuid:ad9e7258-0216-4f9c-a0b5-3c1027d9535f",
+        "timestamp": "2021-05-03T22:04:45+10:00",
         "contains": [
           {
             "system": "http://hl7.org/fhir/data-types",
@@ -77,9 +77,9 @@
       "system": "urn:ietf:rfc:3986"
     }
   ],
-  "version": "4.5.0",
+  "version": "4.6.0",
   "status": "draft",
-  "date": "2020-08-20T17:41:31+10:00",
+  "date": "2021-05-03T21:59:52+10:00",
   "publisher": "Health Level Seven International (Orders and Observations)",
   "item": [
     {
@@ -138,7 +138,7 @@
                   }
                 }
               ],
-              "text": "The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes. The only time that a resource does not have an id is when it is being submitted to the server using a create operation.",
+              "text": "The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes. Typically, the resource has an id except for cases like the create operation, conditional updates.",
               "type": "display"
             },
             {
@@ -263,9 +263,10 @@
             {
               "linkId": "SpecimenDefinition.language.value",
               "text": "language",
-              "type": "choice",
+              "type": "coding",
               "required": false,
-              "repeats": false
+              "repeats": false,
+              "answerConstraint": "optionsOnly"
             }
           ]
         },
@@ -689,9 +690,10 @@
             {
               "linkId": "SpecimenDefinition.status.value",
               "text": "status",
-              "type": "choice",
+              "type": "coding",
               "required": false,
-              "repeats": false
+              "repeats": false,
+              "answerConstraint": "optionsOrType"
             }
           ]
         },
@@ -772,9 +774,10 @@
             {
               "linkId": "SpecimenDefinition.subject[x]._type",
               "text": "type",
-              "type": "choice",
+              "type": "coding",
               "required": false,
               "repeats": false,
+              "answerConstraint": "optionsOnly",
               "answerValueSet": "#vs2",
               "item": [
                 {
@@ -790,9 +793,10 @@
                     {
                       "linkId": "SpecimenDefinition.subject[x]._null.coding",
                       "text": "code:",
-                      "type": "open-choice",
+                      "type": "coding",
                       "required": false,
-                      "repeats": false
+                      "repeats": false,
+                      "answerConstraint": "optionsOnly"
                     },
                     {
                       "linkId": "SpecimenDefinition.subject[x]._null.text",
@@ -1070,9 +1074,10 @@
             {
               "linkId": "SpecimenDefinition.jurisdiction.coding",
               "text": "code:",
-              "type": "open-choice",
+              "type": "coding",
               "required": false,
-              "repeats": false
+              "repeats": false,
+              "answerConstraint": "optionsOnly"
             },
             {
               "linkId": "SpecimenDefinition.jurisdiction.text",
@@ -1344,9 +1349,10 @@
             {
               "linkId": "SpecimenDefinition.typeCollected.coding",
               "text": "code:",
-              "type": "open-choice",
+              "type": "coding",
               "required": false,
-              "repeats": false
+              "repeats": false,
+              "answerConstraint": "optionsOnly"
             },
             {
               "linkId": "SpecimenDefinition.typeCollected.text",
@@ -1391,9 +1397,10 @@
             {
               "linkId": "SpecimenDefinition.patientPreparation.coding",
               "text": "code:",
-              "type": "open-choice",
+              "type": "coding",
               "required": false,
-              "repeats": false
+              "repeats": false,
+              "answerConstraint": "optionsOnly"
             },
             {
               "linkId": "SpecimenDefinition.patientPreparation.text",
@@ -1481,9 +1488,10 @@
             {
               "linkId": "SpecimenDefinition.collection.coding",
               "text": "code:",
-              "type": "open-choice",
+              "type": "coding",
               "required": false,
-              "repeats": false
+              "repeats": false,
+              "answerConstraint": "optionsOnly"
             },
             {
               "linkId": "SpecimenDefinition.collection.text",
@@ -1697,9 +1705,10 @@
                 {
                   "linkId": "SpecimenDefinition.typeTested.type.coding",
                   "text": "code:",
-                  "type": "open-choice",
+                  "type": "coding",
                   "required": false,
-                  "repeats": false
+                  "repeats": false,
+                  "answerConstraint": "optionsOnly"
                 },
                 {
                   "linkId": "SpecimenDefinition.typeTested.type.text",
@@ -1751,9 +1760,10 @@
                 {
                   "linkId": "SpecimenDefinition.typeTested.preference.value",
                   "text": "preference",
-                  "type": "choice",
+                  "type": "coding",
                   "required": false,
-                  "repeats": false
+                  "repeats": false,
+                  "answerConstraint": "optionsOrType"
                 }
               ]
             },
@@ -1923,9 +1933,10 @@
                     {
                       "linkId": "SpecimenDefinition.typeTested.container.material.coding",
                       "text": "code:",
-                      "type": "open-choice",
+                      "type": "coding",
                       "required": false,
-                      "repeats": false
+                      "repeats": false,
+                      "answerConstraint": "optionsOnly"
                     },
                     {
                       "linkId": "SpecimenDefinition.typeTested.container.material.text",
@@ -1974,9 +1985,10 @@
                     {
                       "linkId": "SpecimenDefinition.typeTested.container.type.coding",
                       "text": "code:",
-                      "type": "open-choice",
+                      "type": "coding",
                       "required": false,
-                      "repeats": false
+                      "repeats": false,
+                      "answerConstraint": "optionsOnly"
                     },
                     {
                       "linkId": "SpecimenDefinition.typeTested.container.type.text",
@@ -2025,9 +2037,10 @@
                     {
                       "linkId": "SpecimenDefinition.typeTested.container.cap.coding",
                       "text": "code:",
-                      "type": "open-choice",
+                      "type": "coding",
                       "required": false,
-                      "repeats": false
+                      "repeats": false,
+                      "answerConstraint": "optionsOnly"
                     },
                     {
                       "linkId": "SpecimenDefinition.typeTested.container.cap.text",
@@ -2119,9 +2132,10 @@
                     {
                       "linkId": "SpecimenDefinition.typeTested.container.capacity.comparator",
                       "text": "comp:",
-                      "type": "choice",
+                      "type": "coding",
                       "required": false,
-                      "repeats": false
+                      "repeats": false,
+                      "answerConstraint": "optionsOnly"
                     },
                     {
                       "linkId": "SpecimenDefinition.typeTested.container.capacity.value",
@@ -2187,9 +2201,10 @@
                     {
                       "linkId": "SpecimenDefinition.typeTested.container.minimumVolume[x]._type",
                       "text": "type",
-                      "type": "choice",
+                      "type": "coding",
                       "required": false,
                       "repeats": false,
+                      "answerConstraint": "optionsOnly",
                       "answerValueSet": "#vs3",
                       "item": [
                         {
@@ -2205,9 +2220,10 @@
                             {
                               "linkId": "SpecimenDefinition.typeTested.container.minimumVolume[x]._null.comparator",
                               "text": "comp:",
-                              "type": "choice",
+                              "type": "coding",
                               "required": false,
-                              "repeats": false
+                              "repeats": false,
+                              "answerConstraint": "optionsOnly"
                             },
                             {
                               "linkId": "SpecimenDefinition.typeTested.container.minimumVolume[x]._null.value",
@@ -2421,9 +2437,10 @@
                         {
                           "linkId": "SpecimenDefinition.typeTested.container.additive.additive[x]._type",
                           "text": "type",
-                          "type": "choice",
+                          "type": "coding",
                           "required": false,
                           "repeats": false,
+                          "answerConstraint": "optionsOnly",
                           "answerValueSet": "#vs4",
                           "item": [
                             {
@@ -2439,9 +2456,10 @@
                                 {
                                   "linkId": "SpecimenDefinition.typeTested.container.additive.additive[x]._null.coding",
                                   "text": "code:",
-                                  "type": "open-choice",
+                                  "type": "coding",
                                   "required": false,
-                                  "repeats": false
+                                  "repeats": false,
+                                  "answerConstraint": "optionsOnly"
                                 },
                                 {
                                   "linkId": "SpecimenDefinition.typeTested.container.additive.additive[x]._null.text",
@@ -2612,9 +2630,10 @@
                 {
                   "linkId": "SpecimenDefinition.typeTested.retentionTime.comparator",
                   "text": "comp:",
-                  "type": "choice",
+                  "type": "coding",
                   "required": false,
-                  "repeats": false
+                  "repeats": false,
+                  "answerConstraint": "optionsOnly"
                 },
                 {
                   "linkId": "SpecimenDefinition.typeTested.retentionTime.value",
@@ -2723,9 +2742,10 @@
                 {
                   "linkId": "SpecimenDefinition.typeTested.rejectionCriterion.coding",
                   "text": "code:",
-                  "type": "open-choice",
+                  "type": "coding",
                   "required": false,
-                  "repeats": false
+                  "repeats": false,
+                  "answerConstraint": "optionsOnly"
                 },
                 {
                   "linkId": "SpecimenDefinition.typeTested.rejectionCriterion.text",
@@ -2896,9 +2916,10 @@
                     {
                       "linkId": "SpecimenDefinition.typeTested.handling.temperatureQualifier.coding",
                       "text": "code:",
-                      "type": "open-choice",
+                      "type": "coding",
                       "required": false,
-                      "repeats": false
+                      "repeats": false,
+                      "answerConstraint": "optionsOnly"
                     },
                     {
                       "linkId": "SpecimenDefinition.typeTested.handling.temperatureQualifier.text",
@@ -3005,9 +3026,10 @@
                     {
                       "linkId": "SpecimenDefinition.typeTested.handling.maxDuration.comparator",
                       "text": "comp:",
-                      "type": "choice",
+                      "type": "coding",
                       "required": false,
-                      "repeats": false
+                      "repeats": false,
+                      "answerConstraint": "optionsOnly"
                     },
                     {
                       "linkId": "SpecimenDefinition.typeTested.handling.maxDuration.value",
@@ -3118,9 +3140,10 @@
                 {
                   "linkId": "SpecimenDefinition.typeTested.testingDestination.coding",
                   "text": "code:",
-                  "type": "open-choice",
+                  "type": "coding",
                   "required": false,
-                  "repeats": false
+                  "repeats": false,
+                  "answerConstraint": "optionsOnly"
                 },
                 {
                   "linkId": "SpecimenDefinition.typeTested.testingDestination.text",

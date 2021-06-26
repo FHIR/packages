@@ -9,8 +9,8 @@
       "status": "active",
       "description": "Type options for DetectedIssue.identified[x]",
       "expansion": {
-        "identifier": "urn:uuid:0f970f36-c700-498c-ac8d-23e1aa1fb669",
-        "timestamp": "2020-08-20T17:45:12+10:00",
+        "identifier": "urn:uuid:0ae06411-3f1b-4f12-aa5a-d2e274cb39e7",
+        "timestamp": "2021-05-03T22:03:16+10:00",
         "contains": [
           {
             "system": "http://hl7.org/fhir/data-types",
@@ -31,9 +31,9 @@
       "system": "urn:ietf:rfc:3986"
     }
   ],
-  "version": "4.5.0",
+  "version": "4.6.0",
   "status": "draft",
-  "date": "2020-08-20T17:41:31+10:00",
+  "date": "2021-05-03T21:59:52+10:00",
   "publisher": "Health Level Seven International (Clinical Decision Support)",
   "item": [
     {
@@ -92,7 +92,7 @@
                   }
                 }
               ],
-              "text": "The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes. The only time that a resource does not have an id is when it is being submitted to the server using a create operation.",
+              "text": "The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes. Typically, the resource has an id except for cases like the create operation, conditional updates.",
               "type": "display"
             },
             {
@@ -217,9 +217,10 @@
             {
               "linkId": "DetectedIssue.language.value",
               "text": "language",
-              "type": "choice",
+              "type": "coding",
               "required": false,
-              "repeats": false
+              "repeats": false,
+              "answerConstraint": "optionsOnly"
             }
           ]
         },
@@ -432,9 +433,10 @@
             {
               "linkId": "DetectedIssue.status.value",
               "text": "status",
-              "type": "choice",
+              "type": "coding",
               "required": false,
-              "repeats": false
+              "repeats": false,
+              "answerConstraint": "optionsOrType"
             }
           ]
         },
@@ -476,9 +478,10 @@
             {
               "linkId": "DetectedIssue.code.coding",
               "text": "code:",
-              "type": "open-choice",
+              "type": "coding",
               "required": false,
-              "repeats": false
+              "repeats": false,
+              "answerConstraint": "optionsOnly"
             },
             {
               "linkId": "DetectedIssue.code.text",
@@ -526,9 +529,10 @@
             {
               "linkId": "DetectedIssue.severity.value",
               "text": "severity",
-              "type": "choice",
+              "type": "coding",
               "required": false,
-              "repeats": false
+              "repeats": false,
+              "answerConstraint": "optionsOrType"
             }
           ]
         },
@@ -619,9 +623,10 @@
             {
               "linkId": "DetectedIssue.identified[x]._type",
               "text": "type",
-              "type": "choice",
+              "type": "coding",
               "required": false,
               "repeats": false,
+              "answerConstraint": "optionsOnly",
               "answerValueSet": "#vs2",
               "item": [
                 {
@@ -930,9 +935,10 @@
                 {
                   "linkId": "DetectedIssue.evidence.code.coding",
                   "text": "code:",
-                  "type": "open-choice",
+                  "type": "coding",
                   "required": false,
-                  "repeats": false
+                  "repeats": false,
+                  "answerConstraint": "optionsOnly"
                 },
                 {
                   "linkId": "DetectedIssue.evidence.code.text",
@@ -1244,9 +1250,10 @@
                 {
                   "linkId": "DetectedIssue.mitigation.action.coding",
                   "text": "code:",
-                  "type": "open-choice",
+                  "type": "coding",
                   "required": false,
-                  "repeats": false
+                  "repeats": false,
+                  "answerConstraint": "optionsOnly"
                 },
                 {
                   "linkId": "DetectedIssue.mitigation.action.text",

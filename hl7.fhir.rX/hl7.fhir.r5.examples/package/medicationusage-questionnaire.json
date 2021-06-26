@@ -9,8 +9,8 @@
       "status": "active",
       "description": "Type options for MedicationUsage.effective[x]",
       "expansion": {
-        "identifier": "urn:uuid:05e2a41f-908c-4987-bff9-cdb465472036",
-        "timestamp": "2020-08-20T17:45:59+10:00",
+        "identifier": "urn:uuid:579c5961-9a0a-44aa-a4b5-6c8b99c9d593",
+        "timestamp": "2021-05-03T22:04:01+10:00",
         "contains": [
           {
             "system": "http://hl7.org/fhir/data-types",
@@ -31,9 +31,9 @@
       "system": "urn:ietf:rfc:3986"
     }
   ],
-  "version": "4.5.0",
+  "version": "4.6.0",
   "status": "draft",
-  "date": "2020-08-20T17:41:31+10:00",
+  "date": "2021-05-03T21:59:52+10:00",
   "publisher": "Health Level Seven International (Pharmacy)",
   "item": [
     {
@@ -58,7 +58,7 @@
               }
             }
           ],
-          "text": "A record of a medication that is being consumed by a patient.   A MedicationUsage may indicate that the patient may be taking the medication now or has taken the medication in the past or will be taking the medication in the future.  The source of this information can be the patient, significant other (such as a family member or spouse), or a clinician.  A common scenario where this information is captured is during the history taking process during a patient visit or stay.   The medication information may come from sources such as the patient\u0027s memory, from a prescription bottle,  or from a list of medications the patient, clinician or other party maintains. \n\nThe primary difference between a medicationusage and a medicationadministration is that the medication administration has complete administration information and is based on actual administration information from the person who administered the medication.  A medicationusage is often, if not always, less specific.  There is no required date/time when the medication was administered, in fact we only know that a source has reported the patient is taking this medication, where details such as time, quantity, or rate or even medication product may be incomplete or missing or less precise.  As stated earlier, the Medication Usage information may come from the patient\u0027s memory, from a prescription bottle or from a list of medications the patient, clinician or other party maintains.  Medication administration is more formal and is not missing detailed information.",
+          "text": "A record of a medication that is being consumed by a patient.   A MedicationUsage may indicate that the patient may be taking the medication now or has taken the medication in the past or will be taking the medication in the future.  The source of this information can be the patient, significant other (such as a family member or spouse), or a clinician.  A common scenario where this information is captured is during the history taking process during a patient visit or stay.   The medication information may come from sources such as the patient\u0027s memory, from a prescription bottle,  or from a list of medications the patient, clinician or other party maintains. \n\nThe primary difference between a medicationusage and a medicationadministration is that the medication administration has complete administration information and is based on actual administration information from the person who administered the medication.  A medicationusage is often, if not always, less specific.  There is no required date/time when the medication was administered, in fact we only know that a source has reported the patient is taking this medication, where details such as time, quantity, or rate or even medication product may be incomplete or missing or less precise.  As stated earlier, the Medication Usage information may come from the patient\u0027s memory, from a prescription bottle or from a list of medications the patient, clinician or other party maintains.  Medication administration is more formal and is not missing detailed information.\n\nThe MedicationUsage resource was previously called MedicationStatement.",
           "type": "display"
         },
         {
@@ -92,7 +92,7 @@
                   }
                 }
               ],
-              "text": "The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes. The only time that a resource does not have an id is when it is being submitted to the server using a create operation.",
+              "text": "The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes. Typically, the resource has an id except for cases like the create operation, conditional updates.",
               "type": "display"
             },
             {
@@ -217,9 +217,10 @@
             {
               "linkId": "MedicationUsage.language.value",
               "text": "language",
-              "type": "choice",
+              "type": "coding",
               "required": false,
-              "repeats": false
+              "repeats": false,
+              "answerConstraint": "optionsOnly"
             }
           ]
         },
@@ -524,15 +525,16 @@
                   }
                 }
               ],
-              "text": "A code representing the patient or other source\u0027s judgment about the state of the medication used that this usage is about.  Generally, this will be active or completed. MedicationUsage is a statement at a point in time.  The status is only representative at the point when it was asserted.  The value set for MedicationUsage.status contains codes that assert the status of the use of the medication by the patient (for example, stopped or on hold) as well as codes that assert the status of the Medication Usage itself (for example, entered in error).\r\rThis element is labeled as a modifier because the status contains codes that mark the resource as not currently valid.",
+              "text": "A code representing the status of recording the medication usage. This status concerns just the recording of the medication usage.  MedicationUsage.adherence should be used for indicating a patient\u0027s adherence to the information in this resource.\r\rThis element is labeled as a modifier because the status contains codes that mark the resource as not currently valid.",
               "type": "display"
             },
             {
               "linkId": "MedicationUsage.status.value",
               "text": "status",
-              "type": "choice",
+              "type": "coding",
               "required": false,
-              "repeats": false
+              "repeats": false,
+              "answerConstraint": "optionsOrType"
             }
           ]
         },
@@ -564,15 +566,16 @@
                   }
                 }
               ],
-              "text": "Captures the reason for the current state of the MedicationUsage. This is generally only used for \"exception\" statuses such as \"not-taken\", \"on-hold\", \"cancelled\" or \"entered-in-error\". The reason for performing the event at all is captured in reasonCode, not here.",
+              "text": "Captures the reason for the current state of the MedicationUsage. This is generally only used for \"exception\" statuses such as \"entered-in-error\". The reason for performing the event at all is captured in reasonCode, not here.",
               "type": "display"
             },
             {
               "linkId": "MedicationUsage.statusReason.coding",
               "text": "code:",
-              "type": "open-choice",
+              "type": "coding",
               "required": false,
-              "repeats": false
+              "repeats": false,
+              "answerConstraint": "optionsOnly"
             },
             {
               "linkId": "MedicationUsage.statusReason.text",
@@ -617,9 +620,10 @@
             {
               "linkId": "MedicationUsage.category.coding",
               "text": "code:",
-              "type": "open-choice",
+              "type": "coding",
               "required": false,
-              "repeats": false
+              "repeats": false,
+              "answerConstraint": "optionsOnly"
             },
             {
               "linkId": "MedicationUsage.category.text",
@@ -815,9 +819,10 @@
             {
               "linkId": "MedicationUsage.effective[x]._type",
               "text": "type",
-              "type": "choice",
+              "type": "coding",
               "required": false,
               "repeats": false,
+              "answerConstraint": "optionsOnly",
               "answerValueSet": "#vs2",
               "item": [
                 {
@@ -1159,10 +1164,11 @@
             },
             {
               "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-fhirType",
-              "valueString": "boolean"
+              "valueString": "CodeableConcept"
             }
           ],
-          "linkId": "MedicationUsage.takenAsOrdered",
+          "linkId": "MedicationUsage.adherence",
+          "text": "Indicates if the medication is being consumed or administered as instructed",
           "type": "group",
           "required": false,
           "repeats": true,
@@ -1182,13 +1188,21 @@
                   }
                 }
               ],
-              "text": "Indicates if the medication is being consumed or administered as prescribed.",
+              "text": "Indicates if the medication is being consumed or administered as instructed.",
               "type": "display"
             },
             {
-              "linkId": "MedicationUsage.takenAsOrdered.value",
-              "text": "Indicates if the medication is being consumed or administered as prescribed",
-              "type": "boolean",
+              "linkId": "MedicationUsage.adherence.coding",
+              "text": "code:",
+              "type": "coding",
+              "required": false,
+              "repeats": false,
+              "answerConstraint": "optionsOnly"
+            },
+            {
+              "linkId": "MedicationUsage.adherence.text",
+              "text": "text:",
+              "type": "string",
               "required": false,
               "repeats": false
             }

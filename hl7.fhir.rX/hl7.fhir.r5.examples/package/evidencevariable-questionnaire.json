@@ -9,8 +9,8 @@
       "status": "active",
       "description": "Type options for EvidenceVariable.characteristic.definition[x]",
       "expansion": {
-        "identifier": "urn:uuid:7fea717b-efcc-486d-a029-1dac65825fbc",
-        "timestamp": "2020-08-20T17:45:26+10:00",
+        "identifier": "urn:uuid:bb8829f1-fc7c-4456-ae3b-d28a6019a8ad",
+        "timestamp": "2021-05-03T22:03:30+10:00",
         "contains": [
           {
             "system": "http://hl7.org/fhir/resource-types",
@@ -47,8 +47,8 @@
       "status": "active",
       "description": "Type options for EvidenceVariable.category.value[x]",
       "expansion": {
-        "identifier": "urn:uuid:69bb9fbc-ec8d-4324-bd05-faa0e3e51d87",
-        "timestamp": "2020-08-20T17:45:26+10:00",
+        "identifier": "urn:uuid:5dd52d43-bc80-4c7e-92d5-da6a86caacab",
+        "timestamp": "2021-05-03T22:03:30+10:00",
         "contains": [
           {
             "system": "http://hl7.org/fhir/data-types",
@@ -74,9 +74,9 @@
       "system": "urn:ietf:rfc:3986"
     }
   ],
-  "version": "4.5.0",
+  "version": "4.6.0",
   "status": "draft",
-  "date": "2020-08-20T17:41:31+10:00",
+  "date": "2021-05-03T21:59:52+10:00",
   "publisher": "Health Level Seven International (Clinical Decision Support)",
   "item": [
     {
@@ -139,7 +139,7 @@
                   }
                 }
               ],
-              "text": "The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes. The only time that a resource does not have an id is when it is being submitted to the server using a create operation.",
+              "text": "The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes. Typically, the resource has an id except for cases like the create operation, conditional updates.",
               "type": "display"
             },
             {
@@ -264,9 +264,10 @@
             {
               "linkId": "EvidenceVariable.language.value",
               "text": "language",
-              "type": "choice",
+              "type": "coding",
               "required": false,
-              "repeats": false
+              "repeats": false,
+              "answerConstraint": "optionsOnly"
             }
           ]
         },
@@ -737,9 +738,10 @@
             {
               "linkId": "EvidenceVariable.status.value",
               "text": "status",
-              "type": "choice",
+              "type": "coding",
               "required": false,
-              "repeats": false
+              "repeats": false,
+              "answerConstraint": "optionsOrType"
             }
           ]
         },
@@ -1202,9 +1204,10 @@
             {
               "linkId": "EvidenceVariable.characteristicCombination.value",
               "text": "characteristic combination",
-              "type": "choice",
+              "type": "coding",
               "required": false,
-              "repeats": false
+              "repeats": false,
+              "answerConstraint": "optionsOrType"
             }
           ]
         },
@@ -1415,9 +1418,10 @@
                 {
                   "linkId": "EvidenceVariable.characteristic.definition[x]._type",
                   "text": "type",
-                  "type": "choice",
+                  "type": "coding",
                   "required": false,
                   "repeats": false,
+                  "answerConstraint": "optionsOnly",
                   "answerValueSet": "#vs2",
                   "item": [
                     {
@@ -1479,9 +1483,10 @@
                         {
                           "linkId": "EvidenceVariable.characteristic.definition[x]._null.coding",
                           "text": "code:",
-                          "type": "open-choice",
+                          "type": "coding",
                           "required": false,
-                          "repeats": false
+                          "repeats": false,
+                          "answerConstraint": "optionsOnly"
                         },
                         {
                           "linkId": "EvidenceVariable.characteristic.definition[x]._null.text",
@@ -1714,9 +1719,10 @@
                             {
                               "linkId": "Expression.language.value",
                               "text": "language",
-                              "type": "choice",
+                              "type": "coding",
                               "required": false,
-                              "repeats": false
+                              "repeats": false,
+                              "answerConstraint": "optionsOnly"
                             }
                           ]
                         },
@@ -1850,9 +1856,10 @@
                 {
                   "linkId": "EvidenceVariable.characteristic.method.coding",
                   "text": "code:",
-                  "type": "open-choice",
+                  "type": "coding",
                   "required": false,
-                  "repeats": false
+                  "repeats": false,
+                  "answerConstraint": "optionsOnly"
                 },
                 {
                   "linkId": "EvidenceVariable.characteristic.method.text",
@@ -2168,9 +2175,10 @@
                     {
                       "linkId": "EvidenceVariable.characteristic.timeFromStart.quantity.comparator",
                       "text": "comp:",
-                      "type": "choice",
+                      "type": "coding",
                       "required": false,
-                      "repeats": false
+                      "repeats": false,
+                      "answerConstraint": "optionsOnly"
                     },
                     {
                       "linkId": "EvidenceVariable.characteristic.timeFromStart.quantity.value",
@@ -2332,9 +2340,10 @@
                 {
                   "linkId": "EvidenceVariable.characteristic.groupMeasure.value",
                   "text": "group measure",
-                  "type": "choice",
+                  "type": "coding",
                   "required": false,
-                  "repeats": false
+                  "repeats": false,
+                  "answerConstraint": "optionsOrType"
                 }
               ]
             }
@@ -2377,9 +2386,10 @@
             {
               "linkId": "EvidenceVariable.handling.value",
               "text": "handling",
-              "type": "choice",
+              "type": "coding",
               "required": false,
-              "repeats": false
+              "repeats": false,
+              "answerConstraint": "optionsOrType"
             }
           ]
         },
@@ -2582,9 +2592,10 @@
                 {
                   "linkId": "EvidenceVariable.category.value[x]._type",
                   "text": "type",
-                  "type": "choice",
+                  "type": "coding",
                   "required": false,
                   "repeats": false,
+                  "answerConstraint": "optionsOnly",
                   "answerValueSet": "#vs3",
                   "item": [
                     {
@@ -2600,9 +2611,10 @@
                         {
                           "linkId": "EvidenceVariable.category.value[x]._null.coding",
                           "text": "code:",
-                          "type": "open-choice",
+                          "type": "coding",
                           "required": false,
-                          "repeats": false
+                          "repeats": false,
+                          "answerConstraint": "optionsOnly"
                         },
                         {
                           "linkId": "EvidenceVariable.category.value[x]._null.text",
@@ -2626,9 +2638,10 @@
                         {
                           "linkId": "EvidenceVariable.category.value[x]._null.comparator",
                           "text": "comp:",
-                          "type": "choice",
+                          "type": "coding",
                           "required": false,
-                          "repeats": false
+                          "repeats": false,
+                          "answerConstraint": "optionsOnly"
                         },
                         {
                           "linkId": "EvidenceVariable.category.value[x]._null.value",

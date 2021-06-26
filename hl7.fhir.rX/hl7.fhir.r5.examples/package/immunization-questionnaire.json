@@ -9,8 +9,8 @@
       "status": "active",
       "description": "Type options for Immunization.occurrence[x]",
       "expansion": {
-        "identifier": "urn:uuid:d790c6e4-db83-4655-ba63-ae7c06765a8a",
-        "timestamp": "2020-08-20T17:45:35+10:00",
+        "identifier": "urn:uuid:3381cae1-e3b0-43b0-b87a-acf662eaa8c0",
+        "timestamp": "2021-05-03T22:03:38+10:00",
         "contains": [
           {
             "system": "http://hl7.org/fhir/data-types",
@@ -32,8 +32,8 @@
       "status": "active",
       "description": "Type options for Immunization.informationSource[x]",
       "expansion": {
-        "identifier": "urn:uuid:12a628f2-c976-45c5-83bf-47033bdc5439",
-        "timestamp": "2020-08-20T17:45:35+10:00",
+        "identifier": "urn:uuid:73e34c3f-844f-4d67-a9cb-5318721c2784",
+        "timestamp": "2021-05-03T22:03:38+10:00",
         "contains": [
           {
             "system": "http://hl7.org/fhir/data-types",
@@ -74,9 +74,9 @@
       "system": "urn:ietf:rfc:3986"
     }
   ],
-  "version": "4.5.0",
+  "version": "4.6.0",
   "status": "draft",
-  "date": "2020-08-20T17:41:31+10:00",
+  "date": "2021-05-03T21:59:52+10:00",
   "publisher": "Health Level Seven International (Public Health and Emergency Response)",
   "item": [
     {
@@ -135,7 +135,7 @@
                   }
                 }
               ],
-              "text": "The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes. The only time that a resource does not have an id is when it is being submitted to the server using a create operation.",
+              "text": "The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes. Typically, the resource has an id except for cases like the create operation, conditional updates.",
               "type": "display"
             },
             {
@@ -260,9 +260,10 @@
             {
               "linkId": "Immunization.language.value",
               "text": "language",
-              "type": "choice",
+              "type": "coding",
               "required": false,
-              "repeats": false
+              "repeats": false,
+              "answerConstraint": "optionsOnly"
             }
           ]
         },
@@ -602,9 +603,10 @@
             {
               "linkId": "Immunization.status.value",
               "text": "status",
-              "type": "choice",
+              "type": "coding",
               "required": false,
-              "repeats": false
+              "repeats": false,
+              "answerConstraint": "optionsOrType"
             }
           ]
         },
@@ -646,9 +648,10 @@
             {
               "linkId": "Immunization.statusReason.coding",
               "text": "code:",
-              "type": "open-choice",
+              "type": "coding",
               "required": false,
-              "repeats": false
+              "repeats": false,
+              "answerConstraint": "optionsOnly"
             },
             {
               "linkId": "Immunization.statusReason.text",
@@ -701,9 +704,10 @@
             {
               "linkId": "Immunization.vaccineCode.coding",
               "text": "code:",
-              "type": "open-choice",
+              "type": "coding",
               "required": false,
-              "repeats": false
+              "repeats": false,
+              "answerConstraint": "optionsOnly"
             },
             {
               "linkId": "Immunization.vaccineCode.text",
@@ -1001,9 +1005,10 @@
             {
               "linkId": "Immunization.occurrence[x]._type",
               "text": "type",
-              "type": "choice",
+              "type": "coding",
               "required": false,
               "repeats": false,
+              "answerConstraint": "optionsOnly",
               "answerValueSet": "#vs2",
               "item": [
                 {
@@ -1166,9 +1171,10 @@
             {
               "linkId": "Immunization.informationSource[x]._type",
               "text": "type",
-              "type": "choice",
+              "type": "coding",
               "required": false,
               "repeats": false,
+              "answerConstraint": "optionsOnly",
               "answerValueSet": "#vs3",
               "item": [
                 {
@@ -1184,9 +1190,10 @@
                     {
                       "linkId": "Immunization.informationSource[x]._null.coding",
                       "text": "code:",
-                      "type": "open-choice",
+                      "type": "coding",
                       "required": false,
-                      "repeats": false
+                      "repeats": false,
+                      "answerConstraint": "optionsOnly"
                     },
                     {
                       "linkId": "Immunization.informationSource[x]._null.text",
@@ -1320,9 +1327,10 @@
             {
               "linkId": "Immunization.site.coding",
               "text": "code:",
-              "type": "open-choice",
+              "type": "coding",
               "required": false,
-              "repeats": false
+              "repeats": false,
+              "answerConstraint": "optionsOnly"
             },
             {
               "linkId": "Immunization.site.text",
@@ -1371,9 +1379,10 @@
             {
               "linkId": "Immunization.route.coding",
               "text": "code:",
-              "type": "open-choice",
+              "type": "coding",
               "required": false,
-              "repeats": false
+              "repeats": false,
+              "answerConstraint": "optionsOnly"
             },
             {
               "linkId": "Immunization.route.text",
@@ -1422,9 +1431,10 @@
             {
               "linkId": "Immunization.doseQuantity.comparator",
               "text": "comp:",
-              "type": "choice",
+              "type": "coding",
               "required": false,
-              "repeats": false
+              "repeats": false,
+              "answerConstraint": "optionsOnly"
             },
             {
               "linkId": "Immunization.doseQuantity.value",
@@ -1616,9 +1626,10 @@
                 {
                   "linkId": "Immunization.performer.function.coding",
                   "text": "code:",
-                  "type": "open-choice",
+                  "type": "coding",
                   "required": false,
-                  "repeats": false
+                  "repeats": false,
+                  "answerConstraint": "optionsOnly"
                 },
                 {
                   "linkId": "Immunization.performer.function.text",
@@ -1825,9 +1836,10 @@
             {
               "linkId": "Immunization.subpotentReason.coding",
               "text": "code:",
-              "type": "open-choice",
+              "type": "coding",
               "required": false,
-              "repeats": false
+              "repeats": false,
+              "answerConstraint": "optionsOnly"
             },
             {
               "linkId": "Immunization.subpotentReason.text",
@@ -2168,9 +2180,10 @@
             {
               "linkId": "Immunization.programEligibility.coding",
               "text": "code:",
-              "type": "open-choice",
+              "type": "coding",
               "required": false,
-              "repeats": false
+              "repeats": false,
+              "answerConstraint": "optionsOnly"
             },
             {
               "linkId": "Immunization.programEligibility.text",
@@ -2219,9 +2232,10 @@
             {
               "linkId": "Immunization.fundingSource.coding",
               "text": "code:",
-              "type": "open-choice",
+              "type": "coding",
               "required": false,
-              "repeats": false
+              "repeats": false,
+              "answerConstraint": "optionsOnly"
             },
             {
               "linkId": "Immunization.fundingSource.text",
@@ -2751,9 +2765,10 @@
                 {
                   "linkId": "Immunization.protocolApplied.targetDisease.coding",
                   "text": "code:",
-                  "type": "open-choice",
+                  "type": "coding",
                   "required": false,
-                  "repeats": false
+                  "repeats": false,
+                  "answerConstraint": "optionsOnly"
                 },
                 {
                   "linkId": "Immunization.protocolApplied.targetDisease.text",

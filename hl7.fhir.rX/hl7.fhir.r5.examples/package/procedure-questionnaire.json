@@ -9,8 +9,8 @@
       "status": "active",
       "description": "Type options for Procedure.occurrence[x]",
       "expansion": {
-        "identifier": "urn:uuid:6dfab5f3-7f85-479f-af9e-7d715482f8e4",
-        "timestamp": "2020-08-20T17:46:30+10:00",
+        "identifier": "urn:uuid:4db4fd45-c808-4108-ba74-f10595aa5db7",
+        "timestamp": "2021-05-03T22:04:32+10:00",
         "contains": [
           {
             "system": "http://hl7.org/fhir/data-types",
@@ -52,8 +52,8 @@
       "status": "active",
       "description": "Type options for Procedure.reported[x]",
       "expansion": {
-        "identifier": "urn:uuid:38a25da4-8f20-4e1c-bb8c-c879f5987814",
-        "timestamp": "2020-08-20T17:46:30+10:00",
+        "identifier": "urn:uuid:3afa6b85-4028-4680-ab28-02284e64acb8",
+        "timestamp": "2021-05-03T22:04:32+10:00",
         "contains": [
           {
             "system": "http://hl7.org/fhir/data-types",
@@ -94,14 +94,14 @@
       "system": "urn:ietf:rfc:3986"
     }
   ],
-  "version": "4.5.0",
+  "version": "4.6.0",
   "status": "draft",
-  "date": "2020-08-20T17:41:31+10:00",
+  "date": "2021-05-03T21:59:52+10:00",
   "publisher": "Health Level Seven International (Patient Care)",
   "item": [
     {
       "linkId": "Procedure",
-      "text": "An action that is being or was performed on a patient",
+      "text": "An action that is being or was performed on an individual or entity",
       "type": "group",
       "required": false,
       "repeats": true,
@@ -121,7 +121,7 @@
               }
             }
           ],
-          "text": "An action that is or was performed on or for a patient. This can be a physical intervention like an operation, or less invasive like long term services, counseling, or hypnotherapy.",
+          "text": "An action that is or was performed on or for a patient, practitioner, device, organization, or location. For example, this can be a physical intervention on a patient like an operation, or less invasive like long term services, counseling, or hypnotherapy.  This can be a quality or safety inspection for a location, organization, or device.  This can be an accreditation procedure on a practitioner for licensing.",
           "type": "display"
         },
         {
@@ -155,7 +155,7 @@
                   }
                 }
               ],
-              "text": "The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes. The only time that a resource does not have an id is when it is being submitted to the server using a create operation.",
+              "text": "The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes. Typically, the resource has an id except for cases like the create operation, conditional updates.",
               "type": "display"
             },
             {
@@ -280,9 +280,10 @@
             {
               "linkId": "Procedure.language.value",
               "text": "language",
-              "type": "choice",
+              "type": "coding",
               "required": false,
-              "repeats": false
+              "repeats": false,
+              "answerConstraint": "optionsOnly"
             }
           ]
         },
@@ -671,9 +672,10 @@
             {
               "linkId": "Procedure.status.value",
               "text": "status",
-              "type": "choice",
+              "type": "coding",
               "required": false,
-              "repeats": false
+              "repeats": false,
+              "answerConstraint": "optionsOrType"
             }
           ]
         },
@@ -715,9 +717,10 @@
             {
               "linkId": "Procedure.statusReason.coding",
               "text": "code:",
-              "type": "open-choice",
+              "type": "coding",
               "required": false,
-              "repeats": false
+              "repeats": false,
+              "answerConstraint": "optionsOnly"
             },
             {
               "linkId": "Procedure.statusReason.text",
@@ -762,9 +765,10 @@
             {
               "linkId": "Procedure.category.coding",
               "text": "code:",
-              "type": "open-choice",
+              "type": "coding",
               "required": false,
-              "repeats": false
+              "repeats": false,
+              "answerConstraint": "optionsOnly"
             },
             {
               "linkId": "Procedure.category.text",
@@ -813,9 +817,10 @@
             {
               "linkId": "Procedure.code.coding",
               "text": "code:",
-              "type": "open-choice",
+              "type": "coding",
               "required": false,
-              "repeats": false
+              "repeats": false,
+              "answerConstraint": "optionsOnly"
             },
             {
               "linkId": "Procedure.code.text",
@@ -861,14 +866,14 @@
                   }
                 }
               ],
-              "text": "The person, animal or group on which the procedure was performed.",
+              "text": "On whom or what the procedure was performed. This is usually an individual human, but can also be performed on animals, groups of humans or animals, organizations or practitioners (for licensing), locations or devices (for safety inspections or regulatory authorizations).",
               "type": "display"
             },
             {
               "extension": [
                 {
                   "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-allowedResource",
-                  "valueCode": "Patient, Group"
+                  "valueCode": "Patient, Group, Device, Practitioner, Organization, Location"
                 },
                 {
                   "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-referenceFilter",
@@ -876,7 +881,7 @@
                 }
               ],
               "linkId": "Procedure.subject.value",
-              "text": "Who the procedure was performed on",
+              "text": "Individual or entity the procedure was performed on",
               "type": "reference",
               "required": false,
               "repeats": false
@@ -970,9 +975,10 @@
             {
               "linkId": "Procedure.occurrence[x]._type",
               "text": "type",
-              "type": "choice",
+              "type": "coding",
               "required": false,
               "repeats": false,
+              "answerConstraint": "optionsOnly",
               "answerValueSet": "#vs2",
               "item": [
                 {
@@ -1050,9 +1056,10 @@
                     {
                       "linkId": "Procedure.occurrence[x]._null.comparator",
                       "text": "comp:",
-                      "type": "choice",
+                      "type": "coding",
                       "required": false,
-                      "repeats": false
+                      "repeats": false,
+                      "answerConstraint": "optionsOnly"
                     },
                     {
                       "linkId": "Procedure.occurrence[x]._null.value",
@@ -1298,9 +1305,10 @@
             {
               "linkId": "Procedure.reported[x]._type",
               "text": "type",
-              "type": "choice",
+              "type": "coding",
               "required": false,
               "repeats": false,
+              "answerConstraint": "optionsOnly",
               "answerValueSet": "#vs3",
               "item": [
                 {
@@ -1513,9 +1521,10 @@
                 {
                   "linkId": "Procedure.performer.function.coding",
                   "text": "code:",
-                  "type": "open-choice",
+                  "type": "coding",
                   "required": false,
-                  "repeats": false
+                  "repeats": false,
+                  "answerConstraint": "optionsOnly"
                 },
                 {
                   "linkId": "Procedure.performer.function.text",
@@ -1756,9 +1765,10 @@
             {
               "linkId": "Procedure.bodySite.coding",
               "text": "code:",
-              "type": "open-choice",
+              "type": "coding",
               "required": false,
-              "repeats": false
+              "repeats": false,
+              "answerConstraint": "optionsOnly"
             },
             {
               "linkId": "Procedure.bodySite.text",
@@ -1807,9 +1817,10 @@
             {
               "linkId": "Procedure.outcome.coding",
               "text": "code:",
-              "type": "open-choice",
+              "type": "coding",
               "required": false,
-              "repeats": false
+              "repeats": false,
+              "answerConstraint": "optionsOnly"
             },
             {
               "linkId": "Procedure.outcome.text",
@@ -1903,9 +1914,10 @@
             {
               "linkId": "Procedure.complication.coding",
               "text": "code:",
-              "type": "open-choice",
+              "type": "coding",
               "required": false,
-              "repeats": false
+              "repeats": false,
+              "answerConstraint": "optionsOnly"
             },
             {
               "linkId": "Procedure.complication.text",
@@ -1999,9 +2011,10 @@
             {
               "linkId": "Procedure.followUp.coding",
               "text": "code:",
-              "type": "open-choice",
+              "type": "coding",
               "required": false,
-              "repeats": false
+              "repeats": false,
+              "answerConstraint": "optionsOnly"
             },
             {
               "linkId": "Procedure.followUp.text",
@@ -2205,9 +2218,10 @@
                 {
                   "linkId": "Procedure.focalDevice.action.coding",
                   "text": "code:",
-                  "type": "open-choice",
+                  "type": "coding",
                   "required": false,
-                  "repeats": false
+                  "repeats": false,
+                  "answerConstraint": "optionsOnly"
                 },
                 {
                   "linkId": "Procedure.focalDevice.action.text",
@@ -2305,6 +2319,55 @@
               ],
               "text": "Identifies medications, devices and any other substance used as part of the procedure.",
               "type": "display"
+            }
+          ]
+        },
+        {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-fhirType",
+              "valueString": "Reference"
+            }
+          ],
+          "linkId": "Procedure.supportingInfo",
+          "type": "group",
+          "required": false,
+          "repeats": true,
+          "item": [
+            {
+              "extension": [
+                {
+                  "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
+                  "valueCodeableConcept": {
+                    "coding": [
+                      {
+                        "system": "http://hl7.org/fhir/questionnaire-item-control",
+                        "code": "flyover",
+                        "display": "Fly-over"
+                      }
+                    ]
+                  }
+                }
+              ],
+              "text": "Other resources from the patient record that may be relevant to the procedure.  The information from these resources was either used to create the instance or is provided to help with its interpretation. This extension should not be used if more specific inline elements or extensions are available.",
+              "type": "display"
+            },
+            {
+              "extension": [
+                {
+                  "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-allowedResource",
+                  "valueCode": "Resource"
+                },
+                {
+                  "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-referenceFilter",
+                  "valueString": "subject\u003d$subj\u0026patient\u003d$subj\u0026encounter\u003d$encounter"
+                }
+              ],
+              "linkId": "Procedure.supportingInfo.value",
+              "text": "Extra information relevant to the procedure",
+              "type": "reference",
+              "required": false,
+              "repeats": false
             }
           ]
         }
