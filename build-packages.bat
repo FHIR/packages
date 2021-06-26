@@ -1,48 +1,42 @@
 del *.tgz /s /q
 del *.tar /s /q
 
-cd hl7.fhir.rX\hl7.fhir.r5.examples 
-"C:\Program Files\7-Zip\7z.exe" a -ttar package.tar package
-"C:\Program Files\7-Zip\7z.exe" a -tgzip package.tgz package.tar
-cd ..
+rem cd hl7.fhir.xver-extensions 
+rem "C:\Program Files\7-Zip\7z.exe" a -ttar package.tar package
+rem "C:\Program Files\7-Zip\7z.exe" a -tgzip package.tgz package.tar
+rem cd ..
 
-pause
-cd hl7.fhir.xver-extensions 
-"C:\Program Files\7-Zip\7z.exe" a -ttar package.tar package
-"C:\Program Files\7-Zip\7z.exe" a -tgzip package.tgz package.tar
-cd ..
+rem cd hl7.fhir.pubpack 
+rem "C:\Program Files\7-Zip\7z.exe" a -ttar package.tar package
+rem "C:\Program Files\7-Zip\7z.exe" a -tgzip package.tgz package.tar
+rem cd ..
 
-cd hl7.fhir.pubpack 
-"C:\Program Files\7-Zip\7z.exe" a -ttar package.tar package
-"C:\Program Files\7-Zip\7z.exe" a -tgzip package.tgz package.tar
-cd ..
-
-cd fhir.tx.support\fhir.tx.support.r2 
+cd packages\fhir.tx.support.r2 
 "C:\Program Files\7-Zip\7z.exe" a -ttar package.tar package
 "C:\Program Files\7-Zip\7z.exe" a -tgzip package.tgz package.tar
 cd ..\..
 
-cd fhir.tx.support\fhir.tx.support.r3 
+cd packages\fhir.tx.support.r3 
 "C:\Program Files\7-Zip\7z.exe" a -ttar package.tar package
 "C:\Program Files\7-Zip\7z.exe" a -tgzip package.tgz package.tar
 cd ..\..
 
-cd fhir.tx.support\fhir.tx.support.r4 
+cd packages\fhir.tx.support.r4 
 "C:\Program Files\7-Zip\7z.exe" a -ttar package.tar package
 "C:\Program Files\7-Zip\7z.exe" a -tgzip package.tgz package.tar
 cd ..\..
 
-cd fhir.test.data\fhir.test.data.r2 
+cd packages\fhir.test.data.r2 
 "C:\Program Files\7-Zip\7z.exe" a -ttar package.tar package
 "C:\Program Files\7-Zip\7z.exe" a -tgzip package.tgz package.tar
 cd ..\..
 
-cd fhir.test.data\fhir.test.data.r3 
+cd packages\fhir.test.data.r3 
 "C:\Program Files\7-Zip\7z.exe" a -ttar package.tar package
 "C:\Program Files\7-Zip\7z.exe" a -tgzip package.tgz package.tar
 cd ..\..
 
-cd fhir.test.data\fhir.test.data.r4 
+cd packages\fhir.test.data.r4 
 "C:\Program Files\7-Zip\7z.exe" a -ttar package.tar package
 "C:\Program Files\7-Zip\7z.exe" a -tgzip package.tgz package.tar
 cd ..\..
@@ -142,6 +136,21 @@ cd hl7.fhir.rX\hl7.fhir.r4.expansions
 "C:\Program Files\7-Zip\7z.exe" a -tgzip hl7.fhir.r4.expansions.tgz package.tar
 cd ..\..
 
+cd hl7.fhir.rX\hl7.fhir.r5.core
+"C:\Program Files\7-Zip\7z.exe" a -ttar package.tar package other openapi
+"C:\Program Files\7-Zip\7z.exe" a -tgzip hl7.fhir.r5.core.tgz package.tar
+cd ..\..
+
+cd hl7.fhir.rX\hl7.fhir.r5.examples 
+"C:\Program Files\7-Zip\7z.exe" a -ttar package.tar package
+"C:\Program Files\7-Zip\7z.exe" a -tgzip hl7.fhir.r5.examples.tgz package.tar
+cd ..\..
+
+cd hl7.fhir.rX\hl7.fhir.r5.expansions
+"C:\Program Files\7-Zip\7z.exe" a -ttar package.tar package
+"C:\Program Files\7-Zip\7z.exe" a -tgzip hl7.fhir.r5.expansions.tgz package.tar
+cd ..\..
+
 cd hl7.fhir.rX\hl7.fhir.core#1.0.2
 "C:\Program Files\7-Zip\7z.exe" a -ttar package.tar package other xml
 "C:\Program Files\7-Zip\7z.exe" a -tgzip package.tgz package.tar
@@ -186,6 +195,7 @@ copy hl7.fhir.rX\hl7.fhir.r3.expansions\hl7.fhir.r3.expansions.tgz upload\hl7.fh
 copy hl7.fhir.rX\hl7.fhir.core#3.0.2\package.tgz upload\hl7.fhir.r3
 
 copy hl7.fhir.rX\hl7.fhir.r4.core\hl7.fhir.r4.core.tgz upload\hl7.fhir.r4
+copy hl7.fhir.rX\hl7.fhir.r4.core\hl7.fhir.r5.core.tgz upload\hl7.fhir.r4
 copy hl7.fhir.rX\hl7.fhir.r4.corexml\hl7.fhir.r4.corexml.tgz upload\hl7.fhir.r4
 copy hl7.fhir.rX\hl7.fhir.r4.examples\hl7.fhir.r4.examples.tgz upload\hl7.fhir.r4
 copy hl7.fhir.rX\hl7.fhir.r4.elements\hl7.fhir.r4.elements.tgz upload\hl7.fhir.r4
