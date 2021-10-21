@@ -1,46 +1,6 @@
 del *.tgz /s /q
 del *.tar /s /q
 
-rem cd hl7.fhir.xver-extensions 
-rem "C:\Program Files\7-Zip\7z.exe" a -ttar package.tar package
-rem "C:\Program Files\7-Zip\7z.exe" a -tgzip package.tgz package.tar
-rem cd ..
-
-rem cd hl7.fhir.pubpack 
-rem "C:\Program Files\7-Zip\7z.exe" a -ttar package.tar package
-rem "C:\Program Files\7-Zip\7z.exe" a -tgzip package.tgz package.tar
-rem cd ..
-
-cd packages\fhir.tx.support.r2 
-"C:\Program Files\7-Zip\7z.exe" a -ttar package.tar package
-"C:\Program Files\7-Zip\7z.exe" a -tgzip package.tgz package.tar
-cd ..\..
-
-cd packages\fhir.tx.support.r3 
-"C:\Program Files\7-Zip\7z.exe" a -ttar package.tar package
-"C:\Program Files\7-Zip\7z.exe" a -tgzip package.tgz package.tar
-cd ..\..
-
-cd packages\fhir.tx.support.r4 
-"C:\Program Files\7-Zip\7z.exe" a -ttar package.tar package
-"C:\Program Files\7-Zip\7z.exe" a -tgzip package.tgz package.tar
-cd ..\..
-
-cd packages\fhir.test.data.r2 
-"C:\Program Files\7-Zip\7z.exe" a -ttar package.tar package
-"C:\Program Files\7-Zip\7z.exe" a -tgzip package.tgz package.tar
-cd ..\..
-
-cd packages\fhir.test.data.r3 
-"C:\Program Files\7-Zip\7z.exe" a -ttar package.tar package
-"C:\Program Files\7-Zip\7z.exe" a -tgzip package.tgz package.tar
-cd ..\..
-
-cd packages\fhir.test.data.r4 
-"C:\Program Files\7-Zip\7z.exe" a -ttar package.tar package
-"C:\Program Files\7-Zip\7z.exe" a -tgzip package.tgz package.tar
-cd ..\..
-
 cd hl7.fhir.rX\hl7.fhir.r2.core
 "C:\Program Files\7-Zip\7z.exe" a -ttar package.tar package other
 "C:\Program Files\7-Zip\7z.exe" a -tgzip hl7.fhir.r2.core.tgz package.tar
