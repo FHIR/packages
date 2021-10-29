@@ -1,0 +1,58 @@
+---
+layout: page
+title: FHIR Foundation Implementation Guides
+---
+
+<h2>The FHIR DICOM Package (fhir.dicom)</h2>
+
+<p>
+The FHIR DICOM package contains all the DICOM FHIR Value sets generated as part of
+the DICOM standard, and the DICOM code system itself.
+</p>
+
+<h3>Releases</h3>
+
+<ul id="releases-list">
+<li><a href="2021.4.20210910/package.tgz">2021.4.20210910</a>: First release for 2021d (2021-10-30)</li>
+</ul>
+
+<h3>Versioning</h3>
+
+<p>
+The version is automatically derived from the DICOM internal version number
+linked to the release. The format is semver value:
+</p>
+<pre>
+{year}.{release}.{date}
+</pre>
+<p>
+Notes:
+</p>
+<ol>
+ <li>The year will have a format like 2021</li>
+ <li>The release is 1, 2, 3, 4 following Dicom's a, b, c, d release e.g. 2021.4 corresponds do 2021d release</li>
+ <li>The date is the date of release and is yyyymmdd - no time is included</li>
+</ol>
+
+<p>
+Note that if you want the latest version, don't specify a version when you use the package.
+</p>
+
+<h3>Generating the Package</h3>
+
+<p>
+Anyone can generate their own copy of the package, but only the FHIR Product Director or authorised
+delegate can release a new package. To generate the package:
+</p>
+
+<ul>
+<li>Use an FTP client to make a local copy of <a href="ftp://medical.nema.org/MEDICAL/Dicom/Resources">ftp://medical.nema.org/MEDICAL/Dicom/Resources</a></li>
+<li>Run the IG publisher with the parameters -dicom-gen -src {folder} -dst {folder}</li>
+<li>Use the generated output in the file 
+</ul>
+
+<p>
+If, for some reason, you need an older package released from before this system existed (Oct 2021),
+talk to the David Clunie to assemble the correct source (value sets and OWL file) and then 
+talk to Grahame Grieve to get the old package published.
+</p>
