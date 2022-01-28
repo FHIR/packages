@@ -239,9 +239,9 @@
       <sch:assert test="count(f:label) &lt;= 1">label: maximum cardinality of 'label' is 1</sch:assert>
       <sch:assert test="count(f:display) &lt;= 1">display: maximum cardinality of 'display' is 1</sch:assert>
       <sch:assert test="count(f:citation) &lt;= 1">citation: maximum cardinality of 'citation' is 1</sch:assert>
-      <sch:assert test="count(f:url) &lt;= 1">url: maximum cardinality of 'url' is 1</sch:assert>
       <sch:assert test="count(f:document) &lt;= 1">document: maximum cardinality of 'document' is 1</sch:assert>
       <sch:assert test="count(f:resource) &lt;= 1">resource: maximum cardinality of 'resource' is 1</sch:assert>
+      <sch:assert test="count(f:resourceReference) &lt;= 1">resourceReference: maximum cardinality of 'resourceReference' is 1</sch:assert>
     </sch:rule>
   </sch:pattern>
   <sch:pattern>
@@ -264,6 +264,12 @@
     </sch:rule>
   </sch:pattern>
   <sch:pattern>
+    <sch:title>Library.relatedArtifact.classifier</sch:title>
+    <sch:rule context="f:Library/f:relatedArtifact/f:classifier">
+      <sch:assert test="@value|f:*|h:div">All FHIR elements must have a @value or children (inherited)</sch:assert>
+    </sch:rule>
+  </sch:pattern>
+  <sch:pattern>
     <sch:title>Library.relatedArtifact.label</sch:title>
     <sch:rule context="f:Library/f:relatedArtifact/f:label">
       <sch:assert test="@value|f:*|h:div">All FHIR elements must have a @value or children (inherited)</sch:assert>
@@ -282,12 +288,6 @@
     </sch:rule>
   </sch:pattern>
   <sch:pattern>
-    <sch:title>Library.relatedArtifact.url</sch:title>
-    <sch:rule context="f:Library/f:relatedArtifact/f:url">
-      <sch:assert test="@value|f:*|h:div">All FHIR elements must have a @value or children (inherited)</sch:assert>
-    </sch:rule>
-  </sch:pattern>
-  <sch:pattern>
     <sch:title>Library.relatedArtifact.document</sch:title>
     <sch:rule context="f:Library/f:relatedArtifact/f:document">
       <sch:assert test="@value|f:*|h:div">All FHIR elements must have a @value or children (inherited)</sch:assert>
@@ -296,6 +296,12 @@
   <sch:pattern>
     <sch:title>Library.relatedArtifact.resource</sch:title>
     <sch:rule context="f:Library/f:relatedArtifact/f:resource">
+      <sch:assert test="@value|f:*|h:div">All FHIR elements must have a @value or children (inherited)</sch:assert>
+    </sch:rule>
+  </sch:pattern>
+  <sch:pattern>
+    <sch:title>Library.relatedArtifact.resourceReference</sch:title>
+    <sch:rule context="f:Library/f:relatedArtifact/f:resourceReference">
       <sch:assert test="@value|f:*|h:div">All FHIR elements must have a @value or children (inherited)</sch:assert>
     </sch:rule>
   </sch:pattern>

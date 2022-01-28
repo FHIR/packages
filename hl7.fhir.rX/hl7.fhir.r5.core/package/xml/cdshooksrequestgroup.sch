@@ -157,6 +157,12 @@
     </sch:rule>
   </sch:pattern>
   <sch:pattern>
+    <sch:title>RequestGroup.goal</sch:title>
+    <sch:rule context="f:RequestGroup/f:goal">
+      <sch:assert test="@value|f:*|h:div">All FHIR elements must have a @value or children (inherited)</sch:assert>
+    </sch:rule>
+  </sch:pattern>
+  <sch:pattern>
     <sch:title>RequestGroup.note</sch:title>
     <sch:rule context="f:RequestGroup/f:note">
       <sch:assert test="@value|f:*|h:div">All FHIR elements must have a @value or children (inherited)</sch:assert>
@@ -181,6 +187,12 @@
     <sch:rule context="f:RequestGroup/f:action/f:modifierExtension">
       <sch:assert test="@value|f:*|h:div">All FHIR elements must have a @value or children (inherited)</sch:assert>
       <sch:assert test="exists(f:extension)!=exists(f:*[starts-with(local-name(.), &quot;value&quot;)])">Must have either extensions or value[x], not both (inherited)</sch:assert>
+    </sch:rule>
+  </sch:pattern>
+  <sch:pattern>
+    <sch:title>RequestGroup.action.linkId</sch:title>
+    <sch:rule context="f:RequestGroup/f:action/f:linkId">
+      <sch:assert test="@value|f:*|h:div">All FHIR elements must have a @value or children (inherited)</sch:assert>
     </sch:rule>
   </sch:pattern>
   <sch:pattern>
@@ -222,6 +234,12 @@
   <sch:pattern>
     <sch:title>RequestGroup.action.documentation</sch:title>
     <sch:rule context="f:RequestGroup/f:action/f:documentation">
+      <sch:assert test="@value|f:*|h:div">All FHIR elements must have a @value or children (inherited)</sch:assert>
+    </sch:rule>
+  </sch:pattern>
+  <sch:pattern>
+    <sch:title>RequestGroup.action.goal</sch:title>
+    <sch:rule context="f:RequestGroup/f:action/f:goal">
       <sch:assert test="@value|f:*|h:div">All FHIR elements must have a @value or children (inherited)</sch:assert>
     </sch:rule>
   </sch:pattern>

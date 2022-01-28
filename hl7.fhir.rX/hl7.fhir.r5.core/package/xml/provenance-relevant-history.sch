@@ -95,8 +95,8 @@
     </sch:rule>
   </sch:pattern>
   <sch:pattern>
-    <sch:title>Provenance.reason</sch:title>
-    <sch:rule context="f:Provenance/f:reason">
+    <sch:title>Provenance.authorization</sch:title>
+    <sch:rule context="f:Provenance/f:authorization">
       <sch:assert test="@value|f:*|h:div">All FHIR elements must have a @value or children (inherited)</sch:assert>
     </sch:rule>
   </sch:pattern>

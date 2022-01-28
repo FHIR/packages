@@ -18,7 +18,7 @@
     "valueCode" : "trial-use"
   }],
   "url" : "http://hl7.org/fhir/StructureDefinition/ldlcholesterol",
-  "version" : "4.6.0",
+  "version" : "5.0.0-snapshot1",
   "name" : "Example Lipid Profile",
   "status" : "draft",
   "experimental" : true,
@@ -31,7 +31,7 @@
     }]
   }],
   "description" : "LDL Cholesterol Result",
-  "fhirVersion" : "4.6.0",
+  "fhirVersion" : "5.0.0-snapshot1",
   "mapping" : [{
     "identity" : "workflow",
     "uri" : "http://hl7.org/fhir/workflow",
@@ -193,7 +193,7 @@
       "type" : [{
         "extension" : [{
           "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-fhir-type",
-          "valueUri" : "id"
+          "valueUrl" : "id"
         }],
         "code" : "http://hl7.org/fhirpath/System.String"
       }],
@@ -286,10 +286,6 @@
       "isSummary" : false,
       "binding" : {
         "extension" : [{
-          "url" : "http://hl7.org/fhir/build/StructureDefinition/definition",
-          "valueString" : "A human language."
-        },
-        {
           "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-maxValueSet",
           "valueCanonical" : "http://hl7.org/fhir/ValueSet/all-languages"
         },
@@ -643,7 +639,6 @@
       "path" : "Observation.status",
       "short" : "registered | preliminary | final | amended +",
       "definition" : "The status of the result value.",
-      "comment" : "This element is labeled as a modifier because the status contains codes that mark the resource as not currently valid.",
       "requirements" : "Need to track the status of individual results. Some results are finalized before the whole report is finalized.",
       "min" : 1,
       "max" : "1",
@@ -674,7 +669,7 @@
         }],
         "strength" : "required",
         "description" : "Codes providing the status of an observation.",
-        "valueSet" : "http://hl7.org/fhir/ValueSet/observation-status|4.6.0"
+        "valueSet" : "http://hl7.org/fhir/ValueSet/observation-status|5.0.0-snapshot1"
       },
       "mapping" : [{
         "identity" : "workflow",
@@ -830,7 +825,9 @@
         "http://hl7.org/fhir/StructureDefinition/Procedure",
         "http://hl7.org/fhir/StructureDefinition/Practitioner",
         "http://hl7.org/fhir/StructureDefinition/Medication",
-        "http://hl7.org/fhir/StructureDefinition/Substance"]
+        "http://hl7.org/fhir/StructureDefinition/Substance",
+        "http://hl7.org/fhir/StructureDefinition/BiologicallyDerivedProduct",
+        "http://hl7.org/fhir/StructureDefinition/NutritionProduct"]
       }],
       "constraint" : [{
         "key" : "ele-1",
@@ -1378,10 +1375,6 @@
       "isSummary" : false,
       "binding" : {
         "extension" : [{
-          "url" : "http://hl7.org/fhir/build/StructureDefinition/definition",
-          "valueString" : "Codes describing anatomical locations. May include laterality."
-        },
-        {
           "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName",
           "valueString" : "BodySite"
         }],
@@ -1604,7 +1597,7 @@
       "type" : [{
         "extension" : [{
           "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-fhir-type",
-          "valueUri" : "id"
+          "valueUrl" : "id"
         }],
         "code" : "http://hl7.org/fhirpath/System.String"
       }],
@@ -2096,7 +2089,7 @@
       "type" : [{
         "extension" : [{
           "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-fhir-type",
-          "valueUri" : "id"
+          "valueUrl" : "id"
         }],
         "code" : "http://hl7.org/fhirpath/System.String"
       }],

@@ -10,11 +10,11 @@
     "valueCode" : "informative"
   }],
   "url" : "http://hl7.org/fhir/StructureDefinition/Event",
-  "version" : "4.6.0",
+  "version" : "5.0.0-snapshot1",
   "name" : "Event",
   "title" : "event",
   "status" : "draft",
-  "date" : "2021-04-15T12:25:09+10:00",
+  "date" : "2021-12-19T08:15:41+11:00",
   "publisher" : "Health Level Seven International fhir",
   "contact" : [{
     "telecom" : [{
@@ -23,7 +23,7 @@
     }]
   }],
   "description" : "Logical Model: A pattern to be followed by resources that represent the performance of some activity, possibly in accordance with a request or service definition.",
-  "fhirVersion" : "4.6.0",
+  "fhirVersion" : "5.0.0-snapshot1",
   "mapping" : [{
     "identity" : "v2",
     "uri" : "http://hl7.org/v2",
@@ -145,6 +145,7 @@
       "type" : [{
         "code" : "canonical",
         "targetProfile" : ["http://hl7.org/fhir/StructureDefinition/ActivityDefinition",
+        "http://hl7.org/fhir/StructureDefinition/ArtifactAssessment",
         "http://hl7.org/fhir/StructureDefinition/EventDefinition",
         "http://hl7.org/fhir/StructureDefinition/EvidenceVariable",
         "http://hl7.org/fhir/StructureDefinition/Measure",
@@ -298,6 +299,7 @@
         "http://hl7.org/fhir/StructureDefinition/ExplanationOfBenefit",
         "http://hl7.org/fhir/StructureDefinition/FamilyMemberHistory",
         "http://hl7.org/fhir/StructureDefinition/GuidanceResponse",
+        "http://hl7.org/fhir/StructureDefinition/ImagingSelection",
         "http://hl7.org/fhir/StructureDefinition/ImagingStudy",
         "http://hl7.org/fhir/StructureDefinition/Immunization",
         "http://hl7.org/fhir/StructureDefinition/ImmunizationEvaluation",
@@ -399,7 +401,7 @@
       "isSummary" : true,
       "binding" : {
         "extension" : [{
-          "url" : "http://hl7.org/fhir/build/StructureDefinition/definition",
+          "url" : "http://hl7.org/fhir/build/StructureDefinition/binding-definition",
           "valueString" : "Codes identifying the lifecycle stage of an event."
         },
         {
@@ -407,7 +409,7 @@
           "valueString" : "EventStatus"
         }],
         "strength" : "required",
-        "valueSet" : "http://hl7.org/fhir/ValueSet/event-status|4.6.0"
+        "valueSet" : "http://hl7.org/fhir/ValueSet/event-status|5.0.0-snapshot1"
       },
       "mapping" : [{
         "identity" : "v2",
@@ -452,7 +454,7 @@
       "isSummary" : false,
       "binding" : {
         "extension" : [{
-          "url" : "http://hl7.org/fhir/build/StructureDefinition/definition",
+          "url" : "http://hl7.org/fhir/build/StructureDefinition/binding-definition",
           "valueString" : "Codes identifying the reason for the current state of an event."
         },
         {
@@ -494,7 +496,7 @@
       "isSummary" : true,
       "binding" : {
         "extension" : [{
-          "url" : "http://hl7.org/fhir/build/StructureDefinition/definition",
+          "url" : "http://hl7.org/fhir/build/StructureDefinition/binding-definition",
           "valueString" : "Codes indicating the details of what is/was done.  These will vary significantly based on the type of event resource and will often be example/preferred rather than extensible/required."
         },
         {
@@ -784,7 +786,7 @@
       "isSummary" : true,
       "binding" : {
         "extension" : [{
-          "url" : "http://hl7.org/fhir/build/StructureDefinition/definition",
+          "url" : "http://hl7.org/fhir/build/StructureDefinition/binding-definition",
           "valueString" : "Codes that describe the specific involvement of a performer in an event.  E.g. Primary vs. secondary vs. supervising, etc."
         },
         {
@@ -911,7 +913,7 @@
       "isSummary" : true,
       "binding" : {
         "extension" : [{
-          "url" : "http://hl7.org/fhir/build/StructureDefinition/definition",
+          "url" : "http://hl7.org/fhir/build/StructureDefinition/binding-definition",
           "valueString" : "Codes identifying why this event was necessary.  These may be clinical reasons (e.g. diagnoses, symptoms) and/or administrative reasons.  While the detailed constraints of relevant reasons will vary by resource, some degree of consistency across resources around recommended codes would be desirable."
         },
         {

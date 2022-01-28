@@ -14,7 +14,7 @@
     "valueCode" : "trial-use"
   }],
   "url" : "http://hl7.org/fhir/StructureDefinition/logiclibrary",
-  "version" : "4.6.0",
+  "version" : "5.0.0-snapshot1",
   "name" : "LogicLibrary",
   "title" : "Logic Library",
   "status" : "draft",
@@ -35,7 +35,7 @@
       "display" : "World"
     }]
   }],
-  "fhirVersion" : "4.6.0",
+  "fhirVersion" : "5.0.0-snapshot1",
   "mapping" : [{
     "identity" : "rim",
     "uri" : "http://hl7.org/v3",
@@ -114,7 +114,7 @@
       "type" : [{
         "extension" : [{
           "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-fhir-type",
-          "valueUri" : "id"
+          "valueUrl" : "id"
         }],
         "code" : "http://hl7.org/fhirpath/System.String"
       }],
@@ -207,10 +207,6 @@
       "isSummary" : false,
       "binding" : {
         "extension" : [{
-          "url" : "http://hl7.org/fhir/build/StructureDefinition/definition",
-          "valueString" : "A human language."
-        },
-        {
           "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-maxValueSet",
           "valueCanonical" : "http://hl7.org/fhir/ValueSet/all-languages"
         },
@@ -788,7 +784,7 @@
         }],
         "strength" : "required",
         "description" : "The lifecycle status of an artifact.",
-        "valueSet" : "http://hl7.org/fhir/ValueSet/publication-status|4.6.0"
+        "valueSet" : "http://hl7.org/fhir/ValueSet/publication-status|5.0.0-snapshot1"
       },
       "mapping" : [{
         "identity" : "workflow",
@@ -1679,7 +1675,7 @@
       "type" : [{
         "extension" : [{
           "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-fhir-type",
-          "valueUri" : "string"
+          "valueUrl" : "string"
         }],
         "code" : "http://hl7.org/fhirpath/System.String"
       }],
@@ -1742,8 +1738,9 @@
     {
       "id" : "Library.relatedArtifact:dependency.type",
       "path" : "Library.relatedArtifact.type",
-      "short" : "documentation | justification | citation | predecessor | successor | derived-from | depends-on | composed-of",
+      "short" : "documentation | justification | citation | predecessor | successor | derived-from | depends-on | composed-of | part-of | amends | amended-with | appends | appended-with | cites | cited-by | comments-on | comment-in | contains | contained-in | corrects | correction-in | replaces | replaced-with | retracts | retracted-by | signs | similar-to | supports | supported-with | transforms | transformed-into | transformed-with",
       "definition" : "The type of relationship to the related artifact.",
+      "comment" : "The presence of both sides of a relationship type (e.g. successor and predecessor) is required to support use cases where one side of a relationship is not represented in FHIR. However, this feature SHALL NOT be used to create bi-directional resource links in FHIR instances.",
       "min" : 1,
       "max" : "1",
       "base" : {
@@ -1765,10 +1762,10 @@
       }],
       "mustSupport" : true,
       "isModifier" : false,
-      "isSummary" : true,
+      "isSummary" : false,
       "binding" : {
         "extension" : [{
-          "url" : "http://hl7.org/fhir/build/StructureDefinition/definition",
+          "url" : "http://hl7.org/fhir/build/StructureDefinition/binding-definition",
           "valueString" : "The type of relationship to the related artifact."
         },
         {
@@ -1776,7 +1773,45 @@
           "valueString" : "RelatedArtifactType"
         }],
         "strength" : "required",
-        "valueSet" : "http://hl7.org/fhir/ValueSet/related-artifact-type|4.6.0"
+        "valueSet" : "http://hl7.org/fhir/ValueSet/related-artifact-type|5.0.0-snapshot1"
+      }
+    },
+    {
+      "id" : "Library.relatedArtifact:dependency.classifier",
+      "path" : "Library.relatedArtifact.classifier",
+      "short" : "Additional classifiers",
+      "definition" : "Provides additional classifiers of the related artifact.",
+      "min" : 0,
+      "max" : "*",
+      "base" : {
+        "path" : "RelatedArtifact.classifier",
+        "min" : 0,
+        "max" : "*"
+      },
+      "type" : [{
+        "code" : "CodeableConcept"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : false,
+      "binding" : {
+        "extension" : [{
+          "url" : "http://hl7.org/fhir/build/StructureDefinition/binding-definition",
+          "valueString" : "Additional classifiers for the related artifact."
+        },
+        {
+          "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName",
+          "valueString" : "RelatedArtifactClassifier"
+        }],
+        "strength" : "example",
+        "valueSet" : "http://hl7.org/fhir/ValueSet/citation-artifact-classifier"
       }
     },
     {
@@ -1803,7 +1838,7 @@
         "source" : "http://hl7.org/fhir/StructureDefinition/Element"
       }],
       "isModifier" : false,
-      "isSummary" : true
+      "isSummary" : false
     },
     {
       "id" : "Library.relatedArtifact:dependency.display",
@@ -1829,7 +1864,7 @@
         "source" : "http://hl7.org/fhir/StructureDefinition/Element"
       }],
       "isModifier" : false,
-      "isSummary" : true
+      "isSummary" : false
     },
     {
       "id" : "Library.relatedArtifact:dependency.citation",
@@ -1856,34 +1891,7 @@
         "source" : "http://hl7.org/fhir/StructureDefinition/Element"
       }],
       "isModifier" : false,
-      "isSummary" : true
-    },
-    {
-      "id" : "Library.relatedArtifact:dependency.url",
-      "path" : "Library.relatedArtifact.url",
-      "short" : "Where the artifact can be accessed",
-      "definition" : "A url for the artifact that can be followed to access the actual content.",
-      "comment" : "If a document or resource element is present, this element SHALL NOT be provided (use the url or reference in the Attachment or resource reference).",
-      "min" : 0,
-      "max" : "1",
-      "base" : {
-        "path" : "RelatedArtifact.url",
-        "min" : 0,
-        "max" : "1"
-      },
-      "type" : [{
-        "code" : "url"
-      }],
-      "constraint" : [{
-        "key" : "ele-1",
-        "severity" : "error",
-        "human" : "All FHIR elements must have a @value or children",
-        "expression" : "hasValue() or (children().count() > id.count())",
-        "xpath" : "@value|f:*|h:div",
-        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
-      }],
-      "isModifier" : false,
-      "isSummary" : true
+      "isSummary" : false
     },
     {
       "id" : "Library.relatedArtifact:dependency.document",
@@ -1909,13 +1917,13 @@
         "source" : "http://hl7.org/fhir/StructureDefinition/Element"
       }],
       "isModifier" : false,
-      "isSummary" : true
+      "isSummary" : false
     },
     {
       "id" : "Library.relatedArtifact:dependency.resource",
       "path" : "Library.relatedArtifact.resource",
-      "short" : "What resource is being referenced",
-      "definition" : "The related resource, such as a library, value set, profile, or other knowledge resource.",
+      "short" : "What artifact is being referenced",
+      "definition" : "The related artifact, such as a library, value set, profile, or other knowledge resource.",
       "comment" : "If the type is predecessor, this is a reference to the succeeding knowledge resource. If the type is successor, this is a reference to the prior knowledge resource.",
       "min" : 1,
       "max" : "1",
@@ -1940,7 +1948,35 @@
       }],
       "mustSupport" : true,
       "isModifier" : false,
-      "isSummary" : true
+      "isSummary" : false
+    },
+    {
+      "id" : "Library.relatedArtifact:dependency.resourceReference",
+      "path" : "Library.relatedArtifact.resourceReference",
+      "short" : "What artifact, if not a conformance resource",
+      "definition" : "The related artifact, if the artifact is not a canonical resource, or a resource reference to a canonical resource.",
+      "comment" : "If both resource and resourceReference are present, they SHOULD be consistent and reference the same resource. Although relatedArtifact is intended to support references to definitional resources, there are cases where non-definitional resources can be definitional (such as Location where the kind is mode). Related artifacts SHOULD be used to reference definitional resources, and profiles SHOULD be used to make that explicit for particular use cases.",
+      "min" : 0,
+      "max" : "1",
+      "base" : {
+        "path" : "RelatedArtifact.resourceReference",
+        "min" : 0,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "Reference",
+        "targetProfile" : ["http://hl7.org/fhir/StructureDefinition/Resource"]
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : false
     },
     {
       "id" : "Library.parameter",
@@ -2051,7 +2087,7 @@
       "type" : [{
         "extension" : [{
           "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-fhir-type",
-          "valueUri" : "string"
+          "valueUrl" : "string"
         }],
         "code" : "http://hl7.org/fhirpath/System.String"
       }],
@@ -2144,7 +2180,7 @@
       "isSummary" : true,
       "binding" : {
         "extension" : [{
-          "url" : "http://hl7.org/fhir/build/StructureDefinition/definition",
+          "url" : "http://hl7.org/fhir/build/StructureDefinition/binding-definition",
           "valueString" : "The mime type of an attachment. Any valid mime type is allowed."
         },
         {
@@ -2157,7 +2193,7 @@
         }],
         "strength" : "required",
         "description" : "BCP 13 (RFCs 2045, 2046, 2047, 4288, 4289 and 2049)",
-        "valueSet" : "http://hl7.org/fhir/ValueSet/mimetypes|4.6.0"
+        "valueSet" : "http://hl7.org/fhir/ValueSet/mimetypes|5.0.0-snapshot1"
       },
       "mapping" : [{
         "identity" : "v2",
@@ -2200,7 +2236,7 @@
       "isSummary" : true,
       "binding" : {
         "extension" : [{
-          "url" : "http://hl7.org/fhir/build/StructureDefinition/definition",
+          "url" : "http://hl7.org/fhir/build/StructureDefinition/binding-definition",
           "valueString" : "A human language."
         },
         {
@@ -2338,7 +2374,7 @@
       "path" : "Library.content.hash",
       "short" : "Hash of the data (sha-1, base64ed)",
       "definition" : "The calculated hash of the data using SHA-1. Represented using base64.",
-      "comment" : "The hash is calculated on the data prior to base64 encoding, if the data is based64 encoded. The hash is not intended to support digital signatures. Where protection against malicious threats a digital signature should be considered, see [Provenance.signature](provenance-definitions.html#Provenance.signature) for mechanism to protect a resource with a digital signature.",
+      "comment" : "The hash is calculated on the data prior to base64 encoding, if the data is based64 encoded. The hash is not intended to support digital signatures. Where protection against malicious threats a digital signature should be considered, see [Provenance.signature](??) for mechanism to protect a resource with a digital signature.",
       "requirements" : "Included so that applications can verify that the contents of a location have not changed due to technical failures (e.g., storage rot, transport glitch, incorrect version).",
       "min" : 0,
       "max" : "1",

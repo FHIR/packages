@@ -421,6 +421,12 @@
     </sch:rule>
   </sch:pattern>
   <sch:pattern>
+    <sch:title>PlanDefinition.action.linkId</sch:title>
+    <sch:rule context="f:PlanDefinition/f:action/f:linkId">
+      <sch:assert test="@value|f:*|h:div">All FHIR elements must have a @value or children (inherited)</sch:assert>
+    </sch:rule>
+  </sch:pattern>
+  <sch:pattern>
     <sch:title>PlanDefinition.action.prefix</sch:title>
     <sch:rule context="f:PlanDefinition/f:action/f:prefix">
       <sch:assert test="@value|f:*|h:div">All FHIR elements must have a @value or children (inherited)</sch:assert>

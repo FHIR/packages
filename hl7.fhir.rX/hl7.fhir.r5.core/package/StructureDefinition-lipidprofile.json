@@ -26,7 +26,7 @@
     "valueString" : "This is a test summary [lipids](observation.html)"
   }],
   "url" : "http://hl7.org/fhir/StructureDefinition/lipidprofile",
-  "version" : "4.6.0",
+  "version" : "5.0.0-snapshot1",
   "name" : "Example Lipid Profile",
   "status" : "draft",
   "experimental" : true,
@@ -39,7 +39,7 @@
     }]
   }],
   "description" : "Lipid Lab Report",
-  "fhirVersion" : "4.6.0",
+  "fhirVersion" : "5.0.0-snapshot1",
   "mapping" : [{
     "identity" : "workflow",
     "uri" : "http://hl7.org/fhir/workflow",
@@ -181,7 +181,7 @@
       "type" : [{
         "extension" : [{
           "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-fhir-type",
-          "valueUri" : "id"
+          "valueUrl" : "id"
         }],
         "code" : "http://hl7.org/fhirpath/System.String"
       }],
@@ -274,10 +274,6 @@
       "isSummary" : false,
       "binding" : {
         "extension" : [{
-          "url" : "http://hl7.org/fhir/build/StructureDefinition/definition",
-          "valueString" : "A human language."
-        },
-        {
           "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-maxValueSet",
           "valueCanonical" : "http://hl7.org/fhir/ValueSet/all-languages"
         },
@@ -573,7 +569,7 @@
         }],
         "strength" : "required",
         "description" : "The status of the diagnostic report.",
-        "valueSet" : "http://hl7.org/fhir/ValueSet/diagnostic-report-status|4.6.0"
+        "valueSet" : "http://hl7.org/fhir/ValueSet/diagnostic-report-status|5.0.0-snapshot1"
       },
       "mapping" : [{
         "identity" : "workflow",
@@ -625,10 +621,6 @@
       "isSummary" : true,
       "binding" : {
         "extension" : [{
-          "url" : "http://hl7.org/fhir/build/StructureDefinition/definition",
-          "valueString" : "Codes for diagnostic service sections."
-        },
-        {
           "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName",
           "valueString" : "DiagnosticServiceSection"
         }],
@@ -686,10 +678,6 @@
       "isSummary" : true,
       "binding" : {
         "extension" : [{
-          "url" : "http://hl7.org/fhir/build/StructureDefinition/definition",
-          "valueString" : "Codes that describe Diagnostic Reports."
-        },
-        {
           "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName",
           "valueString" : "DiagnosticReportCodes"
         }],
@@ -738,7 +726,8 @@
         "http://hl7.org/fhir/StructureDefinition/Procedure",
         "http://hl7.org/fhir/StructureDefinition/Practitioner",
         "http://hl7.org/fhir/StructureDefinition/Medication",
-        "http://hl7.org/fhir/StructureDefinition/Substance"]
+        "http://hl7.org/fhir/StructureDefinition/Substance",
+        "http://hl7.org/fhir/StructureDefinition/BiologicallyDerivedProduct"]
       }],
       "constraint" : [{
         "key" : "ele-1",
@@ -1307,6 +1296,39 @@
       }]
     },
     {
+      "id" : "DiagnosticReport.note",
+      "path" : "DiagnosticReport.note",
+      "short" : "Comments about the diagnostic report",
+      "definition" : "Comments about the diagnostic report.",
+      "comment" : "May include general statements about the diagnostic report, or statements about significant, unexpected or unreliable results values contained within the diagnostic report, or information about its source when relevant to its interpretation.",
+      "requirements" : "Need to be able to provide free text additional information.",
+      "min" : 0,
+      "max" : "*",
+      "base" : {
+        "path" : "DiagnosticReport.note",
+        "min" : 0,
+        "max" : "*"
+      },
+      "type" : [{
+        "code" : "Annotation"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "mustSupport" : false,
+      "isModifier" : false,
+      "isSummary" : false,
+      "mapping" : [{
+        "identity" : "rim",
+        "map" : "unknown"
+      }]
+    },
+    {
       "id" : "DiagnosticReport.imagingStudy",
       "path" : "DiagnosticReport.imagingStudy",
       "short" : "Reference to full details of imaging associated with the diagnostic report",
@@ -1342,9 +1364,9 @@
     {
       "id" : "DiagnosticReport.media",
       "path" : "DiagnosticReport.media",
-      "short" : "Key images associated with this report",
-      "definition" : "A list of key images associated with this report. The images are generally created during the diagnostic process, and may be directly of the patient, or of treated specimens (i.e. slides of interest).",
-      "requirements" : "Many diagnostic services include images in the report as part of their service.",
+      "short" : "Key images or data associated with this report",
+      "definition" : "A list of key images or data associated with this report. The images or data are generally created during the diagnostic process, and may be directly of the patient, or of treated specimens (i.e. slides of interest).",
+      "requirements" : "Many diagnostic services include images or data in the report as part of their service.",
       "alias" : ["DICOM",
       "Slides",
       "Scans"],
@@ -1394,7 +1416,7 @@
       "type" : [{
         "extension" : [{
           "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-fhir-type",
-          "valueUri" : "id"
+          "valueUrl" : "id"
         }],
         "code" : "http://hl7.org/fhirpath/System.String"
       }],
@@ -1493,10 +1515,10 @@
     {
       "id" : "DiagnosticReport.media.comment",
       "path" : "DiagnosticReport.media.comment",
-      "short" : "Comment about the image (e.g. explanation)",
-      "definition" : "A comment about the image. Typically, this is used to provide an explanation for why the image is included, or to draw the viewer's attention to important features.",
-      "comment" : "The comment should be displayed with the image. It would be common for the report to include additional discussion of the image contents in other sections such as the conclusion.",
-      "requirements" : "The provider of the report should make a comment about each image included in the report.",
+      "short" : "Comment about the image or data (e.g. explanation)",
+      "definition" : "A comment about the image or data. Typically, this is used to provide an explanation for why the image or data is included, or to draw the viewer's attention to important features.",
+      "comment" : "The comment should be displayed with the image or data. It would be common for the report to include additional discussion of the image or data contents or in other sections such as the conclusion.",
+      "requirements" : "The provider of the report should make a comment about each image or data included in the report.",
       "min" : 0,
       "max" : "1",
       "base" : {
@@ -1526,8 +1548,8 @@
     {
       "id" : "DiagnosticReport.media.link",
       "path" : "DiagnosticReport.media.link",
-      "short" : "Reference to the image source",
-      "definition" : "Reference to the image source.",
+      "short" : "Reference to the image or data source",
+      "definition" : "Reference to the image or data source.",
       "min" : 1,
       "max" : "1",
       "base" : {
@@ -1655,10 +1677,6 @@
       "isSummary" : false,
       "binding" : {
         "extension" : [{
-          "url" : "http://hl7.org/fhir/build/StructureDefinition/definition",
-          "valueString" : "Diagnosis codes provided as adjuncts to the report."
-        },
-        {
           "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName",
           "valueString" : "AdjunctDiagnosis"
         }],

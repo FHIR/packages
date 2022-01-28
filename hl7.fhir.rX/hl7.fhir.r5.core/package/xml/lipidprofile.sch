@@ -147,6 +147,12 @@
     </sch:rule>
   </sch:pattern>
   <sch:pattern>
+    <sch:title>DiagnosticReport.note</sch:title>
+    <sch:rule context="f:DiagnosticReport/f:note">
+      <sch:assert test="@value|f:*|h:div">All FHIR elements must have a @value or children (inherited)</sch:assert>
+    </sch:rule>
+  </sch:pattern>
+  <sch:pattern>
     <sch:title>DiagnosticReport.imagingStudy</sch:title>
     <sch:rule context="f:DiagnosticReport/f:imagingStudy">
       <sch:assert test="@value|f:*|h:div">All FHIR elements must have a @value or children (inherited)</sch:assert>

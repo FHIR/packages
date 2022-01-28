@@ -18,7 +18,7 @@
     "valueCode" : "trial-use"
   }],
   "url" : "http://hl7.org/fhir/StructureDefinition/provenance-relevant-history",
-  "version" : "4.6.0",
+  "version" : "5.0.0-snapshot1",
   "name" : "Provenance Relevant History",
   "status" : "draft",
   "experimental" : false,
@@ -31,7 +31,7 @@
     }]
   }],
   "description" : "Guidance on using Provenance for related history elements",
-  "fhirVersion" : "4.6.0",
+  "fhirVersion" : "5.0.0-snapshot1",
   "mapping" : [{
     "identity" : "workflow",
     "uri" : "http://hl7.org/fhir/workflow",
@@ -167,7 +167,7 @@
       "type" : [{
         "extension" : [{
           "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-fhir-type",
-          "valueUri" : "id"
+          "valueUrl" : "id"
         }],
         "code" : "http://hl7.org/fhirpath/System.String"
       }],
@@ -260,10 +260,6 @@
       "isSummary" : false,
       "binding" : {
         "extension" : [{
-          "url" : "http://hl7.org/fhir/build/StructureDefinition/definition",
-          "valueString" : "A human language."
-        },
-        {
           "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-maxValueSet",
           "valueCanonical" : "http://hl7.org/fhir/ValueSet/all-languages"
         },
@@ -524,11 +520,11 @@
       "short" : "When the activity was recorded / updated",
       "definition" : "The instant of time at which the activity was recorded.",
       "comment" : "This can be a little different from the time stamp on the resource if there is a delay between recording the event and updating the provenance and target resource.",
-      "min" : 1,
+      "min" : 0,
       "max" : "1",
       "base" : {
         "path" : "Provenance.recorded",
-        "min" : 1,
+        "min" : 0,
         "max" : "1"
       },
       "type" : [{
@@ -647,20 +643,22 @@
       }]
     },
     {
-      "id" : "Provenance.reason",
-      "path" : "Provenance.reason",
-      "short" : "Reason the activity is occurring",
-      "definition" : "The reason that the activity was taking place.",
-      "comment" : "Plain text reasons can be sent in the \"text\" component with no codings.  Domains may wish to define a constrained terminology.  The reason for the resource's existence of the resource itself will be maintained on the resource, not here.",
+      "id" : "Provenance.authorization",
+      "path" : "Provenance.authorization",
+      "short" : "Authorization (purposeOfUse) related to the event",
+      "definition" : "The authorization (e.g., PurposeOfUse) that was used during the event being recorded.",
+      "comment" : "Plain text reasons can be sent in the \"text\" component with no codings.  Domains may wish to define a constrained terminology.  The authorization for the resource's existence of the resource itself will be maintained on the resource, not here.",
+      "requirements" : "Record of any relevant security context, not restricted to purposeOfUse valueSet. May include security compartments, refrain, obligation, or other security tags.",
+      "alias" : ["PurposeOfEvent"],
       "min" : 0,
       "max" : "*",
       "base" : {
-        "path" : "Provenance.reason",
+        "path" : "Provenance.authorization",
         "min" : 0,
         "max" : "*"
       },
       "type" : [{
-        "code" : "CodeableConcept"
+        "code" : "CodeableReference"
       }],
       "constraint" : [{
         "key" : "ele-1",
@@ -673,15 +671,6 @@
       "mustSupport" : true,
       "isModifier" : false,
       "isSummary" : false,
-      "binding" : {
-        "extension" : [{
-          "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName",
-          "valueString" : "ProvenanceReason"
-        }],
-        "strength" : "extensible",
-        "description" : "The reason the activity took place.",
-        "valueSet" : "http://terminology.hl7.org/ValueSet/v3-PurposeOfUse"
-      },
       "mapping" : [{
         "identity" : "workflow",
         "map" : "Event.reasonCode"
@@ -752,12 +741,20 @@
         "map" : "Act.code"
       },
       {
+        "identity" : "fhirauditevent",
+        "map" : "AuditEvent.code"
+      },
+      {
         "identity" : "w3c.prov",
         "map" : "Activity.Activity"
       }]
     },
     {
       "id" : "Provenance.basedOn",
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
+        "valueCode" : "trial-use"
+      }],
       "path" : "Provenance.basedOn",
       "short" : "Workflow authorization within which this event occurred",
       "definition" : "Allows tracing of authorizatino for the events and tracking whether proposals/recommendations were acted upon.",
@@ -775,7 +772,8 @@
         "http://hl7.org/fhir/StructureDefinition/ImmunizationRecommendation",
         "http://hl7.org/fhir/StructureDefinition/MedicationRequest",
         "http://hl7.org/fhir/StructureDefinition/NutritionOrder",
-        "http://hl7.org/fhir/StructureDefinition/ServiceRequest"]
+        "http://hl7.org/fhir/StructureDefinition/ServiceRequest",
+        "http://hl7.org/fhir/StructureDefinition/Task"]
       }],
       "constraint" : [{
         "key" : "ele-1",
@@ -807,6 +805,10 @@
     },
     {
       "id" : "Provenance.encounter",
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
+        "valueCode" : "trial-use"
+      }],
       "path" : "Provenance.encounter",
       "short" : "Encounter within which this event occurred or which the event is tightly associated",
       "definition" : "This will typically be the encounter the event occurred, but some events may be initiated prior to or after the official completion of an encounter but still be tied to the context of the encounter (e.g. pre-admission lab tests).",
@@ -922,7 +924,7 @@
       "type" : [{
         "extension" : [{
           "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-fhir-type",
-          "valueUri" : "id"
+          "valueUrl" : "id"
         }],
         "code" : "http://hl7.org/fhirpath/System.String"
       }],
@@ -1022,7 +1024,7 @@
       "id" : "Provenance.agent.type",
       "path" : "Provenance.agent.type",
       "short" : "How the agent participated",
-      "definition" : "The primary act of participation of the agent with respect to the activity.",
+      "definition" : "The Functional Role of the agent with respect to the activity.",
       "comment" : "For example: assembler, author, prescriber, signer, investigator, etc.",
       "requirements" : "Functional roles reflect functional aspects of relationships between entities. Functional roles are bound to the realization/performance of acts, where actions might be concatenated to an activity or even to a process. This element will hold the functional role that the agent played in the activity that is the focus of this Provenance. Where an agent played multiple functional roles, they will be listed as multiple .agent elements representing each functional participation. See ISO 21298:2018 - Health Informatics - Functional and structural roles, and ISO 22600-2:2014 - Health Informatics - Privilege Management and Access Control - Part 2: formal models.",
       "min" : 1,
@@ -1126,7 +1128,7 @@
       "id" : "Provenance.agent.who",
       "path" : "Provenance.agent.who",
       "short" : "The agent that participated in the event",
-      "definition" : "The individual, device or organization that participated in the event.",
+      "definition" : "Indicates who or what performed in the event.",
       "min" : 1,
       "max" : "1",
       "base" : {
@@ -1138,10 +1140,11 @@
         "code" : "Reference",
         "targetProfile" : ["http://hl7.org/fhir/StructureDefinition/Practitioner",
         "http://hl7.org/fhir/StructureDefinition/PractitionerRole",
-        "http://hl7.org/fhir/StructureDefinition/RelatedPerson",
+        "http://hl7.org/fhir/StructureDefinition/Organization",
+        "http://hl7.org/fhir/StructureDefinition/CareTeam",
         "http://hl7.org/fhir/StructureDefinition/Patient",
         "http://hl7.org/fhir/StructureDefinition/Device",
-        "http://hl7.org/fhir/StructureDefinition/Organization"]
+        "http://hl7.org/fhir/StructureDefinition/RelatedPerson"]
       }],
       "constraint" : [{
         "key" : "ele-1",
@@ -1183,10 +1186,10 @@
         "code" : "Reference",
         "targetProfile" : ["http://hl7.org/fhir/StructureDefinition/Practitioner",
         "http://hl7.org/fhir/StructureDefinition/PractitionerRole",
-        "http://hl7.org/fhir/StructureDefinition/RelatedPerson",
+        "http://hl7.org/fhir/StructureDefinition/Organization",
+        "http://hl7.org/fhir/StructureDefinition/CareTeam",
         "http://hl7.org/fhir/StructureDefinition/Patient",
-        "http://hl7.org/fhir/StructureDefinition/Device",
-        "http://hl7.org/fhir/StructureDefinition/Organization"]
+        "http://hl7.org/fhir/StructureDefinition/RelatedPerson"]
       }],
       "constraint" : [{
         "key" : "ele-1",
@@ -1270,7 +1273,7 @@
       "type" : [{
         "extension" : [{
           "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-fhir-type",
-          "valueUri" : "id"
+          "valueUrl" : "id"
         }],
         "code" : "http://hl7.org/fhirpath/System.String"
       }],
@@ -1370,7 +1373,7 @@
       "id" : "Provenance.agent:Author.type",
       "path" : "Provenance.agent.type",
       "short" : "How the agent participated",
-      "definition" : "The primary act of participation of the agent with respect to the activity.",
+      "definition" : "The Functional Role of the agent with respect to the activity.",
       "comment" : "For example: assembler, author, prescriber, signer, investigator, etc.",
       "requirements" : "Functional roles reflect functional aspects of relationships between entities. Functional roles are bound to the realization/performance of acts, where actions might be concatenated to an activity or even to a process. This element will hold the functional role that the agent played in the activity that is the focus of this Provenance. Where an agent played multiple functional roles, they will be listed as multiple .agent elements representing each functional participation. See ISO 21298:2018 - Health Informatics - Functional and structural roles, and ISO 22600-2:2014 - Health Informatics - Privilege Management and Access Control - Part 2: formal models.",
       "min" : 1,
@@ -1409,7 +1412,7 @@
           "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding",
           "valueBoolean" : true
         }],
-        "strength" : "extensible",
+        "strength" : "example",
         "description" : "The type of participation that a provenance agent played with respect to the activity.",
         "valueSet" : "http://hl7.org/fhir/ValueSet/participation-role-type"
       },
@@ -1496,10 +1499,11 @@
         "code" : "Reference",
         "targetProfile" : ["http://hl7.org/fhir/StructureDefinition/Practitioner",
         "http://hl7.org/fhir/StructureDefinition/PractitionerRole",
-        "http://hl7.org/fhir/StructureDefinition/RelatedPerson",
+        "http://hl7.org/fhir/StructureDefinition/Organization",
+        "http://hl7.org/fhir/StructureDefinition/CareTeam",
         "http://hl7.org/fhir/StructureDefinition/Patient",
         "http://hl7.org/fhir/StructureDefinition/Device",
-        "http://hl7.org/fhir/StructureDefinition/Organization"]
+        "http://hl7.org/fhir/StructureDefinition/RelatedPerson"]
       }],
       "constraint" : [{
         "key" : "ele-1",
@@ -1541,10 +1545,10 @@
         "code" : "Reference",
         "targetProfile" : ["http://hl7.org/fhir/StructureDefinition/Practitioner",
         "http://hl7.org/fhir/StructureDefinition/PractitionerRole",
-        "http://hl7.org/fhir/StructureDefinition/RelatedPerson",
+        "http://hl7.org/fhir/StructureDefinition/Organization",
+        "http://hl7.org/fhir/StructureDefinition/CareTeam",
         "http://hl7.org/fhir/StructureDefinition/Patient",
-        "http://hl7.org/fhir/StructureDefinition/Device",
-        "http://hl7.org/fhir/StructureDefinition/Organization"]
+        "http://hl7.org/fhir/StructureDefinition/RelatedPerson"]
       }],
       "constraint" : [{
         "key" : "ele-1",
@@ -1564,6 +1568,10 @@
     },
     {
       "id" : "Provenance.entity",
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
+        "valueCode" : "trial-use"
+      }],
       "path" : "Provenance.entity",
       "short" : "An entity used in this activity",
       "definition" : "An entity used in this activity.",
@@ -1617,7 +1625,7 @@
       "type" : [{
         "extension" : [{
           "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-fhir-type",
-          "valueUri" : "id"
+          "valueUrl" : "id"
         }],
         "code" : "http://hl7.org/fhirpath/System.String"
       }],
@@ -1716,7 +1724,7 @@
     {
       "id" : "Provenance.entity.role",
       "path" : "Provenance.entity.role",
-      "short" : "derivation | revision | quotation | source | removal",
+      "short" : "derivation | revision | quotation | source | instantiates | removal",
       "definition" : "How the entity was used during the activity.",
       "min" : 1,
       "max" : "1",
@@ -1746,7 +1754,7 @@
         }],
         "strength" : "required",
         "description" : "How an entity was used in an activity.",
-        "valueSet" : "http://hl7.org/fhir/ValueSet/provenance-entity-role|4.6.0"
+        "valueSet" : "http://hl7.org/fhir/ValueSet/provenance-entity-role|5.0.0-snapshot1"
       },
       "mapping" : [{
         "identity" : "rim",
@@ -1754,7 +1762,7 @@
       },
       {
         "identity" : "fhirauditevent",
-        "map" : "AuditEvent.entity.lifecycle"
+        "map" : "AuditEvent.entity.role"
       },
       {
         "identity" : "w3c.prov",
@@ -1806,7 +1814,7 @@
       "id" : "Provenance.entity.agent",
       "path" : "Provenance.entity.agent",
       "short" : "Entity is attributed to this agent",
-      "definition" : "The entity is attributed to an agent to express the agent's responsibility for that entity, possibly along with other agents. This description can be understood as shorthand for saying that the agent was responsible for the activity which generated the entity.",
+      "definition" : "The entity is attributed to an agent to express the agent's responsibility for that entity, possibly along with other agents. This description can be understood as shorthand for saying that the agent was responsible for the activity which used the entity.",
       "comment" : "A usecase where one Provenance.entity.agent is used where the Entity that was used in the creation/updating of the Target, is not in the context of the same custodianship as the Target, and thus the meaning of Provenance.entity.agent is to say that the entity referenced is managed elsewhere and that this Agent provided access to it.  This would be similar to where the Entity being referenced is managed outside FHIR, such as through HL7 v2, v3, or XDS. This might be where the Entity being referenced is managed in another FHIR resource server. Thus it explains the Provenance of that Entity's use in the context of this Provenance activity.",
       "min" : 0,
       "max" : "*",
@@ -1830,10 +1838,18 @@
       "mapping" : [{
         "identity" : "rim",
         "map" : "./author/role"
+      },
+      {
+        "identity" : "fhirauditevent",
+        "map" : "AuditEvent.entity.agent"
       }]
     },
     {
       "id" : "Provenance.signature",
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
+        "valueCode" : "trial-use"
+      }],
       "path" : "Provenance.signature",
       "short" : "Signature on target",
       "definition" : "A digital signature on the target Reference(s). The signer should match a Provenance.agent. The purpose of the signature is indicated.",
@@ -1892,9 +1908,9 @@
       "mustSupport" : true
     },
     {
-      "id" : "Provenance.reason",
-      "path" : "Provenance.reason",
-      "comment" : "Plain text reasons can be sent in the \"text\" component with no codings.  Domains may wish to define a constrained terminology.  The reason for the resource's existence of the resource itself will be maintained on the resource, not here.",
+      "id" : "Provenance.authorization",
+      "path" : "Provenance.authorization",
+      "comment" : "Plain text reasons can be sent in the \"text\" component with no codings.  Domains may wish to define a constrained terminology.  The authorization for the resource's existence of the resource itself will be maintained on the resource, not here.",
       "mustSupport" : true
     },
     {

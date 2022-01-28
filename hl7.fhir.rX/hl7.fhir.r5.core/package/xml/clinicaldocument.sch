@@ -176,32 +176,6 @@
     </sch:rule>
   </sch:pattern>
   <sch:pattern>
-    <sch:title>Composition.relatesTo.extension</sch:title>
-    <sch:rule context="f:Composition/f:relatesTo/f:extension">
-      <sch:assert test="@value|f:*|h:div">All FHIR elements must have a @value or children (inherited)</sch:assert>
-      <sch:assert test="exists(f:extension)!=exists(f:*[starts-with(local-name(.), &quot;value&quot;)])">Must have either extensions or value[x], not both (inherited)</sch:assert>
-    </sch:rule>
-  </sch:pattern>
-  <sch:pattern>
-    <sch:title>Composition.relatesTo.modifierExtension</sch:title>
-    <sch:rule context="f:Composition/f:relatesTo/f:modifierExtension">
-      <sch:assert test="@value|f:*|h:div">All FHIR elements must have a @value or children (inherited)</sch:assert>
-      <sch:assert test="exists(f:extension)!=exists(f:*[starts-with(local-name(.), &quot;value&quot;)])">Must have either extensions or value[x], not both (inherited)</sch:assert>
-    </sch:rule>
-  </sch:pattern>
-  <sch:pattern>
-    <sch:title>Composition.relatesTo.code</sch:title>
-    <sch:rule context="f:Composition/f:relatesTo/f:code">
-      <sch:assert test="@value|f:*|h:div">All FHIR elements must have a @value or children (inherited)</sch:assert>
-    </sch:rule>
-  </sch:pattern>
-  <sch:pattern>
-    <sch:title>Composition.relatesTo.target[x] 1</sch:title>
-    <sch:rule context="f:Composition/f:relatesTo/f:target[x]">
-      <sch:assert test="@value|f:*|h:div">All FHIR elements must have a @value or children (inherited)</sch:assert>
-    </sch:rule>
-  </sch:pattern>
-  <sch:pattern>
     <sch:title>Composition.event</sch:title>
     <sch:rule context="f:Composition/f:event">
       <sch:assert test="@value|f:*|h:div">All FHIR elements must have a @value or children (inherited)</sch:assert>

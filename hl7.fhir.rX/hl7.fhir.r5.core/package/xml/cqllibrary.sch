@@ -244,6 +244,12 @@
     </sch:rule>
   </sch:pattern>
   <sch:pattern>
+    <sch:title>Library.relatedArtifact.classifier</sch:title>
+    <sch:rule context="f:Library/f:relatedArtifact/f:classifier">
+      <sch:assert test="@value|f:*|h:div">All FHIR elements must have a @value or children</sch:assert>
+    </sch:rule>
+  </sch:pattern>
+  <sch:pattern>
     <sch:title>Library.relatedArtifact.label</sch:title>
     <sch:rule context="f:Library/f:relatedArtifact/f:label">
       <sch:assert test="@value|f:*|h:div">All FHIR elements must have a @value or children</sch:assert>
@@ -262,12 +268,6 @@
     </sch:rule>
   </sch:pattern>
   <sch:pattern>
-    <sch:title>Library.relatedArtifact.url</sch:title>
-    <sch:rule context="f:Library/f:relatedArtifact/f:url">
-      <sch:assert test="@value|f:*|h:div">All FHIR elements must have a @value or children</sch:assert>
-    </sch:rule>
-  </sch:pattern>
-  <sch:pattern>
     <sch:title>Library.relatedArtifact.document</sch:title>
     <sch:rule context="f:Library/f:relatedArtifact/f:document">
       <sch:assert test="@value|f:*|h:div">All FHIR elements must have a @value or children</sch:assert>
@@ -276,6 +276,12 @@
   <sch:pattern>
     <sch:title>Library.relatedArtifact.resource</sch:title>
     <sch:rule context="f:Library/f:relatedArtifact/f:resource">
+      <sch:assert test="@value|f:*|h:div">All FHIR elements must have a @value or children</sch:assert>
+    </sch:rule>
+  </sch:pattern>
+  <sch:pattern>
+    <sch:title>Library.relatedArtifact.resourceReference</sch:title>
+    <sch:rule context="f:Library/f:relatedArtifact/f:resourceReference">
       <sch:assert test="@value|f:*|h:div">All FHIR elements must have a @value or children</sch:assert>
     </sch:rule>
   </sch:pattern>

@@ -26,7 +26,7 @@
     "valueString" : "#### Complete Summary of the Mandatory Requirements\r\r1.  One code in `Observation.code` which must have\r    -   a fixed `Observation.code.coding.system`=**'http ://loinc.org'**\r    -   a fixed  `Observation.code.coding.code`= **'85353-1'**\r    -   Other additional Codings are allowed in `Observation.code`- e.g. more specific LOINC\r        Codes, SNOMED CT concepts, system specific codes. All codes\r        SHALL have an system value\r1.  No value in `Observation.value[x]`\r1.  At Least one Vitals Sign Observation reference in `Observation.hasMember`"
   }],
   "url" : "http://hl7.org/fhir/StructureDefinition/vitalspanel",
-  "version" : "4.6.0",
+  "version" : "5.0.0-snapshot1",
   "name" : "observation-vitalspanel",
   "title" : "Observation Vital Signs Panel Profile",
   "status" : "draft",
@@ -40,7 +40,7 @@
     }]
   }],
   "description" : "FHIR Vital Signs Panel Profile",
-  "fhirVersion" : "4.6.0",
+  "fhirVersion" : "5.0.0-snapshot1",
   "mapping" : [{
     "identity" : "workflow",
     "uri" : "http://hl7.org/fhir/workflow",
@@ -210,7 +210,7 @@
       "type" : [{
         "extension" : [{
           "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-fhir-type",
-          "valueUri" : "id"
+          "valueUrl" : "id"
         }],
         "code" : "http://hl7.org/fhirpath/System.String"
       }],
@@ -303,10 +303,6 @@
       "isSummary" : false,
       "binding" : {
         "extension" : [{
-          "url" : "http://hl7.org/fhir/build/StructureDefinition/definition",
-          "valueString" : "A human language."
-        },
-        {
           "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-maxValueSet",
           "valueCanonical" : "http://hl7.org/fhir/ValueSet/all-languages"
         },
@@ -660,7 +656,6 @@
       "path" : "Observation.status",
       "short" : "registered | preliminary | final | amended +",
       "definition" : "The status of the result value.",
-      "comment" : "This element is labeled as a modifier because the status contains codes that mark the resource as not currently valid.",
       "requirements" : "Need to track the status of individual results. Some results are finalized before the whole report is finalized.",
       "min" : 1,
       "max" : "1",
@@ -834,7 +829,7 @@
       "type" : [{
         "extension" : [{
           "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-fhir-type",
-          "valueUri" : "string"
+          "valueUrl" : "string"
         }],
         "code" : "http://hl7.org/fhirpath/System.String"
       }],
@@ -921,7 +916,7 @@
       }],
       "mustSupport" : true,
       "isModifier" : false,
-      "isSummary" : true,
+      "isSummary" : false,
       "mapping" : [{
         "identity" : "v2",
         "map" : "C*E.1-8, C*E.10-22"
@@ -951,7 +946,7 @@
       "type" : [{
         "extension" : [{
           "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-fhir-type",
-          "valueUri" : "string"
+          "valueUrl" : "string"
         }],
         "code" : "http://hl7.org/fhirpath/System.String"
       }],
@@ -1039,7 +1034,7 @@
       }],
       "mustSupport" : true,
       "isModifier" : false,
-      "isSummary" : true,
+      "isSummary" : false,
       "mapping" : [{
         "identity" : "v2",
         "map" : "C*E.3"
@@ -1078,7 +1073,7 @@
         "source" : "http://hl7.org/fhir/StructureDefinition/Element"
       }],
       "isModifier" : false,
-      "isSummary" : true,
+      "isSummary" : false,
       "mapping" : [{
         "identity" : "v2",
         "map" : "C*E.7"
@@ -1123,7 +1118,7 @@
       }],
       "mustSupport" : true,
       "isModifier" : false,
-      "isSummary" : true,
+      "isSummary" : false,
       "mapping" : [{
         "identity" : "v2",
         "map" : "C*E.1"
@@ -1170,7 +1165,7 @@
         "source" : "http://hl7.org/fhir/StructureDefinition/Element"
       }],
       "isModifier" : false,
-      "isSummary" : true,
+      "isSummary" : false,
       "mapping" : [{
         "identity" : "v2",
         "map" : "C*E.2 - but note this is not well followed"
@@ -1210,7 +1205,7 @@
         "source" : "http://hl7.org/fhir/StructureDefinition/Element"
       }],
       "isModifier" : false,
-      "isSummary" : true,
+      "isSummary" : false,
       "mapping" : [{
         "identity" : "v2",
         "map" : "Sometimes implied by being first"
@@ -1258,7 +1253,7 @@
         "source" : "http://hl7.org/fhir/StructureDefinition/Element"
       }],
       "isModifier" : false,
-      "isSummary" : true,
+      "isSummary" : false,
       "mapping" : [{
         "identity" : "v2",
         "map" : "C*E.9. But note many systems use C*E.2 for this"
@@ -1357,7 +1352,7 @@
       "type" : [{
         "extension" : [{
           "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-fhir-type",
-          "valueUri" : "string"
+          "valueUrl" : "string"
         }],
         "code" : "http://hl7.org/fhirpath/System.String"
       }],
@@ -1455,7 +1450,7 @@
         "source" : "http://hl7.org/fhir/StructureDefinition/Element"
       }],
       "isModifier" : false,
-      "isSummary" : true,
+      "isSummary" : false,
       "mapping" : [{
         "identity" : "v2",
         "map" : "C*E.1-8, C*E.10-22"
@@ -1496,7 +1491,7 @@
         "source" : "http://hl7.org/fhir/StructureDefinition/Element"
       }],
       "isModifier" : false,
-      "isSummary" : true,
+      "isSummary" : false,
       "mapping" : [{
         "identity" : "v2",
         "map" : "C*E.1-8, C*E.10-22"
@@ -1526,7 +1521,7 @@
       "type" : [{
         "extension" : [{
           "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-fhir-type",
-          "valueUri" : "string"
+          "valueUrl" : "string"
         }],
         "code" : "http://hl7.org/fhirpath/System.String"
       }],
@@ -1613,7 +1608,7 @@
         "source" : "http://hl7.org/fhir/StructureDefinition/Element"
       }],
       "isModifier" : false,
-      "isSummary" : true,
+      "isSummary" : false,
       "mapping" : [{
         "identity" : "v2",
         "map" : "C*E.3"
@@ -1652,7 +1647,7 @@
         "source" : "http://hl7.org/fhir/StructureDefinition/Element"
       }],
       "isModifier" : false,
-      "isSummary" : true,
+      "isSummary" : false,
       "mapping" : [{
         "identity" : "v2",
         "map" : "C*E.7"
@@ -1696,7 +1691,7 @@
         "source" : "http://hl7.org/fhir/StructureDefinition/Element"
       }],
       "isModifier" : false,
-      "isSummary" : true,
+      "isSummary" : false,
       "mapping" : [{
         "identity" : "v2",
         "map" : "C*E.1"
@@ -1743,7 +1738,7 @@
         "source" : "http://hl7.org/fhir/StructureDefinition/Element"
       }],
       "isModifier" : false,
-      "isSummary" : true,
+      "isSummary" : false,
       "mapping" : [{
         "identity" : "v2",
         "map" : "C*E.2 - but note this is not well followed"
@@ -1783,7 +1778,7 @@
         "source" : "http://hl7.org/fhir/StructureDefinition/Element"
       }],
       "isModifier" : false,
-      "isSummary" : true,
+      "isSummary" : false,
       "mapping" : [{
         "identity" : "v2",
         "map" : "Sometimes implied by being first"
@@ -1831,7 +1826,7 @@
         "source" : "http://hl7.org/fhir/StructureDefinition/Element"
       }],
       "isModifier" : false,
-      "isSummary" : true,
+      "isSummary" : false,
       "mapping" : [{
         "identity" : "v2",
         "map" : "C*E.9. But note many systems use C*E.2 for this"
@@ -2392,10 +2387,6 @@
       "isSummary" : false,
       "binding" : {
         "extension" : [{
-          "url" : "http://hl7.org/fhir/build/StructureDefinition/definition",
-          "valueString" : "Codes describing anatomical locations. May include laterality."
-        },
-        {
           "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName",
           "valueString" : "BodySite"
         }],
@@ -2618,7 +2609,7 @@
       "type" : [{
         "extension" : [{
           "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-fhir-type",
-          "valueUri" : "id"
+          "valueUrl" : "id"
         }],
         "code" : "http://hl7.org/fhirpath/System.String"
       }],
@@ -3096,7 +3087,7 @@
       "type" : [{
         "extension" : [{
           "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-fhir-type",
-          "valueUri" : "id"
+          "valueUrl" : "id"
         }],
         "code" : "http://hl7.org/fhirpath/System.String"
       }],
