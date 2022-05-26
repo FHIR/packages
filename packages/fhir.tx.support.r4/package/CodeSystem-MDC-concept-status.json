@@ -2,48 +2,48 @@
   "resourceType": "CodeSystem",
   "id": "MDC-concept-status",
   "url": "http://devices.fhir.org/CodeSystem/MDC-concept-status",
-  "name": "MDC_concept_status",
+  "name": "MdcConceptStatus",
   "title": "MDC Concept Status",
   "status": "draft",
   "experimental": false,
-  "publisher": "Health Level Seven International (Health Care Devices Work Group)",
-  "description": "Concept status within the ISO/IEEE 11073-10101 Nomenclature.",
+  "publisher": "HL7 International - Devices Work Group",
+  "description": "Concept status within the ISO/IEEE 11073 Medical Device Communication Nomenclature.  Refer to IEEE 11073-10101-2019 Annex H.",
   "content": "complete",
   "concept": [
     {
       "code": "provisional",
       "display": "Provisional",
-      "definition": "Terms with provisional reference identifier and term code that may be used for development and interoperability testing. Provisional terms shall not be released in production devices."
+      "definition": "A provisional term is allocated a term code and RefId. Provisional terms are generally used for development and interoperability testing and ought not to be released in production devices."
     },
     {
-      "code": "approved",
-      "display": "Approved",
-      "definition": "Terms that got final approval for inclusion to RTMMS. Approved terms may be used in production devices."
-    },
-    {
-      "code": "zombie",
-      "display": "Zombie",
-      "definition": "Provisional terms that didn\u0027t get final approval. Reference identifier and term code will not be allocated to new terms."
+      "code": "accepted",
+      "display": "Accepted",
+      "definition": "Accepted terms will be included in the first draft of a revision or amendment of IEEE Std 11073-10101 (or one of the IEEE 11073-1010* family of nomenclature standards) for ballot. Although accepted terms may be used in production devices, they could be deprecated or withdrawn during subsequent IEEE balloting after the first draft in which they appear."
     },
     {
       "code": "published",
       "display": "Published",
-      "definition": "Terms that are included in in a revision of the IEEE 11073-10101 standard."
-    },
-    {
-      "code": "maintenance",
-      "display": "Maintenance",
-      "definition": "Terms in a transition period to be deprecated. Maintenance terms shall not be used in new devices."
+      "definition": "Terms that are included in an IEEE 11073 standard and that have not been deprecated or withdrawn are designated published."
     },
     {
       "code": "deprecated",
       "display": "deprecated",
-      "definition": "Deprecated terms shall be removed from use in production devices."
+      "definition": "Terms may be designated as deprecated for a number of reasons, which may include deprecation of the entire term, the term code (RefId retained but a new term code allocated) or the RefId (term code retained but a new RefId allocated). Deprecated terms, term codes and RefIds are to be removed from use in production devices."
     },
     {
-      "code": "prohibited",
-      "display": "Prohibited",
-      "definition": "Terms that have been removed from RTMMS. Use of prohibited terms shall be indicated as an error."
+      "code": "withdrawn",
+      "display": "Withdrawn",
+      "definition": "Terms found to be in error, such as having conflicting codes, are designated withdrawn and ought to be removed from existing devices and applications. Use of withdrawn terms shall be indicated as an error."
+    },
+    {
+      "code": "withdrawn-pending-ballot",
+      "display": "Withdrawn (Pending Ballot)",
+      "definition": "Terms that have been determined to be in error and that are expected to be formally withdrawn upon publication of a future IEEE 11073 standard.  These terms should be treated as withdrawn terms."
+    },
+    {
+      "code": "deprecated-pending-ballot",
+      "display": "Deprecated (Pending Ballot)",
+      "definition": "Terms that are expected to be formally deprecated upon publication of a future IEEE 11073 standard.  These terms should be treated as deprecated terms."
     }
   ]
 }

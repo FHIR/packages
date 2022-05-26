@@ -8,12 +8,12 @@
   },
   "url": "http://devices.fhir.org/ValueSet/MDC-metric",
   "version": "0.1.0",
-  "name": "MDC_metric",
+  "name": "MdcMetric",
   "title": "MDC Metric nomenclature",
   "status": "draft",
   "experimental": false,
-  "publisher": "Health Level Seven International (Health Care Devices Work Group)",
-  "description": "ValueSet for the ISO/IEEE 11073-10101 Nomenclature filtered by Metric partition.",
+  "publisher": "HL7 International - Devices Work Group",
+  "description": "ValueSet for the ISO/IEEE 11073-10101 Nomenclature filtered by Metric (SCADA or Settings) partition.",
   "compose": {
     "include": [
       {
@@ -23,6 +23,16 @@
             "property": "partition",
             "op": "\u003d",
             "value": "2"
+          }
+        ]
+      },
+      {
+        "system": "urn:iso:std:iso:11073:10101",
+        "filter": [
+          {
+            "property": "partition",
+            "op": "\u003d",
+            "value": "258"
           }
         ]
       }
