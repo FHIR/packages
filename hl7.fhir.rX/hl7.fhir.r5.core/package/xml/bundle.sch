@@ -36,6 +36,7 @@
       <sch:assert test="not(f:type/@value='message') or f:entry[1]/f:resource/f:MessageHeader">bdl-12: A message must have a MessageHeader as the first resource</sch:assert>
       <sch:assert test="not(f:total) or (f:type/@value = 'searchset') or (f:type/@value = 'history')">bdl-1: total only when a search or history</sch:assert>
       <sch:assert test="not(f:entry/f:search) or (f:type/@value = 'searchset')">bdl-2: entry.search only when a search</sch:assert>
+      <sch:assert test="(f:type/@value = 'history') and not(f:entry/request/method/@value = 'PATCH')">bdl-14: entry.request.method PATCH not allowed for history</sch:assert>
       <sch:assert test="not(f:type/@value='document') or f:entry[1]/f:resource/f:Composition">bdl-11: A document must have a Composition as the first resource</sch:assert>
       <sch:assert test="not(f:type/@value = 'document') or exists(f:timestamp/f:value)">bdl-10: A document must have a date</sch:assert>
     </sch:rule>

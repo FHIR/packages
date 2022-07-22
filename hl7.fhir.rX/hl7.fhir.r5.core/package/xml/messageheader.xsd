@@ -47,7 +47,7 @@
   POSSIBILITY OF SUCH DAMAGE.
   
 
-  Generated on Sun, Dec 19, 2021 08:15+1100 for FHIR v5.0.0-snapshot1 
+  Generated on Mon, Jul 18, 2022 14:56+1000 for FHIR v4.6.0 
 
   Note: the schemas &amp; schematrons do not contain all of the rules about what makes resources
   valid. Implementers will still need to be familiar with the content of the specification and with
@@ -93,7 +93,7 @@
           </xs:element>
           <xs:element name="author" minOccurs="0" maxOccurs="1" type="Reference">
             <xs:annotation>
-              <xs:documentation xml:lang="en">The logical author of the message - the person or device that decided the described event should happen. When there is more than one candidate, pick the most proximal to the MessageHeader. Can provide other authors in extensions.</xs:documentation>
+              <xs:documentation xml:lang="en">The logical author of the message - the personor device that decided the described event should happen. When there is more than one candidate, pick the most proximal to the MessageHeader. Can provide other authors in extensions.</xs:documentation>
            </xs:annotation>
           </xs:element>
           <xs:element name="source" type="MessageHeader.Source" minOccurs="1" maxOccurs="1">
@@ -147,7 +147,7 @@
               <xs:documentation xml:lang="en">Identifies the target end system in situations where the initial message transmission is to an intermediary system.</xs:documentation>
            </xs:annotation>
           </xs:element>
-          <xs:element name="endpoint" minOccurs="1" maxOccurs="1" type="url">
+          <xs:element name="endpoint" minOccurs="0" maxOccurs="1" type="url">
             <xs:annotation>
               <xs:documentation xml:lang="en">Indicates where the message should be routed to.</xs:documentation>
            </xs:annotation>
@@ -188,7 +188,7 @@
               <xs:documentation xml:lang="en">An e-mail, phone, website or other contact point to use to resolve issues with message communications.</xs:documentation>
            </xs:annotation>
           </xs:element>
-          <xs:element name="endpoint" minOccurs="1" maxOccurs="1" type="url">
+          <xs:element name="endpoint" minOccurs="0" maxOccurs="1" type="url">
             <xs:annotation>
               <xs:documentation xml:lang="en">Identifies the routing target to send acknowledgements to.</xs:documentation>
            </xs:annotation>
@@ -204,7 +204,7 @@
     <xs:complexContent>
       <xs:extension base="BackboneElement">
         <xs:sequence>
-          <xs:element name="identifier" minOccurs="1" maxOccurs="1" type="id">
+          <xs:element name="identifier" minOccurs="1" maxOccurs="1" type="Identifier">
             <xs:annotation>
               <xs:documentation xml:lang="en">The MessageHeader.id of the message to which this message is a response.</xs:documentation>
            </xs:annotation>

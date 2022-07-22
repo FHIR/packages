@@ -47,7 +47,7 @@
   POSSIBILITY OF SUCH DAMAGE.
   
 
-  Generated on Sun, Dec 19, 2021 08:15+1100 for FHIR v5.0.0-snapshot1 
+  Generated on Mon, Jul 18, 2022 14:56+1000 for FHIR v4.6.0 
 
   Note: the schemas &amp; schematrons do not contain all of the rules about what makes resources
   valid. Implementers will still need to be familiar with the content of the specification and with
@@ -124,19 +124,24 @@
               <xs:documentation xml:lang="en">A reference to a consent that links back to such a source, a reference to a document repository (e.g. XDS) that stores the original consent document.</xs:documentation>
            </xs:annotation>
           </xs:element>
-          <xs:element name="policy" type="Consent.Policy" minOccurs="0" maxOccurs="unbounded">
+          <xs:element name="regulatoryBasis" minOccurs="0" maxOccurs="unbounded" type="CodeableConcept">
             <xs:annotation>
-              <xs:documentation xml:lang="en">The references to the policies that are included in this consent scope. Policies may be organizational, but are often defined jurisdictionally, or in law.</xs:documentation>
+              <xs:documentation xml:lang="en">A set of codes that indicate the regulatory basis (if any) that this consent supports.</xs:documentation>
            </xs:annotation>
           </xs:element>
-          <xs:element name="policyRule" minOccurs="0" maxOccurs="1" type="CodeableConcept">
+          <xs:element name="policyBasis" type="Consent.PolicyBasis" minOccurs="0" maxOccurs="1">
             <xs:annotation>
-              <xs:documentation xml:lang="en">A reference to the specific base computable regulation or policy.</xs:documentation>
+              <xs:documentation xml:lang="en">A Reference or URL used to uniquely identify the policy the organization will enforce for this Consent. This Reference or URL should be specific to the version of the policy and should be dereferencable to a computable policy of some form.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="policyText" minOccurs="0" maxOccurs="unbounded" type="Reference">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">A Reference to the human readable policy explaining the basis for the Consent.</xs:documentation>
            </xs:annotation>
           </xs:element>
           <xs:element name="verification" type="Consent.Verification" minOccurs="0" maxOccurs="unbounded">
             <xs:annotation>
-              <xs:documentation xml:lang="en">Whether a treatment instruction (e.g. artificial respiration yes or no) was verified with the patient, his/her family or another authorized person.</xs:documentation>
+              <xs:documentation xml:lang="en">Whether a treatment instruction (e.g. artificial respiration: yes or no) was verified with the patient, his/her family or another authorized person.</xs:documentation>
            </xs:annotation>
           </xs:element>
           <xs:element name="provision" type="Consent.Provision" minOccurs="0" maxOccurs="1">
@@ -148,21 +153,21 @@
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
-  <xs:complexType name="Consent.Policy">
+  <xs:complexType name="Consent.PolicyBasis">
     <xs:annotation>
       <xs:documentation xml:lang="en">A record of a healthcare consumer’s  choices  or choices made on their behalf by a third party, which permits or denies identified recipient(s) or recipient role(s) to perform one or more actions within a given policy context, for specific purposes and periods of time.</xs:documentation>
     </xs:annotation>
     <xs:complexContent>
       <xs:extension base="BackboneElement">
         <xs:sequence>
-          <xs:element name="authority" minOccurs="0" maxOccurs="1" type="uri">
+          <xs:element name="reference" minOccurs="0" maxOccurs="1" type="Reference">
             <xs:annotation>
-              <xs:documentation xml:lang="en">Entity or Organization having regulatory jurisdiction or accountability for  enforcing policies pertaining to Consent Directives.</xs:documentation>
+              <xs:documentation xml:lang="en">A Reference that identifies the policy the organization will enforce for this Consent.</xs:documentation>
            </xs:annotation>
           </xs:element>
-          <xs:element name="uri" minOccurs="0" maxOccurs="1" type="uri">
+          <xs:element name="url" minOccurs="0" maxOccurs="1" type="url">
             <xs:annotation>
-              <xs:documentation xml:lang="en">The references to the policies that are included in this consent scope. Policies may be organizational, but are often defined jurisdictionally, or in law.</xs:documentation>
+              <xs:documentation xml:lang="en">A URL that links to a computable version of the policy the organization will enforce for this Consent.</xs:documentation>
            </xs:annotation>
           </xs:element>
         </xs:sequence>
@@ -188,7 +193,7 @@
           </xs:element>
           <xs:element name="verifiedBy" minOccurs="0" maxOccurs="1" type="Reference">
             <xs:annotation>
-              <xs:documentation xml:lang="en">The person who conducted the verification/validation of the Grantee decision.</xs:documentation>
+              <xs:documentation xml:lang="en">The person who conducted the verification/validation of the Grantor decision.</xs:documentation>
            </xs:annotation>
           </xs:element>
           <xs:element name="verifiedWith" minOccurs="0" maxOccurs="1" type="Reference">
@@ -393,6 +398,11 @@
       <xs:enumeration value="inactive">
         <xs:annotation>
           <xs:documentation xml:lang="en">Inactive</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="not-done">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Abandoned</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="entered-in-error">

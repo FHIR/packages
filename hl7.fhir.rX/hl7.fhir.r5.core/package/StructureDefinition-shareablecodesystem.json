@@ -18,14 +18,14 @@
     "valueCode" : "trial-use"
   }],
   "url" : "http://hl7.org/fhir/StructureDefinition/shareablecodesystem",
-  "version" : "5.0.0-snapshot1",
+  "version" : "4.6.0",
   "name" : "Shareable CodeSystem",
   "status" : "draft",
   "experimental" : false,
   "date" : "2020-12-28T16:55:11+11:00",
   "publisher" : "HL7",
   "description" : "Enforces the minimum information set for the value set metadata required by HL7 and other organizations that share and publish value sets",
-  "fhirVersion" : "5.0.0-snapshot1",
+  "fhirVersion" : "4.6.0",
   "mapping" : [{
     "identity" : "rim",
     "uri" : "http://hl7.org/v3",
@@ -68,7 +68,7 @@
         "key" : "cnl-0",
         "severity" : "warning",
         "human" : "Name should be usable as an identifier for the module by machine processing applications such as code generation",
-        "expression" : "name.matches('[A-Z]([A-Za-z0-9_]){0,254}')",
+        "expression" : "name.exists() implies name.matches('[A-Z]([A-Za-z0-9_]){0,254}')",
         "xpath" : "not(exists(f:name/@value)) or matches(f:name/@value, '[A-Z]([A-Za-z0-9_]){0,254}')",
         "source" : "http://hl7.org/fhir/StructureDefinition/CodeSystem"
       },
@@ -76,7 +76,7 @@
         "key" : "csd-1",
         "severity" : "error",
         "human" : "Within a code system definition, all the codes SHALL be unique",
-        "expression" : "concept.code.combine($this.descendants().concept.code).isDistinct()",
+        "expression" : "concept.exists() implies concept.code.combine(%resource.concept.descendants().concept.code).isDistinct()",
         "xpath" : "count(distinct-values(descendant::f:concept/f:code/@value))=count(descendant::f:concept)",
         "source" : "http://hl7.org/fhir/StructureDefinition/CodeSystem"
       }],
@@ -101,7 +101,7 @@
       "path" : "CodeSystem.id",
       "short" : "Logical id of this artifact",
       "definition" : "The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes.",
-      "comment" : "Typically, the resource has an id except for cases like the create operation, conditional updates.",
+      "comment" : "Within the context of the FHIR RESTful interactions, the resource has an id except for cases like the create and conditional update. Otherwise, the use of the resouce id depends on the given use case.",
       "min" : 0,
       "max" : "1",
       "base" : {
@@ -550,7 +550,7 @@
       "id" : "CodeSystem.status",
       "path" : "CodeSystem.status",
       "short" : "draft | active | retired | unknown",
-      "definition" : "The date (and optionally time) when the code system resource was created or revised.",
+      "definition" : "The status of this code system. Enables tracking the life-cycle of the content.",
       "comment" : "Allows filtering of code systems that are appropriate for use versus not.",
       "min" : 1,
       "max" : "1",
@@ -585,7 +585,7 @@
         }],
         "strength" : "required",
         "description" : "The lifecycle status of an artifact.",
-        "valueSet" : "http://hl7.org/fhir/ValueSet/publication-status|5.0.0-snapshot1"
+        "valueSet" : "http://hl7.org/fhir/ValueSet/publication-status|4.6.0"
       },
       "mapping" : [{
         "identity" : "workflow",
@@ -976,8 +976,8 @@
       "id" : "CodeSystem.valueSet",
       "path" : "CodeSystem.valueSet",
       "short" : "Canonical reference to the value set with entire code system",
-      "definition" : "Canonical reference to the value set that contains the entire code system.",
-      "comment" : "The definition of the value set SHALL include all codes from this code system and only codes from this code system, and it SHALL be immutable.",
+      "definition" : "Canonical reference to the value set that contains all codes in the code system independent of code status.",
+      "comment" : "The definition of the value set SHALL include all codes from this code system, independent of concept status, and only codes from this code system. It SHALL be immutable, and operations SHOULD support validation of any allowed code compositions.",
       "min" : 0,
       "max" : "1",
       "base" : {
@@ -1035,7 +1035,7 @@
         }],
         "strength" : "required",
         "description" : "The meaning of the hierarchy of concepts in a code system.",
-        "valueSet" : "http://hl7.org/fhir/ValueSet/codesystem-hierarchy-meaning|5.0.0-snapshot1"
+        "valueSet" : "http://hl7.org/fhir/ValueSet/codesystem-hierarchy-meaning|4.6.0"
       }
     },
     {
@@ -1128,11 +1128,15 @@
         }],
         "strength" : "required",
         "description" : "The extent of the content of the code system (the concepts and codes it defines) are represented in a code system resource.",
-        "valueSet" : "http://hl7.org/fhir/ValueSet/codesystem-content-mode|5.0.0-snapshot1"
+        "valueSet" : "http://hl7.org/fhir/ValueSet/codesystem-content-mode|4.6.0"
       }
     },
     {
       "id" : "CodeSystem.supplements",
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
+        "valueCode" : "trial-use"
+      }],
       "path" : "CodeSystem.supplements",
       "short" : "Canonical URL of Code System this adds designations and properties to",
       "definition" : "The canonical URL of the code system that this code system supplement is adding designations and properties to.",
@@ -1232,7 +1236,7 @@
       "type" : [{
         "extension" : [{
           "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-fhir-type",
-          "valueUrl" : "id"
+          "valueUrl" : "string"
         }],
         "code" : "http://hl7.org/fhirpath/System.String"
       }],
@@ -1419,7 +1423,7 @@
         }],
         "strength" : "required",
         "description" : "The kind of operation to perform as a part of a property based filter.",
-        "valueSet" : "http://hl7.org/fhir/ValueSet/filter-operator|5.0.0-snapshot1"
+        "valueSet" : "http://hl7.org/fhir/ValueSet/filter-operator|4.6.0"
       }
     },
     {
@@ -1458,6 +1462,7 @@
       "path" : "CodeSystem.property",
       "short" : "Additional information supplied about each concept",
       "definition" : "A property defines an additional slot through which additional information can be provided about a concept.",
+      "comment" : "Multiple occurrences of CodeSystem.concept.property may occur for a CodeSystem.property where     CodeSystem.concept.property.code is the same and CodeSystem.concept.property.value differs. For example: multiple designations for a single concept.",
       "min" : 0,
       "max" : "*",
       "base" : {
@@ -1496,7 +1501,7 @@
       "type" : [{
         "extension" : [{
           "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-fhir-type",
-          "valueUrl" : "id"
+          "valueUrl" : "string"
         }],
         "code" : "http://hl7.org/fhirpath/System.String"
       }],
@@ -1710,7 +1715,7 @@
         }],
         "strength" : "required",
         "description" : "The type of a property value.",
-        "valueSet" : "http://hl7.org/fhir/ValueSet/concept-property-type|5.0.0-snapshot1"
+        "valueSet" : "http://hl7.org/fhir/ValueSet/concept-property-type|4.6.0"
       }
     },
     {
@@ -1761,7 +1766,7 @@
       "type" : [{
         "extension" : [{
           "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-fhir-type",
-          "valueUrl" : "id"
+          "valueUrl" : "string"
         }],
         "code" : "http://hl7.org/fhirpath/System.String"
       }],
@@ -1987,7 +1992,7 @@
       "type" : [{
         "extension" : [{
           "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-fhir-type",
-          "valueUrl" : "id"
+          "valueUrl" : "string"
         }],
         "code" : "http://hl7.org/fhirpath/System.String"
       }],
@@ -2239,7 +2244,7 @@
       "type" : [{
         "extension" : [{
           "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-fhir-type",
-          "valueUrl" : "id"
+          "valueUrl" : "string"
         }],
         "code" : "http://hl7.org/fhirpath/System.String"
       }],

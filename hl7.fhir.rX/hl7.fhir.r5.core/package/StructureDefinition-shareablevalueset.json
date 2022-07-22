@@ -18,14 +18,14 @@
     "valueCode" : "trial-use"
   }],
   "url" : "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
-  "version" : "5.0.0-snapshot1",
+  "version" : "4.6.0",
   "name" : "Shareable ValueSet",
   "status" : "draft",
   "experimental" : false,
   "date" : "2020-12-28T16:55:11+11:00",
   "publisher" : "HL7",
   "description" : "Enforces the minimum information set for the value set metadata required by HL7 and other organizations that share and publish value sets",
-  "fhirVersion" : "5.0.0-snapshot1",
+  "fhirVersion" : "4.6.0",
   "mapping" : [{
     "identity" : "rim",
     "uri" : "http://hl7.org/v3",
@@ -68,7 +68,7 @@
         "key" : "cnl-0",
         "severity" : "warning",
         "human" : "Name should be usable as an identifier for the module by machine processing applications such as code generation",
-        "expression" : "name.matches('[A-Z]([A-Za-z0-9_]){0,254}')",
+        "expression" : "name.exists() implies name.matches('[A-Z]([A-Za-z0-9_]){0,254}')",
         "xpath" : "not(exists(f:name/@value)) or matches(f:name/@value, '[A-Z]([A-Za-z0-9_]){0,254}')",
         "source" : "http://hl7.org/fhir/StructureDefinition/ValueSet"
       }],
@@ -93,7 +93,7 @@
       "path" : "ValueSet.id",
       "short" : "Logical id of this artifact",
       "definition" : "The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes.",
-      "comment" : "Typically, the resource has an id except for cases like the create operation, conditional updates.",
+      "comment" : "Within the context of the FHIR RESTful interactions, the resource has an id except for cases like the create and conditional update. Otherwise, the use of the resouce id depends on the given use case.",
       "min" : 0,
       "max" : "1",
       "base" : {
@@ -581,7 +581,7 @@
         }],
         "strength" : "required",
         "description" : "The lifecycle status of an artifact.",
-        "valueSet" : "http://hl7.org/fhir/ValueSet/publication-status|5.0.0-snapshot1"
+        "valueSet" : "http://hl7.org/fhir/ValueSet/publication-status|4.6.0"
       },
       "mapping" : [{
         "identity" : "workflow",
@@ -637,8 +637,8 @@
       "id" : "ValueSet.date",
       "path" : "ValueSet.date",
       "short" : "Date last changed",
-      "definition" : "The date (and optionally time) when the value set was created or revised (e.g. the 'content logical definition').",
-      "comment" : "Note that this is not the same as the resource last-modified-date, since the resource may be a secondary representation of the value set. Additional specific dates may be added as extensions or be found by consulting Provenances associated with past versions of the resource.",
+      "definition" : "The date (and optionally time) when the value set metadata or content logical definition (.compose) was created or revised.",
+      "comment" : "Note that this is not the same as the meta.lastUpdated which is specific to an instance of a value set resource on a server.  Additional specific dates may be added as extensions or be found by consulting Provenances associated with past versions of the resource.",
       "alias" : ["Revision Date"],
       "min" : 0,
       "max" : "1",
@@ -748,7 +748,7 @@
       "path" : "ValueSet.description",
       "short" : "Natural language description of the value set",
       "definition" : "A free text natural language description of the value set from a consumer's perspective. The textual description specifies the span of meanings for concepts to be included within the Value Set Expansion, and also may specify the intended use and limitations of the Value Set.",
-      "comment" : "This description can be used to capture details such as why the value set was built, comments about misuse, instructions for clinical use and interpretation, literature references, examples from the paper world, etc. It is not a rendering of the value set as conveyed in the 'text' field of the resource itself. This item SHOULD be populated unless the information is available from context (e.g. the language of the value set is presumed to be the predominant language in the place the value set was created). The description should capture its intended use, which is needed for ensuring integrity for its use in models across future changes. A description should be provided unless the value set is a contained resource (e.g. an anonymous value set in a profile). Most registries will require a description.",
+      "comment" : "Description SHOULD contain instructions for clinical or administrative use and interpretation and information about misuse. Description SHOULD be populated unless the information is available from context. Description SHOULD be populated unless the value set is a contained resource (e.g. a value set defined solely in the context of a profile).",
       "alias" : ["scope"],
       "min" : 0,
       "max" : "1",
@@ -1014,7 +1014,7 @@
       "type" : [{
         "extension" : [{
           "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-fhir-type",
-          "valueUrl" : "id"
+          "valueUrl" : "string"
         }],
         "code" : "http://hl7.org/fhirpath/System.String"
       }],
@@ -1246,7 +1246,7 @@
       "type" : [{
         "extension" : [{
           "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-fhir-type",
-          "valueUrl" : "id"
+          "valueUrl" : "string"
         }],
         "code" : "http://hl7.org/fhirpath/System.String"
       }],
@@ -1461,7 +1461,7 @@
       "type" : [{
         "extension" : [{
           "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-fhir-type",
-          "valueUrl" : "id"
+          "valueUrl" : "string"
         }],
         "code" : "http://hl7.org/fhirpath/System.String"
       }],
@@ -1669,7 +1669,7 @@
       "type" : [{
         "extension" : [{
           "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-fhir-type",
-          "valueUrl" : "id"
+          "valueUrl" : "string"
         }],
         "code" : "http://hl7.org/fhirpath/System.String"
       }],
@@ -1878,7 +1878,7 @@
       "id" : "ValueSet.compose.include.filter",
       "path" : "ValueSet.compose.include.filter",
       "short" : "Select codes/concepts by their properties (including relationships)",
-      "definition" : "Select concepts by specify a matching criterion based on the properties (including relationships) defined by the system, or on filters defined by the system. If multiple filters are specified, they SHALL all be true.",
+      "definition" : "Select concepts by specifying a matching criterion based on the properties (including relationships) defined by the system, or on filters defined by the system. If multiple filters are specified within the include, they SHALL all be true.",
       "comment" : "Selecting codes by specifying filters based on properties is only possible where the underlying code system defines appropriate properties. Note that in some cases, the underlying code system defines the logical concepts but not the literal codes for the concepts. In such cases, the literal definitions may be provided by a third party.",
       "min" : 0,
       "max" : "*",
@@ -1923,7 +1923,7 @@
       "type" : [{
         "extension" : [{
           "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-fhir-type",
-          "valueUrl" : "id"
+          "valueUrl" : "string"
         }],
         "code" : "http://hl7.org/fhirpath/System.String"
       }],
@@ -2088,7 +2088,7 @@
         }],
         "strength" : "required",
         "description" : "The kind of operation to perform as a part of a property based filter.",
-        "valueSet" : "http://hl7.org/fhir/ValueSet/filter-operator|5.0.0-snapshot1"
+        "valueSet" : "http://hl7.org/fhir/ValueSet/filter-operator|4.6.0"
       },
       "mapping" : [{
         "identity" : "rim",
@@ -2299,7 +2299,7 @@
       "type" : [{
         "extension" : [{
           "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-fhir-type",
-          "valueUrl" : "id"
+          "valueUrl" : "string"
         }],
         "code" : "http://hl7.org/fhirpath/System.String"
       }],
@@ -2552,7 +2552,7 @@
       "type" : [{
         "extension" : [{
           "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-fhir-type",
-          "valueUrl" : "id"
+          "valueUrl" : "string"
         }],
         "code" : "http://hl7.org/fhirpath/System.String"
       }],
@@ -2764,7 +2764,7 @@
       "type" : [{
         "extension" : [{
           "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-fhir-type",
-          "valueUrl" : "id"
+          "valueUrl" : "string"
         }],
         "code" : "http://hl7.org/fhirpath/System.String"
       }],
@@ -2985,7 +2985,7 @@
       "type" : [{
         "extension" : [{
           "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-fhir-type",
-          "valueUrl" : "id"
+          "valueUrl" : "string"
         }],
         "code" : "http://hl7.org/fhirpath/System.String"
       }],
@@ -3326,7 +3326,7 @@
       "type" : [{
         "extension" : [{
           "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-fhir-type",
-          "valueUrl" : "id"
+          "valueUrl" : "string"
         }],
         "code" : "http://hl7.org/fhirpath/System.String"
       }],
@@ -3531,8 +3531,8 @@
     {
       "id" : "ValueSet.scope",
       "path" : "ValueSet.scope",
-      "short" : "Description of the semantic space the Value Set Expansion is intended to cover",
-      "definition" : "Description of the semantic space the Value Set Expansion is intended to cover.",
+      "short" : "Description of the semantic space the Value Set Expansion is intended to cover and should further clarify the text in ValueSet.description",
+      "definition" : "Description of the semantic space the Value Set Expansion is intended to cover and should further clarify the text in ValueSet.description.",
       "min" : 0,
       "max" : "1",
       "base" : {
@@ -3571,7 +3571,7 @@
       "type" : [{
         "extension" : [{
           "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-fhir-type",
-          "valueUrl" : "id"
+          "valueUrl" : "string"
         }],
         "code" : "http://hl7.org/fhirpath/System.String"
       }],
@@ -3662,37 +3662,6 @@
       "isModifier" : true,
       "isModifierReason" : "Modifier extensions are expected to modify the meaning or interpretation of the element that contains them",
       "isSummary" : true,
-      "mapping" : [{
-        "identity" : "rim",
-        "map" : "N/A"
-      }]
-    },
-    {
-      "id" : "ValueSet.scope.focus",
-      "path" : "ValueSet.scope.focus",
-      "short" : "General focus of the Value Set as it relates to the intended semantic space",
-      "definition" : "The general focus of the Value Set as it relates to the intended semantic space. This can be the information about clinical relevancy or the statement about the general focus of the Value Set, such as a description of types of messages, payment options, geographic locations, etc.",
-      "min" : 0,
-      "max" : "1",
-      "base" : {
-        "path" : "ValueSet.scope.focus",
-        "min" : 0,
-        "max" : "1"
-      },
-      "type" : [{
-        "code" : "string"
-      }],
-      "constraint" : [{
-        "key" : "ele-1",
-        "severity" : "error",
-        "human" : "All FHIR elements must have a @value or children",
-        "expression" : "hasValue() or (children().count() > id.count())",
-        "xpath" : "@value|f:*|h:div",
-        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
-      }],
-      "mustSupport" : false,
-      "isModifier" : false,
-      "isSummary" : false,
       "mapping" : [{
         "identity" : "rim",
         "map" : "N/A"

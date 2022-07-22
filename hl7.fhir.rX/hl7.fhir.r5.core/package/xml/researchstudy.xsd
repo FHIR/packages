@@ -47,7 +47,7 @@
   POSSIBILITY OF SUCH DAMAGE.
   
 
-  Generated on Sun, Dec 19, 2021 08:15+1100 for FHIR v5.0.0-snapshot1 
+  Generated on Mon, Jul 18, 2022 14:56+1000 for FHIR v4.6.0 
 
   Note: the schemas &amp; schematrons do not contain all of the rules about what makes resources
   valid. Implementers will still need to be familiar with the content of the specification and with
@@ -91,7 +91,7 @@
           </xs:element>
           <xs:element name="title" minOccurs="0" maxOccurs="1" type="string">
             <xs:annotation>
-              <xs:documentation xml:lang="en">A short, descriptive label for the study particularly for compouter use.</xs:documentation>
+              <xs:documentation xml:lang="en">The human readable name of the research study.</xs:documentation>
            </xs:annotation>
           </xs:element>
           <xs:element name="label" type="ResearchStudy.Label" minOccurs="0" maxOccurs="unbounded">
@@ -116,7 +116,7 @@
           </xs:element>
           <xs:element name="date" minOccurs="0" maxOccurs="1" type="dateTime">
             <xs:annotation>
-              <xs:documentation xml:lang="en">Date the resource last changed.</xs:documentation>
+              <xs:documentation xml:lang="en">The date (and optionally time) when the ResearchStudy Resource was published. The date must change when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the ResearchStudy Resource changes.</xs:documentation>
            </xs:annotation>
           </xs:element>
           <xs:element name="status" minOccurs="1" maxOccurs="1" type="PublicationStatus">
@@ -343,6 +343,11 @@
               <xs:documentation xml:lang="en">Type of association.</xs:documentation>
            </xs:annotation>
           </xs:element>
+          <xs:element name="period" minOccurs="0" maxOccurs="unbounded" type="Period">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">Identifies the start date and the end date of the associated party in the role.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
           <xs:element name="classifier" minOccurs="0" maxOccurs="unbounded" type="CodeableConcept">
             <xs:annotation>
               <xs:documentation xml:lang="en">Organisational type of association.</xs:documentation>
@@ -521,7 +526,7 @@
     <xs:complexContent>
       <xs:extension base="BackboneElement">
         <xs:sequence>
-          <xs:element name="type" minOccurs="0" maxOccurs="1" type="CodeableConcept">
+          <xs:element name="classifier" minOccurs="0" maxOccurs="1" type="CodeableConcept">
             <xs:annotation>
               <xs:documentation xml:lang="en">Describes the nature of the location being specified.</xs:documentation>
            </xs:annotation>

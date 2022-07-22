@@ -16,6 +16,7 @@
   "name": "proficiency",
   "title": "proficiency",
   "status": "draft",
+  "experimental": false,
   "date": "2021-01-02T08:58:31+11:00",
   "publisher": "HL7",
   "description": "Proficiency level of the communication.",
@@ -33,6 +34,14 @@
     {
       "type": "element",
       "expression": "Patient.communication"
+    },
+    {
+      "type": "element",
+      "expression": "RelatedPerson.communication"
+    },
+    {
+      "type": "element",
+      "expression": "Person.communication"
     }
   ],
   "type": "Extension",
@@ -92,7 +101,7 @@
             "extension": [
               {
                 "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-fhir-type",
-                "valueUri": "string"
+                "valueUrl": "id"
               }
             ],
             "code": "http://hl7.org/fhirpath/System.String"
@@ -225,7 +234,7 @@
             "extension": [
               {
                 "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-fhir-type",
-                "valueUri": "string"
+                "valueUrl": "id"
               }
             ],
             "code": "http://hl7.org/fhirpath/System.String"
@@ -425,7 +434,7 @@
             "extension": [
               {
                 "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-fhir-type",
-                "valueUri": "string"
+                "valueUrl": "id"
               }
             ],
             "code": "http://hl7.org/fhirpath/System.String"
@@ -587,7 +596,7 @@
             "extension": [
               {
                 "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-fhir-type",
-                "valueUri": "uri"
+                "valueUrl": "uri"
               }
             ],
             "code": "http://hl7.org/fhirpath/System.String"
@@ -692,6 +701,9 @@
             "code": "CodeableConcept"
           },
           {
+            "code": "CodeableReference"
+          },
+          {
             "code": "Coding"
           },
           {
@@ -726,6 +738,9 @@
           },
           {
             "code": "Ratio"
+          },
+          {
+            "code": "RatioRange"
           },
           {
             "code": "Reference"

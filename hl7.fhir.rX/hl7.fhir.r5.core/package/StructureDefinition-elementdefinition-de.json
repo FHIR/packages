@@ -14,7 +14,7 @@
     "valueCode" : "trial-use"
   }],
   "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-de",
-  "version" : "5.0.0-snapshot1",
+  "version" : "4.6.0",
   "name" : "DataElement constraint on ElementDefinition data type",
   "status" : "draft",
   "experimental" : false,
@@ -27,7 +27,7 @@
     }]
   }],
   "description" : "Identifies how the ElementDefinition data type is used when it appears within a data element",
-  "fhirVersion" : "5.0.0-snapshot1",
+  "fhirVersion" : "4.6.0",
   "mapping" : [{
     "identity" : "v2",
     "uri" : "http://hl7.org/v2",
@@ -115,8 +115,8 @@
         "key" : "eld-11",
         "severity" : "error",
         "human" : "Binding can only be present for coded elements, string, and uri",
-        "expression" : "binding.empty() or type.code.empty() or type.select((code = 'code') or (code = 'Coding') or (code='CodeableConcept') or (code = 'Quantity') or (code = 'string') or (code = 'uri')).exists()",
-        "xpath" : "not(exists(f:binding)) or (count(f:type/f:code) = 0) or  f:type/f:code/@value=('code','Coding','CodeableConcept','Quantity','string', 'uri')",
+        "expression" : "binding.empty() or type.code.empty() or type.select((code = 'code') or (code = 'Coding') or (code='CodeableConcept') or (code = 'Quantity') or (code = 'string') or (code = 'uri') or (code = 'Duration')).exists()",
+        "xpath" : "not(exists(f:binding)) or (count(f:type/f:code) = 0) or  f:type/f:code/@value=('code','Coding','CodeableConcept','Quantity','string', 'uri', 'Duration')",
         "source" : "http://hl7.org/fhir/StructureDefinition/ElementDefinition"
       },
       {
@@ -163,16 +163,16 @@
         "key" : "eld-19",
         "severity" : "error",
         "human" : "Element names cannot include some special characters",
-        "expression" : "path.matches('[^\\\\s\\\\.,:;\\\\\\'\"\\\\/|?!@#$%&*()\\\\[\\\\]{}]{1,64}(\\\\.[^\\\\s\\\\.,:;\\\\\\'\"\\\\/|?!@#$%&*()\\\\[\\\\]{}]{1,64}(\\\\[x\\\\])?(\\\\:[^\\\\s\\\\.]+)?)*')",
-        "xpath" : "matches(path/@value, '[^\\s\\.,:;\\'&quot;\\/|?!@#$%&amp;*()\\[\\]{}]{1,64}(\\.[^\\s\\.,:;\\'&quot;\\/|?!@#$%&amp;*()\\[\\]{}]{1,64}(\\[x\\])?(\\:[^\\s\\.]+)?)*')",
+        "expression" : "path.matches('^[^\\\\s\\\\.,:;\\\\\\'\"\\\\/|?!@#$%&*()\\\\[\\\\]{}]{1,64}(\\\\.[^\\\\s\\\\.,:;\\\\\\'\"\\\\/|?!@#$%&*()\\\\[\\\\]{}]{1,64}(\\\\[x\\\\])?(\\\\:[^\\\\s\\\\.]+)?)*$')",
+        "xpath" : "matches(f:path/@value, '^[^\\s\\.,:;\\'&quot;\\/|?!@#$%&*()\\[\\]{}]{1,64}(\\.[^\\s\\.,:;\\'&quot;\\/|?!@#$%&*()\\[\\]{}]{1,64}(\\[x\\])?(\\:[^\\s\\.]+)?)*$')",
         "source" : "http://hl7.org/fhir/StructureDefinition/ElementDefinition"
       },
       {
         "key" : "eld-20",
         "severity" : "warning",
         "human" : "Element names should be simple alphanumerics with a max of 64 characters, or code generation tools may be broken",
-        "expression" : "path.matches('[A-Za-z][A-Za-z0-9]*(\\\\.[a-z][A-Za-z0-9]*(\\\\[x])?)*')",
-        "xpath" : "matches(path/@value, '[A-Za-z][A-Za-z0-9]*(\\.[a-z][A-Za-z0-9]*(\\[x])?)*')",
+        "expression" : "path.matches('^[A-Za-z][A-Za-z0-9]*(\\\\.[a-z][A-Za-z0-9]*(\\\\[x])?)*$')",
+        "xpath" : "matches(f:path/@value, '^[A-Za-z][A-Za-z0-9]*(\\.[a-z][A-Za-z0-9]*(\\[x])?)*$')",
         "source" : "http://hl7.org/fhir/StructureDefinition/ElementDefinition"
       },
       {
@@ -229,7 +229,7 @@
       "type" : [{
         "extension" : [{
           "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-fhir-type",
-          "valueUrl" : "string"
+          "valueUrl" : "id"
         }],
         "code" : "http://hl7.org/fhirpath/System.String"
       }],
@@ -493,7 +493,7 @@
           "valueString" : "PropertyRepresentation"
         }],
         "strength" : "required",
-        "valueSet" : "http://hl7.org/fhir/ValueSet/property-representation|5.0.0-snapshot1"
+        "valueSet" : "http://hl7.org/fhir/ValueSet/property-representation|4.6.0"
       },
       "mapping" : [{
         "identity" : "v2",
@@ -708,14 +708,6 @@
         "code" : "Element"
       }],
       "constraint" : [{
-        "key" : "eld-1",
-        "severity" : "error",
-        "human" : "If there are no discriminators, there must be a definition",
-        "expression" : "discriminator.exists() or description.exists()",
-        "xpath" : "(f:discriminator) or (f:description)",
-        "source" : "http://hl7.org/fhir/StructureDefinition/ElementDefinition"
-      },
-      {
         "key" : "ele-1",
         "severity" : "error",
         "human" : "All FHIR elements must have a @value or children",
@@ -956,7 +948,7 @@
           "valueString" : "DiscriminatorType"
         }],
         "strength" : "required",
-        "valueSet" : "http://hl7.org/fhir/ValueSet/discriminator-type|5.0.0-snapshot1"
+        "valueSet" : "http://hl7.org/fhir/ValueSet/discriminator-type|4.6.0"
       },
       "mapping" : [{
         "identity" : "rim",
@@ -1022,7 +1014,6 @@
       "type" : [{
         "code" : "string"
       }],
-      "condition" : ["eld-1"],
       "constraint" : [{
         "key" : "ele-1",
         "severity" : "error",
@@ -1110,7 +1101,7 @@
           "valueString" : "SlicingRules"
         }],
         "strength" : "required",
-        "valueSet" : "http://hl7.org/fhir/ValueSet/resource-slicing-rules|5.0.0-snapshot1"
+        "valueSet" : "http://hl7.org/fhir/ValueSet/resource-slicing-rules|4.6.0"
       },
       "mapping" : [{
         "identity" : "rim",
@@ -1728,7 +1719,7 @@
         "severity" : "error",
         "human" : "targetProfile is only allowed if the type is Reference or canonical",
         "expression" : "(code='Reference' or code = 'canonical' or code = 'CodeableReference') or targetProfile.empty()",
-        "xpath" : "not(exists(f:targetProfile)) or (f:code/@value = 'Reference')",
+        "xpath" : "not(exists(f:targetProfile)) or (f:code/@value = ('Reference', 'canonical', 'CodeableReference'))",
         "source" : "http://hl7.org/fhir/StructureDefinition/ElementDefinition"
       },
       {
@@ -1878,7 +1869,7 @@
           "valueBoolean" : true
         }],
         "strength" : "extensible",
-        "valueSet" : "http://hl7.org/fhir/ValueSet/defined-types"
+        "valueSet" : "http://hl7.org/fhir/ValueSet/fhir-element-types"
       },
       "mapping" : [{
         "identity" : "v2",
@@ -2007,7 +1998,7 @@
           "valueString" : "AggregationMode"
         }],
         "strength" : "required",
-        "valueSet" : "http://hl7.org/fhir/ValueSet/resource-aggregation-mode|5.0.0-snapshot1"
+        "valueSet" : "http://hl7.org/fhir/ValueSet/resource-aggregation-mode|4.6.0"
       },
       "mapping" : [{
         "identity" : "rim",
@@ -2054,7 +2045,7 @@
           "valueString" : "ReferenceVersionRules"
         }],
         "strength" : "required",
-        "valueSet" : "http://hl7.org/fhir/ValueSet/reference-version-rules|5.0.0-snapshot1"
+        "valueSet" : "http://hl7.org/fhir/ValueSet/reference-version-rules|4.6.0"
       },
       "mapping" : [{
         "identity" : "rim",
@@ -3445,7 +3436,7 @@
           "valueString" : "ConstraintSeverity"
         }],
         "strength" : "required",
-        "valueSet" : "http://hl7.org/fhir/ValueSet/constraint-severity|5.0.0-snapshot1"
+        "valueSet" : "http://hl7.org/fhir/ValueSet/constraint-severity|4.6.0"
       },
       "mapping" : [{
         "identity" : "rim",
@@ -3596,7 +3587,7 @@
       "path" : "ElementDefinition.mustSupport",
       "short" : "If the element must be supported",
       "definition" : "If true, implementations that produce or consume resources SHALL provide \"support\" for the element in some meaningful way.  If false, the element may be ignored and not supported. If false, whether to populate or use the data element in any way is at the discretion of the implementation.",
-      "comment" : "\"Something useful\" is context dependent and impossible to describe in the base FHIR specification. For this reason, tue mustSupport flag is never set to true by the FHIR specification itself - it is only set to true in profiles.  A profile on a type can always make musSupport = true if it is false in the base type but cannot make mustSupport = false if it is true in the base type.   This is done in [Resource Profiles](profiling.html#mustsupport), where the profile labels an element as mustSupport=true. When a profile does this, it SHALL also make clear exactly what kind of \"support\" is required, as this can mean many things.    Note that an element that has the property IsModifier is not necessarily a \"key\" element (e.g. one of the important elements to make use of the resource), nor is it automatically mustSupport - however both of these things are more likely to be true for IsModifier elements than for other elements.",
+      "comment" : "\"Something useful\" is context dependent and impossible to describe in the base FHIR specification. For this reason, tue mustSupport flag is never set to true by the FHIR specification itself - it is only set to true in profiles.  A profile on a type can always make mustSupport = true if it is false in the base type but cannot make mustSupport = false if it is true in the base type.   This is done in [Resource Profiles](profiling.html#mustsupport), where the profile labels an element as mustSupport=true. When a profile does this, it SHALL also make clear exactly what kind of \"support\" is required, as this can mean many things.    Note that an element that has the property IsModifier is not necessarily a \"key\" element (e.g. one of the important elements to make use of the resource), nor is it automatically mustSupport - however both of these things are more likely to be true for IsModifier elements than for other elements.",
       "requirements" : "Allows a profile to set expectations for system capabilities beyond merely respecting cardinality constraints.",
       "min" : 0,
       "max" : "1",
@@ -3756,9 +3747,9 @@
       "constraint" : [{
         "key" : "eld-12",
         "severity" : "error",
-        "human" : "ValueSet SHALL start with http:// or https:// or urn:",
-        "expression" : "valueSet.exists() implies (valueSet.startsWith('http:') or valueSet.startsWith('https') or valueSet.startsWith('urn:'))",
-        "xpath" : "(starts-with(string(f:valueSet/@value), 'http:') or starts-with(string(f:valueSet/@value), 'https:') or starts-with(string(f:valueSet/@value), 'urn:'))",
+        "human" : "ValueSet SHALL start with http:// or https:// or urn: or #",
+        "expression" : "valueSet.exists() implies (valueSet.startsWith('http:') or valueSet.startsWith('https') or valueSet.startsWith('urn:') or valueSet.startsWith('#'))",
+        "xpath" : "(starts-with(string(f:valueSet/@value), 'http:') or starts-with(string(f:valueSet/@value), 'https:') or starts-with(string(f:valueSet/@value), 'urn:') or starts-with(string(f:valueSet/@value), 'x'))",
         "source" : "http://hl7.org/fhir/StructureDefinition/ElementDefinition"
       },
       {
@@ -3906,7 +3897,7 @@
           "valueBoolean" : true
         }],
         "strength" : "required",
-        "valueSet" : "http://hl7.org/fhir/ValueSet/binding-strength|5.0.0-snapshot1"
+        "valueSet" : "http://hl7.org/fhir/ValueSet/binding-strength|4.6.0"
       },
       "mapping" : [{
         "identity" : "v2",
@@ -4195,7 +4186,7 @@
         }],
         "strength" : "required",
         "description" : "BCP 13 (RFCs 2045, 2046, 2047, 4288, 4289 and 2049)",
-        "valueSet" : "http://hl7.org/fhir/ValueSet/mimetypes|5.0.0-snapshot1"
+        "valueSet" : "http://hl7.org/fhir/ValueSet/mimetypes|4.6.0"
       },
       "mapping" : [{
         "identity" : "rim",

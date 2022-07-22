@@ -125,8 +125,8 @@
             "key": "eld-11",
             "severity": "error",
             "human": "Binding can only be present for coded elements, string, and uri",
-            "expression": "binding.empty() or type.code.empty() or type.select((code \u003d \u0027code\u0027) or (code \u003d \u0027Coding\u0027) or (code\u003d\u0027CodeableConcept\u0027) or (code \u003d \u0027Quantity\u0027) or (code \u003d \u0027string\u0027) or (code \u003d \u0027uri\u0027)).exists()",
-            "xpath": "not(exists(f:binding)) or (count(f:type/f:code) \u003d 0) or  f:type/f:code/@value\u003d(\u0027code\u0027,\u0027Coding\u0027,\u0027CodeableConcept\u0027,\u0027Quantity\u0027,\u0027string\u0027, \u0027uri\u0027)",
+            "expression": "binding.empty() or type.code.empty() or type.select((code \u003d \u0027code\u0027) or (code \u003d \u0027Coding\u0027) or (code\u003d\u0027CodeableConcept\u0027) or (code \u003d \u0027Quantity\u0027) or (code \u003d \u0027string\u0027) or (code \u003d \u0027uri\u0027) or (code \u003d \u0027Duration\u0027)).exists()",
+            "xpath": "not(exists(f:binding)) or (count(f:type/f:code) \u003d 0) or  f:type/f:code/@value\u003d(\u0027code\u0027,\u0027Coding\u0027,\u0027CodeableConcept\u0027,\u0027Quantity\u0027,\u0027string\u0027, \u0027uri\u0027, \u0027Duration\u0027)",
             "source": "http://hl7.org/fhir/StructureDefinition/ElementDefinition"
           },
           {
@@ -173,16 +173,16 @@
             "key": "eld-19",
             "severity": "error",
             "human": "Element names cannot include some special characters",
-            "expression": "path.matches(\u0027[^\\\\s\\\\.,:;\\\\\\\u0027\"\\\\/|?!@#$%\u0026*()\\\\[\\\\]{}]{1,64}(\\\\.[^\\\\s\\\\.,:;\\\\\\\u0027\"\\\\/|?!@#$%\u0026*()\\\\[\\\\]{}]{1,64}(\\\\[x\\\\])?(\\\\:[^\\\\s\\\\.]+)?)*\u0027)",
-            "xpath": "matches(path/@value, \u0027[^\\s\\.,:;\\\u0027\u0026quot;\\/|?!@#$%\u0026amp;*()\\[\\]{}]{1,64}(\\.[^\\s\\.,:;\\\u0027\u0026quot;\\/|?!@#$%\u0026amp;*()\\[\\]{}]{1,64}(\\[x\\])?(\\:[^\\s\\.]+)?)*\u0027)",
+            "expression": "path.matches(\u0027^[^\\\\s\\\\.,:;\\\\\\\u0027\"\\\\/|?!@#$%\u0026*()\\\\[\\\\]{}]{1,64}(\\\\.[^\\\\s\\\\.,:;\\\\\\\u0027\"\\\\/|?!@#$%\u0026*()\\\\[\\\\]{}]{1,64}(\\\\[x\\\\])?(\\\\:[^\\\\s\\\\.]+)?)*$\u0027)",
+            "xpath": "matches(f:path/@value, \u0027^[^\\s\\.,:;\\\u0027\u0026quot;\\/|?!@#$%\u0026*()\\[\\]{}]{1,64}(\\.[^\\s\\.,:;\\\u0027\u0026quot;\\/|?!@#$%\u0026*()\\[\\]{}]{1,64}(\\[x\\])?(\\:[^\\s\\.]+)?)*$\u0027)",
             "source": "http://hl7.org/fhir/StructureDefinition/ElementDefinition"
           },
           {
             "key": "eld-20",
             "severity": "warning",
             "human": "Element names should be simple alphanumerics with a max of 64 characters, or code generation tools may be broken",
-            "expression": "path.matches(\u0027[A-Za-z][A-Za-z0-9]*(\\\\.[a-z][A-Za-z0-9]*(\\\\[x])?)*\u0027)",
-            "xpath": "matches(path/@value, \u0027[A-Za-z][A-Za-z0-9]*(\\.[a-z][A-Za-z0-9]*(\\[x])?)*\u0027)",
+            "expression": "path.matches(\u0027^[A-Za-z][A-Za-z0-9]*(\\\\.[a-z][A-Za-z0-9]*(\\\\[x])?)*$\u0027)",
+            "xpath": "matches(f:path/@value, \u0027^[A-Za-z][A-Za-z0-9]*(\\.[a-z][A-Za-z0-9]*(\\[x])?)*$\u0027)",
             "source": "http://hl7.org/fhir/StructureDefinition/ElementDefinition"
           },
           {
@@ -246,7 +246,7 @@
             "extension": [
               {
                 "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-fhir-type",
-                "valueUri": "string"
+                "valueUrl": "id"
               }
             ],
             "code": "http://hl7.org/fhirpath/System.String"
@@ -551,7 +551,7 @@
         "binding": {
           "extension": [
             {
-              "url": "http://hl7.org/fhir/build/StructureDefinition/definition",
+              "url": "http://hl7.org/fhir/build/StructureDefinition/binding-definition",
               "valueString": "How a property is represented when serialized."
             },
             {
@@ -760,7 +760,7 @@
         "binding": {
           "extension": [
             {
-              "url": "http://hl7.org/fhir/build/StructureDefinition/definition",
+              "url": "http://hl7.org/fhir/build/StructureDefinition/binding-definition",
               "valueString": "Codes that indicate the meaning of a data element."
             },
             {
@@ -810,14 +810,6 @@
         ],
         "constraint": [
           {
-            "key": "eld-1",
-            "severity": "error",
-            "human": "If there are no discriminators, there must be a definition",
-            "expression": "discriminator.exists() or description.exists()",
-            "xpath": "(f:discriminator) or (f:description)",
-            "source": "http://hl7.org/fhir/StructureDefinition/ElementDefinition"
-          },
-          {
             "key": "ele-1",
             "severity": "error",
             "human": "All FHIR elements must have a @value or children",
@@ -859,7 +851,7 @@
             "extension": [
               {
                 "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-fhir-type",
-                "valueUri": "string"
+                "valueUrl": "string"
               }
             ],
             "code": "http://hl7.org/fhirpath/System.String"
@@ -994,7 +986,7 @@
             "extension": [
               {
                 "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-fhir-type",
-                "valueUri": "string"
+                "valueUrl": "string"
               }
             ],
             "code": "http://hl7.org/fhirpath/System.String"
@@ -1100,7 +1092,7 @@
         "binding": {
           "extension": [
             {
-              "url": "http://hl7.org/fhir/build/StructureDefinition/definition",
+              "url": "http://hl7.org/fhir/build/StructureDefinition/binding-definition",
               "valueString": "How an element value is interpreted when discrimination is evaluated."
             },
             {
@@ -1186,9 +1178,6 @@
           {
             "code": "string"
           }
-        ],
-        "condition": [
-          "eld-1"
         ],
         "constraint": [
           {
@@ -1284,7 +1273,7 @@
         "binding": {
           "extension": [
             {
-              "url": "http://hl7.org/fhir/build/StructureDefinition/definition",
+              "url": "http://hl7.org/fhir/build/StructureDefinition/binding-definition",
               "valueString": "How slices are interpreted when evaluating an instance."
             },
             {
@@ -1753,7 +1742,7 @@
             "extension": [
               {
                 "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-fhir-type",
-                "valueUri": "string"
+                "valueUrl": "string"
               }
             ],
             "code": "http://hl7.org/fhirpath/System.String"
@@ -2030,7 +2019,7 @@
             "severity": "error",
             "human": "targetProfile is only allowed if the type is Reference or canonical",
             "expression": "(code\u003d\u0027Reference\u0027 or code \u003d \u0027canonical\u0027 or code \u003d \u0027CodeableReference\u0027) or targetProfile.empty()",
-            "xpath": "not(exists(f:targetProfile)) or (f:code/@value \u003d \u0027Reference\u0027)",
+            "xpath": "not(exists(f:targetProfile)) or (f:code/@value \u003d (\u0027Reference\u0027, \u0027canonical\u0027, \u0027CodeableReference\u0027))",
             "source": "http://hl7.org/fhir/StructureDefinition/ElementDefinition"
           },
           {
@@ -2087,7 +2076,7 @@
             "extension": [
               {
                 "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-fhir-type",
-                "valueUri": "string"
+                "valueUrl": "string"
               }
             ],
             "code": "http://hl7.org/fhirpath/System.String"
@@ -2194,7 +2183,7 @@
         "binding": {
           "extension": [
             {
-              "url": "http://hl7.org/fhir/build/StructureDefinition/definition",
+              "url": "http://hl7.org/fhir/build/StructureDefinition/binding-definition",
               "valueString": "Either a resource or a data type, including logical model types."
             },
             {
@@ -2207,7 +2196,7 @@
             }
           ],
           "strength": "extensible",
-          "valueSet": "http://hl7.org/fhir/ValueSet/defined-types"
+          "valueSet": "http://hl7.org/fhir/ValueSet/fhir-element-types"
         },
         "mapping": [
           {
@@ -2353,7 +2342,7 @@
         "binding": {
           "extension": [
             {
-              "url": "http://hl7.org/fhir/build/StructureDefinition/definition",
+              "url": "http://hl7.org/fhir/build/StructureDefinition/binding-definition",
               "valueString": "How resource references can be aggregated."
             },
             {
@@ -2408,7 +2397,7 @@
         "binding": {
           "extension": [
             {
-              "url": "http://hl7.org/fhir/build/StructureDefinition/definition",
+              "url": "http://hl7.org/fhir/build/StructureDefinition/binding-definition",
               "valueString": "Whether a reference needs to be version specific or version independent, or whether either can be used."
             },
             {
@@ -2516,6 +2505,9 @@
             "code": "CodeableConcept"
           },
           {
+            "code": "CodeableReference"
+          },
+          {
             "code": "Coding"
           },
           {
@@ -2550,6 +2542,9 @@
           },
           {
             "code": "Ratio"
+          },
+          {
+            "code": "RatioRange"
           },
           {
             "code": "Reference"
@@ -2793,6 +2788,9 @@
             "code": "CodeableConcept"
           },
           {
+            "code": "CodeableReference"
+          },
+          {
             "code": "Coding"
           },
           {
@@ -2827,6 +2825,9 @@
           },
           {
             "code": "Ratio"
+          },
+          {
+            "code": "RatioRange"
           },
           {
             "code": "Reference"
@@ -2989,6 +2990,9 @@
             "code": "CodeableConcept"
           },
           {
+            "code": "CodeableReference"
+          },
+          {
             "code": "Coding"
           },
           {
@@ -3023,6 +3027,9 @@
           },
           {
             "code": "Ratio"
+          },
+          {
+            "code": "RatioRange"
           },
           {
             "code": "Reference"
@@ -3148,7 +3155,7 @@
             "extension": [
               {
                 "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-fhir-type",
-                "valueUri": "string"
+                "valueUrl": "string"
               }
             ],
             "code": "http://hl7.org/fhirpath/System.String"
@@ -3357,6 +3364,9 @@
             "code": "CodeableConcept"
           },
           {
+            "code": "CodeableReference"
+          },
+          {
             "code": "Coding"
           },
           {
@@ -3391,6 +3401,9 @@
           },
           {
             "code": "Ratio"
+          },
+          {
+            "code": "RatioRange"
           },
           {
             "code": "Reference"
@@ -3740,7 +3753,7 @@
             "extension": [
               {
                 "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-fhir-type",
-                "valueUri": "string"
+                "valueUrl": "string"
               }
             ],
             "code": "http://hl7.org/fhirpath/System.String"
@@ -3923,7 +3936,7 @@
         "binding": {
           "extension": [
             {
-              "url": "http://hl7.org/fhir/build/StructureDefinition/definition",
+              "url": "http://hl7.org/fhir/build/StructureDefinition/binding-definition",
               "valueString": "SHALL applications comply with this constraint?"
             },
             {
@@ -4115,7 +4128,7 @@
         "path": "ElementDefinition.mustSupport",
         "short": "If the element must be supported",
         "definition": "If true, implementations that produce or consume resources SHALL provide \"support\" for the element in some meaningful way.  If false, the element may be ignored and not supported. If false, whether to populate or use the data element in any way is at the discretion of the implementation.",
-        "comment": "\"Something useful\" is context dependent and impossible to describe in the base FHIR specification. For this reason, tue mustSupport flag is never set to true by the FHIR specification itself - it is only set to true in profiles.  A profile on a type can always make musSupport \u003d true if it is false in the base type but cannot make mustSupport \u003d false if it is true in the base type.   This is done in [Resource Profiles](profiling.html#mustsupport), where the profile labels an element as mustSupport\u003dtrue. When a profile does this, it SHALL also make clear exactly what kind of \"support\" is required, as this can mean many things.    Note that an element that has the property IsModifier is not necessarily a \"key\" element (e.g. one of the important elements to make use of the resource), nor is it automatically mustSupport - however both of these things are more likely to be true for IsModifier elements than for other elements.",
+        "comment": "\"Something useful\" is context dependent and impossible to describe in the base FHIR specification. For this reason, tue mustSupport flag is never set to true by the FHIR specification itself - it is only set to true in profiles.  A profile on a type can always make mustSupport \u003d true if it is false in the base type but cannot make mustSupport \u003d false if it is true in the base type.   This is done in [Resource Profiles](profiling.html#mustsupport), where the profile labels an element as mustSupport\u003dtrue. When a profile does this, it SHALL also make clear exactly what kind of \"support\" is required, as this can mean many things.    Note that an element that has the property IsModifier is not necessarily a \"key\" element (e.g. one of the important elements to make use of the resource), nor is it automatically mustSupport - however both of these things are more likely to be true for IsModifier elements than for other elements.",
         "requirements": "Allows a profile to set expectations for system capabilities beyond merely respecting cardinality constraints.",
         "min": 0,
         "max": "1",
@@ -4306,9 +4319,9 @@
           {
             "key": "eld-12",
             "severity": "error",
-            "human": "ValueSet SHALL start with http:// or https:// or urn:",
-            "expression": "valueSet.exists() implies (valueSet.startsWith(\u0027http:\u0027) or valueSet.startsWith(\u0027https\u0027) or valueSet.startsWith(\u0027urn:\u0027))",
-            "xpath": "(starts-with(string(f:valueSet/@value), \u0027http:\u0027) or starts-with(string(f:valueSet/@value), \u0027https:\u0027) or starts-with(string(f:valueSet/@value), \u0027urn:\u0027))",
+            "human": "ValueSet SHALL start with http:// or https:// or urn: or #",
+            "expression": "valueSet.exists() implies (valueSet.startsWith(\u0027http:\u0027) or valueSet.startsWith(\u0027https\u0027) or valueSet.startsWith(\u0027urn:\u0027) or valueSet.startsWith(\u0027#\u0027))",
+            "xpath": "(starts-with(string(f:valueSet/@value), \u0027http:\u0027) or starts-with(string(f:valueSet/@value), \u0027https:\u0027) or starts-with(string(f:valueSet/@value), \u0027urn:\u0027) or starts-with(string(f:valueSet/@value), \u0027x\u0027))",
             "source": "http://hl7.org/fhir/StructureDefinition/ElementDefinition"
           },
           {
@@ -4361,7 +4374,7 @@
             "extension": [
               {
                 "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-fhir-type",
-                "valueUri": "string"
+                "valueUrl": "string"
               }
             ],
             "code": "http://hl7.org/fhirpath/System.String"
@@ -4472,7 +4485,7 @@
         "binding": {
           "extension": [
             {
-              "url": "http://hl7.org/fhir/build/StructureDefinition/definition",
+              "url": "http://hl7.org/fhir/build/StructureDefinition/binding-definition",
               "valueString": "Indication of the degree of conformance expectations associated with a binding."
             },
             {
@@ -4673,7 +4686,7 @@
             "extension": [
               {
                 "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-fhir-type",
-                "valueUri": "string"
+                "valueUrl": "string"
               }
             ],
             "code": "http://hl7.org/fhirpath/System.String"
@@ -4816,7 +4829,7 @@
         "binding": {
           "extension": [
             {
-              "url": "http://hl7.org/fhir/build/StructureDefinition/definition",
+              "url": "http://hl7.org/fhir/build/StructureDefinition/binding-definition",
               "valueString": "The mime type of an attachment. Any valid mime type is allowed."
             },
             {

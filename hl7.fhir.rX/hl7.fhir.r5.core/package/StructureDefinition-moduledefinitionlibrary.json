@@ -14,7 +14,7 @@
     "valueCode" : "trial-use"
   }],
   "url" : "http://hl7.org/fhir/StructureDefinition/moduledefinitionlibrary",
-  "version" : "5.0.0-snapshot1",
+  "version" : "4.6.0",
   "name" : "ModuleDefinitionLibrary",
   "title" : "Module Definition Library",
   "status" : "draft",
@@ -35,7 +35,7 @@
       "display" : "World"
     }]
   }],
-  "fhirVersion" : "5.0.0-snapshot1",
+  "fhirVersion" : "4.6.0",
   "mapping" : [{
     "identity" : "rim",
     "uri" : "http://hl7.org/v3",
@@ -78,7 +78,7 @@
         "key" : "cnl-0",
         "severity" : "warning",
         "human" : "Name should be usable as an identifier for the module by machine processing applications such as code generation",
-        "expression" : "name.matches('[A-Z]([A-Za-z0-9_]){0,254}')",
+        "expression" : "name.exists() implies name.matches('[A-Z]([A-Za-z0-9_]){0,254}')",
         "xpath" : "not(exists(f:name/@value)) or matches(f:name/@value, '[A-Z]([A-Za-z0-9_]){0,254}')",
         "source" : "http://hl7.org/fhir/StructureDefinition/Library"
       }],
@@ -103,7 +103,7 @@
       "path" : "Library.id",
       "short" : "Logical id of this artifact",
       "definition" : "The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes.",
-      "comment" : "Typically, the resource has an id except for cases like the create operation, conditional updates.",
+      "comment" : "Within the context of the FHIR RESTful interactions, the resource has an id except for cases like the create and conditional update. Otherwise, the use of the resouce id depends on the given use case.",
       "min" : 0,
       "max" : "1",
       "base" : {
@@ -858,7 +858,7 @@
         }],
         "strength" : "required",
         "description" : "The lifecycle status of an artifact.",
-        "valueSet" : "http://hl7.org/fhir/ValueSet/publication-status|5.0.0-snapshot1"
+        "valueSet" : "http://hl7.org/fhir/ValueSet/publication-status|4.6.0"
       },
       "mapping" : [{
         "identity" : "workflow",
@@ -1749,7 +1749,7 @@
       "type" : [{
         "extension" : [{
           "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-fhir-type",
-          "valueUrl" : "string"
+          "valueUrl" : "id"
         }],
         "code" : "http://hl7.org/fhirpath/System.String"
       }],
@@ -1836,7 +1836,7 @@
       }],
       "mustSupport" : true,
       "isModifier" : false,
-      "isSummary" : false,
+      "isSummary" : true,
       "binding" : {
         "extension" : [{
           "url" : "http://hl7.org/fhir/build/StructureDefinition/binding-definition",
@@ -1847,7 +1847,7 @@
           "valueString" : "RelatedArtifactType"
         }],
         "strength" : "required",
-        "valueSet" : "http://hl7.org/fhir/ValueSet/related-artifact-type|5.0.0-snapshot1"
+        "valueSet" : "http://hl7.org/fhir/ValueSet/related-artifact-type|4.6.0"
       }
     },
     {
@@ -1874,7 +1874,7 @@
         "source" : "http://hl7.org/fhir/StructureDefinition/Element"
       }],
       "isModifier" : false,
-      "isSummary" : false,
+      "isSummary" : true,
       "binding" : {
         "extension" : [{
           "url" : "http://hl7.org/fhir/build/StructureDefinition/binding-definition",
@@ -1912,7 +1912,7 @@
         "source" : "http://hl7.org/fhir/StructureDefinition/Element"
       }],
       "isModifier" : false,
-      "isSummary" : false
+      "isSummary" : true
     },
     {
       "id" : "Library.relatedArtifact:dependency.display",
@@ -1938,7 +1938,7 @@
         "source" : "http://hl7.org/fhir/StructureDefinition/Element"
       }],
       "isModifier" : false,
-      "isSummary" : false
+      "isSummary" : true
     },
     {
       "id" : "Library.relatedArtifact:dependency.citation",
@@ -1965,7 +1965,7 @@
         "source" : "http://hl7.org/fhir/StructureDefinition/Element"
       }],
       "isModifier" : false,
-      "isSummary" : false
+      "isSummary" : true
     },
     {
       "id" : "Library.relatedArtifact:dependency.document",
@@ -1991,7 +1991,7 @@
         "source" : "http://hl7.org/fhir/StructureDefinition/Element"
       }],
       "isModifier" : false,
-      "isSummary" : false
+      "isSummary" : true
     },
     {
       "id" : "Library.relatedArtifact:dependency.resource",
@@ -2022,7 +2022,7 @@
       }],
       "mustSupport" : true,
       "isModifier" : false,
-      "isSummary" : false
+      "isSummary" : true
     },
     {
       "id" : "Library.relatedArtifact:dependency.resourceReference",
@@ -2050,7 +2050,7 @@
         "source" : "http://hl7.org/fhir/StructureDefinition/Element"
       }],
       "isModifier" : false,
-      "isSummary" : false
+      "isSummary" : true
     },
     {
       "id" : "Library.parameter",

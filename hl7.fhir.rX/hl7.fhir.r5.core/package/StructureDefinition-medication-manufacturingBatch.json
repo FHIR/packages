@@ -1,1 +1,3027 @@
-{"abstract":false,"baseDefinition":"http://hl7.org/fhir/StructureDefinition/Extension","contact":[{"telecom":[{"system":"url","value":"HL7"}]}],"context":[{"expression":"Medication.batch","type":"element"},{"expression":"Substance","type":"element"}],"date":"2015-02-19","derivation":"constraint","differential":{"element":[{"id":"Extension","max":"1","min":0,"path":"Extension"},{"definition":"The date at which the drug substance or drug product was manufactured.  The specific operation/step in the process used to determine the date is specified by the manufacturingDateClassification element.","id":"Extension.extension:manufacturingDate","max":"1","min":0,"path":"Extension.extension","sliceName":"manufacturingDate","type":[{"code":"Extension"}]},{"id":"Extension.extension:manufacturingDate.extension","max":"0","path":"Extension.extension.extension"},{"fixedUri":"manufacturingDate","id":"Extension.extension:manufacturingDate.url","path":"Extension.extension.url","type":[{"code":"uri"}]},{"id":"Extension.extension:manufacturingDate.value[x]","min":1,"path":"Extension.extension.value[x]","type":[{"code":"dateTime"}]},{"definition":"A code that provides a rationale for the selection of the manufacturing date.","id":"Extension.extension:manufacturingDateClassification","max":"1","min":0,"path":"Extension.extension","sliceName":"manufacturingDateClassification","type":[{"code":"Extension"}]},{"id":"Extension.extension:manufacturingDateClassification.extension","max":"0","path":"Extension.extension.extension"},{"fixedUri":"manufacturingDateClassification","id":"Extension.extension:manufacturingDateClassification.url","path":"Extension.extension.url","type":[{"code":"uri"}]},{"id":"Extension.extension:manufacturingDateClassification.value[x]","min":1,"path":"Extension.extension.value[x]","type":[{"code":"CodeableConcept"}]},{"definition":"Describes the details of the actual manufacturer who produced this product on behalf of the sponsor or who wholly or partially produced the medication product. This is intended to identify the exact manufacturing location.","id":"Extension.extension:assignedManufacturer","max":"1","min":0,"path":"Extension.extension","sliceName":"assignedManufacturer","type":[{"code":"Extension"}]},{"id":"Extension.extension:assignedManufacturer.extension","max":"0","path":"Extension.extension.extension"},{"fixedUri":"assignedManufacturer","id":"Extension.extension:assignedManufacturer.url","path":"Extension.extension.url","type":[{"code":"uri"}]},{"id":"Extension.extension:assignedManufacturer.value[x]","min":1,"path":"Extension.extension.value[x]","type":[{"code":"Reference","targetProfile":["http://hl7.org/fhir/StructureDefinition/Organization"]}]},{"definition":"A code that provides a rationale for the selection of the expiration date.","id":"Extension.extension:expirationDateClassification","max":"1","min":0,"path":"Extension.extension","sliceName":"expirationDateClassification","type":[{"code":"Extension"}]},{"id":"Extension.extension:expirationDateClassification.extension","max":"0","path":"Extension.extension.extension"},{"fixedUri":"expirationDateClassification","id":"Extension.extension:expirationDateClassification.url","path":"Extension.extension.url","type":[{"code":"uri"}]},{"id":"Extension.extension:expirationDateClassification.value[x]","min":1,"path":"Extension.extension.value[x]","type":[{"code":"CodeableConcept"}]},{"definition":"A categorization of the batch that identifies its usage.  Examples: commercial, development, etc.","id":"Extension.extension:batchUtilization","max":"1","min":0,"path":"Extension.extension","sliceName":"batchUtilization","type":[{"code":"Extension"}]},{"id":"Extension.extension:batchUtilization.extension","max":"0","path":"Extension.extension.extension"},{"fixedUri":"batchUtilization","id":"Extension.extension:batchUtilization.url","path":"Extension.extension.url","type":[{"code":"uri"}]},{"id":"Extension.extension:batchUtilization.value[x]","min":1,"path":"Extension.extension.value[x]","type":[{"code":"CodeableConcept"}]},{"definition":"The amount of drug product produced in this batch.","id":"Extension.extension:batchQuantity","max":"1","min":0,"path":"Extension.extension","sliceName":"batchQuantity","type":[{"code":"Extension"}]},{"id":"Extension.extension:batchQuantity.extension","max":"0","path":"Extension.extension.extension"},{"fixedUri":"batchQuantity","id":"Extension.extension:batchQuantity.url","path":"Extension.extension.url","type":[{"code":"uri"}]},{"id":"Extension.extension:batchQuantity.value[x]","min":1,"path":"Extension.extension.value[x]","type":[{"code":"Quantity"}]},{"definition":"A placeholder for providing any comments that are relevant to the batch.  Examples: first batch manufactured at a new facility; first batch manufactured using a new Active Pharmaceutical Ingredient (API) source, new process, new container closure, etc.","id":"Extension.extension:additionalInformation","max":"1","min":0,"path":"Extension.extension","sliceName":"additionalInformation","type":[{"code":"Extension"}]},{"id":"Extension.extension:additionalInformation.extension","max":"0","path":"Extension.extension.extension"},{"fixedUri":"additionalInformation","id":"Extension.extension:additionalInformation.url","path":"Extension.extension.url","type":[{"code":"uri"}]},{"id":"Extension.extension:additionalInformation.value[x]","min":1,"path":"Extension.extension.value[x]","type":[{"code":"string"}]},{"definition":"Information that applies to how the batch was packaged.","id":"Extension.extension:container","max":"*","min":0,"path":"Extension.extension","sliceName":"container","type":[{"code":"Extension"}]},{"id":"Extension.extension:container.extension","max":"0","path":"Extension.extension.extension"},{"definition":"A combination of letters, numbers, or symbols, or any combination of them to uniquely identify the container's manufacturing lot.","id":"Extension.extension:container.extension:lotNumber","max":"1","min":0,"path":"Extension.extension.extension","sliceName":"lotNumber","type":[{"code":"Extension"}]},{"id":"Extension.extension:container.extension:lotNumber.extension","max":"0","path":"Extension.extension.extension.extension"},{"fixedUri":"lotNumber","id":"Extension.extension:container.extension:lotNumber.url","path":"Extension.extension.extension.url","type":[{"code":"uri"}]},{"id":"Extension.extension:container.extension:lotNumber.value[x]","min":1,"path":"Extension.extension.extension.value[x]","type":[{"code":"string"}]},{"definition":"The kind of container that drug substances and finished dosage forms are contained in, which could include both the immediate (or primary) and secondary containers.","id":"Extension.extension:container.extension:type","max":"1","min":0,"path":"Extension.extension.extension","sliceName":"type","type":[{"code":"Extension"}]},{"id":"Extension.extension:container.extension:type.extension","max":"0","path":"Extension.extension.extension.extension"},{"fixedUri":"type","id":"Extension.extension:container.extension:type.url","path":"Extension.extension.extension.url","type":[{"code":"uri"}]},{"id":"Extension.extension:container.extension:type.value[x]","min":1,"path":"Extension.extension.extension.value[x]","type":[{"code":"CodeableConcept"}]},{"definition":"Amount or volume of the drug product in the container.  Expressed as a ratio of the amount of drug per volume of container.","id":"Extension.extension:container.extension:quantity","max":"1","min":0,"path":"Extension.extension.extension","sliceName":"quantity","type":[{"code":"Extension"}]},{"id":"Extension.extension:container.extension:quantity.extension","max":"0","path":"Extension.extension.extension.extension"},{"fixedUri":"quantity","id":"Extension.extension:container.extension:quantity.url","path":"Extension.extension.extension.url","type":[{"code":"uri"}]},{"id":"Extension.extension:container.extension:quantity.value[x]","min":1,"path":"Extension.extension.extension.value[x]","type":[{"code":"Ratio"}]},{"definition":"A description of the sum of container closure system (CCS) components that together contain and protect the dosage form or drug substance.","id":"Extension.extension:container.extension:closureSystemDescription","max":"1","min":0,"path":"Extension.extension.extension","sliceName":"closureSystemDescription","type":[{"code":"Extension"}]},{"id":"Extension.extension:container.extension:closureSystemDescription.extension","max":"0","path":"Extension.extension.extension.extension"},{"fixedUri":"closureSystemDescription","id":"Extension.extension:container.extension:closureSystemDescription.url","path":"Extension.extension.extension.url","type":[{"code":"uri"}]},{"id":"Extension.extension:container.extension:closureSystemDescription.value[x]","min":1,"path":"Extension.extension.extension.value[x]","type":[{"code":"string"}]},{"definition":"The kind of closures used for the container in which the drug substances and finished dosage forms are stored.","id":"Extension.extension:container.extension:closureType","max":"1","min":0,"path":"Extension.extension.extension","sliceName":"closureType","type":[{"code":"Extension"}]},{"id":"Extension.extension:container.extension:closureType.extension","max":"0","path":"Extension.extension.extension.extension"},{"fixedUri":"closureType","id":"Extension.extension:container.extension:closureType.url","path":"Extension.extension.extension.url","type":[{"code":"uri"}]},{"id":"Extension.extension:container.extension:closureType.value[x]","min":1,"path":"Extension.extension.extension.value[x]","type":[{"code":"CodeableConcept"}]},{"fixedUri":"container","id":"Extension.extension:container.url","path":"Extension.extension.url","type":[{"code":"uri"}]},{"id":"Extension.extension:container.value[x]","max":"0","min":0,"path":"Extension.extension.value[x]"},{"fixedUri":"http://hl7.org/fhir/StructureDefinition/medication-manufacturingBatch","id":"Extension.url","path":"Extension.url"},{"id":"Extension.value[x]","max":"0","min":0,"path":"Extension.value[x]"}]},"extension":[{"url":"http://hl7.org/fhir/StructureDefinition/structuredefinition-wg","valueCode":"phx"},{"url":"http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm","valueInteger":1}],"fhirVersion":"5.0.0-snapshot1","id":"medication-manufacturingBatch","kind":"complex-type","mapping":[{"identity":"rim","name":"RIM Mapping","uri":"http://hl7.org/v3"}],"name":"manufacturingBatch","publisher":"Health Level Seven, Inc. - FHIR WG","resourceType":"StructureDefinition","snapshot":{"element":[{"base":{"max":"*","min":0,"path":"Extension"},"constraint":[{"expression":"hasValue() or (children().count() > id.count())","human":"All FHIR elements must have a @value or children","key":"ele-1","severity":"error","source":"http://hl7.org/fhir/StructureDefinition/Element","xpath":"@value|f:*|h:div"},{"expression":"extension.exists() != value.exists()","human":"Must have either extensions or value[x], not both","key":"ext-1","severity":"error","source":"http://hl7.org/fhir/StructureDefinition/Extension","xpath":"exists(f:extension)!=exists(f:*[starts-with(local-name(.), 'value')])"}],"definition":"An Extension","id":"Extension","isModifier":false,"max":"1","min":0,"path":"Extension","short":"Extension"},{"base":{"max":"1","min":0,"path":"Element.id"},"definition":"Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.","id":"Extension.id","isModifier":false,"isSummary":false,"mapping":[{"identity":"rim","map":"n/a"}],"max":"1","min":0,"path":"Extension.id","representation":["xmlAttr"],"short":"Unique id for inter-element referencing","type":[{"code":"http://hl7.org/fhirpath/System.String","extension":[{"url":"http://hl7.org/fhir/StructureDefinition/structuredefinition-fhir-type","valueUrl":"string"}]}]},{"alias":["extensions","user content"],"base":{"max":"*","min":0,"path":"Element.extension"},"comment":"There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.","constraint":[{"expression":"hasValue() or (children().count() > id.count())","human":"All FHIR elements must have a @value or children","key":"ele-1","severity":"error","source":"http://hl7.org/fhir/StructureDefinition/Element","xpath":"@value|f:*|h:div"},{"expression":"extension.exists() != value.exists()","human":"Must have either extensions or value[x], not both","key":"ext-1","severity":"error","source":"http://hl7.org/fhir/StructureDefinition/Extension","xpath":"exists(f:extension)!=exists(f:*[starts-with(local-name(.), \"value\")])"}],"definition":"May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.","id":"Extension.extension","isModifier":false,"isSummary":false,"mapping":[{"identity":"rim","map":"n/a"}],"max":"*","min":0,"path":"Extension.extension","short":"Additional content defined by implementations","slicing":{"description":"Extensions are always sliced by (at least) url","discriminator":[{"path":"url","type":"value"}],"rules":"open"},"type":[{"code":"Extension"}]},{"base":{"max":"*","min":0,"path":"Element.extension"},"constraint":[{"expression":"hasValue() or (children().count() > id.count())","human":"All FHIR elements must have a @value or children","key":"ele-1","severity":"error","source":"http://hl7.org/fhir/StructureDefinition/Element","xpath":"@value|f:*|h:div"},{"expression":"extension.exists() != value.exists()","human":"Must have either extensions or value[x], not both","key":"ext-1","severity":"error","source":"http://hl7.org/fhir/StructureDefinition/Extension","xpath":"exists(f:extension)!=exists(f:*[starts-with(local-name(.), \"value\")])"}],"definition":"The date at which the drug substance or drug product was manufactured.  The specific operation/step in the process used to determine the date is specified by the manufacturingDateClassification element.","id":"Extension.extension:manufacturingDate","isModifier":false,"isSummary":false,"max":"1","min":0,"path":"Extension.extension","short":"Extension","sliceName":"manufacturingDate","type":[{"code":"Extension"}]},{"base":{"max":"1","min":0,"path":"Element.id"},"definition":"Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.","id":"Extension.extension:manufacturingDate.id","isModifier":false,"isSummary":false,"mapping":[{"identity":"rim","map":"n/a"}],"max":"1","min":0,"path":"Extension.extension.id","representation":["xmlAttr"],"short":"Unique id for inter-element referencing","type":[{"code":"http://hl7.org/fhirpath/System.String","extension":[{"url":"http://hl7.org/fhir/StructureDefinition/structuredefinition-fhir-type","valueUrl":"string"}]}]},{"base":{"max":"*","min":0,"path":"Element.extension"},"constraint":[{"expression":"hasValue() or (children().count() > id.count())","human":"All FHIR elements must have a @value or children","key":"ele-1","severity":"error","source":"http://hl7.org/fhir/StructureDefinition/Element","xpath":"@value|f:*|h:div"},{"expression":"extension.exists() != value.exists()","human":"Must have either extensions or value[x], not both","key":"ext-1","severity":"error","source":"http://hl7.org/fhir/StructureDefinition/Extension","xpath":"exists(f:extension)!=exists(f:*[starts-with(local-name(.), \"value\")])"}],"definition":"An Extension","id":"Extension.extension:manufacturingDate.extension","isModifier":false,"isSummary":false,"max":"0","min":0,"path":"Extension.extension.extension","short":"Extension","slicing":{"description":"Extensions are always sliced by (at least) url","discriminator":[{"path":"url","type":"value"}],"rules":"open"},"type":[{"code":"Extension"}]},{"base":{"max":"1","min":1,"path":"Extension.url"},"comment":"The definition may point directly to a computable or human-readable definition of the extensibility codes, or it may be a logical URI as declared in some other specification. The definition SHALL be a URI for the Structure Definition defining the extension.","definition":"Source of the definition for the extension code - a logical name or a URL.","fixedUri":"manufacturingDate","id":"Extension.extension:manufacturingDate.url","isModifier":false,"isSummary":false,"mapping":[{"identity":"rim","map":"N/A"}],"max":"1","min":1,"path":"Extension.extension.url","representation":["xmlAttr"],"short":"identifies the meaning of the extension","type":[{"code":"uri"}]},{"base":{"max":"1","min":0,"path":"Extension.value[x]"},"constraint":[{"expression":"hasValue() or (children().count() > id.count())","human":"All FHIR elements must have a @value or children","key":"ele-1","severity":"error","source":"http://hl7.org/fhir/StructureDefinition/Element","xpath":"@value|f:*|h:div"}],"definition":"Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).","id":"Extension.extension:manufacturingDate.value[x]","isModifier":false,"isSummary":false,"mapping":[{"identity":"rim","map":"N/A"}],"max":"1","min":1,"path":"Extension.extension.value[x]","short":"Value of extension","type":[{"code":"dateTime"}]},{"base":{"max":"*","min":0,"path":"Element.extension"},"constraint":[{"expression":"hasValue() or (children().count() > id.count())","human":"All FHIR elements must have a @value or children","key":"ele-1","severity":"error","source":"http://hl7.org/fhir/StructureDefinition/Element","xpath":"@value|f:*|h:div"},{"expression":"extension.exists() != value.exists()","human":"Must have either extensions or value[x], not both","key":"ext-1","severity":"error","source":"http://hl7.org/fhir/StructureDefinition/Extension","xpath":"exists(f:extension)!=exists(f:*[starts-with(local-name(.), \"value\")])"}],"definition":"A code that provides a rationale for the selection of the manufacturing date.","id":"Extension.extension:manufacturingDateClassification","isModifier":false,"isSummary":false,"max":"1","min":0,"path":"Extension.extension","short":"Extension","sliceName":"manufacturingDateClassification","type":[{"code":"Extension"}]},{"base":{"max":"1","min":0,"path":"Element.id"},"definition":"Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.","id":"Extension.extension:manufacturingDateClassification.id","isModifier":false,"isSummary":false,"mapping":[{"identity":"rim","map":"n/a"}],"max":"1","min":0,"path":"Extension.extension.id","representation":["xmlAttr"],"short":"Unique id for inter-element referencing","type":[{"code":"http://hl7.org/fhirpath/System.String","extension":[{"url":"http://hl7.org/fhir/StructureDefinition/structuredefinition-fhir-type","valueUrl":"string"}]}]},{"base":{"max":"*","min":0,"path":"Element.extension"},"constraint":[{"expression":"hasValue() or (children().count() > id.count())","human":"All FHIR elements must have a @value or children","key":"ele-1","severity":"error","source":"http://hl7.org/fhir/StructureDefinition/Element","xpath":"@value|f:*|h:div"},{"expression":"extension.exists() != value.exists()","human":"Must have either extensions or value[x], not both","key":"ext-1","severity":"error","source":"http://hl7.org/fhir/StructureDefinition/Extension","xpath":"exists(f:extension)!=exists(f:*[starts-with(local-name(.), \"value\")])"}],"definition":"An Extension","id":"Extension.extension:manufacturingDateClassification.extension","isModifier":false,"isSummary":false,"max":"0","min":0,"path":"Extension.extension.extension","short":"Extension","slicing":{"description":"Extensions are always sliced by (at least) url","discriminator":[{"path":"url","type":"value"}],"rules":"open"},"type":[{"code":"Extension"}]},{"base":{"max":"1","min":1,"path":"Extension.url"},"comment":"The definition may point directly to a computable or human-readable definition of the extensibility codes, or it may be a logical URI as declared in some other specification. The definition SHALL be a URI for the Structure Definition defining the extension.","definition":"Source of the definition for the extension code - a logical name or a URL.","fixedUri":"manufacturingDateClassification","id":"Extension.extension:manufacturingDateClassification.url","isModifier":false,"isSummary":false,"mapping":[{"identity":"rim","map":"N/A"}],"max":"1","min":1,"path":"Extension.extension.url","representation":["xmlAttr"],"short":"identifies the meaning of the extension","type":[{"code":"uri"}]},{"base":{"max":"1","min":0,"path":"Extension.value[x]"},"constraint":[{"expression":"hasValue() or (children().count() > id.count())","human":"All FHIR elements must have a @value or children","key":"ele-1","severity":"error","source":"http://hl7.org/fhir/StructureDefinition/Element","xpath":"@value|f:*|h:div"}],"definition":"Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).","id":"Extension.extension:manufacturingDateClassification.value[x]","isModifier":false,"isSummary":false,"mapping":[{"identity":"rim","map":"N/A"}],"max":"1","min":1,"path":"Extension.extension.value[x]","short":"Value of extension","type":[{"code":"CodeableConcept"}]},{"base":{"max":"*","min":0,"path":"Element.extension"},"constraint":[{"expression":"hasValue() or (children().count() > id.count())","human":"All FHIR elements must have a @value or children","key":"ele-1","severity":"error","source":"http://hl7.org/fhir/StructureDefinition/Element","xpath":"@value|f:*|h:div"},{"expression":"extension.exists() != value.exists()","human":"Must have either extensions or value[x], not both","key":"ext-1","severity":"error","source":"http://hl7.org/fhir/StructureDefinition/Extension","xpath":"exists(f:extension)!=exists(f:*[starts-with(local-name(.), \"value\")])"}],"definition":"Describes the details of the actual manufacturer who produced this product on behalf of the sponsor or who wholly or partially produced the medication product. This is intended to identify the exact manufacturing location.","id":"Extension.extension:assignedManufacturer","isModifier":false,"isSummary":false,"max":"1","min":0,"path":"Extension.extension","short":"Extension","sliceName":"assignedManufacturer","type":[{"code":"Extension"}]},{"base":{"max":"1","min":0,"path":"Element.id"},"definition":"Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.","id":"Extension.extension:assignedManufacturer.id","isModifier":false,"isSummary":false,"mapping":[{"identity":"rim","map":"n/a"}],"max":"1","min":0,"path":"Extension.extension.id","representation":["xmlAttr"],"short":"Unique id for inter-element referencing","type":[{"code":"http://hl7.org/fhirpath/System.String","extension":[{"url":"http://hl7.org/fhir/StructureDefinition/structuredefinition-fhir-type","valueUrl":"string"}]}]},{"base":{"max":"*","min":0,"path":"Element.extension"},"constraint":[{"expression":"hasValue() or (children().count() > id.count())","human":"All FHIR elements must have a @value or children","key":"ele-1","severity":"error","source":"http://hl7.org/fhir/StructureDefinition/Element","xpath":"@value|f:*|h:div"},{"expression":"extension.exists() != value.exists()","human":"Must have either extensions or value[x], not both","key":"ext-1","severity":"error","source":"http://hl7.org/fhir/StructureDefinition/Extension","xpath":"exists(f:extension)!=exists(f:*[starts-with(local-name(.), \"value\")])"}],"definition":"An Extension","id":"Extension.extension:assignedManufacturer.extension","isModifier":false,"isSummary":false,"max":"0","min":0,"path":"Extension.extension.extension","short":"Extension","slicing":{"description":"Extensions are always sliced by (at least) url","discriminator":[{"path":"url","type":"value"}],"rules":"open"},"type":[{"code":"Extension"}]},{"base":{"max":"1","min":1,"path":"Extension.url"},"comment":"The definition may point directly to a computable or human-readable definition of the extensibility codes, or it may be a logical URI as declared in some other specification. The definition SHALL be a URI for the Structure Definition defining the extension.","definition":"Source of the definition for the extension code - a logical name or a URL.","fixedUri":"assignedManufacturer","id":"Extension.extension:assignedManufacturer.url","isModifier":false,"isSummary":false,"mapping":[{"identity":"rim","map":"N/A"}],"max":"1","min":1,"path":"Extension.extension.url","representation":["xmlAttr"],"short":"identifies the meaning of the extension","type":[{"code":"uri"}]},{"base":{"max":"1","min":0,"path":"Extension.value[x]"},"constraint":[{"expression":"hasValue() or (children().count() > id.count())","human":"All FHIR elements must have a @value or children","key":"ele-1","severity":"error","source":"http://hl7.org/fhir/StructureDefinition/Element","xpath":"@value|f:*|h:div"}],"definition":"Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).","id":"Extension.extension:assignedManufacturer.value[x]","isModifier":false,"isSummary":false,"mapping":[{"identity":"rim","map":"N/A"}],"max":"1","min":1,"path":"Extension.extension.value[x]","short":"Value of extension","type":[{"code":"Reference","targetProfile":["http://hl7.org/fhir/StructureDefinition/Organization"]}]},{"base":{"max":"*","min":0,"path":"Element.extension"},"constraint":[{"expression":"hasValue() or (children().count() > id.count())","human":"All FHIR elements must have a @value or children","key":"ele-1","severity":"error","source":"http://hl7.org/fhir/StructureDefinition/Element","xpath":"@value|f:*|h:div"},{"expression":"extension.exists() != value.exists()","human":"Must have either extensions or value[x], not both","key":"ext-1","severity":"error","source":"http://hl7.org/fhir/StructureDefinition/Extension","xpath":"exists(f:extension)!=exists(f:*[starts-with(local-name(.), \"value\")])"}],"definition":"A code that provides a rationale for the selection of the expiration date.","id":"Extension.extension:expirationDateClassification","isModifier":false,"isSummary":false,"max":"1","min":0,"path":"Extension.extension","short":"Extension","sliceName":"expirationDateClassification","type":[{"code":"Extension"}]},{"base":{"max":"1","min":0,"path":"Element.id"},"definition":"Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.","id":"Extension.extension:expirationDateClassification.id","isModifier":false,"isSummary":false,"mapping":[{"identity":"rim","map":"n/a"}],"max":"1","min":0,"path":"Extension.extension.id","representation":["xmlAttr"],"short":"Unique id for inter-element referencing","type":[{"code":"http://hl7.org/fhirpath/System.String","extension":[{"url":"http://hl7.org/fhir/StructureDefinition/structuredefinition-fhir-type","valueUrl":"string"}]}]},{"base":{"max":"*","min":0,"path":"Element.extension"},"constraint":[{"expression":"hasValue() or (children().count() > id.count())","human":"All FHIR elements must have a @value or children","key":"ele-1","severity":"error","source":"http://hl7.org/fhir/StructureDefinition/Element","xpath":"@value|f:*|h:div"},{"expression":"extension.exists() != value.exists()","human":"Must have either extensions or value[x], not both","key":"ext-1","severity":"error","source":"http://hl7.org/fhir/StructureDefinition/Extension","xpath":"exists(f:extension)!=exists(f:*[starts-with(local-name(.), \"value\")])"}],"definition":"An Extension","id":"Extension.extension:expirationDateClassification.extension","isModifier":false,"isSummary":false,"max":"0","min":0,"path":"Extension.extension.extension","short":"Extension","slicing":{"description":"Extensions are always sliced by (at least) url","discriminator":[{"path":"url","type":"value"}],"rules":"open"},"type":[{"code":"Extension"}]},{"base":{"max":"1","min":1,"path":"Extension.url"},"comment":"The definition may point directly to a computable or human-readable definition of the extensibility codes, or it may be a logical URI as declared in some other specification. The definition SHALL be a URI for the Structure Definition defining the extension.","definition":"Source of the definition for the extension code - a logical name or a URL.","fixedUri":"expirationDateClassification","id":"Extension.extension:expirationDateClassification.url","isModifier":false,"isSummary":false,"mapping":[{"identity":"rim","map":"N/A"}],"max":"1","min":1,"path":"Extension.extension.url","representation":["xmlAttr"],"short":"identifies the meaning of the extension","type":[{"code":"uri"}]},{"base":{"max":"1","min":0,"path":"Extension.value[x]"},"constraint":[{"expression":"hasValue() or (children().count() > id.count())","human":"All FHIR elements must have a @value or children","key":"ele-1","severity":"error","source":"http://hl7.org/fhir/StructureDefinition/Element","xpath":"@value|f:*|h:div"}],"definition":"Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).","id":"Extension.extension:expirationDateClassification.value[x]","isModifier":false,"isSummary":false,"mapping":[{"identity":"rim","map":"N/A"}],"max":"1","min":1,"path":"Extension.extension.value[x]","short":"Value of extension","type":[{"code":"CodeableConcept"}]},{"base":{"max":"*","min":0,"path":"Element.extension"},"constraint":[{"expression":"hasValue() or (children().count() > id.count())","human":"All FHIR elements must have a @value or children","key":"ele-1","severity":"error","source":"http://hl7.org/fhir/StructureDefinition/Element","xpath":"@value|f:*|h:div"},{"expression":"extension.exists() != value.exists()","human":"Must have either extensions or value[x], not both","key":"ext-1","severity":"error","source":"http://hl7.org/fhir/StructureDefinition/Extension","xpath":"exists(f:extension)!=exists(f:*[starts-with(local-name(.), \"value\")])"}],"definition":"A categorization of the batch that identifies its usage.  Examples: commercial, development, etc.","id":"Extension.extension:batchUtilization","isModifier":false,"isSummary":false,"max":"1","min":0,"path":"Extension.extension","short":"Extension","sliceName":"batchUtilization","type":[{"code":"Extension"}]},{"base":{"max":"1","min":0,"path":"Element.id"},"definition":"Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.","id":"Extension.extension:batchUtilization.id","isModifier":false,"isSummary":false,"mapping":[{"identity":"rim","map":"n/a"}],"max":"1","min":0,"path":"Extension.extension.id","representation":["xmlAttr"],"short":"Unique id for inter-element referencing","type":[{"code":"http://hl7.org/fhirpath/System.String","extension":[{"url":"http://hl7.org/fhir/StructureDefinition/structuredefinition-fhir-type","valueUrl":"string"}]}]},{"base":{"max":"*","min":0,"path":"Element.extension"},"constraint":[{"expression":"hasValue() or (children().count() > id.count())","human":"All FHIR elements must have a @value or children","key":"ele-1","severity":"error","source":"http://hl7.org/fhir/StructureDefinition/Element","xpath":"@value|f:*|h:div"},{"expression":"extension.exists() != value.exists()","human":"Must have either extensions or value[x], not both","key":"ext-1","severity":"error","source":"http://hl7.org/fhir/StructureDefinition/Extension","xpath":"exists(f:extension)!=exists(f:*[starts-with(local-name(.), \"value\")])"}],"definition":"An Extension","id":"Extension.extension:batchUtilization.extension","isModifier":false,"isSummary":false,"max":"0","min":0,"path":"Extension.extension.extension","short":"Extension","slicing":{"description":"Extensions are always sliced by (at least) url","discriminator":[{"path":"url","type":"value"}],"rules":"open"},"type":[{"code":"Extension"}]},{"base":{"max":"1","min":1,"path":"Extension.url"},"comment":"The definition may point directly to a computable or human-readable definition of the extensibility codes, or it may be a logical URI as declared in some other specification. The definition SHALL be a URI for the Structure Definition defining the extension.","definition":"Source of the definition for the extension code - a logical name or a URL.","fixedUri":"batchUtilization","id":"Extension.extension:batchUtilization.url","isModifier":false,"isSummary":false,"mapping":[{"identity":"rim","map":"N/A"}],"max":"1","min":1,"path":"Extension.extension.url","representation":["xmlAttr"],"short":"identifies the meaning of the extension","type":[{"code":"uri"}]},{"base":{"max":"1","min":0,"path":"Extension.value[x]"},"constraint":[{"expression":"hasValue() or (children().count() > id.count())","human":"All FHIR elements must have a @value or children","key":"ele-1","severity":"error","source":"http://hl7.org/fhir/StructureDefinition/Element","xpath":"@value|f:*|h:div"}],"definition":"Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).","id":"Extension.extension:batchUtilization.value[x]","isModifier":false,"isSummary":false,"mapping":[{"identity":"rim","map":"N/A"}],"max":"1","min":1,"path":"Extension.extension.value[x]","short":"Value of extension","type":[{"code":"CodeableConcept"}]},{"base":{"max":"*","min":0,"path":"Element.extension"},"constraint":[{"expression":"hasValue() or (children().count() > id.count())","human":"All FHIR elements must have a @value or children","key":"ele-1","severity":"error","source":"http://hl7.org/fhir/StructureDefinition/Element","xpath":"@value|f:*|h:div"},{"expression":"extension.exists() != value.exists()","human":"Must have either extensions or value[x], not both","key":"ext-1","severity":"error","source":"http://hl7.org/fhir/StructureDefinition/Extension","xpath":"exists(f:extension)!=exists(f:*[starts-with(local-name(.), \"value\")])"}],"definition":"The amount of drug product produced in this batch.","id":"Extension.extension:batchQuantity","isModifier":false,"isSummary":false,"max":"1","min":0,"path":"Extension.extension","short":"Extension","sliceName":"batchQuantity","type":[{"code":"Extension"}]},{"base":{"max":"1","min":0,"path":"Element.id"},"definition":"Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.","id":"Extension.extension:batchQuantity.id","isModifier":false,"isSummary":false,"mapping":[{"identity":"rim","map":"n/a"}],"max":"1","min":0,"path":"Extension.extension.id","representation":["xmlAttr"],"short":"Unique id for inter-element referencing","type":[{"code":"http://hl7.org/fhirpath/System.String","extension":[{"url":"http://hl7.org/fhir/StructureDefinition/structuredefinition-fhir-type","valueUrl":"string"}]}]},{"base":{"max":"*","min":0,"path":"Element.extension"},"constraint":[{"expression":"hasValue() or (children().count() > id.count())","human":"All FHIR elements must have a @value or children","key":"ele-1","severity":"error","source":"http://hl7.org/fhir/StructureDefinition/Element","xpath":"@value|f:*|h:div"},{"expression":"extension.exists() != value.exists()","human":"Must have either extensions or value[x], not both","key":"ext-1","severity":"error","source":"http://hl7.org/fhir/StructureDefinition/Extension","xpath":"exists(f:extension)!=exists(f:*[starts-with(local-name(.), \"value\")])"}],"definition":"An Extension","id":"Extension.extension:batchQuantity.extension","isModifier":false,"isSummary":false,"max":"0","min":0,"path":"Extension.extension.extension","short":"Extension","slicing":{"description":"Extensions are always sliced by (at least) url","discriminator":[{"path":"url","type":"value"}],"rules":"open"},"type":[{"code":"Extension"}]},{"base":{"max":"1","min":1,"path":"Extension.url"},"comment":"The definition may point directly to a computable or human-readable definition of the extensibility codes, or it may be a logical URI as declared in some other specification. The definition SHALL be a URI for the Structure Definition defining the extension.","definition":"Source of the definition for the extension code - a logical name or a URL.","fixedUri":"batchQuantity","id":"Extension.extension:batchQuantity.url","isModifier":false,"isSummary":false,"mapping":[{"identity":"rim","map":"N/A"}],"max":"1","min":1,"path":"Extension.extension.url","representation":["xmlAttr"],"short":"identifies the meaning of the extension","type":[{"code":"uri"}]},{"base":{"max":"1","min":0,"path":"Extension.value[x]"},"constraint":[{"expression":"hasValue() or (children().count() > id.count())","human":"All FHIR elements must have a @value or children","key":"ele-1","severity":"error","source":"http://hl7.org/fhir/StructureDefinition/Element","xpath":"@value|f:*|h:div"}],"definition":"Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).","id":"Extension.extension:batchQuantity.value[x]","isModifier":false,"isSummary":false,"mapping":[{"identity":"rim","map":"N/A"}],"max":"1","min":1,"path":"Extension.extension.value[x]","short":"Value of extension","type":[{"code":"Quantity"}]},{"base":{"max":"*","min":0,"path":"Element.extension"},"constraint":[{"expression":"hasValue() or (children().count() > id.count())","human":"All FHIR elements must have a @value or children","key":"ele-1","severity":"error","source":"http://hl7.org/fhir/StructureDefinition/Element","xpath":"@value|f:*|h:div"},{"expression":"extension.exists() != value.exists()","human":"Must have either extensions or value[x], not both","key":"ext-1","severity":"error","source":"http://hl7.org/fhir/StructureDefinition/Extension","xpath":"exists(f:extension)!=exists(f:*[starts-with(local-name(.), \"value\")])"}],"definition":"A placeholder for providing any comments that are relevant to the batch.  Examples: first batch manufactured at a new facility; first batch manufactured using a new Active Pharmaceutical Ingredient (API) source, new process, new container closure, etc.","id":"Extension.extension:additionalInformation","isModifier":false,"isSummary":false,"max":"1","min":0,"path":"Extension.extension","short":"Extension","sliceName":"additionalInformation","type":[{"code":"Extension"}]},{"base":{"max":"1","min":0,"path":"Element.id"},"definition":"Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.","id":"Extension.extension:additionalInformation.id","isModifier":false,"isSummary":false,"mapping":[{"identity":"rim","map":"n/a"}],"max":"1","min":0,"path":"Extension.extension.id","representation":["xmlAttr"],"short":"Unique id for inter-element referencing","type":[{"code":"http://hl7.org/fhirpath/System.String","extension":[{"url":"http://hl7.org/fhir/StructureDefinition/structuredefinition-fhir-type","valueUrl":"string"}]}]},{"base":{"max":"*","min":0,"path":"Element.extension"},"constraint":[{"expression":"hasValue() or (children().count() > id.count())","human":"All FHIR elements must have a @value or children","key":"ele-1","severity":"error","source":"http://hl7.org/fhir/StructureDefinition/Element","xpath":"@value|f:*|h:div"},{"expression":"extension.exists() != value.exists()","human":"Must have either extensions or value[x], not both","key":"ext-1","severity":"error","source":"http://hl7.org/fhir/StructureDefinition/Extension","xpath":"exists(f:extension)!=exists(f:*[starts-with(local-name(.), \"value\")])"}],"definition":"An Extension","id":"Extension.extension:additionalInformation.extension","isModifier":false,"isSummary":false,"max":"0","min":0,"path":"Extension.extension.extension","short":"Extension","slicing":{"description":"Extensions are always sliced by (at least) url","discriminator":[{"path":"url","type":"value"}],"rules":"open"},"type":[{"code":"Extension"}]},{"base":{"max":"1","min":1,"path":"Extension.url"},"comment":"The definition may point directly to a computable or human-readable definition of the extensibility codes, or it may be a logical URI as declared in some other specification. The definition SHALL be a URI for the Structure Definition defining the extension.","definition":"Source of the definition for the extension code - a logical name or a URL.","fixedUri":"additionalInformation","id":"Extension.extension:additionalInformation.url","isModifier":false,"isSummary":false,"mapping":[{"identity":"rim","map":"N/A"}],"max":"1","min":1,"path":"Extension.extension.url","representation":["xmlAttr"],"short":"identifies the meaning of the extension","type":[{"code":"uri"}]},{"base":{"max":"1","min":0,"path":"Extension.value[x]"},"constraint":[{"expression":"hasValue() or (children().count() > id.count())","human":"All FHIR elements must have a @value or children","key":"ele-1","severity":"error","source":"http://hl7.org/fhir/StructureDefinition/Element","xpath":"@value|f:*|h:div"}],"definition":"Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).","id":"Extension.extension:additionalInformation.value[x]","isModifier":false,"isSummary":false,"mapping":[{"identity":"rim","map":"N/A"}],"max":"1","min":1,"path":"Extension.extension.value[x]","short":"Value of extension","type":[{"code":"string"}]},{"base":{"max":"*","min":0,"path":"Element.extension"},"constraint":[{"expression":"hasValue() or (children().count() > id.count())","human":"All FHIR elements must have a @value or children","key":"ele-1","severity":"error","source":"http://hl7.org/fhir/StructureDefinition/Element","xpath":"@value|f:*|h:div"},{"expression":"extension.exists() != value.exists()","human":"Must have either extensions or value[x], not both","key":"ext-1","severity":"error","source":"http://hl7.org/fhir/StructureDefinition/Extension","xpath":"exists(f:extension)!=exists(f:*[starts-with(local-name(.), \"value\")])"}],"definition":"Information that applies to how the batch was packaged.","id":"Extension.extension:container","isModifier":false,"isSummary":false,"max":"*","min":0,"path":"Extension.extension","short":"Extension","sliceName":"container","type":[{"code":"Extension"}]},{"base":{"max":"1","min":0,"path":"Element.id"},"definition":"Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.","id":"Extension.extension:container.id","isModifier":false,"isSummary":false,"mapping":[{"identity":"rim","map":"n/a"}],"max":"1","min":0,"path":"Extension.extension.id","representation":["xmlAttr"],"short":"Unique id for inter-element referencing","type":[{"code":"http://hl7.org/fhirpath/System.String","extension":[{"url":"http://hl7.org/fhir/StructureDefinition/structuredefinition-fhir-type","valueUrl":"string"}]}]},{"base":{"max":"*","min":0,"path":"Element.extension"},"constraint":[{"expression":"hasValue() or (children().count() > id.count())","human":"All FHIR elements must have a @value or children","key":"ele-1","severity":"error","source":"http://hl7.org/fhir/StructureDefinition/Element","xpath":"@value|f:*|h:div"},{"expression":"extension.exists() != value.exists()","human":"Must have either extensions or value[x], not both","key":"ext-1","severity":"error","source":"http://hl7.org/fhir/StructureDefinition/Extension","xpath":"exists(f:extension)!=exists(f:*[starts-with(local-name(.), \"value\")])"}],"definition":"An Extension","id":"Extension.extension:container.extension","isModifier":false,"isSummary":false,"max":"0","min":0,"path":"Extension.extension.extension","short":"Extension","slicing":{"description":"Extensions are always sliced by (at least) url","discriminator":[{"path":"url","type":"value"}],"rules":"open"},"type":[{"code":"Extension"}]},{"base":{"max":"*","min":0,"path":"Element.extension"},"constraint":[{"expression":"hasValue() or (children().count() > id.count())","human":"All FHIR elements must have a @value or children","key":"ele-1","severity":"error","source":"http://hl7.org/fhir/StructureDefinition/Element","xpath":"@value|f:*|h:div"},{"expression":"extension.exists() != value.exists()","human":"Must have either extensions or value[x], not both","key":"ext-1","severity":"error","source":"http://hl7.org/fhir/StructureDefinition/Extension","xpath":"exists(f:extension)!=exists(f:*[starts-with(local-name(.), \"value\")])"}],"definition":"A combination of letters, numbers, or symbols, or any combination of them to uniquely identify the container's manufacturing lot.","id":"Extension.extension:container.extension:lotNumber","isModifier":false,"isSummary":false,"max":"1","min":0,"path":"Extension.extension.extension","short":"Extension","sliceName":"lotNumber","type":[{"code":"Extension"}]},{"base":{"max":"1","min":0,"path":"Element.id"},"definition":"Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.","id":"Extension.extension:container.extension:lotNumber.id","isModifier":false,"isSummary":false,"mapping":[{"identity":"rim","map":"n/a"}],"max":"1","min":0,"path":"Extension.extension.extension.id","representation":["xmlAttr"],"short":"Unique id for inter-element referencing","type":[{"code":"http://hl7.org/fhirpath/System.String","extension":[{"url":"http://hl7.org/fhir/StructureDefinition/structuredefinition-fhir-type","valueUrl":"string"}]}]},{"base":{"max":"*","min":0,"path":"Element.extension"},"constraint":[{"expression":"hasValue() or (children().count() > id.count())","human":"All FHIR elements must have a @value or children","key":"ele-1","severity":"error","source":"http://hl7.org/fhir/StructureDefinition/Element","xpath":"@value|f:*|h:div"},{"expression":"extension.exists() != value.exists()","human":"Must have either extensions or value[x], not both","key":"ext-1","severity":"error","source":"http://hl7.org/fhir/StructureDefinition/Extension","xpath":"exists(f:extension)!=exists(f:*[starts-with(local-name(.), \"value\")])"}],"definition":"An Extension","id":"Extension.extension:container.extension:lotNumber.extension","isModifier":false,"isSummary":false,"max":"0","min":0,"path":"Extension.extension.extension.extension","short":"Extension","slicing":{"description":"Extensions are always sliced by (at least) url","discriminator":[{"path":"url","type":"value"}],"rules":"open"},"type":[{"code":"Extension"}]},{"base":{"max":"1","min":1,"path":"Extension.url"},"comment":"The definition may point directly to a computable or human-readable definition of the extensibility codes, or it may be a logical URI as declared in some other specification. The definition SHALL be a URI for the Structure Definition defining the extension.","definition":"Source of the definition for the extension code - a logical name or a URL.","fixedUri":"lotNumber","id":"Extension.extension:container.extension:lotNumber.url","isModifier":false,"isSummary":false,"mapping":[{"identity":"rim","map":"N/A"}],"max":"1","min":1,"path":"Extension.extension.extension.url","representation":["xmlAttr"],"short":"identifies the meaning of the extension","type":[{"code":"uri"}]},{"base":{"max":"1","min":0,"path":"Extension.value[x]"},"constraint":[{"expression":"hasValue() or (children().count() > id.count())","human":"All FHIR elements must have a @value or children","key":"ele-1","severity":"error","source":"http://hl7.org/fhir/StructureDefinition/Element","xpath":"@value|f:*|h:div"}],"definition":"Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).","id":"Extension.extension:container.extension:lotNumber.value[x]","isModifier":false,"isSummary":false,"mapping":[{"identity":"rim","map":"N/A"}],"max":"1","min":1,"path":"Extension.extension.extension.value[x]","short":"Value of extension","type":[{"code":"string"}]},{"base":{"max":"*","min":0,"path":"Element.extension"},"constraint":[{"expression":"hasValue() or (children().count() > id.count())","human":"All FHIR elements must have a @value or children","key":"ele-1","severity":"error","source":"http://hl7.org/fhir/StructureDefinition/Element","xpath":"@value|f:*|h:div"},{"expression":"extension.exists() != value.exists()","human":"Must have either extensions or value[x], not both","key":"ext-1","severity":"error","source":"http://hl7.org/fhir/StructureDefinition/Extension","xpath":"exists(f:extension)!=exists(f:*[starts-with(local-name(.), \"value\")])"}],"definition":"The kind of container that drug substances and finished dosage forms are contained in, which could include both the immediate (or primary) and secondary containers.","id":"Extension.extension:container.extension:type","isModifier":false,"isSummary":false,"max":"1","min":0,"path":"Extension.extension.extension","short":"Extension","sliceName":"type","type":[{"code":"Extension"}]},{"base":{"max":"1","min":0,"path":"Element.id"},"definition":"Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.","id":"Extension.extension:container.extension:type.id","isModifier":false,"isSummary":false,"mapping":[{"identity":"rim","map":"n/a"}],"max":"1","min":0,"path":"Extension.extension.extension.id","representation":["xmlAttr"],"short":"Unique id for inter-element referencing","type":[{"code":"http://hl7.org/fhirpath/System.String","extension":[{"url":"http://hl7.org/fhir/StructureDefinition/structuredefinition-fhir-type","valueUrl":"string"}]}]},{"base":{"max":"*","min":0,"path":"Element.extension"},"constraint":[{"expression":"hasValue() or (children().count() > id.count())","human":"All FHIR elements must have a @value or children","key":"ele-1","severity":"error","source":"http://hl7.org/fhir/StructureDefinition/Element","xpath":"@value|f:*|h:div"},{"expression":"extension.exists() != value.exists()","human":"Must have either extensions or value[x], not both","key":"ext-1","severity":"error","source":"http://hl7.org/fhir/StructureDefinition/Extension","xpath":"exists(f:extension)!=exists(f:*[starts-with(local-name(.), \"value\")])"}],"definition":"An Extension","id":"Extension.extension:container.extension:type.extension","isModifier":false,"isSummary":false,"max":"0","min":0,"path":"Extension.extension.extension.extension","short":"Extension","slicing":{"description":"Extensions are always sliced by (at least) url","discriminator":[{"path":"url","type":"value"}],"rules":"open"},"type":[{"code":"Extension"}]},{"base":{"max":"1","min":1,"path":"Extension.url"},"comment":"The definition may point directly to a computable or human-readable definition of the extensibility codes, or it may be a logical URI as declared in some other specification. The definition SHALL be a URI for the Structure Definition defining the extension.","definition":"Source of the definition for the extension code - a logical name or a URL.","fixedUri":"type","id":"Extension.extension:container.extension:type.url","isModifier":false,"isSummary":false,"mapping":[{"identity":"rim","map":"N/A"}],"max":"1","min":1,"path":"Extension.extension.extension.url","representation":["xmlAttr"],"short":"identifies the meaning of the extension","type":[{"code":"uri"}]},{"base":{"max":"1","min":0,"path":"Extension.value[x]"},"constraint":[{"expression":"hasValue() or (children().count() > id.count())","human":"All FHIR elements must have a @value or children","key":"ele-1","severity":"error","source":"http://hl7.org/fhir/StructureDefinition/Element","xpath":"@value|f:*|h:div"}],"definition":"Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).","id":"Extension.extension:container.extension:type.value[x]","isModifier":false,"isSummary":false,"mapping":[{"identity":"rim","map":"N/A"}],"max":"1","min":1,"path":"Extension.extension.extension.value[x]","short":"Value of extension","type":[{"code":"CodeableConcept"}]},{"base":{"max":"*","min":0,"path":"Element.extension"},"constraint":[{"expression":"hasValue() or (children().count() > id.count())","human":"All FHIR elements must have a @value or children","key":"ele-1","severity":"error","source":"http://hl7.org/fhir/StructureDefinition/Element","xpath":"@value|f:*|h:div"},{"expression":"extension.exists() != value.exists()","human":"Must have either extensions or value[x], not both","key":"ext-1","severity":"error","source":"http://hl7.org/fhir/StructureDefinition/Extension","xpath":"exists(f:extension)!=exists(f:*[starts-with(local-name(.), \"value\")])"}],"definition":"Amount or volume of the drug product in the container.  Expressed as a ratio of the amount of drug per volume of container.","id":"Extension.extension:container.extension:quantity","isModifier":false,"isSummary":false,"max":"1","min":0,"path":"Extension.extension.extension","short":"Extension","sliceName":"quantity","type":[{"code":"Extension"}]},{"base":{"max":"1","min":0,"path":"Element.id"},"definition":"Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.","id":"Extension.extension:container.extension:quantity.id","isModifier":false,"isSummary":false,"mapping":[{"identity":"rim","map":"n/a"}],"max":"1","min":0,"path":"Extension.extension.extension.id","representation":["xmlAttr"],"short":"Unique id for inter-element referencing","type":[{"code":"http://hl7.org/fhirpath/System.String","extension":[{"url":"http://hl7.org/fhir/StructureDefinition/structuredefinition-fhir-type","valueUrl":"string"}]}]},{"base":{"max":"*","min":0,"path":"Element.extension"},"constraint":[{"expression":"hasValue() or (children().count() > id.count())","human":"All FHIR elements must have a @value or children","key":"ele-1","severity":"error","source":"http://hl7.org/fhir/StructureDefinition/Element","xpath":"@value|f:*|h:div"},{"expression":"extension.exists() != value.exists()","human":"Must have either extensions or value[x], not both","key":"ext-1","severity":"error","source":"http://hl7.org/fhir/StructureDefinition/Extension","xpath":"exists(f:extension)!=exists(f:*[starts-with(local-name(.), \"value\")])"}],"definition":"An Extension","id":"Extension.extension:container.extension:quantity.extension","isModifier":false,"isSummary":false,"max":"0","min":0,"path":"Extension.extension.extension.extension","short":"Extension","slicing":{"description":"Extensions are always sliced by (at least) url","discriminator":[{"path":"url","type":"value"}],"rules":"open"},"type":[{"code":"Extension"}]},{"base":{"max":"1","min":1,"path":"Extension.url"},"comment":"The definition may point directly to a computable or human-readable definition of the extensibility codes, or it may be a logical URI as declared in some other specification. The definition SHALL be a URI for the Structure Definition defining the extension.","definition":"Source of the definition for the extension code - a logical name or a URL.","fixedUri":"quantity","id":"Extension.extension:container.extension:quantity.url","isModifier":false,"isSummary":false,"mapping":[{"identity":"rim","map":"N/A"}],"max":"1","min":1,"path":"Extension.extension.extension.url","representation":["xmlAttr"],"short":"identifies the meaning of the extension","type":[{"code":"uri"}]},{"base":{"max":"1","min":0,"path":"Extension.value[x]"},"constraint":[{"expression":"hasValue() or (children().count() > id.count())","human":"All FHIR elements must have a @value or children","key":"ele-1","severity":"error","source":"http://hl7.org/fhir/StructureDefinition/Element","xpath":"@value|f:*|h:div"}],"definition":"Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).","id":"Extension.extension:container.extension:quantity.value[x]","isModifier":false,"isSummary":false,"mapping":[{"identity":"rim","map":"N/A"}],"max":"1","min":1,"path":"Extension.extension.extension.value[x]","short":"Value of extension","type":[{"code":"Ratio"}]},{"base":{"max":"*","min":0,"path":"Element.extension"},"constraint":[{"expression":"hasValue() or (children().count() > id.count())","human":"All FHIR elements must have a @value or children","key":"ele-1","severity":"error","source":"http://hl7.org/fhir/StructureDefinition/Element","xpath":"@value|f:*|h:div"},{"expression":"extension.exists() != value.exists()","human":"Must have either extensions or value[x], not both","key":"ext-1","severity":"error","source":"http://hl7.org/fhir/StructureDefinition/Extension","xpath":"exists(f:extension)!=exists(f:*[starts-with(local-name(.), \"value\")])"}],"definition":"A description of the sum of container closure system (CCS) components that together contain and protect the dosage form or drug substance.","id":"Extension.extension:container.extension:closureSystemDescription","isModifier":false,"isSummary":false,"max":"1","min":0,"path":"Extension.extension.extension","short":"Extension","sliceName":"closureSystemDescription","type":[{"code":"Extension"}]},{"base":{"max":"1","min":0,"path":"Element.id"},"definition":"Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.","id":"Extension.extension:container.extension:closureSystemDescription.id","isModifier":false,"isSummary":false,"mapping":[{"identity":"rim","map":"n/a"}],"max":"1","min":0,"path":"Extension.extension.extension.id","representation":["xmlAttr"],"short":"Unique id for inter-element referencing","type":[{"code":"http://hl7.org/fhirpath/System.String","extension":[{"url":"http://hl7.org/fhir/StructureDefinition/structuredefinition-fhir-type","valueUrl":"string"}]}]},{"base":{"max":"*","min":0,"path":"Element.extension"},"constraint":[{"expression":"hasValue() or (children().count() > id.count())","human":"All FHIR elements must have a @value or children","key":"ele-1","severity":"error","source":"http://hl7.org/fhir/StructureDefinition/Element","xpath":"@value|f:*|h:div"},{"expression":"extension.exists() != value.exists()","human":"Must have either extensions or value[x], not both","key":"ext-1","severity":"error","source":"http://hl7.org/fhir/StructureDefinition/Extension","xpath":"exists(f:extension)!=exists(f:*[starts-with(local-name(.), \"value\")])"}],"definition":"An Extension","id":"Extension.extension:container.extension:closureSystemDescription.extension","isModifier":false,"isSummary":false,"max":"0","min":0,"path":"Extension.extension.extension.extension","short":"Extension","slicing":{"description":"Extensions are always sliced by (at least) url","discriminator":[{"path":"url","type":"value"}],"rules":"open"},"type":[{"code":"Extension"}]},{"base":{"max":"1","min":1,"path":"Extension.url"},"comment":"The definition may point directly to a computable or human-readable definition of the extensibility codes, or it may be a logical URI as declared in some other specification. The definition SHALL be a URI for the Structure Definition defining the extension.","definition":"Source of the definition for the extension code - a logical name or a URL.","fixedUri":"closureSystemDescription","id":"Extension.extension:container.extension:closureSystemDescription.url","isModifier":false,"isSummary":false,"mapping":[{"identity":"rim","map":"N/A"}],"max":"1","min":1,"path":"Extension.extension.extension.url","representation":["xmlAttr"],"short":"identifies the meaning of the extension","type":[{"code":"uri"}]},{"base":{"max":"1","min":0,"path":"Extension.value[x]"},"constraint":[{"expression":"hasValue() or (children().count() > id.count())","human":"All FHIR elements must have a @value or children","key":"ele-1","severity":"error","source":"http://hl7.org/fhir/StructureDefinition/Element","xpath":"@value|f:*|h:div"}],"definition":"Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).","id":"Extension.extension:container.extension:closureSystemDescription.value[x]","isModifier":false,"isSummary":false,"mapping":[{"identity":"rim","map":"N/A"}],"max":"1","min":1,"path":"Extension.extension.extension.value[x]","short":"Value of extension","type":[{"code":"string"}]},{"base":{"max":"*","min":0,"path":"Element.extension"},"constraint":[{"expression":"hasValue() or (children().count() > id.count())","human":"All FHIR elements must have a @value or children","key":"ele-1","severity":"error","source":"http://hl7.org/fhir/StructureDefinition/Element","xpath":"@value|f:*|h:div"},{"expression":"extension.exists() != value.exists()","human":"Must have either extensions or value[x], not both","key":"ext-1","severity":"error","source":"http://hl7.org/fhir/StructureDefinition/Extension","xpath":"exists(f:extension)!=exists(f:*[starts-with(local-name(.), \"value\")])"}],"definition":"The kind of closures used for the container in which the drug substances and finished dosage forms are stored.","id":"Extension.extension:container.extension:closureType","isModifier":false,"isSummary":false,"max":"1","min":0,"path":"Extension.extension.extension","short":"Extension","sliceName":"closureType","type":[{"code":"Extension"}]},{"base":{"max":"1","min":0,"path":"Element.id"},"definition":"Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.","id":"Extension.extension:container.extension:closureType.id","isModifier":false,"isSummary":false,"mapping":[{"identity":"rim","map":"n/a"}],"max":"1","min":0,"path":"Extension.extension.extension.id","representation":["xmlAttr"],"short":"Unique id for inter-element referencing","type":[{"code":"http://hl7.org/fhirpath/System.String","extension":[{"url":"http://hl7.org/fhir/StructureDefinition/structuredefinition-fhir-type","valueUrl":"string"}]}]},{"base":{"max":"*","min":0,"path":"Element.extension"},"constraint":[{"expression":"hasValue() or (children().count() > id.count())","human":"All FHIR elements must have a @value or children","key":"ele-1","severity":"error","source":"http://hl7.org/fhir/StructureDefinition/Element","xpath":"@value|f:*|h:div"},{"expression":"extension.exists() != value.exists()","human":"Must have either extensions or value[x], not both","key":"ext-1","severity":"error","source":"http://hl7.org/fhir/StructureDefinition/Extension","xpath":"exists(f:extension)!=exists(f:*[starts-with(local-name(.), \"value\")])"}],"definition":"An Extension","id":"Extension.extension:container.extension:closureType.extension","isModifier":false,"isSummary":false,"max":"0","min":0,"path":"Extension.extension.extension.extension","short":"Extension","slicing":{"description":"Extensions are always sliced by (at least) url","discriminator":[{"path":"url","type":"value"}],"rules":"open"},"type":[{"code":"Extension"}]},{"base":{"max":"1","min":1,"path":"Extension.url"},"comment":"The definition may point directly to a computable or human-readable definition of the extensibility codes, or it may be a logical URI as declared in some other specification. The definition SHALL be a URI for the Structure Definition defining the extension.","definition":"Source of the definition for the extension code - a logical name or a URL.","fixedUri":"closureType","id":"Extension.extension:container.extension:closureType.url","isModifier":false,"isSummary":false,"mapping":[{"identity":"rim","map":"N/A"}],"max":"1","min":1,"path":"Extension.extension.extension.url","representation":["xmlAttr"],"short":"identifies the meaning of the extension","type":[{"code":"uri"}]},{"base":{"max":"1","min":0,"path":"Extension.value[x]"},"constraint":[{"expression":"hasValue() or (children().count() > id.count())","human":"All FHIR elements must have a @value or children","key":"ele-1","severity":"error","source":"http://hl7.org/fhir/StructureDefinition/Element","xpath":"@value|f:*|h:div"}],"definition":"Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).","id":"Extension.extension:container.extension:closureType.value[x]","isModifier":false,"isSummary":false,"mapping":[{"identity":"rim","map":"N/A"}],"max":"1","min":1,"path":"Extension.extension.extension.value[x]","short":"Value of extension","type":[{"code":"CodeableConcept"}]},{"base":{"max":"1","min":1,"path":"Extension.url"},"comment":"The definition may point directly to a computable or human-readable definition of the extensibility codes, or it may be a logical URI as declared in some other specification. The definition SHALL be a URI for the Structure Definition defining the extension.","definition":"Source of the definition for the extension code - a logical name or a URL.","fixedUri":"container","id":"Extension.extension:container.url","isModifier":false,"isSummary":false,"mapping":[{"identity":"rim","map":"N/A"}],"max":"1","min":1,"path":"Extension.extension.url","representation":["xmlAttr"],"short":"identifies the meaning of the extension","type":[{"code":"uri"}]},{"base":{"max":"1","min":0,"path":"Extension.value[x]"},"constraint":[{"expression":"hasValue() or (children().count() > id.count())","human":"All FHIR elements must have a @value or children","key":"ele-1","severity":"error","source":"http://hl7.org/fhir/StructureDefinition/Element","xpath":"@value|f:*|h:div"}],"definition":"Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).","id":"Extension.extension:container.value[x]","isModifier":false,"isSummary":false,"mapping":[{"identity":"rim","map":"N/A"}],"max":"0","min":0,"path":"Extension.extension.value[x]","short":"Value of extension","type":[{"code":"base64Binary"},{"code":"boolean"},{"code":"canonical"},{"code":"code"},{"code":"date"},{"code":"dateTime"},{"code":"decimal"},{"code":"id"},{"code":"instant"},{"code":"integer"},{"code":"integer64"},{"code":"markdown"},{"code":"oid"},{"code":"positiveInt"},{"code":"string"},{"code":"time"},{"code":"unsignedInt"},{"code":"uri"},{"code":"url"},{"code":"uuid"},{"code":"Address"},{"code":"Age"},{"code":"Annotation"},{"code":"Attachment"},{"code":"CodeableConcept"},{"code":"CodeableReference"},{"code":"Coding"},{"code":"ContactPoint"},{"code":"Count"},{"code":"Distance"},{"code":"Duration"},{"code":"HumanName"},{"code":"Identifier"},{"code":"Money"},{"code":"Period"},{"code":"Quantity"},{"code":"Range"},{"code":"Ratio"},{"code":"RatioRange"},{"code":"Reference"},{"code":"SampledData"},{"code":"Signature"},{"code":"Timing"},{"code":"ContactDetail"},{"code":"Contributor"},{"code":"DataRequirement"},{"code":"Expression"},{"code":"ParameterDefinition"},{"code":"RelatedArtifact"},{"code":"TriggerDefinition"},{"code":"UsageContext"},{"code":"Dosage"},{"code":"Meta"}]},{"base":{"max":"1","min":1,"path":"Extension.url"},"comment":"The definition may point directly to a computable or human-readable definition of the extensibility codes, or it may be a logical URI as declared in some other specification. The definition SHALL be a URI for the Structure Definition defining the extension.","definition":"Source of the definition for the extension code - a logical name or a URL.","fixedUri":"http://hl7.org/fhir/StructureDefinition/medication-manufacturingBatch","id":"Extension.url","isModifier":false,"isSummary":false,"mapping":[{"identity":"rim","map":"N/A"}],"max":"1","min":1,"path":"Extension.url","representation":["xmlAttr"],"short":"identifies the meaning of the extension","type":[{"code":"http://hl7.org/fhirpath/System.String","extension":[{"url":"http://hl7.org/fhir/StructureDefinition/structuredefinition-fhir-type","valueUrl":"uri"}]}]},{"base":{"max":"1","min":0,"path":"Extension.value[x]"},"constraint":[{"expression":"hasValue() or (children().count() > id.count())","human":"All FHIR elements must have a @value or children","key":"ele-1","severity":"error","source":"http://hl7.org/fhir/StructureDefinition/Element","xpath":"@value|f:*|h:div"}],"definition":"Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).","id":"Extension.value[x]","isModifier":false,"isSummary":false,"mapping":[{"identity":"rim","map":"N/A"}],"max":"0","min":0,"path":"Extension.value[x]","short":"Value of extension","type":[{"code":"base64Binary"},{"code":"boolean"},{"code":"canonical"},{"code":"code"},{"code":"date"},{"code":"dateTime"},{"code":"decimal"},{"code":"id"},{"code":"instant"},{"code":"integer"},{"code":"integer64"},{"code":"markdown"},{"code":"oid"},{"code":"positiveInt"},{"code":"string"},{"code":"time"},{"code":"unsignedInt"},{"code":"uri"},{"code":"url"},{"code":"uuid"},{"code":"Address"},{"code":"Age"},{"code":"Annotation"},{"code":"Attachment"},{"code":"CodeableConcept"},{"code":"CodeableReference"},{"code":"Coding"},{"code":"ContactPoint"},{"code":"Count"},{"code":"Distance"},{"code":"Duration"},{"code":"HumanName"},{"code":"Identifier"},{"code":"Money"},{"code":"Period"},{"code":"Quantity"},{"code":"Range"},{"code":"Ratio"},{"code":"RatioRange"},{"code":"Reference"},{"code":"SampledData"},{"code":"Signature"},{"code":"Timing"},{"code":"ContactDetail"},{"code":"Contributor"},{"code":"DataRequirement"},{"code":"Expression"},{"code":"ParameterDefinition"},{"code":"RelatedArtifact"},{"code":"TriggerDefinition"},{"code":"UsageContext"},{"code":"Dosage"},{"code":"Meta"}]}]},"status":"draft","type":"Extension","url":"http://hl7.org/fhir/StructureDefinition/medication-manufacturingBatch","version":"5.0.0-snapshot1"}
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "medication-manufacturingBatch",
+  "extension" : [{
+    "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg",
+    "valueCode" : "phx"
+  },
+  {
+    "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm",
+    "valueInteger" : 1
+  }],
+  "url" : "http://hl7.org/fhir/StructureDefinition/medication-manufacturingBatch",
+  "version" : "4.6.0",
+  "name" : "manufacturingBatch",
+  "status" : "draft",
+  "experimental" : false,
+  "date" : "2015-02-19",
+  "publisher" : "Health Level Seven, Inc. - FHIR WG",
+  "contact" : [{
+    "telecom" : [{
+      "system" : "url",
+      "value" : "HL7"
+    }]
+  }],
+  "fhirVersion" : "4.6.0",
+  "mapping" : [{
+    "identity" : "rim",
+    "uri" : "http://hl7.org/v3",
+    "name" : "RIM Mapping"
+  }],
+  "kind" : "complex-type",
+  "abstract" : false,
+  "context" : [{
+    "type" : "element",
+    "expression" : "Medication.batch"
+  },
+  {
+    "type" : "element",
+    "expression" : "Substance"
+  }],
+  "type" : "Extension",
+  "baseDefinition" : "http://hl7.org/fhir/StructureDefinition/Extension",
+  "derivation" : "constraint",
+  "snapshot" : {
+    "element" : [{
+      "id" : "Extension",
+      "path" : "Extension",
+      "short" : "Extension",
+      "definition" : "An Extension",
+      "min" : 0,
+      "max" : "1",
+      "base" : {
+        "path" : "Extension",
+        "min" : 0,
+        "max" : "*"
+      },
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      },
+      {
+        "key" : "ext-1",
+        "severity" : "error",
+        "human" : "Must have either extensions or value[x], not both",
+        "expression" : "extension.exists() != value.exists()",
+        "xpath" : "exists(f:extension)!=exists(f:*[starts-with(local-name(.), 'value')])",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Extension"
+      }],
+      "isModifier" : false
+    },
+    {
+      "id" : "Extension.id",
+      "path" : "Extension.id",
+      "representation" : ["xmlAttr"],
+      "short" : "Unique id for inter-element referencing",
+      "definition" : "Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.",
+      "min" : 0,
+      "max" : "1",
+      "base" : {
+        "path" : "Element.id",
+        "min" : 0,
+        "max" : "1"
+      },
+      "type" : [{
+        "extension" : [{
+          "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-fhir-type",
+          "valueUrl" : "id"
+        }],
+        "code" : "http://hl7.org/fhirpath/System.String"
+      }],
+      "isModifier" : false,
+      "isSummary" : false,
+      "mapping" : [{
+        "identity" : "rim",
+        "map" : "n/a"
+      }]
+    },
+    {
+      "id" : "Extension.extension",
+      "path" : "Extension.extension",
+      "slicing" : {
+        "discriminator" : [{
+          "type" : "value",
+          "path" : "url"
+        }],
+        "description" : "Extensions are always sliced by (at least) url",
+        "rules" : "open"
+      },
+      "short" : "Additional content defined by implementations",
+      "definition" : "May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.",
+      "comment" : "There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.",
+      "alias" : ["extensions",
+      "user content"],
+      "min" : 0,
+      "max" : "*",
+      "base" : {
+        "path" : "Element.extension",
+        "min" : 0,
+        "max" : "*"
+      },
+      "type" : [{
+        "code" : "Extension"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      },
+      {
+        "key" : "ext-1",
+        "severity" : "error",
+        "human" : "Must have either extensions or value[x], not both",
+        "expression" : "extension.exists() != value.exists()",
+        "xpath" : "exists(f:extension)!=exists(f:*[starts-with(local-name(.), \"value\")])",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Extension"
+      }],
+      "isModifier" : false,
+      "isSummary" : false,
+      "mapping" : [{
+        "identity" : "rim",
+        "map" : "n/a"
+      }]
+    },
+    {
+      "id" : "Extension.extension:manufacturingDate",
+      "path" : "Extension.extension",
+      "sliceName" : "manufacturingDate",
+      "short" : "Extension",
+      "definition" : "The date at which the drug substance or drug product was manufactured.  The specific operation/step in the process used to determine the date is specified by the manufacturingDateClassification element.",
+      "min" : 0,
+      "max" : "1",
+      "base" : {
+        "path" : "Element.extension",
+        "min" : 0,
+        "max" : "*"
+      },
+      "type" : [{
+        "code" : "Extension"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      },
+      {
+        "key" : "ext-1",
+        "severity" : "error",
+        "human" : "Must have either extensions or value[x], not both",
+        "expression" : "extension.exists() != value.exists()",
+        "xpath" : "exists(f:extension)!=exists(f:*[starts-with(local-name(.), \"value\")])",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Extension"
+      }],
+      "isModifier" : false,
+      "isSummary" : false
+    },
+    {
+      "id" : "Extension.extension:manufacturingDate.id",
+      "path" : "Extension.extension.id",
+      "representation" : ["xmlAttr"],
+      "short" : "Unique id for inter-element referencing",
+      "definition" : "Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.",
+      "min" : 0,
+      "max" : "1",
+      "base" : {
+        "path" : "Element.id",
+        "min" : 0,
+        "max" : "1"
+      },
+      "type" : [{
+        "extension" : [{
+          "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-fhir-type",
+          "valueUrl" : "id"
+        }],
+        "code" : "http://hl7.org/fhirpath/System.String"
+      }],
+      "isModifier" : false,
+      "isSummary" : false,
+      "mapping" : [{
+        "identity" : "rim",
+        "map" : "n/a"
+      }]
+    },
+    {
+      "id" : "Extension.extension:manufacturingDate.extension",
+      "path" : "Extension.extension.extension",
+      "slicing" : {
+        "discriminator" : [{
+          "type" : "value",
+          "path" : "url"
+        }],
+        "description" : "Extensions are always sliced by (at least) url",
+        "rules" : "open"
+      },
+      "short" : "Extension",
+      "definition" : "An Extension",
+      "min" : 0,
+      "max" : "0",
+      "base" : {
+        "path" : "Element.extension",
+        "min" : 0,
+        "max" : "*"
+      },
+      "type" : [{
+        "code" : "Extension"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      },
+      {
+        "key" : "ext-1",
+        "severity" : "error",
+        "human" : "Must have either extensions or value[x], not both",
+        "expression" : "extension.exists() != value.exists()",
+        "xpath" : "exists(f:extension)!=exists(f:*[starts-with(local-name(.), \"value\")])",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Extension"
+      }],
+      "isModifier" : false,
+      "isSummary" : false
+    },
+    {
+      "id" : "Extension.extension:manufacturingDate.url",
+      "path" : "Extension.extension.url",
+      "representation" : ["xmlAttr"],
+      "short" : "identifies the meaning of the extension",
+      "definition" : "Source of the definition for the extension code - a logical name or a URL.",
+      "comment" : "The definition may point directly to a computable or human-readable definition of the extensibility codes, or it may be a logical URI as declared in some other specification. The definition SHALL be a URI for the Structure Definition defining the extension.",
+      "min" : 1,
+      "max" : "1",
+      "base" : {
+        "path" : "Extension.url",
+        "min" : 1,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "uri"
+      }],
+      "fixedUri" : "manufacturingDate",
+      "isModifier" : false,
+      "isSummary" : false,
+      "mapping" : [{
+        "identity" : "rim",
+        "map" : "N/A"
+      }]
+    },
+    {
+      "id" : "Extension.extension:manufacturingDate.value[x]",
+      "path" : "Extension.extension.value[x]",
+      "short" : "Value of extension",
+      "definition" : "Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).",
+      "min" : 1,
+      "max" : "1",
+      "base" : {
+        "path" : "Extension.value[x]",
+        "min" : 0,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "dateTime"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : false,
+      "mapping" : [{
+        "identity" : "rim",
+        "map" : "N/A"
+      }]
+    },
+    {
+      "id" : "Extension.extension:manufacturingDateClassification",
+      "path" : "Extension.extension",
+      "sliceName" : "manufacturingDateClassification",
+      "short" : "Extension",
+      "definition" : "A code that provides a rationale for the selection of the manufacturing date.",
+      "min" : 0,
+      "max" : "1",
+      "base" : {
+        "path" : "Element.extension",
+        "min" : 0,
+        "max" : "*"
+      },
+      "type" : [{
+        "code" : "Extension"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      },
+      {
+        "key" : "ext-1",
+        "severity" : "error",
+        "human" : "Must have either extensions or value[x], not both",
+        "expression" : "extension.exists() != value.exists()",
+        "xpath" : "exists(f:extension)!=exists(f:*[starts-with(local-name(.), \"value\")])",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Extension"
+      }],
+      "isModifier" : false,
+      "isSummary" : false
+    },
+    {
+      "id" : "Extension.extension:manufacturingDateClassification.id",
+      "path" : "Extension.extension.id",
+      "representation" : ["xmlAttr"],
+      "short" : "Unique id for inter-element referencing",
+      "definition" : "Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.",
+      "min" : 0,
+      "max" : "1",
+      "base" : {
+        "path" : "Element.id",
+        "min" : 0,
+        "max" : "1"
+      },
+      "type" : [{
+        "extension" : [{
+          "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-fhir-type",
+          "valueUrl" : "id"
+        }],
+        "code" : "http://hl7.org/fhirpath/System.String"
+      }],
+      "isModifier" : false,
+      "isSummary" : false,
+      "mapping" : [{
+        "identity" : "rim",
+        "map" : "n/a"
+      }]
+    },
+    {
+      "id" : "Extension.extension:manufacturingDateClassification.extension",
+      "path" : "Extension.extension.extension",
+      "slicing" : {
+        "discriminator" : [{
+          "type" : "value",
+          "path" : "url"
+        }],
+        "description" : "Extensions are always sliced by (at least) url",
+        "rules" : "open"
+      },
+      "short" : "Extension",
+      "definition" : "An Extension",
+      "min" : 0,
+      "max" : "0",
+      "base" : {
+        "path" : "Element.extension",
+        "min" : 0,
+        "max" : "*"
+      },
+      "type" : [{
+        "code" : "Extension"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      },
+      {
+        "key" : "ext-1",
+        "severity" : "error",
+        "human" : "Must have either extensions or value[x], not both",
+        "expression" : "extension.exists() != value.exists()",
+        "xpath" : "exists(f:extension)!=exists(f:*[starts-with(local-name(.), \"value\")])",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Extension"
+      }],
+      "isModifier" : false,
+      "isSummary" : false
+    },
+    {
+      "id" : "Extension.extension:manufacturingDateClassification.url",
+      "path" : "Extension.extension.url",
+      "representation" : ["xmlAttr"],
+      "short" : "identifies the meaning of the extension",
+      "definition" : "Source of the definition for the extension code - a logical name or a URL.",
+      "comment" : "The definition may point directly to a computable or human-readable definition of the extensibility codes, or it may be a logical URI as declared in some other specification. The definition SHALL be a URI for the Structure Definition defining the extension.",
+      "min" : 1,
+      "max" : "1",
+      "base" : {
+        "path" : "Extension.url",
+        "min" : 1,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "uri"
+      }],
+      "fixedUri" : "manufacturingDateClassification",
+      "isModifier" : false,
+      "isSummary" : false,
+      "mapping" : [{
+        "identity" : "rim",
+        "map" : "N/A"
+      }]
+    },
+    {
+      "id" : "Extension.extension:manufacturingDateClassification.value[x]",
+      "path" : "Extension.extension.value[x]",
+      "short" : "Value of extension",
+      "definition" : "Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).",
+      "min" : 1,
+      "max" : "1",
+      "base" : {
+        "path" : "Extension.value[x]",
+        "min" : 0,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "CodeableConcept"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : false,
+      "mapping" : [{
+        "identity" : "rim",
+        "map" : "N/A"
+      }]
+    },
+    {
+      "id" : "Extension.extension:assignedManufacturer",
+      "path" : "Extension.extension",
+      "sliceName" : "assignedManufacturer",
+      "short" : "Extension",
+      "definition" : "Describes the details of the actual manufacturer who produced this product on behalf of the sponsor or who wholly or partially produced the medication product. This is intended to identify the exact manufacturing location.",
+      "min" : 0,
+      "max" : "1",
+      "base" : {
+        "path" : "Element.extension",
+        "min" : 0,
+        "max" : "*"
+      },
+      "type" : [{
+        "code" : "Extension"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      },
+      {
+        "key" : "ext-1",
+        "severity" : "error",
+        "human" : "Must have either extensions or value[x], not both",
+        "expression" : "extension.exists() != value.exists()",
+        "xpath" : "exists(f:extension)!=exists(f:*[starts-with(local-name(.), \"value\")])",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Extension"
+      }],
+      "isModifier" : false,
+      "isSummary" : false
+    },
+    {
+      "id" : "Extension.extension:assignedManufacturer.id",
+      "path" : "Extension.extension.id",
+      "representation" : ["xmlAttr"],
+      "short" : "Unique id for inter-element referencing",
+      "definition" : "Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.",
+      "min" : 0,
+      "max" : "1",
+      "base" : {
+        "path" : "Element.id",
+        "min" : 0,
+        "max" : "1"
+      },
+      "type" : [{
+        "extension" : [{
+          "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-fhir-type",
+          "valueUrl" : "id"
+        }],
+        "code" : "http://hl7.org/fhirpath/System.String"
+      }],
+      "isModifier" : false,
+      "isSummary" : false,
+      "mapping" : [{
+        "identity" : "rim",
+        "map" : "n/a"
+      }]
+    },
+    {
+      "id" : "Extension.extension:assignedManufacturer.extension",
+      "path" : "Extension.extension.extension",
+      "slicing" : {
+        "discriminator" : [{
+          "type" : "value",
+          "path" : "url"
+        }],
+        "description" : "Extensions are always sliced by (at least) url",
+        "rules" : "open"
+      },
+      "short" : "Extension",
+      "definition" : "An Extension",
+      "min" : 0,
+      "max" : "0",
+      "base" : {
+        "path" : "Element.extension",
+        "min" : 0,
+        "max" : "*"
+      },
+      "type" : [{
+        "code" : "Extension"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      },
+      {
+        "key" : "ext-1",
+        "severity" : "error",
+        "human" : "Must have either extensions or value[x], not both",
+        "expression" : "extension.exists() != value.exists()",
+        "xpath" : "exists(f:extension)!=exists(f:*[starts-with(local-name(.), \"value\")])",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Extension"
+      }],
+      "isModifier" : false,
+      "isSummary" : false
+    },
+    {
+      "id" : "Extension.extension:assignedManufacturer.url",
+      "path" : "Extension.extension.url",
+      "representation" : ["xmlAttr"],
+      "short" : "identifies the meaning of the extension",
+      "definition" : "Source of the definition for the extension code - a logical name or a URL.",
+      "comment" : "The definition may point directly to a computable or human-readable definition of the extensibility codes, or it may be a logical URI as declared in some other specification. The definition SHALL be a URI for the Structure Definition defining the extension.",
+      "min" : 1,
+      "max" : "1",
+      "base" : {
+        "path" : "Extension.url",
+        "min" : 1,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "uri"
+      }],
+      "fixedUri" : "assignedManufacturer",
+      "isModifier" : false,
+      "isSummary" : false,
+      "mapping" : [{
+        "identity" : "rim",
+        "map" : "N/A"
+      }]
+    },
+    {
+      "id" : "Extension.extension:assignedManufacturer.value[x]",
+      "path" : "Extension.extension.value[x]",
+      "short" : "Value of extension",
+      "definition" : "Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).",
+      "min" : 1,
+      "max" : "1",
+      "base" : {
+        "path" : "Extension.value[x]",
+        "min" : 0,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "Reference",
+        "targetProfile" : ["http://hl7.org/fhir/StructureDefinition/Organization"]
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : false,
+      "mapping" : [{
+        "identity" : "rim",
+        "map" : "N/A"
+      }]
+    },
+    {
+      "id" : "Extension.extension:expirationDateClassification",
+      "path" : "Extension.extension",
+      "sliceName" : "expirationDateClassification",
+      "short" : "Extension",
+      "definition" : "A code that provides a rationale for the selection of the expiration date.",
+      "min" : 0,
+      "max" : "1",
+      "base" : {
+        "path" : "Element.extension",
+        "min" : 0,
+        "max" : "*"
+      },
+      "type" : [{
+        "code" : "Extension"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      },
+      {
+        "key" : "ext-1",
+        "severity" : "error",
+        "human" : "Must have either extensions or value[x], not both",
+        "expression" : "extension.exists() != value.exists()",
+        "xpath" : "exists(f:extension)!=exists(f:*[starts-with(local-name(.), \"value\")])",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Extension"
+      }],
+      "isModifier" : false,
+      "isSummary" : false
+    },
+    {
+      "id" : "Extension.extension:expirationDateClassification.id",
+      "path" : "Extension.extension.id",
+      "representation" : ["xmlAttr"],
+      "short" : "Unique id for inter-element referencing",
+      "definition" : "Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.",
+      "min" : 0,
+      "max" : "1",
+      "base" : {
+        "path" : "Element.id",
+        "min" : 0,
+        "max" : "1"
+      },
+      "type" : [{
+        "extension" : [{
+          "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-fhir-type",
+          "valueUrl" : "id"
+        }],
+        "code" : "http://hl7.org/fhirpath/System.String"
+      }],
+      "isModifier" : false,
+      "isSummary" : false,
+      "mapping" : [{
+        "identity" : "rim",
+        "map" : "n/a"
+      }]
+    },
+    {
+      "id" : "Extension.extension:expirationDateClassification.extension",
+      "path" : "Extension.extension.extension",
+      "slicing" : {
+        "discriminator" : [{
+          "type" : "value",
+          "path" : "url"
+        }],
+        "description" : "Extensions are always sliced by (at least) url",
+        "rules" : "open"
+      },
+      "short" : "Extension",
+      "definition" : "An Extension",
+      "min" : 0,
+      "max" : "0",
+      "base" : {
+        "path" : "Element.extension",
+        "min" : 0,
+        "max" : "*"
+      },
+      "type" : [{
+        "code" : "Extension"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      },
+      {
+        "key" : "ext-1",
+        "severity" : "error",
+        "human" : "Must have either extensions or value[x], not both",
+        "expression" : "extension.exists() != value.exists()",
+        "xpath" : "exists(f:extension)!=exists(f:*[starts-with(local-name(.), \"value\")])",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Extension"
+      }],
+      "isModifier" : false,
+      "isSummary" : false
+    },
+    {
+      "id" : "Extension.extension:expirationDateClassification.url",
+      "path" : "Extension.extension.url",
+      "representation" : ["xmlAttr"],
+      "short" : "identifies the meaning of the extension",
+      "definition" : "Source of the definition for the extension code - a logical name or a URL.",
+      "comment" : "The definition may point directly to a computable or human-readable definition of the extensibility codes, or it may be a logical URI as declared in some other specification. The definition SHALL be a URI for the Structure Definition defining the extension.",
+      "min" : 1,
+      "max" : "1",
+      "base" : {
+        "path" : "Extension.url",
+        "min" : 1,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "uri"
+      }],
+      "fixedUri" : "expirationDateClassification",
+      "isModifier" : false,
+      "isSummary" : false,
+      "mapping" : [{
+        "identity" : "rim",
+        "map" : "N/A"
+      }]
+    },
+    {
+      "id" : "Extension.extension:expirationDateClassification.value[x]",
+      "path" : "Extension.extension.value[x]",
+      "short" : "Value of extension",
+      "definition" : "Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).",
+      "min" : 1,
+      "max" : "1",
+      "base" : {
+        "path" : "Extension.value[x]",
+        "min" : 0,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "CodeableConcept"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : false,
+      "mapping" : [{
+        "identity" : "rim",
+        "map" : "N/A"
+      }]
+    },
+    {
+      "id" : "Extension.extension:batchUtilization",
+      "path" : "Extension.extension",
+      "sliceName" : "batchUtilization",
+      "short" : "Extension",
+      "definition" : "A categorization of the batch that identifies its usage.  Examples: commercial, development, etc.",
+      "min" : 0,
+      "max" : "1",
+      "base" : {
+        "path" : "Element.extension",
+        "min" : 0,
+        "max" : "*"
+      },
+      "type" : [{
+        "code" : "Extension"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      },
+      {
+        "key" : "ext-1",
+        "severity" : "error",
+        "human" : "Must have either extensions or value[x], not both",
+        "expression" : "extension.exists() != value.exists()",
+        "xpath" : "exists(f:extension)!=exists(f:*[starts-with(local-name(.), \"value\")])",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Extension"
+      }],
+      "isModifier" : false,
+      "isSummary" : false
+    },
+    {
+      "id" : "Extension.extension:batchUtilization.id",
+      "path" : "Extension.extension.id",
+      "representation" : ["xmlAttr"],
+      "short" : "Unique id for inter-element referencing",
+      "definition" : "Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.",
+      "min" : 0,
+      "max" : "1",
+      "base" : {
+        "path" : "Element.id",
+        "min" : 0,
+        "max" : "1"
+      },
+      "type" : [{
+        "extension" : [{
+          "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-fhir-type",
+          "valueUrl" : "id"
+        }],
+        "code" : "http://hl7.org/fhirpath/System.String"
+      }],
+      "isModifier" : false,
+      "isSummary" : false,
+      "mapping" : [{
+        "identity" : "rim",
+        "map" : "n/a"
+      }]
+    },
+    {
+      "id" : "Extension.extension:batchUtilization.extension",
+      "path" : "Extension.extension.extension",
+      "slicing" : {
+        "discriminator" : [{
+          "type" : "value",
+          "path" : "url"
+        }],
+        "description" : "Extensions are always sliced by (at least) url",
+        "rules" : "open"
+      },
+      "short" : "Extension",
+      "definition" : "An Extension",
+      "min" : 0,
+      "max" : "0",
+      "base" : {
+        "path" : "Element.extension",
+        "min" : 0,
+        "max" : "*"
+      },
+      "type" : [{
+        "code" : "Extension"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      },
+      {
+        "key" : "ext-1",
+        "severity" : "error",
+        "human" : "Must have either extensions or value[x], not both",
+        "expression" : "extension.exists() != value.exists()",
+        "xpath" : "exists(f:extension)!=exists(f:*[starts-with(local-name(.), \"value\")])",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Extension"
+      }],
+      "isModifier" : false,
+      "isSummary" : false
+    },
+    {
+      "id" : "Extension.extension:batchUtilization.url",
+      "path" : "Extension.extension.url",
+      "representation" : ["xmlAttr"],
+      "short" : "identifies the meaning of the extension",
+      "definition" : "Source of the definition for the extension code - a logical name or a URL.",
+      "comment" : "The definition may point directly to a computable or human-readable definition of the extensibility codes, or it may be a logical URI as declared in some other specification. The definition SHALL be a URI for the Structure Definition defining the extension.",
+      "min" : 1,
+      "max" : "1",
+      "base" : {
+        "path" : "Extension.url",
+        "min" : 1,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "uri"
+      }],
+      "fixedUri" : "batchUtilization",
+      "isModifier" : false,
+      "isSummary" : false,
+      "mapping" : [{
+        "identity" : "rim",
+        "map" : "N/A"
+      }]
+    },
+    {
+      "id" : "Extension.extension:batchUtilization.value[x]",
+      "path" : "Extension.extension.value[x]",
+      "short" : "Value of extension",
+      "definition" : "Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).",
+      "min" : 1,
+      "max" : "1",
+      "base" : {
+        "path" : "Extension.value[x]",
+        "min" : 0,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "CodeableConcept"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : false,
+      "mapping" : [{
+        "identity" : "rim",
+        "map" : "N/A"
+      }]
+    },
+    {
+      "id" : "Extension.extension:batchQuantity",
+      "path" : "Extension.extension",
+      "sliceName" : "batchQuantity",
+      "short" : "Extension",
+      "definition" : "The amount of drug product produced in this batch.",
+      "min" : 0,
+      "max" : "1",
+      "base" : {
+        "path" : "Element.extension",
+        "min" : 0,
+        "max" : "*"
+      },
+      "type" : [{
+        "code" : "Extension"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      },
+      {
+        "key" : "ext-1",
+        "severity" : "error",
+        "human" : "Must have either extensions or value[x], not both",
+        "expression" : "extension.exists() != value.exists()",
+        "xpath" : "exists(f:extension)!=exists(f:*[starts-with(local-name(.), \"value\")])",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Extension"
+      }],
+      "isModifier" : false,
+      "isSummary" : false
+    },
+    {
+      "id" : "Extension.extension:batchQuantity.id",
+      "path" : "Extension.extension.id",
+      "representation" : ["xmlAttr"],
+      "short" : "Unique id for inter-element referencing",
+      "definition" : "Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.",
+      "min" : 0,
+      "max" : "1",
+      "base" : {
+        "path" : "Element.id",
+        "min" : 0,
+        "max" : "1"
+      },
+      "type" : [{
+        "extension" : [{
+          "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-fhir-type",
+          "valueUrl" : "id"
+        }],
+        "code" : "http://hl7.org/fhirpath/System.String"
+      }],
+      "isModifier" : false,
+      "isSummary" : false,
+      "mapping" : [{
+        "identity" : "rim",
+        "map" : "n/a"
+      }]
+    },
+    {
+      "id" : "Extension.extension:batchQuantity.extension",
+      "path" : "Extension.extension.extension",
+      "slicing" : {
+        "discriminator" : [{
+          "type" : "value",
+          "path" : "url"
+        }],
+        "description" : "Extensions are always sliced by (at least) url",
+        "rules" : "open"
+      },
+      "short" : "Extension",
+      "definition" : "An Extension",
+      "min" : 0,
+      "max" : "0",
+      "base" : {
+        "path" : "Element.extension",
+        "min" : 0,
+        "max" : "*"
+      },
+      "type" : [{
+        "code" : "Extension"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      },
+      {
+        "key" : "ext-1",
+        "severity" : "error",
+        "human" : "Must have either extensions or value[x], not both",
+        "expression" : "extension.exists() != value.exists()",
+        "xpath" : "exists(f:extension)!=exists(f:*[starts-with(local-name(.), \"value\")])",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Extension"
+      }],
+      "isModifier" : false,
+      "isSummary" : false
+    },
+    {
+      "id" : "Extension.extension:batchQuantity.url",
+      "path" : "Extension.extension.url",
+      "representation" : ["xmlAttr"],
+      "short" : "identifies the meaning of the extension",
+      "definition" : "Source of the definition for the extension code - a logical name or a URL.",
+      "comment" : "The definition may point directly to a computable or human-readable definition of the extensibility codes, or it may be a logical URI as declared in some other specification. The definition SHALL be a URI for the Structure Definition defining the extension.",
+      "min" : 1,
+      "max" : "1",
+      "base" : {
+        "path" : "Extension.url",
+        "min" : 1,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "uri"
+      }],
+      "fixedUri" : "batchQuantity",
+      "isModifier" : false,
+      "isSummary" : false,
+      "mapping" : [{
+        "identity" : "rim",
+        "map" : "N/A"
+      }]
+    },
+    {
+      "id" : "Extension.extension:batchQuantity.value[x]",
+      "path" : "Extension.extension.value[x]",
+      "short" : "Value of extension",
+      "definition" : "Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).",
+      "min" : 1,
+      "max" : "1",
+      "base" : {
+        "path" : "Extension.value[x]",
+        "min" : 0,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "Quantity"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : false,
+      "mapping" : [{
+        "identity" : "rim",
+        "map" : "N/A"
+      }]
+    },
+    {
+      "id" : "Extension.extension:additionalInformation",
+      "path" : "Extension.extension",
+      "sliceName" : "additionalInformation",
+      "short" : "Extension",
+      "definition" : "A placeholder for providing any comments that are relevant to the batch.  Examples: first batch manufactured at a new facility; first batch manufactured using a new Active Pharmaceutical Ingredient (API) source, new process, new container closure, etc.",
+      "min" : 0,
+      "max" : "1",
+      "base" : {
+        "path" : "Element.extension",
+        "min" : 0,
+        "max" : "*"
+      },
+      "type" : [{
+        "code" : "Extension"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      },
+      {
+        "key" : "ext-1",
+        "severity" : "error",
+        "human" : "Must have either extensions or value[x], not both",
+        "expression" : "extension.exists() != value.exists()",
+        "xpath" : "exists(f:extension)!=exists(f:*[starts-with(local-name(.), \"value\")])",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Extension"
+      }],
+      "isModifier" : false,
+      "isSummary" : false
+    },
+    {
+      "id" : "Extension.extension:additionalInformation.id",
+      "path" : "Extension.extension.id",
+      "representation" : ["xmlAttr"],
+      "short" : "Unique id for inter-element referencing",
+      "definition" : "Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.",
+      "min" : 0,
+      "max" : "1",
+      "base" : {
+        "path" : "Element.id",
+        "min" : 0,
+        "max" : "1"
+      },
+      "type" : [{
+        "extension" : [{
+          "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-fhir-type",
+          "valueUrl" : "id"
+        }],
+        "code" : "http://hl7.org/fhirpath/System.String"
+      }],
+      "isModifier" : false,
+      "isSummary" : false,
+      "mapping" : [{
+        "identity" : "rim",
+        "map" : "n/a"
+      }]
+    },
+    {
+      "id" : "Extension.extension:additionalInformation.extension",
+      "path" : "Extension.extension.extension",
+      "slicing" : {
+        "discriminator" : [{
+          "type" : "value",
+          "path" : "url"
+        }],
+        "description" : "Extensions are always sliced by (at least) url",
+        "rules" : "open"
+      },
+      "short" : "Extension",
+      "definition" : "An Extension",
+      "min" : 0,
+      "max" : "0",
+      "base" : {
+        "path" : "Element.extension",
+        "min" : 0,
+        "max" : "*"
+      },
+      "type" : [{
+        "code" : "Extension"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      },
+      {
+        "key" : "ext-1",
+        "severity" : "error",
+        "human" : "Must have either extensions or value[x], not both",
+        "expression" : "extension.exists() != value.exists()",
+        "xpath" : "exists(f:extension)!=exists(f:*[starts-with(local-name(.), \"value\")])",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Extension"
+      }],
+      "isModifier" : false,
+      "isSummary" : false
+    },
+    {
+      "id" : "Extension.extension:additionalInformation.url",
+      "path" : "Extension.extension.url",
+      "representation" : ["xmlAttr"],
+      "short" : "identifies the meaning of the extension",
+      "definition" : "Source of the definition for the extension code - a logical name or a URL.",
+      "comment" : "The definition may point directly to a computable or human-readable definition of the extensibility codes, or it may be a logical URI as declared in some other specification. The definition SHALL be a URI for the Structure Definition defining the extension.",
+      "min" : 1,
+      "max" : "1",
+      "base" : {
+        "path" : "Extension.url",
+        "min" : 1,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "uri"
+      }],
+      "fixedUri" : "additionalInformation",
+      "isModifier" : false,
+      "isSummary" : false,
+      "mapping" : [{
+        "identity" : "rim",
+        "map" : "N/A"
+      }]
+    },
+    {
+      "id" : "Extension.extension:additionalInformation.value[x]",
+      "path" : "Extension.extension.value[x]",
+      "short" : "Value of extension",
+      "definition" : "Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).",
+      "min" : 1,
+      "max" : "1",
+      "base" : {
+        "path" : "Extension.value[x]",
+        "min" : 0,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "string"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : false,
+      "mapping" : [{
+        "identity" : "rim",
+        "map" : "N/A"
+      }]
+    },
+    {
+      "id" : "Extension.extension:container",
+      "path" : "Extension.extension",
+      "sliceName" : "container",
+      "short" : "Extension",
+      "definition" : "Information that applies to how the batch was packaged.",
+      "min" : 0,
+      "max" : "*",
+      "base" : {
+        "path" : "Element.extension",
+        "min" : 0,
+        "max" : "*"
+      },
+      "type" : [{
+        "code" : "Extension"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      },
+      {
+        "key" : "ext-1",
+        "severity" : "error",
+        "human" : "Must have either extensions or value[x], not both",
+        "expression" : "extension.exists() != value.exists()",
+        "xpath" : "exists(f:extension)!=exists(f:*[starts-with(local-name(.), \"value\")])",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Extension"
+      }],
+      "isModifier" : false,
+      "isSummary" : false
+    },
+    {
+      "id" : "Extension.extension:container.id",
+      "path" : "Extension.extension.id",
+      "representation" : ["xmlAttr"],
+      "short" : "Unique id for inter-element referencing",
+      "definition" : "Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.",
+      "min" : 0,
+      "max" : "1",
+      "base" : {
+        "path" : "Element.id",
+        "min" : 0,
+        "max" : "1"
+      },
+      "type" : [{
+        "extension" : [{
+          "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-fhir-type",
+          "valueUrl" : "id"
+        }],
+        "code" : "http://hl7.org/fhirpath/System.String"
+      }],
+      "isModifier" : false,
+      "isSummary" : false,
+      "mapping" : [{
+        "identity" : "rim",
+        "map" : "n/a"
+      }]
+    },
+    {
+      "id" : "Extension.extension:container.extension",
+      "path" : "Extension.extension.extension",
+      "slicing" : {
+        "discriminator" : [{
+          "type" : "value",
+          "path" : "url"
+        }],
+        "description" : "Extensions are always sliced by (at least) url",
+        "rules" : "open"
+      },
+      "short" : "Additional content defined by implementations",
+      "definition" : "May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.",
+      "comment" : "There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.",
+      "alias" : ["extensions",
+      "user content"],
+      "min" : 0,
+      "max" : "*",
+      "base" : {
+        "path" : "Element.extension",
+        "min" : 0,
+        "max" : "*"
+      },
+      "type" : [{
+        "code" : "Extension"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      },
+      {
+        "key" : "ext-1",
+        "severity" : "error",
+        "human" : "Must have either extensions or value[x], not both",
+        "expression" : "extension.exists() != value.exists()",
+        "xpath" : "exists(f:extension)!=exists(f:*[starts-with(local-name(.), \"value\")])",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Extension"
+      }],
+      "isModifier" : false,
+      "isSummary" : false,
+      "mapping" : [{
+        "identity" : "rim",
+        "map" : "n/a"
+      }]
+    },
+    {
+      "id" : "Extension.extension:container.extension:lotNumber",
+      "path" : "Extension.extension.extension",
+      "sliceName" : "lotNumber",
+      "short" : "Extension",
+      "definition" : "A combination of letters, numbers, or symbols, or any combination of them to uniquely identify the container's manufacturing lot.",
+      "min" : 0,
+      "max" : "1",
+      "base" : {
+        "path" : "Element.extension",
+        "min" : 0,
+        "max" : "*"
+      },
+      "type" : [{
+        "code" : "Extension"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      },
+      {
+        "key" : "ext-1",
+        "severity" : "error",
+        "human" : "Must have either extensions or value[x], not both",
+        "expression" : "extension.exists() != value.exists()",
+        "xpath" : "exists(f:extension)!=exists(f:*[starts-with(local-name(.), \"value\")])",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Extension"
+      }],
+      "isModifier" : false,
+      "isSummary" : false
+    },
+    {
+      "id" : "Extension.extension:container.extension:lotNumber.id",
+      "path" : "Extension.extension.extension.id",
+      "representation" : ["xmlAttr"],
+      "short" : "Unique id for inter-element referencing",
+      "definition" : "Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.",
+      "min" : 0,
+      "max" : "1",
+      "base" : {
+        "path" : "Element.id",
+        "min" : 0,
+        "max" : "1"
+      },
+      "type" : [{
+        "extension" : [{
+          "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-fhir-type",
+          "valueUrl" : "id"
+        }],
+        "code" : "http://hl7.org/fhirpath/System.String"
+      }],
+      "isModifier" : false,
+      "isSummary" : false,
+      "mapping" : [{
+        "identity" : "rim",
+        "map" : "n/a"
+      }]
+    },
+    {
+      "id" : "Extension.extension:container.extension:lotNumber.extension",
+      "path" : "Extension.extension.extension.extension",
+      "slicing" : {
+        "discriminator" : [{
+          "type" : "value",
+          "path" : "url"
+        }],
+        "description" : "Extensions are always sliced by (at least) url",
+        "rules" : "open"
+      },
+      "short" : "Extension",
+      "definition" : "An Extension",
+      "min" : 0,
+      "max" : "0",
+      "base" : {
+        "path" : "Element.extension",
+        "min" : 0,
+        "max" : "*"
+      },
+      "type" : [{
+        "code" : "Extension"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      },
+      {
+        "key" : "ext-1",
+        "severity" : "error",
+        "human" : "Must have either extensions or value[x], not both",
+        "expression" : "extension.exists() != value.exists()",
+        "xpath" : "exists(f:extension)!=exists(f:*[starts-with(local-name(.), \"value\")])",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Extension"
+      }],
+      "isModifier" : false,
+      "isSummary" : false
+    },
+    {
+      "id" : "Extension.extension:container.extension:lotNumber.url",
+      "path" : "Extension.extension.extension.url",
+      "representation" : ["xmlAttr"],
+      "short" : "identifies the meaning of the extension",
+      "definition" : "Source of the definition for the extension code - a logical name or a URL.",
+      "comment" : "The definition may point directly to a computable or human-readable definition of the extensibility codes, or it may be a logical URI as declared in some other specification. The definition SHALL be a URI for the Structure Definition defining the extension.",
+      "min" : 1,
+      "max" : "1",
+      "base" : {
+        "path" : "Extension.url",
+        "min" : 1,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "uri"
+      }],
+      "fixedUri" : "lotNumber",
+      "isModifier" : false,
+      "isSummary" : false,
+      "mapping" : [{
+        "identity" : "rim",
+        "map" : "N/A"
+      }]
+    },
+    {
+      "id" : "Extension.extension:container.extension:lotNumber.value[x]",
+      "path" : "Extension.extension.extension.value[x]",
+      "short" : "Value of extension",
+      "definition" : "Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).",
+      "min" : 1,
+      "max" : "1",
+      "base" : {
+        "path" : "Extension.value[x]",
+        "min" : 0,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "string"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : false,
+      "mapping" : [{
+        "identity" : "rim",
+        "map" : "N/A"
+      }]
+    },
+    {
+      "id" : "Extension.extension:container.extension:type",
+      "path" : "Extension.extension.extension",
+      "sliceName" : "type",
+      "short" : "Extension",
+      "definition" : "The kind of container that drug substances and finished dosage forms are contained in, which could include both the immediate (or primary) and secondary containers.",
+      "min" : 0,
+      "max" : "1",
+      "base" : {
+        "path" : "Element.extension",
+        "min" : 0,
+        "max" : "*"
+      },
+      "type" : [{
+        "code" : "Extension"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      },
+      {
+        "key" : "ext-1",
+        "severity" : "error",
+        "human" : "Must have either extensions or value[x], not both",
+        "expression" : "extension.exists() != value.exists()",
+        "xpath" : "exists(f:extension)!=exists(f:*[starts-with(local-name(.), \"value\")])",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Extension"
+      }],
+      "isModifier" : false,
+      "isSummary" : false
+    },
+    {
+      "id" : "Extension.extension:container.extension:type.id",
+      "path" : "Extension.extension.extension.id",
+      "representation" : ["xmlAttr"],
+      "short" : "Unique id for inter-element referencing",
+      "definition" : "Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.",
+      "min" : 0,
+      "max" : "1",
+      "base" : {
+        "path" : "Element.id",
+        "min" : 0,
+        "max" : "1"
+      },
+      "type" : [{
+        "extension" : [{
+          "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-fhir-type",
+          "valueUrl" : "id"
+        }],
+        "code" : "http://hl7.org/fhirpath/System.String"
+      }],
+      "isModifier" : false,
+      "isSummary" : false,
+      "mapping" : [{
+        "identity" : "rim",
+        "map" : "n/a"
+      }]
+    },
+    {
+      "id" : "Extension.extension:container.extension:type.extension",
+      "path" : "Extension.extension.extension.extension",
+      "slicing" : {
+        "discriminator" : [{
+          "type" : "value",
+          "path" : "url"
+        }],
+        "description" : "Extensions are always sliced by (at least) url",
+        "rules" : "open"
+      },
+      "short" : "Extension",
+      "definition" : "An Extension",
+      "min" : 0,
+      "max" : "0",
+      "base" : {
+        "path" : "Element.extension",
+        "min" : 0,
+        "max" : "*"
+      },
+      "type" : [{
+        "code" : "Extension"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      },
+      {
+        "key" : "ext-1",
+        "severity" : "error",
+        "human" : "Must have either extensions or value[x], not both",
+        "expression" : "extension.exists() != value.exists()",
+        "xpath" : "exists(f:extension)!=exists(f:*[starts-with(local-name(.), \"value\")])",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Extension"
+      }],
+      "isModifier" : false,
+      "isSummary" : false
+    },
+    {
+      "id" : "Extension.extension:container.extension:type.url",
+      "path" : "Extension.extension.extension.url",
+      "representation" : ["xmlAttr"],
+      "short" : "identifies the meaning of the extension",
+      "definition" : "Source of the definition for the extension code - a logical name or a URL.",
+      "comment" : "The definition may point directly to a computable or human-readable definition of the extensibility codes, or it may be a logical URI as declared in some other specification. The definition SHALL be a URI for the Structure Definition defining the extension.",
+      "min" : 1,
+      "max" : "1",
+      "base" : {
+        "path" : "Extension.url",
+        "min" : 1,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "uri"
+      }],
+      "fixedUri" : "type",
+      "isModifier" : false,
+      "isSummary" : false,
+      "mapping" : [{
+        "identity" : "rim",
+        "map" : "N/A"
+      }]
+    },
+    {
+      "id" : "Extension.extension:container.extension:type.value[x]",
+      "path" : "Extension.extension.extension.value[x]",
+      "short" : "Value of extension",
+      "definition" : "Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).",
+      "min" : 1,
+      "max" : "1",
+      "base" : {
+        "path" : "Extension.value[x]",
+        "min" : 0,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "CodeableConcept"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : false,
+      "mapping" : [{
+        "identity" : "rim",
+        "map" : "N/A"
+      }]
+    },
+    {
+      "id" : "Extension.extension:container.extension:quantity",
+      "path" : "Extension.extension.extension",
+      "sliceName" : "quantity",
+      "short" : "Extension",
+      "definition" : "Amount or volume of the drug product in the container.  Expressed as a ratio of the amount of drug per volume of container.",
+      "min" : 0,
+      "max" : "1",
+      "base" : {
+        "path" : "Element.extension",
+        "min" : 0,
+        "max" : "*"
+      },
+      "type" : [{
+        "code" : "Extension"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      },
+      {
+        "key" : "ext-1",
+        "severity" : "error",
+        "human" : "Must have either extensions or value[x], not both",
+        "expression" : "extension.exists() != value.exists()",
+        "xpath" : "exists(f:extension)!=exists(f:*[starts-with(local-name(.), \"value\")])",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Extension"
+      }],
+      "isModifier" : false,
+      "isSummary" : false
+    },
+    {
+      "id" : "Extension.extension:container.extension:quantity.id",
+      "path" : "Extension.extension.extension.id",
+      "representation" : ["xmlAttr"],
+      "short" : "Unique id for inter-element referencing",
+      "definition" : "Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.",
+      "min" : 0,
+      "max" : "1",
+      "base" : {
+        "path" : "Element.id",
+        "min" : 0,
+        "max" : "1"
+      },
+      "type" : [{
+        "extension" : [{
+          "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-fhir-type",
+          "valueUrl" : "id"
+        }],
+        "code" : "http://hl7.org/fhirpath/System.String"
+      }],
+      "isModifier" : false,
+      "isSummary" : false,
+      "mapping" : [{
+        "identity" : "rim",
+        "map" : "n/a"
+      }]
+    },
+    {
+      "id" : "Extension.extension:container.extension:quantity.extension",
+      "path" : "Extension.extension.extension.extension",
+      "slicing" : {
+        "discriminator" : [{
+          "type" : "value",
+          "path" : "url"
+        }],
+        "description" : "Extensions are always sliced by (at least) url",
+        "rules" : "open"
+      },
+      "short" : "Extension",
+      "definition" : "An Extension",
+      "min" : 0,
+      "max" : "0",
+      "base" : {
+        "path" : "Element.extension",
+        "min" : 0,
+        "max" : "*"
+      },
+      "type" : [{
+        "code" : "Extension"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      },
+      {
+        "key" : "ext-1",
+        "severity" : "error",
+        "human" : "Must have either extensions or value[x], not both",
+        "expression" : "extension.exists() != value.exists()",
+        "xpath" : "exists(f:extension)!=exists(f:*[starts-with(local-name(.), \"value\")])",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Extension"
+      }],
+      "isModifier" : false,
+      "isSummary" : false
+    },
+    {
+      "id" : "Extension.extension:container.extension:quantity.url",
+      "path" : "Extension.extension.extension.url",
+      "representation" : ["xmlAttr"],
+      "short" : "identifies the meaning of the extension",
+      "definition" : "Source of the definition for the extension code - a logical name or a URL.",
+      "comment" : "The definition may point directly to a computable or human-readable definition of the extensibility codes, or it may be a logical URI as declared in some other specification. The definition SHALL be a URI for the Structure Definition defining the extension.",
+      "min" : 1,
+      "max" : "1",
+      "base" : {
+        "path" : "Extension.url",
+        "min" : 1,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "uri"
+      }],
+      "fixedUri" : "quantity",
+      "isModifier" : false,
+      "isSummary" : false,
+      "mapping" : [{
+        "identity" : "rim",
+        "map" : "N/A"
+      }]
+    },
+    {
+      "id" : "Extension.extension:container.extension:quantity.value[x]",
+      "path" : "Extension.extension.extension.value[x]",
+      "short" : "Value of extension",
+      "definition" : "Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).",
+      "min" : 1,
+      "max" : "1",
+      "base" : {
+        "path" : "Extension.value[x]",
+        "min" : 0,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "Ratio"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : false,
+      "mapping" : [{
+        "identity" : "rim",
+        "map" : "N/A"
+      }]
+    },
+    {
+      "id" : "Extension.extension:container.extension:closureSystemDescription",
+      "path" : "Extension.extension.extension",
+      "sliceName" : "closureSystemDescription",
+      "short" : "Extension",
+      "definition" : "A description of the sum of container closure system (CCS) components that together contain and protect the dosage form or drug substance.",
+      "min" : 0,
+      "max" : "1",
+      "base" : {
+        "path" : "Element.extension",
+        "min" : 0,
+        "max" : "*"
+      },
+      "type" : [{
+        "code" : "Extension"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      },
+      {
+        "key" : "ext-1",
+        "severity" : "error",
+        "human" : "Must have either extensions or value[x], not both",
+        "expression" : "extension.exists() != value.exists()",
+        "xpath" : "exists(f:extension)!=exists(f:*[starts-with(local-name(.), \"value\")])",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Extension"
+      }],
+      "isModifier" : false,
+      "isSummary" : false
+    },
+    {
+      "id" : "Extension.extension:container.extension:closureSystemDescription.id",
+      "path" : "Extension.extension.extension.id",
+      "representation" : ["xmlAttr"],
+      "short" : "Unique id for inter-element referencing",
+      "definition" : "Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.",
+      "min" : 0,
+      "max" : "1",
+      "base" : {
+        "path" : "Element.id",
+        "min" : 0,
+        "max" : "1"
+      },
+      "type" : [{
+        "extension" : [{
+          "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-fhir-type",
+          "valueUrl" : "id"
+        }],
+        "code" : "http://hl7.org/fhirpath/System.String"
+      }],
+      "isModifier" : false,
+      "isSummary" : false,
+      "mapping" : [{
+        "identity" : "rim",
+        "map" : "n/a"
+      }]
+    },
+    {
+      "id" : "Extension.extension:container.extension:closureSystemDescription.extension",
+      "path" : "Extension.extension.extension.extension",
+      "slicing" : {
+        "discriminator" : [{
+          "type" : "value",
+          "path" : "url"
+        }],
+        "description" : "Extensions are always sliced by (at least) url",
+        "rules" : "open"
+      },
+      "short" : "Extension",
+      "definition" : "An Extension",
+      "min" : 0,
+      "max" : "0",
+      "base" : {
+        "path" : "Element.extension",
+        "min" : 0,
+        "max" : "*"
+      },
+      "type" : [{
+        "code" : "Extension"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      },
+      {
+        "key" : "ext-1",
+        "severity" : "error",
+        "human" : "Must have either extensions or value[x], not both",
+        "expression" : "extension.exists() != value.exists()",
+        "xpath" : "exists(f:extension)!=exists(f:*[starts-with(local-name(.), \"value\")])",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Extension"
+      }],
+      "isModifier" : false,
+      "isSummary" : false
+    },
+    {
+      "id" : "Extension.extension:container.extension:closureSystemDescription.url",
+      "path" : "Extension.extension.extension.url",
+      "representation" : ["xmlAttr"],
+      "short" : "identifies the meaning of the extension",
+      "definition" : "Source of the definition for the extension code - a logical name or a URL.",
+      "comment" : "The definition may point directly to a computable or human-readable definition of the extensibility codes, or it may be a logical URI as declared in some other specification. The definition SHALL be a URI for the Structure Definition defining the extension.",
+      "min" : 1,
+      "max" : "1",
+      "base" : {
+        "path" : "Extension.url",
+        "min" : 1,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "uri"
+      }],
+      "fixedUri" : "closureSystemDescription",
+      "isModifier" : false,
+      "isSummary" : false,
+      "mapping" : [{
+        "identity" : "rim",
+        "map" : "N/A"
+      }]
+    },
+    {
+      "id" : "Extension.extension:container.extension:closureSystemDescription.value[x]",
+      "path" : "Extension.extension.extension.value[x]",
+      "short" : "Value of extension",
+      "definition" : "Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).",
+      "min" : 1,
+      "max" : "1",
+      "base" : {
+        "path" : "Extension.value[x]",
+        "min" : 0,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "string"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : false,
+      "mapping" : [{
+        "identity" : "rim",
+        "map" : "N/A"
+      }]
+    },
+    {
+      "id" : "Extension.extension:container.extension:closureType",
+      "path" : "Extension.extension.extension",
+      "sliceName" : "closureType",
+      "short" : "Extension",
+      "definition" : "The kind of closures used for the container in which the drug substances and finished dosage forms are stored.",
+      "min" : 0,
+      "max" : "1",
+      "base" : {
+        "path" : "Element.extension",
+        "min" : 0,
+        "max" : "*"
+      },
+      "type" : [{
+        "code" : "Extension"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      },
+      {
+        "key" : "ext-1",
+        "severity" : "error",
+        "human" : "Must have either extensions or value[x], not both",
+        "expression" : "extension.exists() != value.exists()",
+        "xpath" : "exists(f:extension)!=exists(f:*[starts-with(local-name(.), \"value\")])",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Extension"
+      }],
+      "isModifier" : false,
+      "isSummary" : false
+    },
+    {
+      "id" : "Extension.extension:container.extension:closureType.id",
+      "path" : "Extension.extension.extension.id",
+      "representation" : ["xmlAttr"],
+      "short" : "Unique id for inter-element referencing",
+      "definition" : "Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.",
+      "min" : 0,
+      "max" : "1",
+      "base" : {
+        "path" : "Element.id",
+        "min" : 0,
+        "max" : "1"
+      },
+      "type" : [{
+        "extension" : [{
+          "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-fhir-type",
+          "valueUrl" : "id"
+        }],
+        "code" : "http://hl7.org/fhirpath/System.String"
+      }],
+      "isModifier" : false,
+      "isSummary" : false,
+      "mapping" : [{
+        "identity" : "rim",
+        "map" : "n/a"
+      }]
+    },
+    {
+      "id" : "Extension.extension:container.extension:closureType.extension",
+      "path" : "Extension.extension.extension.extension",
+      "slicing" : {
+        "discriminator" : [{
+          "type" : "value",
+          "path" : "url"
+        }],
+        "description" : "Extensions are always sliced by (at least) url",
+        "rules" : "open"
+      },
+      "short" : "Extension",
+      "definition" : "An Extension",
+      "min" : 0,
+      "max" : "0",
+      "base" : {
+        "path" : "Element.extension",
+        "min" : 0,
+        "max" : "*"
+      },
+      "type" : [{
+        "code" : "Extension"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      },
+      {
+        "key" : "ext-1",
+        "severity" : "error",
+        "human" : "Must have either extensions or value[x], not both",
+        "expression" : "extension.exists() != value.exists()",
+        "xpath" : "exists(f:extension)!=exists(f:*[starts-with(local-name(.), \"value\")])",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Extension"
+      }],
+      "isModifier" : false,
+      "isSummary" : false
+    },
+    {
+      "id" : "Extension.extension:container.extension:closureType.url",
+      "path" : "Extension.extension.extension.url",
+      "representation" : ["xmlAttr"],
+      "short" : "identifies the meaning of the extension",
+      "definition" : "Source of the definition for the extension code - a logical name or a URL.",
+      "comment" : "The definition may point directly to a computable or human-readable definition of the extensibility codes, or it may be a logical URI as declared in some other specification. The definition SHALL be a URI for the Structure Definition defining the extension.",
+      "min" : 1,
+      "max" : "1",
+      "base" : {
+        "path" : "Extension.url",
+        "min" : 1,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "uri"
+      }],
+      "fixedUri" : "closureType",
+      "isModifier" : false,
+      "isSummary" : false,
+      "mapping" : [{
+        "identity" : "rim",
+        "map" : "N/A"
+      }]
+    },
+    {
+      "id" : "Extension.extension:container.extension:closureType.value[x]",
+      "path" : "Extension.extension.extension.value[x]",
+      "short" : "Value of extension",
+      "definition" : "Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).",
+      "min" : 1,
+      "max" : "1",
+      "base" : {
+        "path" : "Extension.value[x]",
+        "min" : 0,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "CodeableConcept"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : false,
+      "mapping" : [{
+        "identity" : "rim",
+        "map" : "N/A"
+      }]
+    },
+    {
+      "id" : "Extension.extension:container.url",
+      "path" : "Extension.extension.url",
+      "representation" : ["xmlAttr"],
+      "short" : "identifies the meaning of the extension",
+      "definition" : "Source of the definition for the extension code - a logical name or a URL.",
+      "comment" : "The definition may point directly to a computable or human-readable definition of the extensibility codes, or it may be a logical URI as declared in some other specification. The definition SHALL be a URI for the Structure Definition defining the extension.",
+      "min" : 1,
+      "max" : "1",
+      "base" : {
+        "path" : "Extension.url",
+        "min" : 1,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "uri"
+      }],
+      "fixedUri" : "container",
+      "isModifier" : false,
+      "isSummary" : false,
+      "mapping" : [{
+        "identity" : "rim",
+        "map" : "N/A"
+      }]
+    },
+    {
+      "id" : "Extension.extension:container.value[x]",
+      "path" : "Extension.extension.value[x]",
+      "short" : "Value of extension",
+      "definition" : "Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).",
+      "min" : 0,
+      "max" : "0",
+      "base" : {
+        "path" : "Extension.value[x]",
+        "min" : 0,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "base64Binary"
+      },
+      {
+        "code" : "boolean"
+      },
+      {
+        "code" : "canonical"
+      },
+      {
+        "code" : "code"
+      },
+      {
+        "code" : "date"
+      },
+      {
+        "code" : "dateTime"
+      },
+      {
+        "code" : "decimal"
+      },
+      {
+        "code" : "id"
+      },
+      {
+        "code" : "instant"
+      },
+      {
+        "code" : "integer"
+      },
+      {
+        "code" : "integer64"
+      },
+      {
+        "code" : "markdown"
+      },
+      {
+        "code" : "oid"
+      },
+      {
+        "code" : "positiveInt"
+      },
+      {
+        "code" : "string"
+      },
+      {
+        "code" : "time"
+      },
+      {
+        "code" : "unsignedInt"
+      },
+      {
+        "code" : "uri"
+      },
+      {
+        "code" : "url"
+      },
+      {
+        "code" : "uuid"
+      },
+      {
+        "code" : "Address"
+      },
+      {
+        "code" : "Age"
+      },
+      {
+        "code" : "Annotation"
+      },
+      {
+        "code" : "Attachment"
+      },
+      {
+        "code" : "CodeableConcept"
+      },
+      {
+        "code" : "CodeableReference"
+      },
+      {
+        "code" : "Coding"
+      },
+      {
+        "code" : "ContactPoint"
+      },
+      {
+        "code" : "Count"
+      },
+      {
+        "code" : "Distance"
+      },
+      {
+        "code" : "Duration"
+      },
+      {
+        "code" : "HumanName"
+      },
+      {
+        "code" : "Identifier"
+      },
+      {
+        "code" : "Money"
+      },
+      {
+        "code" : "Period"
+      },
+      {
+        "code" : "Quantity"
+      },
+      {
+        "code" : "Range"
+      },
+      {
+        "code" : "Ratio"
+      },
+      {
+        "code" : "RatioRange"
+      },
+      {
+        "code" : "Reference"
+      },
+      {
+        "code" : "SampledData"
+      },
+      {
+        "code" : "Signature"
+      },
+      {
+        "code" : "Timing"
+      },
+      {
+        "code" : "ContactDetail"
+      },
+      {
+        "code" : "Contributor"
+      },
+      {
+        "code" : "DataRequirement"
+      },
+      {
+        "code" : "Expression"
+      },
+      {
+        "code" : "ParameterDefinition"
+      },
+      {
+        "code" : "RelatedArtifact"
+      },
+      {
+        "code" : "TriggerDefinition"
+      },
+      {
+        "code" : "UsageContext"
+      },
+      {
+        "code" : "Dosage"
+      },
+      {
+        "code" : "Meta"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : false,
+      "mapping" : [{
+        "identity" : "rim",
+        "map" : "N/A"
+      }]
+    },
+    {
+      "id" : "Extension.url",
+      "path" : "Extension.url",
+      "representation" : ["xmlAttr"],
+      "short" : "identifies the meaning of the extension",
+      "definition" : "Source of the definition for the extension code - a logical name or a URL.",
+      "comment" : "The definition may point directly to a computable or human-readable definition of the extensibility codes, or it may be a logical URI as declared in some other specification. The definition SHALL be a URI for the Structure Definition defining the extension.",
+      "min" : 1,
+      "max" : "1",
+      "base" : {
+        "path" : "Extension.url",
+        "min" : 1,
+        "max" : "1"
+      },
+      "type" : [{
+        "extension" : [{
+          "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-fhir-type",
+          "valueUrl" : "uri"
+        }],
+        "code" : "http://hl7.org/fhirpath/System.String"
+      }],
+      "fixedUri" : "http://hl7.org/fhir/StructureDefinition/medication-manufacturingBatch",
+      "isModifier" : false,
+      "isSummary" : false,
+      "mapping" : [{
+        "identity" : "rim",
+        "map" : "N/A"
+      }]
+    },
+    {
+      "id" : "Extension.value[x]",
+      "path" : "Extension.value[x]",
+      "short" : "Value of extension",
+      "definition" : "Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).",
+      "min" : 0,
+      "max" : "0",
+      "base" : {
+        "path" : "Extension.value[x]",
+        "min" : 0,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "base64Binary"
+      },
+      {
+        "code" : "boolean"
+      },
+      {
+        "code" : "canonical"
+      },
+      {
+        "code" : "code"
+      },
+      {
+        "code" : "date"
+      },
+      {
+        "code" : "dateTime"
+      },
+      {
+        "code" : "decimal"
+      },
+      {
+        "code" : "id"
+      },
+      {
+        "code" : "instant"
+      },
+      {
+        "code" : "integer"
+      },
+      {
+        "code" : "integer64"
+      },
+      {
+        "code" : "markdown"
+      },
+      {
+        "code" : "oid"
+      },
+      {
+        "code" : "positiveInt"
+      },
+      {
+        "code" : "string"
+      },
+      {
+        "code" : "time"
+      },
+      {
+        "code" : "unsignedInt"
+      },
+      {
+        "code" : "uri"
+      },
+      {
+        "code" : "url"
+      },
+      {
+        "code" : "uuid"
+      },
+      {
+        "code" : "Address"
+      },
+      {
+        "code" : "Age"
+      },
+      {
+        "code" : "Annotation"
+      },
+      {
+        "code" : "Attachment"
+      },
+      {
+        "code" : "CodeableConcept"
+      },
+      {
+        "code" : "CodeableReference"
+      },
+      {
+        "code" : "Coding"
+      },
+      {
+        "code" : "ContactPoint"
+      },
+      {
+        "code" : "Count"
+      },
+      {
+        "code" : "Distance"
+      },
+      {
+        "code" : "Duration"
+      },
+      {
+        "code" : "HumanName"
+      },
+      {
+        "code" : "Identifier"
+      },
+      {
+        "code" : "Money"
+      },
+      {
+        "code" : "Period"
+      },
+      {
+        "code" : "Quantity"
+      },
+      {
+        "code" : "Range"
+      },
+      {
+        "code" : "Ratio"
+      },
+      {
+        "code" : "RatioRange"
+      },
+      {
+        "code" : "Reference"
+      },
+      {
+        "code" : "SampledData"
+      },
+      {
+        "code" : "Signature"
+      },
+      {
+        "code" : "Timing"
+      },
+      {
+        "code" : "ContactDetail"
+      },
+      {
+        "code" : "Contributor"
+      },
+      {
+        "code" : "DataRequirement"
+      },
+      {
+        "code" : "Expression"
+      },
+      {
+        "code" : "ParameterDefinition"
+      },
+      {
+        "code" : "RelatedArtifact"
+      },
+      {
+        "code" : "TriggerDefinition"
+      },
+      {
+        "code" : "UsageContext"
+      },
+      {
+        "code" : "Dosage"
+      },
+      {
+        "code" : "Meta"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : false,
+      "mapping" : [{
+        "identity" : "rim",
+        "map" : "N/A"
+      }]
+    }]
+  },
+  "differential" : {
+    "element" : [{
+      "id" : "Extension",
+      "path" : "Extension",
+      "min" : 0,
+      "max" : "1"
+    },
+    {
+      "id" : "Extension.extension:manufacturingDate",
+      "path" : "Extension.extension",
+      "sliceName" : "manufacturingDate",
+      "definition" : "The date at which the drug substance or drug product was manufactured.  The specific operation/step in the process used to determine the date is specified by the manufacturingDateClassification element.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Extension"
+      }]
+    },
+    {
+      "id" : "Extension.extension:manufacturingDate.extension",
+      "path" : "Extension.extension.extension",
+      "max" : "0"
+    },
+    {
+      "id" : "Extension.extension:manufacturingDate.url",
+      "path" : "Extension.extension.url",
+      "type" : [{
+        "code" : "uri"
+      }],
+      "fixedUri" : "manufacturingDate"
+    },
+    {
+      "id" : "Extension.extension:manufacturingDate.value[x]",
+      "path" : "Extension.extension.value[x]",
+      "min" : 1,
+      "type" : [{
+        "code" : "dateTime"
+      }]
+    },
+    {
+      "id" : "Extension.extension:manufacturingDateClassification",
+      "path" : "Extension.extension",
+      "sliceName" : "manufacturingDateClassification",
+      "definition" : "A code that provides a rationale for the selection of the manufacturing date.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Extension"
+      }]
+    },
+    {
+      "id" : "Extension.extension:manufacturingDateClassification.extension",
+      "path" : "Extension.extension.extension",
+      "max" : "0"
+    },
+    {
+      "id" : "Extension.extension:manufacturingDateClassification.url",
+      "path" : "Extension.extension.url",
+      "type" : [{
+        "code" : "uri"
+      }],
+      "fixedUri" : "manufacturingDateClassification"
+    },
+    {
+      "id" : "Extension.extension:manufacturingDateClassification.value[x]",
+      "path" : "Extension.extension.value[x]",
+      "min" : 1,
+      "type" : [{
+        "code" : "CodeableConcept"
+      }]
+    },
+    {
+      "id" : "Extension.extension:assignedManufacturer",
+      "path" : "Extension.extension",
+      "sliceName" : "assignedManufacturer",
+      "definition" : "Describes the details of the actual manufacturer who produced this product on behalf of the sponsor or who wholly or partially produced the medication product. This is intended to identify the exact manufacturing location.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Extension"
+      }]
+    },
+    {
+      "id" : "Extension.extension:assignedManufacturer.extension",
+      "path" : "Extension.extension.extension",
+      "max" : "0"
+    },
+    {
+      "id" : "Extension.extension:assignedManufacturer.url",
+      "path" : "Extension.extension.url",
+      "type" : [{
+        "code" : "uri"
+      }],
+      "fixedUri" : "assignedManufacturer"
+    },
+    {
+      "id" : "Extension.extension:assignedManufacturer.value[x]",
+      "path" : "Extension.extension.value[x]",
+      "min" : 1,
+      "type" : [{
+        "code" : "Reference",
+        "targetProfile" : ["http://hl7.org/fhir/StructureDefinition/Organization"]
+      }]
+    },
+    {
+      "id" : "Extension.extension:expirationDateClassification",
+      "path" : "Extension.extension",
+      "sliceName" : "expirationDateClassification",
+      "definition" : "A code that provides a rationale for the selection of the expiration date.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Extension"
+      }]
+    },
+    {
+      "id" : "Extension.extension:expirationDateClassification.extension",
+      "path" : "Extension.extension.extension",
+      "max" : "0"
+    },
+    {
+      "id" : "Extension.extension:expirationDateClassification.url",
+      "path" : "Extension.extension.url",
+      "type" : [{
+        "code" : "uri"
+      }],
+      "fixedUri" : "expirationDateClassification"
+    },
+    {
+      "id" : "Extension.extension:expirationDateClassification.value[x]",
+      "path" : "Extension.extension.value[x]",
+      "min" : 1,
+      "type" : [{
+        "code" : "CodeableConcept"
+      }]
+    },
+    {
+      "id" : "Extension.extension:batchUtilization",
+      "path" : "Extension.extension",
+      "sliceName" : "batchUtilization",
+      "definition" : "A categorization of the batch that identifies its usage.  Examples: commercial, development, etc.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Extension"
+      }]
+    },
+    {
+      "id" : "Extension.extension:batchUtilization.extension",
+      "path" : "Extension.extension.extension",
+      "max" : "0"
+    },
+    {
+      "id" : "Extension.extension:batchUtilization.url",
+      "path" : "Extension.extension.url",
+      "type" : [{
+        "code" : "uri"
+      }],
+      "fixedUri" : "batchUtilization"
+    },
+    {
+      "id" : "Extension.extension:batchUtilization.value[x]",
+      "path" : "Extension.extension.value[x]",
+      "min" : 1,
+      "type" : [{
+        "code" : "CodeableConcept"
+      }]
+    },
+    {
+      "id" : "Extension.extension:batchQuantity",
+      "path" : "Extension.extension",
+      "sliceName" : "batchQuantity",
+      "definition" : "The amount of drug product produced in this batch.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Extension"
+      }]
+    },
+    {
+      "id" : "Extension.extension:batchQuantity.extension",
+      "path" : "Extension.extension.extension",
+      "max" : "0"
+    },
+    {
+      "id" : "Extension.extension:batchQuantity.url",
+      "path" : "Extension.extension.url",
+      "type" : [{
+        "code" : "uri"
+      }],
+      "fixedUri" : "batchQuantity"
+    },
+    {
+      "id" : "Extension.extension:batchQuantity.value[x]",
+      "path" : "Extension.extension.value[x]",
+      "min" : 1,
+      "type" : [{
+        "code" : "Quantity"
+      }]
+    },
+    {
+      "id" : "Extension.extension:additionalInformation",
+      "path" : "Extension.extension",
+      "sliceName" : "additionalInformation",
+      "definition" : "A placeholder for providing any comments that are relevant to the batch.  Examples: first batch manufactured at a new facility; first batch manufactured using a new Active Pharmaceutical Ingredient (API) source, new process, new container closure, etc.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Extension"
+      }]
+    },
+    {
+      "id" : "Extension.extension:additionalInformation.extension",
+      "path" : "Extension.extension.extension",
+      "max" : "0"
+    },
+    {
+      "id" : "Extension.extension:additionalInformation.url",
+      "path" : "Extension.extension.url",
+      "type" : [{
+        "code" : "uri"
+      }],
+      "fixedUri" : "additionalInformation"
+    },
+    {
+      "id" : "Extension.extension:additionalInformation.value[x]",
+      "path" : "Extension.extension.value[x]",
+      "min" : 1,
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "Extension.extension:container",
+      "path" : "Extension.extension",
+      "sliceName" : "container",
+      "definition" : "Information that applies to how the batch was packaged.",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "Extension"
+      }]
+    },
+    {
+      "id" : "Extension.extension:container.extension:lotNumber",
+      "path" : "Extension.extension.extension",
+      "sliceName" : "lotNumber",
+      "definition" : "A combination of letters, numbers, or symbols, or any combination of them to uniquely identify the container's manufacturing lot.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Extension"
+      }]
+    },
+    {
+      "id" : "Extension.extension:container.extension:lotNumber.extension",
+      "path" : "Extension.extension.extension.extension",
+      "max" : "0"
+    },
+    {
+      "id" : "Extension.extension:container.extension:lotNumber.url",
+      "path" : "Extension.extension.extension.url",
+      "type" : [{
+        "code" : "uri"
+      }],
+      "fixedUri" : "lotNumber"
+    },
+    {
+      "id" : "Extension.extension:container.extension:lotNumber.value[x]",
+      "path" : "Extension.extension.extension.value[x]",
+      "min" : 1,
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "Extension.extension:container.extension:type",
+      "path" : "Extension.extension.extension",
+      "sliceName" : "type",
+      "definition" : "The kind of container that drug substances and finished dosage forms are contained in, which could include both the immediate (or primary) and secondary containers.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Extension"
+      }]
+    },
+    {
+      "id" : "Extension.extension:container.extension:type.extension",
+      "path" : "Extension.extension.extension.extension",
+      "max" : "0"
+    },
+    {
+      "id" : "Extension.extension:container.extension:type.url",
+      "path" : "Extension.extension.extension.url",
+      "type" : [{
+        "code" : "uri"
+      }],
+      "fixedUri" : "type"
+    },
+    {
+      "id" : "Extension.extension:container.extension:type.value[x]",
+      "path" : "Extension.extension.extension.value[x]",
+      "min" : 1,
+      "type" : [{
+        "code" : "CodeableConcept"
+      }]
+    },
+    {
+      "id" : "Extension.extension:container.extension:quantity",
+      "path" : "Extension.extension.extension",
+      "sliceName" : "quantity",
+      "definition" : "Amount or volume of the drug product in the container.  Expressed as a ratio of the amount of drug per volume of container.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Extension"
+      }]
+    },
+    {
+      "id" : "Extension.extension:container.extension:quantity.extension",
+      "path" : "Extension.extension.extension.extension",
+      "max" : "0"
+    },
+    {
+      "id" : "Extension.extension:container.extension:quantity.url",
+      "path" : "Extension.extension.extension.url",
+      "type" : [{
+        "code" : "uri"
+      }],
+      "fixedUri" : "quantity"
+    },
+    {
+      "id" : "Extension.extension:container.extension:quantity.value[x]",
+      "path" : "Extension.extension.extension.value[x]",
+      "min" : 1,
+      "type" : [{
+        "code" : "Ratio"
+      }]
+    },
+    {
+      "id" : "Extension.extension:container.extension:closureSystemDescription",
+      "path" : "Extension.extension.extension",
+      "sliceName" : "closureSystemDescription",
+      "definition" : "A description of the sum of container closure system (CCS) components that together contain and protect the dosage form or drug substance.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Extension"
+      }]
+    },
+    {
+      "id" : "Extension.extension:container.extension:closureSystemDescription.extension",
+      "path" : "Extension.extension.extension.extension",
+      "max" : "0"
+    },
+    {
+      "id" : "Extension.extension:container.extension:closureSystemDescription.url",
+      "path" : "Extension.extension.extension.url",
+      "type" : [{
+        "code" : "uri"
+      }],
+      "fixedUri" : "closureSystemDescription"
+    },
+    {
+      "id" : "Extension.extension:container.extension:closureSystemDescription.value[x]",
+      "path" : "Extension.extension.extension.value[x]",
+      "min" : 1,
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "Extension.extension:container.extension:closureType",
+      "path" : "Extension.extension.extension",
+      "sliceName" : "closureType",
+      "definition" : "The kind of closures used for the container in which the drug substances and finished dosage forms are stored.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Extension"
+      }]
+    },
+    {
+      "id" : "Extension.extension:container.extension:closureType.extension",
+      "path" : "Extension.extension.extension.extension",
+      "max" : "0"
+    },
+    {
+      "id" : "Extension.extension:container.extension:closureType.url",
+      "path" : "Extension.extension.extension.url",
+      "type" : [{
+        "code" : "uri"
+      }],
+      "fixedUri" : "closureType"
+    },
+    {
+      "id" : "Extension.extension:container.extension:closureType.value[x]",
+      "path" : "Extension.extension.extension.value[x]",
+      "min" : 1,
+      "type" : [{
+        "code" : "CodeableConcept"
+      }]
+    },
+    {
+      "id" : "Extension.extension:container.url",
+      "path" : "Extension.extension.url",
+      "type" : [{
+        "code" : "uri"
+      }],
+      "fixedUri" : "container"
+    },
+    {
+      "id" : "Extension.extension:container.value[x]",
+      "path" : "Extension.extension.value[x]",
+      "min" : 0,
+      "max" : "0"
+    },
+    {
+      "id" : "Extension.url",
+      "path" : "Extension.url",
+      "fixedUri" : "http://hl7.org/fhir/StructureDefinition/medication-manufacturingBatch"
+    },
+    {
+      "id" : "Extension.value[x]",
+      "path" : "Extension.value[x]",
+      "min" : 0,
+      "max" : "0"
+    }]
+  }
+}

@@ -18,7 +18,7 @@
     "valueCode" : "trial-use"
   }],
   "url" : "http://hl7.org/fhir/StructureDefinition/elmlibrary",
-  "version" : "5.0.0-snapshot1",
+  "version" : "4.6.0",
   "name" : "ELMLibrary",
   "title" : "ELM Library",
   "status" : "draft",
@@ -26,7 +26,7 @@
   "date" : "2020-12-28T16:55:11+11:00",
   "publisher" : "HL7",
   "description" : "Represents an executable CQL logic library in translated ELM format",
-  "fhirVersion" : "5.0.0-snapshot1",
+  "fhirVersion" : "4.6.0",
   "mapping" : [{
     "identity" : "rim",
     "uri" : "http://hl7.org/v3",
@@ -69,7 +69,7 @@
         "key" : "cnl-0",
         "severity" : "warning",
         "human" : "Name should be usable as an identifier for the module by machine processing applications such as code generation",
-        "expression" : "name.matches('[A-Z]([A-Za-z0-9_]){0,254}')",
+        "expression" : "name.exists() implies name.matches('[A-Z]([A-Za-z0-9_]){0,254}')",
         "xpath" : "not(exists(f:name/@value)) or matches(f:name/@value, '[A-Z]([A-Za-z0-9_]){0,254}')",
         "source" : "http://hl7.org/fhir/StructureDefinition/Library"
       }],
@@ -94,7 +94,7 @@
       "path" : "Library.id",
       "short" : "Logical id of this artifact",
       "definition" : "The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes.",
-      "comment" : "Typically, the resource has an id except for cases like the create operation, conditional updates.",
+      "comment" : "Within the context of the FHIR RESTful interactions, the resource has an id except for cases like the create and conditional update. Otherwise, the use of the resouce id depends on the given use case.",
       "min" : 0,
       "max" : "1",
       "base" : {
@@ -775,7 +775,7 @@
         }],
         "strength" : "required",
         "description" : "The lifecycle status of an artifact.",
-        "valueSet" : "http://hl7.org/fhir/ValueSet/publication-status|5.0.0-snapshot1"
+        "valueSet" : "http://hl7.org/fhir/ValueSet/publication-status|4.6.0"
       },
       "mapping" : [{
         "identity" : "workflow",
@@ -1666,7 +1666,7 @@
       "type" : [{
         "extension" : [{
           "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-fhir-type",
-          "valueUrl" : "string"
+          "valueUrl" : "id"
         }],
         "code" : "http://hl7.org/fhirpath/System.String"
       }],
@@ -1753,7 +1753,7 @@
       }],
       "mustSupport" : true,
       "isModifier" : false,
-      "isSummary" : false,
+      "isSummary" : true,
       "binding" : {
         "extension" : [{
           "url" : "http://hl7.org/fhir/build/StructureDefinition/binding-definition",
@@ -1764,7 +1764,7 @@
           "valueString" : "RelatedArtifactType"
         }],
         "strength" : "required",
-        "valueSet" : "http://hl7.org/fhir/ValueSet/related-artifact-type|5.0.0-snapshot1"
+        "valueSet" : "http://hl7.org/fhir/ValueSet/related-artifact-type|4.6.0"
       }
     },
     {
@@ -1791,7 +1791,7 @@
         "source" : "http://hl7.org/fhir/StructureDefinition/Element"
       }],
       "isModifier" : false,
-      "isSummary" : false,
+      "isSummary" : true,
       "binding" : {
         "extension" : [{
           "url" : "http://hl7.org/fhir/build/StructureDefinition/binding-definition",
@@ -1829,7 +1829,7 @@
         "source" : "http://hl7.org/fhir/StructureDefinition/Element"
       }],
       "isModifier" : false,
-      "isSummary" : false
+      "isSummary" : true
     },
     {
       "id" : "Library.relatedArtifact:dependency.display",
@@ -1855,7 +1855,7 @@
         "source" : "http://hl7.org/fhir/StructureDefinition/Element"
       }],
       "isModifier" : false,
-      "isSummary" : false
+      "isSummary" : true
     },
     {
       "id" : "Library.relatedArtifact:dependency.citation",
@@ -1882,7 +1882,7 @@
         "source" : "http://hl7.org/fhir/StructureDefinition/Element"
       }],
       "isModifier" : false,
-      "isSummary" : false
+      "isSummary" : true
     },
     {
       "id" : "Library.relatedArtifact:dependency.document",
@@ -1908,7 +1908,7 @@
         "source" : "http://hl7.org/fhir/StructureDefinition/Element"
       }],
       "isModifier" : false,
-      "isSummary" : false
+      "isSummary" : true
     },
     {
       "id" : "Library.relatedArtifact:dependency.resource",
@@ -1939,7 +1939,7 @@
       }],
       "mustSupport" : true,
       "isModifier" : false,
-      "isSummary" : false
+      "isSummary" : true
     },
     {
       "id" : "Library.relatedArtifact:dependency.resourceReference",
@@ -1967,7 +1967,7 @@
         "source" : "http://hl7.org/fhir/StructureDefinition/Element"
       }],
       "isModifier" : false,
-      "isSummary" : false
+      "isSummary" : true
     },
     {
       "id" : "Library.parameter",
@@ -2085,7 +2085,7 @@
       "type" : [{
         "extension" : [{
           "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-fhir-type",
-          "valueUrl" : "string"
+          "valueUrl" : "id"
         }],
         "code" : "http://hl7.org/fhirpath/System.String"
       }],
@@ -2191,7 +2191,7 @@
         }],
         "strength" : "required",
         "description" : "BCP 13 (RFCs 2045, 2046, 2047, 4288, 4289 and 2049)",
-        "valueSet" : "http://hl7.org/fhir/ValueSet/mimetypes|5.0.0-snapshot1"
+        "valueSet" : "http://hl7.org/fhir/ValueSet/mimetypes|4.6.0"
       },
       "mapping" : [{
         "identity" : "v2",
@@ -2372,7 +2372,7 @@
       "path" : "Library.content.hash",
       "short" : "Hash of the data (sha-1, base64ed)",
       "definition" : "The calculated hash of the data using SHA-1. Represented using base64.",
-      "comment" : "The hash is calculated on the data prior to base64 encoding, if the data is based64 encoded. The hash is not intended to support digital signatures. Where protection against malicious threats a digital signature should be considered, see [Provenance.signature](??) for mechanism to protect a resource with a digital signature.",
+      "comment" : "The hash is calculated on the data prior to base64 encoding, if the data is based64 encoded. The hash is not intended to support digital signatures. Where protection against malicious threats a digital signature should be considered, see [Provenance.signature](provenance-definitions.html#Provenance.signature) for mechanism to protect a resource with a digital signature.",
       "requirements" : "Included so that applications can verify that the contents of a location have not changed due to technical failures (e.g., storage rot, transport glitch, incorrect version).",
       "min" : 0,
       "max" : "1",
@@ -2690,7 +2690,7 @@
       "type" : [{
         "extension" : [{
           "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-fhir-type",
-          "valueUrl" : "string"
+          "valueUrl" : "id"
         }],
         "code" : "http://hl7.org/fhirpath/System.String"
       }],
@@ -2797,7 +2797,7 @@
         }],
         "strength" : "required",
         "description" : "BCP 13 (RFCs 2045, 2046, 2047, 4288, 4289 and 2049)",
-        "valueSet" : "http://hl7.org/fhir/ValueSet/mimetypes|5.0.0-snapshot1"
+        "valueSet" : "http://hl7.org/fhir/ValueSet/mimetypes|4.6.0"
       },
       "mapping" : [{
         "identity" : "v2",
@@ -2978,7 +2978,7 @@
       "path" : "Library.content.hash",
       "short" : "Hash of the data (sha-1, base64ed)",
       "definition" : "The calculated hash of the data using SHA-1. Represented using base64.",
-      "comment" : "The hash is calculated on the data prior to base64 encoding, if the data is based64 encoded. The hash is not intended to support digital signatures. Where protection against malicious threats a digital signature should be considered, see [Provenance.signature](??) for mechanism to protect a resource with a digital signature.",
+      "comment" : "The hash is calculated on the data prior to base64 encoding, if the data is based64 encoded. The hash is not intended to support digital signatures. Where protection against malicious threats a digital signature should be considered, see [Provenance.signature](provenance-definitions.html#Provenance.signature) for mechanism to protect a resource with a digital signature.",
       "requirements" : "Included so that applications can verify that the contents of a location have not changed due to technical failures (e.g., storage rot, transport glitch, incorrect version).",
       "min" : 0,
       "max" : "1",
@@ -3296,7 +3296,7 @@
       "type" : [{
         "extension" : [{
           "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-fhir-type",
-          "valueUrl" : "string"
+          "valueUrl" : "id"
         }],
         "code" : "http://hl7.org/fhirpath/System.String"
       }],
@@ -3403,7 +3403,7 @@
         }],
         "strength" : "required",
         "description" : "BCP 13 (RFCs 2045, 2046, 2047, 4288, 4289 and 2049)",
-        "valueSet" : "http://hl7.org/fhir/ValueSet/mimetypes|5.0.0-snapshot1"
+        "valueSet" : "http://hl7.org/fhir/ValueSet/mimetypes|4.6.0"
       },
       "mapping" : [{
         "identity" : "v2",
@@ -3584,7 +3584,7 @@
       "path" : "Library.content.hash",
       "short" : "Hash of the data (sha-1, base64ed)",
       "definition" : "The calculated hash of the data using SHA-1. Represented using base64.",
-      "comment" : "The hash is calculated on the data prior to base64 encoding, if the data is based64 encoded. The hash is not intended to support digital signatures. Where protection against malicious threats a digital signature should be considered, see [Provenance.signature](??) for mechanism to protect a resource with a digital signature.",
+      "comment" : "The hash is calculated on the data prior to base64 encoding, if the data is based64 encoded. The hash is not intended to support digital signatures. Where protection against malicious threats a digital signature should be considered, see [Provenance.signature](provenance-definitions.html#Provenance.signature) for mechanism to protect a resource with a digital signature.",
       "requirements" : "Included so that applications can verify that the contents of a location have not changed due to technical failures (e.g., storage rot, transport glitch, incorrect version).",
       "min" : 0,
       "max" : "1",

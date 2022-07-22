@@ -18,7 +18,7 @@
     "valueCode" : "trial-use"
   }],
   "url" : "http://hl7.org/fhir/StructureDefinition/catalog",
-  "version" : "5.0.0-snapshot1",
+  "version" : "4.6.0",
   "name" : "Profile for Catalog",
   "status" : "draft",
   "experimental" : false,
@@ -31,7 +31,7 @@
     }]
   }],
   "description" : "A set of resources composed into a single coherent clinical statement with clinical attestation",
-  "fhirVersion" : "5.0.0-snapshot1",
+  "fhirVersion" : "4.6.0",
   "mapping" : [{
     "identity" : "workflow",
     "uri" : "http://hl7.org/fhir/workflow",
@@ -89,7 +89,7 @@
         "severity" : "error",
         "human" : "If the resource is contained in another resource, it SHALL be referred to from elsewhere in the resource or SHALL refer to the containing resource",
         "expression" : "contained.where((('#'+id in (%resource.descendants().reference | %resource.descendants().as(canonical) | %resource.descendants().as(uri) | %resource.descendants().as(url))) or descendants().where(reference = '#').exists() or descendants().where(as(canonical) = '#').exists() or descendants().where(as(canonical) = '#').exists()).not()).trace('unmatched', id).empty()",
-        "xpath" : "not(exists(for $id in f:contained/*/f:id/@value return $contained[not(parent::*/descendant::f:reference/@value=concat('#', $contained/*/id/@value) or descendant::f:reference[@value='#'])]))",
+        "xpath" : "not(exists(for $contained in f:contained return $contained[not(exists(parent::*/descendant::f:reference/@value=concat('#', $contained/*/f:id/@value)) or exists(descendant::f:reference[@value='#']))]))",
         "source" : "http://hl7.org/fhir/StructureDefinition/DomainResource"
       },
       {
@@ -157,7 +157,7 @@
       "path" : "Composition.id",
       "short" : "Logical id of this artifact",
       "definition" : "The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes.",
-      "comment" : "Typically, the resource has an id except for cases like the create operation, conditional updates.",
+      "comment" : "Within the context of the FHIR RESTful interactions, the resource has an id except for cases like the create and conditional update. Otherwise, the use of the resouce id depends on the given use case.",
       "min" : 0,
       "max" : "1",
       "base" : {
@@ -464,6 +464,43 @@
       }]
     },
     {
+      "id" : "Composition.url",
+      "path" : "Composition.url",
+      "short" : "Canonical identifier for this Composition, represented as a URI (globally unique)",
+      "definition" : "An absolute URI that is used to identify this Composition when it is referenced in a specification, model, design or an instance; also called its canonical identifier. This SHOULD be globally unique and SHOULD be a literal address at which at which an authoritative instance of this Composition is (or will be) published. This URL can be the target of a canonical reference. It SHALL remain the same when the Composition is stored on different servers.",
+      "comment" : "Can be a urn:uuid: or a urn:oid: but real http: addresses are preferred. Multiple instances may share the same URL if they have a distinct version.",
+      "requirements" : "Allows the Composition to be referenced by a single globally unique identifier.",
+      "min" : 0,
+      "max" : "1",
+      "base" : {
+        "path" : "Composition.url",
+        "min" : 0,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "uri"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "mustSupport" : false,
+      "isModifier" : false,
+      "isSummary" : true,
+      "mapping" : [{
+        "identity" : "workflow",
+        "map" : "Definition.url"
+      },
+      {
+        "identity" : "w5",
+        "map" : "FiveWs.identifier"
+      }]
+    },
+    {
       "id" : "Composition.identifier",
       "path" : "Composition.identifier",
       "short" : "Version-independent identifier for the Composition",
@@ -512,6 +549,46 @@
       }]
     },
     {
+      "id" : "Composition.version",
+      "path" : "Composition.version",
+      "short" : "An explicitly assigned identifer of a variation of the content in the Composition",
+      "definition" : "An explicitly assigned identifer of a variation of the content in the Composition.",
+      "comment" : "While each resource, including the composition itself, has its own version identifier, this is a formal identifier for the logical version of the Composition as a whole. It would remain constant if the resources were moved to a new server, and all got new individual resource versions, for example.",
+      "min" : 0,
+      "max" : "1",
+      "base" : {
+        "path" : "Composition.version",
+        "min" : 0,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "string"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "mustSupport" : false,
+      "isModifier" : false,
+      "isSummary" : true,
+      "mapping" : [{
+        "identity" : "workflow",
+        "map" : "Definition.version"
+      },
+      {
+        "identity" : "w5",
+        "map" : "FiveWs.version"
+      },
+      {
+        "identity" : "cda",
+        "map" : ".versionNumber"
+      }]
+    },
+    {
       "id" : "Composition.status",
       "path" : "Composition.status",
       "short" : "preliminary | final | amended | entered-in-error | deprecated",
@@ -547,7 +624,7 @@
         }],
         "strength" : "required",
         "description" : "The workflow/clinical status of the composition.",
-        "valueSet" : "http://hl7.org/fhir/ValueSet/composition-status|5.0.0-snapshot1"
+        "valueSet" : "http://hl7.org/fhir/ValueSet/composition-status|4.6.0"
       },
       "mapping" : [{
         "identity" : "workflow",
@@ -636,7 +713,7 @@
       "path" : "Composition.category",
       "short" : "The Content of the section",
       "definition" : "The content (narrative and data) associated with the section.",
-      "comment" : "This is a metadata field from [XDS/MHD](http://wiki.ihe.net/index.php?title=Mobile_access_to_Health_Documents_(MHD)).",
+      "comment" : "This is a metadata field from [XDS/MHD](https://profiles.ihe.net/ITI/MHD/index.html).",
       "requirements" : "Helps humans to assess whether the composition is of interest when viewing an index of compositions or documents.",
       "min" : 1,
       "max" : "1",
@@ -840,6 +917,39 @@
       }]
     },
     {
+      "id" : "Composition.useContext",
+      "path" : "Composition.useContext",
+      "short" : "The context that the content is intended to support",
+      "definition" : "The content was developed with a focus and intent of supporting the contexts that are listed. These contexts may be general categories (gender, age, ...) or may be references to specific programs (insurance plans, studies, ...) and may be used to assist with indexing and searching for appropriate Composition instances.",
+      "comment" : "When multiple useContexts are specified, there is no expectation that all or any of the contexts apply.",
+      "requirements" : "Assist in searching for appropriate content.",
+      "min" : 0,
+      "max" : "*",
+      "base" : {
+        "path" : "Composition.useContext",
+        "min" : 0,
+        "max" : "*"
+      },
+      "type" : [{
+        "code" : "UsageContext"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "mustSupport" : false,
+      "isModifier" : false,
+      "isSummary" : true,
+      "mapping" : [{
+        "identity" : "workflow",
+        "map" : "Definition.useContext"
+      }]
+    },
+    {
       "id" : "Composition.author",
       "path" : "Composition.author",
       "short" : "Who and/or what authored the composition",
@@ -894,6 +1004,35 @@
       }]
     },
     {
+      "id" : "Composition.name",
+      "path" : "Composition.name",
+      "short" : "Name for this Composition (computer friendly)",
+      "definition" : "A natural language name identifying the {{title}}. This name should be usable as an identifier for the module by machine processing applications such as code generation.",
+      "comment" : "The name is not expected to be globally unique. The name should be a simple alphanumeric type name to ensure that it is machine-processing friendly.",
+      "requirements" : "Support human navigation and code generation.",
+      "min" : 0,
+      "max" : "1",
+      "base" : {
+        "path" : "Composition.name",
+        "min" : 0,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "string"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "mustSupport" : false,
+      "isModifier" : false,
+      "isSummary" : true
+    },
+    {
       "id" : "Composition.title",
       "path" : "Composition.title",
       "short" : "Human Readable name/title",
@@ -932,6 +1071,34 @@
         "identity" : "fhirdocumentreference",
         "map" : "DocumentReference.description, DocumentReference.content.attachment.title"
       }]
+    },
+    {
+      "id" : "Composition.note",
+      "path" : "Composition.note",
+      "short" : "For any additional notes",
+      "definition" : "For any additional notes.",
+      "comment" : "A comment, general note or annotation not coded elsewhere.",
+      "min" : 0,
+      "max" : "*",
+      "base" : {
+        "path" : "Composition.note",
+        "min" : 0,
+        "max" : "*"
+      },
+      "type" : [{
+        "code" : "Annotation"
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "mustSupport" : false,
+      "isModifier" : false,
+      "isSummary" : false
     },
     {
       "id" : "Composition.confidentiality",
@@ -1039,7 +1206,7 @@
       "type" : [{
         "extension" : [{
           "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-fhir-type",
-          "valueUrl" : "id"
+          "valueUrl" : "string"
         }],
         "code" : "http://hl7.org/fhirpath/System.String"
       }],
@@ -1308,7 +1475,7 @@
       "path" : "Composition.relatesTo",
       "short" : "Relationships to other compositions/documents",
       "definition" : "Relationships that this composition has with other compositions or documents that already exist.",
-      "comment" : "A document is a version specific composition.",
+      "comment" : "To reference (using relatesTo) a Bundle of type \"document\" or another Composition where you only have the identifier, use a resourceReference with an identifier.\\nHere is an example of using relatesTo to reference another Bundle of type \"document\" or Composition where you only have the identifier:\n```\n<relatesTo  >\n    <type value=\"replaces\" />\n<resourceReference>\n<identifier>\n<system value=\"...\" />\n<value value=\"...\" />\n</identifier>\n</resourceReference>\n</relatesTo>\n```",
       "min" : 0,
       "max" : "*",
       "base" : {
@@ -1400,7 +1567,7 @@
       "type" : [{
         "extension" : [{
           "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-fhir-type",
-          "valueUrl" : "id"
+          "valueUrl" : "string"
         }],
         "code" : "http://hl7.org/fhirpath/System.String"
       }],
@@ -1691,7 +1858,7 @@
       "type" : [{
         "extension" : [{
           "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-fhir-type",
-          "valueUrl" : "id"
+          "valueUrl" : "string"
         }],
         "code" : "http://hl7.org/fhirpath/System.String"
       }],
@@ -2024,7 +2191,7 @@
         }],
         "strength" : "required",
         "description" : "The processing mode that applies to this section.",
-        "valueSet" : "http://hl7.org/fhir/ValueSet/list-mode|5.0.0-snapshot1"
+        "valueSet" : "http://hl7.org/fhir/ValueSet/list-mode|4.6.0"
       },
       "mapping" : [{
         "identity" : "w5",

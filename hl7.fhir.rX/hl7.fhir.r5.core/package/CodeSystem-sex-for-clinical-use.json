@@ -1,0 +1,62 @@
+{
+  "resourceType" : "CodeSystem",
+  "id" : "sex-for-clinical-use",
+  "meta" : {
+    "lastUpdated" : "2022-07-18T14:56:19.712+10:00",
+    "profile" : ["http://hl7.org/fhir/StructureDefinition/shareablecodesystem"]
+  },
+  "text" : {
+    "status" : "generated",
+    "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>Properties</b></p><table class=\"grid\"><tr><td><b>Code</b></td><td><b>URL</b></td><td><b>Type</b></td><td><b>Description</b></td></tr><tr><td>usage-note</td><td>http://hl7.org/fhir/sex-for-clinical-use/property/usage-note</td><td>string</td><td>Usage notes for the concept.</td></tr></table><p>This code system http://hl7.org/fhir/sex-for-clinical-use defines the following codes:</p><table class=\"codes\"><tr><td style=\"white-space:nowrap\"><b>Code</b></td><td><b>Display</b></td><td><b>Definition</b></td></tr><tr><td style=\"white-space:nowrap\">female<a name=\"sex-for-clinical-use-female\"> </a></td><td>Female sex for clinical use</td><td>Available data indicates that diagnostics, analytics, and treatments should consider best practices associated with female reference populations.</td></tr><tr><td style=\"white-space:nowrap\">male<a name=\"sex-for-clinical-use-male\"> </a></td><td>Male sex for clinical use</td><td>Available data indicates that diagnostics, analytics, and treatments should consider best practices associated with male reference populations.</td></tr><tr><td style=\"white-space:nowrap\">specified<a name=\"sex-for-clinical-use-specified\"> </a></td><td>Specified sex for clinical use</td><td>Available data indicates that diagnostics, analytics, and treatment best practices may be undefined or not aligned with sex-derived reference populations.  Additional information (usually, but not always, in the form of comments and/or observations) is available, but does not align with male sex for clinical use or female sex for clinical use. </td></tr><tr><td style=\"white-space:nowrap\">unknown<a name=\"sex-for-clinical-use-unknown\"> </a></td><td>Unknown</td><td>No information can be provided.</td></tr></table></div>"
+  },
+  "extension" : [{
+    "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg",
+    "valueCode" : "pa"
+  }],
+  "url" : "http://hl7.org/fhir/sex-for-clinical-use",
+  "identifier" : [{
+    "system" : "urn:ietf:rfc:3986",
+    "value" : "urn:oid:2.16.840.1.113883.4.642.1.983"
+  }],
+  "version" : "4.6.0",
+  "name" : "SexForClinicalUse",
+  "status" : "draft",
+  "experimental" : true,
+  "description" : "This code System defines a set of codes that can be used to indicate a patient's sex for clinical use.",
+  "caseSensitive" : true,
+  "content" : "complete",
+  "property" : [{
+    "code" : "usage-note",
+    "uri" : "http://hl7.org/fhir/sex-for-clinical-use/property/usage-note",
+    "description" : "Usage notes for the concept.",
+    "type" : "string"
+  }],
+  "concept" : [{
+    "code" : "female",
+    "display" : "Female sex for clinical use",
+    "definition" : "Available data indicates that diagnostics, analytics, and treatments should consider best practices associated with female reference populations."
+  },
+  {
+    "code" : "male",
+    "display" : "Male sex for clinical use",
+    "definition" : "Available data indicates that diagnostics, analytics, and treatments should consider best practices associated with male reference populations."
+  },
+  {
+    "code" : "specified",
+    "display" : "Specified sex for clinical use",
+    "definition" : "Available data indicates that diagnostics, analytics, and treatment best practices may be undefined or not aligned with sex-derived reference populations.  Additional information (usually, but not always, in the form of comments and/or observations) is available, but does not align with male sex for clinical use or female sex for clinical use. ",
+    "property" : [{
+      "code" : "usage-note",
+      "valueString" : "Individuals or systems providing care should either use default behavior that is safe for both male and female populations, individually review treatment options with the patient, or carefully inspect comments and relevant observations before proceeding with treatment. Systems that are unable to review additional information that may be associated with an SFCU value may manage a SPECIFIED and an UNKNOWN value in the same way."
+    }]
+  },
+  {
+    "code" : "unknown",
+    "display" : "Unknown",
+    "definition" : "No information can be provided.",
+    "property" : [{
+      "code" : "usage-note",
+      "valueString" : "Systems that are unable to review additional information that may be associated with an SFCU value may manage a SPECIFIED and an UNKNOWN value in the same way."
+    }]
+  }]
+}

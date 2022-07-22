@@ -18,14 +18,14 @@
     "valueCode" : "trial-use"
   }],
   "url" : "http://hl7.org/fhir/StructureDefinition/shareablemeasure",
-  "version" : "5.0.0-snapshot1",
+  "version" : "4.6.0",
   "name" : "Shareable Measure",
   "status" : "draft",
   "experimental" : false,
   "date" : "2020-12-28T16:55:11+11:00",
   "publisher" : "HL7",
   "description" : "Enforces the minimum information set for the measure metadata required by HL7 and other organizations that share and publish measures",
-  "fhirVersion" : "5.0.0-snapshot1",
+  "fhirVersion" : "4.6.0",
   "mapping" : [{
     "identity" : "rim",
     "uri" : "http://hl7.org/v3",
@@ -68,7 +68,7 @@
         "key" : "cnl-0",
         "severity" : "warning",
         "human" : "Name should be usable as an identifier for the module by machine processing applications such as code generation",
-        "expression" : "name.matches('[A-Z]([A-Za-z0-9_]){0,254}')",
+        "expression" : "name.exists() implies name.matches('[A-Z]([A-Za-z0-9_]){0,254}')",
         "xpath" : "not(exists(f:name/@value)) or matches(f:name/@value, '[A-Z]([A-Za-z0-9_]){0,254}')",
         "source" : "http://hl7.org/fhir/StructureDefinition/Measure"
       },
@@ -101,7 +101,7 @@
       "path" : "Measure.id",
       "short" : "Logical id of this artifact",
       "definition" : "The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes.",
-      "comment" : "Typically, the resource has an id except for cases like the create operation, conditional updates.",
+      "comment" : "Within the context of the FHIR RESTful interactions, the resource has an id except for cases like the create and conditional update. Otherwise, the use of the resouce id depends on the given use case.",
       "min" : 0,
       "max" : "1",
       "base" : {
@@ -636,7 +636,7 @@
         }],
         "strength" : "required",
         "description" : "The lifecycle status of an artifact.",
-        "valueSet" : "http://hl7.org/fhir/ValueSet/publication-status|5.0.0-snapshot1"
+        "valueSet" : "http://hl7.org/fhir/ValueSet/publication-status|4.6.0"
       },
       "mapping" : [{
         "identity" : "workflow",
@@ -777,7 +777,7 @@
           "valueBoolean" : true
         }],
         "strength" : "required",
-        "valueSet" : "http://hl7.org/fhir/ValueSet/all-types|5.0.0-snapshot1"
+        "valueSet" : "http://hl7.org/fhir/ValueSet/all-types|4.6.0"
       },
       "mapping" : [{
         "identity" : "rim",
@@ -1853,7 +1853,7 @@
         }],
         "strength" : "required",
         "description" : "Observation values that indicate what change in a measurement value or score is indicative of an improvement in the measured item or scored issue.",
-        "valueSet" : "http://hl7.org/fhir/ValueSet/measure-improvement-notation|5.0.0-snapshot1"
+        "valueSet" : "http://hl7.org/fhir/ValueSet/measure-improvement-notation|4.6.0"
       },
       "mapping" : [{
         "identity" : "rim",
@@ -1971,7 +1971,7 @@
       "type" : [{
         "extension" : [{
           "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-fhir-type",
-          "valueUrl" : "id"
+          "valueUrl" : "string"
         }],
         "code" : "http://hl7.org/fhirpath/System.String"
       }],
@@ -2217,7 +2217,7 @@
           "valueBoolean" : true
         }],
         "strength" : "required",
-        "valueSet" : "http://hl7.org/fhir/ValueSet/all-types|5.0.0-snapshot1"
+        "valueSet" : "http://hl7.org/fhir/ValueSet/all-types|4.6.0"
       },
       "mapping" : [{
         "identity" : "rim",
@@ -2339,7 +2339,7 @@
           "valueString" : "MeasureImprovementNotation"
         }],
         "strength" : "required",
-        "valueSet" : "http://hl7.org/fhir/ValueSet/measure-improvement-notation|5.0.0-snapshot1"
+        "valueSet" : "http://hl7.org/fhir/ValueSet/measure-improvement-notation|4.6.0"
       },
       "mapping" : [{
         "identity" : "rim",
@@ -2393,7 +2393,7 @@
       "type" : [{
         "extension" : [{
           "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-fhir-type",
-          "valueUrl" : "id"
+          "valueUrl" : "string"
         }],
         "code" : "http://hl7.org/fhirpath/System.String"
       }],
@@ -2711,7 +2711,7 @@
       "type" : [{
         "extension" : [{
           "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-fhir-type",
-          "valueUrl" : "id"
+          "valueUrl" : "string"
         }],
         "code" : "http://hl7.org/fhirpath/System.String"
       }],
@@ -2957,7 +2957,7 @@
       "type" : [{
         "extension" : [{
           "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-fhir-type",
-          "valueUrl" : "id"
+          "valueUrl" : "string"
         }],
         "code" : "http://hl7.org/fhirpath/System.String"
       }],
@@ -3203,7 +3203,7 @@
       "type" : [{
         "extension" : [{
           "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-fhir-type",
-          "valueUrl" : "id"
+          "valueUrl" : "string"
         }],
         "code" : "http://hl7.org/fhirpath/System.String"
       }],

@@ -18,14 +18,14 @@
     "valueCode" : "trial-use"
   }],
   "url" : "http://hl7.org/fhir/StructureDefinition/shareableplandefinition",
-  "version" : "5.0.0-snapshot1",
+  "version" : "4.6.0",
   "name" : "Shareable PlanDefinition",
   "status" : "draft",
   "experimental" : false,
   "date" : "2020-12-28T16:55:11+11:00",
   "publisher" : "HL7",
   "description" : "Enforces the minimum information set for the plan definition metadata required by HL7 and other organizations that share and publish plan definitions",
-  "fhirVersion" : "5.0.0-snapshot1",
+  "fhirVersion" : "4.6.0",
   "mapping" : [{
     "identity" : "rim",
     "uri" : "http://hl7.org/v3",
@@ -68,7 +68,7 @@
         "key" : "cnl-0",
         "severity" : "warning",
         "human" : "Name should be usable as an identifier for the module by machine processing applications such as code generation",
-        "expression" : "name.matches('[A-Z]([A-Za-z0-9_]){0,254}')",
+        "expression" : "name.exists() implies name.matches('[A-Z]([A-Za-z0-9_]){0,254}')",
         "xpath" : "not(exists(f:name/@value)) or matches(f:name/@value, '[A-Z]([A-Za-z0-9_]){0,254}')",
         "source" : "http://hl7.org/fhir/StructureDefinition/PlanDefinition"
       }],
@@ -93,7 +93,7 @@
       "path" : "PlanDefinition.id",
       "short" : "Logical id of this artifact",
       "definition" : "The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes.",
-      "comment" : "Typically, the resource has an id except for cases like the create operation, conditional updates.",
+      "comment" : "Within the context of the FHIR RESTful interactions, the resource has an id except for cases like the create and conditional update. Otherwise, the use of the resouce id depends on the given use case.",
       "min" : 0,
       "max" : "1",
       "base" : {
@@ -668,7 +668,7 @@
         }],
         "strength" : "required",
         "description" : "The lifecycle status of an artifact.",
-        "valueSet" : "http://hl7.org/fhir/ValueSet/publication-status|5.0.0-snapshot1"
+        "valueSet" : "http://hl7.org/fhir/ValueSet/publication-status|4.6.0"
       },
       "mapping" : [{
         "identity" : "workflow",
@@ -729,6 +729,7 @@
       "path" : "PlanDefinition.subject[x]",
       "short" : "Type of individual the plan definition is focused on",
       "definition" : "A code, group definition, or canonical reference that describes  or identifies the intended subject of the plan definition. Canonical references are allowed to support the definition of protocols for drug and substance quality specifications, and is allowed to reference a MedicinalProductDefinition, SubstanceDefinition, AdministrableProductDefinition, ManufacturedItemDefinition, or PackagedProductDefinition resource.",
+      "comment" : "Note that the choice of canonical for the subject element was introduced in R4B to support pharmaceutical quality use cases. To ensure as much backwards-compatibility as possible, it is recommended to only use the new canonical type with these use cases.",
       "min" : 0,
       "max" : "1",
       "base" : {
@@ -749,7 +750,8 @@
         "http://hl7.org/fhir/StructureDefinition/SubstanceDefinition",
         "http://hl7.org/fhir/StructureDefinition/AdministrableProductDefinition",
         "http://hl7.org/fhir/StructureDefinition/ManufacturedItemDefinition",
-        "http://hl7.org/fhir/StructureDefinition/PackagedProductDefinition"]
+        "http://hl7.org/fhir/StructureDefinition/PackagedProductDefinition",
+        "http://hl7.org/fhir/StructureDefinition/EvidenceVariable"]
       }],
       "meaningWhenMissing" : "Patient",
       "constraint" : [{
@@ -1548,7 +1550,7 @@
       "type" : [{
         "extension" : [{
           "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-fhir-type",
-          "valueUrl" : "id"
+          "valueUrl" : "string"
         }],
         "code" : "http://hl7.org/fhirpath/System.String"
       }],
@@ -1923,7 +1925,7 @@
       "type" : [{
         "extension" : [{
           "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-fhir-type",
-          "valueUrl" : "id"
+          "valueUrl" : "string"
         }],
         "code" : "http://hl7.org/fhirpath/System.String"
       }],
@@ -2187,7 +2189,7 @@
       "type" : [{
         "extension" : [{
           "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-fhir-type",
-          "valueUrl" : "id"
+          "valueUrl" : "string"
         }],
         "code" : "http://hl7.org/fhirpath/System.String"
       }],
@@ -2392,7 +2394,7 @@
       "type" : [{
         "extension" : [{
           "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-fhir-type",
-          "valueUrl" : "id"
+          "valueUrl" : "string"
         }],
         "code" : "http://hl7.org/fhirpath/System.String"
       }],
@@ -2521,7 +2523,7 @@
         }],
         "strength" : "required",
         "description" : "The type of participant in the activity.",
-        "valueSet" : "http://hl7.org/fhir/ValueSet/action-participant-type|5.0.0-snapshot1"
+        "valueSet" : "http://hl7.org/fhir/ValueSet/action-participant-type|4.6.0"
       },
       "mapping" : [{
         "identity" : "rim",
@@ -2661,7 +2663,7 @@
       "type" : [{
         "extension" : [{
           "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-fhir-type",
-          "valueUrl" : "id"
+          "valueUrl" : "string"
         }],
         "code" : "http://hl7.org/fhirpath/System.String"
       }],
@@ -2957,7 +2959,7 @@
         }],
         "strength" : "required",
         "description" : "Identifies the level of importance to be assigned to actioning the request.",
-        "valueSet" : "http://hl7.org/fhir/ValueSet/request-priority|5.0.0-snapshot1"
+        "valueSet" : "http://hl7.org/fhir/ValueSet/request-priority|4.6.0"
       },
       "mapping" : [{
         "identity" : "rim",
@@ -3165,7 +3167,7 @@
       "id" : "PlanDefinition.action.trigger",
       "path" : "PlanDefinition.action.trigger",
       "short" : "When the action should be triggered",
-      "definition" : "A description of when the action should be triggered.",
+      "definition" : "A description of when the action should be triggered. When multiple triggers are specified on an action, any triggering event invokes the action.",
       "min" : 0,
       "max" : "*",
       "base" : {
@@ -3240,7 +3242,7 @@
       "type" : [{
         "extension" : [{
           "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-fhir-type",
-          "valueUrl" : "id"
+          "valueUrl" : "string"
         }],
         "code" : "http://hl7.org/fhirpath/System.String"
       }],
@@ -3370,7 +3372,7 @@
         }],
         "strength" : "required",
         "description" : "Defines the kinds of conditions that can appear on actions.",
-        "valueSet" : "http://hl7.org/fhir/ValueSet/action-condition-kind|5.0.0-snapshot1"
+        "valueSet" : "http://hl7.org/fhir/ValueSet/action-condition-kind|4.6.0"
       },
       "mapping" : [{
         "identity" : "rim",
@@ -3464,7 +3466,7 @@
       "type" : [{
         "extension" : [{
           "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-fhir-type",
-          "valueUrl" : "id"
+          "valueUrl" : "string"
         }],
         "code" : "http://hl7.org/fhirpath/System.String"
       }],
@@ -3709,7 +3711,7 @@
       "type" : [{
         "extension" : [{
           "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-fhir-type",
-          "valueUrl" : "id"
+          "valueUrl" : "string"
         }],
         "code" : "http://hl7.org/fhirpath/System.String"
       }],
@@ -3947,7 +3949,7 @@
       "type" : [{
         "extension" : [{
           "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-fhir-type",
-          "valueUrl" : "id"
+          "valueUrl" : "string"
         }],
         "code" : "http://hl7.org/fhirpath/System.String"
       }],
@@ -4107,7 +4109,7 @@
         }],
         "strength" : "required",
         "description" : "Defines the types of relationships between actions.",
-        "valueSet" : "http://hl7.org/fhir/ValueSet/action-relationship-type|5.0.0-snapshot1"
+        "valueSet" : "http://hl7.org/fhir/ValueSet/action-relationship-type|4.6.0"
       },
       "mapping" : [{
         "identity" : "rim",
@@ -4272,7 +4274,7 @@
       "type" : [{
         "extension" : [{
           "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-fhir-type",
-          "valueUrl" : "id"
+          "valueUrl" : "string"
         }],
         "code" : "http://hl7.org/fhirpath/System.String"
       }],
@@ -4432,7 +4434,7 @@
         }],
         "strength" : "required",
         "description" : "The type of participant in the activity.",
-        "valueSet" : "http://hl7.org/fhir/ValueSet/action-participant-type|5.0.0-snapshot1"
+        "valueSet" : "http://hl7.org/fhir/ValueSet/action-participant-type|4.6.0"
       },
       "mapping" : [{
         "identity" : "rim",
@@ -4633,7 +4635,7 @@
         }],
         "strength" : "required",
         "description" : "Defines organization behavior of a group.",
-        "valueSet" : "http://hl7.org/fhir/ValueSet/action-grouping-behavior|5.0.0-snapshot1"
+        "valueSet" : "http://hl7.org/fhir/ValueSet/action-grouping-behavior|4.6.0"
       },
       "mapping" : [{
         "identity" : "rim",
@@ -4673,7 +4675,7 @@
         }],
         "strength" : "required",
         "description" : "Defines selection behavior of a group.",
-        "valueSet" : "http://hl7.org/fhir/ValueSet/action-selection-behavior|5.0.0-snapshot1"
+        "valueSet" : "http://hl7.org/fhir/ValueSet/action-selection-behavior|4.6.0"
       },
       "mapping" : [{
         "identity" : "rim",
@@ -4713,7 +4715,7 @@
         }],
         "strength" : "required",
         "description" : "Defines expectations around whether an action or action group is required.",
-        "valueSet" : "http://hl7.org/fhir/ValueSet/action-required-behavior|5.0.0-snapshot1"
+        "valueSet" : "http://hl7.org/fhir/ValueSet/action-required-behavior|4.6.0"
       },
       "mapping" : [{
         "identity" : "rim",
@@ -4753,7 +4755,7 @@
         }],
         "strength" : "required",
         "description" : "Defines selection frequency behavior for an action or group.",
-        "valueSet" : "http://hl7.org/fhir/ValueSet/action-precheck-behavior|5.0.0-snapshot1"
+        "valueSet" : "http://hl7.org/fhir/ValueSet/action-precheck-behavior|4.6.0"
       },
       "mapping" : [{
         "identity" : "rim",
@@ -4793,7 +4795,7 @@
         }],
         "strength" : "required",
         "description" : "Defines behavior for an action or a group for how many times that item may be repeated.",
-        "valueSet" : "http://hl7.org/fhir/ValueSet/action-cardinality-behavior|5.0.0-snapshot1"
+        "valueSet" : "http://hl7.org/fhir/ValueSet/action-cardinality-behavior|4.6.0"
       },
       "mapping" : [{
         "identity" : "rim",
@@ -4804,7 +4806,7 @@
       "id" : "PlanDefinition.action.definition[x]",
       "path" : "PlanDefinition.action.definition[x]",
       "short" : "Description of the activity to be performed",
-      "definition" : "A reference to an ActivityDefinition that describes the action to be taken in detail, a PlanDefinition that describes a series of actions to be taken, a Questionnaire that should be filled out, or an ObservationDefinition that specifies what observation should be captured.",
+      "definition" : "A reference to an ActivityDefinition that describes the action to be taken in detail, a PlanDefinition that describes a series of actions to be taken, a Questionnaire that should be filled out, a SpecimenDefinition describing a specimen to be collected, or an ObservationDefinition that specifies what observation should be captured.",
       "comment" : "Note that the definition is optional, and if no definition is specified, a dynamicValue with a root ($this) path can be used to define the entire resource dynamically.",
       "min" : 0,
       "max" : "1",
@@ -4818,7 +4820,8 @@
         "targetProfile" : ["http://hl7.org/fhir/StructureDefinition/ActivityDefinition",
         "http://hl7.org/fhir/StructureDefinition/ObservationDefinition",
         "http://hl7.org/fhir/StructureDefinition/PlanDefinition",
-        "http://hl7.org/fhir/StructureDefinition/Questionnaire"]
+        "http://hl7.org/fhir/StructureDefinition/Questionnaire",
+        "http://hl7.org/fhir/StructureDefinition/SpecimenDefinition"]
       },
       {
         "code" : "uri"
@@ -4924,7 +4927,7 @@
       "type" : [{
         "extension" : [{
           "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-fhir-type",
-          "valueUrl" : "id"
+          "valueUrl" : "string"
         }],
         "code" : "http://hl7.org/fhirpath/System.String"
       }],

@@ -47,7 +47,7 @@
   POSSIBILITY OF SUCH DAMAGE.
   
 
-  Generated on Sun, Dec 19, 2021 08:15+1100 for FHIR v5.0.0-snapshot1 
+  Generated on Mon, Jul 18, 2022 14:56+1000 for FHIR v4.6.0 
 
   Note: the schemas &amp; schematrons do not contain all of the rules about what makes resources
   valid. Implementers will still need to be familiar with the content of the specification and with
@@ -106,7 +106,7 @@
           </xs:element>
           <xs:element name="date" minOccurs="0" maxOccurs="1" type="dateTime">
             <xs:annotation>
-              <xs:documentation xml:lang="en">The date (and optionally time) when the value set was created or revised (e.g. the 'content logical definition').</xs:documentation>
+              <xs:documentation xml:lang="en">The date (and optionally time) when the value set metadata or content logical definition (.compose) was created or revised.</xs:documentation>
            </xs:annotation>
           </xs:element>
           <xs:element name="publisher" minOccurs="0" maxOccurs="1" type="string">
@@ -161,7 +161,7 @@
           </xs:element>
           <xs:element name="scope" type="ValueSet.Scope" minOccurs="0" maxOccurs="1">
             <xs:annotation>
-              <xs:documentation xml:lang="en">Description of the semantic space the Value Set Expansion is intended to cover.</xs:documentation>
+              <xs:documentation xml:lang="en">Description of the semantic space the Value Set Expansion is intended to cover and should further clarify the text in ValueSet.description.</xs:documentation>
            </xs:annotation>
           </xs:element>
         </xs:sequence>
@@ -228,7 +228,7 @@
           </xs:element>
           <xs:element name="filter" type="ValueSet.Filter" minOccurs="0" maxOccurs="unbounded">
             <xs:annotation>
-              <xs:documentation xml:lang="en">Select concepts by specify a matching criterion based on the properties (including relationships) defined by the system, or on filters defined by the system. If multiple filters are specified, they SHALL all be true.</xs:documentation>
+              <xs:documentation xml:lang="en">Select concepts by specifying a matching criterion based on the properties (including relationships) defined by the system, or on filters defined by the system. If multiple filters are specified within the include, they SHALL all be true.</xs:documentation>
            </xs:annotation>
           </xs:element>
           <xs:element name="valueSet" minOccurs="0" maxOccurs="unbounded" type="canonical">
@@ -509,11 +509,6 @@
     <xs:complexContent>
       <xs:extension base="BackboneElement">
         <xs:sequence>
-          <xs:element name="focus" minOccurs="0" maxOccurs="1" type="string">
-            <xs:annotation>
-              <xs:documentation xml:lang="en">The general focus of the Value Set as it relates to the intended semantic space. This can be the information about clinical relevancy or the statement about the general focus of the Value Set, such as a description of types of messages, payment options, geographic locations, etc.</xs:documentation>
-           </xs:annotation>
-          </xs:element>
           <xs:element name="inclusionCriteria" minOccurs="0" maxOccurs="1" type="string">
             <xs:annotation>
               <xs:documentation xml:lang="en">Criteria describing which concepts or codes should be included and why.</xs:documentation>

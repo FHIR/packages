@@ -47,7 +47,7 @@
   POSSIBILITY OF SUCH DAMAGE.
   
 
-  Generated on Sun, Dec 19, 2021 08:15+1100 for FHIR v5.0.0-snapshot1 
+  Generated on Mon, Jul 18, 2022 14:56+1000 for FHIR v4.6.0 
 
   Note: the schemas &amp; schematrons do not contain all of the rules about what makes resources
   valid. Implementers will still need to be familiar with the content of the specification and with
@@ -144,11 +144,6 @@
               <xs:documentation xml:lang="en">How much of the resource content to deliver in the notification payload. The choices are an empty payload, only the resource id, or the full resource content.</xs:documentation>
            </xs:annotation>
           </xs:element>
-          <xs:element name="notificationUrlLocation" minOccurs="0" maxOccurs="1" type="SubscriptionUrlLocation">
-            <xs:annotation>
-              <xs:documentation xml:lang="en">If present, where to place URLs of resources in notifications.</xs:documentation>
-           </xs:annotation>
-          </xs:element>
           <xs:element name="maxCount" minOccurs="0" maxOccurs="1" type="positiveInt">
             <xs:annotation>
               <xs:documentation xml:lang="en">If present, the maximum number of triggering resources that will be included in a notification bundle (e.g., a server will not include more than this number of trigger resources in a single notification).  Note that this is not a strict limit on the number of entries in a bundle, as dependent resources can be included.</xs:documentation>
@@ -170,14 +165,14 @@
               <xs:documentation xml:lang="en">If the element is a reference to another resource, this element contains &quot;Reference&quot;, and the targetProfile element defines what resources can be referenced. The targetProfile may be a reference to the general definition of a resource (e.g. http://hl7.org/fhir/StructureDefinition/Patient).</xs:documentation>
            </xs:annotation>
           </xs:element>
-          <xs:element name="searchParamName" minOccurs="1" maxOccurs="1" type="string">
+          <xs:element name="filterParameter" minOccurs="1" maxOccurs="1" type="string">
             <xs:annotation>
-              <xs:documentation xml:lang="en">The filter label (=key) as defined in the `SubscriptionTopic.canfilterBy.searchParamName`  element.</xs:documentation>
+              <xs:documentation xml:lang="en">The filter label (=key) as defined in the `SubscriptionTopic.canfilterBy.filterParameter`  element.</xs:documentation>
            </xs:annotation>
           </xs:element>
-          <xs:element name="searchModifier" minOccurs="0" maxOccurs="1" type="code">
+          <xs:element name="modifier" minOccurs="0" maxOccurs="1" type="code">
             <xs:annotation>
-              <xs:documentation xml:lang="en">The operator to apply to the filter value when determining matches (Search modifiers).</xs:documentation>
+              <xs:documentation xml:lang="en">Operator to apply when determining matches (Search Modifiers), from the list of allowed modifiers for this filter in the relevant SubscriptionTopic.</xs:documentation>
            </xs:annotation>
           </xs:element>
           <xs:element name="value" minOccurs="1" maxOccurs="1" type="string">
@@ -216,41 +211,6 @@
     <xs:complexContent>
       <xs:extension base="Element">
         <xs:attribute name="value" type="SubscriptionPayloadContentEnum" use="optional"/>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
-  <xs:simpleType name="SubscriptionUrlLocationEnum">
-    <xs:restriction base="code-primitive">
-      <xs:enumeration value="none">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">none</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="full-url">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">full-url</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="request-response">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">request-response</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="all">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">all</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-    </xs:restriction>
-  </xs:simpleType>
-  <xs:complexType name="SubscriptionUrlLocation">
-    <xs:annotation>
-      <xs:documentation xml:lang="en"></xs:documentation>
-      <xs:documentation xml:lang="en">If the element is present, it must have either a @value, an @id, or extensions</xs:documentation>
-    </xs:annotation>
-    <xs:complexContent>
-      <xs:extension base="Element">
-        <xs:attribute name="value" type="SubscriptionUrlLocationEnum" use="optional"/>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>

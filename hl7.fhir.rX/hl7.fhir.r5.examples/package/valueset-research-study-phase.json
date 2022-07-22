@@ -2,7 +2,7 @@
   "resourceType": "ValueSet",
   "id": "research-study-phase",
   "meta": {
-    "lastUpdated": "2021-05-03T22:59:52.634+11:00",
+    "lastUpdated": "2022-07-18T15:56:19.712+11:00",
     "profile": [
       "http://hl7.org/fhir/StructureDefinition/shareablevalueset"
     ]
@@ -36,7 +36,7 @@
   "name": "ResearchStudyPhase",
   "title": "ResearchStudyPhase",
   "status": "draft",
-  "experimental": false,
+  "experimental": true,
   "date": "2020-12-28T16:55:11+11:00",
   "publisher": "HL7 (FHIR Project)",
   "contact": [
@@ -58,7 +58,14 @@
   "compose": {
     "include": [
       {
-        "system": "http://terminology.hl7.org/CodeSystem/research-study-phase"
+        "system": "http://hl7.org/fhir/research-study-classifiers",
+        "filter": [
+          {
+            "property": "concept",
+            "op": "descendent-of",
+            "value": "research-study-phase"
+          }
+        ]
       }
     ]
   }

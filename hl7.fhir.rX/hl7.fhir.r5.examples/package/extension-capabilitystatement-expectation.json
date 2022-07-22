@@ -16,6 +16,7 @@
   "name": "expectation",
   "title": "Conformance expectation",
   "status": "draft",
+  "experimental": false,
   "date": "2014-04-12",
   "publisher": "Health Level Seven, Inc. - [WG Name] WG",
   "contact": [
@@ -76,6 +77,30 @@
     {
       "type": "element",
       "expression": "CapabilityStatement.rest.resource.searchRevInclude"
+    },
+    {
+      "type": "element",
+      "expression": "CapabilityStatement.rest.resource.operation"
+    },
+    {
+      "type": "element",
+      "expression": "SearchParameter.multipleOr"
+    },
+    {
+      "type": "element",
+      "expression": "SearchParameter.multipleAnd"
+    },
+    {
+      "type": "element",
+      "expression": "SearchParameter.comparator"
+    },
+    {
+      "type": "element",
+      "expression": "SearchParameter.modifer"
+    },
+    {
+      "type": "element",
+      "expression": "SearchParameter.chain"
     }
   ],
   "type": "Extension",
@@ -146,7 +171,7 @@
             "extension": [
               {
                 "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-fhir-type",
-                "valueUri": "string"
+                "valueUrl": "id"
               }
             ],
             "code": "http://hl7.org/fhirpath/System.String"
@@ -230,7 +255,7 @@
             "extension": [
               {
                 "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-fhir-type",
-                "valueUri": "uri"
+                "valueUrl": "uri"
               }
             ],
             "code": "http://hl7.org/fhirpath/System.String"

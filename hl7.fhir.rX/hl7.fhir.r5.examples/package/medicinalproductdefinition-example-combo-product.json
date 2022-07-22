@@ -9,7 +9,12 @@
     {
       "resourceType": "PackagedProductDefinition",
       "id": "packageCombo",
-      "package": {
+      "packageFor": [
+        {
+          "reference": "#"
+        }
+      ],
+      "packaging": {
         "type": {
           "coding": [
             {
@@ -17,7 +22,7 @@
             }
           ]
         },
-        "package": [
+        "packaging": [
           {
             "type": {
               "coding": [
@@ -28,14 +33,12 @@
             },
             "containedItem": [
               {
-                "item": [
-                  {
-                    "reference": {
-                      "reference": "#tabletItem"
-                    }
+                "item": {
+                  "reference": {
+                    "reference": "#tabletItem"
                   }
-                ],
-                "amountQuantity": {
+                },
+                "amount": {
                   "value": 1
                 }
               }
@@ -51,20 +54,20 @@
             },
             "containedItem": [
               {
-                "item": [
-                  {
-                    "reference": {
-                      "reference": "#creamItem"
-                    }
+                "item": {
+                  "reference": {
+                    "reference": "#creamItem"
                   }
-                ],
-                "amountQuantity": {
+                },
+                "amount": {
                   "value": 20,
-                  "unit": "g"
+                  "unit": "g",
+                  "system": "http://unitsofmeasure.org",
+                  "code": "g"
                 }
               }
             ],
-            "package": [
+            "packaging": [
               {
                 "type": {
                   "coding": [
@@ -82,6 +85,7 @@
     {
       "resourceType": "ManufacturedItemDefinition",
       "id": "tabletItem",
+      "status": "active",
       "manufacturedDoseForm": {
         "coding": [
           {
@@ -94,6 +98,7 @@
     {
       "resourceType": "ManufacturedItemDefinition",
       "id": "creamItem",
+      "status": "active",
       "manufacturedDoseForm": {
         "coding": [
           {
@@ -121,13 +126,6 @@
   "name": [
     {
       "productName": "ThrushTreat Combo"
-    }
-  ],
-  "package": [
-    {
-      "package": {
-        "reference": "#packageCombo"
-      }
     }
   ],
   "meta": {
