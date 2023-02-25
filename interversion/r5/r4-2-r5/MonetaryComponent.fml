@@ -1,0 +1,16 @@
+﻿/// url = 'http://hl7.org/fhir/StructureMap/MonetaryComponent4to5'
+/// name = 'MonetaryComponent4to5'
+/// title = 'FML Conversion for MonetaryComponent: R4 to R5'
+
+uses "http://hl7.org/fhir/4.0/StructureDefinition/MonetaryComponent" alias MonetaryComponentR4 as source
+uses "http://hl7.org/fhir/StructureDefinition/MonetaryComponent" alias AccountR5 as target
+
+imports "http://hl7.org/fhir/StructureMap/*4to5
+
+group MonetaryComponent(source src : MonetaryComponentR4, target tgt : MonetaryComponentR5) extends DataType <<type+>> {
+  src.type -> tgt.type;
+  src.code -> tgt.code;
+  src.factor -> tgt.factor;
+  src.amount -> tgt.amount;
+}
+

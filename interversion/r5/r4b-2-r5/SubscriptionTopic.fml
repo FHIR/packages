@@ -1,0 +1,71 @@
+﻿/// url = 'http://hl7.org/fhir/StructureMap/SubscriptionTopic4Bto5'
+/// name = 'SubscriptionTopic4Bto5'
+/// title = 'FML Conversion for SubscriptionTopic: R4B to R5'
+
+uses "http://hl7.org/fhir/4.3/StructureDefinition/SubscriptionTopic" alias SubscriptionTopicR4B as source
+uses "http://hl7.org/fhir/StructureDefinition/SubscriptionTopic" alias AccountR5 as target
+
+imports "http://hl7.org/fhir/StructureMap/*4Bto5
+
+group SubscriptionTopic(source src : SubscriptionTopicR4B, target tgt : SubscriptionTopicR5) extends DomainResource <<type+>> {
+  src.url -> tgt.url;
+  src.identifier -> tgt.identifier;
+  src.version -> tgt.version;
+  src.title -> tgt.title;
+  src.derivedFrom -> tgt.derivedFrom;
+  src.status -> tgt.status;
+  src.experimental -> tgt.experimental;
+  src.date -> tgt.date;
+  src.publisher -> tgt.publisher;
+  src.contact -> tgt.contact;
+  src.description -> tgt.description;
+  src.useContext -> tgt.useContext;
+  src.jurisdiction -> tgt.jurisdiction;
+  src.purpose -> tgt.purpose;
+  src.copyright -> tgt.copyright;
+  src.copyrightLabel -> tgt.copyrightLabel;
+  src.approvalDate -> tgt.approvalDate;
+  src.lastReviewDate -> tgt.lastReviewDate;
+  src.effectivePeriod -> tgt.effectivePeriod;
+  src.resourceTrigger as s -> tgt.resourceTrigger as t then SubscriptionTopicResourceTrigger(s,t);
+  src.eventTrigger as s -> tgt.eventTrigger as t then SubscriptionTopicEventTrigger(s,t);
+  src.canFilterBy as s -> tgt.canFilterBy as t then SubscriptionTopicCanFilterBy(s,t);
+  src.notificationShape as s -> tgt.notificationShape as t then SubscriptionTopicNotificationShape(s,t);
+}
+
+group SubscriptionTopicResourceTrigger(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.description -> tgt.description;
+  src.resource -> tgt.resource;
+  src.supportedInteraction -> tgt.supportedInteraction;
+  src.queryCriteria as s -> tgt.queryCriteria as t then SubscriptionTopicResourceTriggerQueryCriteria(s,t);
+  src.fhirPathCriteria -> tgt.fhirPathCriteria;
+}
+
+group SubscriptionTopicResourceTriggerQueryCriteria(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.previous -> tgt.previous;
+  src.resultForCreate -> tgt.resultForCreate;
+  src.current -> tgt.current;
+  src.resultForDelete -> tgt.resultForDelete;
+  src.requireBoth -> tgt.requireBoth;
+}
+
+group SubscriptionTopicEventTrigger(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.description -> tgt.description;
+  src.event -> tgt.event;
+  src.resource -> tgt.resource;
+}
+
+group SubscriptionTopicCanFilterBy(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.description -> tgt.description;
+  src.resource -> tgt.resource;
+  src.filterParameter -> tgt.filterParameter;
+  src.filterDefinition -> tgt.filterDefinition;
+  src.modifier -> tgt.modifier;
+}
+
+group SubscriptionTopicNotificationShape(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.resource -> tgt.resource;
+  src.include -> tgt.include;
+  src.revInclude -> tgt.revInclude;
+}
+

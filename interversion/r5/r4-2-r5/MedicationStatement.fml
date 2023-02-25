@@ -1,0 +1,36 @@
+﻿/// url = 'http://hl7.org/fhir/StructureMap/MedicationStatement4to5'
+/// name = 'MedicationStatement4to5'
+/// title = 'FML Conversion for MedicationStatement: R4 to R5'
+
+uses "http://hl7.org/fhir/4.0/StructureDefinition/MedicationStatement" alias MedicationStatementR4 as source
+uses "http://hl7.org/fhir/StructureDefinition/MedicationStatement" alias AccountR5 as target
+
+imports "http://hl7.org/fhir/StructureMap/*4to5
+
+group MedicationStatement(source src : MedicationStatementR4, target tgt : MedicationStatementR5) extends DomainResource <<type+>> {
+  src.identifier -> tgt.identifier;
+  src.partOf -> tgt.partOf;
+  src.status -> tgt.status;
+  src.category -> tgt.category;
+  src.medication -> tgt.medication;
+  src.subject -> tgt.subject;
+  src.encounter -> tgt.encounter;
+  src.effective : dateTime -> tgt.effective;
+  src.effective : Period -> tgt.effective;
+  src.effective : Timing -> tgt.effective;
+  src.dateAsserted -> tgt.dateAsserted;
+  src.informationSource -> tgt.informationSource;
+  src.derivedFrom -> tgt.derivedFrom;
+  src.reason -> tgt.reason;
+  src.note -> tgt.note;
+  src.relatedClinicalInformation -> tgt.relatedClinicalInformation;
+  src.renderedDosageInstruction -> tgt.renderedDosageInstruction;
+  src.dosage -> tgt.dosage;
+  src.adherence as s -> tgt.adherence as t then MedicationStatementAdherence(s,t);
+}
+
+group MedicationStatementAdherence(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.code -> tgt.code;
+  src.reason -> tgt.reason;
+}
+

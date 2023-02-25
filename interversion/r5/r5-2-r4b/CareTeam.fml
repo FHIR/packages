@@ -1,0 +1,31 @@
+﻿/// url = 'http://hl7.org/fhir/StructureMap/CareTeam5to4B'
+/// name = 'CareTeam5to4B'
+/// title = 'FML Conversion for CareTeam: R5 to R4B'
+
+uses "http://hl7.org/fhir/StructureDefinition/CareTeam" alias CareTeamR5 as source
+uses "http://hl7.org/fhir/4.3/StructureDefinition/CareTeam" alias AccountR4B as target
+
+imports "http://hl7.org/fhir/StructureMap/*5to4B
+
+group CareTeam(source src : CareTeamR5, target tgt : CareTeamR4B) extends DomainResource <<type+>> {
+  src.identifier -> tgt.identifier;
+  src.status -> tgt.status;
+  src.category -> tgt.category;
+  src.name -> tgt.name;
+  src.subject -> tgt.subject;
+  src.period -> tgt.period;
+  src.participant as s -> tgt.participant as t then CareTeamParticipant(s,t);
+  src.reason -> tgt.reason;
+  src.managingOrganization -> tgt.managingOrganization;
+  src.telecom -> tgt.telecom;
+  src.note -> tgt.note;
+}
+
+group CareTeamParticipant(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.role -> tgt.role;
+  src.member -> tgt.member;
+  src.onBehalfOf -> tgt.onBehalfOf;
+  src.coverage : Period -> tgt.coverage;
+  src.coverage : Timing -> tgt.coverage;
+}
+

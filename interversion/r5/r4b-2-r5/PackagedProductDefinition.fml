@@ -1,0 +1,58 @@
+﻿/// url = 'http://hl7.org/fhir/StructureMap/PackagedProductDefinition4Bto5'
+/// name = 'PackagedProductDefinition4Bto5'
+/// title = 'FML Conversion for PackagedProductDefinition: R4B to R5'
+
+uses "http://hl7.org/fhir/4.3/StructureDefinition/PackagedProductDefinition" alias PackagedProductDefinitionR4B as source
+uses "http://hl7.org/fhir/StructureDefinition/PackagedProductDefinition" alias AccountR5 as target
+
+imports "http://hl7.org/fhir/StructureMap/*4Bto5
+
+group PackagedProductDefinition(source src : PackagedProductDefinitionR4B, target tgt : PackagedProductDefinitionR5) extends DomainResource <<type+>> {
+  src.identifier -> tgt.identifier;
+  src.name -> tgt.name;
+  src.type -> tgt.type;
+  src.packageFor -> tgt.packageFor;
+  src.status -> tgt.status;
+  src.statusDate -> tgt.statusDate;
+  src.containedItemQuantity -> tgt.containedItemQuantity;
+  src.description -> tgt.description;
+  src.legalStatusOfSupply as s -> tgt.legalStatusOfSupply as t then PackagedProductDefinitionLegalStatusOfSupply(s,t);
+  src.marketingStatus -> tgt.marketingStatus;
+  src.copackagedIndicator -> tgt.copackagedIndicator;
+  src.manufacturer -> tgt.manufacturer;
+  src.attachedDocument -> tgt.attachedDocument;
+  src.packaging as s -> tgt.packaging as t then PackagedProductDefinitionPackaging(s,t);
+}
+
+group PackagedProductDefinitionLegalStatusOfSupply(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.code -> tgt.code;
+  src.jurisdiction -> tgt.jurisdiction;
+}
+
+group PackagedProductDefinitionPackaging(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.identifier -> tgt.identifier;
+  src.type -> tgt.type;
+  src.componentPart -> tgt.componentPart;
+  src.quantity -> tgt.quantity;
+  src.material -> tgt.material;
+  src.alternateMaterial -> tgt.alternateMaterial;
+  src.shelfLifeStorage -> tgt.shelfLifeStorage;
+  src.manufacturer -> tgt.manufacturer;
+  src.property as s -> tgt.property as t then PackagedProductDefinitionPackagingProperty(s,t);
+  src.containedItem as s -> tgt.containedItem as t then PackagedProductDefinitionPackagingContainedItem(s,t);
+}
+
+group PackagedProductDefinitionPackagingProperty(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.type -> tgt.type;
+  src.value : CodeableConcept -> tgt.value;
+  src.value : Quantity -> tgt.value;
+  src.value : date -> tgt.value;
+  src.value : boolean -> tgt.value;
+  src.value : Attachment -> tgt.value;
+}
+
+group PackagedProductDefinitionPackagingContainedItem(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.item -> tgt.item;
+  src.amount -> tgt.amount;
+}
+

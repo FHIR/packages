@@ -1,0 +1,53 @@
+﻿/// url = 'http://hl7.org/fhir/StructureMap/ImagingSelection5to4B'
+/// name = 'ImagingSelection5to4B'
+/// title = 'FML Conversion for ImagingSelection: R5 to R4B'
+
+uses "http://hl7.org/fhir/StructureDefinition/ImagingSelection" alias ImagingSelectionR5 as source
+uses "http://hl7.org/fhir/4.3/StructureDefinition/ImagingSelection" alias AccountR4B as target
+
+imports "http://hl7.org/fhir/StructureMap/*5to4B
+
+group ImagingSelection(source src : ImagingSelectionR5, target tgt : ImagingSelectionR4B) extends DomainResource <<type+>> {
+  src.identifier -> tgt.identifier;
+  src.status -> tgt.status;
+  src.subject -> tgt.subject;
+  src.issued -> tgt.issued;
+  src.performer as s -> tgt.performer as t then ImagingSelectionPerformer(s,t);
+  src.basedOn -> tgt.basedOn;
+  src.category -> tgt.category;
+  src.code -> tgt.code;
+  src.studyUid -> tgt.studyUid;
+  src.derivedFrom -> tgt.derivedFrom;
+  src.endpoint -> tgt.endpoint;
+  src.seriesUid -> tgt.seriesUid;
+  src.seriesNumber -> tgt.seriesNumber;
+  src.frameOfReferenceUid -> tgt.frameOfReferenceUid;
+  src.bodySite -> tgt.bodySite;
+  src.focus -> tgt.focus;
+  src.instance as s -> tgt.instance as t then ImagingSelectionInstance(s,t);
+}
+
+group ImagingSelectionPerformer(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.function -> tgt.function;
+  src.actor -> tgt.actor;
+}
+
+group ImagingSelectionInstance(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.uid -> tgt.uid;
+  src.number -> tgt.number;
+  src.sopClass -> tgt.sopClass;
+  src.subset -> tgt.subset;
+  src.imageRegion2D as s -> tgt.imageRegion2D as t then ImagingSelectionInstanceImageRegion2D(s,t);
+  src.imageRegion3D as s -> tgt.imageRegion3D as t then ImagingSelectionInstanceImageRegion3D(s,t);
+}
+
+group ImagingSelectionInstanceImageRegion2D(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.regionType -> tgt.regionType;
+  src.coordinate -> tgt.coordinate;
+}
+
+group ImagingSelectionInstanceImageRegion3D(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.regionType -> tgt.regionType;
+  src.coordinate -> tgt.coordinate;
+}
+

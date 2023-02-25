@@ -1,0 +1,66 @@
+﻿/// url = 'http://hl7.org/fhir/StructureMap/SubstanceSourceMaterial5to4'
+/// name = 'SubstanceSourceMaterial5to4'
+/// title = 'FML Conversion for SubstanceSourceMaterial: R5 to R4'
+
+uses "http://hl7.org/fhir/StructureDefinition/SubstanceSourceMaterial" alias SubstanceSourceMaterialR5 as source
+uses "http://hl7.org/fhir/4.0/StructureDefinition/SubstanceSourceMaterial" alias AccountR4 as target
+
+imports "http://hl7.org/fhir/StructureMap/*5to4
+
+group SubstanceSourceMaterial(source src : SubstanceSourceMaterialR5, target tgt : SubstanceSourceMaterialR4) extends DomainResource <<type+>> {
+  src.sourceMaterialClass -> tgt.sourceMaterialClass;
+  src.sourceMaterialType -> tgt.sourceMaterialType;
+  src.sourceMaterialState -> tgt.sourceMaterialState;
+  src.organismId -> tgt.organismId;
+  src.organismName -> tgt.organismName;
+  src.parentSubstanceId -> tgt.parentSubstanceId;
+  src.parentSubstanceName -> tgt.parentSubstanceName;
+  src.countryOfOrigin -> tgt.countryOfOrigin;
+  src.geographicalLocation -> tgt.geographicalLocation;
+  src.developmentStage -> tgt.developmentStage;
+  src.fractionDescription as s -> tgt.fractionDescription as t then SubstanceSourceMaterialFractionDescription(s,t);
+  src.organism as s -> tgt.organism as t then SubstanceSourceMaterialOrganism(s,t);
+  src.partDescription as s -> tgt.partDescription as t then SubstanceSourceMaterialPartDescription(s,t);
+}
+
+group SubstanceSourceMaterialFractionDescription(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.fraction -> tgt.fraction;
+  src.materialType -> tgt.materialType;
+}
+
+group SubstanceSourceMaterialOrganism(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.family -> tgt.family;
+  src.genus -> tgt.genus;
+  src.species -> tgt.species;
+  src.intraspecificType -> tgt.intraspecificType;
+  src.intraspecificDescription -> tgt.intraspecificDescription;
+  src.author as s -> tgt.author as t then SubstanceSourceMaterialOrganismAuthor(s,t);
+  src.hybrid as s -> tgt.hybrid as t then SubstanceSourceMaterialOrganismHybrid(s,t);
+  src.organismGeneral as s -> tgt.organismGeneral as t then SubstanceSourceMaterialOrganismOrganismGeneral(s,t);
+}
+
+group SubstanceSourceMaterialOrganismAuthor(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.authorType -> tgt.authorType;
+  src.authorDescription -> tgt.authorDescription;
+}
+
+group SubstanceSourceMaterialOrganismHybrid(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.maternalOrganismId -> tgt.maternalOrganismId;
+  src.maternalOrganismName -> tgt.maternalOrganismName;
+  src.paternalOrganismId -> tgt.paternalOrganismId;
+  src.paternalOrganismName -> tgt.paternalOrganismName;
+  src.hybridType -> tgt.hybridType;
+}
+
+group SubstanceSourceMaterialOrganismOrganismGeneral(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.kingdom -> tgt.kingdom;
+  src.phylum -> tgt.phylum;
+  src.class -> tgt.class;
+  src.order -> tgt.order;
+}
+
+group SubstanceSourceMaterialPartDescription(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.part -> tgt.part;
+  src.partLocation -> tgt.partLocation;
+}
+

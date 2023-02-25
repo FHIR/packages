@@ -1,0 +1,67 @@
+﻿/// url = 'http://hl7.org/fhir/StructureMap/Consent4to5'
+/// name = 'Consent4to5'
+/// title = 'FML Conversion for Consent: R4 to R5'
+
+uses "http://hl7.org/fhir/4.0/StructureDefinition/Consent" alias ConsentR4 as source
+uses "http://hl7.org/fhir/StructureDefinition/Consent" alias AccountR5 as target
+
+imports "http://hl7.org/fhir/StructureMap/*4to5
+
+group Consent(source src : ConsentR4, target tgt : ConsentR5) extends DomainResource <<type+>> {
+  src.identifier -> tgt.identifier;
+  src.status -> tgt.status;
+  src.category -> tgt.category;
+  src.subject -> tgt.subject;
+  src.date -> tgt.date;
+  src.period -> tgt.period;
+  src.grantor -> tgt.grantor;
+  src.grantee -> tgt.grantee;
+  src.manager -> tgt.manager;
+  src.controller -> tgt.controller;
+  src.sourceAttachment -> tgt.sourceAttachment;
+  src.sourceReference -> tgt.sourceReference;
+  src.regulatoryBasis -> tgt.regulatoryBasis;
+  src.policyBasis as s -> tgt.policyBasis as t then ConsentPolicyBasis(s,t);
+  src.policyText -> tgt.policyText;
+  src.verification as s -> tgt.verification as t then ConsentVerification(s,t);
+  src.decision -> tgt.decision;
+  src.provision as s -> tgt.provision as t then ConsentProvision(s,t);
+}
+
+group ConsentPolicyBasis(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.reference -> tgt.reference;
+  src.url -> tgt.url;
+}
+
+group ConsentVerification(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.verified -> tgt.verified;
+  src.verificationType -> tgt.verificationType;
+  src.verifiedBy -> tgt.verifiedBy;
+  src.verifiedWith -> tgt.verifiedWith;
+  src.verificationDate -> tgt.verificationDate;
+}
+
+group ConsentProvision(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.period -> tgt.period;
+  src.actor as s -> tgt.actor as t then ConsentProvisionActor(s,t);
+  src.action -> tgt.action;
+  src.securityLabel -> tgt.securityLabel;
+  src.purpose -> tgt.purpose;
+  src.documentType -> tgt.documentType;
+  src.resourceType -> tgt.resourceType;
+  src.code -> tgt.code;
+  src.dataPeriod -> tgt.dataPeriod;
+  src.data as s -> tgt.data as t then ConsentProvisionData(s,t);
+  src.expression -> tgt.expression;
+}
+
+group ConsentProvisionActor(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.role -> tgt.role;
+  src.reference -> tgt.reference;
+}
+
+group ConsentProvisionData(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.meaning -> tgt.meaning;
+  src.reference -> tgt.reference;
+}
+

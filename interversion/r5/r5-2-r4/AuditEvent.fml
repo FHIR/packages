@@ -1,0 +1,74 @@
+﻿/// url = 'http://hl7.org/fhir/StructureMap/AuditEvent5to4'
+/// name = 'AuditEvent5to4'
+/// title = 'FML Conversion for AuditEvent: R5 to R4'
+
+uses "http://hl7.org/fhir/StructureDefinition/AuditEvent" alias AuditEventR5 as source
+uses "http://hl7.org/fhir/4.0/StructureDefinition/AuditEvent" alias AccountR4 as target
+
+imports "http://hl7.org/fhir/StructureMap/*5to4
+
+group AuditEvent(source src : AuditEventR5, target tgt : AuditEventR4) extends DomainResource <<type+>> {
+  src.category -> tgt.category;
+  src.code -> tgt.code;
+  src.action -> tgt.action;
+  src.severity -> tgt.severity;
+  src.occurred : Period -> tgt.occurred;
+  src.occurred : dateTime -> tgt.occurred;
+  src.recorded -> tgt.recorded;
+  src.outcome as s -> tgt.outcome as t then AuditEventOutcome(s,t);
+  src.authorization -> tgt.authorization;
+  src.basedOn -> tgt.basedOn;
+  src.patient -> tgt.patient;
+  src.encounter -> tgt.encounter;
+  src.agent as s -> tgt.agent as t then AuditEventAgent(s,t);
+  src.source as s -> tgt.source as t then AuditEventSource(s,t);
+  src.entity as s -> tgt.entity as t then AuditEventEntity(s,t);
+}
+
+group AuditEventOutcome(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.code -> tgt.code;
+  src.detail -> tgt.detail;
+}
+
+group AuditEventAgent(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.type -> tgt.type;
+  src.role -> tgt.role;
+  src.who -> tgt.who;
+  src.requestor -> tgt.requestor;
+  src.location -> tgt.location;
+  src.policy -> tgt.policy;
+  src.network : Reference -> tgt.network;
+  src.network : uri -> tgt.network;
+  src.network : string -> tgt.network;
+  src.authorization -> tgt.authorization;
+}
+
+group AuditEventSource(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.site -> tgt.site;
+  src.observer -> tgt.observer;
+  src.type -> tgt.type;
+}
+
+group AuditEventEntity(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.what -> tgt.what;
+  src.role -> tgt.role;
+  src.securityLabel -> tgt.securityLabel;
+  src.query -> tgt.query;
+  src.detail as s -> tgt.detail as t then AuditEventEntityDetail(s,t);
+}
+
+group AuditEventEntityDetail(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.type -> tgt.type;
+  src.value : Quantity -> tgt.value;
+  src.value : CodeableConcept -> tgt.value;
+  src.value : string -> tgt.value;
+  src.value : boolean -> tgt.value;
+  src.value : integer -> tgt.value;
+  src.value : Range -> tgt.value;
+  src.value : Ratio -> tgt.value;
+  src.value : time -> tgt.value;
+  src.value : dateTime -> tgt.value;
+  src.value : Period -> tgt.value;
+  src.value : base64Binary -> tgt.value;
+}
+

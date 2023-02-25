@@ -1,0 +1,17 @@
+﻿/// url = 'http://hl7.org/fhir/StructureMap/Basic4to5'
+/// name = 'Basic4to5'
+/// title = 'FML Conversion for Basic: R4 to R5'
+
+uses "http://hl7.org/fhir/4.0/StructureDefinition/Basic" alias BasicR4 as source
+uses "http://hl7.org/fhir/StructureDefinition/Basic" alias AccountR5 as target
+
+imports "http://hl7.org/fhir/StructureMap/*4to5
+
+group Basic(source src : BasicR4, target tgt : BasicR5) extends DomainResource <<type+>> {
+  src.identifier -> tgt.identifier;
+  src.code -> tgt.code;
+  src.subject -> tgt.subject;
+  src.created -> tgt.created;
+  src.author -> tgt.author;
+}
+

@@ -1,0 +1,22 @@
+﻿/// url = 'http://hl7.org/fhir/StructureMap/OperationOutcome4to5'
+/// name = 'OperationOutcome4to5'
+/// title = 'FML Conversion for OperationOutcome: R4 to R5'
+
+uses "http://hl7.org/fhir/4.0/StructureDefinition/OperationOutcome" alias OperationOutcomeR4 as source
+uses "http://hl7.org/fhir/StructureDefinition/OperationOutcome" alias AccountR5 as target
+
+imports "http://hl7.org/fhir/StructureMap/*4to5
+
+group OperationOutcome(source src : OperationOutcomeR4, target tgt : OperationOutcomeR5) extends DomainResource <<type+>> {
+  src.issue as s -> tgt.issue as t then OperationOutcomeIssue(s,t);
+}
+
+group OperationOutcomeIssue(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.severity -> tgt.severity;
+  src.code -> tgt.code;
+  src.details -> tgt.details;
+  src.diagnostics -> tgt.diagnostics;
+  src.location -> tgt.location;
+  src.expression -> tgt.expression;
+}
+

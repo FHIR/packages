@@ -1,0 +1,47 @@
+﻿/// url = 'http://hl7.org/fhir/StructureMap/Library4to5'
+/// name = 'Library4to5'
+/// title = 'FML Conversion for Library: R4 to R5'
+
+uses "http://hl7.org/fhir/4.0/StructureDefinition/Library" alias LibraryR4 as source
+uses "http://hl7.org/fhir/StructureDefinition/Library" alias AccountR5 as target
+
+imports "http://hl7.org/fhir/StructureMap/*4to5
+
+group Library(source src : LibraryR4, target tgt : LibraryR5) extends DomainResource <<type+>> {
+  src.url -> tgt.url;
+  src.identifier -> tgt.identifier;
+  src.version -> tgt.version;
+  src.versionAlgorithm : string -> tgt.versionAlgorithm;
+  src.versionAlgorithm : Coding -> tgt.versionAlgorithm;
+  src.name -> tgt.name;
+  src.title -> tgt.title;
+  src.subtitle -> tgt.subtitle;
+  src.status -> tgt.status;
+  src.experimental -> tgt.experimental;
+  src.type -> tgt.type;
+  src.subject : CodeableConcept -> tgt.subject;
+  src.subject : Reference -> tgt.subject;
+  src.date -> tgt.date;
+  src.publisher -> tgt.publisher;
+  src.contact -> tgt.contact;
+  src.description -> tgt.description;
+  src.useContext -> tgt.useContext;
+  src.jurisdiction -> tgt.jurisdiction;
+  src.purpose -> tgt.purpose;
+  src.usage -> tgt.usage;
+  src.copyright -> tgt.copyright;
+  src.copyrightLabel -> tgt.copyrightLabel;
+  src.approvalDate -> tgt.approvalDate;
+  src.lastReviewDate -> tgt.lastReviewDate;
+  src.effectivePeriod -> tgt.effectivePeriod;
+  src.topic -> tgt.topic;
+  src.author -> tgt.author;
+  src.editor -> tgt.editor;
+  src.reviewer -> tgt.reviewer;
+  src.endorser -> tgt.endorser;
+  src.relatedArtifact -> tgt.relatedArtifact;
+  src.parameter -> tgt.parameter;
+  src.dataRequirement -> tgt.dataRequirement;
+  src.content -> tgt.content;
+}
+

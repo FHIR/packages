@@ -1,0 +1,142 @@
+﻿/// url = 'http://hl7.org/fhir/StructureMap/DeviceDefinition5to4'
+/// name = 'DeviceDefinition5to4'
+/// title = 'FML Conversion for DeviceDefinition: R5 to R4'
+
+uses "http://hl7.org/fhir/StructureDefinition/DeviceDefinition" alias DeviceDefinitionR5 as source
+uses "http://hl7.org/fhir/4.0/StructureDefinition/DeviceDefinition" alias AccountR4 as target
+
+imports "http://hl7.org/fhir/StructureMap/*5to4
+
+group DeviceDefinition(source src : DeviceDefinitionR5, target tgt : DeviceDefinitionR4) extends DomainResource <<type+>> {
+  src.description -> tgt.description;
+  src.identifier -> tgt.identifier;
+  src.udiDeviceIdentifier as s -> tgt.udiDeviceIdentifier as t then DeviceDefinitionUdiDeviceIdentifier(s,t);
+  src.regulatoryIdentifier as s -> tgt.regulatoryIdentifier as t then DeviceDefinitionRegulatoryIdentifier(s,t);
+  src.partNumber -> tgt.partNumber;
+  src.manufacturer -> tgt.manufacturer;
+  src.deviceName as s -> tgt.deviceName as t then DeviceDefinitionDeviceName(s,t);
+  src.modelNumber -> tgt.modelNumber;
+  src.classification as s -> tgt.classification as t then DeviceDefinitionClassification(s,t);
+  src.conformsTo as s -> tgt.conformsTo as t then DeviceDefinitionConformsTo(s,t);
+  src.hasPart as s -> tgt.hasPart as t then DeviceDefinitionHasPart(s,t);
+  src.packaging as s -> tgt.packaging as t then DeviceDefinitionPackaging(s,t);
+  src.version as s -> tgt.version as t then DeviceDefinitionVersion(s,t);
+  src.safety -> tgt.safety;
+  src.shelfLifeStorage -> tgt.shelfLifeStorage;
+  src.languageCode -> tgt.languageCode;
+  src.property as s -> tgt.property as t then DeviceDefinitionProperty(s,t);
+  src.owner -> tgt.owner;
+  src.contact -> tgt.contact;
+  src.link as s -> tgt.link as t then DeviceDefinitionLink(s,t);
+  src.note -> tgt.note;
+  src.material as s -> tgt.material as t then DeviceDefinitionMaterial(s,t);
+  src.productionIdentifierInUDI -> tgt.productionIdentifierInUDI;
+  src.guideline as s -> tgt.guideline as t then DeviceDefinitionGuideline(s,t);
+  src.correctiveAction as s -> tgt.correctiveAction as t then DeviceDefinitionCorrectiveAction(s,t);
+  src.chargeItem as s -> tgt.chargeItem as t then DeviceDefinitionChargeItem(s,t);
+}
+
+group DeviceDefinitionUdiDeviceIdentifier(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.deviceIdentifier -> tgt.deviceIdentifier;
+  src.issuer -> tgt.issuer;
+  src.jurisdiction -> tgt.jurisdiction;
+  src.marketDistribution as s -> tgt.marketDistribution as t then DeviceDefinitionUdiDeviceIdentifierMarketDistribution(s,t);
+}
+
+group DeviceDefinitionUdiDeviceIdentifierMarketDistribution(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.marketPeriod -> tgt.marketPeriod;
+  src.subJurisdiction -> tgt.subJurisdiction;
+}
+
+group DeviceDefinitionRegulatoryIdentifier(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.type -> tgt.type;
+  src.deviceIdentifier -> tgt.deviceIdentifier;
+  src.issuer -> tgt.issuer;
+  src.jurisdiction -> tgt.jurisdiction;
+}
+
+group DeviceDefinitionDeviceName(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.name -> tgt.name;
+  src.type -> tgt.type;
+}
+
+group DeviceDefinitionClassification(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.type -> tgt.type;
+  src.justification -> tgt.justification;
+}
+
+group DeviceDefinitionConformsTo(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.category -> tgt.category;
+  src.specification -> tgt.specification;
+  src.version -> tgt.version;
+  src.source -> tgt.source;
+}
+
+group DeviceDefinitionHasPart(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.reference -> tgt.reference;
+  src.count -> tgt.count;
+}
+
+group DeviceDefinitionPackaging(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.identifier -> tgt.identifier;
+  src.type -> tgt.type;
+  src.count -> tgt.count;
+  src.distributor as s -> tgt.distributor as t then DeviceDefinitionPackagingDistributor(s,t);
+}
+
+group DeviceDefinitionPackagingDistributor(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.name -> tgt.name;
+  src.organizationReference -> tgt.organizationReference;
+}
+
+group DeviceDefinitionVersion(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.type -> tgt.type;
+  src.component -> tgt.component;
+  src.value -> tgt.value;
+}
+
+group DeviceDefinitionProperty(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.type -> tgt.type;
+  src.value : Quantity -> tgt.value;
+  src.value : CodeableConcept -> tgt.value;
+  src.value : string -> tgt.value;
+  src.value : boolean -> tgt.value;
+  src.value : integer -> tgt.value;
+  src.value : Range -> tgt.value;
+  src.value : Attachment -> tgt.value;
+}
+
+group DeviceDefinitionLink(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.relation -> tgt.relation;
+  src.relatedDevice -> tgt.relatedDevice;
+}
+
+group DeviceDefinitionMaterial(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.substance -> tgt.substance;
+  src.alternate -> tgt.alternate;
+  src.allergenicIndicator -> tgt.allergenicIndicator;
+}
+
+group DeviceDefinitionGuideline(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.useContext -> tgt.useContext;
+  src.usageInstruction -> tgt.usageInstruction;
+  src.relatedArtifact -> tgt.relatedArtifact;
+  src.indication -> tgt.indication;
+  src.contraindication -> tgt.contraindication;
+  src.warning -> tgt.warning;
+  src.intendedUse -> tgt.intendedUse;
+}
+
+group DeviceDefinitionCorrectiveAction(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.recall -> tgt.recall;
+  src.scope -> tgt.scope;
+  src.period -> tgt.period;
+}
+
+group DeviceDefinitionChargeItem(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.chargeItemCode -> tgt.chargeItemCode;
+  src.count -> tgt.count;
+  src.effectivePeriod -> tgt.effectivePeriod;
+  src.useContext -> tgt.useContext;
+}
+

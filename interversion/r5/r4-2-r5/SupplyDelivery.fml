@@ -1,0 +1,31 @@
+﻿/// url = 'http://hl7.org/fhir/StructureMap/SupplyDelivery4to5'
+/// name = 'SupplyDelivery4to5'
+/// title = 'FML Conversion for SupplyDelivery: R4 to R5'
+
+uses "http://hl7.org/fhir/4.0/StructureDefinition/SupplyDelivery" alias SupplyDeliveryR4 as source
+uses "http://hl7.org/fhir/StructureDefinition/SupplyDelivery" alias AccountR5 as target
+
+imports "http://hl7.org/fhir/StructureMap/*4to5
+
+group SupplyDelivery(source src : SupplyDeliveryR4, target tgt : SupplyDeliveryR5) extends DomainResource <<type+>> {
+  src.identifier -> tgt.identifier;
+  src.basedOn -> tgt.basedOn;
+  src.partOf -> tgt.partOf;
+  src.status -> tgt.status;
+  src.patient -> tgt.patient;
+  src.type -> tgt.type;
+  src.suppliedItem as s -> tgt.suppliedItem as t then SupplyDeliverySuppliedItem(s,t);
+  src.occurrence : dateTime -> tgt.occurrence;
+  src.occurrence : Period -> tgt.occurrence;
+  src.occurrence : Timing -> tgt.occurrence;
+  src.supplier -> tgt.supplier;
+  src.destination -> tgt.destination;
+  src.receiver -> tgt.receiver;
+}
+
+group SupplyDeliverySuppliedItem(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.quantity -> tgt.quantity;
+  src.item : CodeableConcept -> tgt.item;
+  src.item : Reference -> tgt.item;
+}
+

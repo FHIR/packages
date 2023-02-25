@@ -1,0 +1,44 @@
+﻿/// url = 'http://hl7.org/fhir/StructureMap/Requirements5to4'
+/// name = 'Requirements5to4'
+/// title = 'FML Conversion for Requirements: R5 to R4'
+
+uses "http://hl7.org/fhir/StructureDefinition/Requirements" alias RequirementsR5 as source
+uses "http://hl7.org/fhir/4.0/StructureDefinition/Requirements" alias AccountR4 as target
+
+imports "http://hl7.org/fhir/StructureMap/*5to4
+
+group Requirements(source src : RequirementsR5, target tgt : RequirementsR4) extends DomainResource <<type+>> {
+  src.url -> tgt.url;
+  src.identifier -> tgt.identifier;
+  src.version -> tgt.version;
+  src.name -> tgt.name;
+  src.title -> tgt.title;
+  src.status -> tgt.status;
+  src.experimental -> tgt.experimental;
+  src.date -> tgt.date;
+  src.publisher -> tgt.publisher;
+  src.contact -> tgt.contact;
+  src.description -> tgt.description;
+  src.useContext -> tgt.useContext;
+  src.jurisdiction -> tgt.jurisdiction;
+  src.purpose -> tgt.purpose;
+  src.copyright -> tgt.copyright;
+  src.copyrightLabel -> tgt.copyrightLabel;
+  src.derivedFrom -> tgt.derivedFrom;
+  src.actor -> tgt.actor;
+  src.statement as s -> tgt.statement as t then RequirementsStatement(s,t);
+}
+
+group RequirementsStatement(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.key -> tgt.key;
+  src.label -> tgt.label;
+  src.conformance -> tgt.conformance;
+  src.conditionality -> tgt.conditionality;
+  src.requirement -> tgt.requirement;
+  src.derivedFrom -> tgt.derivedFrom;
+  src.parent -> tgt.parent;
+  src.satisfiedBy -> tgt.satisfiedBy;
+  src.reference -> tgt.reference;
+  src.source -> tgt.source;
+}
+

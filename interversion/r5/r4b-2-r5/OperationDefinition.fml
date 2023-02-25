@@ -1,0 +1,72 @@
+﻿/// url = 'http://hl7.org/fhir/StructureMap/OperationDefinition4Bto5'
+/// name = 'OperationDefinition4Bto5'
+/// title = 'FML Conversion for OperationDefinition: R4B to R5'
+
+uses "http://hl7.org/fhir/4.3/StructureDefinition/OperationDefinition" alias OperationDefinitionR4B as source
+uses "http://hl7.org/fhir/StructureDefinition/OperationDefinition" alias AccountR5 as target
+
+imports "http://hl7.org/fhir/StructureMap/*4Bto5
+
+group OperationDefinition(source src : OperationDefinitionR4B, target tgt : OperationDefinitionR5) extends DomainResource <<type+>> {
+  src.url -> tgt.url;
+  src.version -> tgt.version;
+  src.versionAlgorithm : string -> tgt.versionAlgorithm;
+  src.versionAlgorithm : Coding -> tgt.versionAlgorithm;
+  src.name -> tgt.name;
+  src.title -> tgt.title;
+  src.status -> tgt.status;
+  src.kind -> tgt.kind;
+  src.experimental -> tgt.experimental;
+  src.date -> tgt.date;
+  src.publisher -> tgt.publisher;
+  src.contact -> tgt.contact;
+  src.description -> tgt.description;
+  src.useContext -> tgt.useContext;
+  src.jurisdiction -> tgt.jurisdiction;
+  src.purpose -> tgt.purpose;
+  src.copyright -> tgt.copyright;
+  src.copyrightLabel -> tgt.copyrightLabel;
+  src.affectsState -> tgt.affectsState;
+  src.code -> tgt.code;
+  src.comment -> tgt.comment;
+  src.base -> tgt.base;
+  src.resource -> tgt.resource;
+  src.system -> tgt.system;
+  src.type -> tgt.type;
+  src.instance -> tgt.instance;
+  src.inputProfile -> tgt.inputProfile;
+  src.outputProfile -> tgt.outputProfile;
+  src.parameter as s -> tgt.parameter as t then OperationDefinitionParameter(s,t);
+  src.overload as s -> tgt.overload as t then OperationDefinitionOverload(s,t);
+}
+
+group OperationDefinitionParameter(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.name -> tgt.name;
+  src.use -> tgt.use;
+  src.scope -> tgt.scope;
+  src.min -> tgt.min;
+  src.max -> tgt.max;
+  src.documentation -> tgt.documentation;
+  src.type -> tgt.type;
+  src.allowedType -> tgt.allowedType;
+  src.targetProfile -> tgt.targetProfile;
+  src.searchType -> tgt.searchType;
+  src.binding as s -> tgt.binding as t then OperationDefinitionParameterBinding(s,t);
+  src.referencedFrom as s -> tgt.referencedFrom as t then OperationDefinitionParameterReferencedFrom(s,t);
+}
+
+group OperationDefinitionParameterBinding(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.strength -> tgt.strength;
+  src.valueSet -> tgt.valueSet;
+}
+
+group OperationDefinitionParameterReferencedFrom(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.source -> tgt.source;
+  src.sourceId -> tgt.sourceId;
+}
+
+group OperationDefinitionOverload(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.parameterName -> tgt.parameterName;
+  src.comment -> tgt.comment;
+}
+

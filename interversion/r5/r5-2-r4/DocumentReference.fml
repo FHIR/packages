@@ -1,0 +1,57 @@
+﻿/// url = 'http://hl7.org/fhir/StructureMap/DocumentReference5to4'
+/// name = 'DocumentReference5to4'
+/// title = 'FML Conversion for DocumentReference: R5 to R4'
+
+uses "http://hl7.org/fhir/StructureDefinition/DocumentReference" alias DocumentReferenceR5 as source
+uses "http://hl7.org/fhir/4.0/StructureDefinition/DocumentReference" alias AccountR4 as target
+
+imports "http://hl7.org/fhir/StructureMap/*5to4
+
+group DocumentReference(source src : DocumentReferenceR5, target tgt : DocumentReferenceR4) extends DomainResource <<type+>> {
+  src.identifier -> tgt.identifier;
+  src.version -> tgt.version;
+  src.basedOn -> tgt.basedOn;
+  src.status -> tgt.status;
+  src.docStatus -> tgt.docStatus;
+  src.modality -> tgt.modality;
+  src.type -> tgt.type;
+  src.category -> tgt.category;
+  src.subject -> tgt.subject;
+  src.context -> tgt.context;
+  src.event -> tgt.event;
+  src.bodySite -> tgt.bodySite;
+  src.facilityType -> tgt.facilityType;
+  src.practiceSetting -> tgt.practiceSetting;
+  src.period -> tgt.period;
+  src.date -> tgt.date;
+  src.author -> tgt.author;
+  src.attester as s -> tgt.attester as t then DocumentReferenceAttester(s,t);
+  src.custodian -> tgt.custodian;
+  src.relatesTo as s -> tgt.relatesTo as t then DocumentReferenceRelatesTo(s,t);
+  src.description -> tgt.description;
+  src.securityLabel -> tgt.securityLabel;
+  src.content as s -> tgt.content as t then DocumentReferenceContent(s,t);
+}
+
+group DocumentReferenceAttester(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.mode -> tgt.mode;
+  src.time -> tgt.time;
+  src.party -> tgt.party;
+}
+
+group DocumentReferenceRelatesTo(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.code -> tgt.code;
+  src.target -> tgt.target;
+}
+
+group DocumentReferenceContent(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.attachment -> tgt.attachment;
+  src.profile as s -> tgt.profile as t then DocumentReferenceContentProfile(s,t);
+}
+
+group DocumentReferenceContentProfile(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.value : Coding -> tgt.value;
+  src.value : uri -> tgt.value;
+  src.value : canonical -> tgt.value;
+}
+

@@ -1,0 +1,26 @@
+﻿/// url = 'http://hl7.org/fhir/StructureMap/Availability4Bto5'
+/// name = 'Availability4Bto5'
+/// title = 'FML Conversion for Availability: R4B to R5'
+
+uses "http://hl7.org/fhir/4.3/StructureDefinition/Availability" alias AvailabilityR4B as source
+uses "http://hl7.org/fhir/StructureDefinition/Availability" alias AccountR5 as target
+
+imports "http://hl7.org/fhir/StructureMap/*4Bto5
+
+group Availability(source src : AvailabilityR4B, target tgt : AvailabilityR5) extends DataType <<type+>> {
+  src.availableTime as s -> tgt.availableTime as t then AvailabilityAvailableTime(s,t);
+  src.notAvailableTime as s -> tgt.notAvailableTime as t then AvailabilityNotAvailableTime(s,t);
+}
+
+group AvailabilityAvailableTime(source src : null, target tgt : null) extends DataType <<type+>> {
+  src.daysOfWeek -> tgt.daysOfWeek;
+  src.allDay -> tgt.allDay;
+  src.availableStartTime -> tgt.availableStartTime;
+  src.availableEndTime -> tgt.availableEndTime;
+}
+
+group AvailabilityNotAvailableTime(source src : null, target tgt : null) extends DataType <<type+>> {
+  src.description -> tgt.description;
+  src.during -> tgt.during;
+}
+

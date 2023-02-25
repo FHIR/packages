@@ -1,0 +1,45 @@
+﻿/// url = 'http://hl7.org/fhir/StructureMap/ChargeItem5to4B'
+/// name = 'ChargeItem5to4B'
+/// title = 'FML Conversion for ChargeItem: R5 to R4B'
+
+uses "http://hl7.org/fhir/StructureDefinition/ChargeItem" alias ChargeItemR5 as source
+uses "http://hl7.org/fhir/4.3/StructureDefinition/ChargeItem" alias AccountR4B as target
+
+imports "http://hl7.org/fhir/StructureMap/*5to4B
+
+group ChargeItem(source src : ChargeItemR5, target tgt : ChargeItemR4B) extends DomainResource <<type+>> {
+  src.identifier -> tgt.identifier;
+  src.definitionUri -> tgt.definitionUri;
+  src.definitionCanonical -> tgt.definitionCanonical;
+  src.status -> tgt.status;
+  src.partOf -> tgt.partOf;
+  src.code -> tgt.code;
+  src.subject -> tgt.subject;
+  src.encounter -> tgt.encounter;
+  src.occurrence : dateTime -> tgt.occurrence;
+  src.occurrence : Period -> tgt.occurrence;
+  src.occurrence : Timing -> tgt.occurrence;
+  src.performer as s -> tgt.performer as t then ChargeItemPerformer(s,t);
+  src.performingOrganization -> tgt.performingOrganization;
+  src.requestingOrganization -> tgt.requestingOrganization;
+  src.costCenter -> tgt.costCenter;
+  src.quantity -> tgt.quantity;
+  src.bodysite -> tgt.bodysite;
+  src.unitPriceComponent -> tgt.unitPriceComponent;
+  src.totalPriceComponent -> tgt.totalPriceComponent;
+  src.overrideReason -> tgt.overrideReason;
+  src.enterer -> tgt.enterer;
+  src.enteredDate -> tgt.enteredDate;
+  src.reason -> tgt.reason;
+  src.service -> tgt.service;
+  src.product -> tgt.product;
+  src.account -> tgt.account;
+  src.note -> tgt.note;
+  src.supportingInformation -> tgt.supportingInformation;
+}
+
+group ChargeItemPerformer(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.function -> tgt.function;
+  src.actor -> tgt.actor;
+}
+

@@ -1,0 +1,185 @@
+﻿/// url = 'http://hl7.org/fhir/StructureMap/Citation4Bto5'
+/// name = 'Citation4Bto5'
+/// title = 'FML Conversion for Citation: R4B to R5'
+
+uses "http://hl7.org/fhir/4.3/StructureDefinition/Citation" alias CitationR4B as source
+uses "http://hl7.org/fhir/StructureDefinition/Citation" alias AccountR5 as target
+
+imports "http://hl7.org/fhir/StructureMap/*4Bto5
+
+group Citation(source src : CitationR4B, target tgt : CitationR5) extends DomainResource <<type+>> {
+  src.url -> tgt.url;
+  src.identifier -> tgt.identifier;
+  src.version -> tgt.version;
+  src.versionAlgorithm : string -> tgt.versionAlgorithm;
+  src.versionAlgorithm : Coding -> tgt.versionAlgorithm;
+  src.name -> tgt.name;
+  src.title -> tgt.title;
+  src.status -> tgt.status;
+  src.experimental -> tgt.experimental;
+  src.date -> tgt.date;
+  src.publisher -> tgt.publisher;
+  src.contact -> tgt.contact;
+  src.description -> tgt.description;
+  src.useContext -> tgt.useContext;
+  src.jurisdiction -> tgt.jurisdiction;
+  src.purpose -> tgt.purpose;
+  src.copyright -> tgt.copyright;
+  src.copyrightLabel -> tgt.copyrightLabel;
+  src.approvalDate -> tgt.approvalDate;
+  src.lastReviewDate -> tgt.lastReviewDate;
+  src.effectivePeriod -> tgt.effectivePeriod;
+  src.author -> tgt.author;
+  src.editor -> tgt.editor;
+  src.reviewer -> tgt.reviewer;
+  src.endorser -> tgt.endorser;
+  src.summary as s -> tgt.summary as t then CitationSummary(s,t);
+  src.classification as s -> tgt.classification as t then CitationClassification(s,t);
+  src.note -> tgt.note;
+  src.currentState -> tgt.currentState;
+  src.statusDate as s -> tgt.statusDate as t then CitationStatusDate(s,t);
+  src.relatedArtifact -> tgt.relatedArtifact;
+  src.citedArtifact as s -> tgt.citedArtifact as t then CitationCitedArtifact(s,t);
+}
+
+group CitationSummary(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.style -> tgt.style;
+  src.text -> tgt.text;
+}
+
+group CitationClassification(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.type -> tgt.type;
+  src.classifier -> tgt.classifier;
+}
+
+group CitationStatusDate(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.activity -> tgt.activity;
+  src.actual -> tgt.actual;
+  src.period -> tgt.period;
+}
+
+group CitationCitedArtifact(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.identifier -> tgt.identifier;
+  src.relatedIdentifier -> tgt.relatedIdentifier;
+  src.dateAccessed -> tgt.dateAccessed;
+  src.version as s -> tgt.version as t then CitationCitedArtifactVersion(s,t);
+  src.currentState -> tgt.currentState;
+  src.statusDate as s -> tgt.statusDate as t then CitationCitedArtifactStatusDate(s,t);
+  src.title as s -> tgt.title as t then CitationCitedArtifactTitle(s,t);
+  src.abstract as s -> tgt.abstract as t then CitationCitedArtifactAbstract(s,t);
+  src.part as s -> tgt.part as t then CitationCitedArtifactPart(s,t);
+  src.relatesTo as s -> tgt.relatesTo as t then CitationCitedArtifactRelatesTo(s,t);
+  src.publicationForm as s -> tgt.publicationForm as t then CitationCitedArtifactPublicationForm(s,t);
+  src.webLocation as s -> tgt.webLocation as t then CitationCitedArtifactWebLocation(s,t);
+  src.classification as s -> tgt.classification as t then CitationCitedArtifactClassification(s,t);
+  src.contributorship as s -> tgt.contributorship as t then CitationCitedArtifactContributorship(s,t);
+  src.note -> tgt.note;
+}
+
+group CitationCitedArtifactVersion(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.value -> tgt.value;
+  src.baseCitation -> tgt.baseCitation;
+}
+
+group CitationCitedArtifactStatusDate(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.activity -> tgt.activity;
+  src.actual -> tgt.actual;
+  src.period -> tgt.period;
+}
+
+group CitationCitedArtifactTitle(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.type -> tgt.type;
+  src.language -> tgt.language;
+  src.text -> tgt.text;
+}
+
+group CitationCitedArtifactAbstract(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.type -> tgt.type;
+  src.language -> tgt.language;
+  src.text -> tgt.text;
+  src.copyright -> tgt.copyright;
+}
+
+group CitationCitedArtifactPart(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.type -> tgt.type;
+  src.value -> tgt.value;
+  src.baseCitation -> tgt.baseCitation;
+}
+
+group CitationCitedArtifactRelatesTo(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.type -> tgt.type;
+  src.classifier -> tgt.classifier;
+  src.label -> tgt.label;
+  src.display -> tgt.display;
+  src.citation -> tgt.citation;
+  src.document -> tgt.document;
+  src.resource -> tgt.resource;
+  src.resourceReference -> tgt.resourceReference;
+}
+
+group CitationCitedArtifactPublicationForm(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.publishedIn as s -> tgt.publishedIn as t then CitationCitedArtifactPublicationFormPublishedIn(s,t);
+  src.citedMedium -> tgt.citedMedium;
+  src.volume -> tgt.volume;
+  src.issue -> tgt.issue;
+  src.articleDate -> tgt.articleDate;
+  src.publicationDateText -> tgt.publicationDateText;
+  src.publicationDateSeason -> tgt.publicationDateSeason;
+  src.lastRevisionDate -> tgt.lastRevisionDate;
+  src.language -> tgt.language;
+  src.accessionNumber -> tgt.accessionNumber;
+  src.pageString -> tgt.pageString;
+  src.firstPage -> tgt.firstPage;
+  src.lastPage -> tgt.lastPage;
+  src.pageCount -> tgt.pageCount;
+  src.copyright -> tgt.copyright;
+}
+
+group CitationCitedArtifactPublicationFormPublishedIn(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.type -> tgt.type;
+  src.identifier -> tgt.identifier;
+  src.title -> tgt.title;
+  src.publisher -> tgt.publisher;
+  src.publisherLocation -> tgt.publisherLocation;
+}
+
+group CitationCitedArtifactWebLocation(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.classifier -> tgt.classifier;
+  src.url -> tgt.url;
+}
+
+group CitationCitedArtifactClassification(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.type -> tgt.type;
+  src.classifier -> tgt.classifier;
+  src.artifactAssessment -> tgt.artifactAssessment;
+}
+
+group CitationCitedArtifactContributorship(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.complete -> tgt.complete;
+  src.entry as s -> tgt.entry as t then CitationCitedArtifactContributorshipEntry(s,t);
+  src.summary as s -> tgt.summary as t then CitationCitedArtifactContributorshipSummary(s,t);
+}
+
+group CitationCitedArtifactContributorshipEntry(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.contributor -> tgt.contributor;
+  src.forenameInitials -> tgt.forenameInitials;
+  src.affiliation -> tgt.affiliation;
+  src.contributionType -> tgt.contributionType;
+  src.role -> tgt.role;
+  src.contributionInstance as s -> tgt.contributionInstance as t then CitationCitedArtifactContributorshipEntryContributionInstance(s,t);
+  src.correspondingContact -> tgt.correspondingContact;
+  src.rankingOrder -> tgt.rankingOrder;
+}
+
+group CitationCitedArtifactContributorshipEntryContributionInstance(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.type -> tgt.type;
+  src.time -> tgt.time;
+}
+
+group CitationCitedArtifactContributorshipSummary(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.type -> tgt.type;
+  src.style -> tgt.style;
+  src.source -> tgt.source;
+  src.value -> tgt.value;
+}
+

@@ -1,0 +1,105 @@
+﻿/// url = 'http://hl7.org/fhir/StructureMap/RequestOrchestration5to4'
+/// name = 'RequestOrchestration5to4'
+/// title = 'FML Conversion for RequestOrchestration: R5 to R4'
+
+uses "http://hl7.org/fhir/StructureDefinition/RequestOrchestration" alias RequestOrchestrationR5 as source
+uses "http://hl7.org/fhir/4.0/StructureDefinition/RequestOrchestration" alias AccountR4 as target
+
+imports "http://hl7.org/fhir/StructureMap/*5to4
+
+group RequestOrchestration(source src : RequestOrchestrationR5, target tgt : RequestOrchestrationR4) extends DomainResource <<type+>> {
+  src.identifier -> tgt.identifier;
+  src.instantiatesCanonical -> tgt.instantiatesCanonical;
+  src.instantiatesUri -> tgt.instantiatesUri;
+  src.basedOn -> tgt.basedOn;
+  src.replaces -> tgt.replaces;
+  src.groupIdentifier -> tgt.groupIdentifier;
+  src.status -> tgt.status;
+  src.intent -> tgt.intent;
+  src.priority -> tgt.priority;
+  src.code -> tgt.code;
+  src.subject -> tgt.subject;
+  src.encounter -> tgt.encounter;
+  src.authoredOn -> tgt.authoredOn;
+  src.author -> tgt.author;
+  src.reason -> tgt.reason;
+  src.goal -> tgt.goal;
+  src.note -> tgt.note;
+  src.action as s -> tgt.action as t then RequestOrchestrationAction(s,t);
+}
+
+group RequestOrchestrationAction(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.linkId -> tgt.linkId;
+  src.prefix -> tgt.prefix;
+  src.title -> tgt.title;
+  src.description -> tgt.description;
+  src.textEquivalent -> tgt.textEquivalent;
+  src.priority -> tgt.priority;
+  src.code -> tgt.code;
+  src.documentation -> tgt.documentation;
+  src.goal -> tgt.goal;
+  src.condition as s -> tgt.condition as t then RequestOrchestrationActionCondition(s,t);
+  src.input as s -> tgt.input as t then RequestOrchestrationActionInput(s,t);
+  src.output as s -> tgt.output as t then RequestOrchestrationActionOutput(s,t);
+  src.relatedAction as s -> tgt.relatedAction as t then RequestOrchestrationActionRelatedAction(s,t);
+  src.timing : dateTime -> tgt.timing;
+  src.timing : Age -> tgt.timing;
+  src.timing : Period -> tgt.timing;
+  src.timing : Duration -> tgt.timing;
+  src.timing : Range -> tgt.timing;
+  src.timing : Timing -> tgt.timing;
+  src.location -> tgt.location;
+  src.participant as s -> tgt.participant as t then RequestOrchestrationActionParticipant(s,t);
+  src.type -> tgt.type;
+  src.groupingBehavior -> tgt.groupingBehavior;
+  src.selectionBehavior -> tgt.selectionBehavior;
+  src.requiredBehavior -> tgt.requiredBehavior;
+  src.precheckBehavior -> tgt.precheckBehavior;
+  src.cardinalityBehavior -> tgt.cardinalityBehavior;
+  src.resource -> tgt.resource;
+  src.definition : canonical -> tgt.definition;
+  src.definition : uri -> tgt.definition;
+  src.transform -> tgt.transform;
+  src.dynamicValue as s -> tgt.dynamicValue as t then RequestOrchestrationActionDynamicValue(s,t);
+}
+
+group RequestOrchestrationActionCondition(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.kind -> tgt.kind;
+  src.expression -> tgt.expression;
+}
+
+group RequestOrchestrationActionInput(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.title -> tgt.title;
+  src.requirement -> tgt.requirement;
+  src.relatedData -> tgt.relatedData;
+}
+
+group RequestOrchestrationActionOutput(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.title -> tgt.title;
+  src.requirement -> tgt.requirement;
+  src.relatedData -> tgt.relatedData;
+}
+
+group RequestOrchestrationActionRelatedAction(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.targetId -> tgt.targetId;
+  src.relationship -> tgt.relationship;
+  src.endRelationship -> tgt.endRelationship;
+  src.offset : Duration -> tgt.offset;
+  src.offset : Range -> tgt.offset;
+}
+
+group RequestOrchestrationActionParticipant(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.type -> tgt.type;
+  src.typeCanonical -> tgt.typeCanonical;
+  src.typeReference -> tgt.typeReference;
+  src.role -> tgt.role;
+  src.function -> tgt.function;
+  src.actor : canonical -> tgt.actor;
+  src.actor : Reference -> tgt.actor;
+}
+
+group RequestOrchestrationActionDynamicValue(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.path -> tgt.path;
+  src.expression -> tgt.expression;
+}
+

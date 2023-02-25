@@ -1,0 +1,65 @@
+﻿/// url = 'http://hl7.org/fhir/StructureMap/Immunization4Bto5'
+/// name = 'Immunization4Bto5'
+/// title = 'FML Conversion for Immunization: R4B to R5'
+
+uses "http://hl7.org/fhir/4.3/StructureDefinition/Immunization" alias ImmunizationR4B as source
+uses "http://hl7.org/fhir/StructureDefinition/Immunization" alias AccountR5 as target
+
+imports "http://hl7.org/fhir/StructureMap/*4Bto5
+
+group Immunization(source src : ImmunizationR4B, target tgt : ImmunizationR5) extends DomainResource <<type+>> {
+  src.identifier -> tgt.identifier;
+  src.basedOn -> tgt.basedOn;
+  src.status -> tgt.status;
+  src.statusReason -> tgt.statusReason;
+  src.vaccineCode -> tgt.vaccineCode;
+  src.administeredProduct -> tgt.administeredProduct;
+  src.manufacturer -> tgt.manufacturer;
+  src.lotNumber -> tgt.lotNumber;
+  src.expirationDate -> tgt.expirationDate;
+  src.patient -> tgt.patient;
+  src.encounter -> tgt.encounter;
+  src.supportingInformation -> tgt.supportingInformation;
+  src.occurrence : dateTime -> tgt.occurrence;
+  src.occurrence : string -> tgt.occurrence;
+  src.primarySource -> tgt.primarySource;
+  src.informationSource -> tgt.informationSource;
+  src.location -> tgt.location;
+  src.site -> tgt.site;
+  src.route -> tgt.route;
+  src.doseQuantity -> tgt.doseQuantity;
+  src.performer as s -> tgt.performer as t then ImmunizationPerformer(s,t);
+  src.note -> tgt.note;
+  src.reason -> tgt.reason;
+  src.isSubpotent -> tgt.isSubpotent;
+  src.subpotentReason -> tgt.subpotentReason;
+  src.programEligibility as s -> tgt.programEligibility as t then ImmunizationProgramEligibility(s,t);
+  src.fundingSource -> tgt.fundingSource;
+  src.reaction as s -> tgt.reaction as t then ImmunizationReaction(s,t);
+  src.protocolApplied as s -> tgt.protocolApplied as t then ImmunizationProtocolApplied(s,t);
+}
+
+group ImmunizationPerformer(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.function -> tgt.function;
+  src.actor -> tgt.actor;
+}
+
+group ImmunizationProgramEligibility(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.program -> tgt.program;
+  src.programStatus -> tgt.programStatus;
+}
+
+group ImmunizationReaction(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.date -> tgt.date;
+  src.manifestation -> tgt.manifestation;
+  src.reported -> tgt.reported;
+}
+
+group ImmunizationProtocolApplied(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.series -> tgt.series;
+  src.authority -> tgt.authority;
+  src.targetDisease -> tgt.targetDisease;
+  src.doseNumber -> tgt.doseNumber;
+  src.seriesDoses -> tgt.seriesDoses;
+}
+

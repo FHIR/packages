@@ -1,0 +1,14 @@
+﻿/// url = 'http://hl7.org/fhir/StructureMap/CodeableConcept4to5'
+/// name = 'CodeableConcept4to5'
+/// title = 'FML Conversion for CodeableConcept: R4 to R5'
+
+uses "http://hl7.org/fhir/4.0/StructureDefinition/CodeableConcept" alias CodeableConceptR4 as source
+uses "http://hl7.org/fhir/StructureDefinition/CodeableConcept" alias AccountR5 as target
+
+imports "http://hl7.org/fhir/StructureMap/*4to5
+
+group CodeableConcept(source src : CodeableConceptR4, target tgt : CodeableConceptR5) extends DataType <<type+>> {
+  src.coding -> tgt.coding;
+  src.text -> tgt.text;
+}
+

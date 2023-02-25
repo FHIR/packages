@@ -1,0 +1,17 @@
+﻿/// url = 'http://hl7.org/fhir/StructureMap/MarketingStatus4to5'
+/// name = 'MarketingStatus4to5'
+/// title = 'FML Conversion for MarketingStatus: R4 to R5'
+
+uses "http://hl7.org/fhir/4.0/StructureDefinition/MarketingStatus" alias MarketingStatusR4 as source
+uses "http://hl7.org/fhir/StructureDefinition/MarketingStatus" alias AccountR5 as target
+
+imports "http://hl7.org/fhir/StructureMap/*4to5
+
+group MarketingStatus(source src : MarketingStatusR4, target tgt : MarketingStatusR5) extends BackboneType <<type+>> {
+  src.country -> tgt.country;
+  src.jurisdiction -> tgt.jurisdiction;
+  src.status -> tgt.status;
+  src.dateRange -> tgt.dateRange;
+  src.restoreDate -> tgt.restoreDate;
+}
+

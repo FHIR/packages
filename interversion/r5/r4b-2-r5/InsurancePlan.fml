@@ -1,0 +1,76 @@
+﻿/// url = 'http://hl7.org/fhir/StructureMap/InsurancePlan4Bto5'
+/// name = 'InsurancePlan4Bto5'
+/// title = 'FML Conversion for InsurancePlan: R4B to R5'
+
+uses "http://hl7.org/fhir/4.3/StructureDefinition/InsurancePlan" alias InsurancePlanR4B as source
+uses "http://hl7.org/fhir/StructureDefinition/InsurancePlan" alias AccountR5 as target
+
+imports "http://hl7.org/fhir/StructureMap/*4Bto5
+
+group InsurancePlan(source src : InsurancePlanR4B, target tgt : InsurancePlanR5) extends DomainResource <<type+>> {
+  src.identifier -> tgt.identifier;
+  src.status -> tgt.status;
+  src.type -> tgt.type;
+  src.name -> tgt.name;
+  src.alias -> tgt.alias;
+  src.period -> tgt.period;
+  src.ownedBy -> tgt.ownedBy;
+  src.administeredBy -> tgt.administeredBy;
+  src.coverageArea -> tgt.coverageArea;
+  src.contact -> tgt.contact;
+  src.endpoint -> tgt.endpoint;
+  src.network -> tgt.network;
+  src.coverage as s -> tgt.coverage as t then InsurancePlanCoverage(s,t);
+  src.plan as s -> tgt.plan as t then InsurancePlanPlan(s,t);
+}
+
+group InsurancePlanCoverage(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.type -> tgt.type;
+  src.network -> tgt.network;
+  src.benefit as s -> tgt.benefit as t then InsurancePlanCoverageBenefit(s,t);
+}
+
+group InsurancePlanCoverageBenefit(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.type -> tgt.type;
+  src.requirement -> tgt.requirement;
+  src.limit as s -> tgt.limit as t then InsurancePlanCoverageBenefitLimit(s,t);
+}
+
+group InsurancePlanCoverageBenefitLimit(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.value -> tgt.value;
+  src.code -> tgt.code;
+}
+
+group InsurancePlanPlan(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.identifier -> tgt.identifier;
+  src.type -> tgt.type;
+  src.coverageArea -> tgt.coverageArea;
+  src.network -> tgt.network;
+  src.generalCost as s -> tgt.generalCost as t then InsurancePlanPlanGeneralCost(s,t);
+  src.specificCost as s -> tgt.specificCost as t then InsurancePlanPlanSpecificCost(s,t);
+}
+
+group InsurancePlanPlanGeneralCost(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.type -> tgt.type;
+  src.groupSize -> tgt.groupSize;
+  src.cost -> tgt.cost;
+  src.comment -> tgt.comment;
+}
+
+group InsurancePlanPlanSpecificCost(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.category -> tgt.category;
+  src.benefit as s -> tgt.benefit as t then InsurancePlanPlanSpecificCostBenefit(s,t);
+}
+
+group InsurancePlanPlanSpecificCostBenefit(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.type -> tgt.type;
+  src.cost as s -> tgt.cost as t then InsurancePlanPlanSpecificCostBenefitCost(s,t);
+}
+
+group InsurancePlanPlanSpecificCostBenefitCost(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.type -> tgt.type;
+  src.applicability -> tgt.applicability;
+  src.qualifiers -> tgt.qualifiers;
+  src.value -> tgt.value;
+}
+

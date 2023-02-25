@@ -1,0 +1,14 @@
+﻿/// url = 'http://hl7.org/fhir/StructureMap/Period5to4'
+/// name = 'Period5to4'
+/// title = 'FML Conversion for Period: R5 to R4'
+
+uses "http://hl7.org/fhir/StructureDefinition/Period" alias PeriodR5 as source
+uses "http://hl7.org/fhir/4.0/StructureDefinition/Period" alias AccountR4 as target
+
+imports "http://hl7.org/fhir/StructureMap/*5to4
+
+group Period(source src : PeriodR5, target tgt : PeriodR4) extends DataType <<type+>> {
+  src.start -> tgt.start;
+  src.end -> tgt.end;
+}
+

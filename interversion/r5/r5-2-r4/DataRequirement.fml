@@ -1,0 +1,51 @@
+﻿/// url = 'http://hl7.org/fhir/StructureMap/DataRequirement5to4'
+/// name = 'DataRequirement5to4'
+/// title = 'FML Conversion for DataRequirement: R5 to R4'
+
+uses "http://hl7.org/fhir/StructureDefinition/DataRequirement" alias DataRequirementR5 as source
+uses "http://hl7.org/fhir/4.0/StructureDefinition/DataRequirement" alias AccountR4 as target
+
+imports "http://hl7.org/fhir/StructureMap/*5to4
+
+group DataRequirement(source src : DataRequirementR5, target tgt : DataRequirementR4) extends DataType <<type+>> {
+  src.type -> tgt.type;
+  src.profile -> tgt.profile;
+  src.subject : CodeableConcept -> tgt.subject;
+  src.subject : Reference -> tgt.subject;
+  src.mustSupport -> tgt.mustSupport;
+  src.codeFilter as s -> tgt.codeFilter as t then DataRequirementCodeFilter(s,t);
+  src.dateFilter as s -> tgt.dateFilter as t then DataRequirementDateFilter(s,t);
+  src.valueFilter as s -> tgt.valueFilter as t then DataRequirementValueFilter(s,t);
+  src.limit -> tgt.limit;
+  src.sort as s -> tgt.sort as t then DataRequirementSort(s,t);
+}
+
+group DataRequirementCodeFilter(source src : null, target tgt : null) extends DataType <<type+>> {
+  src.path -> tgt.path;
+  src.searchParam -> tgt.searchParam;
+  src.valueSet -> tgt.valueSet;
+  src.code -> tgt.code;
+}
+
+group DataRequirementDateFilter(source src : null, target tgt : null) extends DataType <<type+>> {
+  src.path -> tgt.path;
+  src.searchParam -> tgt.searchParam;
+  src.value : dateTime -> tgt.value;
+  src.value : Period -> tgt.value;
+  src.value : Duration -> tgt.value;
+}
+
+group DataRequirementValueFilter(source src : null, target tgt : null) extends DataType <<type+>> {
+  src.path -> tgt.path;
+  src.searchParam -> tgt.searchParam;
+  src.comparator -> tgt.comparator;
+  src.value : dateTime -> tgt.value;
+  src.value : Period -> tgt.value;
+  src.value : Duration -> tgt.value;
+}
+
+group DataRequirementSort(source src : null, target tgt : null) extends DataType <<type+>> {
+  src.path -> tgt.path;
+  src.direction -> tgt.direction;
+}
+

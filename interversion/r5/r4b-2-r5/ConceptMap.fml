@@ -1,0 +1,95 @@
+﻿/// url = 'http://hl7.org/fhir/StructureMap/ConceptMap4Bto5'
+/// name = 'ConceptMap4Bto5'
+/// title = 'FML Conversion for ConceptMap: R4B to R5'
+
+uses "http://hl7.org/fhir/4.3/StructureDefinition/ConceptMap" alias ConceptMapR4B as source
+uses "http://hl7.org/fhir/StructureDefinition/ConceptMap" alias AccountR5 as target
+
+imports "http://hl7.org/fhir/StructureMap/*4Bto5
+
+group ConceptMap(source src : ConceptMapR4B, target tgt : ConceptMapR5) extends DomainResource <<type+>> {
+  src.url -> tgt.url;
+  src.identifier -> tgt.identifier;
+  src.version -> tgt.version;
+  src.versionAlgorithm : string -> tgt.versionAlgorithm;
+  src.versionAlgorithm : Coding -> tgt.versionAlgorithm;
+  src.name -> tgt.name;
+  src.title -> tgt.title;
+  src.status -> tgt.status;
+  src.experimental -> tgt.experimental;
+  src.date -> tgt.date;
+  src.publisher -> tgt.publisher;
+  src.contact -> tgt.contact;
+  src.description -> tgt.description;
+  src.useContext -> tgt.useContext;
+  src.jurisdiction -> tgt.jurisdiction;
+  src.purpose -> tgt.purpose;
+  src.copyright -> tgt.copyright;
+  src.copyrightLabel -> tgt.copyrightLabel;
+  src.approvalDate -> tgt.approvalDate;
+  src.lastReviewDate -> tgt.lastReviewDate;
+  src.effectivePeriod -> tgt.effectivePeriod;
+  src.topic -> tgt.topic;
+  src.author -> tgt.author;
+  src.editor -> tgt.editor;
+  src.reviewer -> tgt.reviewer;
+  src.endorser -> tgt.endorser;
+  src.relatedArtifact -> tgt.relatedArtifact;
+  src.property as s -> tgt.property as t then ConceptMapProperty(s,t);
+  src.sourceScope : uri -> tgt.sourceScope;
+  src.sourceScope : canonical -> tgt.sourceScope;
+  src.targetScope : uri -> tgt.targetScope;
+  src.targetScope : canonical -> tgt.targetScope;
+  src.group as s -> tgt.group as t then ConceptMapGroup(s,t);
+}
+
+group ConceptMapProperty(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.code -> tgt.code;
+  src.uri -> tgt.uri;
+  src.description -> tgt.description;
+  src.type -> tgt.type;
+}
+
+group ConceptMapGroup(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.source -> tgt.source;
+  src.target -> tgt.target;
+  src.element as s -> tgt.element as t then ConceptMapGroupElement(s,t);
+  src.unmapped as s -> tgt.unmapped as t then ConceptMapGroupUnmapped(s,t);
+}
+
+group ConceptMapGroupElement(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.code -> tgt.code;
+  src.display -> tgt.display;
+  src.valueSet -> tgt.valueSet;
+  src.noMap -> tgt.noMap;
+  src.target as s -> tgt.target as t then ConceptMapGroupElementTarget(s,t);
+}
+
+group ConceptMapGroupElementTarget(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.code -> tgt.code;
+  src.display -> tgt.display;
+  src.valueSet -> tgt.valueSet;
+  src.relationship -> tgt.relationship;
+  src.comment -> tgt.comment;
+  src.dependsOn as s -> tgt.dependsOn as t then ConceptMapGroupElementTargetDependsOn(s,t);
+}
+
+group ConceptMapGroupElementTargetDependsOn(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.property -> tgt.property;
+  src.value : code -> tgt.value;
+  src.value : Coding -> tgt.value;
+  src.value : string -> tgt.value;
+  src.value : boolean -> tgt.value;
+  src.value : Quantity -> tgt.value;
+  src.valueSet -> tgt.valueSet;
+}
+
+group ConceptMapGroupUnmapped(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.mode -> tgt.mode;
+  src.code -> tgt.code;
+  src.display -> tgt.display;
+  src.valueSet -> tgt.valueSet;
+  src.relationship -> tgt.relationship;
+  src.otherMap -> tgt.otherMap;
+}
+

@@ -1,0 +1,19 @@
+﻿/// url = 'http://hl7.org/fhir/StructureMap/ParameterDefinition4to5'
+/// name = 'ParameterDefinition4to5'
+/// title = 'FML Conversion for ParameterDefinition: R4 to R5'
+
+uses "http://hl7.org/fhir/4.0/StructureDefinition/ParameterDefinition" alias ParameterDefinitionR4 as source
+uses "http://hl7.org/fhir/StructureDefinition/ParameterDefinition" alias AccountR5 as target
+
+imports "http://hl7.org/fhir/StructureMap/*4to5
+
+group ParameterDefinition(source src : ParameterDefinitionR4, target tgt : ParameterDefinitionR5) extends DataType <<type+>> {
+  src.name -> tgt.name;
+  src.use -> tgt.use;
+  src.min -> tgt.min;
+  src.max -> tgt.max;
+  src.documentation -> tgt.documentation;
+  src.type -> tgt.type;
+  src.profile -> tgt.profile;
+}
+

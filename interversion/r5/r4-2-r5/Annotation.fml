@@ -1,0 +1,16 @@
+﻿/// url = 'http://hl7.org/fhir/StructureMap/Annotation4to5'
+/// name = 'Annotation4to5'
+/// title = 'FML Conversion for Annotation: R4 to R5'
+
+uses "http://hl7.org/fhir/4.0/StructureDefinition/Annotation" alias AnnotationR4 as source
+uses "http://hl7.org/fhir/StructureDefinition/Annotation" alias AccountR5 as target
+
+imports "http://hl7.org/fhir/StructureMap/*4to5
+
+group Annotation(source src : AnnotationR4, target tgt : AnnotationR5) extends DataType <<type+>> {
+  src.author : Reference -> tgt.author;
+  src.author : string -> tgt.author;
+  src.time -> tgt.time;
+  src.text -> tgt.text;
+}
+

@@ -1,0 +1,16 @@
+﻿/// url = 'http://hl7.org/fhir/StructureMap/Resource5to4'
+/// name = 'Resource5to4'
+/// title = 'FML Conversion for Resource: R5 to R4'
+
+uses "http://hl7.org/fhir/StructureDefinition/Resource" alias ResourceR5 as source
+uses "http://hl7.org/fhir/4.0/StructureDefinition/Resource" alias AccountR4 as target
+
+imports "http://hl7.org/fhir/StructureMap/*5to4
+
+group Resource(source src : ResourceR5, target tgt : ResourceR4) extends Base <<type+>> {
+  src.id -> tgt.id;
+  src.meta -> tgt.meta;
+  src.implicitRules -> tgt.implicitRules;
+  src.language -> tgt.language;
+}
+

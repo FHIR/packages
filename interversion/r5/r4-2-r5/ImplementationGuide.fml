@@ -1,0 +1,111 @@
+﻿/// url = 'http://hl7.org/fhir/StructureMap/ImplementationGuide4to5'
+/// name = 'ImplementationGuide4to5'
+/// title = 'FML Conversion for ImplementationGuide: R4 to R5'
+
+uses "http://hl7.org/fhir/4.0/StructureDefinition/ImplementationGuide" alias ImplementationGuideR4 as source
+uses "http://hl7.org/fhir/StructureDefinition/ImplementationGuide" alias AccountR5 as target
+
+imports "http://hl7.org/fhir/StructureMap/*4to5
+
+group ImplementationGuide(source src : ImplementationGuideR4, target tgt : ImplementationGuideR5) extends DomainResource <<type+>> {
+  src.url -> tgt.url;
+  src.version -> tgt.version;
+  src.versionAlgorithm : string -> tgt.versionAlgorithm;
+  src.versionAlgorithm : Coding -> tgt.versionAlgorithm;
+  src.name -> tgt.name;
+  src.title -> tgt.title;
+  src.status -> tgt.status;
+  src.experimental -> tgt.experimental;
+  src.date -> tgt.date;
+  src.publisher -> tgt.publisher;
+  src.contact -> tgt.contact;
+  src.description -> tgt.description;
+  src.useContext -> tgt.useContext;
+  src.jurisdiction -> tgt.jurisdiction;
+  src.copyright -> tgt.copyright;
+  src.copyrightLabel -> tgt.copyrightLabel;
+  src.packageId -> tgt.packageId;
+  src.license -> tgt.license;
+  src.fhirVersion -> tgt.fhirVersion;
+  src.dependsOn as s -> tgt.dependsOn as t then ImplementationGuideDependsOn(s,t);
+  src.global as s -> tgt.global as t then ImplementationGuideGlobal(s,t);
+  src.definition as s -> tgt.definition as t then ImplementationGuideDefinition(s,t);
+  src.manifest as s -> tgt.manifest as t then ImplementationGuideManifest(s,t);
+}
+
+group ImplementationGuideDependsOn(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.uri -> tgt.uri;
+  src.packageId -> tgt.packageId;
+  src.version -> tgt.version;
+  src.reason -> tgt.reason;
+}
+
+group ImplementationGuideGlobal(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.type -> tgt.type;
+  src.profile -> tgt.profile;
+}
+
+group ImplementationGuideDefinition(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.grouping as s -> tgt.grouping as t then ImplementationGuideDefinitionGrouping(s,t);
+  src.resource as s -> tgt.resource as t then ImplementationGuideDefinitionResource(s,t);
+  src.page as s -> tgt.page as t then ImplementationGuideDefinitionPage(s,t);
+  src.parameter as s -> tgt.parameter as t then ImplementationGuideDefinitionParameter(s,t);
+  src.template as s -> tgt.template as t then ImplementationGuideDefinitionTemplate(s,t);
+}
+
+group ImplementationGuideDefinitionGrouping(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.name -> tgt.name;
+  src.description -> tgt.description;
+}
+
+group ImplementationGuideDefinitionResource(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.reference -> tgt.reference;
+  src.fhirVersion -> tgt.fhirVersion;
+  src.name -> tgt.name;
+  src.description -> tgt.description;
+  src.isExample -> tgt.isExample;
+  src.profile -> tgt.profile;
+  src.groupingId -> tgt.groupingId;
+}
+
+group ImplementationGuideDefinitionPage(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.source : url -> tgt.source;
+  src.source : string -> tgt.source;
+  src.source : markdown -> tgt.source;
+  src.name -> tgt.name;
+  src.title -> tgt.title;
+  src.generation -> tgt.generation;
+}
+
+group ImplementationGuideDefinitionParameter(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.code -> tgt.code;
+  src.value -> tgt.value;
+}
+
+group ImplementationGuideDefinitionTemplate(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.code -> tgt.code;
+  src.source -> tgt.source;
+  src.scope -> tgt.scope;
+}
+
+group ImplementationGuideManifest(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.rendering -> tgt.rendering;
+  src.resource as s -> tgt.resource as t then ImplementationGuideManifestResource(s,t);
+  src.page as s -> tgt.page as t then ImplementationGuideManifestPage(s,t);
+  src.image -> tgt.image;
+  src.other -> tgt.other;
+}
+
+group ImplementationGuideManifestResource(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.reference -> tgt.reference;
+  src.isExample -> tgt.isExample;
+  src.profile -> tgt.profile;
+  src.relativePath -> tgt.relativePath;
+}
+
+group ImplementationGuideManifestPage(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.name -> tgt.name;
+  src.title -> tgt.title;
+  src.anchor -> tgt.anchor;
+}
+

@@ -1,0 +1,14 @@
+﻿/// url = 'http://hl7.org/fhir/StructureMap/Ratio5to4'
+/// name = 'Ratio5to4'
+/// title = 'FML Conversion for Ratio: R5 to R4'
+
+uses "http://hl7.org/fhir/StructureDefinition/Ratio" alias RatioR5 as source
+uses "http://hl7.org/fhir/4.0/StructureDefinition/Ratio" alias AccountR4 as target
+
+imports "http://hl7.org/fhir/StructureMap/*5to4
+
+group Ratio(source src : RatioR5, target tgt : RatioR4) extends DataType <<type+>> {
+  src.numerator -> tgt.numerator;
+  src.denominator -> tgt.denominator;
+}
+

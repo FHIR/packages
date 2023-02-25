@@ -1,0 +1,19 @@
+﻿/// url = 'http://hl7.org/fhir/StructureMap/HumanName5to4B'
+/// name = 'HumanName5to4B'
+/// title = 'FML Conversion for HumanName: R5 to R4B'
+
+uses "http://hl7.org/fhir/StructureDefinition/HumanName" alias HumanNameR5 as source
+uses "http://hl7.org/fhir/4.3/StructureDefinition/HumanName" alias AccountR4B as target
+
+imports "http://hl7.org/fhir/StructureMap/*5to4B
+
+group HumanName(source src : HumanNameR5, target tgt : HumanNameR4B) extends DataType <<type+>> {
+  src.use -> tgt.use;
+  src.text -> tgt.text;
+  src.family -> tgt.family;
+  src.given -> tgt.given;
+  src.prefix -> tgt.prefix;
+  src.suffix -> tgt.suffix;
+  src.period -> tgt.period;
+}
+

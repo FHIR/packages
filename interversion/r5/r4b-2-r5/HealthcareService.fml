@@ -1,0 +1,40 @@
+﻿/// url = 'http://hl7.org/fhir/StructureMap/HealthcareService4Bto5'
+/// name = 'HealthcareService4Bto5'
+/// title = 'FML Conversion for HealthcareService: R4B to R5'
+
+uses "http://hl7.org/fhir/4.3/StructureDefinition/HealthcareService" alias HealthcareServiceR4B as source
+uses "http://hl7.org/fhir/StructureDefinition/HealthcareService" alias AccountR5 as target
+
+imports "http://hl7.org/fhir/StructureMap/*4Bto5
+
+group HealthcareService(source src : HealthcareServiceR4B, target tgt : HealthcareServiceR5) extends DomainResource <<type+>> {
+  src.identifier -> tgt.identifier;
+  src.active -> tgt.active;
+  src.providedBy -> tgt.providedBy;
+  src.offeredIn -> tgt.offeredIn;
+  src.category -> tgt.category;
+  src.type -> tgt.type;
+  src.specialty -> tgt.specialty;
+  src.location -> tgt.location;
+  src.name -> tgt.name;
+  src.comment -> tgt.comment;
+  src.extraDetails -> tgt.extraDetails;
+  src.photo -> tgt.photo;
+  src.contact -> tgt.contact;
+  src.coverageArea -> tgt.coverageArea;
+  src.serviceProvisionCode -> tgt.serviceProvisionCode;
+  src.eligibility as s -> tgt.eligibility as t then HealthcareServiceEligibility(s,t);
+  src.program -> tgt.program;
+  src.characteristic -> tgt.characteristic;
+  src.communication -> tgt.communication;
+  src.referralMethod -> tgt.referralMethod;
+  src.appointmentRequired -> tgt.appointmentRequired;
+  src.availability -> tgt.availability;
+  src.endpoint -> tgt.endpoint;
+}
+
+group HealthcareServiceEligibility(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.code -> tgt.code;
+  src.comment -> tgt.comment;
+}
+

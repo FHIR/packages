@@ -1,0 +1,22 @@
+﻿/// url = 'http://hl7.org/fhir/StructureMap/RelatedArtifact5to4'
+/// name = 'RelatedArtifact5to4'
+/// title = 'FML Conversion for RelatedArtifact: R5 to R4'
+
+uses "http://hl7.org/fhir/StructureDefinition/RelatedArtifact" alias RelatedArtifactR5 as source
+uses "http://hl7.org/fhir/4.0/StructureDefinition/RelatedArtifact" alias AccountR4 as target
+
+imports "http://hl7.org/fhir/StructureMap/*5to4
+
+group RelatedArtifact(source src : RelatedArtifactR5, target tgt : RelatedArtifactR4) extends DataType <<type+>> {
+  src.type -> tgt.type;
+  src.classifier -> tgt.classifier;
+  src.label -> tgt.label;
+  src.display -> tgt.display;
+  src.citation -> tgt.citation;
+  src.document -> tgt.document;
+  src.resource -> tgt.resource;
+  src.resourceReference -> tgt.resourceReference;
+  src.publicationStatus -> tgt.publicationStatus;
+  src.publicationDate -> tgt.publicationDate;
+}
+

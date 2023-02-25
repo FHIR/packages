@@ -1,0 +1,27 @@
+﻿/// url = 'http://hl7.org/fhir/StructureMap/Substance5to4'
+/// name = 'Substance5to4'
+/// title = 'FML Conversion for Substance: R5 to R4'
+
+uses "http://hl7.org/fhir/StructureDefinition/Substance" alias SubstanceR5 as source
+uses "http://hl7.org/fhir/4.0/StructureDefinition/Substance" alias AccountR4 as target
+
+imports "http://hl7.org/fhir/StructureMap/*5to4
+
+group Substance(source src : SubstanceR5, target tgt : SubstanceR4) extends DomainResource <<type+>> {
+  src.identifier -> tgt.identifier;
+  src.instance -> tgt.instance;
+  src.status -> tgt.status;
+  src.category -> tgt.category;
+  src.code -> tgt.code;
+  src.description -> tgt.description;
+  src.expiry -> tgt.expiry;
+  src.quantity -> tgt.quantity;
+  src.ingredient as s -> tgt.ingredient as t then SubstanceIngredient(s,t);
+}
+
+group SubstanceIngredient(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.quantity -> tgt.quantity;
+  src.substance : CodeableConcept -> tgt.substance;
+  src.substance : Reference -> tgt.substance;
+}
+

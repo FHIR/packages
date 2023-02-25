@@ -1,0 +1,70 @@
+﻿/// url = 'http://hl7.org/fhir/StructureMap/GenomicStudy5to4B'
+/// name = 'GenomicStudy5to4B'
+/// title = 'FML Conversion for GenomicStudy: R5 to R4B'
+
+uses "http://hl7.org/fhir/StructureDefinition/GenomicStudy" alias GenomicStudyR5 as source
+uses "http://hl7.org/fhir/4.3/StructureDefinition/GenomicStudy" alias AccountR4B as target
+
+imports "http://hl7.org/fhir/StructureMap/*5to4B
+
+group GenomicStudy(source src : GenomicStudyR5, target tgt : GenomicStudyR4B) extends DomainResource <<type+>> {
+  src.identifier -> tgt.identifier;
+  src.status -> tgt.status;
+  src.type -> tgt.type;
+  src.subject -> tgt.subject;
+  src.encounter -> tgt.encounter;
+  src.startDate -> tgt.startDate;
+  src.basedOn -> tgt.basedOn;
+  src.referrer -> tgt.referrer;
+  src.interpreter -> tgt.interpreter;
+  src.reason -> tgt.reason;
+  src.instantiatesCanonical -> tgt.instantiatesCanonical;
+  src.instantiatesUri -> tgt.instantiatesUri;
+  src.note -> tgt.note;
+  src.description -> tgt.description;
+  src.analysis as s -> tgt.analysis as t then GenomicStudyAnalysis(s,t);
+}
+
+group GenomicStudyAnalysis(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.identifier -> tgt.identifier;
+  src.methodType -> tgt.methodType;
+  src.changeType -> tgt.changeType;
+  src.genomeBuild -> tgt.genomeBuild;
+  src.instantiatesCanonical -> tgt.instantiatesCanonical;
+  src.instantiatesUri -> tgt.instantiatesUri;
+  src.title -> tgt.title;
+  src.focus -> tgt.focus;
+  src.specimen -> tgt.specimen;
+  src.date -> tgt.date;
+  src.note -> tgt.note;
+  src.protocolPerformed -> tgt.protocolPerformed;
+  src.regionsStudied -> tgt.regionsStudied;
+  src.regionsCalled -> tgt.regionsCalled;
+  src.input as s -> tgt.input as t then GenomicStudyAnalysisInput(s,t);
+  src.output as s -> tgt.output as t then GenomicStudyAnalysisOutput(s,t);
+  src.performer as s -> tgt.performer as t then GenomicStudyAnalysisPerformer(s,t);
+  src.device as s -> tgt.device as t then GenomicStudyAnalysisDevice(s,t);
+}
+
+group GenomicStudyAnalysisInput(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.file -> tgt.file;
+  src.type -> tgt.type;
+  src.generatedBy : Identifier -> tgt.generatedBy;
+  src.generatedBy : Reference -> tgt.generatedBy;
+}
+
+group GenomicStudyAnalysisOutput(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.file -> tgt.file;
+  src.type -> tgt.type;
+}
+
+group GenomicStudyAnalysisPerformer(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.actor -> tgt.actor;
+  src.role -> tgt.role;
+}
+
+group GenomicStudyAnalysisDevice(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.device -> tgt.device;
+  src.function -> tgt.function;
+}
+

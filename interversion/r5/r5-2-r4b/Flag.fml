@@ -1,0 +1,20 @@
+﻿/// url = 'http://hl7.org/fhir/StructureMap/Flag5to4B'
+/// name = 'Flag5to4B'
+/// title = 'FML Conversion for Flag: R5 to R4B'
+
+uses "http://hl7.org/fhir/StructureDefinition/Flag" alias FlagR5 as source
+uses "http://hl7.org/fhir/4.3/StructureDefinition/Flag" alias AccountR4B as target
+
+imports "http://hl7.org/fhir/StructureMap/*5to4B
+
+group Flag(source src : FlagR5, target tgt : FlagR4B) extends DomainResource <<type+>> {
+  src.identifier -> tgt.identifier;
+  src.status -> tgt.status;
+  src.category -> tgt.category;
+  src.code -> tgt.code;
+  src.subject -> tgt.subject;
+  src.period -> tgt.period;
+  src.encounter -> tgt.encounter;
+  src.author -> tgt.author;
+}
+

@@ -1,0 +1,53 @@
+﻿/// url = 'http://hl7.org/fhir/StructureMap/NamingSystem5to4B'
+/// name = 'NamingSystem5to4B'
+/// title = 'FML Conversion for NamingSystem: R5 to R4B'
+
+uses "http://hl7.org/fhir/StructureDefinition/NamingSystem" alias NamingSystemR5 as source
+uses "http://hl7.org/fhir/4.3/StructureDefinition/NamingSystem" alias AccountR4B as target
+
+imports "http://hl7.org/fhir/StructureMap/*5to4B
+
+group NamingSystem(source src : NamingSystemR5, target tgt : NamingSystemR4B) extends DomainResource <<type+>> {
+  src.url -> tgt.url;
+  src.identifier -> tgt.identifier;
+  src.version -> tgt.version;
+  src.versionAlgorithm : string -> tgt.versionAlgorithm;
+  src.versionAlgorithm : Coding -> tgt.versionAlgorithm;
+  src.name -> tgt.name;
+  src.title -> tgt.title;
+  src.status -> tgt.status;
+  src.kind -> tgt.kind;
+  src.experimental -> tgt.experimental;
+  src.date -> tgt.date;
+  src.publisher -> tgt.publisher;
+  src.contact -> tgt.contact;
+  src.responsible -> tgt.responsible;
+  src.type -> tgt.type;
+  src.description -> tgt.description;
+  src.useContext -> tgt.useContext;
+  src.jurisdiction -> tgt.jurisdiction;
+  src.purpose -> tgt.purpose;
+  src.copyright -> tgt.copyright;
+  src.copyrightLabel -> tgt.copyrightLabel;
+  src.approvalDate -> tgt.approvalDate;
+  src.lastReviewDate -> tgt.lastReviewDate;
+  src.effectivePeriod -> tgt.effectivePeriod;
+  src.topic -> tgt.topic;
+  src.author -> tgt.author;
+  src.editor -> tgt.editor;
+  src.reviewer -> tgt.reviewer;
+  src.endorser -> tgt.endorser;
+  src.relatedArtifact -> tgt.relatedArtifact;
+  src.usage -> tgt.usage;
+  src.uniqueId as s -> tgt.uniqueId as t then NamingSystemUniqueId(s,t);
+}
+
+group NamingSystemUniqueId(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.type -> tgt.type;
+  src.value -> tgt.value;
+  src.preferred -> tgt.preferred;
+  src.comment -> tgt.comment;
+  src.period -> tgt.period;
+  src.authoritative -> tgt.authoritative;
+}
+

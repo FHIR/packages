@@ -1,0 +1,13 @@
+﻿/// url = 'http://hl7.org/fhir/StructureMap/BackboneType5to4'
+/// name = 'BackboneType5to4'
+/// title = 'FML Conversion for BackboneType: R5 to R4'
+
+uses "http://hl7.org/fhir/StructureDefinition/BackboneType" alias BackboneTypeR5 as source
+uses "http://hl7.org/fhir/4.0/StructureDefinition/BackboneType" alias AccountR4 as target
+
+imports "http://hl7.org/fhir/StructureMap/*5to4
+
+group BackboneType(source src : BackboneTypeR5, target tgt : BackboneTypeR4) extends DataType <<type+>> {
+  src.modifierExtension -> tgt.modifierExtension;
+}
+

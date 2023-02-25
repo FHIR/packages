@@ -1,0 +1,136 @@
+﻿/// url = 'http://hl7.org/fhir/StructureMap/CapabilityStatement5to4B'
+/// name = 'CapabilityStatement5to4B'
+/// title = 'FML Conversion for CapabilityStatement: R5 to R4B'
+
+uses "http://hl7.org/fhir/StructureDefinition/CapabilityStatement" alias CapabilityStatementR5 as source
+uses "http://hl7.org/fhir/4.3/StructureDefinition/CapabilityStatement" alias AccountR4B as target
+
+imports "http://hl7.org/fhir/StructureMap/*5to4B
+
+group CapabilityStatement(source src : CapabilityStatementR5, target tgt : CapabilityStatementR4B) extends DomainResource <<type+>> {
+  src.url -> tgt.url;
+  src.version -> tgt.version;
+  src.versionAlgorithm : string -> tgt.versionAlgorithm;
+  src.versionAlgorithm : Coding -> tgt.versionAlgorithm;
+  src.name -> tgt.name;
+  src.title -> tgt.title;
+  src.status -> tgt.status;
+  src.experimental -> tgt.experimental;
+  src.date -> tgt.date;
+  src.publisher -> tgt.publisher;
+  src.contact -> tgt.contact;
+  src.description -> tgt.description;
+  src.useContext -> tgt.useContext;
+  src.jurisdiction -> tgt.jurisdiction;
+  src.purpose -> tgt.purpose;
+  src.copyright -> tgt.copyright;
+  src.copyrightLabel -> tgt.copyrightLabel;
+  src.kind -> tgt.kind;
+  src.instantiates -> tgt.instantiates;
+  src.imports -> tgt.imports;
+  src.software as s -> tgt.software as t then CapabilityStatementSoftware(s,t);
+  src.implementation as s -> tgt.implementation as t then CapabilityStatementImplementation(s,t);
+  src.fhirVersion -> tgt.fhirVersion;
+  src.format -> tgt.format;
+  src.patchFormat -> tgt.patchFormat;
+  src.acceptLanguage -> tgt.acceptLanguage;
+  src.implementationGuide -> tgt.implementationGuide;
+  src.rest as s -> tgt.rest as t then CapabilityStatementRest(s,t);
+  src.messaging as s -> tgt.messaging as t then CapabilityStatementMessaging(s,t);
+  src.document as s -> tgt.document as t then CapabilityStatementDocument(s,t);
+}
+
+group CapabilityStatementSoftware(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.name -> tgt.name;
+  src.version -> tgt.version;
+  src.releaseDate -> tgt.releaseDate;
+}
+
+group CapabilityStatementImplementation(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.description -> tgt.description;
+  src.url -> tgt.url;
+  src.custodian -> tgt.custodian;
+}
+
+group CapabilityStatementRest(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.mode -> tgt.mode;
+  src.documentation -> tgt.documentation;
+  src.security as s -> tgt.security as t then CapabilityStatementRestSecurity(s,t);
+  src.resource as s -> tgt.resource as t then CapabilityStatementRestResource(s,t);
+  src.interaction as s -> tgt.interaction as t then CapabilityStatementRestInteraction(s,t);
+  src.compartment -> tgt.compartment;
+}
+
+group CapabilityStatementRestSecurity(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.cors -> tgt.cors;
+  src.service -> tgt.service;
+  src.description -> tgt.description;
+}
+
+group CapabilityStatementRestResource(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.type -> tgt.type;
+  src.profile -> tgt.profile;
+  src.supportedProfile -> tgt.supportedProfile;
+  src.documentation -> tgt.documentation;
+  src.interaction as s -> tgt.interaction as t then CapabilityStatementRestResourceInteraction(s,t);
+  src.versioning -> tgt.versioning;
+  src.readHistory -> tgt.readHistory;
+  src.updateCreate -> tgt.updateCreate;
+  src.conditionalCreate -> tgt.conditionalCreate;
+  src.conditionalRead -> tgt.conditionalRead;
+  src.conditionalUpdate -> tgt.conditionalUpdate;
+  src.conditionalPatch -> tgt.conditionalPatch;
+  src.conditionalDelete -> tgt.conditionalDelete;
+  src.referencePolicy -> tgt.referencePolicy;
+  src.searchInclude -> tgt.searchInclude;
+  src.searchRevInclude -> tgt.searchRevInclude;
+  src.searchParam as s -> tgt.searchParam as t then CapabilityStatementRestResourceSearchParam(s,t);
+  src.operation as s -> tgt.operation as t then CapabilityStatementRestResourceOperation(s,t);
+}
+
+group CapabilityStatementRestResourceInteraction(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.code -> tgt.code;
+  src.documentation -> tgt.documentation;
+}
+
+group CapabilityStatementRestResourceSearchParam(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.name -> tgt.name;
+  src.definition -> tgt.definition;
+  src.type -> tgt.type;
+  src.documentation -> tgt.documentation;
+}
+
+group CapabilityStatementRestResourceOperation(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.name -> tgt.name;
+  src.definition -> tgt.definition;
+  src.documentation -> tgt.documentation;
+}
+
+group CapabilityStatementRestInteraction(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.code -> tgt.code;
+  src.documentation -> tgt.documentation;
+}
+
+group CapabilityStatementMessaging(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.endpoint as s -> tgt.endpoint as t then CapabilityStatementMessagingEndpoint(s,t);
+  src.reliableCache -> tgt.reliableCache;
+  src.documentation -> tgt.documentation;
+  src.supportedMessage as s -> tgt.supportedMessage as t then CapabilityStatementMessagingSupportedMessage(s,t);
+}
+
+group CapabilityStatementMessagingEndpoint(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.protocol -> tgt.protocol;
+  src.address -> tgt.address;
+}
+
+group CapabilityStatementMessagingSupportedMessage(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.mode -> tgt.mode;
+  src.definition -> tgt.definition;
+}
+
+group CapabilityStatementDocument(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.mode -> tgt.mode;
+  src.documentation -> tgt.documentation;
+  src.profile -> tgt.profile;
+}
+

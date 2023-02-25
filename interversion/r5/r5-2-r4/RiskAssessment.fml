@@ -1,0 +1,40 @@
+﻿/// url = 'http://hl7.org/fhir/StructureMap/RiskAssessment5to4'
+/// name = 'RiskAssessment5to4'
+/// title = 'FML Conversion for RiskAssessment: R5 to R4'
+
+uses "http://hl7.org/fhir/StructureDefinition/RiskAssessment" alias RiskAssessmentR5 as source
+uses "http://hl7.org/fhir/4.0/StructureDefinition/RiskAssessment" alias AccountR4 as target
+
+imports "http://hl7.org/fhir/StructureMap/*5to4
+
+group RiskAssessment(source src : RiskAssessmentR5, target tgt : RiskAssessmentR4) extends DomainResource <<type+>> {
+  src.identifier -> tgt.identifier;
+  src.basedOn -> tgt.basedOn;
+  src.parent -> tgt.parent;
+  src.status -> tgt.status;
+  src.method -> tgt.method;
+  src.code -> tgt.code;
+  src.subject -> tgt.subject;
+  src.encounter -> tgt.encounter;
+  src.occurrence : dateTime -> tgt.occurrence;
+  src.occurrence : Period -> tgt.occurrence;
+  src.condition -> tgt.condition;
+  src.performer -> tgt.performer;
+  src.reason -> tgt.reason;
+  src.basis -> tgt.basis;
+  src.prediction as s -> tgt.prediction as t then RiskAssessmentPrediction(s,t);
+  src.mitigation -> tgt.mitigation;
+  src.note -> tgt.note;
+}
+
+group RiskAssessmentPrediction(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.outcome -> tgt.outcome;
+  src.probability : decimal -> tgt.probability;
+  src.probability : Range -> tgt.probability;
+  src.qualitativeRisk -> tgt.qualitativeRisk;
+  src.relativeRisk -> tgt.relativeRisk;
+  src.when : Period -> tgt.when;
+  src.when : Range -> tgt.when;
+  src.rationale -> tgt.rationale;
+}
+

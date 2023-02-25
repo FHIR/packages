@@ -1,0 +1,64 @@
+﻿/// url = 'http://hl7.org/fhir/StructureMap/ServiceRequest4to5'
+/// name = 'ServiceRequest4to5'
+/// title = 'FML Conversion for ServiceRequest: R4 to R5'
+
+uses "http://hl7.org/fhir/4.0/StructureDefinition/ServiceRequest" alias ServiceRequestR4 as source
+uses "http://hl7.org/fhir/StructureDefinition/ServiceRequest" alias AccountR5 as target
+
+imports "http://hl7.org/fhir/StructureMap/*4to5
+
+group ServiceRequest(source src : ServiceRequestR4, target tgt : ServiceRequestR5) extends DomainResource <<type+>> {
+  src.identifier -> tgt.identifier;
+  src.instantiatesCanonical -> tgt.instantiatesCanonical;
+  src.basedOn -> tgt.basedOn;
+  src.replaces -> tgt.replaces;
+  src.requisition -> tgt.requisition;
+  src.status -> tgt.status;
+  src.intent -> tgt.intent;
+  src.category -> tgt.category;
+  src.priority -> tgt.priority;
+  src.doNotPerform -> tgt.doNotPerform;
+  src.code -> tgt.code;
+  src.orderDetail as s -> tgt.orderDetail as t then ServiceRequestOrderDetail(s,t);
+  src.quantity : Quantity -> tgt.quantity;
+  src.quantity : Ratio -> tgt.quantity;
+  src.quantity : Range -> tgt.quantity;
+  src.subject -> tgt.subject;
+  src.focus -> tgt.focus;
+  src.encounter -> tgt.encounter;
+  src.occurrence : dateTime -> tgt.occurrence;
+  src.occurrence : Period -> tgt.occurrence;
+  src.occurrence : Timing -> tgt.occurrence;
+  src.asNeeded : boolean -> tgt.asNeeded;
+  src.asNeeded : CodeableConcept -> tgt.asNeeded;
+  src.authoredOn -> tgt.authoredOn;
+  src.requester -> tgt.requester;
+  src.performerType -> tgt.performerType;
+  src.performer -> tgt.performer;
+  src.location -> tgt.location;
+  src.reason -> tgt.reason;
+  src.insurance -> tgt.insurance;
+  src.supportingInfo -> tgt.supportingInfo;
+  src.specimen -> tgt.specimen;
+  src.bodySite -> tgt.bodySite;
+  src.bodyStructure -> tgt.bodyStructure;
+  src.note -> tgt.note;
+  src.patientInstruction as s -> tgt.patientInstruction as t then ServiceRequestPatientInstruction(s,t);
+  src.relevantHistory -> tgt.relevantHistory;
+}
+
+group ServiceRequestOrderDetail(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.parameterFocus -> tgt.parameterFocus;
+  src.parameter as s -> tgt.parameter as t then ServiceRequestOrderDetailParameter(s,t);
+}
+
+group ServiceRequestOrderDetailParameter(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.code -> tgt.code;
+  src.value -> tgt.value;
+}
+
+group ServiceRequestPatientInstruction(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.instruction : markdown -> tgt.instruction;
+  src.instruction : Reference -> tgt.instruction;
+}
+

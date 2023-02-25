@@ -1,0 +1,87 @@
+﻿/// url = 'http://hl7.org/fhir/StructureMap/Appointment4Bto5'
+/// name = 'Appointment4Bto5'
+/// title = 'FML Conversion for Appointment: R4B to R5'
+
+uses "http://hl7.org/fhir/4.3/StructureDefinition/Appointment" alias AppointmentR4B as source
+uses "http://hl7.org/fhir/StructureDefinition/Appointment" alias AccountR5 as target
+
+imports "http://hl7.org/fhir/StructureMap/*4Bto5
+
+group Appointment(source src : AppointmentR4B, target tgt : AppointmentR5) extends DomainResource <<type+>> {
+  src.identifier -> tgt.identifier;
+  src.status -> tgt.status;
+  src.cancellationReason -> tgt.cancellationReason;
+  src.class -> tgt.class;
+  src.serviceCategory -> tgt.serviceCategory;
+  src.serviceType -> tgt.serviceType;
+  src.specialty -> tgt.specialty;
+  src.appointmentType -> tgt.appointmentType;
+  src.reason -> tgt.reason;
+  src.priority -> tgt.priority;
+  src.description -> tgt.description;
+  src.replaces -> tgt.replaces;
+  src.virtualService -> tgt.virtualService;
+  src.supportingInformation -> tgt.supportingInformation;
+  src.previousAppointment -> tgt.previousAppointment;
+  src.originatingAppointment -> tgt.originatingAppointment;
+  src.start -> tgt.start;
+  src.end -> tgt.end;
+  src.minutesDuration -> tgt.minutesDuration;
+  src.requestedPeriod -> tgt.requestedPeriod;
+  src.slot -> tgt.slot;
+  src.account -> tgt.account;
+  src.created -> tgt.created;
+  src.cancellationDate -> tgt.cancellationDate;
+  src.note -> tgt.note;
+  src.patientInstruction -> tgt.patientInstruction;
+  src.basedOn -> tgt.basedOn;
+  src.subject -> tgt.subject;
+  src.participant as s -> tgt.participant as t then AppointmentParticipant(s,t);
+  src.recurrenceId -> tgt.recurrenceId;
+  src.occurrenceChanged -> tgt.occurrenceChanged;
+  src.recurrenceTemplate as s -> tgt.recurrenceTemplate as t then AppointmentRecurrenceTemplate(s,t);
+}
+
+group AppointmentParticipant(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.type -> tgt.type;
+  src.period -> tgt.period;
+  src.actor -> tgt.actor;
+  src.required -> tgt.required;
+  src.status -> tgt.status;
+}
+
+group AppointmentRecurrenceTemplate(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.timezone -> tgt.timezone;
+  src.recurrenceType -> tgt.recurrenceType;
+  src.lastOccurrenceDate -> tgt.lastOccurrenceDate;
+  src.occurrenceCount -> tgt.occurrenceCount;
+  src.occurrenceDate -> tgt.occurrenceDate;
+  src.weeklyTemplate as s -> tgt.weeklyTemplate as t then AppointmentRecurrenceTemplateWeeklyTemplate(s,t);
+  src.monthlyTemplate as s -> tgt.monthlyTemplate as t then AppointmentRecurrenceTemplateMonthlyTemplate(s,t);
+  src.yearlyTemplate as s -> tgt.yearlyTemplate as t then AppointmentRecurrenceTemplateYearlyTemplate(s,t);
+  src.excludingDate -> tgt.excludingDate;
+  src.excludingRecurrenceId -> tgt.excludingRecurrenceId;
+}
+
+group AppointmentRecurrenceTemplateWeeklyTemplate(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.monday -> tgt.monday;
+  src.tuesday -> tgt.tuesday;
+  src.wednesday -> tgt.wednesday;
+  src.thursday -> tgt.thursday;
+  src.friday -> tgt.friday;
+  src.saturday -> tgt.saturday;
+  src.sunday -> tgt.sunday;
+  src.weekInterval -> tgt.weekInterval;
+}
+
+group AppointmentRecurrenceTemplateMonthlyTemplate(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.dayOfMonth -> tgt.dayOfMonth;
+  src.nthWeekOfMonth -> tgt.nthWeekOfMonth;
+  src.dayOfWeek -> tgt.dayOfWeek;
+  src.monthInterval -> tgt.monthInterval;
+}
+
+group AppointmentRecurrenceTemplateYearlyTemplate(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.yearInterval -> tgt.yearInterval;
+}
+

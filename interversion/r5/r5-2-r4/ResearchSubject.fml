@@ -1,0 +1,30 @@
+﻿/// url = 'http://hl7.org/fhir/StructureMap/ResearchSubject5to4'
+/// name = 'ResearchSubject5to4'
+/// title = 'FML Conversion for ResearchSubject: R5 to R4'
+
+uses "http://hl7.org/fhir/StructureDefinition/ResearchSubject" alias ResearchSubjectR5 as source
+uses "http://hl7.org/fhir/4.0/StructureDefinition/ResearchSubject" alias AccountR4 as target
+
+imports "http://hl7.org/fhir/StructureMap/*5to4
+
+group ResearchSubject(source src : ResearchSubjectR5, target tgt : ResearchSubjectR4) extends DomainResource <<type+>> {
+  src.identifier -> tgt.identifier;
+  src.status -> tgt.status;
+  src.progress as s -> tgt.progress as t then ResearchSubjectProgress(s,t);
+  src.period -> tgt.period;
+  src.study -> tgt.study;
+  src.subject -> tgt.subject;
+  src.assignedComparisonGroup -> tgt.assignedComparisonGroup;
+  src.actualComparisonGroup -> tgt.actualComparisonGroup;
+  src.consent -> tgt.consent;
+}
+
+group ResearchSubjectProgress(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.type -> tgt.type;
+  src.subjectState -> tgt.subjectState;
+  src.milestone -> tgt.milestone;
+  src.reason -> tgt.reason;
+  src.startDate -> tgt.startDate;
+  src.endDate -> tgt.endDate;
+}
+

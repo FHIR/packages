@@ -1,0 +1,72 @@
+﻿/// url = 'http://hl7.org/fhir/StructureMap/InventoryItem4to5'
+/// name = 'InventoryItem4to5'
+/// title = 'FML Conversion for InventoryItem: R4 to R5'
+
+uses "http://hl7.org/fhir/4.0/StructureDefinition/InventoryItem" alias InventoryItemR4 as source
+uses "http://hl7.org/fhir/StructureDefinition/InventoryItem" alias AccountR5 as target
+
+imports "http://hl7.org/fhir/StructureMap/*4to5
+
+group InventoryItem(source src : InventoryItemR4, target tgt : InventoryItemR5) extends DomainResource <<type+>> {
+  src.status -> tgt.status;
+  src.category -> tgt.category;
+  src.code -> tgt.code;
+  src.name as s -> tgt.name as t then InventoryItemName(s,t);
+  src.responsibleOrganization as s -> tgt.responsibleOrganization as t then InventoryItemResponsibleOrganization(s,t);
+  src.description as s -> tgt.description as t then InventoryItemDescription(s,t);
+  src.inventoryStatus -> tgt.inventoryStatus;
+  src.baseUnit -> tgt.baseUnit;
+  src.netContent -> tgt.netContent;
+  src.association as s -> tgt.association as t then InventoryItemAssociation(s,t);
+  src.characteristics as s -> tgt.characteristics as t then InventoryItemCharacteristics(s,t);
+  src.instance as s -> tgt.instance as t then InventoryItemInstance(s,t);
+  src.productReference -> tgt.productReference;
+}
+
+group InventoryItemName(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.nameType -> tgt.nameType;
+  src.language -> tgt.language;
+  src.name -> tgt.name;
+}
+
+group InventoryItemResponsibleOrganization(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.role -> tgt.role;
+  src.organization -> tgt.organization;
+}
+
+group InventoryItemDescription(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.language -> tgt.language;
+  src.description -> tgt.description;
+}
+
+group InventoryItemAssociation(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.associationType -> tgt.associationType;
+  src.relatedItem -> tgt.relatedItem;
+  src.quantity -> tgt.quantity;
+}
+
+group InventoryItemCharacteristics(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.characteristicType -> tgt.characteristicType;
+  src.value : string -> tgt.value;
+  src.value : integer -> tgt.value;
+  src.value : decimal -> tgt.value;
+  src.value : boolean -> tgt.value;
+  src.value : url -> tgt.value;
+  src.value : dateTime -> tgt.value;
+  src.value : Quantity -> tgt.value;
+  src.value : Range -> tgt.value;
+  src.value : Ratio -> tgt.value;
+  src.value : Annotation -> tgt.value;
+  src.value : Address -> tgt.value;
+  src.value : Duration -> tgt.value;
+  src.value : CodeableConcept -> tgt.value;
+}
+
+group InventoryItemInstance(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.identifier -> tgt.identifier;
+  src.lotNumber -> tgt.lotNumber;
+  src.expiry -> tgt.expiry;
+  src.subject -> tgt.subject;
+  src.location -> tgt.location;
+}
+

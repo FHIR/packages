@@ -1,0 +1,38 @@
+﻿/// url = 'http://hl7.org/fhir/StructureMap/SupplyRequest5to4'
+/// name = 'SupplyRequest5to4'
+/// title = 'FML Conversion for SupplyRequest: R5 to R4'
+
+uses "http://hl7.org/fhir/StructureDefinition/SupplyRequest" alias SupplyRequestR5 as source
+uses "http://hl7.org/fhir/4.0/StructureDefinition/SupplyRequest" alias AccountR4 as target
+
+imports "http://hl7.org/fhir/StructureMap/*5to4
+
+group SupplyRequest(source src : SupplyRequestR5, target tgt : SupplyRequestR4) extends DomainResource <<type+>> {
+  src.identifier -> tgt.identifier;
+  src.status -> tgt.status;
+  src.basedOn -> tgt.basedOn;
+  src.category -> tgt.category;
+  src.priority -> tgt.priority;
+  src.deliverFor -> tgt.deliverFor;
+  src.item -> tgt.item;
+  src.quantity -> tgt.quantity;
+  src.parameter as s -> tgt.parameter as t then SupplyRequestParameter(s,t);
+  src.occurrence : dateTime -> tgt.occurrence;
+  src.occurrence : Period -> tgt.occurrence;
+  src.occurrence : Timing -> tgt.occurrence;
+  src.authoredOn -> tgt.authoredOn;
+  src.requester -> tgt.requester;
+  src.supplier -> tgt.supplier;
+  src.reason -> tgt.reason;
+  src.deliverFrom -> tgt.deliverFrom;
+  src.deliverTo -> tgt.deliverTo;
+}
+
+group SupplyRequestParameter(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.code -> tgt.code;
+  src.value : CodeableConcept -> tgt.value;
+  src.value : Quantity -> tgt.value;
+  src.value : Range -> tgt.value;
+  src.value : boolean -> tgt.value;
+}
+

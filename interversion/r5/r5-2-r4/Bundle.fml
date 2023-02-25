@@ -1,0 +1,55 @@
+﻿/// url = 'http://hl7.org/fhir/StructureMap/Bundle5to4'
+/// name = 'Bundle5to4'
+/// title = 'FML Conversion for Bundle: R5 to R4'
+
+uses "http://hl7.org/fhir/StructureDefinition/Bundle" alias BundleR5 as source
+uses "http://hl7.org/fhir/4.0/StructureDefinition/Bundle" alias AccountR4 as target
+
+imports "http://hl7.org/fhir/StructureMap/*5to4
+
+group Bundle(source src : BundleR5, target tgt : BundleR4) extends Resource <<type+>> {
+  src.identifier -> tgt.identifier;
+  src.type -> tgt.type;
+  src.timestamp -> tgt.timestamp;
+  src.total -> tgt.total;
+  src.link as s -> tgt.link as t then BundleLink(s,t);
+  src.entry as s -> tgt.entry as t then BundleEntry(s,t);
+  src.signature -> tgt.signature;
+  src.issues -> tgt.issues;
+}
+
+group BundleLink(source src : null, target tgt : null) extends Resource <<type+>> {
+  src.relation -> tgt.relation;
+  src.url -> tgt.url;
+}
+
+group BundleEntry(source src : null, target tgt : null) extends Resource <<type+>> {
+  src.fullUrl -> tgt.fullUrl;
+  src.resource -> tgt.resource;
+  src.search as s -> tgt.search as t then BundleEntrySearch(s,t);
+  src.request as s -> tgt.request as t then BundleEntryRequest(s,t);
+  src.response as s -> tgt.response as t then BundleEntryResponse(s,t);
+}
+
+group BundleEntrySearch(source src : null, target tgt : null) extends Resource <<type+>> {
+  src.mode -> tgt.mode;
+  src.score -> tgt.score;
+}
+
+group BundleEntryRequest(source src : null, target tgt : null) extends Resource <<type+>> {
+  src.method -> tgt.method;
+  src.url -> tgt.url;
+  src.ifNoneMatch -> tgt.ifNoneMatch;
+  src.ifModifiedSince -> tgt.ifModifiedSince;
+  src.ifMatch -> tgt.ifMatch;
+  src.ifNoneExist -> tgt.ifNoneExist;
+}
+
+group BundleEntryResponse(source src : null, target tgt : null) extends Resource <<type+>> {
+  src.status -> tgt.status;
+  src.location -> tgt.location;
+  src.etag -> tgt.etag;
+  src.lastModified -> tgt.lastModified;
+  src.outcome -> tgt.outcome;
+}
+

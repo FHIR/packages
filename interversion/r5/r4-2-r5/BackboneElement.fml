@@ -1,0 +1,13 @@
+﻿/// url = 'http://hl7.org/fhir/StructureMap/BackboneElement4to5'
+/// name = 'BackboneElement4to5'
+/// title = 'FML Conversion for BackboneElement: R4 to R5'
+
+uses "http://hl7.org/fhir/4.0/StructureDefinition/BackboneElement" alias BackboneElementR4 as source
+uses "http://hl7.org/fhir/StructureDefinition/BackboneElement" alias AccountR5 as target
+
+imports "http://hl7.org/fhir/StructureMap/*4to5
+
+group BackboneElement(source src : BackboneElementR4, target tgt : BackboneElementR5) extends Element <<type+>> {
+  src.modifierExtension -> tgt.modifierExtension;
+}
+

@@ -1,0 +1,50 @@
+﻿/// url = 'http://hl7.org/fhir/StructureMap/Patient5to4'
+/// name = 'Patient5to4'
+/// title = 'FML Conversion for Patient: R5 to R4'
+
+uses "http://hl7.org/fhir/StructureDefinition/Patient" alias PatientR5 as source
+uses "http://hl7.org/fhir/4.0/StructureDefinition/Patient" alias AccountR4 as target
+
+imports "http://hl7.org/fhir/StructureMap/*5to4
+
+group Patient(source src : PatientR5, target tgt : PatientR4) extends DomainResource <<type+>> {
+  src.identifier -> tgt.identifier;
+  src.active -> tgt.active;
+  src.name -> tgt.name;
+  src.telecom -> tgt.telecom;
+  src.gender -> tgt.gender;
+  src.birthDate -> tgt.birthDate;
+  src.deceased : boolean -> tgt.deceased;
+  src.deceased : dateTime -> tgt.deceased;
+  src.address -> tgt.address;
+  src.maritalStatus -> tgt.maritalStatus;
+  src.multipleBirth : boolean -> tgt.multipleBirth;
+  src.multipleBirth : integer -> tgt.multipleBirth;
+  src.photo -> tgt.photo;
+  src.contact as s -> tgt.contact as t then PatientContact(s,t);
+  src.communication as s -> tgt.communication as t then PatientCommunication(s,t);
+  src.generalPractitioner -> tgt.generalPractitioner;
+  src.managingOrganization -> tgt.managingOrganization;
+  src.link as s -> tgt.link as t then PatientLink(s,t);
+}
+
+group PatientContact(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.relationship -> tgt.relationship;
+  src.name -> tgt.name;
+  src.telecom -> tgt.telecom;
+  src.address -> tgt.address;
+  src.gender -> tgt.gender;
+  src.organization -> tgt.organization;
+  src.period -> tgt.period;
+}
+
+group PatientCommunication(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.language -> tgt.language;
+  src.preferred -> tgt.preferred;
+}
+
+group PatientLink(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.other -> tgt.other;
+  src.type -> tgt.type;
+}
+

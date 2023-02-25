@@ -1,0 +1,67 @@
+﻿/// url = 'http://hl7.org/fhir/StructureMap/ConditionDefinition5to4B'
+/// name = 'ConditionDefinition5to4B'
+/// title = 'FML Conversion for ConditionDefinition: R5 to R4B'
+
+uses "http://hl7.org/fhir/StructureDefinition/ConditionDefinition" alias ConditionDefinitionR5 as source
+uses "http://hl7.org/fhir/4.3/StructureDefinition/ConditionDefinition" alias AccountR4B as target
+
+imports "http://hl7.org/fhir/StructureMap/*5to4B
+
+group ConditionDefinition(source src : ConditionDefinitionR5, target tgt : ConditionDefinitionR4B) extends DomainResource <<type+>> {
+  src.url -> tgt.url;
+  src.identifier -> tgt.identifier;
+  src.version -> tgt.version;
+  src.name -> tgt.name;
+  src.title -> tgt.title;
+  src.subtitle -> tgt.subtitle;
+  src.status -> tgt.status;
+  src.experimental -> tgt.experimental;
+  src.date -> tgt.date;
+  src.publisher -> tgt.publisher;
+  src.contact -> tgt.contact;
+  src.description -> tgt.description;
+  src.useContext -> tgt.useContext;
+  src.jurisdiction -> tgt.jurisdiction;
+  src.code -> tgt.code;
+  src.severity -> tgt.severity;
+  src.bodySite -> tgt.bodySite;
+  src.stage -> tgt.stage;
+  src.hasSeverity -> tgt.hasSeverity;
+  src.hasBodySite -> tgt.hasBodySite;
+  src.hasStage -> tgt.hasStage;
+  src.definition -> tgt.definition;
+  src.observation as s -> tgt.observation as t then ConditionDefinitionObservation(s,t);
+  src.medication as s -> tgt.medication as t then ConditionDefinitionMedication(s,t);
+  src.precondition as s -> tgt.precondition as t then ConditionDefinitionPrecondition(s,t);
+  src.team -> tgt.team;
+  src.questionnaire as s -> tgt.questionnaire as t then ConditionDefinitionQuestionnaire(s,t);
+  src.plan as s -> tgt.plan as t then ConditionDefinitionPlan(s,t);
+}
+
+group ConditionDefinitionObservation(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.category -> tgt.category;
+  src.code -> tgt.code;
+}
+
+group ConditionDefinitionMedication(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.category -> tgt.category;
+  src.code -> tgt.code;
+}
+
+group ConditionDefinitionPrecondition(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.type -> tgt.type;
+  src.code -> tgt.code;
+  src.value : CodeableConcept -> tgt.value;
+  src.value : Quantity -> tgt.value;
+}
+
+group ConditionDefinitionQuestionnaire(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.purpose -> tgt.purpose;
+  src.reference -> tgt.reference;
+}
+
+group ConditionDefinitionPlan(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.role -> tgt.role;
+  src.reference -> tgt.reference;
+}
+

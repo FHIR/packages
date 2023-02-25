@@ -1,0 +1,63 @@
+﻿/// url = 'http://hl7.org/fhir/StructureMap/TestPlan5to4'
+/// name = 'TestPlan5to4'
+/// title = 'FML Conversion for TestPlan: R5 to R4'
+
+uses "http://hl7.org/fhir/StructureDefinition/TestPlan" alias TestPlanR5 as source
+uses "http://hl7.org/fhir/4.0/StructureDefinition/TestPlan" alias AccountR4 as target
+
+imports "http://hl7.org/fhir/StructureMap/*5to4
+
+group TestPlan(source src : TestPlanR5, target tgt : TestPlanR4) extends DomainResource <<type+>> {
+  src.url -> tgt.url;
+  src.identifier -> tgt.identifier;
+  src.version -> tgt.version;
+  src.name -> tgt.name;
+  src.title -> tgt.title;
+  src.status -> tgt.status;
+  src.date -> tgt.date;
+  src.publisher -> tgt.publisher;
+  src.contact -> tgt.contact;
+  src.description -> tgt.description;
+  src.jurisdiction -> tgt.jurisdiction;
+  src.purpose -> tgt.purpose;
+  src.copyright -> tgt.copyright;
+  src.category -> tgt.category;
+  src.scope -> tgt.scope;
+  src.testTools -> tgt.testTools;
+  src.dependencies as s -> tgt.dependencies as t then TestPlanDependencies(s,t);
+  src.exitCriteria -> tgt.exitCriteria;
+  src.testCase as s -> tgt.testCase as t then TestPlanTestCase(s,t);
+}
+
+group TestPlanDependencies(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.description -> tgt.description;
+  src.predecessor -> tgt.predecessor;
+}
+
+group TestPlanTestCase(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.sequence -> tgt.sequence;
+  src.scope -> tgt.scope;
+  src.dependencies as s -> tgt.dependencies as t then TestPlanTestCaseDependencies(s,t);
+  src.testRun -> tgt.testRun;
+  src.testData as s -> tgt.testData as t then TestPlanTestCaseTestData(s,t);
+  src.assertions as s -> tgt.assertions as t then TestPlanTestCaseAssertions(s,t);
+}
+
+group TestPlanTestCaseDependencies(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.description -> tgt.description;
+  src.predecessor -> tgt.predecessor;
+}
+
+group TestPlanTestCaseTestData(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.type -> tgt.type;
+  src.content -> tgt.content;
+  src.source : string -> tgt.source;
+  src.source : Reference -> tgt.source;
+}
+
+group TestPlanTestCaseAssertions(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.type -> tgt.type;
+  src.object -> tgt.object;
+  src.result -> tgt.result;
+}
+

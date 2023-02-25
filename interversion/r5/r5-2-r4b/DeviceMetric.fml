@@ -1,0 +1,27 @@
+﻿/// url = 'http://hl7.org/fhir/StructureMap/DeviceMetric5to4B'
+/// name = 'DeviceMetric5to4B'
+/// title = 'FML Conversion for DeviceMetric: R5 to R4B'
+
+uses "http://hl7.org/fhir/StructureDefinition/DeviceMetric" alias DeviceMetricR5 as source
+uses "http://hl7.org/fhir/4.3/StructureDefinition/DeviceMetric" alias AccountR4B as target
+
+imports "http://hl7.org/fhir/StructureMap/*5to4B
+
+group DeviceMetric(source src : DeviceMetricR5, target tgt : DeviceMetricR4B) extends DomainResource <<type+>> {
+  src.identifier -> tgt.identifier;
+  src.type -> tgt.type;
+  src.unit -> tgt.unit;
+  src.device -> tgt.device;
+  src.operationalStatus -> tgt.operationalStatus;
+  src.color -> tgt.color;
+  src.category -> tgt.category;
+  src.measurementFrequency -> tgt.measurementFrequency;
+  src.calibration as s -> tgt.calibration as t then DeviceMetricCalibration(s,t);
+}
+
+group DeviceMetricCalibration(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.type -> tgt.type;
+  src.state -> tgt.state;
+  src.time -> tgt.time;
+}
+

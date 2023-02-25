@@ -1,0 +1,17 @@
+﻿/// url = 'http://hl7.org/fhir/StructureMap/Coding4to5'
+/// name = 'Coding4to5'
+/// title = 'FML Conversion for Coding: R4 to R5'
+
+uses "http://hl7.org/fhir/4.0/StructureDefinition/Coding" alias CodingR4 as source
+uses "http://hl7.org/fhir/StructureDefinition/Coding" alias AccountR5 as target
+
+imports "http://hl7.org/fhir/StructureMap/*4to5
+
+group Coding(source src : CodingR4, target tgt : CodingR5) extends DataType <<type+>> {
+  src.system -> tgt.system;
+  src.version -> tgt.version;
+  src.code -> tgt.code;
+  src.display -> tgt.display;
+  src.userSelected -> tgt.userSelected;
+}
+

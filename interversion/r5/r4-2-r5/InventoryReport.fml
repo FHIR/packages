@@ -1,0 +1,35 @@
+﻿/// url = 'http://hl7.org/fhir/StructureMap/InventoryReport4to5'
+/// name = 'InventoryReport4to5'
+/// title = 'FML Conversion for InventoryReport: R4 to R5'
+
+uses "http://hl7.org/fhir/4.0/StructureDefinition/InventoryReport" alias InventoryReportR4 as source
+uses "http://hl7.org/fhir/StructureDefinition/InventoryReport" alias AccountR5 as target
+
+imports "http://hl7.org/fhir/StructureMap/*4to5
+
+group InventoryReport(source src : InventoryReportR4, target tgt : InventoryReportR5) extends DomainResource <<type+>> {
+  src.identifier -> tgt.identifier;
+  src.status -> tgt.status;
+  src.countType -> tgt.countType;
+  src.operationType -> tgt.operationType;
+  src.operationTypeReason -> tgt.operationTypeReason;
+  src.reportedDateTime -> tgt.reportedDateTime;
+  src.reporter -> tgt.reporter;
+  src.reportingPeriod -> tgt.reportingPeriod;
+  src.inventoryListing as s -> tgt.inventoryListing as t then InventoryReportInventoryListing(s,t);
+  src.note -> tgt.note;
+}
+
+group InventoryReportInventoryListing(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.location -> tgt.location;
+  src.itemStatus -> tgt.itemStatus;
+  src.countingDateTime -> tgt.countingDateTime;
+  src.items as s -> tgt.items as t then InventoryReportInventoryListingItems(s,t);
+}
+
+group InventoryReportInventoryListingItems(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.category -> tgt.category;
+  src.quantity -> tgt.quantity;
+  src.item -> tgt.item;
+}
+

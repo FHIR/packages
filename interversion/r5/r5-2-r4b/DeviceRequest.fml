@@ -1,0 +1,47 @@
+﻿/// url = 'http://hl7.org/fhir/StructureMap/DeviceRequest5to4B'
+/// name = 'DeviceRequest5to4B'
+/// title = 'FML Conversion for DeviceRequest: R5 to R4B'
+
+uses "http://hl7.org/fhir/StructureDefinition/DeviceRequest" alias DeviceRequestR5 as source
+uses "http://hl7.org/fhir/4.3/StructureDefinition/DeviceRequest" alias AccountR4B as target
+
+imports "http://hl7.org/fhir/StructureMap/*5to4B
+
+group DeviceRequest(source src : DeviceRequestR5, target tgt : DeviceRequestR4B) extends DomainResource <<type+>> {
+  src.identifier -> tgt.identifier;
+  src.instantiatesCanonical -> tgt.instantiatesCanonical;
+  src.basedOn -> tgt.basedOn;
+  src.replaces -> tgt.replaces;
+  src.groupIdentifier -> tgt.groupIdentifier;
+  src.status -> tgt.status;
+  src.intent -> tgt.intent;
+  src.priority -> tgt.priority;
+  src.doNotPerform -> tgt.doNotPerform;
+  src.code -> tgt.code;
+  src.quantity -> tgt.quantity;
+  src.parameter as s -> tgt.parameter as t then DeviceRequestParameter(s,t);
+  src.subject -> tgt.subject;
+  src.encounter -> tgt.encounter;
+  src.occurrence : dateTime -> tgt.occurrence;
+  src.occurrence : Period -> tgt.occurrence;
+  src.occurrence : Timing -> tgt.occurrence;
+  src.authoredOn -> tgt.authoredOn;
+  src.requester -> tgt.requester;
+  src.performer -> tgt.performer;
+  src.reason -> tgt.reason;
+  src.asNeeded -> tgt.asNeeded;
+  src.asNeededFor -> tgt.asNeededFor;
+  src.insurance -> tgt.insurance;
+  src.supportingInfo -> tgt.supportingInfo;
+  src.note -> tgt.note;
+  src.relevantHistory -> tgt.relevantHistory;
+}
+
+group DeviceRequestParameter(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.code -> tgt.code;
+  src.value : CodeableConcept -> tgt.value;
+  src.value : Quantity -> tgt.value;
+  src.value : Range -> tgt.value;
+  src.value : boolean -> tgt.value;
+}
+

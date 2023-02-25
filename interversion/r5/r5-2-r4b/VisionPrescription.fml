@@ -1,0 +1,42 @@
+﻿/// url = 'http://hl7.org/fhir/StructureMap/VisionPrescription5to4B'
+/// name = 'VisionPrescription5to4B'
+/// title = 'FML Conversion for VisionPrescription: R5 to R4B'
+
+uses "http://hl7.org/fhir/StructureDefinition/VisionPrescription" alias VisionPrescriptionR5 as source
+uses "http://hl7.org/fhir/4.3/StructureDefinition/VisionPrescription" alias AccountR4B as target
+
+imports "http://hl7.org/fhir/StructureMap/*5to4B
+
+group VisionPrescription(source src : VisionPrescriptionR5, target tgt : VisionPrescriptionR4B) extends DomainResource <<type+>> {
+  src.identifier -> tgt.identifier;
+  src.status -> tgt.status;
+  src.created -> tgt.created;
+  src.patient -> tgt.patient;
+  src.encounter -> tgt.encounter;
+  src.dateWritten -> tgt.dateWritten;
+  src.prescriber -> tgt.prescriber;
+  src.lensSpecification as s -> tgt.lensSpecification as t then VisionPrescriptionLensSpecification(s,t);
+}
+
+group VisionPrescriptionLensSpecification(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.product -> tgt.product;
+  src.eye -> tgt.eye;
+  src.sphere -> tgt.sphere;
+  src.cylinder -> tgt.cylinder;
+  src.axis -> tgt.axis;
+  src.prism as s -> tgt.prism as t then VisionPrescriptionLensSpecificationPrism(s,t);
+  src.add -> tgt.add;
+  src.power -> tgt.power;
+  src.backCurve -> tgt.backCurve;
+  src.diameter -> tgt.diameter;
+  src.duration -> tgt.duration;
+  src.color -> tgt.color;
+  src.brand -> tgt.brand;
+  src.note -> tgt.note;
+}
+
+group VisionPrescriptionLensSpecificationPrism(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.amount -> tgt.amount;
+  src.base -> tgt.base;
+}
+

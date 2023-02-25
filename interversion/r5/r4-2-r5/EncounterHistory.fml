@@ -1,0 +1,30 @@
+﻿/// url = 'http://hl7.org/fhir/StructureMap/EncounterHistory4to5'
+/// name = 'EncounterHistory4to5'
+/// title = 'FML Conversion for EncounterHistory: R4 to R5'
+
+uses "http://hl7.org/fhir/4.0/StructureDefinition/EncounterHistory" alias EncounterHistoryR4 as source
+uses "http://hl7.org/fhir/StructureDefinition/EncounterHistory" alias AccountR5 as target
+
+imports "http://hl7.org/fhir/StructureMap/*4to5
+
+group EncounterHistory(source src : EncounterHistoryR4, target tgt : EncounterHistoryR5) extends DomainResource <<type+>> {
+  src.encounter -> tgt.encounter;
+  src.identifier -> tgt.identifier;
+  src.status -> tgt.status;
+  src.class -> tgt.class;
+  src.type -> tgt.type;
+  src.serviceType -> tgt.serviceType;
+  src.subject -> tgt.subject;
+  src.subjectStatus -> tgt.subjectStatus;
+  src.actualPeriod -> tgt.actualPeriod;
+  src.plannedStartDate -> tgt.plannedStartDate;
+  src.plannedEndDate -> tgt.plannedEndDate;
+  src.length -> tgt.length;
+  src.location as s -> tgt.location as t then EncounterHistoryLocation(s,t);
+}
+
+group EncounterHistoryLocation(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.location -> tgt.location;
+  src.form -> tgt.form;
+}
+

@@ -1,0 +1,64 @@
+﻿/// url = 'http://hl7.org/fhir/StructureMap/PaymentReconciliation4Bto5'
+/// name = 'PaymentReconciliation4Bto5'
+/// title = 'FML Conversion for PaymentReconciliation: R4B to R5'
+
+uses "http://hl7.org/fhir/4.3/StructureDefinition/PaymentReconciliation" alias PaymentReconciliationR4B as source
+uses "http://hl7.org/fhir/StructureDefinition/PaymentReconciliation" alias AccountR5 as target
+
+imports "http://hl7.org/fhir/StructureMap/*4Bto5
+
+group PaymentReconciliation(source src : PaymentReconciliationR4B, target tgt : PaymentReconciliationR5) extends DomainResource <<type+>> {
+  src.identifier -> tgt.identifier;
+  src.type -> tgt.type;
+  src.status -> tgt.status;
+  src.kind -> tgt.kind;
+  src.period -> tgt.period;
+  src.created -> tgt.created;
+  src.enterer -> tgt.enterer;
+  src.issuerType -> tgt.issuerType;
+  src.paymentIssuer -> tgt.paymentIssuer;
+  src.request -> tgt.request;
+  src.requestor -> tgt.requestor;
+  src.outcome -> tgt.outcome;
+  src.disposition -> tgt.disposition;
+  src.date -> tgt.date;
+  src.location -> tgt.location;
+  src.method -> tgt.method;
+  src.cardBrand -> tgt.cardBrand;
+  src.accountNumber -> tgt.accountNumber;
+  src.expirationDate -> tgt.expirationDate;
+  src.processor -> tgt.processor;
+  src.referenceNumber -> tgt.referenceNumber;
+  src.authorization -> tgt.authorization;
+  src.tenderedAmount -> tgt.tenderedAmount;
+  src.returnedAmount -> tgt.returnedAmount;
+  src.amount -> tgt.amount;
+  src.paymentIdentifier -> tgt.paymentIdentifier;
+  src.allocation as s -> tgt.allocation as t then PaymentReconciliationAllocation(s,t);
+  src.formCode -> tgt.formCode;
+  src.processNote as s -> tgt.processNote as t then PaymentReconciliationProcessNote(s,t);
+}
+
+group PaymentReconciliationAllocation(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.identifier -> tgt.identifier;
+  src.predecessor -> tgt.predecessor;
+  src.target -> tgt.target;
+  src.targetItem : string -> tgt.targetItem;
+  src.targetItem : Identifier -> tgt.targetItem;
+  src.targetItem : positiveInt -> tgt.targetItem;
+  src.encounter -> tgt.encounter;
+  src.account -> tgt.account;
+  src.type -> tgt.type;
+  src.submitter -> tgt.submitter;
+  src.response -> tgt.response;
+  src.date -> tgt.date;
+  src.responsible -> tgt.responsible;
+  src.payee -> tgt.payee;
+  src.amount -> tgt.amount;
+}
+
+group PaymentReconciliationProcessNote(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.type -> tgt.type;
+  src.text -> tgt.text;
+}
+

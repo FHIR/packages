@@ -1,0 +1,325 @@
+﻿/// url = 'http://hl7.org/fhir/StructureMap/ExplanationOfBenefit4Bto5'
+/// name = 'ExplanationOfBenefit4Bto5'
+/// title = 'FML Conversion for ExplanationOfBenefit: R4B to R5'
+
+uses "http://hl7.org/fhir/4.3/StructureDefinition/ExplanationOfBenefit" alias ExplanationOfBenefitR4B as source
+uses "http://hl7.org/fhir/StructureDefinition/ExplanationOfBenefit" alias AccountR5 as target
+
+imports "http://hl7.org/fhir/StructureMap/*4Bto5
+
+group ExplanationOfBenefit(source src : ExplanationOfBenefitR4B, target tgt : ExplanationOfBenefitR5) extends DomainResource <<type+>> {
+  src.identifier -> tgt.identifier;
+  src.traceNumber -> tgt.traceNumber;
+  src.status -> tgt.status;
+  src.type -> tgt.type;
+  src.subType -> tgt.subType;
+  src.use -> tgt.use;
+  src.patient -> tgt.patient;
+  src.billablePeriod -> tgt.billablePeriod;
+  src.created -> tgt.created;
+  src.enterer -> tgt.enterer;
+  src.insurer -> tgt.insurer;
+  src.provider -> tgt.provider;
+  src.priority -> tgt.priority;
+  src.fundsReserveRequested -> tgt.fundsReserveRequested;
+  src.fundsReserve -> tgt.fundsReserve;
+  src.related as s -> tgt.related as t then ExplanationOfBenefitRelated(s,t);
+  src.prescription -> tgt.prescription;
+  src.originalPrescription -> tgt.originalPrescription;
+  src.event as s -> tgt.event as t then ExplanationOfBenefitEvent(s,t);
+  src.payee as s -> tgt.payee as t then ExplanationOfBenefitPayee(s,t);
+  src.referral -> tgt.referral;
+  src.encounter -> tgt.encounter;
+  src.facility -> tgt.facility;
+  src.claim -> tgt.claim;
+  src.claimResponse -> tgt.claimResponse;
+  src.outcome -> tgt.outcome;
+  src.decision -> tgt.decision;
+  src.disposition -> tgt.disposition;
+  src.preAuthRef -> tgt.preAuthRef;
+  src.preAuthRefPeriod -> tgt.preAuthRefPeriod;
+  src.diagnosisRelatedGroup -> tgt.diagnosisRelatedGroup;
+  src.careTeam as s -> tgt.careTeam as t then ExplanationOfBenefitCareTeam(s,t);
+  src.supportingInfo as s -> tgt.supportingInfo as t then ExplanationOfBenefitSupportingInfo(s,t);
+  src.diagnosis as s -> tgt.diagnosis as t then ExplanationOfBenefitDiagnosis(s,t);
+  src.procedure as s -> tgt.procedure as t then ExplanationOfBenefitProcedure(s,t);
+  src.precedence -> tgt.precedence;
+  src.insurance as s -> tgt.insurance as t then ExplanationOfBenefitInsurance(s,t);
+  src.accident as s -> tgt.accident as t then ExplanationOfBenefitAccident(s,t);
+  src.patientPaid -> tgt.patientPaid;
+  src.item as s -> tgt.item as t then ExplanationOfBenefitItem(s,t);
+  src.addItem as s -> tgt.addItem as t then ExplanationOfBenefitAddItem(s,t);
+  src.total as s -> tgt.total as t then ExplanationOfBenefitTotal(s,t);
+  src.payment as s -> tgt.payment as t then ExplanationOfBenefitPayment(s,t);
+  src.formCode -> tgt.formCode;
+  src.form -> tgt.form;
+  src.processNote as s -> tgt.processNote as t then ExplanationOfBenefitProcessNote(s,t);
+  src.benefitPeriod -> tgt.benefitPeriod;
+  src.benefitBalance as s -> tgt.benefitBalance as t then ExplanationOfBenefitBenefitBalance(s,t);
+}
+
+group ExplanationOfBenefitRelated(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.claim -> tgt.claim;
+  src.relationship -> tgt.relationship;
+  src.reference -> tgt.reference;
+}
+
+group ExplanationOfBenefitEvent(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.type -> tgt.type;
+  src.when : dateTime -> tgt.when;
+  src.when : Period -> tgt.when;
+}
+
+group ExplanationOfBenefitPayee(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.type -> tgt.type;
+  src.party -> tgt.party;
+}
+
+group ExplanationOfBenefitCareTeam(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.sequence -> tgt.sequence;
+  src.provider -> tgt.provider;
+  src.responsible -> tgt.responsible;
+  src.role -> tgt.role;
+  src.specialty -> tgt.specialty;
+}
+
+group ExplanationOfBenefitSupportingInfo(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.sequence -> tgt.sequence;
+  src.category -> tgt.category;
+  src.code -> tgt.code;
+  src.timing : date -> tgt.timing;
+  src.timing : Period -> tgt.timing;
+  src.value : boolean -> tgt.value;
+  src.value : string -> tgt.value;
+  src.value : Quantity -> tgt.value;
+  src.value : Attachment -> tgt.value;
+  src.value : Reference -> tgt.value;
+  src.value : Identifier -> tgt.value;
+  src.reason -> tgt.reason;
+}
+
+group ExplanationOfBenefitDiagnosis(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.sequence -> tgt.sequence;
+  src.diagnosis : CodeableConcept -> tgt.diagnosis;
+  src.diagnosis : Reference -> tgt.diagnosis;
+  src.type -> tgt.type;
+  src.onAdmission -> tgt.onAdmission;
+}
+
+group ExplanationOfBenefitProcedure(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.sequence -> tgt.sequence;
+  src.type -> tgt.type;
+  src.date -> tgt.date;
+  src.procedure : CodeableConcept -> tgt.procedure;
+  src.procedure : Reference -> tgt.procedure;
+  src.udi -> tgt.udi;
+}
+
+group ExplanationOfBenefitInsurance(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.focal -> tgt.focal;
+  src.coverage -> tgt.coverage;
+  src.preAuthRef -> tgt.preAuthRef;
+}
+
+group ExplanationOfBenefitAccident(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.date -> tgt.date;
+  src.type -> tgt.type;
+  src.location : Address -> tgt.location;
+  src.location : Reference -> tgt.location;
+}
+
+group ExplanationOfBenefitItem(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.sequence -> tgt.sequence;
+  src.careTeamSequence -> tgt.careTeamSequence;
+  src.diagnosisSequence -> tgt.diagnosisSequence;
+  src.procedureSequence -> tgt.procedureSequence;
+  src.informationSequence -> tgt.informationSequence;
+  src.traceNumber -> tgt.traceNumber;
+  src.revenue -> tgt.revenue;
+  src.category -> tgt.category;
+  src.productOrService -> tgt.productOrService;
+  src.productOrServiceEnd -> tgt.productOrServiceEnd;
+  src.modifier -> tgt.modifier;
+  src.programCode -> tgt.programCode;
+  src.serviced : date -> tgt.serviced;
+  src.serviced : Period -> tgt.serviced;
+  src.location : CodeableConcept -> tgt.location;
+  src.location : Address -> tgt.location;
+  src.location : Reference -> tgt.location;
+  src.patientPaid -> tgt.patientPaid;
+  src.quantity -> tgt.quantity;
+  src.unitPrice -> tgt.unitPrice;
+  src.factor -> tgt.factor;
+  src.tax -> tgt.tax;
+  src.net -> tgt.net;
+  src.udi -> tgt.udi;
+  src.bodySite as s -> tgt.bodySite as t then ExplanationOfBenefitItemBodySite(s,t);
+  src.encounter -> tgt.encounter;
+  src.noteNumber -> tgt.noteNumber;
+  src.reviewOutcome as s -> tgt.reviewOutcome as t then ExplanationOfBenefitItemReviewOutcome(s,t);
+  src.adjudication as s -> tgt.adjudication as t then ExplanationOfBenefitItemAdjudication(s,t);
+  src.detail as s -> tgt.detail as t then ExplanationOfBenefitItemDetail(s,t);
+}
+
+group ExplanationOfBenefitItemBodySite(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.site -> tgt.site;
+  src.subSite -> tgt.subSite;
+}
+
+group ExplanationOfBenefitItemReviewOutcome(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.decision -> tgt.decision;
+  src.reason -> tgt.reason;
+  src.preAuthRef -> tgt.preAuthRef;
+  src.preAuthPeriod -> tgt.preAuthPeriod;
+}
+
+group ExplanationOfBenefitItemAdjudication(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.category -> tgt.category;
+  src.reason -> tgt.reason;
+  src.amount -> tgt.amount;
+  src.value -> tgt.value;
+}
+
+group ExplanationOfBenefitItemDetail(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.sequence -> tgt.sequence;
+  src.traceNumber -> tgt.traceNumber;
+  src.revenue -> tgt.revenue;
+  src.category -> tgt.category;
+  src.productOrService -> tgt.productOrService;
+  src.productOrServiceEnd -> tgt.productOrServiceEnd;
+  src.modifier -> tgt.modifier;
+  src.programCode -> tgt.programCode;
+  src.patientPaid -> tgt.patientPaid;
+  src.quantity -> tgt.quantity;
+  src.unitPrice -> tgt.unitPrice;
+  src.factor -> tgt.factor;
+  src.tax -> tgt.tax;
+  src.net -> tgt.net;
+  src.udi -> tgt.udi;
+  src.noteNumber -> tgt.noteNumber;
+  src.subDetail as s -> tgt.subDetail as t then ExplanationOfBenefitItemDetailSubDetail(s,t);
+}
+
+group ExplanationOfBenefitItemDetailSubDetail(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.sequence -> tgt.sequence;
+  src.traceNumber -> tgt.traceNumber;
+  src.revenue -> tgt.revenue;
+  src.category -> tgt.category;
+  src.productOrService -> tgt.productOrService;
+  src.productOrServiceEnd -> tgt.productOrServiceEnd;
+  src.modifier -> tgt.modifier;
+  src.programCode -> tgt.programCode;
+  src.patientPaid -> tgt.patientPaid;
+  src.quantity -> tgt.quantity;
+  src.unitPrice -> tgt.unitPrice;
+  src.factor -> tgt.factor;
+  src.tax -> tgt.tax;
+  src.net -> tgt.net;
+  src.udi -> tgt.udi;
+  src.noteNumber -> tgt.noteNumber;
+}
+
+group ExplanationOfBenefitAddItem(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.itemSequence -> tgt.itemSequence;
+  src.detailSequence -> tgt.detailSequence;
+  src.subDetailSequence -> tgt.subDetailSequence;
+  src.traceNumber -> tgt.traceNumber;
+  src.provider -> tgt.provider;
+  src.revenue -> tgt.revenue;
+  src.productOrService -> tgt.productOrService;
+  src.productOrServiceEnd -> tgt.productOrServiceEnd;
+  src.modifier -> tgt.modifier;
+  src.programCode -> tgt.programCode;
+  src.serviced : date -> tgt.serviced;
+  src.serviced : Period -> tgt.serviced;
+  src.location : CodeableConcept -> tgt.location;
+  src.location : Address -> tgt.location;
+  src.location : Reference -> tgt.location;
+  src.patientPaid -> tgt.patientPaid;
+  src.quantity -> tgt.quantity;
+  src.unitPrice -> tgt.unitPrice;
+  src.factor -> tgt.factor;
+  src.tax -> tgt.tax;
+  src.net -> tgt.net;
+  src.bodySite as s -> tgt.bodySite as t then ExplanationOfBenefitAddItemBodySite(s,t);
+  src.noteNumber -> tgt.noteNumber;
+  src.detail as s -> tgt.detail as t then ExplanationOfBenefitAddItemDetail(s,t);
+}
+
+group ExplanationOfBenefitAddItemBodySite(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.site -> tgt.site;
+  src.subSite -> tgt.subSite;
+}
+
+group ExplanationOfBenefitAddItemDetail(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.traceNumber -> tgt.traceNumber;
+  src.revenue -> tgt.revenue;
+  src.productOrService -> tgt.productOrService;
+  src.productOrServiceEnd -> tgt.productOrServiceEnd;
+  src.modifier -> tgt.modifier;
+  src.patientPaid -> tgt.patientPaid;
+  src.quantity -> tgt.quantity;
+  src.unitPrice -> tgt.unitPrice;
+  src.factor -> tgt.factor;
+  src.tax -> tgt.tax;
+  src.net -> tgt.net;
+  src.noteNumber -> tgt.noteNumber;
+  src.subDetail as s -> tgt.subDetail as t then ExplanationOfBenefitAddItemDetailSubDetail(s,t);
+}
+
+group ExplanationOfBenefitAddItemDetailSubDetail(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.traceNumber -> tgt.traceNumber;
+  src.revenue -> tgt.revenue;
+  src.productOrService -> tgt.productOrService;
+  src.productOrServiceEnd -> tgt.productOrServiceEnd;
+  src.modifier -> tgt.modifier;
+  src.patientPaid -> tgt.patientPaid;
+  src.quantity -> tgt.quantity;
+  src.unitPrice -> tgt.unitPrice;
+  src.factor -> tgt.factor;
+  src.tax -> tgt.tax;
+  src.net -> tgt.net;
+  src.noteNumber -> tgt.noteNumber;
+}
+
+group ExplanationOfBenefitTotal(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.category -> tgt.category;
+  src.amount -> tgt.amount;
+}
+
+group ExplanationOfBenefitPayment(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.type -> tgt.type;
+  src.adjustment -> tgt.adjustment;
+  src.adjustmentReason -> tgt.adjustmentReason;
+  src.date -> tgt.date;
+  src.amount -> tgt.amount;
+  src.identifier -> tgt.identifier;
+}
+
+group ExplanationOfBenefitProcessNote(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.number -> tgt.number;
+  src.type -> tgt.type;
+  src.text -> tgt.text;
+  src.language -> tgt.language;
+}
+
+group ExplanationOfBenefitBenefitBalance(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.category -> tgt.category;
+  src.excluded -> tgt.excluded;
+  src.name -> tgt.name;
+  src.description -> tgt.description;
+  src.network -> tgt.network;
+  src.unit -> tgt.unit;
+  src.term -> tgt.term;
+  src.financial as s -> tgt.financial as t then ExplanationOfBenefitBenefitBalanceFinancial(s,t);
+}
+
+group ExplanationOfBenefitBenefitBalanceFinancial(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.type -> tgt.type;
+  src.allowed : unsignedInt -> tgt.allowed;
+  src.allowed : string -> tgt.allowed;
+  src.allowed : Money -> tgt.allowed;
+  src.used : unsignedInt -> tgt.used;
+  src.used : Money -> tgt.used;
+}
+

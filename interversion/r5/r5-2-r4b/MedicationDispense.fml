@@ -1,0 +1,51 @@
+﻿/// url = 'http://hl7.org/fhir/StructureMap/MedicationDispense5to4B'
+/// name = 'MedicationDispense5to4B'
+/// title = 'FML Conversion for MedicationDispense: R5 to R4B'
+
+uses "http://hl7.org/fhir/StructureDefinition/MedicationDispense" alias MedicationDispenseR5 as source
+uses "http://hl7.org/fhir/4.3/StructureDefinition/MedicationDispense" alias AccountR4B as target
+
+imports "http://hl7.org/fhir/StructureMap/*5to4B
+
+group MedicationDispense(source src : MedicationDispenseR5, target tgt : MedicationDispenseR4B) extends DomainResource <<type+>> {
+  src.identifier -> tgt.identifier;
+  src.basedOn -> tgt.basedOn;
+  src.partOf -> tgt.partOf;
+  src.status -> tgt.status;
+  src.notPerformedReason -> tgt.notPerformedReason;
+  src.statusChanged -> tgt.statusChanged;
+  src.category -> tgt.category;
+  src.medication -> tgt.medication;
+  src.subject -> tgt.subject;
+  src.encounter -> tgt.encounter;
+  src.supportingInformation -> tgt.supportingInformation;
+  src.performer as s -> tgt.performer as t then MedicationDispensePerformer(s,t);
+  src.location -> tgt.location;
+  src.authorizingPrescription -> tgt.authorizingPrescription;
+  src.type -> tgt.type;
+  src.quantity -> tgt.quantity;
+  src.daysSupply -> tgt.daysSupply;
+  src.recorded -> tgt.recorded;
+  src.whenPrepared -> tgt.whenPrepared;
+  src.whenHandedOver -> tgt.whenHandedOver;
+  src.destination -> tgt.destination;
+  src.receiver -> tgt.receiver;
+  src.note -> tgt.note;
+  src.renderedDosageInstruction -> tgt.renderedDosageInstruction;
+  src.dosageInstruction -> tgt.dosageInstruction;
+  src.substitution as s -> tgt.substitution as t then MedicationDispenseSubstitution(s,t);
+  src.eventHistory -> tgt.eventHistory;
+}
+
+group MedicationDispensePerformer(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.function -> tgt.function;
+  src.actor -> tgt.actor;
+}
+
+group MedicationDispenseSubstitution(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.wasSubstituted -> tgt.wasSubstituted;
+  src.type -> tgt.type;
+  src.reason -> tgt.reason;
+  src.responsibleParty -> tgt.responsibleParty;
+}
+

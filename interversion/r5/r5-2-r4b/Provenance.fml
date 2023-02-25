@@ -1,0 +1,38 @@
+﻿/// url = 'http://hl7.org/fhir/StructureMap/Provenance5to4B'
+/// name = 'Provenance5to4B'
+/// title = 'FML Conversion for Provenance: R5 to R4B'
+
+uses "http://hl7.org/fhir/StructureDefinition/Provenance" alias ProvenanceR5 as source
+uses "http://hl7.org/fhir/4.3/StructureDefinition/Provenance" alias AccountR4B as target
+
+imports "http://hl7.org/fhir/StructureMap/*5to4B
+
+group Provenance(source src : ProvenanceR5, target tgt : ProvenanceR4B) extends DomainResource <<type+>> {
+  src.target -> tgt.target;
+  src.occurred : Period -> tgt.occurred;
+  src.occurred : dateTime -> tgt.occurred;
+  src.recorded -> tgt.recorded;
+  src.policy -> tgt.policy;
+  src.location -> tgt.location;
+  src.authorization -> tgt.authorization;
+  src.activity -> tgt.activity;
+  src.basedOn -> tgt.basedOn;
+  src.patient -> tgt.patient;
+  src.encounter -> tgt.encounter;
+  src.agent as s -> tgt.agent as t then ProvenanceAgent(s,t);
+  src.entity as s -> tgt.entity as t then ProvenanceEntity(s,t);
+  src.signature -> tgt.signature;
+}
+
+group ProvenanceAgent(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.type -> tgt.type;
+  src.role -> tgt.role;
+  src.who -> tgt.who;
+  src.onBehalfOf -> tgt.onBehalfOf;
+}
+
+group ProvenanceEntity(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.role -> tgt.role;
+  src.what -> tgt.what;
+}
+

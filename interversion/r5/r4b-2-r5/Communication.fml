@@ -1,0 +1,40 @@
+﻿/// url = 'http://hl7.org/fhir/StructureMap/Communication4Bto5'
+/// name = 'Communication4Bto5'
+/// title = 'FML Conversion for Communication: R4B to R5'
+
+uses "http://hl7.org/fhir/4.3/StructureDefinition/Communication" alias CommunicationR4B as source
+uses "http://hl7.org/fhir/StructureDefinition/Communication" alias AccountR5 as target
+
+imports "http://hl7.org/fhir/StructureMap/*4Bto5
+
+group Communication(source src : CommunicationR4B, target tgt : CommunicationR5) extends DomainResource <<type+>> {
+  src.identifier -> tgt.identifier;
+  src.instantiatesCanonical -> tgt.instantiatesCanonical;
+  src.instantiatesUri -> tgt.instantiatesUri;
+  src.basedOn -> tgt.basedOn;
+  src.partOf -> tgt.partOf;
+  src.inResponseTo -> tgt.inResponseTo;
+  src.status -> tgt.status;
+  src.statusReason -> tgt.statusReason;
+  src.category -> tgt.category;
+  src.priority -> tgt.priority;
+  src.medium -> tgt.medium;
+  src.subject -> tgt.subject;
+  src.topic -> tgt.topic;
+  src.about -> tgt.about;
+  src.encounter -> tgt.encounter;
+  src.sent -> tgt.sent;
+  src.received -> tgt.received;
+  src.recipient -> tgt.recipient;
+  src.sender -> tgt.sender;
+  src.reason -> tgt.reason;
+  src.payload as s -> tgt.payload as t then CommunicationPayload(s,t);
+  src.note -> tgt.note;
+}
+
+group CommunicationPayload(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.content : Attachment -> tgt.content;
+  src.content : Reference -> tgt.content;
+  src.content : CodeableConcept -> tgt.content;
+}
+

@@ -1,0 +1,54 @@
+﻿/// url = 'http://hl7.org/fhir/StructureMap/NutritionIntake4Bto5'
+/// name = 'NutritionIntake4Bto5'
+/// title = 'FML Conversion for NutritionIntake: R4B to R5'
+
+uses "http://hl7.org/fhir/4.3/StructureDefinition/NutritionIntake" alias NutritionIntakeR4B as source
+uses "http://hl7.org/fhir/StructureDefinition/NutritionIntake" alias AccountR5 as target
+
+imports "http://hl7.org/fhir/StructureMap/*4Bto5
+
+group NutritionIntake(source src : NutritionIntakeR4B, target tgt : NutritionIntakeR5) extends DomainResource <<type+>> {
+  src.identifier -> tgt.identifier;
+  src.instantiatesCanonical -> tgt.instantiatesCanonical;
+  src.instantiatesUri -> tgt.instantiatesUri;
+  src.basedOn -> tgt.basedOn;
+  src.partOf -> tgt.partOf;
+  src.status -> tgt.status;
+  src.statusReason -> tgt.statusReason;
+  src.code -> tgt.code;
+  src.subject -> tgt.subject;
+  src.encounter -> tgt.encounter;
+  src.occurrence : dateTime -> tgt.occurrence;
+  src.occurrence : Period -> tgt.occurrence;
+  src.recorded -> tgt.recorded;
+  src.reported : boolean -> tgt.reported;
+  src.reported : Reference -> tgt.reported;
+  src.consumedItem as s -> tgt.consumedItem as t then NutritionIntakeConsumedItem(s,t);
+  src.ingredientLabel as s -> tgt.ingredientLabel as t then NutritionIntakeIngredientLabel(s,t);
+  src.performer as s -> tgt.performer as t then NutritionIntakePerformer(s,t);
+  src.location -> tgt.location;
+  src.derivedFrom -> tgt.derivedFrom;
+  src.reason -> tgt.reason;
+  src.note -> tgt.note;
+}
+
+group NutritionIntakeConsumedItem(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.type -> tgt.type;
+  src.nutritionProduct -> tgt.nutritionProduct;
+  src.schedule -> tgt.schedule;
+  src.amount -> tgt.amount;
+  src.rate -> tgt.rate;
+  src.notConsumed -> tgt.notConsumed;
+  src.notConsumedReason -> tgt.notConsumedReason;
+}
+
+group NutritionIntakeIngredientLabel(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.nutrient -> tgt.nutrient;
+  src.amount -> tgt.amount;
+}
+
+group NutritionIntakePerformer(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.function -> tgt.function;
+  src.actor -> tgt.actor;
+}
+

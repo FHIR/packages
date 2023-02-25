@@ -1,0 +1,106 @@
+﻿/// url = 'http://hl7.org/fhir/StructureMap/Evidence5to4'
+/// name = 'Evidence5to4'
+/// title = 'FML Conversion for Evidence: R5 to R4'
+
+uses "http://hl7.org/fhir/StructureDefinition/Evidence" alias EvidenceR5 as source
+uses "http://hl7.org/fhir/4.0/StructureDefinition/Evidence" alias AccountR4 as target
+
+imports "http://hl7.org/fhir/StructureMap/*5to4
+
+group Evidence(source src : EvidenceR5, target tgt : EvidenceR4) extends DomainResource <<type+>> {
+  src.url -> tgt.url;
+  src.identifier -> tgt.identifier;
+  src.version -> tgt.version;
+  src.versionAlgorithm : string -> tgt.versionAlgorithm;
+  src.versionAlgorithm : Coding -> tgt.versionAlgorithm;
+  src.name -> tgt.name;
+  src.title -> tgt.title;
+  src.citeAs : Reference -> tgt.citeAs;
+  src.citeAs : markdown -> tgt.citeAs;
+  src.status -> tgt.status;
+  src.experimental -> tgt.experimental;
+  src.date -> tgt.date;
+  src.approvalDate -> tgt.approvalDate;
+  src.lastReviewDate -> tgt.lastReviewDate;
+  src.publisher -> tgt.publisher;
+  src.contact -> tgt.contact;
+  src.author -> tgt.author;
+  src.editor -> tgt.editor;
+  src.reviewer -> tgt.reviewer;
+  src.endorser -> tgt.endorser;
+  src.useContext -> tgt.useContext;
+  src.purpose -> tgt.purpose;
+  src.copyright -> tgt.copyright;
+  src.copyrightLabel -> tgt.copyrightLabel;
+  src.relatedArtifact -> tgt.relatedArtifact;
+  src.description -> tgt.description;
+  src.assertion -> tgt.assertion;
+  src.note -> tgt.note;
+  src.variableDefinition as s -> tgt.variableDefinition as t then EvidenceVariableDefinition(s,t);
+  src.synthesisType -> tgt.synthesisType;
+  src.studyDesign -> tgt.studyDesign;
+  src.statistic as s -> tgt.statistic as t then EvidenceStatistic(s,t);
+  src.certainty as s -> tgt.certainty as t then EvidenceCertainty(s,t);
+}
+
+group EvidenceVariableDefinition(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.description -> tgt.description;
+  src.note -> tgt.note;
+  src.variableRole -> tgt.variableRole;
+  src.observed -> tgt.observed;
+  src.intended -> tgt.intended;
+  src.directnessMatch -> tgt.directnessMatch;
+}
+
+group EvidenceStatistic(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.description -> tgt.description;
+  src.note -> tgt.note;
+  src.statisticType -> tgt.statisticType;
+  src.category -> tgt.category;
+  src.quantity -> tgt.quantity;
+  src.numberOfEvents -> tgt.numberOfEvents;
+  src.numberAffected -> tgt.numberAffected;
+  src.sampleSize as s -> tgt.sampleSize as t then EvidenceStatisticSampleSize(s,t);
+  src.attributeEstimate as s -> tgt.attributeEstimate as t then EvidenceStatisticAttributeEstimate(s,t);
+  src.modelCharacteristic as s -> tgt.modelCharacteristic as t then EvidenceStatisticModelCharacteristic(s,t);
+}
+
+group EvidenceStatisticSampleSize(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.description -> tgt.description;
+  src.note -> tgt.note;
+  src.numberOfStudies -> tgt.numberOfStudies;
+  src.numberOfParticipants -> tgt.numberOfParticipants;
+  src.knownDataCount -> tgt.knownDataCount;
+}
+
+group EvidenceStatisticAttributeEstimate(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.description -> tgt.description;
+  src.note -> tgt.note;
+  src.type -> tgt.type;
+  src.quantity -> tgt.quantity;
+  src.level -> tgt.level;
+  src.range -> tgt.range;
+}
+
+group EvidenceStatisticModelCharacteristic(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.code -> tgt.code;
+  src.value -> tgt.value;
+  src.variable as s -> tgt.variable as t then EvidenceStatisticModelCharacteristicVariable(s,t);
+}
+
+group EvidenceStatisticModelCharacteristicVariable(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.variableDefinition -> tgt.variableDefinition;
+  src.handling -> tgt.handling;
+  src.valueCategory -> tgt.valueCategory;
+  src.valueQuantity -> tgt.valueQuantity;
+  src.valueRange -> tgt.valueRange;
+}
+
+group EvidenceCertainty(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.description -> tgt.description;
+  src.note -> tgt.note;
+  src.type -> tgt.type;
+  src.rating -> tgt.rating;
+  src.rater -> tgt.rater;
+}
+

@@ -1,0 +1,14 @@
+﻿/// url = 'http://hl7.org/fhir/StructureMap/Narrative5to4'
+/// name = 'Narrative5to4'
+/// title = 'FML Conversion for Narrative: R5 to R4'
+
+uses "http://hl7.org/fhir/StructureDefinition/Narrative" alias NarrativeR5 as source
+uses "http://hl7.org/fhir/4.0/StructureDefinition/Narrative" alias AccountR4 as target
+
+imports "http://hl7.org/fhir/StructureMap/*5to4
+
+group Narrative(source src : NarrativeR5, target tgt : NarrativeR4) extends DataType <<type+>> {
+  src.status -> tgt.status;
+  src.div -> tgt.div;
+}
+

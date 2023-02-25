@@ -1,0 +1,36 @@
+﻿/// url = 'http://hl7.org/fhir/StructureMap/Subscription5to4B'
+/// name = 'Subscription5to4B'
+/// title = 'FML Conversion for Subscription: R5 to R4B'
+
+uses "http://hl7.org/fhir/StructureDefinition/Subscription" alias SubscriptionR5 as source
+uses "http://hl7.org/fhir/4.3/StructureDefinition/Subscription" alias AccountR4B as target
+
+imports "http://hl7.org/fhir/StructureMap/*5to4B
+
+group Subscription(source src : SubscriptionR5, target tgt : SubscriptionR4B) extends DomainResource <<type+>> {
+  src.identifier -> tgt.identifier;
+  src.name -> tgt.name;
+  src.status -> tgt.status;
+  src.topic -> tgt.topic;
+  src.contact -> tgt.contact;
+  src.end -> tgt.end;
+  src.managingEntity -> tgt.managingEntity;
+  src.reason -> tgt.reason;
+  src.filterBy as s -> tgt.filterBy as t then SubscriptionFilterBy(s,t);
+  src.channelType -> tgt.channelType;
+  src.endpoint -> tgt.endpoint;
+  src.header -> tgt.header;
+  src.heartbeatPeriod -> tgt.heartbeatPeriod;
+  src.timeout -> tgt.timeout;
+  src.contentType -> tgt.contentType;
+  src.content -> tgt.content;
+  src.maxCount -> tgt.maxCount;
+}
+
+group SubscriptionFilterBy(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.resourceType -> tgt.resourceType;
+  src.filterParameter -> tgt.filterParameter;
+  src.modifier -> tgt.modifier;
+  src.value -> tgt.value;
+}
+

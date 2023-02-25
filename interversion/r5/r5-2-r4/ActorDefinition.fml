@@ -1,0 +1,33 @@
+﻿/// url = 'http://hl7.org/fhir/StructureMap/ActorDefinition5to4'
+/// name = 'ActorDefinition5to4'
+/// title = 'FML Conversion for ActorDefinition: R5 to R4'
+
+uses "http://hl7.org/fhir/StructureDefinition/ActorDefinition" alias ActorDefinitionR5 as source
+uses "http://hl7.org/fhir/4.0/StructureDefinition/ActorDefinition" alias AccountR4 as target
+
+imports "http://hl7.org/fhir/StructureMap/*5to4
+
+group ActorDefinition(source src : ActorDefinitionR5, target tgt : ActorDefinitionR4) extends DomainResource <<type+>> {
+  src.url -> tgt.url;
+  src.identifier -> tgt.identifier;
+  src.version -> tgt.version;
+  src.name -> tgt.name;
+  src.title -> tgt.title;
+  src.status -> tgt.status;
+  src.experimental -> tgt.experimental;
+  src.date -> tgt.date;
+  src.publisher -> tgt.publisher;
+  src.contact -> tgt.contact;
+  src.description -> tgt.description;
+  src.useContext -> tgt.useContext;
+  src.jurisdiction -> tgt.jurisdiction;
+  src.purpose -> tgt.purpose;
+  src.copyright -> tgt.copyright;
+  src.copyrightLabel -> tgt.copyrightLabel;
+  src.type -> tgt.type;
+  src.documentation -> tgt.documentation;
+  src.reference -> tgt.reference;
+  src.capabilities -> tgt.capabilities;
+  src.derivedFrom -> tgt.derivedFrom;
+}
+

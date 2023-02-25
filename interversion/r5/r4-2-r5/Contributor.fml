@@ -1,0 +1,15 @@
+﻿/// url = 'http://hl7.org/fhir/StructureMap/Contributor4to5'
+/// name = 'Contributor4to5'
+/// title = 'FML Conversion for Contributor: R4 to R5'
+
+uses "http://hl7.org/fhir/4.0/StructureDefinition/Contributor" alias ContributorR4 as source
+uses "http://hl7.org/fhir/StructureDefinition/Contributor" alias AccountR5 as target
+
+imports "http://hl7.org/fhir/StructureMap/*4to5
+
+group Contributor(source src : ContributorR4, target tgt : ContributorR5) extends DataType <<type+>> {
+  src.type -> tgt.type;
+  src.name -> tgt.name;
+  src.contact -> tgt.contact;
+}
+

@@ -1,0 +1,17 @@
+﻿/// url = 'http://hl7.org/fhir/StructureMap/ContactPoint4to5'
+/// name = 'ContactPoint4to5'
+/// title = 'FML Conversion for ContactPoint: R4 to R5'
+
+uses "http://hl7.org/fhir/4.0/StructureDefinition/ContactPoint" alias ContactPointR4 as source
+uses "http://hl7.org/fhir/StructureDefinition/ContactPoint" alias AccountR5 as target
+
+imports "http://hl7.org/fhir/StructureMap/*4to5
+
+group ContactPoint(source src : ContactPointR4, target tgt : ContactPointR5) extends DataType <<type+>> {
+  src.system -> tgt.system;
+  src.value -> tgt.value;
+  src.use -> tgt.use;
+  src.rank -> tgt.rank;
+  src.period -> tgt.period;
+}
+

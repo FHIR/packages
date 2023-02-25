@@ -1,0 +1,44 @@
+﻿/// url = 'http://hl7.org/fhir/StructureMap/DiagnosticReport5to4B'
+/// name = 'DiagnosticReport5to4B'
+/// title = 'FML Conversion for DiagnosticReport: R5 to R4B'
+
+uses "http://hl7.org/fhir/StructureDefinition/DiagnosticReport" alias DiagnosticReportR5 as source
+uses "http://hl7.org/fhir/4.3/StructureDefinition/DiagnosticReport" alias AccountR4B as target
+
+imports "http://hl7.org/fhir/StructureMap/*5to4B
+
+group DiagnosticReport(source src : DiagnosticReportR5, target tgt : DiagnosticReportR4B) extends DomainResource <<type+>> {
+  src.identifier -> tgt.identifier;
+  src.basedOn -> tgt.basedOn;
+  src.status -> tgt.status;
+  src.category -> tgt.category;
+  src.code -> tgt.code;
+  src.subject -> tgt.subject;
+  src.encounter -> tgt.encounter;
+  src.effective : dateTime -> tgt.effective;
+  src.effective : Period -> tgt.effective;
+  src.issued -> tgt.issued;
+  src.performer -> tgt.performer;
+  src.resultsInterpreter -> tgt.resultsInterpreter;
+  src.specimen -> tgt.specimen;
+  src.result -> tgt.result;
+  src.note -> tgt.note;
+  src.study -> tgt.study;
+  src.supportingInfo as s -> tgt.supportingInfo as t then DiagnosticReportSupportingInfo(s,t);
+  src.media as s -> tgt.media as t then DiagnosticReportMedia(s,t);
+  src.composition -> tgt.composition;
+  src.conclusion -> tgt.conclusion;
+  src.conclusionCode -> tgt.conclusionCode;
+  src.presentedForm -> tgt.presentedForm;
+}
+
+group DiagnosticReportSupportingInfo(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.type -> tgt.type;
+  src.reference -> tgt.reference;
+}
+
+group DiagnosticReportMedia(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.comment -> tgt.comment;
+  src.link -> tgt.link;
+}
+

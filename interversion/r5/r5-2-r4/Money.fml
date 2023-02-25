@@ -1,0 +1,14 @@
+﻿/// url = 'http://hl7.org/fhir/StructureMap/Money5to4'
+/// name = 'Money5to4'
+/// title = 'FML Conversion for Money: R5 to R4'
+
+uses "http://hl7.org/fhir/StructureDefinition/Money" alias MoneyR5 as source
+uses "http://hl7.org/fhir/4.0/StructureDefinition/Money" alias AccountR4 as target
+
+imports "http://hl7.org/fhir/StructureMap/*5to4
+
+group Money(source src : MoneyR5, target tgt : MoneyR4) extends DataType <<type+>> {
+  src.value -> tgt.value;
+  src.currency -> tgt.currency;
+}
+

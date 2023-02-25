@@ -1,0 +1,23 @@
+﻿/// url = 'http://hl7.org/fhir/StructureMap/Slot4to5'
+/// name = 'Slot4to5'
+/// title = 'FML Conversion for Slot: R4 to R5'
+
+uses "http://hl7.org/fhir/4.0/StructureDefinition/Slot" alias SlotR4 as source
+uses "http://hl7.org/fhir/StructureDefinition/Slot" alias AccountR5 as target
+
+imports "http://hl7.org/fhir/StructureMap/*4to5
+
+group Slot(source src : SlotR4, target tgt : SlotR5) extends DomainResource <<type+>> {
+  src.identifier -> tgt.identifier;
+  src.serviceCategory -> tgt.serviceCategory;
+  src.serviceType -> tgt.serviceType;
+  src.specialty -> tgt.specialty;
+  src.appointmentType -> tgt.appointmentType;
+  src.schedule -> tgt.schedule;
+  src.status -> tgt.status;
+  src.start -> tgt.start;
+  src.end -> tgt.end;
+  src.overbooked -> tgt.overbooked;
+  src.comment -> tgt.comment;
+}
+

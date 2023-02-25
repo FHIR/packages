@@ -1,0 +1,62 @@
+﻿/// url = 'http://hl7.org/fhir/StructureMap/StructureDefinition5to4'
+/// name = 'StructureDefinition5to4'
+/// title = 'FML Conversion for StructureDefinition: R5 to R4'
+
+uses "http://hl7.org/fhir/StructureDefinition/StructureDefinition" alias StructureDefinitionR5 as source
+uses "http://hl7.org/fhir/4.0/StructureDefinition/StructureDefinition" alias AccountR4 as target
+
+imports "http://hl7.org/fhir/StructureMap/*5to4
+
+group StructureDefinition(source src : StructureDefinitionR5, target tgt : StructureDefinitionR4) extends DomainResource <<type+>> {
+  src.url -> tgt.url;
+  src.identifier -> tgt.identifier;
+  src.version -> tgt.version;
+  src.versionAlgorithm : string -> tgt.versionAlgorithm;
+  src.versionAlgorithm : Coding -> tgt.versionAlgorithm;
+  src.name -> tgt.name;
+  src.title -> tgt.title;
+  src.status -> tgt.status;
+  src.experimental -> tgt.experimental;
+  src.date -> tgt.date;
+  src.publisher -> tgt.publisher;
+  src.contact -> tgt.contact;
+  src.description -> tgt.description;
+  src.useContext -> tgt.useContext;
+  src.jurisdiction -> tgt.jurisdiction;
+  src.purpose -> tgt.purpose;
+  src.copyright -> tgt.copyright;
+  src.copyrightLabel -> tgt.copyrightLabel;
+  src.keyword -> tgt.keyword;
+  src.fhirVersion -> tgt.fhirVersion;
+  src.mapping as s -> tgt.mapping as t then StructureDefinitionMapping(s,t);
+  src.kind -> tgt.kind;
+  src.abstract -> tgt.abstract;
+  src.context as s -> tgt.context as t then StructureDefinitionContext(s,t);
+  src.contextInvariant -> tgt.contextInvariant;
+  src.type -> tgt.type;
+  src.baseDefinition -> tgt.baseDefinition;
+  src.derivation -> tgt.derivation;
+  src.snapshot as s -> tgt.snapshot as t then StructureDefinitionSnapshot(s,t);
+  src.differential as s -> tgt.differential as t then StructureDefinitionDifferential(s,t);
+}
+
+group StructureDefinitionMapping(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.identity -> tgt.identity;
+  src.uri -> tgt.uri;
+  src.name -> tgt.name;
+  src.comment -> tgt.comment;
+}
+
+group StructureDefinitionContext(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.type -> tgt.type;
+  src.expression -> tgt.expression;
+}
+
+group StructureDefinitionSnapshot(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.element -> tgt.element;
+}
+
+group StructureDefinitionDifferential(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.element -> tgt.element;
+}
+

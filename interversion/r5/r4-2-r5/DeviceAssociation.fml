@@ -1,0 +1,26 @@
+﻿/// url = 'http://hl7.org/fhir/StructureMap/DeviceAssociation4to5'
+/// name = 'DeviceAssociation4to5'
+/// title = 'FML Conversion for DeviceAssociation: R4 to R5'
+
+uses "http://hl7.org/fhir/4.0/StructureDefinition/DeviceAssociation" alias DeviceAssociationR4 as source
+uses "http://hl7.org/fhir/StructureDefinition/DeviceAssociation" alias AccountR5 as target
+
+imports "http://hl7.org/fhir/StructureMap/*4to5
+
+group DeviceAssociation(source src : DeviceAssociationR4, target tgt : DeviceAssociationR5) extends DomainResource <<type+>> {
+  src.identifier -> tgt.identifier;
+  src.device -> tgt.device;
+  src.category -> tgt.category;
+  src.status -> tgt.status;
+  src.statusReason -> tgt.statusReason;
+  src.subject -> tgt.subject;
+  src.bodyStructure -> tgt.bodyStructure;
+  src.period -> tgt.period;
+  src.operation as s -> tgt.operation as t then DeviceAssociationOperation(s,t);
+}
+
+group DeviceAssociationOperation(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.operator -> tgt.operator;
+  src.period -> tgt.period;
+}
+

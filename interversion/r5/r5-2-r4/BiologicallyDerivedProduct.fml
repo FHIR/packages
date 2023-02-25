@@ -1,0 +1,45 @@
+﻿/// url = 'http://hl7.org/fhir/StructureMap/BiologicallyDerivedProduct5to4'
+/// name = 'BiologicallyDerivedProduct5to4'
+/// title = 'FML Conversion for BiologicallyDerivedProduct: R5 to R4'
+
+uses "http://hl7.org/fhir/StructureDefinition/BiologicallyDerivedProduct" alias BiologicallyDerivedProductR5 as source
+uses "http://hl7.org/fhir/4.0/StructureDefinition/BiologicallyDerivedProduct" alias AccountR4 as target
+
+imports "http://hl7.org/fhir/StructureMap/*5to4
+
+group BiologicallyDerivedProduct(source src : BiologicallyDerivedProductR5, target tgt : BiologicallyDerivedProductR4) extends DomainResource <<type+>> {
+  src.productCategory -> tgt.productCategory;
+  src.productCode -> tgt.productCode;
+  src.parent -> tgt.parent;
+  src.request -> tgt.request;
+  src.identifier -> tgt.identifier;
+  src.biologicalSourceEvent -> tgt.biologicalSourceEvent;
+  src.processingFacility -> tgt.processingFacility;
+  src.division -> tgt.division;
+  src.productStatus -> tgt.productStatus;
+  src.expirationDate -> tgt.expirationDate;
+  src.collection as s -> tgt.collection as t then BiologicallyDerivedProductCollection(s,t);
+  src.storageTempRequirements -> tgt.storageTempRequirements;
+  src.property as s -> tgt.property as t then BiologicallyDerivedProductProperty(s,t);
+}
+
+group BiologicallyDerivedProductCollection(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.collector -> tgt.collector;
+  src.source -> tgt.source;
+  src.collected : dateTime -> tgt.collected;
+  src.collected : Period -> tgt.collected;
+}
+
+group BiologicallyDerivedProductProperty(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.type -> tgt.type;
+  src.value : boolean -> tgt.value;
+  src.value : integer -> tgt.value;
+  src.value : CodeableConcept -> tgt.value;
+  src.value : Period -> tgt.value;
+  src.value : Quantity -> tgt.value;
+  src.value : Range -> tgt.value;
+  src.value : Ratio -> tgt.value;
+  src.value : string -> tgt.value;
+  src.value : Attachment -> tgt.value;
+}
+

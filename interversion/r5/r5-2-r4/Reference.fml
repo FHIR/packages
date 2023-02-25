@@ -1,0 +1,16 @@
+﻿/// url = 'http://hl7.org/fhir/StructureMap/Reference5to4'
+/// name = 'Reference5to4'
+/// title = 'FML Conversion for Reference: R5 to R4'
+
+uses "http://hl7.org/fhir/StructureDefinition/Reference" alias ReferenceR5 as source
+uses "http://hl7.org/fhir/4.0/StructureDefinition/Reference" alias AccountR4 as target
+
+imports "http://hl7.org/fhir/StructureMap/*5to4
+
+group Reference(source src : ReferenceR5, target tgt : ReferenceR4) extends DataType <<type+>> {
+  src.reference -> tgt.reference;
+  src.type -> tgt.type;
+  src.identifier -> tgt.identifier;
+  src.display -> tgt.display;
+}
+

@@ -1,0 +1,79 @@
+﻿/// url = 'http://hl7.org/fhir/StructureMap/SpecimenDefinition4to5'
+/// name = 'SpecimenDefinition4to5'
+/// title = 'FML Conversion for SpecimenDefinition: R4 to R5'
+
+uses "http://hl7.org/fhir/4.0/StructureDefinition/SpecimenDefinition" alias SpecimenDefinitionR4 as source
+uses "http://hl7.org/fhir/StructureDefinition/SpecimenDefinition" alias AccountR5 as target
+
+imports "http://hl7.org/fhir/StructureMap/*4to5
+
+group SpecimenDefinition(source src : SpecimenDefinitionR4, target tgt : SpecimenDefinitionR5) extends DomainResource <<type+>> {
+  src.url -> tgt.url;
+  src.identifier -> tgt.identifier;
+  src.version -> tgt.version;
+  src.versionAlgorithm : string -> tgt.versionAlgorithm;
+  src.versionAlgorithm : Coding -> tgt.versionAlgorithm;
+  src.name -> tgt.name;
+  src.title -> tgt.title;
+  src.derivedFromCanonical -> tgt.derivedFromCanonical;
+  src.derivedFromUri -> tgt.derivedFromUri;
+  src.status -> tgt.status;
+  src.experimental -> tgt.experimental;
+  src.subject : CodeableConcept -> tgt.subject;
+  src.subject : Reference -> tgt.subject;
+  src.date -> tgt.date;
+  src.publisher -> tgt.publisher;
+  src.contact -> tgt.contact;
+  src.description -> tgt.description;
+  src.useContext -> tgt.useContext;
+  src.jurisdiction -> tgt.jurisdiction;
+  src.purpose -> tgt.purpose;
+  src.copyright -> tgt.copyright;
+  src.copyrightLabel -> tgt.copyrightLabel;
+  src.approvalDate -> tgt.approvalDate;
+  src.lastReviewDate -> tgt.lastReviewDate;
+  src.effectivePeriod -> tgt.effectivePeriod;
+  src.typeCollected -> tgt.typeCollected;
+  src.patientPreparation -> tgt.patientPreparation;
+  src.timeAspect -> tgt.timeAspect;
+  src.collection -> tgt.collection;
+  src.typeTested as s -> tgt.typeTested as t then SpecimenDefinitionTypeTested(s,t);
+}
+
+group SpecimenDefinitionTypeTested(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.isDerived -> tgt.isDerived;
+  src.type -> tgt.type;
+  src.preference -> tgt.preference;
+  src.container as s -> tgt.container as t then SpecimenDefinitionTypeTestedContainer(s,t);
+  src.requirement -> tgt.requirement;
+  src.retentionTime -> tgt.retentionTime;
+  src.singleUse -> tgt.singleUse;
+  src.rejectionCriterion -> tgt.rejectionCriterion;
+  src.handling as s -> tgt.handling as t then SpecimenDefinitionTypeTestedHandling(s,t);
+  src.testingDestination -> tgt.testingDestination;
+}
+
+group SpecimenDefinitionTypeTestedContainer(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.material -> tgt.material;
+  src.type -> tgt.type;
+  src.cap -> tgt.cap;
+  src.description -> tgt.description;
+  src.capacity -> tgt.capacity;
+  src.minimumVolume : Quantity -> tgt.minimumVolume;
+  src.minimumVolume : string -> tgt.minimumVolume;
+  src.additive as s -> tgt.additive as t then SpecimenDefinitionTypeTestedContainerAdditive(s,t);
+  src.preparation -> tgt.preparation;
+}
+
+group SpecimenDefinitionTypeTestedContainerAdditive(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.additive : CodeableConcept -> tgt.additive;
+  src.additive : Reference -> tgt.additive;
+}
+
+group SpecimenDefinitionTypeTestedHandling(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.temperatureQualifier -> tgt.temperatureQualifier;
+  src.temperatureRange -> tgt.temperatureRange;
+  src.maxDuration -> tgt.maxDuration;
+  src.instruction -> tgt.instruction;
+}
+

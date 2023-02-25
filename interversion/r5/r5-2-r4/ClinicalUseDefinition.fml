@@ -1,0 +1,73 @@
+﻿/// url = 'http://hl7.org/fhir/StructureMap/ClinicalUseDefinition5to4'
+/// name = 'ClinicalUseDefinition5to4'
+/// title = 'FML Conversion for ClinicalUseDefinition: R5 to R4'
+
+uses "http://hl7.org/fhir/StructureDefinition/ClinicalUseDefinition" alias ClinicalUseDefinitionR5 as source
+uses "http://hl7.org/fhir/4.0/StructureDefinition/ClinicalUseDefinition" alias AccountR4 as target
+
+imports "http://hl7.org/fhir/StructureMap/*5to4
+
+group ClinicalUseDefinition(source src : ClinicalUseDefinitionR5, target tgt : ClinicalUseDefinitionR4) extends DomainResource <<type+>> {
+  src.identifier -> tgt.identifier;
+  src.type -> tgt.type;
+  src.category -> tgt.category;
+  src.subject -> tgt.subject;
+  src.status -> tgt.status;
+  src.contraindication as s -> tgt.contraindication as t then ClinicalUseDefinitionContraindication(s,t);
+  src.indication as s -> tgt.indication as t then ClinicalUseDefinitionIndication(s,t);
+  src.interaction as s -> tgt.interaction as t then ClinicalUseDefinitionInteraction(s,t);
+  src.population -> tgt.population;
+  src.library -> tgt.library;
+  src.undesirableEffect as s -> tgt.undesirableEffect as t then ClinicalUseDefinitionUndesirableEffect(s,t);
+  src.warning as s -> tgt.warning as t then ClinicalUseDefinitionWarning(s,t);
+}
+
+group ClinicalUseDefinitionContraindication(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.diseaseSymptomProcedure -> tgt.diseaseSymptomProcedure;
+  src.diseaseStatus -> tgt.diseaseStatus;
+  src.comorbidity -> tgt.comorbidity;
+  src.indication -> tgt.indication;
+  src.applicability -> tgt.applicability;
+  src.otherTherapy as s -> tgt.otherTherapy as t then ClinicalUseDefinitionContraindicationOtherTherapy(s,t);
+}
+
+group ClinicalUseDefinitionContraindicationOtherTherapy(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.relationshipType -> tgt.relationshipType;
+  src.treatment -> tgt.treatment;
+}
+
+group ClinicalUseDefinitionIndication(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.diseaseSymptomProcedure -> tgt.diseaseSymptomProcedure;
+  src.diseaseStatus -> tgt.diseaseStatus;
+  src.comorbidity -> tgt.comorbidity;
+  src.intendedEffect -> tgt.intendedEffect;
+  src.duration : Range -> tgt.duration;
+  src.duration : string -> tgt.duration;
+  src.undesirableEffect -> tgt.undesirableEffect;
+  src.applicability -> tgt.applicability;
+}
+
+group ClinicalUseDefinitionInteraction(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.interactant as s -> tgt.interactant as t then ClinicalUseDefinitionInteractionInteractant(s,t);
+  src.type -> tgt.type;
+  src.effect -> tgt.effect;
+  src.incidence -> tgt.incidence;
+  src.management -> tgt.management;
+}
+
+group ClinicalUseDefinitionInteractionInteractant(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.item : Reference -> tgt.item;
+  src.item : CodeableConcept -> tgt.item;
+}
+
+group ClinicalUseDefinitionUndesirableEffect(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.symptomConditionEffect -> tgt.symptomConditionEffect;
+  src.classification -> tgt.classification;
+  src.frequencyOfOccurrence -> tgt.frequencyOfOccurrence;
+}
+
+group ClinicalUseDefinitionWarning(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.description -> tgt.description;
+  src.code -> tgt.code;
+}
+

@@ -1,0 +1,46 @@
+﻿/// url = 'http://hl7.org/fhir/StructureMap/AllergyIntolerance4Bto5'
+/// name = 'AllergyIntolerance4Bto5'
+/// title = 'FML Conversion for AllergyIntolerance: R4B to R5'
+
+uses "http://hl7.org/fhir/4.3/StructureDefinition/AllergyIntolerance" alias AllergyIntoleranceR4B as source
+uses "http://hl7.org/fhir/StructureDefinition/AllergyIntolerance" alias AccountR5 as target
+
+imports "http://hl7.org/fhir/StructureMap/*4Bto5
+
+group AllergyIntolerance(source src : AllergyIntoleranceR4B, target tgt : AllergyIntoleranceR5) extends DomainResource <<type+>> {
+  src.identifier -> tgt.identifier;
+  src.clinicalStatus -> tgt.clinicalStatus;
+  src.verificationStatus -> tgt.verificationStatus;
+  src.type -> tgt.type;
+  src.category -> tgt.category;
+  src.criticality -> tgt.criticality;
+  src.code -> tgt.code;
+  src.patient -> tgt.patient;
+  src.encounter -> tgt.encounter;
+  src.onset : dateTime -> tgt.onset;
+  src.onset : Age -> tgt.onset;
+  src.onset : Period -> tgt.onset;
+  src.onset : Range -> tgt.onset;
+  src.onset : string -> tgt.onset;
+  src.recordedDate -> tgt.recordedDate;
+  src.participant as s -> tgt.participant as t then AllergyIntoleranceParticipant(s,t);
+  src.lastOccurrence -> tgt.lastOccurrence;
+  src.note -> tgt.note;
+  src.reaction as s -> tgt.reaction as t then AllergyIntoleranceReaction(s,t);
+}
+
+group AllergyIntoleranceParticipant(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.function -> tgt.function;
+  src.actor -> tgt.actor;
+}
+
+group AllergyIntoleranceReaction(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.substance -> tgt.substance;
+  src.manifestation -> tgt.manifestation;
+  src.description -> tgt.description;
+  src.onset -> tgt.onset;
+  src.severity -> tgt.severity;
+  src.exposureRoute -> tgt.exposureRoute;
+  src.note -> tgt.note;
+}
+

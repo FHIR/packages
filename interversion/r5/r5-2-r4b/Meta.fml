@@ -1,0 +1,18 @@
+﻿/// url = 'http://hl7.org/fhir/StructureMap/Meta5to4B'
+/// name = 'Meta5to4B'
+/// title = 'FML Conversion for Meta: R5 to R4B'
+
+uses "http://hl7.org/fhir/StructureDefinition/Meta" alias MetaR5 as source
+uses "http://hl7.org/fhir/4.3/StructureDefinition/Meta" alias AccountR4B as target
+
+imports "http://hl7.org/fhir/StructureMap/*5to4B
+
+group Meta(source src : MetaR5, target tgt : MetaR4B) extends DataType <<type+>> {
+  src.versionId -> tgt.versionId;
+  src.lastUpdated -> tgt.lastUpdated;
+  src.source -> tgt.source;
+  src.profile -> tgt.profile;
+  src.security -> tgt.security;
+  src.tag -> tgt.tag;
+}
+

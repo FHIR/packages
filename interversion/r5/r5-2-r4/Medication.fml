@@ -1,0 +1,33 @@
+﻿/// url = 'http://hl7.org/fhir/StructureMap/Medication5to4'
+/// name = 'Medication5to4'
+/// title = 'FML Conversion for Medication: R5 to R4'
+
+uses "http://hl7.org/fhir/StructureDefinition/Medication" alias MedicationR5 as source
+uses "http://hl7.org/fhir/4.0/StructureDefinition/Medication" alias AccountR4 as target
+
+imports "http://hl7.org/fhir/StructureMap/*5to4
+
+group Medication(source src : MedicationR5, target tgt : MedicationR4) extends DomainResource <<type+>> {
+  src.identifier -> tgt.identifier;
+  src.code -> tgt.code;
+  src.status -> tgt.status;
+  src.marketingAuthorizationHolder -> tgt.marketingAuthorizationHolder;
+  src.doseForm -> tgt.doseForm;
+  src.totalVolume -> tgt.totalVolume;
+  src.ingredient as s -> tgt.ingredient as t then MedicationIngredient(s,t);
+  src.batch as s -> tgt.batch as t then MedicationBatch(s,t);
+}
+
+group MedicationIngredient(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.item -> tgt.item;
+  src.isActive -> tgt.isActive;
+  src.strength : Ratio -> tgt.strength;
+  src.strength : CodeableConcept -> tgt.strength;
+  src.strength : Quantity -> tgt.strength;
+}
+
+group MedicationBatch(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.lotNumber -> tgt.lotNumber;
+  src.expirationDate -> tgt.expirationDate;
+}
+

@@ -1,0 +1,40 @@
+﻿/// url = 'http://hl7.org/fhir/StructureMap/Group4to5'
+/// name = 'Group4to5'
+/// title = 'FML Conversion for Group: R4 to R5'
+
+uses "http://hl7.org/fhir/4.0/StructureDefinition/Group" alias GroupR4 as source
+uses "http://hl7.org/fhir/StructureDefinition/Group" alias AccountR5 as target
+
+imports "http://hl7.org/fhir/StructureMap/*4to5
+
+group Group(source src : GroupR4, target tgt : GroupR5) extends DomainResource <<type+>> {
+  src.identifier -> tgt.identifier;
+  src.active -> tgt.active;
+  src.type -> tgt.type;
+  src.membership -> tgt.membership;
+  src.code -> tgt.code;
+  src.name -> tgt.name;
+  src.description -> tgt.description;
+  src.quantity -> tgt.quantity;
+  src.managingEntity -> tgt.managingEntity;
+  src.characteristic as s -> tgt.characteristic as t then GroupCharacteristic(s,t);
+  src.member as s -> tgt.member as t then GroupMember(s,t);
+}
+
+group GroupCharacteristic(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.code -> tgt.code;
+  src.value : CodeableConcept -> tgt.value;
+  src.value : boolean -> tgt.value;
+  src.value : Quantity -> tgt.value;
+  src.value : Range -> tgt.value;
+  src.value : Reference -> tgt.value;
+  src.exclude -> tgt.exclude;
+  src.period -> tgt.period;
+}
+
+group GroupMember(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.entity -> tgt.entity;
+  src.period -> tgt.period;
+  src.inactive -> tgt.inactive;
+}
+

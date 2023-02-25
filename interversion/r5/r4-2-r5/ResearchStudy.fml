@@ -1,0 +1,92 @@
+﻿/// url = 'http://hl7.org/fhir/StructureMap/ResearchStudy4to5'
+/// name = 'ResearchStudy4to5'
+/// title = 'FML Conversion for ResearchStudy: R4 to R5'
+
+uses "http://hl7.org/fhir/4.0/StructureDefinition/ResearchStudy" alias ResearchStudyR4 as source
+uses "http://hl7.org/fhir/StructureDefinition/ResearchStudy" alias AccountR5 as target
+
+imports "http://hl7.org/fhir/StructureMap/*4to5
+
+group ResearchStudy(source src : ResearchStudyR4, target tgt : ResearchStudyR5) extends DomainResource <<type+>> {
+  src.url -> tgt.url;
+  src.identifier -> tgt.identifier;
+  src.version -> tgt.version;
+  src.name -> tgt.name;
+  src.title -> tgt.title;
+  src.label as s -> tgt.label as t then ResearchStudyLabel(s,t);
+  src.protocol -> tgt.protocol;
+  src.partOf -> tgt.partOf;
+  src.relatedArtifact -> tgt.relatedArtifact;
+  src.date -> tgt.date;
+  src.status -> tgt.status;
+  src.primaryPurposeType -> tgt.primaryPurposeType;
+  src.phase -> tgt.phase;
+  src.studyDesign -> tgt.studyDesign;
+  src.focus -> tgt.focus;
+  src.condition -> tgt.condition;
+  src.keyword -> tgt.keyword;
+  src.region -> tgt.region;
+  src.descriptionSummary -> tgt.descriptionSummary;
+  src.description -> tgt.description;
+  src.period -> tgt.period;
+  src.site -> tgt.site;
+  src.note -> tgt.note;
+  src.classifier -> tgt.classifier;
+  src.associatedParty as s -> tgt.associatedParty as t then ResearchStudyAssociatedParty(s,t);
+  src.progressStatus as s -> tgt.progressStatus as t then ResearchStudyProgressStatus(s,t);
+  src.whyStopped -> tgt.whyStopped;
+  src.recruitment as s -> tgt.recruitment as t then ResearchStudyRecruitment(s,t);
+  src.comparisonGroup as s -> tgt.comparisonGroup as t then ResearchStudyComparisonGroup(s,t);
+  src.objective as s -> tgt.objective as t then ResearchStudyObjective(s,t);
+  src.outcomeMeasure as s -> tgt.outcomeMeasure as t then ResearchStudyOutcomeMeasure(s,t);
+  src.result -> tgt.result;
+}
+
+group ResearchStudyLabel(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.type -> tgt.type;
+  src.value -> tgt.value;
+}
+
+group ResearchStudyAssociatedParty(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.name -> tgt.name;
+  src.role -> tgt.role;
+  src.period -> tgt.period;
+  src.classifier -> tgt.classifier;
+  src.party -> tgt.party;
+}
+
+group ResearchStudyProgressStatus(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.state -> tgt.state;
+  src.actual -> tgt.actual;
+  src.period -> tgt.period;
+}
+
+group ResearchStudyRecruitment(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.targetNumber -> tgt.targetNumber;
+  src.actualNumber -> tgt.actualNumber;
+  src.eligibility -> tgt.eligibility;
+  src.actualGroup -> tgt.actualGroup;
+}
+
+group ResearchStudyComparisonGroup(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.linkId -> tgt.linkId;
+  src.name -> tgt.name;
+  src.type -> tgt.type;
+  src.description -> tgt.description;
+  src.intendedExposure -> tgt.intendedExposure;
+  src.observedGroup -> tgt.observedGroup;
+}
+
+group ResearchStudyObjective(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.name -> tgt.name;
+  src.type -> tgt.type;
+  src.description -> tgt.description;
+}
+
+group ResearchStudyOutcomeMeasure(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.name -> tgt.name;
+  src.type -> tgt.type;
+  src.description -> tgt.description;
+  src.reference -> tgt.reference;
+}
+

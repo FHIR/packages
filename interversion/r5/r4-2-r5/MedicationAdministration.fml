@@ -1,0 +1,50 @@
+﻿/// url = 'http://hl7.org/fhir/StructureMap/MedicationAdministration4to5'
+/// name = 'MedicationAdministration4to5'
+/// title = 'FML Conversion for MedicationAdministration: R4 to R5'
+
+uses "http://hl7.org/fhir/4.0/StructureDefinition/MedicationAdministration" alias MedicationAdministrationR4 as source
+uses "http://hl7.org/fhir/StructureDefinition/MedicationAdministration" alias AccountR5 as target
+
+imports "http://hl7.org/fhir/StructureMap/*4to5
+
+group MedicationAdministration(source src : MedicationAdministrationR4, target tgt : MedicationAdministrationR5) extends DomainResource <<type+>> {
+  src.identifier -> tgt.identifier;
+  src.basedOn -> tgt.basedOn;
+  src.partOf -> tgt.partOf;
+  src.status -> tgt.status;
+  src.statusReason -> tgt.statusReason;
+  src.category -> tgt.category;
+  src.medication -> tgt.medication;
+  src.subject -> tgt.subject;
+  src.encounter -> tgt.encounter;
+  src.supportingInformation -> tgt.supportingInformation;
+  src.occurence : dateTime -> tgt.occurence;
+  src.occurence : Period -> tgt.occurence;
+  src.occurence : Timing -> tgt.occurence;
+  src.recorded -> tgt.recorded;
+  src.isSubPotent -> tgt.isSubPotent;
+  src.subPotentReason -> tgt.subPotentReason;
+  src.performer as s -> tgt.performer as t then MedicationAdministrationPerformer(s,t);
+  src.reason -> tgt.reason;
+  src.request -> tgt.request;
+  src.device -> tgt.device;
+  src.note -> tgt.note;
+  src.dosage as s -> tgt.dosage as t then MedicationAdministrationDosage(s,t);
+  src.eventHistory -> tgt.eventHistory;
+}
+
+group MedicationAdministrationPerformer(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.function -> tgt.function;
+  src.actor -> tgt.actor;
+}
+
+group MedicationAdministrationDosage(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.text -> tgt.text;
+  src.site -> tgt.site;
+  src.route -> tgt.route;
+  src.method -> tgt.method;
+  src.dose -> tgt.dose;
+  src.rate : Ratio -> tgt.rate;
+  src.rate : Quantity -> tgt.rate;
+}
+

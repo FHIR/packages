@@ -1,0 +1,47 @@
+﻿/// url = 'http://hl7.org/fhir/StructureMap/Condition4Bto5'
+/// name = 'Condition4Bto5'
+/// title = 'FML Conversion for Condition: R4B to R5'
+
+uses "http://hl7.org/fhir/4.3/StructureDefinition/Condition" alias ConditionR4B as source
+uses "http://hl7.org/fhir/StructureDefinition/Condition" alias AccountR5 as target
+
+imports "http://hl7.org/fhir/StructureMap/*4Bto5
+
+group Condition(source src : ConditionR4B, target tgt : ConditionR5) extends DomainResource <<type+>> {
+  src.identifier -> tgt.identifier;
+  src.clinicalStatus -> tgt.clinicalStatus;
+  src.verificationStatus -> tgt.verificationStatus;
+  src.category -> tgt.category;
+  src.severity -> tgt.severity;
+  src.code -> tgt.code;
+  src.bodySite -> tgt.bodySite;
+  src.subject -> tgt.subject;
+  src.encounter -> tgt.encounter;
+  src.onset : dateTime -> tgt.onset;
+  src.onset : Age -> tgt.onset;
+  src.onset : Period -> tgt.onset;
+  src.onset : Range -> tgt.onset;
+  src.onset : string -> tgt.onset;
+  src.abatement : dateTime -> tgt.abatement;
+  src.abatement : Age -> tgt.abatement;
+  src.abatement : Period -> tgt.abatement;
+  src.abatement : Range -> tgt.abatement;
+  src.abatement : string -> tgt.abatement;
+  src.recordedDate -> tgt.recordedDate;
+  src.participant as s -> tgt.participant as t then ConditionParticipant(s,t);
+  src.stage as s -> tgt.stage as t then ConditionStage(s,t);
+  src.evidence -> tgt.evidence;
+  src.note -> tgt.note;
+}
+
+group ConditionParticipant(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.function -> tgt.function;
+  src.actor -> tgt.actor;
+}
+
+group ConditionStage(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.summary -> tgt.summary;
+  src.assessment -> tgt.assessment;
+  src.type -> tgt.type;
+}
+

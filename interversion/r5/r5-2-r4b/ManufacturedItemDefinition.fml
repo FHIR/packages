@@ -1,0 +1,47 @@
+﻿/// url = 'http://hl7.org/fhir/StructureMap/ManufacturedItemDefinition5to4B'
+/// name = 'ManufacturedItemDefinition5to4B'
+/// title = 'FML Conversion for ManufacturedItemDefinition: R5 to R4B'
+
+uses "http://hl7.org/fhir/StructureDefinition/ManufacturedItemDefinition" alias ManufacturedItemDefinitionR5 as source
+uses "http://hl7.org/fhir/4.3/StructureDefinition/ManufacturedItemDefinition" alias AccountR4B as target
+
+imports "http://hl7.org/fhir/StructureMap/*5to4B
+
+group ManufacturedItemDefinition(source src : ManufacturedItemDefinitionR5, target tgt : ManufacturedItemDefinitionR4B) extends DomainResource <<type+>> {
+  src.identifier -> tgt.identifier;
+  src.status -> tgt.status;
+  src.name -> tgt.name;
+  src.manufacturedDoseForm -> tgt.manufacturedDoseForm;
+  src.unitOfPresentation -> tgt.unitOfPresentation;
+  src.manufacturer -> tgt.manufacturer;
+  src.marketingStatus -> tgt.marketingStatus;
+  src.ingredient -> tgt.ingredient;
+  src.property as s -> tgt.property as t then ManufacturedItemDefinitionProperty(s,t);
+  src.component as s -> tgt.component as t then ManufacturedItemDefinitionComponent(s,t);
+}
+
+group ManufacturedItemDefinitionProperty(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.type -> tgt.type;
+  src.value : CodeableConcept -> tgt.value;
+  src.value : Quantity -> tgt.value;
+  src.value : date -> tgt.value;
+  src.value : boolean -> tgt.value;
+  src.value : markdown -> tgt.value;
+  src.value : Attachment -> tgt.value;
+  src.value : Reference -> tgt.value;
+}
+
+group ManufacturedItemDefinitionComponent(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.type -> tgt.type;
+  src.function -> tgt.function;
+  src.amount -> tgt.amount;
+  src.constituent as s -> tgt.constituent as t then ManufacturedItemDefinitionComponentConstituent(s,t);
+}
+
+group ManufacturedItemDefinitionComponentConstituent(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.amount -> tgt.amount;
+  src.location -> tgt.location;
+  src.function -> tgt.function;
+  src.hasIngredient -> tgt.hasIngredient;
+}
+

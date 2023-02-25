@@ -1,0 +1,90 @@
+﻿/// url = 'http://hl7.org/fhir/StructureMap/CodeSystem4to5'
+/// name = 'CodeSystem4to5'
+/// title = 'FML Conversion for CodeSystem: R4 to R5'
+
+uses "http://hl7.org/fhir/4.0/StructureDefinition/CodeSystem" alias CodeSystemR4 as source
+uses "http://hl7.org/fhir/StructureDefinition/CodeSystem" alias AccountR5 as target
+
+imports "http://hl7.org/fhir/StructureMap/*4to5
+
+group CodeSystem(source src : CodeSystemR4, target tgt : CodeSystemR5) extends DomainResource <<type+>> {
+  src.url -> tgt.url;
+  src.identifier -> tgt.identifier;
+  src.version -> tgt.version;
+  src.versionAlgorithm : string -> tgt.versionAlgorithm;
+  src.versionAlgorithm : Coding -> tgt.versionAlgorithm;
+  src.name -> tgt.name;
+  src.title -> tgt.title;
+  src.status -> tgt.status;
+  src.experimental -> tgt.experimental;
+  src.date -> tgt.date;
+  src.publisher -> tgt.publisher;
+  src.contact -> tgt.contact;
+  src.description -> tgt.description;
+  src.useContext -> tgt.useContext;
+  src.jurisdiction -> tgt.jurisdiction;
+  src.purpose -> tgt.purpose;
+  src.copyright -> tgt.copyright;
+  src.copyrightLabel -> tgt.copyrightLabel;
+  src.approvalDate -> tgt.approvalDate;
+  src.lastReviewDate -> tgt.lastReviewDate;
+  src.effectivePeriod -> tgt.effectivePeriod;
+  src.topic -> tgt.topic;
+  src.author -> tgt.author;
+  src.editor -> tgt.editor;
+  src.reviewer -> tgt.reviewer;
+  src.endorser -> tgt.endorser;
+  src.relatedArtifact -> tgt.relatedArtifact;
+  src.caseSensitive -> tgt.caseSensitive;
+  src.valueSet -> tgt.valueSet;
+  src.hierarchyMeaning -> tgt.hierarchyMeaning;
+  src.compositional -> tgt.compositional;
+  src.versionNeeded -> tgt.versionNeeded;
+  src.content -> tgt.content;
+  src.supplements -> tgt.supplements;
+  src.count -> tgt.count;
+  src.filter as s -> tgt.filter as t then CodeSystemFilter(s,t);
+  src.property as s -> tgt.property as t then CodeSystemProperty(s,t);
+  src.concept as s -> tgt.concept as t then CodeSystemConcept(s,t);
+}
+
+group CodeSystemFilter(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.code -> tgt.code;
+  src.description -> tgt.description;
+  src.operator -> tgt.operator;
+  src.value -> tgt.value;
+}
+
+group CodeSystemProperty(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.code -> tgt.code;
+  src.uri -> tgt.uri;
+  src.description -> tgt.description;
+  src.type -> tgt.type;
+}
+
+group CodeSystemConcept(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.code -> tgt.code;
+  src.display -> tgt.display;
+  src.definition -> tgt.definition;
+  src.designation as s -> tgt.designation as t then CodeSystemConceptDesignation(s,t);
+  src.property as s -> tgt.property as t then CodeSystemConceptProperty(s,t);
+}
+
+group CodeSystemConceptDesignation(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.language -> tgt.language;
+  src.use -> tgt.use;
+  src.additionalUse -> tgt.additionalUse;
+  src.value -> tgt.value;
+}
+
+group CodeSystemConceptProperty(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.code -> tgt.code;
+  src.value : code -> tgt.value;
+  src.value : Coding -> tgt.value;
+  src.value : string -> tgt.value;
+  src.value : integer -> tgt.value;
+  src.value : boolean -> tgt.value;
+  src.value : dateTime -> tgt.value;
+  src.value : decimal -> tgt.value;
+}
+

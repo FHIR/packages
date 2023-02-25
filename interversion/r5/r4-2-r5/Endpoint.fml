@@ -1,0 +1,29 @@
+﻿/// url = 'http://hl7.org/fhir/StructureMap/Endpoint4to5'
+/// name = 'Endpoint4to5'
+/// title = 'FML Conversion for Endpoint: R4 to R5'
+
+uses "http://hl7.org/fhir/4.0/StructureDefinition/Endpoint" alias EndpointR4 as source
+uses "http://hl7.org/fhir/StructureDefinition/Endpoint" alias AccountR5 as target
+
+imports "http://hl7.org/fhir/StructureMap/*4to5
+
+group Endpoint(source src : EndpointR4, target tgt : EndpointR5) extends DomainResource <<type+>> {
+  src.identifier -> tgt.identifier;
+  src.status -> tgt.status;
+  src.connectionType -> tgt.connectionType;
+  src.name -> tgt.name;
+  src.description -> tgt.description;
+  src.environmentType -> tgt.environmentType;
+  src.managingOrganization -> tgt.managingOrganization;
+  src.contact -> tgt.contact;
+  src.period -> tgt.period;
+  src.payload as s -> tgt.payload as t then EndpointPayload(s,t);
+  src.address -> tgt.address;
+  src.header -> tgt.header;
+}
+
+group EndpointPayload(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.type -> tgt.type;
+  src.mimeType -> tgt.mimeType;
+}
+

@@ -1,0 +1,26 @@
+﻿/// url = 'http://hl7.org/fhir/StructureMap/PractitionerRole4to5'
+/// name = 'PractitionerRole4to5'
+/// title = 'FML Conversion for PractitionerRole: R4 to R5'
+
+uses "http://hl7.org/fhir/4.0/StructureDefinition/PractitionerRole" alias PractitionerRoleR4 as source
+uses "http://hl7.org/fhir/StructureDefinition/PractitionerRole" alias AccountR5 as target
+
+imports "http://hl7.org/fhir/StructureMap/*4to5
+
+group PractitionerRole(source src : PractitionerRoleR4, target tgt : PractitionerRoleR5) extends DomainResource <<type+>> {
+  src.identifier -> tgt.identifier;
+  src.active -> tgt.active;
+  src.period -> tgt.period;
+  src.practitioner -> tgt.practitioner;
+  src.organization -> tgt.organization;
+  src.code -> tgt.code;
+  src.specialty -> tgt.specialty;
+  src.location -> tgt.location;
+  src.healthcareService -> tgt.healthcareService;
+  src.contact -> tgt.contact;
+  src.characteristic -> tgt.characteristic;
+  src.communication -> tgt.communication;
+  src.availability -> tgt.availability;
+  src.endpoint -> tgt.endpoint;
+}
+

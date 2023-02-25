@@ -1,0 +1,39 @@
+﻿/// url = 'http://hl7.org/fhir/StructureMap/DetectedIssue4Bto5'
+/// name = 'DetectedIssue4Bto5'
+/// title = 'FML Conversion for DetectedIssue: R4B to R5'
+
+uses "http://hl7.org/fhir/4.3/StructureDefinition/DetectedIssue" alias DetectedIssueR4B as source
+uses "http://hl7.org/fhir/StructureDefinition/DetectedIssue" alias AccountR5 as target
+
+imports "http://hl7.org/fhir/StructureMap/*4Bto5
+
+group DetectedIssue(source src : DetectedIssueR4B, target tgt : DetectedIssueR5) extends DomainResource <<type+>> {
+  src.identifier -> tgt.identifier;
+  src.status -> tgt.status;
+  src.category -> tgt.category;
+  src.code -> tgt.code;
+  src.severity -> tgt.severity;
+  src.subject -> tgt.subject;
+  src.encounter -> tgt.encounter;
+  src.identified : dateTime -> tgt.identified;
+  src.identified : Period -> tgt.identified;
+  src.author -> tgt.author;
+  src.implicated -> tgt.implicated;
+  src.evidence as s -> tgt.evidence as t then DetectedIssueEvidence(s,t);
+  src.detail -> tgt.detail;
+  src.reference -> tgt.reference;
+  src.mitigation as s -> tgt.mitigation as t then DetectedIssueMitigation(s,t);
+}
+
+group DetectedIssueEvidence(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.code -> tgt.code;
+  src.detail -> tgt.detail;
+}
+
+group DetectedIssueMitigation(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.action -> tgt.action;
+  src.date -> tgt.date;
+  src.author -> tgt.author;
+  src.note -> tgt.note;
+}
+

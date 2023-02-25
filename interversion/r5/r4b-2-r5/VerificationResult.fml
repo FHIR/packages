@@ -1,0 +1,53 @@
+﻿/// url = 'http://hl7.org/fhir/StructureMap/VerificationResult4Bto5'
+/// name = 'VerificationResult4Bto5'
+/// title = 'FML Conversion for VerificationResult: R4B to R5'
+
+uses "http://hl7.org/fhir/4.3/StructureDefinition/VerificationResult" alias VerificationResultR4B as source
+uses "http://hl7.org/fhir/StructureDefinition/VerificationResult" alias AccountR5 as target
+
+imports "http://hl7.org/fhir/StructureMap/*4Bto5
+
+group VerificationResult(source src : VerificationResultR4B, target tgt : VerificationResultR5) extends DomainResource <<type+>> {
+  src.target -> tgt.target;
+  src.targetLocation -> tgt.targetLocation;
+  src.need -> tgt.need;
+  src.status -> tgt.status;
+  src.statusDate -> tgt.statusDate;
+  src.validationType -> tgt.validationType;
+  src.validationProcess -> tgt.validationProcess;
+  src.frequency -> tgt.frequency;
+  src.lastPerformed -> tgt.lastPerformed;
+  src.nextScheduled -> tgt.nextScheduled;
+  src.failureAction -> tgt.failureAction;
+  src.primarySource as s -> tgt.primarySource as t then VerificationResultPrimarySource(s,t);
+  src.attestation as s -> tgt.attestation as t then VerificationResultAttestation(s,t);
+  src.validator as s -> tgt.validator as t then VerificationResultValidator(s,t);
+}
+
+group VerificationResultPrimarySource(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.who -> tgt.who;
+  src.type -> tgt.type;
+  src.communicationMethod -> tgt.communicationMethod;
+  src.validationStatus -> tgt.validationStatus;
+  src.validationDate -> tgt.validationDate;
+  src.canPushUpdates -> tgt.canPushUpdates;
+  src.pushTypeAvailable -> tgt.pushTypeAvailable;
+}
+
+group VerificationResultAttestation(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.who -> tgt.who;
+  src.onBehalfOf -> tgt.onBehalfOf;
+  src.communicationMethod -> tgt.communicationMethod;
+  src.date -> tgt.date;
+  src.sourceIdentityCertificate -> tgt.sourceIdentityCertificate;
+  src.proxyIdentityCertificate -> tgt.proxyIdentityCertificate;
+  src.proxySignature -> tgt.proxySignature;
+  src.sourceSignature -> tgt.sourceSignature;
+}
+
+group VerificationResultValidator(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.organization -> tgt.organization;
+  src.identityCertificate -> tgt.identityCertificate;
+  src.attestationSignature -> tgt.attestationSignature;
+}
+

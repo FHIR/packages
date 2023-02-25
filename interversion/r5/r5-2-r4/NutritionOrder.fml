@@ -1,0 +1,104 @@
+﻿/// url = 'http://hl7.org/fhir/StructureMap/NutritionOrder5to4'
+/// name = 'NutritionOrder5to4'
+/// title = 'FML Conversion for NutritionOrder: R5 to R4'
+
+uses "http://hl7.org/fhir/StructureDefinition/NutritionOrder" alias NutritionOrderR5 as source
+uses "http://hl7.org/fhir/4.0/StructureDefinition/NutritionOrder" alias AccountR4 as target
+
+imports "http://hl7.org/fhir/StructureMap/*5to4
+
+group NutritionOrder(source src : NutritionOrderR5, target tgt : NutritionOrderR4) extends DomainResource <<type+>> {
+  src.identifier -> tgt.identifier;
+  src.instantiatesCanonical -> tgt.instantiatesCanonical;
+  src.instantiates -> tgt.instantiates;
+  src.basedOn -> tgt.basedOn;
+  src.groupIdentifier -> tgt.groupIdentifier;
+  src.status -> tgt.status;
+  src.intent -> tgt.intent;
+  src.priority -> tgt.priority;
+  src.subject -> tgt.subject;
+  src.encounter -> tgt.encounter;
+  src.supportingInformation -> tgt.supportingInformation;
+  src.dateTime -> tgt.dateTime;
+  src.orderer -> tgt.orderer;
+  src.performer -> tgt.performer;
+  src.allergyIntolerance -> tgt.allergyIntolerance;
+  src.foodPreferenceModifier -> tgt.foodPreferenceModifier;
+  src.excludeFoodModifier -> tgt.excludeFoodModifier;
+  src.outsideFoodAllowed -> tgt.outsideFoodAllowed;
+  src.oralDiet as s -> tgt.oralDiet as t then NutritionOrderOralDiet(s,t);
+  src.supplement as s -> tgt.supplement as t then NutritionOrderSupplement(s,t);
+  src.enteralFormula as s -> tgt.enteralFormula as t then NutritionOrderEnteralFormula(s,t);
+  src.note -> tgt.note;
+}
+
+group NutritionOrderOralDiet(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.type -> tgt.type;
+  src.schedule as s -> tgt.schedule as t then NutritionOrderOralDietSchedule(s,t);
+  src.nutrient as s -> tgt.nutrient as t then NutritionOrderOralDietNutrient(s,t);
+  src.texture as s -> tgt.texture as t then NutritionOrderOralDietTexture(s,t);
+  src.fluidConsistencyType -> tgt.fluidConsistencyType;
+  src.instruction -> tgt.instruction;
+}
+
+group NutritionOrderOralDietSchedule(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.timing -> tgt.timing;
+  src.asNeeded -> tgt.asNeeded;
+  src.asNeededFor -> tgt.asNeededFor;
+}
+
+group NutritionOrderOralDietNutrient(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.modifier -> tgt.modifier;
+  src.amount -> tgt.amount;
+}
+
+group NutritionOrderOralDietTexture(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.modifier -> tgt.modifier;
+  src.foodType -> tgt.foodType;
+}
+
+group NutritionOrderSupplement(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.type -> tgt.type;
+  src.productName -> tgt.productName;
+  src.schedule as s -> tgt.schedule as t then NutritionOrderSupplementSchedule(s,t);
+  src.quantity -> tgt.quantity;
+  src.instruction -> tgt.instruction;
+}
+
+group NutritionOrderSupplementSchedule(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.timing -> tgt.timing;
+  src.asNeeded -> tgt.asNeeded;
+  src.asNeededFor -> tgt.asNeededFor;
+}
+
+group NutritionOrderEnteralFormula(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.baseFormulaType -> tgt.baseFormulaType;
+  src.baseFormulaProductName -> tgt.baseFormulaProductName;
+  src.deliveryDevice -> tgt.deliveryDevice;
+  src.additive as s -> tgt.additive as t then NutritionOrderEnteralFormulaAdditive(s,t);
+  src.caloricDensity -> tgt.caloricDensity;
+  src.routeOfAdministration -> tgt.routeOfAdministration;
+  src.administration as s -> tgt.administration as t then NutritionOrderEnteralFormulaAdministration(s,t);
+  src.maxVolumeToDeliver -> tgt.maxVolumeToDeliver;
+  src.administrationInstruction -> tgt.administrationInstruction;
+}
+
+group NutritionOrderEnteralFormulaAdditive(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.type -> tgt.type;
+  src.productName -> tgt.productName;
+  src.quantity -> tgt.quantity;
+}
+
+group NutritionOrderEnteralFormulaAdministration(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.schedule as s -> tgt.schedule as t then NutritionOrderEnteralFormulaAdministrationSchedule(s,t);
+  src.quantity -> tgt.quantity;
+  src.rate : Quantity -> tgt.rate;
+  src.rate : Ratio -> tgt.rate;
+}
+
+group NutritionOrderEnteralFormulaAdministrationSchedule(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.timing -> tgt.timing;
+  src.asNeeded -> tgt.asNeeded;
+  src.asNeededFor -> tgt.asNeededFor;
+}
+

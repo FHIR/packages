@@ -1,0 +1,42 @@
+﻿/// url = 'http://hl7.org/fhir/StructureMap/Goal5to4B'
+/// name = 'Goal5to4B'
+/// title = 'FML Conversion for Goal: R5 to R4B'
+
+uses "http://hl7.org/fhir/StructureDefinition/Goal" alias GoalR5 as source
+uses "http://hl7.org/fhir/4.3/StructureDefinition/Goal" alias AccountR4B as target
+
+imports "http://hl7.org/fhir/StructureMap/*5to4B
+
+group Goal(source src : GoalR5, target tgt : GoalR4B) extends DomainResource <<type+>> {
+  src.identifier -> tgt.identifier;
+  src.lifecycleStatus -> tgt.lifecycleStatus;
+  src.achievementStatus -> tgt.achievementStatus;
+  src.category -> tgt.category;
+  src.continuous -> tgt.continuous;
+  src.priority -> tgt.priority;
+  src.description -> tgt.description;
+  src.subject -> tgt.subject;
+  src.start : date -> tgt.start;
+  src.start : CodeableConcept -> tgt.start;
+  src.target as s -> tgt.target as t then GoalTarget(s,t);
+  src.statusDate -> tgt.statusDate;
+  src.statusReason -> tgt.statusReason;
+  src.source -> tgt.source;
+  src.addresses -> tgt.addresses;
+  src.note -> tgt.note;
+  src.outcome -> tgt.outcome;
+}
+
+group GoalTarget(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.measure -> tgt.measure;
+  src.detail : Quantity -> tgt.detail;
+  src.detail : Range -> tgt.detail;
+  src.detail : CodeableConcept -> tgt.detail;
+  src.detail : string -> tgt.detail;
+  src.detail : boolean -> tgt.detail;
+  src.detail : integer -> tgt.detail;
+  src.detail : Ratio -> tgt.detail;
+  src.due : date -> tgt.due;
+  src.due : Duration -> tgt.due;
+}
+

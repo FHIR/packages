@@ -1,0 +1,24 @@
+﻿/// url = 'http://hl7.org/fhir/StructureMap/PaymentNotice5to4B'
+/// name = 'PaymentNotice5to4B'
+/// title = 'FML Conversion for PaymentNotice: R5 to R4B'
+
+uses "http://hl7.org/fhir/StructureDefinition/PaymentNotice" alias PaymentNoticeR5 as source
+uses "http://hl7.org/fhir/4.3/StructureDefinition/PaymentNotice" alias AccountR4B as target
+
+imports "http://hl7.org/fhir/StructureMap/*5to4B
+
+group PaymentNotice(source src : PaymentNoticeR5, target tgt : PaymentNoticeR4B) extends DomainResource <<type+>> {
+  src.identifier -> tgt.identifier;
+  src.status -> tgt.status;
+  src.request -> tgt.request;
+  src.response -> tgt.response;
+  src.created -> tgt.created;
+  src.provider -> tgt.provider;
+  src.payment -> tgt.payment;
+  src.paymentDate -> tgt.paymentDate;
+  src.payee -> tgt.payee;
+  src.recipient -> tgt.recipient;
+  src.amount -> tgt.amount;
+  src.paymentStatus -> tgt.paymentStatus;
+}
+

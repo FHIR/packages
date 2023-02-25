@@ -1,0 +1,75 @@
+﻿/// url = 'http://hl7.org/fhir/StructureMap/AdverseEvent4to5'
+/// name = 'AdverseEvent4to5'
+/// title = 'FML Conversion for AdverseEvent: R4 to R5'
+
+uses "http://hl7.org/fhir/4.0/StructureDefinition/AdverseEvent" alias AdverseEventR4 as source
+uses "http://hl7.org/fhir/StructureDefinition/AdverseEvent" alias AccountR5 as target
+
+imports "http://hl7.org/fhir/StructureMap/*4to5
+
+group AdverseEvent(source src : AdverseEventR4, target tgt : AdverseEventR5) extends DomainResource <<type+>> {
+  src.identifier -> tgt.identifier;
+  src.status -> tgt.status;
+  src.actuality -> tgt.actuality;
+  src.category -> tgt.category;
+  src.code -> tgt.code;
+  src.subject -> tgt.subject;
+  src.encounter -> tgt.encounter;
+  src.occurrence : dateTime -> tgt.occurrence;
+  src.occurrence : Period -> tgt.occurrence;
+  src.occurrence : Timing -> tgt.occurrence;
+  src.detected -> tgt.detected;
+  src.recordedDate -> tgt.recordedDate;
+  src.resultingEffect -> tgt.resultingEffect;
+  src.location -> tgt.location;
+  src.seriousness -> tgt.seriousness;
+  src.outcome -> tgt.outcome;
+  src.recorder -> tgt.recorder;
+  src.participant as s -> tgt.participant as t then AdverseEventParticipant(s,t);
+  src.study -> tgt.study;
+  src.expectedInResearchStudy -> tgt.expectedInResearchStudy;
+  src.suspectEntity as s -> tgt.suspectEntity as t then AdverseEventSuspectEntity(s,t);
+  src.contributingFactor as s -> tgt.contributingFactor as t then AdverseEventContributingFactor(s,t);
+  src.preventiveAction as s -> tgt.preventiveAction as t then AdverseEventPreventiveAction(s,t);
+  src.mitigatingAction as s -> tgt.mitigatingAction as t then AdverseEventMitigatingAction(s,t);
+  src.supportingInfo as s -> tgt.supportingInfo as t then AdverseEventSupportingInfo(s,t);
+  src.note -> tgt.note;
+}
+
+group AdverseEventParticipant(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.function -> tgt.function;
+  src.actor -> tgt.actor;
+}
+
+group AdverseEventSuspectEntity(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.instance : CodeableConcept -> tgt.instance;
+  src.instance : Reference -> tgt.instance;
+  src.causality as s -> tgt.causality as t then AdverseEventSuspectEntityCausality(s,t);
+}
+
+group AdverseEventSuspectEntityCausality(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.assessmentMethod -> tgt.assessmentMethod;
+  src.entityRelatedness -> tgt.entityRelatedness;
+  src.author -> tgt.author;
+}
+
+group AdverseEventContributingFactor(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.item : Reference -> tgt.item;
+  src.item : CodeableConcept -> tgt.item;
+}
+
+group AdverseEventPreventiveAction(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.item : Reference -> tgt.item;
+  src.item : CodeableConcept -> tgt.item;
+}
+
+group AdverseEventMitigatingAction(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.item : Reference -> tgt.item;
+  src.item : CodeableConcept -> tgt.item;
+}
+
+group AdverseEventSupportingInfo(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.item : Reference -> tgt.item;
+  src.item : CodeableConcept -> tgt.item;
+}
+

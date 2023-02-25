@@ -1,0 +1,17 @@
+﻿/// url = 'http://hl7.org/fhir/StructureMap/Expression5to4B'
+/// name = 'Expression5to4B'
+/// title = 'FML Conversion for Expression: R5 to R4B'
+
+uses "http://hl7.org/fhir/StructureDefinition/Expression" alias ExpressionR5 as source
+uses "http://hl7.org/fhir/4.3/StructureDefinition/Expression" alias AccountR4B as target
+
+imports "http://hl7.org/fhir/StructureMap/*5to4B
+
+group Expression(source src : ExpressionR5, target tgt : ExpressionR4B) extends DataType <<type+>> {
+  src.description -> tgt.description;
+  src.name -> tgt.name;
+  src.language -> tgt.language;
+  src.expression -> tgt.expression;
+  src.reference -> tgt.reference;
+}
+

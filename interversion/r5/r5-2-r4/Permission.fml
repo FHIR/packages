@@ -1,0 +1,49 @@
+﻿/// url = 'http://hl7.org/fhir/StructureMap/Permission5to4'
+/// name = 'Permission5to4'
+/// title = 'FML Conversion for Permission: R5 to R4'
+
+uses "http://hl7.org/fhir/StructureDefinition/Permission" alias PermissionR5 as source
+uses "http://hl7.org/fhir/4.0/StructureDefinition/Permission" alias AccountR4 as target
+
+imports "http://hl7.org/fhir/StructureMap/*5to4
+
+group Permission(source src : PermissionR5, target tgt : PermissionR4) extends DomainResource <<type+>> {
+  src.status -> tgt.status;
+  src.asserter -> tgt.asserter;
+  src.date -> tgt.date;
+  src.validity -> tgt.validity;
+  src.justification as s -> tgt.justification as t then PermissionJustification(s,t);
+  src.combining -> tgt.combining;
+  src.rule as s -> tgt.rule as t then PermissionRule(s,t);
+}
+
+group PermissionJustification(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.basis -> tgt.basis;
+  src.evidence -> tgt.evidence;
+}
+
+group PermissionRule(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.type -> tgt.type;
+  src.data as s -> tgt.data as t then PermissionRuleData(s,t);
+  src.activity as s -> tgt.activity as t then PermissionRuleActivity(s,t);
+  src.limit -> tgt.limit;
+}
+
+group PermissionRuleData(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.resource as s -> tgt.resource as t then PermissionRuleDataResource(s,t);
+  src.security -> tgt.security;
+  src.period -> tgt.period;
+  src.expression -> tgt.expression;
+}
+
+group PermissionRuleDataResource(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.meaning -> tgt.meaning;
+  src.reference -> tgt.reference;
+}
+
+group PermissionRuleActivity(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.actor -> tgt.actor;
+  src.action -> tgt.action;
+  src.purpose -> tgt.purpose;
+}
+

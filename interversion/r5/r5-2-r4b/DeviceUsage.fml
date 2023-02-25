@@ -1,0 +1,36 @@
+﻿/// url = 'http://hl7.org/fhir/StructureMap/DeviceUsage5to4B'
+/// name = 'DeviceUsage5to4B'
+/// title = 'FML Conversion for DeviceUsage: R5 to R4B'
+
+uses "http://hl7.org/fhir/StructureDefinition/DeviceUsage" alias DeviceUsageR5 as source
+uses "http://hl7.org/fhir/4.3/StructureDefinition/DeviceUsage" alias AccountR4B as target
+
+imports "http://hl7.org/fhir/StructureMap/*5to4B
+
+group DeviceUsage(source src : DeviceUsageR5, target tgt : DeviceUsageR4B) extends DomainResource <<type+>> {
+  src.identifier -> tgt.identifier;
+  src.basedOn -> tgt.basedOn;
+  src.status -> tgt.status;
+  src.category -> tgt.category;
+  src.patient -> tgt.patient;
+  src.derivedFrom -> tgt.derivedFrom;
+  src.context -> tgt.context;
+  src.timing : Timing -> tgt.timing;
+  src.timing : Period -> tgt.timing;
+  src.timing : dateTime -> tgt.timing;
+  src.dateAsserted -> tgt.dateAsserted;
+  src.usageStatus -> tgt.usageStatus;
+  src.usageReason -> tgt.usageReason;
+  src.adherence as s -> tgt.adherence as t then DeviceUsageAdherence(s,t);
+  src.informationSource -> tgt.informationSource;
+  src.device -> tgt.device;
+  src.reason -> tgt.reason;
+  src.bodySite -> tgt.bodySite;
+  src.note -> tgt.note;
+}
+
+group DeviceUsageAdherence(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.code -> tgt.code;
+  src.reason -> tgt.reason;
+}
+

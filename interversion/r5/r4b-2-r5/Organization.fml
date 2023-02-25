@@ -1,0 +1,29 @@
+﻿/// url = 'http://hl7.org/fhir/StructureMap/Organization4Bto5'
+/// name = 'Organization4Bto5'
+/// title = 'FML Conversion for Organization: R4B to R5'
+
+uses "http://hl7.org/fhir/4.3/StructureDefinition/Organization" alias OrganizationR4B as source
+uses "http://hl7.org/fhir/StructureDefinition/Organization" alias AccountR5 as target
+
+imports "http://hl7.org/fhir/StructureMap/*4Bto5
+
+group Organization(source src : OrganizationR4B, target tgt : OrganizationR5) extends DomainResource <<type+>> {
+  src.identifier -> tgt.identifier;
+  src.active -> tgt.active;
+  src.type -> tgt.type;
+  src.name -> tgt.name;
+  src.alias -> tgt.alias;
+  src.description -> tgt.description;
+  src.contact -> tgt.contact;
+  src.partOf -> tgt.partOf;
+  src.endpoint -> tgt.endpoint;
+  src.qualification as s -> tgt.qualification as t then OrganizationQualification(s,t);
+}
+
+group OrganizationQualification(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.identifier -> tgt.identifier;
+  src.code -> tgt.code;
+  src.period -> tgt.period;
+  src.issuer -> tgt.issuer;
+}
+

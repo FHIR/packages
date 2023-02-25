@@ -1,0 +1,109 @@
+﻿/// url = 'http://hl7.org/fhir/StructureMap/StructureMap5to4'
+/// name = 'StructureMap5to4'
+/// title = 'FML Conversion for StructureMap: R5 to R4'
+
+uses "http://hl7.org/fhir/StructureDefinition/StructureMap" alias StructureMapR5 as source
+uses "http://hl7.org/fhir/4.0/StructureDefinition/StructureMap" alias AccountR4 as target
+
+imports "http://hl7.org/fhir/StructureMap/*5to4
+
+group StructureMap(source src : StructureMapR5, target tgt : StructureMapR4) extends DomainResource <<type+>> {
+  src.url -> tgt.url;
+  src.identifier -> tgt.identifier;
+  src.version -> tgt.version;
+  src.versionAlgorithm : string -> tgt.versionAlgorithm;
+  src.versionAlgorithm : Coding -> tgt.versionAlgorithm;
+  src.name -> tgt.name;
+  src.title -> tgt.title;
+  src.status -> tgt.status;
+  src.experimental -> tgt.experimental;
+  src.date -> tgt.date;
+  src.publisher -> tgt.publisher;
+  src.contact -> tgt.contact;
+  src.description -> tgt.description;
+  src.useContext -> tgt.useContext;
+  src.jurisdiction -> tgt.jurisdiction;
+  src.purpose -> tgt.purpose;
+  src.copyright -> tgt.copyright;
+  src.copyrightLabel -> tgt.copyrightLabel;
+  src.structure as s -> tgt.structure as t then StructureMapStructure(s,t);
+  src.import -> tgt.import;
+  src.const as s -> tgt.const as t then StructureMapConst(s,t);
+  src.group as s -> tgt.group as t then StructureMapGroup(s,t);
+}
+
+group StructureMapStructure(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.url -> tgt.url;
+  src.mode -> tgt.mode;
+  src.alias -> tgt.alias;
+  src.documentation -> tgt.documentation;
+}
+
+group StructureMapConst(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.name -> tgt.name;
+  src.value -> tgt.value;
+}
+
+group StructureMapGroup(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.name -> tgt.name;
+  src.extends -> tgt.extends;
+  src.typeMode -> tgt.typeMode;
+  src.documentation -> tgt.documentation;
+  src.input as s -> tgt.input as t then StructureMapGroupInput(s,t);
+  src.rule as s -> tgt.rule as t then StructureMapGroupRule(s,t);
+}
+
+group StructureMapGroupInput(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.name -> tgt.name;
+  src.type -> tgt.type;
+  src.mode -> tgt.mode;
+  src.documentation -> tgt.documentation;
+}
+
+group StructureMapGroupRule(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.name -> tgt.name;
+  src.source as s -> tgt.source as t then StructureMapGroupRuleSource(s,t);
+  src.target as s -> tgt.target as t then StructureMapGroupRuleTarget(s,t);
+  src.dependent as s -> tgt.dependent as t then StructureMapGroupRuleDependent(s,t);
+  src.documentation -> tgt.documentation;
+}
+
+group StructureMapGroupRuleSource(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.context -> tgt.context;
+  src.min -> tgt.min;
+  src.max -> tgt.max;
+  src.type -> tgt.type;
+  src.defaultValue -> tgt.defaultValue;
+  src.element -> tgt.element;
+  src.listMode -> tgt.listMode;
+  src.variable -> tgt.variable;
+  src.condition -> tgt.condition;
+  src.check -> tgt.check;
+  src.logMessage -> tgt.logMessage;
+}
+
+group StructureMapGroupRuleTarget(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.context -> tgt.context;
+  src.element -> tgt.element;
+  src.variable -> tgt.variable;
+  src.listMode -> tgt.listMode;
+  src.listRuleId -> tgt.listRuleId;
+  src.transform -> tgt.transform;
+  src.parameter as s -> tgt.parameter as t then StructureMapGroupRuleTargetParameter(s,t);
+}
+
+group StructureMapGroupRuleTargetParameter(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.value : id -> tgt.value;
+  src.value : string -> tgt.value;
+  src.value : boolean -> tgt.value;
+  src.value : integer -> tgt.value;
+  src.value : decimal -> tgt.value;
+  src.value : date -> tgt.value;
+  src.value : time -> tgt.value;
+  src.value : dateTime -> tgt.value;
+}
+
+group StructureMapGroupRuleDependent(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.name -> tgt.name;
+}
+

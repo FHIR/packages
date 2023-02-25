@@ -1,0 +1,72 @@
+﻿/// url = 'http://hl7.org/fhir/StructureMap/Encounter5to4'
+/// name = 'Encounter5to4'
+/// title = 'FML Conversion for Encounter: R5 to R4'
+
+uses "http://hl7.org/fhir/StructureDefinition/Encounter" alias EncounterR5 as source
+uses "http://hl7.org/fhir/4.0/StructureDefinition/Encounter" alias AccountR4 as target
+
+imports "http://hl7.org/fhir/StructureMap/*5to4
+
+group Encounter(source src : EncounterR5, target tgt : EncounterR4) extends DomainResource <<type+>> {
+  src.identifier -> tgt.identifier;
+  src.status -> tgt.status;
+  src.class -> tgt.class;
+  src.priority -> tgt.priority;
+  src.type -> tgt.type;
+  src.serviceType -> tgt.serviceType;
+  src.subject -> tgt.subject;
+  src.subjectStatus -> tgt.subjectStatus;
+  src.episodeOfCare -> tgt.episodeOfCare;
+  src.basedOn -> tgt.basedOn;
+  src.careTeam -> tgt.careTeam;
+  src.partOf -> tgt.partOf;
+  src.serviceProvider -> tgt.serviceProvider;
+  src.participant as s -> tgt.participant as t then EncounterParticipant(s,t);
+  src.appointment -> tgt.appointment;
+  src.virtualService -> tgt.virtualService;
+  src.actualPeriod -> tgt.actualPeriod;
+  src.plannedStartDate -> tgt.plannedStartDate;
+  src.plannedEndDate -> tgt.plannedEndDate;
+  src.length -> tgt.length;
+  src.reason as s -> tgt.reason as t then EncounterReason(s,t);
+  src.diagnosis as s -> tgt.diagnosis as t then EncounterDiagnosis(s,t);
+  src.account -> tgt.account;
+  src.dietPreference -> tgt.dietPreference;
+  src.specialArrangement -> tgt.specialArrangement;
+  src.specialCourtesy -> tgt.specialCourtesy;
+  src.admission as s -> tgt.admission as t then EncounterAdmission(s,t);
+  src.location as s -> tgt.location as t then EncounterLocation(s,t);
+}
+
+group EncounterParticipant(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.type -> tgt.type;
+  src.period -> tgt.period;
+  src.actor -> tgt.actor;
+}
+
+group EncounterReason(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.use -> tgt.use;
+  src.value -> tgt.value;
+}
+
+group EncounterDiagnosis(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.condition -> tgt.condition;
+  src.use -> tgt.use;
+}
+
+group EncounterAdmission(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.preAdmissionIdentifier -> tgt.preAdmissionIdentifier;
+  src.origin -> tgt.origin;
+  src.admitSource -> tgt.admitSource;
+  src.reAdmission -> tgt.reAdmission;
+  src.destination -> tgt.destination;
+  src.dischargeDisposition -> tgt.dischargeDisposition;
+}
+
+group EncounterLocation(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.location -> tgt.location;
+  src.status -> tgt.status;
+  src.form -> tgt.form;
+  src.period -> tgt.period;
+}
+

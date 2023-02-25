@@ -1,0 +1,68 @@
+﻿/// url = 'http://hl7.org/fhir/StructureMap/MedicationRequest5to4'
+/// name = 'MedicationRequest5to4'
+/// title = 'FML Conversion for MedicationRequest: R5 to R4'
+
+uses "http://hl7.org/fhir/StructureDefinition/MedicationRequest" alias MedicationRequestR5 as source
+uses "http://hl7.org/fhir/4.0/StructureDefinition/MedicationRequest" alias AccountR4 as target
+
+imports "http://hl7.org/fhir/StructureMap/*5to4
+
+group MedicationRequest(source src : MedicationRequestR5, target tgt : MedicationRequestR4) extends DomainResource <<type+>> {
+  src.identifier -> tgt.identifier;
+  src.basedOn -> tgt.basedOn;
+  src.priorPrescription -> tgt.priorPrescription;
+  src.groupIdentifier -> tgt.groupIdentifier;
+  src.status -> tgt.status;
+  src.statusReason -> tgt.statusReason;
+  src.statusChanged -> tgt.statusChanged;
+  src.intent -> tgt.intent;
+  src.category -> tgt.category;
+  src.priority -> tgt.priority;
+  src.doNotPerform -> tgt.doNotPerform;
+  src.medication -> tgt.medication;
+  src.subject -> tgt.subject;
+  src.informationSource -> tgt.informationSource;
+  src.encounter -> tgt.encounter;
+  src.supportingInformation -> tgt.supportingInformation;
+  src.authoredOn -> tgt.authoredOn;
+  src.requester -> tgt.requester;
+  src.reported -> tgt.reported;
+  src.performerType -> tgt.performerType;
+  src.performer -> tgt.performer;
+  src.device -> tgt.device;
+  src.recorder -> tgt.recorder;
+  src.reason -> tgt.reason;
+  src.courseOfTherapyType -> tgt.courseOfTherapyType;
+  src.insurance -> tgt.insurance;
+  src.note -> tgt.note;
+  src.renderedDosageInstruction -> tgt.renderedDosageInstruction;
+  src.effectiveDosePeriod -> tgt.effectiveDosePeriod;
+  src.dosageInstruction -> tgt.dosageInstruction;
+  src.dispenseRequest as s -> tgt.dispenseRequest as t then MedicationRequestDispenseRequest(s,t);
+  src.substitution as s -> tgt.substitution as t then MedicationRequestSubstitution(s,t);
+  src.eventHistory -> tgt.eventHistory;
+}
+
+group MedicationRequestDispenseRequest(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.initialFill as s -> tgt.initialFill as t then MedicationRequestDispenseRequestInitialFill(s,t);
+  src.dispenseInterval -> tgt.dispenseInterval;
+  src.validityPeriod -> tgt.validityPeriod;
+  src.numberOfRepeatsAllowed -> tgt.numberOfRepeatsAllowed;
+  src.quantity -> tgt.quantity;
+  src.expectedSupplyDuration -> tgt.expectedSupplyDuration;
+  src.dispenser -> tgt.dispenser;
+  src.dispenserInstruction -> tgt.dispenserInstruction;
+  src.doseAdministrationAid -> tgt.doseAdministrationAid;
+}
+
+group MedicationRequestDispenseRequestInitialFill(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.quantity -> tgt.quantity;
+  src.duration -> tgt.duration;
+}
+
+group MedicationRequestSubstitution(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.allowed : boolean -> tgt.allowed;
+  src.allowed : CodeableConcept -> tgt.allowed;
+  src.reason -> tgt.reason;
+}
+

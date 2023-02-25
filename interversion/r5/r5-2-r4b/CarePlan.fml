@@ -1,0 +1,41 @@
+﻿/// url = 'http://hl7.org/fhir/StructureMap/CarePlan5to4B'
+/// name = 'CarePlan5to4B'
+/// title = 'FML Conversion for CarePlan: R5 to R4B'
+
+uses "http://hl7.org/fhir/StructureDefinition/CarePlan" alias CarePlanR5 as source
+uses "http://hl7.org/fhir/4.3/StructureDefinition/CarePlan" alias AccountR4B as target
+
+imports "http://hl7.org/fhir/StructureMap/*5to4B
+
+group CarePlan(source src : CarePlanR5, target tgt : CarePlanR4B) extends DomainResource <<type+>> {
+  src.identifier -> tgt.identifier;
+  src.instantiatesCanonical -> tgt.instantiatesCanonical;
+  src.instantiatesUri -> tgt.instantiatesUri;
+  src.basedOn -> tgt.basedOn;
+  src.replaces -> tgt.replaces;
+  src.partOf -> tgt.partOf;
+  src.status -> tgt.status;
+  src.intent -> tgt.intent;
+  src.category -> tgt.category;
+  src.title -> tgt.title;
+  src.description -> tgt.description;
+  src.subject -> tgt.subject;
+  src.encounter -> tgt.encounter;
+  src.period -> tgt.period;
+  src.created -> tgt.created;
+  src.custodian -> tgt.custodian;
+  src.contributor -> tgt.contributor;
+  src.careTeam -> tgt.careTeam;
+  src.addresses -> tgt.addresses;
+  src.supportingInfo -> tgt.supportingInfo;
+  src.goal -> tgt.goal;
+  src.activity as s -> tgt.activity as t then CarePlanActivity(s,t);
+  src.note -> tgt.note;
+}
+
+group CarePlanActivity(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.performedActivity -> tgt.performedActivity;
+  src.progress -> tgt.progress;
+  src.plannedActivityReference -> tgt.plannedActivityReference;
+}
+

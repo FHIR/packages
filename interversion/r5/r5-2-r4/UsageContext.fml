@@ -1,0 +1,17 @@
+﻿/// url = 'http://hl7.org/fhir/StructureMap/UsageContext5to4'
+/// name = 'UsageContext5to4'
+/// title = 'FML Conversion for UsageContext: R5 to R4'
+
+uses "http://hl7.org/fhir/StructureDefinition/UsageContext" alias UsageContextR5 as source
+uses "http://hl7.org/fhir/4.0/StructureDefinition/UsageContext" alias AccountR4 as target
+
+imports "http://hl7.org/fhir/StructureMap/*5to4
+
+group UsageContext(source src : UsageContextR5, target tgt : UsageContextR4) extends DataType <<type+>> {
+  src.code -> tgt.code;
+  src.value : CodeableConcept -> tgt.value;
+  src.value : Quantity -> tgt.value;
+  src.value : Range -> tgt.value;
+  src.value : Reference -> tgt.value;
+}
+

@@ -1,0 +1,49 @@
+﻿/// url = 'http://hl7.org/fhir/StructureMap/MessageDefinition4to5'
+/// name = 'MessageDefinition4to5'
+/// title = 'FML Conversion for MessageDefinition: R4 to R5'
+
+uses "http://hl7.org/fhir/4.0/StructureDefinition/MessageDefinition" alias MessageDefinitionR4 as source
+uses "http://hl7.org/fhir/StructureDefinition/MessageDefinition" alias AccountR5 as target
+
+imports "http://hl7.org/fhir/StructureMap/*4to5
+
+group MessageDefinition(source src : MessageDefinitionR4, target tgt : MessageDefinitionR5) extends DomainResource <<type+>> {
+  src.url -> tgt.url;
+  src.identifier -> tgt.identifier;
+  src.version -> tgt.version;
+  src.name -> tgt.name;
+  src.title -> tgt.title;
+  src.replaces -> tgt.replaces;
+  src.status -> tgt.status;
+  src.experimental -> tgt.experimental;
+  src.date -> tgt.date;
+  src.publisher -> tgt.publisher;
+  src.contact -> tgt.contact;
+  src.description -> tgt.description;
+  src.useContext -> tgt.useContext;
+  src.jurisdiction -> tgt.jurisdiction;
+  src.purpose -> tgt.purpose;
+  src.copyright -> tgt.copyright;
+  src.base -> tgt.base;
+  src.parent -> tgt.parent;
+  src.event : Coding -> tgt.event;
+  src.event : uri -> tgt.event;
+  src.category -> tgt.category;
+  src.focus as s -> tgt.focus as t then MessageDefinitionFocus(s,t);
+  src.responseRequired -> tgt.responseRequired;
+  src.allowedResponse as s -> tgt.allowedResponse as t then MessageDefinitionAllowedResponse(s,t);
+  src.graph -> tgt.graph;
+}
+
+group MessageDefinitionFocus(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.code -> tgt.code;
+  src.profile -> tgt.profile;
+  src.min -> tgt.min;
+  src.max -> tgt.max;
+}
+
+group MessageDefinitionAllowedResponse(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.message -> tgt.message;
+  src.situation -> tgt.situation;
+}
+

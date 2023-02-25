@@ -1,0 +1,22 @@
+﻿/// url = 'http://hl7.org/fhir/StructureMap/TriggerDefinition5to4B'
+/// name = 'TriggerDefinition5to4B'
+/// title = 'FML Conversion for TriggerDefinition: R5 to R4B'
+
+uses "http://hl7.org/fhir/StructureDefinition/TriggerDefinition" alias TriggerDefinitionR5 as source
+uses "http://hl7.org/fhir/4.3/StructureDefinition/TriggerDefinition" alias AccountR4B as target
+
+imports "http://hl7.org/fhir/StructureMap/*5to4B
+
+group TriggerDefinition(source src : TriggerDefinitionR5, target tgt : TriggerDefinitionR4B) extends DataType <<type+>> {
+  src.type -> tgt.type;
+  src.name -> tgt.name;
+  src.code -> tgt.code;
+  src.subscriptionTopic -> tgt.subscriptionTopic;
+  src.timing : Timing -> tgt.timing;
+  src.timing : Reference -> tgt.timing;
+  src.timing : date -> tgt.timing;
+  src.timing : dateTime -> tgt.timing;
+  src.data -> tgt.data;
+  src.condition -> tgt.condition;
+}
+

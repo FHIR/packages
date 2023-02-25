@@ -1,0 +1,39 @@
+﻿/// url = 'http://hl7.org/fhir/StructureMap/BodyStructure4to5'
+/// name = 'BodyStructure4to5'
+/// title = 'FML Conversion for BodyStructure: R4 to R5'
+
+uses "http://hl7.org/fhir/4.0/StructureDefinition/BodyStructure" alias BodyStructureR4 as source
+uses "http://hl7.org/fhir/StructureDefinition/BodyStructure" alias AccountR5 as target
+
+imports "http://hl7.org/fhir/StructureMap/*4to5
+
+group BodyStructure(source src : BodyStructureR4, target tgt : BodyStructureR5) extends DomainResource <<type+>> {
+  src.identifier -> tgt.identifier;
+  src.active -> tgt.active;
+  src.morphology -> tgt.morphology;
+  src.includedStructure as s -> tgt.includedStructure as t then BodyStructureIncludedStructure(s,t);
+  src.description -> tgt.description;
+  src.image -> tgt.image;
+  src.patient -> tgt.patient;
+}
+
+group BodyStructureIncludedStructure(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.structure -> tgt.structure;
+  src.laterality -> tgt.laterality;
+  src.bodyLandmarkOrientation as s -> tgt.bodyLandmarkOrientation as t then BodyStructureIncludedStructureBodyLandmarkOrientation(s,t);
+  src.spatialReference -> tgt.spatialReference;
+  src.qualifier -> tgt.qualifier;
+}
+
+group BodyStructureIncludedStructureBodyLandmarkOrientation(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.landmarkDescription -> tgt.landmarkDescription;
+  src.clockFacePosition -> tgt.clockFacePosition;
+  src.distanceFromLandmark as s -> tgt.distanceFromLandmark as t then BodyStructureIncludedStructureBodyLandmarkOrientationDistanceFromLandmark(s,t);
+  src.surfaceOrientation -> tgt.surfaceOrientation;
+}
+
+group BodyStructureIncludedStructureBodyLandmarkOrientationDistanceFromLandmark(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.device -> tgt.device;
+  src.value -> tgt.value;
+}
+

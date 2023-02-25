@@ -1,0 +1,104 @@
+﻿/// url = 'http://hl7.org/fhir/StructureMap/Measure5to4'
+/// name = 'Measure5to4'
+/// title = 'FML Conversion for Measure: R5 to R4'
+
+uses "http://hl7.org/fhir/StructureDefinition/Measure" alias MeasureR5 as source
+uses "http://hl7.org/fhir/4.0/StructureDefinition/Measure" alias AccountR4 as target
+
+imports "http://hl7.org/fhir/StructureMap/*5to4
+
+group Measure(source src : MeasureR5, target tgt : MeasureR4) extends DomainResource <<type+>> {
+  src.url -> tgt.url;
+  src.identifier -> tgt.identifier;
+  src.version -> tgt.version;
+  src.versionAlgorithm : string -> tgt.versionAlgorithm;
+  src.versionAlgorithm : Coding -> tgt.versionAlgorithm;
+  src.name -> tgt.name;
+  src.title -> tgt.title;
+  src.subtitle -> tgt.subtitle;
+  src.status -> tgt.status;
+  src.experimental -> tgt.experimental;
+  src.subject : CodeableConcept -> tgt.subject;
+  src.subject : Reference -> tgt.subject;
+  src.basis -> tgt.basis;
+  src.date -> tgt.date;
+  src.publisher -> tgt.publisher;
+  src.contact -> tgt.contact;
+  src.description -> tgt.description;
+  src.useContext -> tgt.useContext;
+  src.jurisdiction -> tgt.jurisdiction;
+  src.purpose -> tgt.purpose;
+  src.usage -> tgt.usage;
+  src.copyright -> tgt.copyright;
+  src.copyrightLabel -> tgt.copyrightLabel;
+  src.approvalDate -> tgt.approvalDate;
+  src.lastReviewDate -> tgt.lastReviewDate;
+  src.effectivePeriod -> tgt.effectivePeriod;
+  src.topic -> tgt.topic;
+  src.author -> tgt.author;
+  src.editor -> tgt.editor;
+  src.reviewer -> tgt.reviewer;
+  src.endorser -> tgt.endorser;
+  src.relatedArtifact -> tgt.relatedArtifact;
+  src.library -> tgt.library;
+  src.disclaimer -> tgt.disclaimer;
+  src.scoring -> tgt.scoring;
+  src.scoringUnit -> tgt.scoringUnit;
+  src.compositeScoring -> tgt.compositeScoring;
+  src.type -> tgt.type;
+  src.riskAdjustment -> tgt.riskAdjustment;
+  src.rateAggregation -> tgt.rateAggregation;
+  src.rationale -> tgt.rationale;
+  src.clinicalRecommendationStatement -> tgt.clinicalRecommendationStatement;
+  src.improvementNotation -> tgt.improvementNotation;
+  src.term as s -> tgt.term as t then MeasureTerm(s,t);
+  src.guidance -> tgt.guidance;
+  src.group as s -> tgt.group as t then MeasureGroup(s,t);
+  src.supplementalData as s -> tgt.supplementalData as t then MeasureSupplementalData(s,t);
+}
+
+group MeasureTerm(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.code -> tgt.code;
+  src.definition -> tgt.definition;
+}
+
+group MeasureGroup(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.code -> tgt.code;
+  src.description -> tgt.description;
+  src.type -> tgt.type;
+  src.basis -> tgt.basis;
+  src.scoring -> tgt.scoring;
+  src.scoringUnit -> tgt.scoringUnit;
+  src.improvementNotation -> tgt.improvementNotation;
+  src.population as s -> tgt.population as t then MeasureGroupPopulation(s,t);
+  src.stratifier as s -> tgt.stratifier as t then MeasureGroupStratifier(s,t);
+}
+
+group MeasureGroupPopulation(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.code -> tgt.code;
+  src.description -> tgt.description;
+  src.criteria -> tgt.criteria;
+  src.inputPopulationId -> tgt.inputPopulationId;
+  src.aggregateMethod -> tgt.aggregateMethod;
+}
+
+group MeasureGroupStratifier(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.code -> tgt.code;
+  src.description -> tgt.description;
+  src.criteria -> tgt.criteria;
+  src.component as s -> tgt.component as t then MeasureGroupStratifierComponent(s,t);
+}
+
+group MeasureGroupStratifierComponent(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.code -> tgt.code;
+  src.description -> tgt.description;
+  src.criteria -> tgt.criteria;
+}
+
+group MeasureSupplementalData(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.code -> tgt.code;
+  src.usage -> tgt.usage;
+  src.description -> tgt.description;
+  src.criteria -> tgt.criteria;
+}
+

@@ -1,0 +1,49 @@
+﻿/// url = 'http://hl7.org/fhir/StructureMap/ChargeItemDefinition5to4'
+/// name = 'ChargeItemDefinition5to4'
+/// title = 'FML Conversion for ChargeItemDefinition: R5 to R4'
+
+uses "http://hl7.org/fhir/StructureDefinition/ChargeItemDefinition" alias ChargeItemDefinitionR5 as source
+uses "http://hl7.org/fhir/4.0/StructureDefinition/ChargeItemDefinition" alias AccountR4 as target
+
+imports "http://hl7.org/fhir/StructureMap/*5to4
+
+group ChargeItemDefinition(source src : ChargeItemDefinitionR5, target tgt : ChargeItemDefinitionR4) extends DomainResource <<type+>> {
+  src.url -> tgt.url;
+  src.identifier -> tgt.identifier;
+  src.version -> tgt.version;
+  src.versionAlgorithm : string -> tgt.versionAlgorithm;
+  src.versionAlgorithm : Coding -> tgt.versionAlgorithm;
+  src.name -> tgt.name;
+  src.title -> tgt.title;
+  src.derivedFromUri -> tgt.derivedFromUri;
+  src.partOf -> tgt.partOf;
+  src.replaces -> tgt.replaces;
+  src.status -> tgt.status;
+  src.experimental -> tgt.experimental;
+  src.date -> tgt.date;
+  src.publisher -> tgt.publisher;
+  src.contact -> tgt.contact;
+  src.description -> tgt.description;
+  src.useContext -> tgt.useContext;
+  src.jurisdiction -> tgt.jurisdiction;
+  src.purpose -> tgt.purpose;
+  src.copyright -> tgt.copyright;
+  src.copyrightLabel -> tgt.copyrightLabel;
+  src.approvalDate -> tgt.approvalDate;
+  src.lastReviewDate -> tgt.lastReviewDate;
+  src.code -> tgt.code;
+  src.instance -> tgt.instance;
+  src.applicability as s -> tgt.applicability as t then ChargeItemDefinitionApplicability(s,t);
+  src.propertyGroup as s -> tgt.propertyGroup as t then ChargeItemDefinitionPropertyGroup(s,t);
+}
+
+group ChargeItemDefinitionApplicability(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.condition -> tgt.condition;
+  src.effectivePeriod -> tgt.effectivePeriod;
+  src.relatedArtifact -> tgt.relatedArtifact;
+}
+
+group ChargeItemDefinitionPropertyGroup(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.priceComponent -> tgt.priceComponent;
+}
+

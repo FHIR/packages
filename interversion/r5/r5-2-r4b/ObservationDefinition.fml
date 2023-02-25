@@ -1,0 +1,77 @@
+﻿/// url = 'http://hl7.org/fhir/StructureMap/ObservationDefinition5to4B'
+/// name = 'ObservationDefinition5to4B'
+/// title = 'FML Conversion for ObservationDefinition: R5 to R4B'
+
+uses "http://hl7.org/fhir/StructureDefinition/ObservationDefinition" alias ObservationDefinitionR5 as source
+uses "http://hl7.org/fhir/4.3/StructureDefinition/ObservationDefinition" alias AccountR4B as target
+
+imports "http://hl7.org/fhir/StructureMap/*5to4B
+
+group ObservationDefinition(source src : ObservationDefinitionR5, target tgt : ObservationDefinitionR4B) extends DomainResource <<type+>> {
+  src.url -> tgt.url;
+  src.identifier -> tgt.identifier;
+  src.version -> tgt.version;
+  src.versionAlgorithm : string -> tgt.versionAlgorithm;
+  src.versionAlgorithm : Coding -> tgt.versionAlgorithm;
+  src.name -> tgt.name;
+  src.title -> tgt.title;
+  src.status -> tgt.status;
+  src.experimental -> tgt.experimental;
+  src.date -> tgt.date;
+  src.publisher -> tgt.publisher;
+  src.contact -> tgt.contact;
+  src.description -> tgt.description;
+  src.useContext -> tgt.useContext;
+  src.jurisdiction -> tgt.jurisdiction;
+  src.purpose -> tgt.purpose;
+  src.copyright -> tgt.copyright;
+  src.copyrightLabel -> tgt.copyrightLabel;
+  src.approvalDate -> tgt.approvalDate;
+  src.lastReviewDate -> tgt.lastReviewDate;
+  src.effectivePeriod -> tgt.effectivePeriod;
+  src.derivedFromCanonical -> tgt.derivedFromCanonical;
+  src.derivedFromUri -> tgt.derivedFromUri;
+  src.subject -> tgt.subject;
+  src.performerType -> tgt.performerType;
+  src.category -> tgt.category;
+  src.code -> tgt.code;
+  src.permittedDataType -> tgt.permittedDataType;
+  src.multipleResultsAllowed -> tgt.multipleResultsAllowed;
+  src.bodySite -> tgt.bodySite;
+  src.method -> tgt.method;
+  src.specimen -> tgt.specimen;
+  src.device -> tgt.device;
+  src.preferredReportName -> tgt.preferredReportName;
+  src.quantitativeDetails as s -> tgt.quantitativeDetails as t then ObservationDefinitionQuantitativeDetails(s,t);
+  src.qualifiedValue as s -> tgt.qualifiedValue as t then ObservationDefinitionQualifiedValue(s,t);
+  src.hasMember -> tgt.hasMember;
+  src.component as s -> tgt.component as t then ObservationDefinitionComponent(s,t);
+}
+
+group ObservationDefinitionQuantitativeDetails(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.unit -> tgt.unit;
+  src.customaryUnit -> tgt.customaryUnit;
+  src.conversionFactor -> tgt.conversionFactor;
+  src.decimalPrecision -> tgt.decimalPrecision;
+}
+
+group ObservationDefinitionQualifiedValue(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.context -> tgt.context;
+  src.appliesTo -> tgt.appliesTo;
+  src.gender -> tgt.gender;
+  src.age -> tgt.age;
+  src.gestationalAge -> tgt.gestationalAge;
+  src.condition -> tgt.condition;
+  src.rangeCategory -> tgt.rangeCategory;
+  src.range -> tgt.range;
+  src.validCodedValueSet -> tgt.validCodedValueSet;
+  src.normalCodedValueSet -> tgt.normalCodedValueSet;
+  src.abnormalCodedValueSet -> tgt.abnormalCodedValueSet;
+  src.criticalCodedValueSet -> tgt.criticalCodedValueSet;
+}
+
+group ObservationDefinitionComponent(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.code -> tgt.code;
+  src.permittedDataType -> tgt.permittedDataType;
+}
+

@@ -1,0 +1,36 @@
+﻿/// url = 'http://hl7.org/fhir/StructureMap/Location4Bto5'
+/// name = 'Location4Bto5'
+/// title = 'FML Conversion for Location: R4B to R5'
+
+uses "http://hl7.org/fhir/4.3/StructureDefinition/Location" alias LocationR4B as source
+uses "http://hl7.org/fhir/StructureDefinition/Location" alias AccountR5 as target
+
+imports "http://hl7.org/fhir/StructureMap/*4Bto5
+
+group Location(source src : LocationR4B, target tgt : LocationR5) extends DomainResource <<type+>> {
+  src.identifier -> tgt.identifier;
+  src.status -> tgt.status;
+  src.operationalStatus -> tgt.operationalStatus;
+  src.name -> tgt.name;
+  src.alias -> tgt.alias;
+  src.description -> tgt.description;
+  src.mode -> tgt.mode;
+  src.type -> tgt.type;
+  src.contact -> tgt.contact;
+  src.address -> tgt.address;
+  src.form -> tgt.form;
+  src.position as s -> tgt.position as t then LocationPosition(s,t);
+  src.managingOrganization -> tgt.managingOrganization;
+  src.partOf -> tgt.partOf;
+  src.characteristic -> tgt.characteristic;
+  src.hoursOfOperation -> tgt.hoursOfOperation;
+  src.virtualService -> tgt.virtualService;
+  src.endpoint -> tgt.endpoint;
+}
+
+group LocationPosition(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.longitude -> tgt.longitude;
+  src.latitude -> tgt.latitude;
+  src.altitude -> tgt.altitude;
+}
+

@@ -1,0 +1,35 @@
+﻿/// url = 'http://hl7.org/fhir/StructureMap/Timing4to5'
+/// name = 'Timing4to5'
+/// title = 'FML Conversion for Timing: R4 to R5'
+
+uses "http://hl7.org/fhir/4.0/StructureDefinition/Timing" alias TimingR4 as source
+uses "http://hl7.org/fhir/StructureDefinition/Timing" alias AccountR5 as target
+
+imports "http://hl7.org/fhir/StructureMap/*4to5
+
+group Timing(source src : TimingR4, target tgt : TimingR5) extends BackboneType <<type+>> {
+  src.event -> tgt.event;
+  src.repeat as s -> tgt.repeat as t then TimingRepeat(s,t);
+  src.code -> tgt.code;
+}
+
+group TimingRepeat(source src : null, target tgt : null) extends BackboneType <<type+>> {
+  src.bounds : Duration -> tgt.bounds;
+  src.bounds : Range -> tgt.bounds;
+  src.bounds : Period -> tgt.bounds;
+  src.count -> tgt.count;
+  src.countMax -> tgt.countMax;
+  src.duration -> tgt.duration;
+  src.durationMax -> tgt.durationMax;
+  src.durationUnit -> tgt.durationUnit;
+  src.frequency -> tgt.frequency;
+  src.frequencyMax -> tgt.frequencyMax;
+  src.period -> tgt.period;
+  src.periodMax -> tgt.periodMax;
+  src.periodUnit -> tgt.periodUnit;
+  src.dayOfWeek -> tgt.dayOfWeek;
+  src.timeOfDay -> tgt.timeOfDay;
+  src.when -> tgt.when;
+  src.offset -> tgt.offset;
+}
+

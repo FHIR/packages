@@ -1,0 +1,162 @@
+﻿/// url = 'http://hl7.org/fhir/StructureMap/PlanDefinition5to4'
+/// name = 'PlanDefinition5to4'
+/// title = 'FML Conversion for PlanDefinition: R5 to R4'
+
+uses "http://hl7.org/fhir/StructureDefinition/PlanDefinition" alias PlanDefinitionR5 as source
+uses "http://hl7.org/fhir/4.0/StructureDefinition/PlanDefinition" alias AccountR4 as target
+
+imports "http://hl7.org/fhir/StructureMap/*5to4
+
+group PlanDefinition(source src : PlanDefinitionR5, target tgt : PlanDefinitionR4) extends DomainResource <<type+>> {
+  src.url -> tgt.url;
+  src.identifier -> tgt.identifier;
+  src.version -> tgt.version;
+  src.versionAlgorithm : string -> tgt.versionAlgorithm;
+  src.versionAlgorithm : Coding -> tgt.versionAlgorithm;
+  src.name -> tgt.name;
+  src.title -> tgt.title;
+  src.subtitle -> tgt.subtitle;
+  src.type -> tgt.type;
+  src.status -> tgt.status;
+  src.experimental -> tgt.experimental;
+  src.subject : CodeableConcept -> tgt.subject;
+  src.subject : Reference -> tgt.subject;
+  src.subject : canonical -> tgt.subject;
+  src.date -> tgt.date;
+  src.publisher -> tgt.publisher;
+  src.contact -> tgt.contact;
+  src.description -> tgt.description;
+  src.useContext -> tgt.useContext;
+  src.jurisdiction -> tgt.jurisdiction;
+  src.purpose -> tgt.purpose;
+  src.usage -> tgt.usage;
+  src.copyright -> tgt.copyright;
+  src.copyrightLabel -> tgt.copyrightLabel;
+  src.approvalDate -> tgt.approvalDate;
+  src.lastReviewDate -> tgt.lastReviewDate;
+  src.effectivePeriod -> tgt.effectivePeriod;
+  src.topic -> tgt.topic;
+  src.author -> tgt.author;
+  src.editor -> tgt.editor;
+  src.reviewer -> tgt.reviewer;
+  src.endorser -> tgt.endorser;
+  src.relatedArtifact -> tgt.relatedArtifact;
+  src.library -> tgt.library;
+  src.goal as s -> tgt.goal as t then PlanDefinitionGoal(s,t);
+  src.actor as s -> tgt.actor as t then PlanDefinitionActor(s,t);
+  src.action as s -> tgt.action as t then PlanDefinitionAction(s,t);
+  src.asNeeded : boolean -> tgt.asNeeded;
+  src.asNeeded : CodeableConcept -> tgt.asNeeded;
+}
+
+group PlanDefinitionGoal(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.category -> tgt.category;
+  src.description -> tgt.description;
+  src.priority -> tgt.priority;
+  src.start -> tgt.start;
+  src.addresses -> tgt.addresses;
+  src.documentation -> tgt.documentation;
+  src.target as s -> tgt.target as t then PlanDefinitionGoalTarget(s,t);
+}
+
+group PlanDefinitionGoalTarget(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.measure -> tgt.measure;
+  src.detail : Quantity -> tgt.detail;
+  src.detail : Range -> tgt.detail;
+  src.detail : CodeableConcept -> tgt.detail;
+  src.detail : string -> tgt.detail;
+  src.detail : boolean -> tgt.detail;
+  src.detail : integer -> tgt.detail;
+  src.detail : Ratio -> tgt.detail;
+  src.due -> tgt.due;
+}
+
+group PlanDefinitionActor(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.title -> tgt.title;
+  src.description -> tgt.description;
+  src.option as s -> tgt.option as t then PlanDefinitionActorOption(s,t);
+}
+
+group PlanDefinitionActorOption(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.type -> tgt.type;
+  src.typeCanonical -> tgt.typeCanonical;
+  src.typeReference -> tgt.typeReference;
+  src.role -> tgt.role;
+}
+
+group PlanDefinitionAction(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.linkId -> tgt.linkId;
+  src.prefix -> tgt.prefix;
+  src.title -> tgt.title;
+  src.description -> tgt.description;
+  src.textEquivalent -> tgt.textEquivalent;
+  src.priority -> tgt.priority;
+  src.code -> tgt.code;
+  src.reason -> tgt.reason;
+  src.documentation -> tgt.documentation;
+  src.goalId -> tgt.goalId;
+  src.subject : CodeableConcept -> tgt.subject;
+  src.subject : Reference -> tgt.subject;
+  src.subject : canonical -> tgt.subject;
+  src.trigger -> tgt.trigger;
+  src.condition as s -> tgt.condition as t then PlanDefinitionActionCondition(s,t);
+  src.input as s -> tgt.input as t then PlanDefinitionActionInput(s,t);
+  src.output as s -> tgt.output as t then PlanDefinitionActionOutput(s,t);
+  src.relatedAction as s -> tgt.relatedAction as t then PlanDefinitionActionRelatedAction(s,t);
+  src.timing : Age -> tgt.timing;
+  src.timing : Duration -> tgt.timing;
+  src.timing : Range -> tgt.timing;
+  src.timing : Timing -> tgt.timing;
+  src.location -> tgt.location;
+  src.participant as s -> tgt.participant as t then PlanDefinitionActionParticipant(s,t);
+  src.type -> tgt.type;
+  src.groupingBehavior -> tgt.groupingBehavior;
+  src.selectionBehavior -> tgt.selectionBehavior;
+  src.requiredBehavior -> tgt.requiredBehavior;
+  src.precheckBehavior -> tgt.precheckBehavior;
+  src.cardinalityBehavior -> tgt.cardinalityBehavior;
+  src.definition : canonical -> tgt.definition;
+  src.definition : uri -> tgt.definition;
+  src.transform -> tgt.transform;
+  src.dynamicValue as s -> tgt.dynamicValue as t then PlanDefinitionActionDynamicValue(s,t);
+}
+
+group PlanDefinitionActionCondition(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.kind -> tgt.kind;
+  src.expression -> tgt.expression;
+}
+
+group PlanDefinitionActionInput(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.title -> tgt.title;
+  src.requirement -> tgt.requirement;
+  src.relatedData -> tgt.relatedData;
+}
+
+group PlanDefinitionActionOutput(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.title -> tgt.title;
+  src.requirement -> tgt.requirement;
+  src.relatedData -> tgt.relatedData;
+}
+
+group PlanDefinitionActionRelatedAction(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.targetId -> tgt.targetId;
+  src.relationship -> tgt.relationship;
+  src.endRelationship -> tgt.endRelationship;
+  src.offset : Duration -> tgt.offset;
+  src.offset : Range -> tgt.offset;
+}
+
+group PlanDefinitionActionParticipant(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.actorId -> tgt.actorId;
+  src.type -> tgt.type;
+  src.typeCanonical -> tgt.typeCanonical;
+  src.typeReference -> tgt.typeReference;
+  src.role -> tgt.role;
+  src.function -> tgt.function;
+}
+
+group PlanDefinitionActionDynamicValue(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.path -> tgt.path;
+  src.expression -> tgt.expression;
+}
+

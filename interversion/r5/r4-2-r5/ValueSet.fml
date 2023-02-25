@@ -1,0 +1,143 @@
+﻿/// url = 'http://hl7.org/fhir/StructureMap/ValueSet4to5'
+/// name = 'ValueSet4to5'
+/// title = 'FML Conversion for ValueSet: R4 to R5'
+
+uses "http://hl7.org/fhir/4.0/StructureDefinition/ValueSet" alias ValueSetR4 as source
+uses "http://hl7.org/fhir/StructureDefinition/ValueSet" alias AccountR5 as target
+
+imports "http://hl7.org/fhir/StructureMap/*4to5
+
+group ValueSet(source src : ValueSetR4, target tgt : ValueSetR5) extends DomainResource <<type+>> {
+  src.url -> tgt.url;
+  src.identifier -> tgt.identifier;
+  src.version -> tgt.version;
+  src.versionAlgorithm : string -> tgt.versionAlgorithm;
+  src.versionAlgorithm : Coding -> tgt.versionAlgorithm;
+  src.name -> tgt.name;
+  src.title -> tgt.title;
+  src.status -> tgt.status;
+  src.experimental -> tgt.experimental;
+  src.date -> tgt.date;
+  src.publisher -> tgt.publisher;
+  src.contact -> tgt.contact;
+  src.description -> tgt.description;
+  src.useContext -> tgt.useContext;
+  src.jurisdiction -> tgt.jurisdiction;
+  src.immutable -> tgt.immutable;
+  src.purpose -> tgt.purpose;
+  src.copyright -> tgt.copyright;
+  src.copyrightLabel -> tgt.copyrightLabel;
+  src.approvalDate -> tgt.approvalDate;
+  src.lastReviewDate -> tgt.lastReviewDate;
+  src.effectivePeriod -> tgt.effectivePeriod;
+  src.topic -> tgt.topic;
+  src.author -> tgt.author;
+  src.editor -> tgt.editor;
+  src.reviewer -> tgt.reviewer;
+  src.endorser -> tgt.endorser;
+  src.relatedArtifact -> tgt.relatedArtifact;
+  src.compose as s -> tgt.compose as t then ValueSetCompose(s,t);
+  src.expansion as s -> tgt.expansion as t then ValueSetExpansion(s,t);
+  src.scope as s -> tgt.scope as t then ValueSetScope(s,t);
+}
+
+group ValueSetCompose(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.lockedDate -> tgt.lockedDate;
+  src.inactive -> tgt.inactive;
+  src.include as s -> tgt.include as t then ValueSetComposeInclude(s,t);
+  src.property -> tgt.property;
+}
+
+group ValueSetComposeInclude(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.system -> tgt.system;
+  src.version -> tgt.version;
+  src.concept as s -> tgt.concept as t then ValueSetComposeIncludeConcept(s,t);
+  src.filter as s -> tgt.filter as t then ValueSetComposeIncludeFilter(s,t);
+  src.valueSet -> tgt.valueSet;
+  src.copyright -> tgt.copyright;
+}
+
+group ValueSetComposeIncludeConcept(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.code -> tgt.code;
+  src.display -> tgt.display;
+  src.designation as s -> tgt.designation as t then ValueSetComposeIncludeConceptDesignation(s,t);
+}
+
+group ValueSetComposeIncludeConceptDesignation(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.language -> tgt.language;
+  src.use -> tgt.use;
+  src.additionalUse -> tgt.additionalUse;
+  src.value -> tgt.value;
+}
+
+group ValueSetComposeIncludeFilter(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.property -> tgt.property;
+  src.op -> tgt.op;
+  src.value -> tgt.value;
+}
+
+group ValueSetExpansion(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.identifier -> tgt.identifier;
+  src.next -> tgt.next;
+  src.timestamp -> tgt.timestamp;
+  src.total -> tgt.total;
+  src.offset -> tgt.offset;
+  src.parameter as s -> tgt.parameter as t then ValueSetExpansionParameter(s,t);
+  src.property as s -> tgt.property as t then ValueSetExpansionProperty(s,t);
+  src.contains as s -> tgt.contains as t then ValueSetExpansionContains(s,t);
+}
+
+group ValueSetExpansionParameter(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.name -> tgt.name;
+  src.value : string -> tgt.value;
+  src.value : boolean -> tgt.value;
+  src.value : integer -> tgt.value;
+  src.value : decimal -> tgt.value;
+  src.value : uri -> tgt.value;
+  src.value : code -> tgt.value;
+  src.value : dateTime -> tgt.value;
+}
+
+group ValueSetExpansionProperty(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.code -> tgt.code;
+  src.uri -> tgt.uri;
+}
+
+group ValueSetExpansionContains(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.system -> tgt.system;
+  src.abstract -> tgt.abstract;
+  src.inactive -> tgt.inactive;
+  src.version -> tgt.version;
+  src.code -> tgt.code;
+  src.display -> tgt.display;
+  src.property as s -> tgt.property as t then ValueSetExpansionContainsProperty(s,t);
+}
+
+group ValueSetExpansionContainsProperty(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.code -> tgt.code;
+  src.value : code -> tgt.value;
+  src.value : Coding -> tgt.value;
+  src.value : string -> tgt.value;
+  src.value : integer -> tgt.value;
+  src.value : boolean -> tgt.value;
+  src.value : dateTime -> tgt.value;
+  src.value : decimal -> tgt.value;
+  src.subProperty as s -> tgt.subProperty as t then ValueSetExpansionContainsPropertySubProperty(s,t);
+}
+
+group ValueSetExpansionContainsPropertySubProperty(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.code -> tgt.code;
+  src.value : code -> tgt.value;
+  src.value : Coding -> tgt.value;
+  src.value : string -> tgt.value;
+  src.value : integer -> tgt.value;
+  src.value : boolean -> tgt.value;
+  src.value : dateTime -> tgt.value;
+  src.value : decimal -> tgt.value;
+}
+
+group ValueSetScope(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.inclusionCriteria -> tgt.inclusionCriteria;
+  src.exclusionCriteria -> tgt.exclusionCriteria;
+}
+

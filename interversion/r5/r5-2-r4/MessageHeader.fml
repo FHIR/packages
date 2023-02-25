@@ -1,0 +1,46 @@
+﻿/// url = 'http://hl7.org/fhir/StructureMap/MessageHeader5to4'
+/// name = 'MessageHeader5to4'
+/// title = 'FML Conversion for MessageHeader: R5 to R4'
+
+uses "http://hl7.org/fhir/StructureDefinition/MessageHeader" alias MessageHeaderR5 as source
+uses "http://hl7.org/fhir/4.0/StructureDefinition/MessageHeader" alias AccountR4 as target
+
+imports "http://hl7.org/fhir/StructureMap/*5to4
+
+group MessageHeader(source src : MessageHeaderR5, target tgt : MessageHeaderR4) extends DomainResource <<type+>> {
+  src.event : Coding -> tgt.event;
+  src.event : canonical -> tgt.event;
+  src.destination as s -> tgt.destination as t then MessageHeaderDestination(s,t);
+  src.sender -> tgt.sender;
+  src.author -> tgt.author;
+  src.source as s -> tgt.source as t then MessageHeaderSource(s,t);
+  src.responsible -> tgt.responsible;
+  src.reason -> tgt.reason;
+  src.response as s -> tgt.response as t then MessageHeaderResponse(s,t);
+  src.focus -> tgt.focus;
+  src.definition -> tgt.definition;
+}
+
+group MessageHeaderDestination(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.endpoint : url -> tgt.endpoint;
+  src.endpoint : Reference -> tgt.endpoint;
+  src.name -> tgt.name;
+  src.target -> tgt.target;
+  src.receiver -> tgt.receiver;
+}
+
+group MessageHeaderSource(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.endpoint : url -> tgt.endpoint;
+  src.endpoint : Reference -> tgt.endpoint;
+  src.name -> tgt.name;
+  src.software -> tgt.software;
+  src.version -> tgt.version;
+  src.contact -> tgt.contact;
+}
+
+group MessageHeaderResponse(source src : null, target tgt : null) extends DomainResource <<type+>> {
+  src.identifier -> tgt.identifier;
+  src.code -> tgt.code;
+  src.details -> tgt.details;
+}
+

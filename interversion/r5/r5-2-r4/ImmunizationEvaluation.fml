@@ -1,0 +1,25 @@
+﻿/// url = 'http://hl7.org/fhir/StructureMap/ImmunizationEvaluation5to4'
+/// name = 'ImmunizationEvaluation5to4'
+/// title = 'FML Conversion for ImmunizationEvaluation: R5 to R4'
+
+uses "http://hl7.org/fhir/StructureDefinition/ImmunizationEvaluation" alias ImmunizationEvaluationR5 as source
+uses "http://hl7.org/fhir/4.0/StructureDefinition/ImmunizationEvaluation" alias AccountR4 as target
+
+imports "http://hl7.org/fhir/StructureMap/*5to4
+
+group ImmunizationEvaluation(source src : ImmunizationEvaluationR5, target tgt : ImmunizationEvaluationR4) extends DomainResource <<type+>> {
+  src.identifier -> tgt.identifier;
+  src.status -> tgt.status;
+  src.patient -> tgt.patient;
+  src.date -> tgt.date;
+  src.authority -> tgt.authority;
+  src.targetDisease -> tgt.targetDisease;
+  src.immunizationEvent -> tgt.immunizationEvent;
+  src.doseStatus -> tgt.doseStatus;
+  src.doseStatusReason -> tgt.doseStatusReason;
+  src.description -> tgt.description;
+  src.series -> tgt.series;
+  src.doseNumber -> tgt.doseNumber;
+  src.seriesDoses -> tgt.seriesDoses;
+}
+
