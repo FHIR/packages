@@ -3,9 +3,9 @@
 /// title = 'FML Conversion for ValueSet: R5 to R4B'
 
 uses "http://hl7.org/fhir/StructureDefinition/ValueSet" alias ValueSetR5 as source
-uses "http://hl7.org/fhir/4.3/StructureDefinition/ValueSet" alias AccountR4B as target
+uses "http://hl7.org/fhir/4.3/StructureDefinition/ValueSet" alias ValueSetR4B as target
 
-imports "http://hl7.org/fhir/StructureMap/*5to4B
+imports "http://hl7.org/fhir/StructureMap/*5to4B"
 
 group ValueSet(source src : ValueSetR5, target tgt : ValueSetR4B) extends DomainResource <<type+>> {
   src.url -> tgt.url;
@@ -41,14 +41,14 @@ group ValueSet(source src : ValueSetR5, target tgt : ValueSetR4B) extends Domain
   src.scope as s -> tgt.scope as t then ValueSetScope(s,t);
 }
 
-group ValueSetCompose(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group ValueSetCompose(source src, target tgt) extends BackboneElement {
   src.lockedDate -> tgt.lockedDate;
   src.inactive -> tgt.inactive;
   src.include as s -> tgt.include as t then ValueSetComposeInclude(s,t);
   src.property -> tgt.property;
 }
 
-group ValueSetComposeInclude(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group ValueSetComposeInclude(source src, target tgt) extends BackboneElement {
   src.system -> tgt.system;
   src.version -> tgt.version;
   src.concept as s -> tgt.concept as t then ValueSetComposeIncludeConcept(s,t);
@@ -57,26 +57,26 @@ group ValueSetComposeInclude(source src : null, target tgt : null) extends Domai
   src.copyright -> tgt.copyright;
 }
 
-group ValueSetComposeIncludeConcept(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group ValueSetComposeIncludeConcept(source src, target tgt) extends BackboneElement {
   src.code -> tgt.code;
   src.display -> tgt.display;
   src.designation as s -> tgt.designation as t then ValueSetComposeIncludeConceptDesignation(s,t);
 }
 
-group ValueSetComposeIncludeConceptDesignation(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group ValueSetComposeIncludeConceptDesignation(source src, target tgt) extends BackboneElement {
   src.language -> tgt.language;
   src.use -> tgt.use;
   src.additionalUse -> tgt.additionalUse;
   src.value -> tgt.value;
 }
 
-group ValueSetComposeIncludeFilter(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group ValueSetComposeIncludeFilter(source src, target tgt) extends BackboneElement {
   src.property -> tgt.property;
   src.op -> tgt.op;
   src.value -> tgt.value;
 }
 
-group ValueSetExpansion(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group ValueSetExpansion(source src, target tgt) extends BackboneElement {
   src.identifier -> tgt.identifier;
   src.next -> tgt.next;
   src.timestamp -> tgt.timestamp;
@@ -87,7 +87,7 @@ group ValueSetExpansion(source src : null, target tgt : null) extends DomainReso
   src.contains as s -> tgt.contains as t then ValueSetExpansionContains(s,t);
 }
 
-group ValueSetExpansionParameter(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group ValueSetExpansionParameter(source src, target tgt) extends BackboneElement {
   src.name -> tgt.name;
   src.value : string -> tgt.value;
   src.value : boolean -> tgt.value;
@@ -98,12 +98,12 @@ group ValueSetExpansionParameter(source src : null, target tgt : null) extends D
   src.value : dateTime -> tgt.value;
 }
 
-group ValueSetExpansionProperty(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group ValueSetExpansionProperty(source src, target tgt) extends BackboneElement {
   src.code -> tgt.code;
   src.uri -> tgt.uri;
 }
 
-group ValueSetExpansionContains(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group ValueSetExpansionContains(source src, target tgt) extends BackboneElement {
   src.system -> tgt.system;
   src.abstract -> tgt.abstract;
   src.inactive -> tgt.inactive;
@@ -113,7 +113,7 @@ group ValueSetExpansionContains(source src : null, target tgt : null) extends Do
   src.property as s -> tgt.property as t then ValueSetExpansionContainsProperty(s,t);
 }
 
-group ValueSetExpansionContainsProperty(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group ValueSetExpansionContainsProperty(source src, target tgt) extends BackboneElement {
   src.code -> tgt.code;
   src.value : code -> tgt.value;
   src.value : Coding -> tgt.value;
@@ -125,7 +125,7 @@ group ValueSetExpansionContainsProperty(source src : null, target tgt : null) ex
   src.subProperty as s -> tgt.subProperty as t then ValueSetExpansionContainsPropertySubProperty(s,t);
 }
 
-group ValueSetExpansionContainsPropertySubProperty(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group ValueSetExpansionContainsPropertySubProperty(source src, target tgt) extends BackboneElement {
   src.code -> tgt.code;
   src.value : code -> tgt.value;
   src.value : Coding -> tgt.value;
@@ -136,7 +136,7 @@ group ValueSetExpansionContainsPropertySubProperty(source src : null, target tgt
   src.value : decimal -> tgt.value;
 }
 
-group ValueSetScope(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group ValueSetScope(source src, target tgt) extends BackboneElement {
   src.inclusionCriteria -> tgt.inclusionCriteria;
   src.exclusionCriteria -> tgt.exclusionCriteria;
 }

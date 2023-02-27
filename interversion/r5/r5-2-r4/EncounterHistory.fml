@@ -3,9 +3,9 @@
 /// title = 'FML Conversion for EncounterHistory: R5 to R4'
 
 uses "http://hl7.org/fhir/StructureDefinition/EncounterHistory" alias EncounterHistoryR5 as source
-uses "http://hl7.org/fhir/4.0/StructureDefinition/EncounterHistory" alias AccountR4 as target
+uses "http://hl7.org/fhir/4.0/StructureDefinition/EncounterHistory" alias EncounterHistoryR4 as target
 
-imports "http://hl7.org/fhir/StructureMap/*5to4
+imports "http://hl7.org/fhir/StructureMap/*5to4"
 
 group EncounterHistory(source src : EncounterHistoryR5, target tgt : EncounterHistoryR4) extends DomainResource <<type+>> {
   src.encounter -> tgt.encounter;
@@ -23,7 +23,7 @@ group EncounterHistory(source src : EncounterHistoryR5, target tgt : EncounterHi
   src.location as s -> tgt.location as t then EncounterHistoryLocation(s,t);
 }
 
-group EncounterHistoryLocation(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group EncounterHistoryLocation(source src, target tgt) extends BackboneElement {
   src.location -> tgt.location;
   src.form -> tgt.form;
 }

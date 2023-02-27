@@ -5,7 +5,7 @@
 uses "http://hl7.org/fhir/4.3/StructureDefinition/Account" alias AccountR4B as source
 uses "http://hl7.org/fhir/StructureDefinition/Account" alias AccountR5 as target
 
-imports "http://hl7.org/fhir/StructureMap/*4Bto5
+imports "http://hl7.org/fhir/StructureMap/*4Bto5"
 
 group Account(source src : AccountR4B, target tgt : AccountR5) extends DomainResource <<type+>> {
   src.identifier -> tgt.identifier;
@@ -27,18 +27,18 @@ group Account(source src : AccountR4B, target tgt : AccountR5) extends DomainRes
   src.calculatedAt -> tgt.calculatedAt;
 }
 
-group AccountCoverage(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group AccountCoverage(source src, target tgt) extends BackboneElement {
   src.coverage -> tgt.coverage;
   src.priority -> tgt.priority;
 }
 
-group AccountGuarantor(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group AccountGuarantor(source src, target tgt) extends BackboneElement {
   src.party -> tgt.party;
   src.onHold -> tgt.onHold;
   src.period -> tgt.period;
 }
 
-group AccountDiagnosis(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group AccountDiagnosis(source src, target tgt) extends BackboneElement {
   src.sequence -> tgt.sequence;
   src.condition -> tgt.condition;
   src.dateOfDiagnosis -> tgt.dateOfDiagnosis;
@@ -47,7 +47,7 @@ group AccountDiagnosis(source src : null, target tgt : null) extends DomainResou
   src.packageCode -> tgt.packageCode;
 }
 
-group AccountProcedure(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group AccountProcedure(source src, target tgt) extends BackboneElement {
   src.sequence -> tgt.sequence;
   src.code -> tgt.code;
   src.dateOfService -> tgt.dateOfService;
@@ -56,12 +56,12 @@ group AccountProcedure(source src : null, target tgt : null) extends DomainResou
   src.device -> tgt.device;
 }
 
-group AccountRelatedAccount(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group AccountRelatedAccount(source src, target tgt) extends BackboneElement {
   src.relationship -> tgt.relationship;
   src.account -> tgt.account;
 }
 
-group AccountBalance(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group AccountBalance(source src, target tgt) extends BackboneElement {
   src.aggregate -> tgt.aggregate;
   src.term -> tgt.term;
   src.estimate -> tgt.estimate;

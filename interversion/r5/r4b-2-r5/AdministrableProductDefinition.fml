@@ -3,9 +3,9 @@
 /// title = 'FML Conversion for AdministrableProductDefinition: R4B to R5'
 
 uses "http://hl7.org/fhir/4.3/StructureDefinition/AdministrableProductDefinition" alias AdministrableProductDefinitionR4B as source
-uses "http://hl7.org/fhir/StructureDefinition/AdministrableProductDefinition" alias AccountR5 as target
+uses "http://hl7.org/fhir/StructureDefinition/AdministrableProductDefinition" alias AdministrableProductDefinitionR5 as target
 
-imports "http://hl7.org/fhir/StructureMap/*4Bto5
+imports "http://hl7.org/fhir/StructureMap/*4Bto5"
 
 group AdministrableProductDefinition(source src : AdministrableProductDefinitionR4B, target tgt : AdministrableProductDefinitionR5) extends DomainResource <<type+>> {
   src.identifier -> tgt.identifier;
@@ -21,7 +21,7 @@ group AdministrableProductDefinition(source src : AdministrableProductDefinition
   src.routeOfAdministration as s -> tgt.routeOfAdministration as t then AdministrableProductDefinitionRouteOfAdministration(s,t);
 }
 
-group AdministrableProductDefinitionProperty(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group AdministrableProductDefinitionProperty(source src, target tgt) extends BackboneElement {
   src.type -> tgt.type;
   src.value : CodeableConcept -> tgt.value;
   src.value : Quantity -> tgt.value;
@@ -33,7 +33,7 @@ group AdministrableProductDefinitionProperty(source src : null, target tgt : nul
   src.status -> tgt.status;
 }
 
-group AdministrableProductDefinitionRouteOfAdministration(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group AdministrableProductDefinitionRouteOfAdministration(source src, target tgt) extends BackboneElement {
   src.code -> tgt.code;
   src.firstDose -> tgt.firstDose;
   src.maxSingleDose -> tgt.maxSingleDose;
@@ -43,12 +43,12 @@ group AdministrableProductDefinitionRouteOfAdministration(source src : null, tar
   src.targetSpecies as s -> tgt.targetSpecies as t then AdministrableProductDefinitionRouteOfAdministrationTargetSpecies(s,t);
 }
 
-group AdministrableProductDefinitionRouteOfAdministrationTargetSpecies(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group AdministrableProductDefinitionRouteOfAdministrationTargetSpecies(source src, target tgt) extends BackboneElement {
   src.code -> tgt.code;
   src.withdrawalPeriod as s -> tgt.withdrawalPeriod as t then AdministrableProductDefinitionRouteOfAdministrationTargetSpeciesWithdrawalPeriod(s,t);
 }
 
-group AdministrableProductDefinitionRouteOfAdministrationTargetSpeciesWithdrawalPeriod(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group AdministrableProductDefinitionRouteOfAdministrationTargetSpeciesWithdrawalPeriod(source src, target tgt) extends BackboneElement {
   src.tissue -> tgt.tissue;
   src.value -> tgt.value;
   src.supportingInformation -> tgt.supportingInformation;

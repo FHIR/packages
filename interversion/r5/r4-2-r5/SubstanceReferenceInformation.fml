@@ -3,9 +3,9 @@
 /// title = 'FML Conversion for SubstanceReferenceInformation: R4 to R5'
 
 uses "http://hl7.org/fhir/4.0/StructureDefinition/SubstanceReferenceInformation" alias SubstanceReferenceInformationR4 as source
-uses "http://hl7.org/fhir/StructureDefinition/SubstanceReferenceInformation" alias AccountR5 as target
+uses "http://hl7.org/fhir/StructureDefinition/SubstanceReferenceInformation" alias SubstanceReferenceInformationR5 as target
 
-imports "http://hl7.org/fhir/StructureMap/*4to5
+imports "http://hl7.org/fhir/StructureMap/*4to5"
 
 group SubstanceReferenceInformation(source src : SubstanceReferenceInformationR4, target tgt : SubstanceReferenceInformationR5) extends DomainResource <<type+>> {
   src.comment -> tgt.comment;
@@ -14,19 +14,19 @@ group SubstanceReferenceInformation(source src : SubstanceReferenceInformationR4
   src.target as s -> tgt.target as t then SubstanceReferenceInformationTarget(s,t);
 }
 
-group SubstanceReferenceInformationGene(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group SubstanceReferenceInformationGene(source src, target tgt) extends BackboneElement {
   src.geneSequenceOrigin -> tgt.geneSequenceOrigin;
   src.gene -> tgt.gene;
   src.source -> tgt.source;
 }
 
-group SubstanceReferenceInformationGeneElement(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group SubstanceReferenceInformationGeneElement(source src, target tgt) extends BackboneElement {
   src.type -> tgt.type;
   src.element -> tgt.element;
   src.source -> tgt.source;
 }
 
-group SubstanceReferenceInformationTarget(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group SubstanceReferenceInformationTarget(source src, target tgt) extends BackboneElement {
   src.target -> tgt.target;
   src.type -> tgt.type;
   src.interaction -> tgt.interaction;

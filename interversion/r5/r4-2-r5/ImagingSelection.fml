@@ -3,9 +3,9 @@
 /// title = 'FML Conversion for ImagingSelection: R4 to R5'
 
 uses "http://hl7.org/fhir/4.0/StructureDefinition/ImagingSelection" alias ImagingSelectionR4 as source
-uses "http://hl7.org/fhir/StructureDefinition/ImagingSelection" alias AccountR5 as target
+uses "http://hl7.org/fhir/StructureDefinition/ImagingSelection" alias ImagingSelectionR5 as target
 
-imports "http://hl7.org/fhir/StructureMap/*4to5
+imports "http://hl7.org/fhir/StructureMap/*4to5"
 
 group ImagingSelection(source src : ImagingSelectionR4, target tgt : ImagingSelectionR5) extends DomainResource <<type+>> {
   src.identifier -> tgt.identifier;
@@ -27,12 +27,12 @@ group ImagingSelection(source src : ImagingSelectionR4, target tgt : ImagingSele
   src.instance as s -> tgt.instance as t then ImagingSelectionInstance(s,t);
 }
 
-group ImagingSelectionPerformer(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group ImagingSelectionPerformer(source src, target tgt) extends BackboneElement {
   src.function -> tgt.function;
   src.actor -> tgt.actor;
 }
 
-group ImagingSelectionInstance(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group ImagingSelectionInstance(source src, target tgt) extends BackboneElement {
   src.uid -> tgt.uid;
   src.number -> tgt.number;
   src.sopClass -> tgt.sopClass;
@@ -41,12 +41,12 @@ group ImagingSelectionInstance(source src : null, target tgt : null) extends Dom
   src.imageRegion3D as s -> tgt.imageRegion3D as t then ImagingSelectionInstanceImageRegion3D(s,t);
 }
 
-group ImagingSelectionInstanceImageRegion2D(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group ImagingSelectionInstanceImageRegion2D(source src, target tgt) extends BackboneElement {
   src.regionType -> tgt.regionType;
   src.coordinate -> tgt.coordinate;
 }
 
-group ImagingSelectionInstanceImageRegion3D(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group ImagingSelectionInstanceImageRegion3D(source src, target tgt) extends BackboneElement {
   src.regionType -> tgt.regionType;
   src.coordinate -> tgt.coordinate;
 }

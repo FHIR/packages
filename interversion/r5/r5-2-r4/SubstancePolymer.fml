@@ -3,9 +3,9 @@
 /// title = 'FML Conversion for SubstancePolymer: R5 to R4'
 
 uses "http://hl7.org/fhir/StructureDefinition/SubstancePolymer" alias SubstancePolymerR5 as source
-uses "http://hl7.org/fhir/4.0/StructureDefinition/SubstancePolymer" alias AccountR4 as target
+uses "http://hl7.org/fhir/4.0/StructureDefinition/SubstancePolymer" alias SubstancePolymerR4 as target
 
-imports "http://hl7.org/fhir/StructureMap/*5to4
+imports "http://hl7.org/fhir/StructureMap/*5to4"
 
 group SubstancePolymer(source src : SubstancePolymerR5, target tgt : SubstancePolymerR4) extends DomainResource <<type+>> {
   src.identifier -> tgt.identifier;
@@ -17,25 +17,25 @@ group SubstancePolymer(source src : SubstancePolymerR5, target tgt : SubstancePo
   src.repeat as s -> tgt.repeat as t then SubstancePolymerRepeat(s,t);
 }
 
-group SubstancePolymerMonomerSet(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group SubstancePolymerMonomerSet(source src, target tgt) extends BackboneElement {
   src.ratioType -> tgt.ratioType;
   src.startingMaterial as s -> tgt.startingMaterial as t then SubstancePolymerMonomerSetStartingMaterial(s,t);
 }
 
-group SubstancePolymerMonomerSetStartingMaterial(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group SubstancePolymerMonomerSetStartingMaterial(source src, target tgt) extends BackboneElement {
   src.code -> tgt.code;
   src.category -> tgt.category;
   src.isDefining -> tgt.isDefining;
   src.amount -> tgt.amount;
 }
 
-group SubstancePolymerRepeat(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group SubstancePolymerRepeat(source src, target tgt) extends BackboneElement {
   src.averageMolecularFormula -> tgt.averageMolecularFormula;
   src.repeatUnitAmountType -> tgt.repeatUnitAmountType;
   src.repeatUnit as s -> tgt.repeatUnit as t then SubstancePolymerRepeatRepeatUnit(s,t);
 }
 
-group SubstancePolymerRepeatRepeatUnit(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group SubstancePolymerRepeatRepeatUnit(source src, target tgt) extends BackboneElement {
   src.unit -> tgt.unit;
   src.orientation -> tgt.orientation;
   src.amount -> tgt.amount;
@@ -43,14 +43,14 @@ group SubstancePolymerRepeatRepeatUnit(source src : null, target tgt : null) ext
   src.structuralRepresentation as s -> tgt.structuralRepresentation as t then SubstancePolymerRepeatRepeatUnitStructuralRepresentation(s,t);
 }
 
-group SubstancePolymerRepeatRepeatUnitDegreeOfPolymerisation(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group SubstancePolymerRepeatRepeatUnitDegreeOfPolymerisation(source src, target tgt) extends BackboneElement {
   src.type -> tgt.type;
   src.average -> tgt.average;
   src.low -> tgt.low;
   src.high -> tgt.high;
 }
 
-group SubstancePolymerRepeatRepeatUnitStructuralRepresentation(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group SubstancePolymerRepeatRepeatUnitStructuralRepresentation(source src, target tgt) extends BackboneElement {
   src.type -> tgt.type;
   src.representation -> tgt.representation;
   src.format -> tgt.format;

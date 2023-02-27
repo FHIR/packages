@@ -3,9 +3,9 @@
 /// title = 'FML Conversion for Endpoint: R5 to R4'
 
 uses "http://hl7.org/fhir/StructureDefinition/Endpoint" alias EndpointR5 as source
-uses "http://hl7.org/fhir/4.0/StructureDefinition/Endpoint" alias AccountR4 as target
+uses "http://hl7.org/fhir/4.0/StructureDefinition/Endpoint" alias EndpointR4 as target
 
-imports "http://hl7.org/fhir/StructureMap/*5to4
+imports "http://hl7.org/fhir/StructureMap/*5to4"
 
 group Endpoint(source src : EndpointR5, target tgt : EndpointR4) extends DomainResource <<type+>> {
   src.identifier -> tgt.identifier;
@@ -22,7 +22,7 @@ group Endpoint(source src : EndpointR5, target tgt : EndpointR4) extends DomainR
   src.header -> tgt.header;
 }
 
-group EndpointPayload(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group EndpointPayload(source src, target tgt) extends BackboneElement {
   src.type -> tgt.type;
   src.mimeType -> tgt.mimeType;
 }

@@ -3,9 +3,9 @@
 /// title = 'FML Conversion for TerminologyCapabilities: R4B to R5'
 
 uses "http://hl7.org/fhir/4.3/StructureDefinition/TerminologyCapabilities" alias TerminologyCapabilitiesR4B as source
-uses "http://hl7.org/fhir/StructureDefinition/TerminologyCapabilities" alias AccountR5 as target
+uses "http://hl7.org/fhir/StructureDefinition/TerminologyCapabilities" alias TerminologyCapabilitiesR5 as target
 
-imports "http://hl7.org/fhir/StructureMap/*4Bto5
+imports "http://hl7.org/fhir/StructureMap/*4Bto5"
 
 group TerminologyCapabilities(source src : TerminologyCapabilitiesR4B, target tgt : TerminologyCapabilitiesR5) extends DomainResource <<type+>> {
   src.url -> tgt.url;
@@ -35,24 +35,24 @@ group TerminologyCapabilities(source src : TerminologyCapabilitiesR4B, target tg
   src.closure as s -> tgt.closure as t then TerminologyCapabilitiesClosure(s,t);
 }
 
-group TerminologyCapabilitiesSoftware(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group TerminologyCapabilitiesSoftware(source src, target tgt) extends BackboneElement {
   src.name -> tgt.name;
   src.version -> tgt.version;
 }
 
-group TerminologyCapabilitiesImplementation(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group TerminologyCapabilitiesImplementation(source src, target tgt) extends BackboneElement {
   src.description -> tgt.description;
   src.url -> tgt.url;
 }
 
-group TerminologyCapabilitiesCodeSystem(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group TerminologyCapabilitiesCodeSystem(source src, target tgt) extends BackboneElement {
   src.uri -> tgt.uri;
   src.version as s -> tgt.version as t then TerminologyCapabilitiesCodeSystemVersion(s,t);
   src.content -> tgt.content;
   src.subsumption -> tgt.subsumption;
 }
 
-group TerminologyCapabilitiesCodeSystemVersion(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group TerminologyCapabilitiesCodeSystemVersion(source src, target tgt) extends BackboneElement {
   src.code -> tgt.code;
   src.isDefault -> tgt.isDefault;
   src.compositional -> tgt.compositional;
@@ -61,12 +61,12 @@ group TerminologyCapabilitiesCodeSystemVersion(source src : null, target tgt : n
   src.property -> tgt.property;
 }
 
-group TerminologyCapabilitiesCodeSystemVersionFilter(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group TerminologyCapabilitiesCodeSystemVersionFilter(source src, target tgt) extends BackboneElement {
   src.code -> tgt.code;
   src.op -> tgt.op;
 }
 
-group TerminologyCapabilitiesExpansion(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group TerminologyCapabilitiesExpansion(source src, target tgt) extends BackboneElement {
   src.hierarchical -> tgt.hierarchical;
   src.paging -> tgt.paging;
   src.incomplete -> tgt.incomplete;
@@ -74,20 +74,20 @@ group TerminologyCapabilitiesExpansion(source src : null, target tgt : null) ext
   src.textFilter -> tgt.textFilter;
 }
 
-group TerminologyCapabilitiesExpansionParameter(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group TerminologyCapabilitiesExpansionParameter(source src, target tgt) extends BackboneElement {
   src.name -> tgt.name;
   src.documentation -> tgt.documentation;
 }
 
-group TerminologyCapabilitiesValidateCode(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group TerminologyCapabilitiesValidateCode(source src, target tgt) extends BackboneElement {
   src.translations -> tgt.translations;
 }
 
-group TerminologyCapabilitiesTranslation(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group TerminologyCapabilitiesTranslation(source src, target tgt) extends BackboneElement {
   src.needsMap -> tgt.needsMap;
 }
 
-group TerminologyCapabilitiesClosure(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group TerminologyCapabilitiesClosure(source src, target tgt) extends BackboneElement {
   src.translation -> tgt.translation;
 }
 

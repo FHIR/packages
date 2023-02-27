@@ -3,9 +3,9 @@
 /// title = 'FML Conversion for ClinicalImpression: R5 to R4B'
 
 uses "http://hl7.org/fhir/StructureDefinition/ClinicalImpression" alias ClinicalImpressionR5 as source
-uses "http://hl7.org/fhir/4.3/StructureDefinition/ClinicalImpression" alias AccountR4B as target
+uses "http://hl7.org/fhir/4.3/StructureDefinition/ClinicalImpression" alias ClinicalImpressionR4B as target
 
-imports "http://hl7.org/fhir/StructureMap/*5to4B
+imports "http://hl7.org/fhir/StructureMap/*5to4B"
 
 group ClinicalImpression(source src : ClinicalImpressionR5, target tgt : ClinicalImpressionR4B) extends DomainResource <<type+>> {
   src.identifier -> tgt.identifier;
@@ -30,7 +30,7 @@ group ClinicalImpression(source src : ClinicalImpressionR5, target tgt : Clinica
   src.note -> tgt.note;
 }
 
-group ClinicalImpressionFinding(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group ClinicalImpressionFinding(source src, target tgt) extends BackboneElement {
   src.item -> tgt.item;
   src.basis -> tgt.basis;
 }

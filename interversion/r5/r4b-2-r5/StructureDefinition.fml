@@ -3,9 +3,9 @@
 /// title = 'FML Conversion for StructureDefinition: R4B to R5'
 
 uses "http://hl7.org/fhir/4.3/StructureDefinition/StructureDefinition" alias StructureDefinitionR4B as source
-uses "http://hl7.org/fhir/StructureDefinition/StructureDefinition" alias AccountR5 as target
+uses "http://hl7.org/fhir/StructureDefinition/StructureDefinition" alias StructureDefinitionR5 as target
 
-imports "http://hl7.org/fhir/StructureMap/*4Bto5
+imports "http://hl7.org/fhir/StructureMap/*4Bto5"
 
 group StructureDefinition(source src : StructureDefinitionR4B, target tgt : StructureDefinitionR5) extends DomainResource <<type+>> {
   src.url -> tgt.url;
@@ -40,23 +40,23 @@ group StructureDefinition(source src : StructureDefinitionR4B, target tgt : Stru
   src.differential as s -> tgt.differential as t then StructureDefinitionDifferential(s,t);
 }
 
-group StructureDefinitionMapping(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group StructureDefinitionMapping(source src, target tgt) extends BackboneElement {
   src.identity -> tgt.identity;
   src.uri -> tgt.uri;
   src.name -> tgt.name;
   src.comment -> tgt.comment;
 }
 
-group StructureDefinitionContext(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group StructureDefinitionContext(source src, target tgt) extends BackboneElement {
   src.type -> tgt.type;
   src.expression -> tgt.expression;
 }
 
-group StructureDefinitionSnapshot(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group StructureDefinitionSnapshot(source src, target tgt) extends BackboneElement {
   src.element -> tgt.element;
 }
 
-group StructureDefinitionDifferential(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group StructureDefinitionDifferential(source src, target tgt) extends BackboneElement {
   src.element -> tgt.element;
 }
 

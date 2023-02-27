@@ -3,9 +3,9 @@
 /// title = 'FML Conversion for GraphDefinition: R5 to R4B'
 
 uses "http://hl7.org/fhir/StructureDefinition/GraphDefinition" alias GraphDefinitionR5 as source
-uses "http://hl7.org/fhir/4.3/StructureDefinition/GraphDefinition" alias AccountR4B as target
+uses "http://hl7.org/fhir/4.3/StructureDefinition/GraphDefinition" alias GraphDefinitionR4B as target
 
-imports "http://hl7.org/fhir/StructureMap/*5to4B
+imports "http://hl7.org/fhir/StructureMap/*5to4B"
 
 group GraphDefinition(source src : GraphDefinitionR5, target tgt : GraphDefinitionR4B) extends DomainResource <<type+>> {
   src.url -> tgt.url;
@@ -28,14 +28,14 @@ group GraphDefinition(source src : GraphDefinitionR5, target tgt : GraphDefiniti
   src.link as s -> tgt.link as t then GraphDefinitionLink(s,t);
 }
 
-group GraphDefinitionNode(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group GraphDefinitionNode(source src, target tgt) extends BackboneElement {
   src.nodeId -> tgt.nodeId;
   src.description -> tgt.description;
   src.type -> tgt.type;
   src.profile -> tgt.profile;
 }
 
-group GraphDefinitionLink(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group GraphDefinitionLink(source src, target tgt) extends BackboneElement {
   src.description -> tgt.description;
   src.min -> tgt.min;
   src.max -> tgt.max;
@@ -47,7 +47,7 @@ group GraphDefinitionLink(source src : null, target tgt : null) extends DomainRe
   src.compartment as s -> tgt.compartment as t then GraphDefinitionLinkCompartment(s,t);
 }
 
-group GraphDefinitionLinkCompartment(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group GraphDefinitionLinkCompartment(source src, target tgt) extends BackboneElement {
   src.use -> tgt.use;
   src.rule -> tgt.rule;
   src.code -> tgt.code;

@@ -3,9 +3,9 @@
 /// title = 'FML Conversion for Subscription: R5 to R4B'
 
 uses "http://hl7.org/fhir/StructureDefinition/Subscription" alias SubscriptionR5 as source
-uses "http://hl7.org/fhir/4.3/StructureDefinition/Subscription" alias AccountR4B as target
+uses "http://hl7.org/fhir/4.3/StructureDefinition/Subscription" alias SubscriptionR4B as target
 
-imports "http://hl7.org/fhir/StructureMap/*5to4B
+imports "http://hl7.org/fhir/StructureMap/*5to4B"
 
 group Subscription(source src : SubscriptionR5, target tgt : SubscriptionR4B) extends DomainResource <<type+>> {
   src.identifier -> tgt.identifier;
@@ -27,7 +27,7 @@ group Subscription(source src : SubscriptionR5, target tgt : SubscriptionR4B) ex
   src.maxCount -> tgt.maxCount;
 }
 
-group SubscriptionFilterBy(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group SubscriptionFilterBy(source src, target tgt) extends BackboneElement {
   src.resourceType -> tgt.resourceType;
   src.filterParameter -> tgt.filterParameter;
   src.modifier -> tgt.modifier;

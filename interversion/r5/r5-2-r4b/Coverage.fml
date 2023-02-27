@@ -3,9 +3,9 @@
 /// title = 'FML Conversion for Coverage: R5 to R4B'
 
 uses "http://hl7.org/fhir/StructureDefinition/Coverage" alias CoverageR5 as source
-uses "http://hl7.org/fhir/4.3/StructureDefinition/Coverage" alias AccountR4B as target
+uses "http://hl7.org/fhir/4.3/StructureDefinition/Coverage" alias CoverageR4B as target
 
-imports "http://hl7.org/fhir/StructureMap/*5to4B
+imports "http://hl7.org/fhir/StructureMap/*5to4B"
 
 group Coverage(source src : CoverageR5, target tgt : CoverageR4B) extends DomainResource <<type+>> {
   src.identifier -> tgt.identifier;
@@ -30,18 +30,18 @@ group Coverage(source src : CoverageR5, target tgt : CoverageR4B) extends Domain
   src.insurancePlan -> tgt.insurancePlan;
 }
 
-group CoveragePaymentBy(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group CoveragePaymentBy(source src, target tgt) extends BackboneElement {
   src.party -> tgt.party;
   src.responsibility -> tgt.responsibility;
 }
 
-group CoverageClass(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group CoverageClass(source src, target tgt) extends BackboneElement {
   src.type -> tgt.type;
   src.value -> tgt.value;
   src.name -> tgt.name;
 }
 
-group CoverageCostToBeneficiary(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group CoverageCostToBeneficiary(source src, target tgt) extends BackboneElement {
   src.type -> tgt.type;
   src.category -> tgt.category;
   src.network -> tgt.network;
@@ -52,7 +52,7 @@ group CoverageCostToBeneficiary(source src : null, target tgt : null) extends Do
   src.exception as s -> tgt.exception as t then CoverageCostToBeneficiaryException(s,t);
 }
 
-group CoverageCostToBeneficiaryException(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group CoverageCostToBeneficiaryException(source src, target tgt) extends BackboneElement {
   src.type -> tgt.type;
   src.period -> tgt.period;
 }

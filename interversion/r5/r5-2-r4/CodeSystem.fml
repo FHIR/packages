@@ -3,9 +3,9 @@
 /// title = 'FML Conversion for CodeSystem: R5 to R4'
 
 uses "http://hl7.org/fhir/StructureDefinition/CodeSystem" alias CodeSystemR5 as source
-uses "http://hl7.org/fhir/4.0/StructureDefinition/CodeSystem" alias AccountR4 as target
+uses "http://hl7.org/fhir/4.0/StructureDefinition/CodeSystem" alias CodeSystemR4 as target
 
-imports "http://hl7.org/fhir/StructureMap/*5to4
+imports "http://hl7.org/fhir/StructureMap/*5to4"
 
 group CodeSystem(source src : CodeSystemR5, target tgt : CodeSystemR4) extends DomainResource <<type+>> {
   src.url -> tgt.url;
@@ -48,21 +48,21 @@ group CodeSystem(source src : CodeSystemR5, target tgt : CodeSystemR4) extends D
   src.concept as s -> tgt.concept as t then CodeSystemConcept(s,t);
 }
 
-group CodeSystemFilter(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group CodeSystemFilter(source src, target tgt) extends BackboneElement {
   src.code -> tgt.code;
   src.description -> tgt.description;
   src.operator -> tgt.operator;
   src.value -> tgt.value;
 }
 
-group CodeSystemProperty(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group CodeSystemProperty(source src, target tgt) extends BackboneElement {
   src.code -> tgt.code;
   src.uri -> tgt.uri;
   src.description -> tgt.description;
   src.type -> tgt.type;
 }
 
-group CodeSystemConcept(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group CodeSystemConcept(source src, target tgt) extends BackboneElement {
   src.code -> tgt.code;
   src.display -> tgt.display;
   src.definition -> tgt.definition;
@@ -70,14 +70,14 @@ group CodeSystemConcept(source src : null, target tgt : null) extends DomainReso
   src.property as s -> tgt.property as t then CodeSystemConceptProperty(s,t);
 }
 
-group CodeSystemConceptDesignation(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group CodeSystemConceptDesignation(source src, target tgt) extends BackboneElement {
   src.language -> tgt.language;
   src.use -> tgt.use;
   src.additionalUse -> tgt.additionalUse;
   src.value -> tgt.value;
 }
 
-group CodeSystemConceptProperty(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group CodeSystemConceptProperty(source src, target tgt) extends BackboneElement {
   src.code -> tgt.code;
   src.value : code -> tgt.value;
   src.value : Coding -> tgt.value;

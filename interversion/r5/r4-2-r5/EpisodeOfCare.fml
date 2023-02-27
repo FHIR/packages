@@ -3,9 +3,9 @@
 /// title = 'FML Conversion for EpisodeOfCare: R4 to R5'
 
 uses "http://hl7.org/fhir/4.0/StructureDefinition/EpisodeOfCare" alias EpisodeOfCareR4 as source
-uses "http://hl7.org/fhir/StructureDefinition/EpisodeOfCare" alias AccountR5 as target
+uses "http://hl7.org/fhir/StructureDefinition/EpisodeOfCare" alias EpisodeOfCareR5 as target
 
-imports "http://hl7.org/fhir/StructureMap/*4to5
+imports "http://hl7.org/fhir/StructureMap/*4to5"
 
 group EpisodeOfCare(source src : EpisodeOfCareR4, target tgt : EpisodeOfCareR5) extends DomainResource <<type+>> {
   src.identifier -> tgt.identifier;
@@ -23,17 +23,17 @@ group EpisodeOfCare(source src : EpisodeOfCareR4, target tgt : EpisodeOfCareR5) 
   src.account -> tgt.account;
 }
 
-group EpisodeOfCareStatusHistory(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group EpisodeOfCareStatusHistory(source src, target tgt) extends BackboneElement {
   src.status -> tgt.status;
   src.period -> tgt.period;
 }
 
-group EpisodeOfCareReason(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group EpisodeOfCareReason(source src, target tgt) extends BackboneElement {
   src.use -> tgt.use;
   src.value -> tgt.value;
 }
 
-group EpisodeOfCareDiagnosis(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group EpisodeOfCareDiagnosis(source src, target tgt) extends BackboneElement {
   src.condition -> tgt.condition;
   src.use -> tgt.use;
 }

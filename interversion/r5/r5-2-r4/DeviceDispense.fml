@@ -3,9 +3,9 @@
 /// title = 'FML Conversion for DeviceDispense: R5 to R4'
 
 uses "http://hl7.org/fhir/StructureDefinition/DeviceDispense" alias DeviceDispenseR5 as source
-uses "http://hl7.org/fhir/4.0/StructureDefinition/DeviceDispense" alias AccountR4 as target
+uses "http://hl7.org/fhir/4.0/StructureDefinition/DeviceDispense" alias DeviceDispenseR4 as target
 
-imports "http://hl7.org/fhir/StructureMap/*5to4
+imports "http://hl7.org/fhir/StructureMap/*5to4"
 
 group DeviceDispense(source src : DeviceDispenseR5, target tgt : DeviceDispenseR4) extends DomainResource <<type+>> {
   src.identifier -> tgt.identifier;
@@ -31,7 +31,7 @@ group DeviceDispense(source src : DeviceDispenseR5, target tgt : DeviceDispenseR
   src.eventHistory -> tgt.eventHistory;
 }
 
-group DeviceDispensePerformer(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group DeviceDispensePerformer(source src, target tgt) extends BackboneElement {
   src.function -> tgt.function;
   src.actor -> tgt.actor;
 }

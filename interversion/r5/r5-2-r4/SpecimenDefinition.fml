@@ -3,9 +3,9 @@
 /// title = 'FML Conversion for SpecimenDefinition: R5 to R4'
 
 uses "http://hl7.org/fhir/StructureDefinition/SpecimenDefinition" alias SpecimenDefinitionR5 as source
-uses "http://hl7.org/fhir/4.0/StructureDefinition/SpecimenDefinition" alias AccountR4 as target
+uses "http://hl7.org/fhir/4.0/StructureDefinition/SpecimenDefinition" alias SpecimenDefinitionR4 as target
 
-imports "http://hl7.org/fhir/StructureMap/*5to4
+imports "http://hl7.org/fhir/StructureMap/*5to4"
 
 group SpecimenDefinition(source src : SpecimenDefinitionR5, target tgt : SpecimenDefinitionR4) extends DomainResource <<type+>> {
   src.url -> tgt.url;
@@ -40,7 +40,7 @@ group SpecimenDefinition(source src : SpecimenDefinitionR5, target tgt : Specime
   src.typeTested as s -> tgt.typeTested as t then SpecimenDefinitionTypeTested(s,t);
 }
 
-group SpecimenDefinitionTypeTested(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group SpecimenDefinitionTypeTested(source src, target tgt) extends BackboneElement {
   src.isDerived -> tgt.isDerived;
   src.type -> tgt.type;
   src.preference -> tgt.preference;
@@ -53,7 +53,7 @@ group SpecimenDefinitionTypeTested(source src : null, target tgt : null) extends
   src.testingDestination -> tgt.testingDestination;
 }
 
-group SpecimenDefinitionTypeTestedContainer(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group SpecimenDefinitionTypeTestedContainer(source src, target tgt) extends BackboneElement {
   src.material -> tgt.material;
   src.type -> tgt.type;
   src.cap -> tgt.cap;
@@ -65,12 +65,12 @@ group SpecimenDefinitionTypeTestedContainer(source src : null, target tgt : null
   src.preparation -> tgt.preparation;
 }
 
-group SpecimenDefinitionTypeTestedContainerAdditive(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group SpecimenDefinitionTypeTestedContainerAdditive(source src, target tgt) extends BackboneElement {
   src.additive : CodeableConcept -> tgt.additive;
   src.additive : Reference -> tgt.additive;
 }
 
-group SpecimenDefinitionTypeTestedHandling(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group SpecimenDefinitionTypeTestedHandling(source src, target tgt) extends BackboneElement {
   src.temperatureQualifier -> tgt.temperatureQualifier;
   src.temperatureRange -> tgt.temperatureRange;
   src.maxDuration -> tgt.maxDuration;

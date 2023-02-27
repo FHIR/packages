@@ -3,9 +3,9 @@
 /// title = 'FML Conversion for EvidenceReport: R5 to R4'
 
 uses "http://hl7.org/fhir/StructureDefinition/EvidenceReport" alias EvidenceReportR5 as source
-uses "http://hl7.org/fhir/4.0/StructureDefinition/EvidenceReport" alias AccountR4 as target
+uses "http://hl7.org/fhir/4.0/StructureDefinition/EvidenceReport" alias EvidenceReportR4 as target
 
-imports "http://hl7.org/fhir/StructureMap/*5to4
+imports "http://hl7.org/fhir/StructureMap/*5to4"
 
 group EvidenceReport(source src : EvidenceReportR5, target tgt : EvidenceReportR4) extends DomainResource <<type+>> {
   src.url -> tgt.url;
@@ -29,12 +29,12 @@ group EvidenceReport(source src : EvidenceReportR5, target tgt : EvidenceReportR
   src.section as s -> tgt.section as t then EvidenceReportSection(s,t);
 }
 
-group EvidenceReportSubject(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group EvidenceReportSubject(source src, target tgt) extends BackboneElement {
   src.characteristic as s -> tgt.characteristic as t then EvidenceReportSubjectCharacteristic(s,t);
   src.note -> tgt.note;
 }
 
-group EvidenceReportSubjectCharacteristic(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group EvidenceReportSubjectCharacteristic(source src, target tgt) extends BackboneElement {
   src.code -> tgt.code;
   src.value : Reference -> tgt.value;
   src.value : CodeableConcept -> tgt.value;
@@ -45,19 +45,19 @@ group EvidenceReportSubjectCharacteristic(source src : null, target tgt : null) 
   src.period -> tgt.period;
 }
 
-group EvidenceReportRelatesTo(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group EvidenceReportRelatesTo(source src, target tgt) extends BackboneElement {
   src.code -> tgt.code;
   src.target as s -> tgt.target as t then EvidenceReportRelatesToTarget(s,t);
 }
 
-group EvidenceReportRelatesToTarget(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group EvidenceReportRelatesToTarget(source src, target tgt) extends BackboneElement {
   src.url -> tgt.url;
   src.identifier -> tgt.identifier;
   src.display -> tgt.display;
   src.resource -> tgt.resource;
 }
 
-group EvidenceReportSection(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group EvidenceReportSection(source src, target tgt) extends BackboneElement {
   src.title -> tgt.title;
   src.focus -> tgt.focus;
   src.focusReference -> tgt.focusReference;

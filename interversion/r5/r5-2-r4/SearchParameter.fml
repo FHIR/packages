@@ -3,9 +3,9 @@
 /// title = 'FML Conversion for SearchParameter: R5 to R4'
 
 uses "http://hl7.org/fhir/StructureDefinition/SearchParameter" alias SearchParameterR5 as source
-uses "http://hl7.org/fhir/4.0/StructureDefinition/SearchParameter" alias AccountR4 as target
+uses "http://hl7.org/fhir/4.0/StructureDefinition/SearchParameter" alias SearchParameterR4 as target
 
-imports "http://hl7.org/fhir/StructureMap/*5to4
+imports "http://hl7.org/fhir/StructureMap/*5to4"
 
 group SearchParameter(source src : SearchParameterR5, target tgt : SearchParameterR4) extends DomainResource <<type+>> {
   src.url -> tgt.url;
@@ -39,7 +39,7 @@ group SearchParameter(source src : SearchParameterR5, target tgt : SearchParamet
   src.component as s -> tgt.component as t then SearchParameterComponent(s,t);
 }
 
-group SearchParameterComponent(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group SearchParameterComponent(source src, target tgt) extends BackboneElement {
   src.definition -> tgt.definition;
   src.expression -> tgt.expression;
 }

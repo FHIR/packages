@@ -3,9 +3,9 @@
 /// title = 'FML Conversion for DeviceAssociation: R5 to R4B'
 
 uses "http://hl7.org/fhir/StructureDefinition/DeviceAssociation" alias DeviceAssociationR5 as source
-uses "http://hl7.org/fhir/4.3/StructureDefinition/DeviceAssociation" alias AccountR4B as target
+uses "http://hl7.org/fhir/4.3/StructureDefinition/DeviceAssociation" alias DeviceAssociationR4B as target
 
-imports "http://hl7.org/fhir/StructureMap/*5to4B
+imports "http://hl7.org/fhir/StructureMap/*5to4B"
 
 group DeviceAssociation(source src : DeviceAssociationR5, target tgt : DeviceAssociationR4B) extends DomainResource <<type+>> {
   src.identifier -> tgt.identifier;
@@ -19,7 +19,7 @@ group DeviceAssociation(source src : DeviceAssociationR5, target tgt : DeviceAss
   src.operation as s -> tgt.operation as t then DeviceAssociationOperation(s,t);
 }
 
-group DeviceAssociationOperation(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group DeviceAssociationOperation(source src, target tgt) extends BackboneElement {
   src.operator -> tgt.operator;
   src.period -> tgt.period;
 }

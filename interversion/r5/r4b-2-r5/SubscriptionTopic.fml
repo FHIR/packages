@@ -3,9 +3,9 @@
 /// title = 'FML Conversion for SubscriptionTopic: R4B to R5'
 
 uses "http://hl7.org/fhir/4.3/StructureDefinition/SubscriptionTopic" alias SubscriptionTopicR4B as source
-uses "http://hl7.org/fhir/StructureDefinition/SubscriptionTopic" alias AccountR5 as target
+uses "http://hl7.org/fhir/StructureDefinition/SubscriptionTopic" alias SubscriptionTopicR5 as target
 
-imports "http://hl7.org/fhir/StructureMap/*4Bto5
+imports "http://hl7.org/fhir/StructureMap/*4Bto5"
 
 group SubscriptionTopic(source src : SubscriptionTopicR4B, target tgt : SubscriptionTopicR5) extends DomainResource <<type+>> {
   src.url -> tgt.url;
@@ -33,7 +33,7 @@ group SubscriptionTopic(source src : SubscriptionTopicR4B, target tgt : Subscrip
   src.notificationShape as s -> tgt.notificationShape as t then SubscriptionTopicNotificationShape(s,t);
 }
 
-group SubscriptionTopicResourceTrigger(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group SubscriptionTopicResourceTrigger(source src, target tgt) extends BackboneElement {
   src.description -> tgt.description;
   src.resource -> tgt.resource;
   src.supportedInteraction -> tgt.supportedInteraction;
@@ -41,7 +41,7 @@ group SubscriptionTopicResourceTrigger(source src : null, target tgt : null) ext
   src.fhirPathCriteria -> tgt.fhirPathCriteria;
 }
 
-group SubscriptionTopicResourceTriggerQueryCriteria(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group SubscriptionTopicResourceTriggerQueryCriteria(source src, target tgt) extends BackboneElement {
   src.previous -> tgt.previous;
   src.resultForCreate -> tgt.resultForCreate;
   src.current -> tgt.current;
@@ -49,13 +49,13 @@ group SubscriptionTopicResourceTriggerQueryCriteria(source src : null, target tg
   src.requireBoth -> tgt.requireBoth;
 }
 
-group SubscriptionTopicEventTrigger(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group SubscriptionTopicEventTrigger(source src, target tgt) extends BackboneElement {
   src.description -> tgt.description;
   src.event -> tgt.event;
   src.resource -> tgt.resource;
 }
 
-group SubscriptionTopicCanFilterBy(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group SubscriptionTopicCanFilterBy(source src, target tgt) extends BackboneElement {
   src.description -> tgt.description;
   src.resource -> tgt.resource;
   src.filterParameter -> tgt.filterParameter;
@@ -63,7 +63,7 @@ group SubscriptionTopicCanFilterBy(source src : null, target tgt : null) extends
   src.modifier -> tgt.modifier;
 }
 
-group SubscriptionTopicNotificationShape(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group SubscriptionTopicNotificationShape(source src, target tgt) extends BackboneElement {
   src.resource -> tgt.resource;
   src.include -> tgt.include;
   src.revInclude -> tgt.revInclude;

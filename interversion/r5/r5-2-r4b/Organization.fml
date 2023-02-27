@@ -3,9 +3,9 @@
 /// title = 'FML Conversion for Organization: R5 to R4B'
 
 uses "http://hl7.org/fhir/StructureDefinition/Organization" alias OrganizationR5 as source
-uses "http://hl7.org/fhir/4.3/StructureDefinition/Organization" alias AccountR4B as target
+uses "http://hl7.org/fhir/4.3/StructureDefinition/Organization" alias OrganizationR4B as target
 
-imports "http://hl7.org/fhir/StructureMap/*5to4B
+imports "http://hl7.org/fhir/StructureMap/*5to4B"
 
 group Organization(source src : OrganizationR5, target tgt : OrganizationR4B) extends DomainResource <<type+>> {
   src.identifier -> tgt.identifier;
@@ -20,7 +20,7 @@ group Organization(source src : OrganizationR5, target tgt : OrganizationR4B) ex
   src.qualification as s -> tgt.qualification as t then OrganizationQualification(s,t);
 }
 
-group OrganizationQualification(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group OrganizationQualification(source src, target tgt) extends BackboneElement {
   src.identifier -> tgt.identifier;
   src.code -> tgt.code;
   src.period -> tgt.period;

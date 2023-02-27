@@ -3,9 +3,9 @@
 /// title = 'FML Conversion for ArtifactAssessment: R5 to R4'
 
 uses "http://hl7.org/fhir/StructureDefinition/ArtifactAssessment" alias ArtifactAssessmentR5 as source
-uses "http://hl7.org/fhir/4.0/StructureDefinition/ArtifactAssessment" alias AccountR4 as target
+uses "http://hl7.org/fhir/4.0/StructureDefinition/ArtifactAssessment" alias ArtifactAssessmentR4 as target
 
-imports "http://hl7.org/fhir/StructureMap/*5to4
+imports "http://hl7.org/fhir/StructureMap/*5to4"
 
 group ArtifactAssessment(source src : ArtifactAssessmentR5, target tgt : ArtifactAssessmentR4) extends DomainResource <<type+>> {
   src.identifier -> tgt.identifier;
@@ -24,7 +24,7 @@ group ArtifactAssessment(source src : ArtifactAssessmentR5, target tgt : Artifac
   src.disposition -> tgt.disposition;
 }
 
-group ArtifactAssessmentContent(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group ArtifactAssessmentContent(source src, target tgt) extends BackboneElement {
   src.informationType -> tgt.informationType;
   src.summary -> tgt.summary;
   src.type -> tgt.type;

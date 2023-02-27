@@ -3,9 +3,9 @@
 /// title = 'FML Conversion for NutritionOrder: R5 to R4'
 
 uses "http://hl7.org/fhir/StructureDefinition/NutritionOrder" alias NutritionOrderR5 as source
-uses "http://hl7.org/fhir/4.0/StructureDefinition/NutritionOrder" alias AccountR4 as target
+uses "http://hl7.org/fhir/4.0/StructureDefinition/NutritionOrder" alias NutritionOrderR4 as target
 
-imports "http://hl7.org/fhir/StructureMap/*5to4
+imports "http://hl7.org/fhir/StructureMap/*5to4"
 
 group NutritionOrder(source src : NutritionOrderR5, target tgt : NutritionOrderR4) extends DomainResource <<type+>> {
   src.identifier -> tgt.identifier;
@@ -32,7 +32,7 @@ group NutritionOrder(source src : NutritionOrderR5, target tgt : NutritionOrderR
   src.note -> tgt.note;
 }
 
-group NutritionOrderOralDiet(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group NutritionOrderOralDiet(source src, target tgt) extends BackboneElement {
   src.type -> tgt.type;
   src.schedule as s -> tgt.schedule as t then NutritionOrderOralDietSchedule(s,t);
   src.nutrient as s -> tgt.nutrient as t then NutritionOrderOralDietNutrient(s,t);
@@ -41,23 +41,23 @@ group NutritionOrderOralDiet(source src : null, target tgt : null) extends Domai
   src.instruction -> tgt.instruction;
 }
 
-group NutritionOrderOralDietSchedule(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group NutritionOrderOralDietSchedule(source src, target tgt) extends BackboneElement {
   src.timing -> tgt.timing;
   src.asNeeded -> tgt.asNeeded;
   src.asNeededFor -> tgt.asNeededFor;
 }
 
-group NutritionOrderOralDietNutrient(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group NutritionOrderOralDietNutrient(source src, target tgt) extends BackboneElement {
   src.modifier -> tgt.modifier;
   src.amount -> tgt.amount;
 }
 
-group NutritionOrderOralDietTexture(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group NutritionOrderOralDietTexture(source src, target tgt) extends BackboneElement {
   src.modifier -> tgt.modifier;
   src.foodType -> tgt.foodType;
 }
 
-group NutritionOrderSupplement(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group NutritionOrderSupplement(source src, target tgt) extends BackboneElement {
   src.type -> tgt.type;
   src.productName -> tgt.productName;
   src.schedule as s -> tgt.schedule as t then NutritionOrderSupplementSchedule(s,t);
@@ -65,13 +65,13 @@ group NutritionOrderSupplement(source src : null, target tgt : null) extends Dom
   src.instruction -> tgt.instruction;
 }
 
-group NutritionOrderSupplementSchedule(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group NutritionOrderSupplementSchedule(source src, target tgt) extends BackboneElement {
   src.timing -> tgt.timing;
   src.asNeeded -> tgt.asNeeded;
   src.asNeededFor -> tgt.asNeededFor;
 }
 
-group NutritionOrderEnteralFormula(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group NutritionOrderEnteralFormula(source src, target tgt) extends BackboneElement {
   src.baseFormulaType -> tgt.baseFormulaType;
   src.baseFormulaProductName -> tgt.baseFormulaProductName;
   src.deliveryDevice -> tgt.deliveryDevice;
@@ -83,20 +83,20 @@ group NutritionOrderEnteralFormula(source src : null, target tgt : null) extends
   src.administrationInstruction -> tgt.administrationInstruction;
 }
 
-group NutritionOrderEnteralFormulaAdditive(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group NutritionOrderEnteralFormulaAdditive(source src, target tgt) extends BackboneElement {
   src.type -> tgt.type;
   src.productName -> tgt.productName;
   src.quantity -> tgt.quantity;
 }
 
-group NutritionOrderEnteralFormulaAdministration(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group NutritionOrderEnteralFormulaAdministration(source src, target tgt) extends BackboneElement {
   src.schedule as s -> tgt.schedule as t then NutritionOrderEnteralFormulaAdministrationSchedule(s,t);
   src.quantity -> tgt.quantity;
   src.rate : Quantity -> tgt.rate;
   src.rate : Ratio -> tgt.rate;
 }
 
-group NutritionOrderEnteralFormulaAdministrationSchedule(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group NutritionOrderEnteralFormulaAdministrationSchedule(source src, target tgt) extends BackboneElement {
   src.timing -> tgt.timing;
   src.asNeeded -> tgt.asNeeded;
   src.asNeededFor -> tgt.asNeededFor;

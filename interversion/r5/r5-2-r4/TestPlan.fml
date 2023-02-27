@@ -3,9 +3,9 @@
 /// title = 'FML Conversion for TestPlan: R5 to R4'
 
 uses "http://hl7.org/fhir/StructureDefinition/TestPlan" alias TestPlanR5 as source
-uses "http://hl7.org/fhir/4.0/StructureDefinition/TestPlan" alias AccountR4 as target
+uses "http://hl7.org/fhir/4.0/StructureDefinition/TestPlan" alias TestPlanR4 as target
 
-imports "http://hl7.org/fhir/StructureMap/*5to4
+imports "http://hl7.org/fhir/StructureMap/*5to4"
 
 group TestPlan(source src : TestPlanR5, target tgt : TestPlanR4) extends DomainResource <<type+>> {
   src.url -> tgt.url;
@@ -29,12 +29,12 @@ group TestPlan(source src : TestPlanR5, target tgt : TestPlanR4) extends DomainR
   src.testCase as s -> tgt.testCase as t then TestPlanTestCase(s,t);
 }
 
-group TestPlanDependencies(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group TestPlanDependencies(source src, target tgt) extends BackboneElement {
   src.description -> tgt.description;
   src.predecessor -> tgt.predecessor;
 }
 
-group TestPlanTestCase(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group TestPlanTestCase(source src, target tgt) extends BackboneElement {
   src.sequence -> tgt.sequence;
   src.scope -> tgt.scope;
   src.dependencies as s -> tgt.dependencies as t then TestPlanTestCaseDependencies(s,t);
@@ -43,19 +43,19 @@ group TestPlanTestCase(source src : null, target tgt : null) extends DomainResou
   src.assertions as s -> tgt.assertions as t then TestPlanTestCaseAssertions(s,t);
 }
 
-group TestPlanTestCaseDependencies(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group TestPlanTestCaseDependencies(source src, target tgt) extends BackboneElement {
   src.description -> tgt.description;
   src.predecessor -> tgt.predecessor;
 }
 
-group TestPlanTestCaseTestData(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group TestPlanTestCaseTestData(source src, target tgt) extends BackboneElement {
   src.type -> tgt.type;
   src.content -> tgt.content;
   src.source : string -> tgt.source;
   src.source : Reference -> tgt.source;
 }
 
-group TestPlanTestCaseAssertions(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group TestPlanTestCaseAssertions(source src, target tgt) extends BackboneElement {
   src.type -> tgt.type;
   src.object -> tgt.object;
   src.result -> tgt.result;

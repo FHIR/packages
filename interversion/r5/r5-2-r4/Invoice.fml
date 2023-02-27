@@ -3,9 +3,9 @@
 /// title = 'FML Conversion for Invoice: R5 to R4'
 
 uses "http://hl7.org/fhir/StructureDefinition/Invoice" alias InvoiceR5 as source
-uses "http://hl7.org/fhir/4.0/StructureDefinition/Invoice" alias AccountR4 as target
+uses "http://hl7.org/fhir/4.0/StructureDefinition/Invoice" alias InvoiceR4 as target
 
-imports "http://hl7.org/fhir/StructureMap/*5to4
+imports "http://hl7.org/fhir/StructureMap/*5to4"
 
 group Invoice(source src : InvoiceR5, target tgt : InvoiceR4) extends DomainResource <<type+>> {
   src.identifier -> tgt.identifier;
@@ -29,12 +29,12 @@ group Invoice(source src : InvoiceR5, target tgt : InvoiceR4) extends DomainReso
   src.note -> tgt.note;
 }
 
-group InvoiceParticipant(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group InvoiceParticipant(source src, target tgt) extends BackboneElement {
   src.role -> tgt.role;
   src.actor -> tgt.actor;
 }
 
-group InvoiceLineItem(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group InvoiceLineItem(source src, target tgt) extends BackboneElement {
   src.sequence -> tgt.sequence;
   src.serviced : date -> tgt.serviced;
   src.serviced : Period -> tgt.serviced;

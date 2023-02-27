@@ -3,9 +3,9 @@
 /// title = 'FML Conversion for MolecularSequence: R5 to R4B'
 
 uses "http://hl7.org/fhir/StructureDefinition/MolecularSequence" alias MolecularSequenceR5 as source
-uses "http://hl7.org/fhir/4.3/StructureDefinition/MolecularSequence" alias AccountR4B as target
+uses "http://hl7.org/fhir/4.3/StructureDefinition/MolecularSequence" alias MolecularSequenceR4B as target
 
-imports "http://hl7.org/fhir/StructureMap/*5to4B
+imports "http://hl7.org/fhir/StructureMap/*5to4B"
 
 group MolecularSequence(source src : MolecularSequenceR5, target tgt : MolecularSequenceR4B) extends DomainResource <<type+>> {
   src.identifier -> tgt.identifier;
@@ -20,7 +20,7 @@ group MolecularSequence(source src : MolecularSequenceR5, target tgt : Molecular
   src.relative as s -> tgt.relative as t then MolecularSequenceRelative(s,t);
 }
 
-group MolecularSequenceRelative(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group MolecularSequenceRelative(source src, target tgt) extends BackboneElement {
   src.coordinateSystem -> tgt.coordinateSystem;
   src.ordinalPosition -> tgt.ordinalPosition;
   src.sequenceRange -> tgt.sequenceRange;
@@ -28,7 +28,7 @@ group MolecularSequenceRelative(source src : null, target tgt : null) extends Do
   src.edit as s -> tgt.edit as t then MolecularSequenceRelativeEdit(s,t);
 }
 
-group MolecularSequenceRelativeStartingSequence(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group MolecularSequenceRelativeStartingSequence(source src, target tgt) extends BackboneElement {
   src.genomeAssembly -> tgt.genomeAssembly;
   src.chromosome -> tgt.chromosome;
   src.sequence : CodeableConcept -> tgt.sequence;
@@ -40,7 +40,7 @@ group MolecularSequenceRelativeStartingSequence(source src : null, target tgt : 
   src.strand -> tgt.strand;
 }
 
-group MolecularSequenceRelativeEdit(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group MolecularSequenceRelativeEdit(source src, target tgt) extends BackboneElement {
   src.start -> tgt.start;
   src.end -> tgt.end;
   src.replacementSequence -> tgt.replacementSequence;

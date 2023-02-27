@@ -3,9 +3,9 @@
 /// title = 'FML Conversion for Questionnaire: R5 to R4'
 
 uses "http://hl7.org/fhir/StructureDefinition/Questionnaire" alias QuestionnaireR5 as source
-uses "http://hl7.org/fhir/4.0/StructureDefinition/Questionnaire" alias AccountR4 as target
+uses "http://hl7.org/fhir/4.0/StructureDefinition/Questionnaire" alias QuestionnaireR4 as target
 
-imports "http://hl7.org/fhir/StructureMap/*5to4
+imports "http://hl7.org/fhir/StructureMap/*5to4"
 
 group Questionnaire(source src : QuestionnaireR5, target tgt : QuestionnaireR4) extends DomainResource <<type+>> {
   src.url -> tgt.url;
@@ -35,7 +35,7 @@ group Questionnaire(source src : QuestionnaireR5, target tgt : QuestionnaireR4) 
   src.item as s -> tgt.item as t then QuestionnaireItem(s,t);
 }
 
-group QuestionnaireItem(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group QuestionnaireItem(source src, target tgt) extends BackboneElement {
   src.linkId -> tgt.linkId;
   src.definition -> tgt.definition;
   src.code -> tgt.code;
@@ -55,7 +55,7 @@ group QuestionnaireItem(source src : null, target tgt : null) extends DomainReso
   src.initial as s -> tgt.initial as t then QuestionnaireItemInitial(s,t);
 }
 
-group QuestionnaireItemEnableWhen(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group QuestionnaireItemEnableWhen(source src, target tgt) extends BackboneElement {
   src.question -> tgt.question;
   src.operator -> tgt.operator;
   src.answer : boolean -> tgt.answer;
@@ -70,7 +70,7 @@ group QuestionnaireItemEnableWhen(source src : null, target tgt : null) extends 
   src.answer : Reference -> tgt.answer;
 }
 
-group QuestionnaireItemAnswerOption(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group QuestionnaireItemAnswerOption(source src, target tgt) extends BackboneElement {
   src.value : integer -> tgt.value;
   src.value : date -> tgt.value;
   src.value : time -> tgt.value;
@@ -80,7 +80,7 @@ group QuestionnaireItemAnswerOption(source src : null, target tgt : null) extend
   src.initialSelected -> tgt.initialSelected;
 }
 
-group QuestionnaireItemInitial(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group QuestionnaireItemInitial(source src, target tgt) extends BackboneElement {
   src.value : boolean -> tgt.value;
   src.value : decimal -> tgt.value;
   src.value : integer -> tgt.value;

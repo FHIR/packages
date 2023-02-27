@@ -3,9 +3,9 @@
 /// title = 'FML Conversion for ChargeItemDefinition: R5 to R4'
 
 uses "http://hl7.org/fhir/StructureDefinition/ChargeItemDefinition" alias ChargeItemDefinitionR5 as source
-uses "http://hl7.org/fhir/4.0/StructureDefinition/ChargeItemDefinition" alias AccountR4 as target
+uses "http://hl7.org/fhir/4.0/StructureDefinition/ChargeItemDefinition" alias ChargeItemDefinitionR4 as target
 
-imports "http://hl7.org/fhir/StructureMap/*5to4
+imports "http://hl7.org/fhir/StructureMap/*5to4"
 
 group ChargeItemDefinition(source src : ChargeItemDefinitionR5, target tgt : ChargeItemDefinitionR4) extends DomainResource <<type+>> {
   src.url -> tgt.url;
@@ -37,13 +37,13 @@ group ChargeItemDefinition(source src : ChargeItemDefinitionR5, target tgt : Cha
   src.propertyGroup as s -> tgt.propertyGroup as t then ChargeItemDefinitionPropertyGroup(s,t);
 }
 
-group ChargeItemDefinitionApplicability(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group ChargeItemDefinitionApplicability(source src, target tgt) extends BackboneElement {
   src.condition -> tgt.condition;
   src.effectivePeriod -> tgt.effectivePeriod;
   src.relatedArtifact -> tgt.relatedArtifact;
 }
 
-group ChargeItemDefinitionPropertyGroup(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group ChargeItemDefinitionPropertyGroup(source src, target tgt) extends BackboneElement {
   src.priceComponent -> tgt.priceComponent;
 }
 

@@ -3,9 +3,9 @@
 /// title = 'FML Conversion for Permission: R4 to R5'
 
 uses "http://hl7.org/fhir/4.0/StructureDefinition/Permission" alias PermissionR4 as source
-uses "http://hl7.org/fhir/StructureDefinition/Permission" alias AccountR5 as target
+uses "http://hl7.org/fhir/StructureDefinition/Permission" alias PermissionR5 as target
 
-imports "http://hl7.org/fhir/StructureMap/*4to5
+imports "http://hl7.org/fhir/StructureMap/*4to5"
 
 group Permission(source src : PermissionR4, target tgt : PermissionR5) extends DomainResource <<type+>> {
   src.status -> tgt.status;
@@ -17,31 +17,31 @@ group Permission(source src : PermissionR4, target tgt : PermissionR5) extends D
   src.rule as s -> tgt.rule as t then PermissionRule(s,t);
 }
 
-group PermissionJustification(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group PermissionJustification(source src, target tgt) extends BackboneElement {
   src.basis -> tgt.basis;
   src.evidence -> tgt.evidence;
 }
 
-group PermissionRule(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group PermissionRule(source src, target tgt) extends BackboneElement {
   src.type -> tgt.type;
   src.data as s -> tgt.data as t then PermissionRuleData(s,t);
   src.activity as s -> tgt.activity as t then PermissionRuleActivity(s,t);
   src.limit -> tgt.limit;
 }
 
-group PermissionRuleData(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group PermissionRuleData(source src, target tgt) extends BackboneElement {
   src.resource as s -> tgt.resource as t then PermissionRuleDataResource(s,t);
   src.security -> tgt.security;
   src.period -> tgt.period;
   src.expression -> tgt.expression;
 }
 
-group PermissionRuleDataResource(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group PermissionRuleDataResource(source src, target tgt) extends BackboneElement {
   src.meaning -> tgt.meaning;
   src.reference -> tgt.reference;
 }
 
-group PermissionRuleActivity(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group PermissionRuleActivity(source src, target tgt) extends BackboneElement {
   src.actor -> tgt.actor;
   src.action -> tgt.action;
   src.purpose -> tgt.purpose;

@@ -3,9 +3,9 @@
 /// title = 'FML Conversion for NutritionProduct: R4 to R5'
 
 uses "http://hl7.org/fhir/4.0/StructureDefinition/NutritionProduct" alias NutritionProductR4 as source
-uses "http://hl7.org/fhir/StructureDefinition/NutritionProduct" alias AccountR5 as target
+uses "http://hl7.org/fhir/StructureDefinition/NutritionProduct" alias NutritionProductR5 as target
 
-imports "http://hl7.org/fhir/StructureMap/*4to5
+imports "http://hl7.org/fhir/StructureMap/*4to5"
 
 group NutritionProduct(source src : NutritionProductR4, target tgt : NutritionProductR5) extends DomainResource <<type+>> {
   src.code -> tgt.code;
@@ -20,17 +20,17 @@ group NutritionProduct(source src : NutritionProductR4, target tgt : NutritionPr
   src.note -> tgt.note;
 }
 
-group NutritionProductNutrient(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group NutritionProductNutrient(source src, target tgt) extends BackboneElement {
   src.item -> tgt.item;
   src.amount -> tgt.amount;
 }
 
-group NutritionProductIngredient(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group NutritionProductIngredient(source src, target tgt) extends BackboneElement {
   src.item -> tgt.item;
   src.amount -> tgt.amount;
 }
 
-group NutritionProductCharacteristic(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group NutritionProductCharacteristic(source src, target tgt) extends BackboneElement {
   src.type -> tgt.type;
   src.value : CodeableConcept -> tgt.value;
   src.value : string -> tgt.value;
@@ -40,7 +40,7 @@ group NutritionProductCharacteristic(source src : null, target tgt : null) exten
   src.value : boolean -> tgt.value;
 }
 
-group NutritionProductInstance(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group NutritionProductInstance(source src, target tgt) extends BackboneElement {
   src.quantity -> tgt.quantity;
   src.identifier -> tgt.identifier;
   src.name -> tgt.name;

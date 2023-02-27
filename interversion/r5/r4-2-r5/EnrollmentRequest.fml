@@ -3,9 +3,9 @@
 /// title = 'FML Conversion for EnrollmentRequest: R4 to R5'
 
 uses "http://hl7.org/fhir/4.0/StructureDefinition/EnrollmentRequest" alias EnrollmentRequestR4 as source
-uses "http://hl7.org/fhir/StructureDefinition/EnrollmentRequest" alias AccountR5 as target
+uses "http://hl7.org/fhir/StructureDefinition/EnrollmentRequest" alias EnrollmentRequestR5 as target
 
-imports "http://hl7.org/fhir/StructureMap/*4to5
+imports "http://hl7.org/fhir/StructureMap/*4to5"
 
 group EnrollmentRequest(source src : EnrollmentRequestR4, target tgt : EnrollmentRequestR5) extends DomainResource <<type+>> {
   src.identifier -> tgt.identifier;

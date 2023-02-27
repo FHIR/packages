@@ -3,9 +3,9 @@
 /// title = 'FML Conversion for PaymentReconciliation: R5 to R4B'
 
 uses "http://hl7.org/fhir/StructureDefinition/PaymentReconciliation" alias PaymentReconciliationR5 as source
-uses "http://hl7.org/fhir/4.3/StructureDefinition/PaymentReconciliation" alias AccountR4B as target
+uses "http://hl7.org/fhir/4.3/StructureDefinition/PaymentReconciliation" alias PaymentReconciliationR4B as target
 
-imports "http://hl7.org/fhir/StructureMap/*5to4B
+imports "http://hl7.org/fhir/StructureMap/*5to4B"
 
 group PaymentReconciliation(source src : PaymentReconciliationR5, target tgt : PaymentReconciliationR4B) extends DomainResource <<type+>> {
   src.identifier -> tgt.identifier;
@@ -39,7 +39,7 @@ group PaymentReconciliation(source src : PaymentReconciliationR5, target tgt : P
   src.processNote as s -> tgt.processNote as t then PaymentReconciliationProcessNote(s,t);
 }
 
-group PaymentReconciliationAllocation(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group PaymentReconciliationAllocation(source src, target tgt) extends BackboneElement {
   src.identifier -> tgt.identifier;
   src.predecessor -> tgt.predecessor;
   src.target -> tgt.target;
@@ -57,7 +57,7 @@ group PaymentReconciliationAllocation(source src : null, target tgt : null) exte
   src.amount -> tgt.amount;
 }
 
-group PaymentReconciliationProcessNote(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group PaymentReconciliationProcessNote(source src, target tgt) extends BackboneElement {
   src.type -> tgt.type;
   src.text -> tgt.text;
 }

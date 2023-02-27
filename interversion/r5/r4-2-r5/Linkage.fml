@@ -3,9 +3,9 @@
 /// title = 'FML Conversion for Linkage: R4 to R5'
 
 uses "http://hl7.org/fhir/4.0/StructureDefinition/Linkage" alias LinkageR4 as source
-uses "http://hl7.org/fhir/StructureDefinition/Linkage" alias AccountR5 as target
+uses "http://hl7.org/fhir/StructureDefinition/Linkage" alias LinkageR5 as target
 
-imports "http://hl7.org/fhir/StructureMap/*4to5
+imports "http://hl7.org/fhir/StructureMap/*4to5"
 
 group Linkage(source src : LinkageR4, target tgt : LinkageR5) extends DomainResource <<type+>> {
   src.active -> tgt.active;
@@ -13,7 +13,7 @@ group Linkage(source src : LinkageR4, target tgt : LinkageR5) extends DomainReso
   src.item as s -> tgt.item as t then LinkageItem(s,t);
 }
 
-group LinkageItem(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group LinkageItem(source src, target tgt) extends BackboneElement {
   src.type -> tgt.type;
   src.resource -> tgt.resource;
 }

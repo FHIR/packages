@@ -3,9 +3,9 @@
 /// title = 'FML Conversion for Contract: R4B to R5'
 
 uses "http://hl7.org/fhir/4.3/StructureDefinition/Contract" alias ContractR4B as source
-uses "http://hl7.org/fhir/StructureDefinition/Contract" alias AccountR5 as target
+uses "http://hl7.org/fhir/StructureDefinition/Contract" alias ContractR5 as target
 
-imports "http://hl7.org/fhir/StructureMap/*4Bto5
+imports "http://hl7.org/fhir/StructureMap/*4Bto5"
 
 group Contract(source src : ContractR4B, target tgt : ContractR5) extends DomainResource <<type+>> {
   src.identifier -> tgt.identifier;
@@ -45,7 +45,7 @@ group Contract(source src : ContractR4B, target tgt : ContractR5) extends Domain
   src.legallyBinding : Reference -> tgt.legallyBinding;
 }
 
-group ContractContentDefinition(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group ContractContentDefinition(source src, target tgt) extends BackboneElement {
   src.type -> tgt.type;
   src.subType -> tgt.subType;
   src.publisher -> tgt.publisher;
@@ -54,7 +54,7 @@ group ContractContentDefinition(source src : null, target tgt : null) extends Do
   src.copyright -> tgt.copyright;
 }
 
-group ContractTerm(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group ContractTerm(source src, target tgt) extends BackboneElement {
   src.identifier -> tgt.identifier;
   src.issued -> tgt.issued;
   src.applies -> tgt.applies;
@@ -69,14 +69,14 @@ group ContractTerm(source src : null, target tgt : null) extends DomainResource 
   src.action as s -> tgt.action as t then ContractTermAction(s,t);
 }
 
-group ContractTermSecurityLabel(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group ContractTermSecurityLabel(source src, target tgt) extends BackboneElement {
   src.number -> tgt.number;
   src.classification -> tgt.classification;
   src.category -> tgt.category;
   src.control -> tgt.control;
 }
 
-group ContractTermOffer(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group ContractTermOffer(source src, target tgt) extends BackboneElement {
   src.identifier -> tgt.identifier;
   src.party as s -> tgt.party as t then ContractTermOfferParty(s,t);
   src.topic -> tgt.topic;
@@ -89,12 +89,12 @@ group ContractTermOffer(source src : null, target tgt : null) extends DomainReso
   src.securityLabelNumber -> tgt.securityLabelNumber;
 }
 
-group ContractTermOfferParty(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group ContractTermOfferParty(source src, target tgt) extends BackboneElement {
   src.reference -> tgt.reference;
   src.role -> tgt.role;
 }
 
-group ContractTermOfferAnswer(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group ContractTermOfferAnswer(source src, target tgt) extends BackboneElement {
   src.value : boolean -> tgt.value;
   src.value : decimal -> tgt.value;
   src.value : integer -> tgt.value;
@@ -109,7 +109,7 @@ group ContractTermOfferAnswer(source src : null, target tgt : null) extends Doma
   src.value : Reference -> tgt.value;
 }
 
-group ContractTermAsset(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group ContractTermAsset(source src, target tgt) extends BackboneElement {
   src.scope -> tgt.scope;
   src.type -> tgt.type;
   src.typeReference -> tgt.typeReference;
@@ -126,13 +126,13 @@ group ContractTermAsset(source src : null, target tgt : null) extends DomainReso
   src.valuedItem as s -> tgt.valuedItem as t then ContractTermAssetValuedItem(s,t);
 }
 
-group ContractTermAssetContext(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group ContractTermAssetContext(source src, target tgt) extends BackboneElement {
   src.reference -> tgt.reference;
   src.code -> tgt.code;
   src.text -> tgt.text;
 }
 
-group ContractTermAssetValuedItem(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group ContractTermAssetValuedItem(source src, target tgt) extends BackboneElement {
   src.entity : CodeableConcept -> tgt.entity;
   src.entity : Reference -> tgt.entity;
   src.identifier -> tgt.identifier;
@@ -150,7 +150,7 @@ group ContractTermAssetValuedItem(source src : null, target tgt : null) extends 
   src.securityLabelNumber -> tgt.securityLabelNumber;
 }
 
-group ContractTermAction(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group ContractTermAction(source src, target tgt) extends BackboneElement {
   src.doNotPerform -> tgt.doNotPerform;
   src.type -> tgt.type;
   src.subject as s -> tgt.subject as t then ContractTermActionSubject(s,t);
@@ -174,28 +174,28 @@ group ContractTermAction(source src : null, target tgt : null) extends DomainRes
   src.securityLabelNumber -> tgt.securityLabelNumber;
 }
 
-group ContractTermActionSubject(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group ContractTermActionSubject(source src, target tgt) extends BackboneElement {
   src.reference -> tgt.reference;
   src.role -> tgt.role;
 }
 
-group ContractSigner(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group ContractSigner(source src, target tgt) extends BackboneElement {
   src.type -> tgt.type;
   src.party -> tgt.party;
   src.signature -> tgt.signature;
 }
 
-group ContractFriendly(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group ContractFriendly(source src, target tgt) extends BackboneElement {
   src.content : Attachment -> tgt.content;
   src.content : Reference -> tgt.content;
 }
 
-group ContractLegal(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group ContractLegal(source src, target tgt) extends BackboneElement {
   src.content : Attachment -> tgt.content;
   src.content : Reference -> tgt.content;
 }
 
-group ContractRule(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group ContractRule(source src, target tgt) extends BackboneElement {
   src.content : Attachment -> tgt.content;
   src.content : Reference -> tgt.content;
 }

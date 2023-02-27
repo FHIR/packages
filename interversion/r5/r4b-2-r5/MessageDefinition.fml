@@ -3,9 +3,9 @@
 /// title = 'FML Conversion for MessageDefinition: R4B to R5'
 
 uses "http://hl7.org/fhir/4.3/StructureDefinition/MessageDefinition" alias MessageDefinitionR4B as source
-uses "http://hl7.org/fhir/StructureDefinition/MessageDefinition" alias AccountR5 as target
+uses "http://hl7.org/fhir/StructureDefinition/MessageDefinition" alias MessageDefinitionR5 as target
 
-imports "http://hl7.org/fhir/StructureMap/*4Bto5
+imports "http://hl7.org/fhir/StructureMap/*4Bto5"
 
 group MessageDefinition(source src : MessageDefinitionR4B, target tgt : MessageDefinitionR5) extends DomainResource <<type+>> {
   src.url -> tgt.url;
@@ -35,14 +35,14 @@ group MessageDefinition(source src : MessageDefinitionR4B, target tgt : MessageD
   src.graph -> tgt.graph;
 }
 
-group MessageDefinitionFocus(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group MessageDefinitionFocus(source src, target tgt) extends BackboneElement {
   src.code -> tgt.code;
   src.profile -> tgt.profile;
   src.min -> tgt.min;
   src.max -> tgt.max;
 }
 
-group MessageDefinitionAllowedResponse(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group MessageDefinitionAllowedResponse(source src, target tgt) extends BackboneElement {
   src.message -> tgt.message;
   src.situation -> tgt.situation;
 }

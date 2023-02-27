@@ -3,9 +3,9 @@
 /// title = 'FML Conversion for RiskAssessment: R4B to R5'
 
 uses "http://hl7.org/fhir/4.3/StructureDefinition/RiskAssessment" alias RiskAssessmentR4B as source
-uses "http://hl7.org/fhir/StructureDefinition/RiskAssessment" alias AccountR5 as target
+uses "http://hl7.org/fhir/StructureDefinition/RiskAssessment" alias RiskAssessmentR5 as target
 
-imports "http://hl7.org/fhir/StructureMap/*4Bto5
+imports "http://hl7.org/fhir/StructureMap/*4Bto5"
 
 group RiskAssessment(source src : RiskAssessmentR4B, target tgt : RiskAssessmentR5) extends DomainResource <<type+>> {
   src.identifier -> tgt.identifier;
@@ -27,7 +27,7 @@ group RiskAssessment(source src : RiskAssessmentR4B, target tgt : RiskAssessment
   src.note -> tgt.note;
 }
 
-group RiskAssessmentPrediction(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group RiskAssessmentPrediction(source src, target tgt) extends BackboneElement {
   src.outcome -> tgt.outcome;
   src.probability : decimal -> tgt.probability;
   src.probability : Range -> tgt.probability;

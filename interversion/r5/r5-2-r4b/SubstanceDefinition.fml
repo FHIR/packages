@@ -3,9 +3,9 @@
 /// title = 'FML Conversion for SubstanceDefinition: R5 to R4B'
 
 uses "http://hl7.org/fhir/StructureDefinition/SubstanceDefinition" alias SubstanceDefinitionR5 as source
-uses "http://hl7.org/fhir/4.3/StructureDefinition/SubstanceDefinition" alias AccountR4B as target
+uses "http://hl7.org/fhir/4.3/StructureDefinition/SubstanceDefinition" alias SubstanceDefinitionR4B as target
 
-imports "http://hl7.org/fhir/StructureMap/*5to4B
+imports "http://hl7.org/fhir/StructureMap/*5to4B"
 
 group SubstanceDefinition(source src : SubstanceDefinitionR5, target tgt : SubstanceDefinitionR4B) extends DomainResource <<type+>> {
   src.identifier -> tgt.identifier;
@@ -34,7 +34,7 @@ group SubstanceDefinition(source src : SubstanceDefinitionR5, target tgt : Subst
   src.sourceMaterial as s -> tgt.sourceMaterial as t then SubstanceDefinitionSourceMaterial(s,t);
 }
 
-group SubstanceDefinitionMoiety(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group SubstanceDefinitionMoiety(source src, target tgt) extends BackboneElement {
   src.role -> tgt.role;
   src.identifier -> tgt.identifier;
   src.name -> tgt.name;
@@ -46,14 +46,14 @@ group SubstanceDefinitionMoiety(source src : null, target tgt : null) extends Do
   src.measurementType -> tgt.measurementType;
 }
 
-group SubstanceDefinitionCharacterization(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group SubstanceDefinitionCharacterization(source src, target tgt) extends BackboneElement {
   src.technique -> tgt.technique;
   src.form -> tgt.form;
   src.description -> tgt.description;
   src.file -> tgt.file;
 }
 
-group SubstanceDefinitionProperty(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group SubstanceDefinitionProperty(source src, target tgt) extends BackboneElement {
   src.type -> tgt.type;
   src.value : CodeableConcept -> tgt.value;
   src.value : Quantity -> tgt.value;
@@ -62,13 +62,13 @@ group SubstanceDefinitionProperty(source src : null, target tgt : null) extends 
   src.value : Attachment -> tgt.value;
 }
 
-group SubstanceDefinitionMolecularWeight(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group SubstanceDefinitionMolecularWeight(source src, target tgt) extends BackboneElement {
   src.method -> tgt.method;
   src.type -> tgt.type;
   src.amount -> tgt.amount;
 }
 
-group SubstanceDefinitionStructure(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group SubstanceDefinitionStructure(source src, target tgt) extends BackboneElement {
   src.stereochemistry -> tgt.stereochemistry;
   src.opticalActivity -> tgt.opticalActivity;
   src.molecularFormula -> tgt.molecularFormula;
@@ -78,14 +78,14 @@ group SubstanceDefinitionStructure(source src : null, target tgt : null) extends
   src.representation as s -> tgt.representation as t then SubstanceDefinitionStructureRepresentation(s,t);
 }
 
-group SubstanceDefinitionStructureRepresentation(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group SubstanceDefinitionStructureRepresentation(source src, target tgt) extends BackboneElement {
   src.type -> tgt.type;
   src.representation -> tgt.representation;
   src.format -> tgt.format;
   src.document -> tgt.document;
 }
 
-group SubstanceDefinitionCode(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group SubstanceDefinitionCode(source src, target tgt) extends BackboneElement {
   src.code -> tgt.code;
   src.status -> tgt.status;
   src.statusDate -> tgt.statusDate;
@@ -93,7 +93,7 @@ group SubstanceDefinitionCode(source src : null, target tgt : null) extends Doma
   src.source -> tgt.source;
 }
 
-group SubstanceDefinitionName(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group SubstanceDefinitionName(source src, target tgt) extends BackboneElement {
   src.name -> tgt.name;
   src.type -> tgt.type;
   src.status -> tgt.status;
@@ -105,13 +105,13 @@ group SubstanceDefinitionName(source src : null, target tgt : null) extends Doma
   src.source -> tgt.source;
 }
 
-group SubstanceDefinitionNameOfficial(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group SubstanceDefinitionNameOfficial(source src, target tgt) extends BackboneElement {
   src.authority -> tgt.authority;
   src.status -> tgt.status;
   src.date -> tgt.date;
 }
 
-group SubstanceDefinitionRelationship(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group SubstanceDefinitionRelationship(source src, target tgt) extends BackboneElement {
   src.substanceDefinition : Reference -> tgt.substanceDefinition;
   src.substanceDefinition : CodeableConcept -> tgt.substanceDefinition;
   src.type -> tgt.type;
@@ -124,7 +124,7 @@ group SubstanceDefinitionRelationship(source src : null, target tgt : null) exte
   src.source -> tgt.source;
 }
 
-group SubstanceDefinitionSourceMaterial(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group SubstanceDefinitionSourceMaterial(source src, target tgt) extends BackboneElement {
   src.type -> tgt.type;
   src.genus -> tgt.genus;
   src.species -> tgt.species;

@@ -3,9 +3,9 @@
 /// title = 'FML Conversion for SubstanceNucleicAcid: R5 to R4'
 
 uses "http://hl7.org/fhir/StructureDefinition/SubstanceNucleicAcid" alias SubstanceNucleicAcidR5 as source
-uses "http://hl7.org/fhir/4.0/StructureDefinition/SubstanceNucleicAcid" alias AccountR4 as target
+uses "http://hl7.org/fhir/4.0/StructureDefinition/SubstanceNucleicAcid" alias SubstanceNucleicAcidR4 as target
 
-imports "http://hl7.org/fhir/StructureMap/*5to4
+imports "http://hl7.org/fhir/StructureMap/*5to4"
 
 group SubstanceNucleicAcid(source src : SubstanceNucleicAcidR5, target tgt : SubstanceNucleicAcidR4) extends DomainResource <<type+>> {
   src.sequenceType -> tgt.sequenceType;
@@ -15,7 +15,7 @@ group SubstanceNucleicAcid(source src : SubstanceNucleicAcidR5, target tgt : Sub
   src.subunit as s -> tgt.subunit as t then SubstanceNucleicAcidSubunit(s,t);
 }
 
-group SubstanceNucleicAcidSubunit(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group SubstanceNucleicAcidSubunit(source src, target tgt) extends BackboneElement {
   src.subunit -> tgt.subunit;
   src.sequence -> tgt.sequence;
   src.length -> tgt.length;
@@ -26,14 +26,14 @@ group SubstanceNucleicAcidSubunit(source src : null, target tgt : null) extends 
   src.sugar as s -> tgt.sugar as t then SubstanceNucleicAcidSubunitSugar(s,t);
 }
 
-group SubstanceNucleicAcidSubunitLinkage(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group SubstanceNucleicAcidSubunitLinkage(source src, target tgt) extends BackboneElement {
   src.connectivity -> tgt.connectivity;
   src.identifier -> tgt.identifier;
   src.name -> tgt.name;
   src.residueSite -> tgt.residueSite;
 }
 
-group SubstanceNucleicAcidSubunitSugar(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group SubstanceNucleicAcidSubunitSugar(source src, target tgt) extends BackboneElement {
   src.identifier -> tgt.identifier;
   src.name -> tgt.name;
   src.residueSite -> tgt.residueSite;

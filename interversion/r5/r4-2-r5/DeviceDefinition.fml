@@ -3,9 +3,9 @@
 /// title = 'FML Conversion for DeviceDefinition: R4 to R5'
 
 uses "http://hl7.org/fhir/4.0/StructureDefinition/DeviceDefinition" alias DeviceDefinitionR4 as source
-uses "http://hl7.org/fhir/StructureDefinition/DeviceDefinition" alias AccountR5 as target
+uses "http://hl7.org/fhir/StructureDefinition/DeviceDefinition" alias DeviceDefinitionR5 as target
 
-imports "http://hl7.org/fhir/StructureMap/*4to5
+imports "http://hl7.org/fhir/StructureMap/*4to5"
 
 group DeviceDefinition(source src : DeviceDefinitionR4, target tgt : DeviceDefinitionR5) extends DomainResource <<type+>> {
   src.description -> tgt.description;
@@ -36,66 +36,66 @@ group DeviceDefinition(source src : DeviceDefinitionR4, target tgt : DeviceDefin
   src.chargeItem as s -> tgt.chargeItem as t then DeviceDefinitionChargeItem(s,t);
 }
 
-group DeviceDefinitionUdiDeviceIdentifier(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group DeviceDefinitionUdiDeviceIdentifier(source src, target tgt) extends BackboneElement {
   src.deviceIdentifier -> tgt.deviceIdentifier;
   src.issuer -> tgt.issuer;
   src.jurisdiction -> tgt.jurisdiction;
   src.marketDistribution as s -> tgt.marketDistribution as t then DeviceDefinitionUdiDeviceIdentifierMarketDistribution(s,t);
 }
 
-group DeviceDefinitionUdiDeviceIdentifierMarketDistribution(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group DeviceDefinitionUdiDeviceIdentifierMarketDistribution(source src, target tgt) extends BackboneElement {
   src.marketPeriod -> tgt.marketPeriod;
   src.subJurisdiction -> tgt.subJurisdiction;
 }
 
-group DeviceDefinitionRegulatoryIdentifier(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group DeviceDefinitionRegulatoryIdentifier(source src, target tgt) extends BackboneElement {
   src.type -> tgt.type;
   src.deviceIdentifier -> tgt.deviceIdentifier;
   src.issuer -> tgt.issuer;
   src.jurisdiction -> tgt.jurisdiction;
 }
 
-group DeviceDefinitionDeviceName(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group DeviceDefinitionDeviceName(source src, target tgt) extends BackboneElement {
   src.name -> tgt.name;
   src.type -> tgt.type;
 }
 
-group DeviceDefinitionClassification(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group DeviceDefinitionClassification(source src, target tgt) extends BackboneElement {
   src.type -> tgt.type;
   src.justification -> tgt.justification;
 }
 
-group DeviceDefinitionConformsTo(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group DeviceDefinitionConformsTo(source src, target tgt) extends BackboneElement {
   src.category -> tgt.category;
   src.specification -> tgt.specification;
   src.version -> tgt.version;
   src.source -> tgt.source;
 }
 
-group DeviceDefinitionHasPart(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group DeviceDefinitionHasPart(source src, target tgt) extends BackboneElement {
   src.reference -> tgt.reference;
   src.count -> tgt.count;
 }
 
-group DeviceDefinitionPackaging(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group DeviceDefinitionPackaging(source src, target tgt) extends BackboneElement {
   src.identifier -> tgt.identifier;
   src.type -> tgt.type;
   src.count -> tgt.count;
   src.distributor as s -> tgt.distributor as t then DeviceDefinitionPackagingDistributor(s,t);
 }
 
-group DeviceDefinitionPackagingDistributor(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group DeviceDefinitionPackagingDistributor(source src, target tgt) extends BackboneElement {
   src.name -> tgt.name;
   src.organizationReference -> tgt.organizationReference;
 }
 
-group DeviceDefinitionVersion(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group DeviceDefinitionVersion(source src, target tgt) extends BackboneElement {
   src.type -> tgt.type;
   src.component -> tgt.component;
   src.value -> tgt.value;
 }
 
-group DeviceDefinitionProperty(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group DeviceDefinitionProperty(source src, target tgt) extends BackboneElement {
   src.type -> tgt.type;
   src.value : Quantity -> tgt.value;
   src.value : CodeableConcept -> tgt.value;
@@ -106,18 +106,18 @@ group DeviceDefinitionProperty(source src : null, target tgt : null) extends Dom
   src.value : Attachment -> tgt.value;
 }
 
-group DeviceDefinitionLink(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group DeviceDefinitionLink(source src, target tgt) extends BackboneElement {
   src.relation -> tgt.relation;
   src.relatedDevice -> tgt.relatedDevice;
 }
 
-group DeviceDefinitionMaterial(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group DeviceDefinitionMaterial(source src, target tgt) extends BackboneElement {
   src.substance -> tgt.substance;
   src.alternate -> tgt.alternate;
   src.allergenicIndicator -> tgt.allergenicIndicator;
 }
 
-group DeviceDefinitionGuideline(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group DeviceDefinitionGuideline(source src, target tgt) extends BackboneElement {
   src.useContext -> tgt.useContext;
   src.usageInstruction -> tgt.usageInstruction;
   src.relatedArtifact -> tgt.relatedArtifact;
@@ -127,13 +127,13 @@ group DeviceDefinitionGuideline(source src : null, target tgt : null) extends Do
   src.intendedUse -> tgt.intendedUse;
 }
 
-group DeviceDefinitionCorrectiveAction(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group DeviceDefinitionCorrectiveAction(source src, target tgt) extends BackboneElement {
   src.recall -> tgt.recall;
   src.scope -> tgt.scope;
   src.period -> tgt.period;
 }
 
-group DeviceDefinitionChargeItem(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group DeviceDefinitionChargeItem(source src, target tgt) extends BackboneElement {
   src.chargeItemCode -> tgt.chargeItemCode;
   src.count -> tgt.count;
   src.effectivePeriod -> tgt.effectivePeriod;

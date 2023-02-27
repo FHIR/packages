@@ -3,9 +3,9 @@
 /// title = 'FML Conversion for VisionPrescription: R5 to R4B'
 
 uses "http://hl7.org/fhir/StructureDefinition/VisionPrescription" alias VisionPrescriptionR5 as source
-uses "http://hl7.org/fhir/4.3/StructureDefinition/VisionPrescription" alias AccountR4B as target
+uses "http://hl7.org/fhir/4.3/StructureDefinition/VisionPrescription" alias VisionPrescriptionR4B as target
 
-imports "http://hl7.org/fhir/StructureMap/*5to4B
+imports "http://hl7.org/fhir/StructureMap/*5to4B"
 
 group VisionPrescription(source src : VisionPrescriptionR5, target tgt : VisionPrescriptionR4B) extends DomainResource <<type+>> {
   src.identifier -> tgt.identifier;
@@ -18,7 +18,7 @@ group VisionPrescription(source src : VisionPrescriptionR5, target tgt : VisionP
   src.lensSpecification as s -> tgt.lensSpecification as t then VisionPrescriptionLensSpecification(s,t);
 }
 
-group VisionPrescriptionLensSpecification(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group VisionPrescriptionLensSpecification(source src, target tgt) extends BackboneElement {
   src.product -> tgt.product;
   src.eye -> tgt.eye;
   src.sphere -> tgt.sphere;
@@ -35,7 +35,7 @@ group VisionPrescriptionLensSpecification(source src : null, target tgt : null) 
   src.note -> tgt.note;
 }
 
-group VisionPrescriptionLensSpecificationPrism(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group VisionPrescriptionLensSpecificationPrism(source src, target tgt) extends BackboneElement {
   src.amount -> tgt.amount;
   src.base -> tgt.base;
 }

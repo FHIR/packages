@@ -3,9 +3,9 @@
 /// title = 'FML Conversion for EvidenceVariable: R5 to R4'
 
 uses "http://hl7.org/fhir/StructureDefinition/EvidenceVariable" alias EvidenceVariableR5 as source
-uses "http://hl7.org/fhir/4.0/StructureDefinition/EvidenceVariable" alias AccountR4 as target
+uses "http://hl7.org/fhir/4.0/StructureDefinition/EvidenceVariable" alias EvidenceVariableR4 as target
 
-imports "http://hl7.org/fhir/StructureMap/*5to4
+imports "http://hl7.org/fhir/StructureMap/*5to4"
 
 group EvidenceVariable(source src : EvidenceVariableR5, target tgt : EvidenceVariableR4) extends DomainResource <<type+>> {
   src.url -> tgt.url;
@@ -41,7 +41,7 @@ group EvidenceVariable(source src : EvidenceVariableR5, target tgt : EvidenceVar
   src.category as s -> tgt.category as t then EvidenceVariableCategory(s,t);
 }
 
-group EvidenceVariableCharacteristic(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group EvidenceVariableCharacteristic(source src, target tgt) extends BackboneElement {
   src.linkId -> tgt.linkId;
   src.description -> tgt.description;
   src.note -> tgt.note;
@@ -60,7 +60,7 @@ group EvidenceVariableCharacteristic(source src : null, target tgt : null) exten
   src.timeFromEvent as s -> tgt.timeFromEvent as t then EvidenceVariableCharacteristicTimeFromEvent(s,t);
 }
 
-group EvidenceVariableCharacteristicDefinitionByTypeAndValue(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group EvidenceVariableCharacteristicDefinitionByTypeAndValue(source src, target tgt) extends BackboneElement {
   src.type -> tgt.type;
   src.method -> tgt.method;
   src.device -> tgt.device;
@@ -73,12 +73,12 @@ group EvidenceVariableCharacteristicDefinitionByTypeAndValue(source src : null, 
   src.offset -> tgt.offset;
 }
 
-group EvidenceVariableCharacteristicDefinitionByCombination(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group EvidenceVariableCharacteristicDefinitionByCombination(source src, target tgt) extends BackboneElement {
   src.code -> tgt.code;
   src.threshold -> tgt.threshold;
 }
 
-group EvidenceVariableCharacteristicTimeFromEvent(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group EvidenceVariableCharacteristicTimeFromEvent(source src, target tgt) extends BackboneElement {
   src.description -> tgt.description;
   src.note -> tgt.note;
   src.event : CodeableConcept -> tgt.event;
@@ -89,7 +89,7 @@ group EvidenceVariableCharacteristicTimeFromEvent(source src : null, target tgt 
   src.range -> tgt.range;
 }
 
-group EvidenceVariableCategory(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group EvidenceVariableCategory(source src, target tgt) extends BackboneElement {
   src.name -> tgt.name;
   src.value : CodeableConcept -> tgt.value;
   src.value : Quantity -> tgt.value;

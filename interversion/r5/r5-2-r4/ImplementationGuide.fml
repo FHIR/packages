@@ -3,9 +3,9 @@
 /// title = 'FML Conversion for ImplementationGuide: R5 to R4'
 
 uses "http://hl7.org/fhir/StructureDefinition/ImplementationGuide" alias ImplementationGuideR5 as source
-uses "http://hl7.org/fhir/4.0/StructureDefinition/ImplementationGuide" alias AccountR4 as target
+uses "http://hl7.org/fhir/4.0/StructureDefinition/ImplementationGuide" alias ImplementationGuideR4 as target
 
-imports "http://hl7.org/fhir/StructureMap/*5to4
+imports "http://hl7.org/fhir/StructureMap/*5to4"
 
 group ImplementationGuide(source src : ImplementationGuideR5, target tgt : ImplementationGuideR4) extends DomainResource <<type+>> {
   src.url -> tgt.url;
@@ -33,19 +33,19 @@ group ImplementationGuide(source src : ImplementationGuideR5, target tgt : Imple
   src.manifest as s -> tgt.manifest as t then ImplementationGuideManifest(s,t);
 }
 
-group ImplementationGuideDependsOn(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group ImplementationGuideDependsOn(source src, target tgt) extends BackboneElement {
   src.uri -> tgt.uri;
   src.packageId -> tgt.packageId;
   src.version -> tgt.version;
   src.reason -> tgt.reason;
 }
 
-group ImplementationGuideGlobal(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group ImplementationGuideGlobal(source src, target tgt) extends BackboneElement {
   src.type -> tgt.type;
   src.profile -> tgt.profile;
 }
 
-group ImplementationGuideDefinition(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group ImplementationGuideDefinition(source src, target tgt) extends BackboneElement {
   src.grouping as s -> tgt.grouping as t then ImplementationGuideDefinitionGrouping(s,t);
   src.resource as s -> tgt.resource as t then ImplementationGuideDefinitionResource(s,t);
   src.page as s -> tgt.page as t then ImplementationGuideDefinitionPage(s,t);
@@ -53,12 +53,12 @@ group ImplementationGuideDefinition(source src : null, target tgt : null) extend
   src.template as s -> tgt.template as t then ImplementationGuideDefinitionTemplate(s,t);
 }
 
-group ImplementationGuideDefinitionGrouping(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group ImplementationGuideDefinitionGrouping(source src, target tgt) extends BackboneElement {
   src.name -> tgt.name;
   src.description -> tgt.description;
 }
 
-group ImplementationGuideDefinitionResource(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group ImplementationGuideDefinitionResource(source src, target tgt) extends BackboneElement {
   src.reference -> tgt.reference;
   src.fhirVersion -> tgt.fhirVersion;
   src.name -> tgt.name;
@@ -68,7 +68,7 @@ group ImplementationGuideDefinitionResource(source src : null, target tgt : null
   src.groupingId -> tgt.groupingId;
 }
 
-group ImplementationGuideDefinitionPage(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group ImplementationGuideDefinitionPage(source src, target tgt) extends BackboneElement {
   src.source : url -> tgt.source;
   src.source : string -> tgt.source;
   src.source : markdown -> tgt.source;
@@ -77,18 +77,18 @@ group ImplementationGuideDefinitionPage(source src : null, target tgt : null) ex
   src.generation -> tgt.generation;
 }
 
-group ImplementationGuideDefinitionParameter(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group ImplementationGuideDefinitionParameter(source src, target tgt) extends BackboneElement {
   src.code -> tgt.code;
   src.value -> tgt.value;
 }
 
-group ImplementationGuideDefinitionTemplate(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group ImplementationGuideDefinitionTemplate(source src, target tgt) extends BackboneElement {
   src.code -> tgt.code;
   src.source -> tgt.source;
   src.scope -> tgt.scope;
 }
 
-group ImplementationGuideManifest(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group ImplementationGuideManifest(source src, target tgt) extends BackboneElement {
   src.rendering -> tgt.rendering;
   src.resource as s -> tgt.resource as t then ImplementationGuideManifestResource(s,t);
   src.page as s -> tgt.page as t then ImplementationGuideManifestPage(s,t);
@@ -96,14 +96,14 @@ group ImplementationGuideManifest(source src : null, target tgt : null) extends 
   src.other -> tgt.other;
 }
 
-group ImplementationGuideManifestResource(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group ImplementationGuideManifestResource(source src, target tgt) extends BackboneElement {
   src.reference -> tgt.reference;
   src.isExample -> tgt.isExample;
   src.profile -> tgt.profile;
   src.relativePath -> tgt.relativePath;
 }
 
-group ImplementationGuideManifestPage(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group ImplementationGuideManifestPage(source src, target tgt) extends BackboneElement {
   src.name -> tgt.name;
   src.title -> tgt.title;
   src.anchor -> tgt.anchor;

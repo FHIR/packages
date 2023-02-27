@@ -3,9 +3,9 @@
 /// title = 'FML Conversion for Person: R4B to R5'
 
 uses "http://hl7.org/fhir/4.3/StructureDefinition/Person" alias PersonR4B as source
-uses "http://hl7.org/fhir/StructureDefinition/Person" alias AccountR5 as target
+uses "http://hl7.org/fhir/StructureDefinition/Person" alias PersonR5 as target
 
-imports "http://hl7.org/fhir/StructureMap/*4Bto5
+imports "http://hl7.org/fhir/StructureMap/*4Bto5"
 
 group Person(source src : PersonR4B, target tgt : PersonR5) extends DomainResource <<type+>> {
   src.identifier -> tgt.identifier;
@@ -24,12 +24,12 @@ group Person(source src : PersonR4B, target tgt : PersonR5) extends DomainResour
   src.link as s -> tgt.link as t then PersonLink(s,t);
 }
 
-group PersonCommunication(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group PersonCommunication(source src, target tgt) extends BackboneElement {
   src.language -> tgt.language;
   src.preferred -> tgt.preferred;
 }
 
-group PersonLink(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group PersonLink(source src, target tgt) extends BackboneElement {
   src.target -> tgt.target;
   src.assurance -> tgt.assurance;
 }

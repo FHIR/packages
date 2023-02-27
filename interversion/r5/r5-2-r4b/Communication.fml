@@ -3,9 +3,9 @@
 /// title = 'FML Conversion for Communication: R5 to R4B'
 
 uses "http://hl7.org/fhir/StructureDefinition/Communication" alias CommunicationR5 as source
-uses "http://hl7.org/fhir/4.3/StructureDefinition/Communication" alias AccountR4B as target
+uses "http://hl7.org/fhir/4.3/StructureDefinition/Communication" alias CommunicationR4B as target
 
-imports "http://hl7.org/fhir/StructureMap/*5to4B
+imports "http://hl7.org/fhir/StructureMap/*5to4B"
 
 group Communication(source src : CommunicationR5, target tgt : CommunicationR4B) extends DomainResource <<type+>> {
   src.identifier -> tgt.identifier;
@@ -32,7 +32,7 @@ group Communication(source src : CommunicationR5, target tgt : CommunicationR4B)
   src.note -> tgt.note;
 }
 
-group CommunicationPayload(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group CommunicationPayload(source src, target tgt) extends BackboneElement {
   src.content : Attachment -> tgt.content;
   src.content : Reference -> tgt.content;
   src.content : CodeableConcept -> tgt.content;

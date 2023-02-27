@@ -3,9 +3,9 @@
 /// title = 'FML Conversion for RegulatedAuthorization: R4B to R5'
 
 uses "http://hl7.org/fhir/4.3/StructureDefinition/RegulatedAuthorization" alias RegulatedAuthorizationR4B as source
-uses "http://hl7.org/fhir/StructureDefinition/RegulatedAuthorization" alias AccountR5 as target
+uses "http://hl7.org/fhir/StructureDefinition/RegulatedAuthorization" alias RegulatedAuthorizationR5 as target
 
-imports "http://hl7.org/fhir/StructureMap/*4Bto5
+imports "http://hl7.org/fhir/StructureMap/*4Bto5"
 
 group RegulatedAuthorization(source src : RegulatedAuthorizationR4B, target tgt : RegulatedAuthorizationR5) extends DomainResource <<type+>> {
   src.identifier -> tgt.identifier;
@@ -25,7 +25,7 @@ group RegulatedAuthorization(source src : RegulatedAuthorizationR4B, target tgt 
   src.case as s -> tgt.case as t then RegulatedAuthorizationCase(s,t);
 }
 
-group RegulatedAuthorizationCase(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group RegulatedAuthorizationCase(source src, target tgt) extends BackboneElement {
   src.identifier -> tgt.identifier;
   src.type -> tgt.type;
   src.status -> tgt.status;

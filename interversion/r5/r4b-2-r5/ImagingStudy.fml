@@ -3,9 +3,9 @@
 /// title = 'FML Conversion for ImagingStudy: R4B to R5'
 
 uses "http://hl7.org/fhir/4.3/StructureDefinition/ImagingStudy" alias ImagingStudyR4B as source
-uses "http://hl7.org/fhir/StructureDefinition/ImagingStudy" alias AccountR5 as target
+uses "http://hl7.org/fhir/StructureDefinition/ImagingStudy" alias ImagingStudyR5 as target
 
-imports "http://hl7.org/fhir/StructureMap/*4Bto5
+imports "http://hl7.org/fhir/StructureMap/*4Bto5"
 
 group ImagingStudy(source src : ImagingStudyR4B, target tgt : ImagingStudyR5) extends DomainResource <<type+>> {
   src.identifier -> tgt.identifier;
@@ -28,7 +28,7 @@ group ImagingStudy(source src : ImagingStudyR4B, target tgt : ImagingStudyR5) ex
   src.series as s -> tgt.series as t then ImagingStudySeries(s,t);
 }
 
-group ImagingStudySeries(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group ImagingStudySeries(source src, target tgt) extends BackboneElement {
   src.uid -> tgt.uid;
   src.number -> tgt.number;
   src.modality -> tgt.modality;
@@ -43,12 +43,12 @@ group ImagingStudySeries(source src : null, target tgt : null) extends DomainRes
   src.instance as s -> tgt.instance as t then ImagingStudySeriesInstance(s,t);
 }
 
-group ImagingStudySeriesPerformer(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group ImagingStudySeriesPerformer(source src, target tgt) extends BackboneElement {
   src.function -> tgt.function;
   src.actor -> tgt.actor;
 }
 
-group ImagingStudySeriesInstance(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group ImagingStudySeriesInstance(source src, target tgt) extends BackboneElement {
   src.uid -> tgt.uid;
   src.sopClass -> tgt.sopClass;
   src.number -> tgt.number;

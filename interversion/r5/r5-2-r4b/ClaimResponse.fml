@@ -3,9 +3,9 @@
 /// title = 'FML Conversion for ClaimResponse: R5 to R4B'
 
 uses "http://hl7.org/fhir/StructureDefinition/ClaimResponse" alias ClaimResponseR5 as source
-uses "http://hl7.org/fhir/4.3/StructureDefinition/ClaimResponse" alias AccountR4B as target
+uses "http://hl7.org/fhir/4.3/StructureDefinition/ClaimResponse" alias ClaimResponseR4B as target
 
-imports "http://hl7.org/fhir/StructureMap/*5to4B
+imports "http://hl7.org/fhir/StructureMap/*5to4B"
 
 group ClaimResponse(source src : ClaimResponseR5, target tgt : ClaimResponseR4B) extends DomainResource <<type+>> {
   src.identifier -> tgt.identifier;
@@ -41,13 +41,13 @@ group ClaimResponse(source src : ClaimResponseR5, target tgt : ClaimResponseR4B)
   src.error as s -> tgt.error as t then ClaimResponseError(s,t);
 }
 
-group ClaimResponseEvent(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group ClaimResponseEvent(source src, target tgt) extends BackboneElement {
   src.type -> tgt.type;
   src.when : dateTime -> tgt.when;
   src.when : Period -> tgt.when;
 }
 
-group ClaimResponseItem(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group ClaimResponseItem(source src, target tgt) extends BackboneElement {
   src.itemSequence -> tgt.itemSequence;
   src.traceNumber -> tgt.traceNumber;
   src.noteNumber -> tgt.noteNumber;
@@ -56,34 +56,34 @@ group ClaimResponseItem(source src : null, target tgt : null) extends DomainReso
   src.detail as s -> tgt.detail as t then ClaimResponseItemDetail(s,t);
 }
 
-group ClaimResponseItemReviewOutcome(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group ClaimResponseItemReviewOutcome(source src, target tgt) extends BackboneElement {
   src.decision -> tgt.decision;
   src.reason -> tgt.reason;
   src.preAuthRef -> tgt.preAuthRef;
   src.preAuthPeriod -> tgt.preAuthPeriod;
 }
 
-group ClaimResponseItemAdjudication(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group ClaimResponseItemAdjudication(source src, target tgt) extends BackboneElement {
   src.category -> tgt.category;
   src.reason -> tgt.reason;
   src.amount -> tgt.amount;
   src.value -> tgt.value;
 }
 
-group ClaimResponseItemDetail(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group ClaimResponseItemDetail(source src, target tgt) extends BackboneElement {
   src.detailSequence -> tgt.detailSequence;
   src.traceNumber -> tgt.traceNumber;
   src.noteNumber -> tgt.noteNumber;
   src.subDetail as s -> tgt.subDetail as t then ClaimResponseItemDetailSubDetail(s,t);
 }
 
-group ClaimResponseItemDetailSubDetail(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group ClaimResponseItemDetailSubDetail(source src, target tgt) extends BackboneElement {
   src.subDetailSequence -> tgt.subDetailSequence;
   src.traceNumber -> tgt.traceNumber;
   src.noteNumber -> tgt.noteNumber;
 }
 
-group ClaimResponseAddItem(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group ClaimResponseAddItem(source src, target tgt) extends BackboneElement {
   src.itemSequence -> tgt.itemSequence;
   src.detailSequence -> tgt.detailSequence;
   src.subdetailSequence -> tgt.subdetailSequence;
@@ -109,12 +109,12 @@ group ClaimResponseAddItem(source src : null, target tgt : null) extends DomainR
   src.detail as s -> tgt.detail as t then ClaimResponseAddItemDetail(s,t);
 }
 
-group ClaimResponseAddItemBodySite(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group ClaimResponseAddItemBodySite(source src, target tgt) extends BackboneElement {
   src.site -> tgt.site;
   src.subSite -> tgt.subSite;
 }
 
-group ClaimResponseAddItemDetail(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group ClaimResponseAddItemDetail(source src, target tgt) extends BackboneElement {
   src.traceNumber -> tgt.traceNumber;
   src.revenue -> tgt.revenue;
   src.productOrService -> tgt.productOrService;
@@ -129,7 +129,7 @@ group ClaimResponseAddItemDetail(source src : null, target tgt : null) extends D
   src.subDetail as s -> tgt.subDetail as t then ClaimResponseAddItemDetailSubDetail(s,t);
 }
 
-group ClaimResponseAddItemDetailSubDetail(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group ClaimResponseAddItemDetailSubDetail(source src, target tgt) extends BackboneElement {
   src.traceNumber -> tgt.traceNumber;
   src.revenue -> tgt.revenue;
   src.productOrService -> tgt.productOrService;
@@ -143,12 +143,12 @@ group ClaimResponseAddItemDetailSubDetail(source src : null, target tgt : null) 
   src.noteNumber -> tgt.noteNumber;
 }
 
-group ClaimResponseTotal(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group ClaimResponseTotal(source src, target tgt) extends BackboneElement {
   src.category -> tgt.category;
   src.amount -> tgt.amount;
 }
 
-group ClaimResponsePayment(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group ClaimResponsePayment(source src, target tgt) extends BackboneElement {
   src.type -> tgt.type;
   src.adjustment -> tgt.adjustment;
   src.adjustmentReason -> tgt.adjustmentReason;
@@ -157,14 +157,14 @@ group ClaimResponsePayment(source src : null, target tgt : null) extends DomainR
   src.identifier -> tgt.identifier;
 }
 
-group ClaimResponseProcessNote(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group ClaimResponseProcessNote(source src, target tgt) extends BackboneElement {
   src.number -> tgt.number;
   src.type -> tgt.type;
   src.text -> tgt.text;
   src.language -> tgt.language;
 }
 
-group ClaimResponseInsurance(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group ClaimResponseInsurance(source src, target tgt) extends BackboneElement {
   src.sequence -> tgt.sequence;
   src.focal -> tgt.focal;
   src.coverage -> tgt.coverage;
@@ -172,7 +172,7 @@ group ClaimResponseInsurance(source src : null, target tgt : null) extends Domai
   src.claimResponse -> tgt.claimResponse;
 }
 
-group ClaimResponseError(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group ClaimResponseError(source src, target tgt) extends BackboneElement {
   src.itemSequence -> tgt.itemSequence;
   src.detailSequence -> tgt.detailSequence;
   src.subDetailSequence -> tgt.subDetailSequence;

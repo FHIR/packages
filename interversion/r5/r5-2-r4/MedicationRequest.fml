@@ -3,9 +3,9 @@
 /// title = 'FML Conversion for MedicationRequest: R5 to R4'
 
 uses "http://hl7.org/fhir/StructureDefinition/MedicationRequest" alias MedicationRequestR5 as source
-uses "http://hl7.org/fhir/4.0/StructureDefinition/MedicationRequest" alias AccountR4 as target
+uses "http://hl7.org/fhir/4.0/StructureDefinition/MedicationRequest" alias MedicationRequestR4 as target
 
-imports "http://hl7.org/fhir/StructureMap/*5to4
+imports "http://hl7.org/fhir/StructureMap/*5to4"
 
 group MedicationRequest(source src : MedicationRequestR5, target tgt : MedicationRequestR4) extends DomainResource <<type+>> {
   src.identifier -> tgt.identifier;
@@ -43,7 +43,7 @@ group MedicationRequest(source src : MedicationRequestR5, target tgt : Medicatio
   src.eventHistory -> tgt.eventHistory;
 }
 
-group MedicationRequestDispenseRequest(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group MedicationRequestDispenseRequest(source src, target tgt) extends BackboneElement {
   src.initialFill as s -> tgt.initialFill as t then MedicationRequestDispenseRequestInitialFill(s,t);
   src.dispenseInterval -> tgt.dispenseInterval;
   src.validityPeriod -> tgt.validityPeriod;
@@ -55,12 +55,12 @@ group MedicationRequestDispenseRequest(source src : null, target tgt : null) ext
   src.doseAdministrationAid -> tgt.doseAdministrationAid;
 }
 
-group MedicationRequestDispenseRequestInitialFill(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group MedicationRequestDispenseRequestInitialFill(source src, target tgt) extends BackboneElement {
   src.quantity -> tgt.quantity;
   src.duration -> tgt.duration;
 }
 
-group MedicationRequestSubstitution(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group MedicationRequestSubstitution(source src, target tgt) extends BackboneElement {
   src.allowed : boolean -> tgt.allowed;
   src.allowed : CodeableConcept -> tgt.allowed;
   src.reason -> tgt.reason;

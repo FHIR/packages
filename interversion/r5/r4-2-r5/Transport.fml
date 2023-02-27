@@ -3,9 +3,9 @@
 /// title = 'FML Conversion for Transport: R4 to R5'
 
 uses "http://hl7.org/fhir/4.0/StructureDefinition/Transport" alias TransportR4 as source
-uses "http://hl7.org/fhir/StructureDefinition/Transport" alias AccountR5 as target
+uses "http://hl7.org/fhir/StructureDefinition/Transport" alias TransportR5 as target
 
-imports "http://hl7.org/fhir/StructureMap/*4to5
+imports "http://hl7.org/fhir/StructureMap/*4to5"
 
 group Transport(source src : TransportR4, target tgt : TransportR5) extends DomainResource <<type+>> {
   src.identifier -> tgt.identifier;
@@ -42,13 +42,13 @@ group Transport(source src : TransportR4, target tgt : TransportR5) extends Doma
   src.history -> tgt.history;
 }
 
-group TransportRestriction(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group TransportRestriction(source src, target tgt) extends BackboneElement {
   src.repetitions -> tgt.repetitions;
   src.period -> tgt.period;
   src.recipient -> tgt.recipient;
 }
 
-group TransportInput(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group TransportInput(source src, target tgt) extends BackboneElement {
   src.type -> tgt.type;
   src.value : base64Binary -> tgt.value;
   src.value : boolean -> tgt.value;
@@ -106,7 +106,7 @@ group TransportInput(source src : null, target tgt : null) extends DomainResourc
   src.value : Meta -> tgt.value;
 }
 
-group TransportOutput(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group TransportOutput(source src, target tgt) extends BackboneElement {
   src.type -> tgt.type;
   src.value : base64Binary -> tgt.value;
   src.value : boolean -> tgt.value;

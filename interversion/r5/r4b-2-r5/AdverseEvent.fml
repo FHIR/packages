@@ -3,9 +3,9 @@
 /// title = 'FML Conversion for AdverseEvent: R4B to R5'
 
 uses "http://hl7.org/fhir/4.3/StructureDefinition/AdverseEvent" alias AdverseEventR4B as source
-uses "http://hl7.org/fhir/StructureDefinition/AdverseEvent" alias AccountR5 as target
+uses "http://hl7.org/fhir/StructureDefinition/AdverseEvent" alias AdverseEventR5 as target
 
-imports "http://hl7.org/fhir/StructureMap/*4Bto5
+imports "http://hl7.org/fhir/StructureMap/*4Bto5"
 
 group AdverseEvent(source src : AdverseEventR4B, target tgt : AdverseEventR5) extends DomainResource <<type+>> {
   src.identifier -> tgt.identifier;
@@ -36,39 +36,39 @@ group AdverseEvent(source src : AdverseEventR4B, target tgt : AdverseEventR5) ex
   src.note -> tgt.note;
 }
 
-group AdverseEventParticipant(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group AdverseEventParticipant(source src, target tgt) extends BackboneElement {
   src.function -> tgt.function;
   src.actor -> tgt.actor;
 }
 
-group AdverseEventSuspectEntity(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group AdverseEventSuspectEntity(source src, target tgt) extends BackboneElement {
   src.instance : CodeableConcept -> tgt.instance;
   src.instance : Reference -> tgt.instance;
   src.causality as s -> tgt.causality as t then AdverseEventSuspectEntityCausality(s,t);
 }
 
-group AdverseEventSuspectEntityCausality(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group AdverseEventSuspectEntityCausality(source src, target tgt) extends BackboneElement {
   src.assessmentMethod -> tgt.assessmentMethod;
   src.entityRelatedness -> tgt.entityRelatedness;
   src.author -> tgt.author;
 }
 
-group AdverseEventContributingFactor(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group AdverseEventContributingFactor(source src, target tgt) extends BackboneElement {
   src.item : Reference -> tgt.item;
   src.item : CodeableConcept -> tgt.item;
 }
 
-group AdverseEventPreventiveAction(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group AdverseEventPreventiveAction(source src, target tgt) extends BackboneElement {
   src.item : Reference -> tgt.item;
   src.item : CodeableConcept -> tgt.item;
 }
 
-group AdverseEventMitigatingAction(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group AdverseEventMitigatingAction(source src, target tgt) extends BackboneElement {
   src.item : Reference -> tgt.item;
   src.item : CodeableConcept -> tgt.item;
 }
 
-group AdverseEventSupportingInfo(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group AdverseEventSupportingInfo(source src, target tgt) extends BackboneElement {
   src.item : Reference -> tgt.item;
   src.item : CodeableConcept -> tgt.item;
 }

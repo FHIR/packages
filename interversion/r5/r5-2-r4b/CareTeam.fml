@@ -3,9 +3,9 @@
 /// title = 'FML Conversion for CareTeam: R5 to R4B'
 
 uses "http://hl7.org/fhir/StructureDefinition/CareTeam" alias CareTeamR5 as source
-uses "http://hl7.org/fhir/4.3/StructureDefinition/CareTeam" alias AccountR4B as target
+uses "http://hl7.org/fhir/4.3/StructureDefinition/CareTeam" alias CareTeamR4B as target
 
-imports "http://hl7.org/fhir/StructureMap/*5to4B
+imports "http://hl7.org/fhir/StructureMap/*5to4B"
 
 group CareTeam(source src : CareTeamR5, target tgt : CareTeamR4B) extends DomainResource <<type+>> {
   src.identifier -> tgt.identifier;
@@ -21,7 +21,7 @@ group CareTeam(source src : CareTeamR5, target tgt : CareTeamR4B) extends Domain
   src.note -> tgt.note;
 }
 
-group CareTeamParticipant(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group CareTeamParticipant(source src, target tgt) extends BackboneElement {
   src.role -> tgt.role;
   src.member -> tgt.member;
   src.onBehalfOf -> tgt.onBehalfOf;

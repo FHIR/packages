@@ -3,9 +3,9 @@
 /// title = 'FML Conversion for Substance: R5 to R4B'
 
 uses "http://hl7.org/fhir/StructureDefinition/Substance" alias SubstanceR5 as source
-uses "http://hl7.org/fhir/4.3/StructureDefinition/Substance" alias AccountR4B as target
+uses "http://hl7.org/fhir/4.3/StructureDefinition/Substance" alias SubstanceR4B as target
 
-imports "http://hl7.org/fhir/StructureMap/*5to4B
+imports "http://hl7.org/fhir/StructureMap/*5to4B"
 
 group Substance(source src : SubstanceR5, target tgt : SubstanceR4B) extends DomainResource <<type+>> {
   src.identifier -> tgt.identifier;
@@ -19,7 +19,7 @@ group Substance(source src : SubstanceR5, target tgt : SubstanceR4B) extends Dom
   src.ingredient as s -> tgt.ingredient as t then SubstanceIngredient(s,t);
 }
 
-group SubstanceIngredient(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group SubstanceIngredient(source src, target tgt) extends BackboneElement {
   src.quantity -> tgt.quantity;
   src.substance : CodeableConcept -> tgt.substance;
   src.substance : Reference -> tgt.substance;

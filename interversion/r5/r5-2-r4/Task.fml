@@ -3,9 +3,9 @@
 /// title = 'FML Conversion for Task: R5 to R4'
 
 uses "http://hl7.org/fhir/StructureDefinition/Task" alias TaskR5 as source
-uses "http://hl7.org/fhir/4.0/StructureDefinition/Task" alias AccountR4 as target
+uses "http://hl7.org/fhir/4.0/StructureDefinition/Task" alias TaskR4 as target
 
-imports "http://hl7.org/fhir/StructureMap/*5to4
+imports "http://hl7.org/fhir/StructureMap/*5to4"
 
 group Task(source src : TaskR5, target tgt : TaskR4) extends DomainResource <<type+>> {
   src.identifier -> tgt.identifier;
@@ -42,18 +42,18 @@ group Task(source src : TaskR5, target tgt : TaskR4) extends DomainResource <<ty
   src.output as s -> tgt.output as t then TaskOutput(s,t);
 }
 
-group TaskPerformer(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group TaskPerformer(source src, target tgt) extends BackboneElement {
   src.function -> tgt.function;
   src.actor -> tgt.actor;
 }
 
-group TaskRestriction(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group TaskRestriction(source src, target tgt) extends BackboneElement {
   src.repetitions -> tgt.repetitions;
   src.period -> tgt.period;
   src.recipient -> tgt.recipient;
 }
 
-group TaskInput(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group TaskInput(source src, target tgt) extends BackboneElement {
   src.type -> tgt.type;
   src.value : base64Binary -> tgt.value;
   src.value : boolean -> tgt.value;
@@ -111,7 +111,7 @@ group TaskInput(source src : null, target tgt : null) extends DomainResource <<t
   src.value : Meta -> tgt.value;
 }
 
-group TaskOutput(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group TaskOutput(source src, target tgt) extends BackboneElement {
   src.type -> tgt.type;
   src.value : base64Binary -> tgt.value;
   src.value : boolean -> tgt.value;

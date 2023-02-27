@@ -3,9 +3,9 @@
 /// title = 'FML Conversion for CapabilityStatement: R4 to R5'
 
 uses "http://hl7.org/fhir/4.0/StructureDefinition/CapabilityStatement" alias CapabilityStatementR4 as source
-uses "http://hl7.org/fhir/StructureDefinition/CapabilityStatement" alias AccountR5 as target
+uses "http://hl7.org/fhir/StructureDefinition/CapabilityStatement" alias CapabilityStatementR5 as target
 
-imports "http://hl7.org/fhir/StructureMap/*4to5
+imports "http://hl7.org/fhir/StructureMap/*4to5"
 
 group CapabilityStatement(source src : CapabilityStatementR4, target tgt : CapabilityStatementR5) extends DomainResource <<type+>> {
   src.url -> tgt.url;
@@ -40,19 +40,19 @@ group CapabilityStatement(source src : CapabilityStatementR4, target tgt : Capab
   src.document as s -> tgt.document as t then CapabilityStatementDocument(s,t);
 }
 
-group CapabilityStatementSoftware(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group CapabilityStatementSoftware(source src, target tgt) extends BackboneElement {
   src.name -> tgt.name;
   src.version -> tgt.version;
   src.releaseDate -> tgt.releaseDate;
 }
 
-group CapabilityStatementImplementation(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group CapabilityStatementImplementation(source src, target tgt) extends BackboneElement {
   src.description -> tgt.description;
   src.url -> tgt.url;
   src.custodian -> tgt.custodian;
 }
 
-group CapabilityStatementRest(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group CapabilityStatementRest(source src, target tgt) extends BackboneElement {
   src.mode -> tgt.mode;
   src.documentation -> tgt.documentation;
   src.security as s -> tgt.security as t then CapabilityStatementRestSecurity(s,t);
@@ -61,13 +61,13 @@ group CapabilityStatementRest(source src : null, target tgt : null) extends Doma
   src.compartment -> tgt.compartment;
 }
 
-group CapabilityStatementRestSecurity(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group CapabilityStatementRestSecurity(source src, target tgt) extends BackboneElement {
   src.cors -> tgt.cors;
   src.service -> tgt.service;
   src.description -> tgt.description;
 }
 
-group CapabilityStatementRestResource(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group CapabilityStatementRestResource(source src, target tgt) extends BackboneElement {
   src.type -> tgt.type;
   src.profile -> tgt.profile;
   src.supportedProfile -> tgt.supportedProfile;
@@ -88,47 +88,47 @@ group CapabilityStatementRestResource(source src : null, target tgt : null) exte
   src.operation as s -> tgt.operation as t then CapabilityStatementRestResourceOperation(s,t);
 }
 
-group CapabilityStatementRestResourceInteraction(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group CapabilityStatementRestResourceInteraction(source src, target tgt) extends BackboneElement {
   src.code -> tgt.code;
   src.documentation -> tgt.documentation;
 }
 
-group CapabilityStatementRestResourceSearchParam(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group CapabilityStatementRestResourceSearchParam(source src, target tgt) extends BackboneElement {
   src.name -> tgt.name;
   src.definition -> tgt.definition;
   src.type -> tgt.type;
   src.documentation -> tgt.documentation;
 }
 
-group CapabilityStatementRestResourceOperation(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group CapabilityStatementRestResourceOperation(source src, target tgt) extends BackboneElement {
   src.name -> tgt.name;
   src.definition -> tgt.definition;
   src.documentation -> tgt.documentation;
 }
 
-group CapabilityStatementRestInteraction(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group CapabilityStatementRestInteraction(source src, target tgt) extends BackboneElement {
   src.code -> tgt.code;
   src.documentation -> tgt.documentation;
 }
 
-group CapabilityStatementMessaging(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group CapabilityStatementMessaging(source src, target tgt) extends BackboneElement {
   src.endpoint as s -> tgt.endpoint as t then CapabilityStatementMessagingEndpoint(s,t);
   src.reliableCache -> tgt.reliableCache;
   src.documentation -> tgt.documentation;
   src.supportedMessage as s -> tgt.supportedMessage as t then CapabilityStatementMessagingSupportedMessage(s,t);
 }
 
-group CapabilityStatementMessagingEndpoint(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group CapabilityStatementMessagingEndpoint(source src, target tgt) extends BackboneElement {
   src.protocol -> tgt.protocol;
   src.address -> tgt.address;
 }
 
-group CapabilityStatementMessagingSupportedMessage(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group CapabilityStatementMessagingSupportedMessage(source src, target tgt) extends BackboneElement {
   src.mode -> tgt.mode;
   src.definition -> tgt.definition;
 }
 
-group CapabilityStatementDocument(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group CapabilityStatementDocument(source src, target tgt) extends BackboneElement {
   src.mode -> tgt.mode;
   src.documentation -> tgt.documentation;
   src.profile -> tgt.profile;

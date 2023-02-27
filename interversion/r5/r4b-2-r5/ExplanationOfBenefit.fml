@@ -3,9 +3,9 @@
 /// title = 'FML Conversion for ExplanationOfBenefit: R4B to R5'
 
 uses "http://hl7.org/fhir/4.3/StructureDefinition/ExplanationOfBenefit" alias ExplanationOfBenefitR4B as source
-uses "http://hl7.org/fhir/StructureDefinition/ExplanationOfBenefit" alias AccountR5 as target
+uses "http://hl7.org/fhir/StructureDefinition/ExplanationOfBenefit" alias ExplanationOfBenefitR5 as target
 
-imports "http://hl7.org/fhir/StructureMap/*4Bto5
+imports "http://hl7.org/fhir/StructureMap/*4Bto5"
 
 group ExplanationOfBenefit(source src : ExplanationOfBenefitR4B, target tgt : ExplanationOfBenefitR5) extends DomainResource <<type+>> {
   src.identifier -> tgt.identifier;
@@ -58,24 +58,24 @@ group ExplanationOfBenefit(source src : ExplanationOfBenefitR4B, target tgt : Ex
   src.benefitBalance as s -> tgt.benefitBalance as t then ExplanationOfBenefitBenefitBalance(s,t);
 }
 
-group ExplanationOfBenefitRelated(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group ExplanationOfBenefitRelated(source src, target tgt) extends BackboneElement {
   src.claim -> tgt.claim;
   src.relationship -> tgt.relationship;
   src.reference -> tgt.reference;
 }
 
-group ExplanationOfBenefitEvent(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group ExplanationOfBenefitEvent(source src, target tgt) extends BackboneElement {
   src.type -> tgt.type;
   src.when : dateTime -> tgt.when;
   src.when : Period -> tgt.when;
 }
 
-group ExplanationOfBenefitPayee(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group ExplanationOfBenefitPayee(source src, target tgt) extends BackboneElement {
   src.type -> tgt.type;
   src.party -> tgt.party;
 }
 
-group ExplanationOfBenefitCareTeam(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group ExplanationOfBenefitCareTeam(source src, target tgt) extends BackboneElement {
   src.sequence -> tgt.sequence;
   src.provider -> tgt.provider;
   src.responsible -> tgt.responsible;
@@ -83,7 +83,7 @@ group ExplanationOfBenefitCareTeam(source src : null, target tgt : null) extends
   src.specialty -> tgt.specialty;
 }
 
-group ExplanationOfBenefitSupportingInfo(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group ExplanationOfBenefitSupportingInfo(source src, target tgt) extends BackboneElement {
   src.sequence -> tgt.sequence;
   src.category -> tgt.category;
   src.code -> tgt.code;
@@ -98,7 +98,7 @@ group ExplanationOfBenefitSupportingInfo(source src : null, target tgt : null) e
   src.reason -> tgt.reason;
 }
 
-group ExplanationOfBenefitDiagnosis(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group ExplanationOfBenefitDiagnosis(source src, target tgt) extends BackboneElement {
   src.sequence -> tgt.sequence;
   src.diagnosis : CodeableConcept -> tgt.diagnosis;
   src.diagnosis : Reference -> tgt.diagnosis;
@@ -106,7 +106,7 @@ group ExplanationOfBenefitDiagnosis(source src : null, target tgt : null) extend
   src.onAdmission -> tgt.onAdmission;
 }
 
-group ExplanationOfBenefitProcedure(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group ExplanationOfBenefitProcedure(source src, target tgt) extends BackboneElement {
   src.sequence -> tgt.sequence;
   src.type -> tgt.type;
   src.date -> tgt.date;
@@ -115,20 +115,20 @@ group ExplanationOfBenefitProcedure(source src : null, target tgt : null) extend
   src.udi -> tgt.udi;
 }
 
-group ExplanationOfBenefitInsurance(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group ExplanationOfBenefitInsurance(source src, target tgt) extends BackboneElement {
   src.focal -> tgt.focal;
   src.coverage -> tgt.coverage;
   src.preAuthRef -> tgt.preAuthRef;
 }
 
-group ExplanationOfBenefitAccident(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group ExplanationOfBenefitAccident(source src, target tgt) extends BackboneElement {
   src.date -> tgt.date;
   src.type -> tgt.type;
   src.location : Address -> tgt.location;
   src.location : Reference -> tgt.location;
 }
 
-group ExplanationOfBenefitItem(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group ExplanationOfBenefitItem(source src, target tgt) extends BackboneElement {
   src.sequence -> tgt.sequence;
   src.careTeamSequence -> tgt.careTeamSequence;
   src.diagnosisSequence -> tgt.diagnosisSequence;
@@ -161,26 +161,26 @@ group ExplanationOfBenefitItem(source src : null, target tgt : null) extends Dom
   src.detail as s -> tgt.detail as t then ExplanationOfBenefitItemDetail(s,t);
 }
 
-group ExplanationOfBenefitItemBodySite(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group ExplanationOfBenefitItemBodySite(source src, target tgt) extends BackboneElement {
   src.site -> tgt.site;
   src.subSite -> tgt.subSite;
 }
 
-group ExplanationOfBenefitItemReviewOutcome(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group ExplanationOfBenefitItemReviewOutcome(source src, target tgt) extends BackboneElement {
   src.decision -> tgt.decision;
   src.reason -> tgt.reason;
   src.preAuthRef -> tgt.preAuthRef;
   src.preAuthPeriod -> tgt.preAuthPeriod;
 }
 
-group ExplanationOfBenefitItemAdjudication(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group ExplanationOfBenefitItemAdjudication(source src, target tgt) extends BackboneElement {
   src.category -> tgt.category;
   src.reason -> tgt.reason;
   src.amount -> tgt.amount;
   src.value -> tgt.value;
 }
 
-group ExplanationOfBenefitItemDetail(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group ExplanationOfBenefitItemDetail(source src, target tgt) extends BackboneElement {
   src.sequence -> tgt.sequence;
   src.traceNumber -> tgt.traceNumber;
   src.revenue -> tgt.revenue;
@@ -200,7 +200,7 @@ group ExplanationOfBenefitItemDetail(source src : null, target tgt : null) exten
   src.subDetail as s -> tgt.subDetail as t then ExplanationOfBenefitItemDetailSubDetail(s,t);
 }
 
-group ExplanationOfBenefitItemDetailSubDetail(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group ExplanationOfBenefitItemDetailSubDetail(source src, target tgt) extends BackboneElement {
   src.sequence -> tgt.sequence;
   src.traceNumber -> tgt.traceNumber;
   src.revenue -> tgt.revenue;
@@ -219,7 +219,7 @@ group ExplanationOfBenefitItemDetailSubDetail(source src : null, target tgt : nu
   src.noteNumber -> tgt.noteNumber;
 }
 
-group ExplanationOfBenefitAddItem(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group ExplanationOfBenefitAddItem(source src, target tgt) extends BackboneElement {
   src.itemSequence -> tgt.itemSequence;
   src.detailSequence -> tgt.detailSequence;
   src.subDetailSequence -> tgt.subDetailSequence;
@@ -246,12 +246,12 @@ group ExplanationOfBenefitAddItem(source src : null, target tgt : null) extends 
   src.detail as s -> tgt.detail as t then ExplanationOfBenefitAddItemDetail(s,t);
 }
 
-group ExplanationOfBenefitAddItemBodySite(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group ExplanationOfBenefitAddItemBodySite(source src, target tgt) extends BackboneElement {
   src.site -> tgt.site;
   src.subSite -> tgt.subSite;
 }
 
-group ExplanationOfBenefitAddItemDetail(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group ExplanationOfBenefitAddItemDetail(source src, target tgt) extends BackboneElement {
   src.traceNumber -> tgt.traceNumber;
   src.revenue -> tgt.revenue;
   src.productOrService -> tgt.productOrService;
@@ -267,7 +267,7 @@ group ExplanationOfBenefitAddItemDetail(source src : null, target tgt : null) ex
   src.subDetail as s -> tgt.subDetail as t then ExplanationOfBenefitAddItemDetailSubDetail(s,t);
 }
 
-group ExplanationOfBenefitAddItemDetailSubDetail(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group ExplanationOfBenefitAddItemDetailSubDetail(source src, target tgt) extends BackboneElement {
   src.traceNumber -> tgt.traceNumber;
   src.revenue -> tgt.revenue;
   src.productOrService -> tgt.productOrService;
@@ -282,12 +282,12 @@ group ExplanationOfBenefitAddItemDetailSubDetail(source src : null, target tgt :
   src.noteNumber -> tgt.noteNumber;
 }
 
-group ExplanationOfBenefitTotal(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group ExplanationOfBenefitTotal(source src, target tgt) extends BackboneElement {
   src.category -> tgt.category;
   src.amount -> tgt.amount;
 }
 
-group ExplanationOfBenefitPayment(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group ExplanationOfBenefitPayment(source src, target tgt) extends BackboneElement {
   src.type -> tgt.type;
   src.adjustment -> tgt.adjustment;
   src.adjustmentReason -> tgt.adjustmentReason;
@@ -296,14 +296,14 @@ group ExplanationOfBenefitPayment(source src : null, target tgt : null) extends 
   src.identifier -> tgt.identifier;
 }
 
-group ExplanationOfBenefitProcessNote(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group ExplanationOfBenefitProcessNote(source src, target tgt) extends BackboneElement {
   src.number -> tgt.number;
   src.type -> tgt.type;
   src.text -> tgt.text;
   src.language -> tgt.language;
 }
 
-group ExplanationOfBenefitBenefitBalance(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group ExplanationOfBenefitBenefitBalance(source src, target tgt) extends BackboneElement {
   src.category -> tgt.category;
   src.excluded -> tgt.excluded;
   src.name -> tgt.name;
@@ -314,7 +314,7 @@ group ExplanationOfBenefitBenefitBalance(source src : null, target tgt : null) e
   src.financial as s -> tgt.financial as t then ExplanationOfBenefitBenefitBalanceFinancial(s,t);
 }
 
-group ExplanationOfBenefitBenefitBalanceFinancial(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group ExplanationOfBenefitBenefitBalanceFinancial(source src, target tgt) extends BackboneElement {
   src.type -> tgt.type;
   src.allowed : unsignedInt -> tgt.allowed;
   src.allowed : string -> tgt.allowed;

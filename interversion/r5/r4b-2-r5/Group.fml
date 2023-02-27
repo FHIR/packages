@@ -3,9 +3,9 @@
 /// title = 'FML Conversion for Group: R4B to R5'
 
 uses "http://hl7.org/fhir/4.3/StructureDefinition/Group" alias GroupR4B as source
-uses "http://hl7.org/fhir/StructureDefinition/Group" alias AccountR5 as target
+uses "http://hl7.org/fhir/StructureDefinition/Group" alias GroupR5 as target
 
-imports "http://hl7.org/fhir/StructureMap/*4Bto5
+imports "http://hl7.org/fhir/StructureMap/*4Bto5"
 
 group Group(source src : GroupR4B, target tgt : GroupR5) extends DomainResource <<type+>> {
   src.identifier -> tgt.identifier;
@@ -21,7 +21,7 @@ group Group(source src : GroupR4B, target tgt : GroupR5) extends DomainResource 
   src.member as s -> tgt.member as t then GroupMember(s,t);
 }
 
-group GroupCharacteristic(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group GroupCharacteristic(source src, target tgt) extends BackboneElement {
   src.code -> tgt.code;
   src.value : CodeableConcept -> tgt.value;
   src.value : boolean -> tgt.value;
@@ -32,7 +32,7 @@ group GroupCharacteristic(source src : null, target tgt : null) extends DomainRe
   src.period -> tgt.period;
 }
 
-group GroupMember(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group GroupMember(source src, target tgt) extends BackboneElement {
   src.entity -> tgt.entity;
   src.period -> tgt.period;
   src.inactive -> tgt.inactive;

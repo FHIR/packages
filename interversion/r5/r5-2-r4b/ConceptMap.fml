@@ -3,9 +3,9 @@
 /// title = 'FML Conversion for ConceptMap: R5 to R4B'
 
 uses "http://hl7.org/fhir/StructureDefinition/ConceptMap" alias ConceptMapR5 as source
-uses "http://hl7.org/fhir/4.3/StructureDefinition/ConceptMap" alias AccountR4B as target
+uses "http://hl7.org/fhir/4.3/StructureDefinition/ConceptMap" alias ConceptMapR4B as target
 
-imports "http://hl7.org/fhir/StructureMap/*5to4B
+imports "http://hl7.org/fhir/StructureMap/*5to4B"
 
 group ConceptMap(source src : ConceptMapR5, target tgt : ConceptMapR4B) extends DomainResource <<type+>> {
   src.url -> tgt.url;
@@ -43,21 +43,21 @@ group ConceptMap(source src : ConceptMapR5, target tgt : ConceptMapR4B) extends 
   src.group as s -> tgt.group as t then ConceptMapGroup(s,t);
 }
 
-group ConceptMapProperty(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group ConceptMapProperty(source src, target tgt) extends BackboneElement {
   src.code -> tgt.code;
   src.uri -> tgt.uri;
   src.description -> tgt.description;
   src.type -> tgt.type;
 }
 
-group ConceptMapGroup(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group ConceptMapGroup(source src, target tgt) extends BackboneElement {
   src.source -> tgt.source;
   src.target -> tgt.target;
   src.element as s -> tgt.element as t then ConceptMapGroupElement(s,t);
   src.unmapped as s -> tgt.unmapped as t then ConceptMapGroupUnmapped(s,t);
 }
 
-group ConceptMapGroupElement(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group ConceptMapGroupElement(source src, target tgt) extends BackboneElement {
   src.code -> tgt.code;
   src.display -> tgt.display;
   src.valueSet -> tgt.valueSet;
@@ -65,7 +65,7 @@ group ConceptMapGroupElement(source src : null, target tgt : null) extends Domai
   src.target as s -> tgt.target as t then ConceptMapGroupElementTarget(s,t);
 }
 
-group ConceptMapGroupElementTarget(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group ConceptMapGroupElementTarget(source src, target tgt) extends BackboneElement {
   src.code -> tgt.code;
   src.display -> tgt.display;
   src.valueSet -> tgt.valueSet;
@@ -74,7 +74,7 @@ group ConceptMapGroupElementTarget(source src : null, target tgt : null) extends
   src.dependsOn as s -> tgt.dependsOn as t then ConceptMapGroupElementTargetDependsOn(s,t);
 }
 
-group ConceptMapGroupElementTargetDependsOn(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group ConceptMapGroupElementTargetDependsOn(source src, target tgt) extends BackboneElement {
   src.property -> tgt.property;
   src.value : code -> tgt.value;
   src.value : Coding -> tgt.value;
@@ -84,7 +84,7 @@ group ConceptMapGroupElementTargetDependsOn(source src : null, target tgt : null
   src.valueSet -> tgt.valueSet;
 }
 
-group ConceptMapGroupUnmapped(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group ConceptMapGroupUnmapped(source src, target tgt) extends BackboneElement {
   src.mode -> tgt.mode;
   src.code -> tgt.code;
   src.display -> tgt.display;

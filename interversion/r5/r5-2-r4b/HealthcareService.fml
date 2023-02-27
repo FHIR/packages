@@ -3,9 +3,9 @@
 /// title = 'FML Conversion for HealthcareService: R5 to R4B'
 
 uses "http://hl7.org/fhir/StructureDefinition/HealthcareService" alias HealthcareServiceR5 as source
-uses "http://hl7.org/fhir/4.3/StructureDefinition/HealthcareService" alias AccountR4B as target
+uses "http://hl7.org/fhir/4.3/StructureDefinition/HealthcareService" alias HealthcareServiceR4B as target
 
-imports "http://hl7.org/fhir/StructureMap/*5to4B
+imports "http://hl7.org/fhir/StructureMap/*5to4B"
 
 group HealthcareService(source src : HealthcareServiceR5, target tgt : HealthcareServiceR4B) extends DomainResource <<type+>> {
   src.identifier -> tgt.identifier;
@@ -33,7 +33,7 @@ group HealthcareService(source src : HealthcareServiceR5, target tgt : Healthcar
   src.endpoint -> tgt.endpoint;
 }
 
-group HealthcareServiceEligibility(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group HealthcareServiceEligibility(source src, target tgt) extends BackboneElement {
   src.code -> tgt.code;
   src.comment -> tgt.comment;
 }

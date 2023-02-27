@@ -3,9 +3,9 @@
 /// title = 'FML Conversion for PractitionerRole: R5 to R4B'
 
 uses "http://hl7.org/fhir/StructureDefinition/PractitionerRole" alias PractitionerRoleR5 as source
-uses "http://hl7.org/fhir/4.3/StructureDefinition/PractitionerRole" alias AccountR4B as target
+uses "http://hl7.org/fhir/4.3/StructureDefinition/PractitionerRole" alias PractitionerRoleR4B as target
 
-imports "http://hl7.org/fhir/StructureMap/*5to4B
+imports "http://hl7.org/fhir/StructureMap/*5to4B"
 
 group PractitionerRole(source src : PractitionerRoleR5, target tgt : PractitionerRoleR4B) extends DomainResource <<type+>> {
   src.identifier -> tgt.identifier;

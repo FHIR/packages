@@ -3,9 +3,9 @@
 /// title = 'FML Conversion for TestScript: R4B to R5'
 
 uses "http://hl7.org/fhir/4.3/StructureDefinition/TestScript" alias TestScriptR4B as source
-uses "http://hl7.org/fhir/StructureDefinition/TestScript" alias AccountR5 as target
+uses "http://hl7.org/fhir/StructureDefinition/TestScript" alias TestScriptR5 as target
 
-imports "http://hl7.org/fhir/StructureMap/*4Bto5
+imports "http://hl7.org/fhir/StructureMap/*4Bto5"
 
 group TestScript(source src : TestScriptR4B, target tgt : TestScriptR5) extends DomainResource <<type+>> {
   src.url -> tgt.url;
@@ -38,29 +38,29 @@ group TestScript(source src : TestScriptR4B, target tgt : TestScriptR5) extends 
   src.teardown as s -> tgt.teardown as t then TestScriptTeardown(s,t);
 }
 
-group TestScriptOrigin(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group TestScriptOrigin(source src, target tgt) extends BackboneElement {
   src.index -> tgt.index;
   src.profile -> tgt.profile;
   src.url -> tgt.url;
 }
 
-group TestScriptDestination(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group TestScriptDestination(source src, target tgt) extends BackboneElement {
   src.index -> tgt.index;
   src.profile -> tgt.profile;
   src.url -> tgt.url;
 }
 
-group TestScriptMetadata(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group TestScriptMetadata(source src, target tgt) extends BackboneElement {
   src.link as s -> tgt.link as t then TestScriptMetadataLink(s,t);
   src.capability as s -> tgt.capability as t then TestScriptMetadataCapability(s,t);
 }
 
-group TestScriptMetadataLink(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group TestScriptMetadataLink(source src, target tgt) extends BackboneElement {
   src.url -> tgt.url;
   src.description -> tgt.description;
 }
 
-group TestScriptMetadataCapability(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group TestScriptMetadataCapability(source src, target tgt) extends BackboneElement {
   src.required -> tgt.required;
   src.validated -> tgt.validated;
   src.description -> tgt.description;
@@ -70,19 +70,19 @@ group TestScriptMetadataCapability(source src : null, target tgt : null) extends
   src.capabilities -> tgt.capabilities;
 }
 
-group TestScriptScope(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group TestScriptScope(source src, target tgt) extends BackboneElement {
   src.artifact -> tgt.artifact;
   src.conformance -> tgt.conformance;
   src.phase -> tgt.phase;
 }
 
-group TestScriptFixture(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group TestScriptFixture(source src, target tgt) extends BackboneElement {
   src.autocreate -> tgt.autocreate;
   src.autodelete -> tgt.autodelete;
   src.resource -> tgt.resource;
 }
 
-group TestScriptVariable(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group TestScriptVariable(source src, target tgt) extends BackboneElement {
   src.name -> tgt.name;
   src.defaultValue -> tgt.defaultValue;
   src.description -> tgt.description;
@@ -93,16 +93,16 @@ group TestScriptVariable(source src : null, target tgt : null) extends DomainRes
   src.sourceId -> tgt.sourceId;
 }
 
-group TestScriptSetup(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group TestScriptSetup(source src, target tgt) extends BackboneElement {
   src.action as s -> tgt.action as t then TestScriptSetupAction(s,t);
 }
 
-group TestScriptSetupAction(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group TestScriptSetupAction(source src, target tgt) extends BackboneElement {
   src.operation as s -> tgt.operation as t then TestScriptSetupActionOperation(s,t);
   src.assert as s -> tgt.assert as t then TestScriptSetupActionAssert(s,t);
 }
 
-group TestScriptSetupActionOperation(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group TestScriptSetupActionOperation(source src, target tgt) extends BackboneElement {
   src.type -> tgt.type;
   src.resource -> tgt.resource;
   src.label -> tgt.label;
@@ -122,12 +122,12 @@ group TestScriptSetupActionOperation(source src : null, target tgt : null) exten
   src.url -> tgt.url;
 }
 
-group TestScriptSetupActionOperationRequestHeader(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group TestScriptSetupActionOperationRequestHeader(source src, target tgt) extends BackboneElement {
   src.field -> tgt.field;
   src.value -> tgt.value;
 }
 
-group TestScriptSetupActionAssert(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group TestScriptSetupActionAssert(source src, target tgt) extends BackboneElement {
   src.label -> tgt.label;
   src.description -> tgt.description;
   src.direction -> tgt.direction;
@@ -155,24 +155,24 @@ group TestScriptSetupActionAssert(source src : null, target tgt : null) extends 
   src.requirement as s -> tgt.requirement as t then TestScriptSetupActionAssertRequirement(s,t);
 }
 
-group TestScriptSetupActionAssertRequirement(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group TestScriptSetupActionAssertRequirement(source src, target tgt) extends BackboneElement {
   src.link : uri -> tgt.link;
   src.link : canonical -> tgt.link;
 }
 
-group TestScriptTest(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group TestScriptTest(source src, target tgt) extends BackboneElement {
   src.name -> tgt.name;
   src.description -> tgt.description;
   src.action as s -> tgt.action as t then TestScriptTestAction(s,t);
 }
 
-group TestScriptTestAction(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group TestScriptTestAction(source src, target tgt) extends BackboneElement {
 }
 
-group TestScriptTeardown(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group TestScriptTeardown(source src, target tgt) extends BackboneElement {
   src.action as s -> tgt.action as t then TestScriptTeardownAction(s,t);
 }
 
-group TestScriptTeardownAction(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group TestScriptTeardownAction(source src, target tgt) extends BackboneElement {
 }
 

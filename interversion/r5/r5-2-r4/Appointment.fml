@@ -3,9 +3,9 @@
 /// title = 'FML Conversion for Appointment: R5 to R4'
 
 uses "http://hl7.org/fhir/StructureDefinition/Appointment" alias AppointmentR5 as source
-uses "http://hl7.org/fhir/4.0/StructureDefinition/Appointment" alias AccountR4 as target
+uses "http://hl7.org/fhir/4.0/StructureDefinition/Appointment" alias AppointmentR4 as target
 
-imports "http://hl7.org/fhir/StructureMap/*5to4
+imports "http://hl7.org/fhir/StructureMap/*5to4"
 
 group Appointment(source src : AppointmentR5, target tgt : AppointmentR4) extends DomainResource <<type+>> {
   src.identifier -> tgt.identifier;
@@ -42,7 +42,7 @@ group Appointment(source src : AppointmentR5, target tgt : AppointmentR4) extend
   src.recurrenceTemplate as s -> tgt.recurrenceTemplate as t then AppointmentRecurrenceTemplate(s,t);
 }
 
-group AppointmentParticipant(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group AppointmentParticipant(source src, target tgt) extends BackboneElement {
   src.type -> tgt.type;
   src.period -> tgt.period;
   src.actor -> tgt.actor;
@@ -50,7 +50,7 @@ group AppointmentParticipant(source src : null, target tgt : null) extends Domai
   src.status -> tgt.status;
 }
 
-group AppointmentRecurrenceTemplate(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group AppointmentRecurrenceTemplate(source src, target tgt) extends BackboneElement {
   src.timezone -> tgt.timezone;
   src.recurrenceType -> tgt.recurrenceType;
   src.lastOccurrenceDate -> tgt.lastOccurrenceDate;
@@ -63,7 +63,7 @@ group AppointmentRecurrenceTemplate(source src : null, target tgt : null) extend
   src.excludingRecurrenceId -> tgt.excludingRecurrenceId;
 }
 
-group AppointmentRecurrenceTemplateWeeklyTemplate(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group AppointmentRecurrenceTemplateWeeklyTemplate(source src, target tgt) extends BackboneElement {
   src.monday -> tgt.monday;
   src.tuesday -> tgt.tuesday;
   src.wednesday -> tgt.wednesday;
@@ -74,14 +74,14 @@ group AppointmentRecurrenceTemplateWeeklyTemplate(source src : null, target tgt 
   src.weekInterval -> tgt.weekInterval;
 }
 
-group AppointmentRecurrenceTemplateMonthlyTemplate(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group AppointmentRecurrenceTemplateMonthlyTemplate(source src, target tgt) extends BackboneElement {
   src.dayOfMonth -> tgt.dayOfMonth;
   src.nthWeekOfMonth -> tgt.nthWeekOfMonth;
   src.dayOfWeek -> tgt.dayOfWeek;
   src.monthInterval -> tgt.monthInterval;
 }
 
-group AppointmentRecurrenceTemplateYearlyTemplate(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group AppointmentRecurrenceTemplateYearlyTemplate(source src, target tgt) extends BackboneElement {
   src.yearInterval -> tgt.yearInterval;
 }
 

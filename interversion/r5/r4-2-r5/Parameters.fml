@@ -3,15 +3,15 @@
 /// title = 'FML Conversion for Parameters: R4 to R5'
 
 uses "http://hl7.org/fhir/4.0/StructureDefinition/Parameters" alias ParametersR4 as source
-uses "http://hl7.org/fhir/StructureDefinition/Parameters" alias AccountR5 as target
+uses "http://hl7.org/fhir/StructureDefinition/Parameters" alias ParametersR5 as target
 
-imports "http://hl7.org/fhir/StructureMap/*4to5
+imports "http://hl7.org/fhir/StructureMap/*4to5"
 
 group Parameters(source src : ParametersR4, target tgt : ParametersR5) extends Resource <<type+>> {
   src.parameter as s -> tgt.parameter as t then ParametersParameter(s,t);
 }
 
-group ParametersParameter(source src : null, target tgt : null) extends Resource <<type+>> {
+group ParametersParameter(source src, target tgt) extends BackboneElement {
   src.name -> tgt.name;
   src.value : base64Binary -> tgt.value;
   src.value : boolean -> tgt.value;

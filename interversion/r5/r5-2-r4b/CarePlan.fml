@@ -3,9 +3,9 @@
 /// title = 'FML Conversion for CarePlan: R5 to R4B'
 
 uses "http://hl7.org/fhir/StructureDefinition/CarePlan" alias CarePlanR5 as source
-uses "http://hl7.org/fhir/4.3/StructureDefinition/CarePlan" alias AccountR4B as target
+uses "http://hl7.org/fhir/4.3/StructureDefinition/CarePlan" alias CarePlanR4B as target
 
-imports "http://hl7.org/fhir/StructureMap/*5to4B
+imports "http://hl7.org/fhir/StructureMap/*5to4B"
 
 group CarePlan(source src : CarePlanR5, target tgt : CarePlanR4B) extends DomainResource <<type+>> {
   src.identifier -> tgt.identifier;
@@ -33,7 +33,7 @@ group CarePlan(source src : CarePlanR5, target tgt : CarePlanR4B) extends Domain
   src.note -> tgt.note;
 }
 
-group CarePlanActivity(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group CarePlanActivity(source src, target tgt) extends BackboneElement {
   src.performedActivity -> tgt.performedActivity;
   src.progress -> tgt.progress;
   src.plannedActivityReference -> tgt.plannedActivityReference;

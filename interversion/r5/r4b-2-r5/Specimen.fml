@@ -3,9 +3,9 @@
 /// title = 'FML Conversion for Specimen: R4B to R5'
 
 uses "http://hl7.org/fhir/4.3/StructureDefinition/Specimen" alias SpecimenR4B as source
-uses "http://hl7.org/fhir/StructureDefinition/Specimen" alias AccountR5 as target
+uses "http://hl7.org/fhir/StructureDefinition/Specimen" alias SpecimenR5 as target
 
-imports "http://hl7.org/fhir/StructureMap/*4Bto5
+imports "http://hl7.org/fhir/StructureMap/*4Bto5"
 
 group Specimen(source src : SpecimenR4B, target tgt : SpecimenR5) extends DomainResource <<type+>> {
   src.identifier -> tgt.identifier;
@@ -26,12 +26,12 @@ group Specimen(source src : SpecimenR4B, target tgt : SpecimenR5) extends Domain
   src.note -> tgt.note;
 }
 
-group SpecimenFeature(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group SpecimenFeature(source src, target tgt) extends BackboneElement {
   src.type -> tgt.type;
   src.description -> tgt.description;
 }
 
-group SpecimenCollection(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group SpecimenCollection(source src, target tgt) extends BackboneElement {
   src.collector -> tgt.collector;
   src.collected : dateTime -> tgt.collected;
   src.collected : Period -> tgt.collected;
@@ -45,7 +45,7 @@ group SpecimenCollection(source src : null, target tgt : null) extends DomainRes
   src.fastingStatus : Duration -> tgt.fastingStatus;
 }
 
-group SpecimenProcessing(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group SpecimenProcessing(source src, target tgt) extends BackboneElement {
   src.description -> tgt.description;
   src.method -> tgt.method;
   src.additive -> tgt.additive;
@@ -53,7 +53,7 @@ group SpecimenProcessing(source src : null, target tgt : null) extends DomainRes
   src.time : Period -> tgt.time;
 }
 
-group SpecimenContainer(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group SpecimenContainer(source src, target tgt) extends BackboneElement {
   src.device -> tgt.device;
   src.location -> tgt.location;
   src.specimenQuantity -> tgt.specimenQuantity;

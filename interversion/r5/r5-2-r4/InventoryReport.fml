@@ -3,9 +3,9 @@
 /// title = 'FML Conversion for InventoryReport: R5 to R4'
 
 uses "http://hl7.org/fhir/StructureDefinition/InventoryReport" alias InventoryReportR5 as source
-uses "http://hl7.org/fhir/4.0/StructureDefinition/InventoryReport" alias AccountR4 as target
+uses "http://hl7.org/fhir/4.0/StructureDefinition/InventoryReport" alias InventoryReportR4 as target
 
-imports "http://hl7.org/fhir/StructureMap/*5to4
+imports "http://hl7.org/fhir/StructureMap/*5to4"
 
 group InventoryReport(source src : InventoryReportR5, target tgt : InventoryReportR4) extends DomainResource <<type+>> {
   src.identifier -> tgt.identifier;
@@ -20,14 +20,14 @@ group InventoryReport(source src : InventoryReportR5, target tgt : InventoryRepo
   src.note -> tgt.note;
 }
 
-group InventoryReportInventoryListing(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group InventoryReportInventoryListing(source src, target tgt) extends BackboneElement {
   src.location -> tgt.location;
   src.itemStatus -> tgt.itemStatus;
   src.countingDateTime -> tgt.countingDateTime;
   src.items as s -> tgt.items as t then InventoryReportInventoryListingItems(s,t);
 }
 
-group InventoryReportInventoryListingItems(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group InventoryReportInventoryListingItems(source src, target tgt) extends BackboneElement {
   src.category -> tgt.category;
   src.quantity -> tgt.quantity;
   src.item -> tgt.item;

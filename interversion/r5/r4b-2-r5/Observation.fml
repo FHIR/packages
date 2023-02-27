@@ -3,9 +3,9 @@
 /// title = 'FML Conversion for Observation: R4B to R5'
 
 uses "http://hl7.org/fhir/4.3/StructureDefinition/Observation" alias ObservationR4B as source
-uses "http://hl7.org/fhir/StructureDefinition/Observation" alias AccountR5 as target
+uses "http://hl7.org/fhir/StructureDefinition/Observation" alias ObservationR5 as target
 
-imports "http://hl7.org/fhir/StructureMap/*4Bto5
+imports "http://hl7.org/fhir/StructureMap/*4Bto5"
 
 group Observation(source src : ObservationR4B, target tgt : ObservationR5) extends DomainResource <<type+>> {
   src.identifier -> tgt.identifier;
@@ -54,13 +54,13 @@ group Observation(source src : ObservationR4B, target tgt : ObservationR5) exten
   src.component as s -> tgt.component as t then ObservationComponent(s,t);
 }
 
-group ObservationTriggeredBy(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group ObservationTriggeredBy(source src, target tgt) extends BackboneElement {
   src.observation -> tgt.observation;
   src.type -> tgt.type;
   src.reason -> tgt.reason;
 }
 
-group ObservationReferenceRange(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group ObservationReferenceRange(source src, target tgt) extends BackboneElement {
   src.low -> tgt.low;
   src.high -> tgt.high;
   src.normalValue -> tgt.normalValue;
@@ -70,7 +70,7 @@ group ObservationReferenceRange(source src : null, target tgt : null) extends Do
   src.text -> tgt.text;
 }
 
-group ObservationComponent(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group ObservationComponent(source src, target tgt) extends BackboneElement {
   src.code -> tgt.code;
   src.value : Quantity -> tgt.value;
   src.value : CodeableConcept -> tgt.value;

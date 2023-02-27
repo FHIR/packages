@@ -3,9 +3,9 @@
 /// title = 'FML Conversion for OperationDefinition: R4B to R5'
 
 uses "http://hl7.org/fhir/4.3/StructureDefinition/OperationDefinition" alias OperationDefinitionR4B as source
-uses "http://hl7.org/fhir/StructureDefinition/OperationDefinition" alias AccountR5 as target
+uses "http://hl7.org/fhir/StructureDefinition/OperationDefinition" alias OperationDefinitionR5 as target
 
-imports "http://hl7.org/fhir/StructureMap/*4Bto5
+imports "http://hl7.org/fhir/StructureMap/*4Bto5"
 
 group OperationDefinition(source src : OperationDefinitionR4B, target tgt : OperationDefinitionR5) extends DomainResource <<type+>> {
   src.url -> tgt.url;
@@ -40,7 +40,7 @@ group OperationDefinition(source src : OperationDefinitionR4B, target tgt : Oper
   src.overload as s -> tgt.overload as t then OperationDefinitionOverload(s,t);
 }
 
-group OperationDefinitionParameter(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group OperationDefinitionParameter(source src, target tgt) extends BackboneElement {
   src.name -> tgt.name;
   src.use -> tgt.use;
   src.scope -> tgt.scope;
@@ -55,17 +55,17 @@ group OperationDefinitionParameter(source src : null, target tgt : null) extends
   src.referencedFrom as s -> tgt.referencedFrom as t then OperationDefinitionParameterReferencedFrom(s,t);
 }
 
-group OperationDefinitionParameterBinding(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group OperationDefinitionParameterBinding(source src, target tgt) extends BackboneElement {
   src.strength -> tgt.strength;
   src.valueSet -> tgt.valueSet;
 }
 
-group OperationDefinitionParameterReferencedFrom(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group OperationDefinitionParameterReferencedFrom(source src, target tgt) extends BackboneElement {
   src.source -> tgt.source;
   src.sourceId -> tgt.sourceId;
 }
 
-group OperationDefinitionOverload(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group OperationDefinitionOverload(source src, target tgt) extends BackboneElement {
   src.parameterName -> tgt.parameterName;
   src.comment -> tgt.comment;
 }

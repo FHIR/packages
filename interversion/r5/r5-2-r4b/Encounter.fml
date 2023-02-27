@@ -3,9 +3,9 @@
 /// title = 'FML Conversion for Encounter: R5 to R4B'
 
 uses "http://hl7.org/fhir/StructureDefinition/Encounter" alias EncounterR5 as source
-uses "http://hl7.org/fhir/4.3/StructureDefinition/Encounter" alias AccountR4B as target
+uses "http://hl7.org/fhir/4.3/StructureDefinition/Encounter" alias EncounterR4B as target
 
-imports "http://hl7.org/fhir/StructureMap/*5to4B
+imports "http://hl7.org/fhir/StructureMap/*5to4B"
 
 group Encounter(source src : EncounterR5, target tgt : EncounterR4B) extends DomainResource <<type+>> {
   src.identifier -> tgt.identifier;
@@ -38,23 +38,23 @@ group Encounter(source src : EncounterR5, target tgt : EncounterR4B) extends Dom
   src.location as s -> tgt.location as t then EncounterLocation(s,t);
 }
 
-group EncounterParticipant(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group EncounterParticipant(source src, target tgt) extends BackboneElement {
   src.type -> tgt.type;
   src.period -> tgt.period;
   src.actor -> tgt.actor;
 }
 
-group EncounterReason(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group EncounterReason(source src, target tgt) extends BackboneElement {
   src.use -> tgt.use;
   src.value -> tgt.value;
 }
 
-group EncounterDiagnosis(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group EncounterDiagnosis(source src, target tgt) extends BackboneElement {
   src.condition -> tgt.condition;
   src.use -> tgt.use;
 }
 
-group EncounterAdmission(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group EncounterAdmission(source src, target tgt) extends BackboneElement {
   src.preAdmissionIdentifier -> tgt.preAdmissionIdentifier;
   src.origin -> tgt.origin;
   src.admitSource -> tgt.admitSource;
@@ -63,7 +63,7 @@ group EncounterAdmission(source src : null, target tgt : null) extends DomainRes
   src.dischargeDisposition -> tgt.dischargeDisposition;
 }
 
-group EncounterLocation(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group EncounterLocation(source src, target tgt) extends BackboneElement {
   src.location -> tgt.location;
   src.status -> tgt.status;
   src.form -> tgt.form;

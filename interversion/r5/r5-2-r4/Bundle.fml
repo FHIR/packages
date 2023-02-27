@@ -3,9 +3,9 @@
 /// title = 'FML Conversion for Bundle: R5 to R4'
 
 uses "http://hl7.org/fhir/StructureDefinition/Bundle" alias BundleR5 as source
-uses "http://hl7.org/fhir/4.0/StructureDefinition/Bundle" alias AccountR4 as target
+uses "http://hl7.org/fhir/4.0/StructureDefinition/Bundle" alias BundleR4 as target
 
-imports "http://hl7.org/fhir/StructureMap/*5to4
+imports "http://hl7.org/fhir/StructureMap/*5to4"
 
 group Bundle(source src : BundleR5, target tgt : BundleR4) extends Resource <<type+>> {
   src.identifier -> tgt.identifier;
@@ -18,12 +18,12 @@ group Bundle(source src : BundleR5, target tgt : BundleR4) extends Resource <<ty
   src.issues -> tgt.issues;
 }
 
-group BundleLink(source src : null, target tgt : null) extends Resource <<type+>> {
+group BundleLink(source src, target tgt) extends BackboneElement {
   src.relation -> tgt.relation;
   src.url -> tgt.url;
 }
 
-group BundleEntry(source src : null, target tgt : null) extends Resource <<type+>> {
+group BundleEntry(source src, target tgt) extends BackboneElement {
   src.fullUrl -> tgt.fullUrl;
   src.resource -> tgt.resource;
   src.search as s -> tgt.search as t then BundleEntrySearch(s,t);
@@ -31,12 +31,12 @@ group BundleEntry(source src : null, target tgt : null) extends Resource <<type+
   src.response as s -> tgt.response as t then BundleEntryResponse(s,t);
 }
 
-group BundleEntrySearch(source src : null, target tgt : null) extends Resource <<type+>> {
+group BundleEntrySearch(source src, target tgt) extends BackboneElement {
   src.mode -> tgt.mode;
   src.score -> tgt.score;
 }
 
-group BundleEntryRequest(source src : null, target tgt : null) extends Resource <<type+>> {
+group BundleEntryRequest(source src, target tgt) extends BackboneElement {
   src.method -> tgt.method;
   src.url -> tgt.url;
   src.ifNoneMatch -> tgt.ifNoneMatch;
@@ -45,7 +45,7 @@ group BundleEntryRequest(source src : null, target tgt : null) extends Resource 
   src.ifNoneExist -> tgt.ifNoneExist;
 }
 
-group BundleEntryResponse(source src : null, target tgt : null) extends Resource <<type+>> {
+group BundleEntryResponse(source src, target tgt) extends BackboneElement {
   src.status -> tgt.status;
   src.location -> tgt.location;
   src.etag -> tgt.etag;

@@ -3,9 +3,9 @@
 /// title = 'FML Conversion for AllergyIntolerance: R4 to R5'
 
 uses "http://hl7.org/fhir/4.0/StructureDefinition/AllergyIntolerance" alias AllergyIntoleranceR4 as source
-uses "http://hl7.org/fhir/StructureDefinition/AllergyIntolerance" alias AccountR5 as target
+uses "http://hl7.org/fhir/StructureDefinition/AllergyIntolerance" alias AllergyIntoleranceR5 as target
 
-imports "http://hl7.org/fhir/StructureMap/*4to5
+imports "http://hl7.org/fhir/StructureMap/*4to5"
 
 group AllergyIntolerance(source src : AllergyIntoleranceR4, target tgt : AllergyIntoleranceR5) extends DomainResource <<type+>> {
   src.identifier -> tgt.identifier;
@@ -29,12 +29,12 @@ group AllergyIntolerance(source src : AllergyIntoleranceR4, target tgt : Allergy
   src.reaction as s -> tgt.reaction as t then AllergyIntoleranceReaction(s,t);
 }
 
-group AllergyIntoleranceParticipant(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group AllergyIntoleranceParticipant(source src, target tgt) extends BackboneElement {
   src.function -> tgt.function;
   src.actor -> tgt.actor;
 }
 
-group AllergyIntoleranceReaction(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group AllergyIntoleranceReaction(source src, target tgt) extends BackboneElement {
   src.substance -> tgt.substance;
   src.manifestation -> tgt.manifestation;
   src.description -> tgt.description;

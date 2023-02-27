@@ -3,9 +3,9 @@
 /// title = 'FML Conversion for QuestionnaireResponse: R5 to R4'
 
 uses "http://hl7.org/fhir/StructureDefinition/QuestionnaireResponse" alias QuestionnaireResponseR5 as source
-uses "http://hl7.org/fhir/4.0/StructureDefinition/QuestionnaireResponse" alias AccountR4 as target
+uses "http://hl7.org/fhir/4.0/StructureDefinition/QuestionnaireResponse" alias QuestionnaireResponseR4 as target
 
-imports "http://hl7.org/fhir/StructureMap/*5to4
+imports "http://hl7.org/fhir/StructureMap/*5to4"
 
 group QuestionnaireResponse(source src : QuestionnaireResponseR5, target tgt : QuestionnaireResponseR4) extends DomainResource <<type+>> {
   src.identifier -> tgt.identifier;
@@ -21,14 +21,14 @@ group QuestionnaireResponse(source src : QuestionnaireResponseR5, target tgt : Q
   src.item as s -> tgt.item as t then QuestionnaireResponseItem(s,t);
 }
 
-group QuestionnaireResponseItem(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group QuestionnaireResponseItem(source src, target tgt) extends BackboneElement {
   src.linkId -> tgt.linkId;
   src.definition -> tgt.definition;
   src.text -> tgt.text;
   src.answer as s -> tgt.answer as t then QuestionnaireResponseItemAnswer(s,t);
 }
 
-group QuestionnaireResponseItemAnswer(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group QuestionnaireResponseItemAnswer(source src, target tgt) extends BackboneElement {
   src.value : boolean -> tgt.value;
   src.value : decimal -> tgt.value;
   src.value : integer -> tgt.value;

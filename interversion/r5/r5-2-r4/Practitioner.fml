@@ -3,9 +3,9 @@
 /// title = 'FML Conversion for Practitioner: R5 to R4'
 
 uses "http://hl7.org/fhir/StructureDefinition/Practitioner" alias PractitionerR5 as source
-uses "http://hl7.org/fhir/4.0/StructureDefinition/Practitioner" alias AccountR4 as target
+uses "http://hl7.org/fhir/4.0/StructureDefinition/Practitioner" alias PractitionerR4 as target
 
-imports "http://hl7.org/fhir/StructureMap/*5to4
+imports "http://hl7.org/fhir/StructureMap/*5to4"
 
 group Practitioner(source src : PractitionerR5, target tgt : PractitionerR4) extends DomainResource <<type+>> {
   src.identifier -> tgt.identifier;
@@ -22,14 +22,14 @@ group Practitioner(source src : PractitionerR5, target tgt : PractitionerR4) ext
   src.communication as s -> tgt.communication as t then PractitionerCommunication(s,t);
 }
 
-group PractitionerQualification(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group PractitionerQualification(source src, target tgt) extends BackboneElement {
   src.identifier -> tgt.identifier;
   src.code -> tgt.code;
   src.period -> tgt.period;
   src.issuer -> tgt.issuer;
 }
 
-group PractitionerCommunication(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group PractitionerCommunication(source src, target tgt) extends BackboneElement {
   src.language -> tgt.language;
   src.preferred -> tgt.preferred;
 }

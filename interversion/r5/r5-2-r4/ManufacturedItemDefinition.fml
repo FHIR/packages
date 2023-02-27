@@ -3,9 +3,9 @@
 /// title = 'FML Conversion for ManufacturedItemDefinition: R5 to R4'
 
 uses "http://hl7.org/fhir/StructureDefinition/ManufacturedItemDefinition" alias ManufacturedItemDefinitionR5 as source
-uses "http://hl7.org/fhir/4.0/StructureDefinition/ManufacturedItemDefinition" alias AccountR4 as target
+uses "http://hl7.org/fhir/4.0/StructureDefinition/ManufacturedItemDefinition" alias ManufacturedItemDefinitionR4 as target
 
-imports "http://hl7.org/fhir/StructureMap/*5to4
+imports "http://hl7.org/fhir/StructureMap/*5to4"
 
 group ManufacturedItemDefinition(source src : ManufacturedItemDefinitionR5, target tgt : ManufacturedItemDefinitionR4) extends DomainResource <<type+>> {
   src.identifier -> tgt.identifier;
@@ -20,7 +20,7 @@ group ManufacturedItemDefinition(source src : ManufacturedItemDefinitionR5, targ
   src.component as s -> tgt.component as t then ManufacturedItemDefinitionComponent(s,t);
 }
 
-group ManufacturedItemDefinitionProperty(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group ManufacturedItemDefinitionProperty(source src, target tgt) extends BackboneElement {
   src.type -> tgt.type;
   src.value : CodeableConcept -> tgt.value;
   src.value : Quantity -> tgt.value;
@@ -31,14 +31,14 @@ group ManufacturedItemDefinitionProperty(source src : null, target tgt : null) e
   src.value : Reference -> tgt.value;
 }
 
-group ManufacturedItemDefinitionComponent(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group ManufacturedItemDefinitionComponent(source src, target tgt) extends BackboneElement {
   src.type -> tgt.type;
   src.function -> tgt.function;
   src.amount -> tgt.amount;
   src.constituent as s -> tgt.constituent as t then ManufacturedItemDefinitionComponentConstituent(s,t);
 }
 
-group ManufacturedItemDefinitionComponentConstituent(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group ManufacturedItemDefinitionComponentConstituent(source src, target tgt) extends BackboneElement {
   src.amount -> tgt.amount;
   src.location -> tgt.location;
   src.function -> tgt.function;

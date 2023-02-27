@@ -3,9 +3,9 @@
 /// title = 'FML Conversion for PlanDefinition: R5 to R4B'
 
 uses "http://hl7.org/fhir/StructureDefinition/PlanDefinition" alias PlanDefinitionR5 as source
-uses "http://hl7.org/fhir/4.3/StructureDefinition/PlanDefinition" alias AccountR4B as target
+uses "http://hl7.org/fhir/4.3/StructureDefinition/PlanDefinition" alias PlanDefinitionR4B as target
 
-imports "http://hl7.org/fhir/StructureMap/*5to4B
+imports "http://hl7.org/fhir/StructureMap/*5to4B"
 
 group PlanDefinition(source src : PlanDefinitionR5, target tgt : PlanDefinitionR4B) extends DomainResource <<type+>> {
   src.url -> tgt.url;
@@ -49,7 +49,7 @@ group PlanDefinition(source src : PlanDefinitionR5, target tgt : PlanDefinitionR
   src.asNeeded : CodeableConcept -> tgt.asNeeded;
 }
 
-group PlanDefinitionGoal(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group PlanDefinitionGoal(source src, target tgt) extends BackboneElement {
   src.category -> tgt.category;
   src.description -> tgt.description;
   src.priority -> tgt.priority;
@@ -59,7 +59,7 @@ group PlanDefinitionGoal(source src : null, target tgt : null) extends DomainRes
   src.target as s -> tgt.target as t then PlanDefinitionGoalTarget(s,t);
 }
 
-group PlanDefinitionGoalTarget(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group PlanDefinitionGoalTarget(source src, target tgt) extends BackboneElement {
   src.measure -> tgt.measure;
   src.detail : Quantity -> tgt.detail;
   src.detail : Range -> tgt.detail;
@@ -71,20 +71,20 @@ group PlanDefinitionGoalTarget(source src : null, target tgt : null) extends Dom
   src.due -> tgt.due;
 }
 
-group PlanDefinitionActor(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group PlanDefinitionActor(source src, target tgt) extends BackboneElement {
   src.title -> tgt.title;
   src.description -> tgt.description;
   src.option as s -> tgt.option as t then PlanDefinitionActorOption(s,t);
 }
 
-group PlanDefinitionActorOption(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group PlanDefinitionActorOption(source src, target tgt) extends BackboneElement {
   src.type -> tgt.type;
   src.typeCanonical -> tgt.typeCanonical;
   src.typeReference -> tgt.typeReference;
   src.role -> tgt.role;
 }
 
-group PlanDefinitionAction(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group PlanDefinitionAction(source src, target tgt) extends BackboneElement {
   src.linkId -> tgt.linkId;
   src.prefix -> tgt.prefix;
   src.title -> tgt.title;
@@ -121,24 +121,24 @@ group PlanDefinitionAction(source src : null, target tgt : null) extends DomainR
   src.dynamicValue as s -> tgt.dynamicValue as t then PlanDefinitionActionDynamicValue(s,t);
 }
 
-group PlanDefinitionActionCondition(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group PlanDefinitionActionCondition(source src, target tgt) extends BackboneElement {
   src.kind -> tgt.kind;
   src.expression -> tgt.expression;
 }
 
-group PlanDefinitionActionInput(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group PlanDefinitionActionInput(source src, target tgt) extends BackboneElement {
   src.title -> tgt.title;
   src.requirement -> tgt.requirement;
   src.relatedData -> tgt.relatedData;
 }
 
-group PlanDefinitionActionOutput(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group PlanDefinitionActionOutput(source src, target tgt) extends BackboneElement {
   src.title -> tgt.title;
   src.requirement -> tgt.requirement;
   src.relatedData -> tgt.relatedData;
 }
 
-group PlanDefinitionActionRelatedAction(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group PlanDefinitionActionRelatedAction(source src, target tgt) extends BackboneElement {
   src.targetId -> tgt.targetId;
   src.relationship -> tgt.relationship;
   src.endRelationship -> tgt.endRelationship;
@@ -146,7 +146,7 @@ group PlanDefinitionActionRelatedAction(source src : null, target tgt : null) ex
   src.offset : Range -> tgt.offset;
 }
 
-group PlanDefinitionActionParticipant(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group PlanDefinitionActionParticipant(source src, target tgt) extends BackboneElement {
   src.actorId -> tgt.actorId;
   src.type -> tgt.type;
   src.typeCanonical -> tgt.typeCanonical;
@@ -155,7 +155,7 @@ group PlanDefinitionActionParticipant(source src : null, target tgt : null) exte
   src.function -> tgt.function;
 }
 
-group PlanDefinitionActionDynamicValue(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group PlanDefinitionActionDynamicValue(source src, target tgt) extends BackboneElement {
   src.path -> tgt.path;
   src.expression -> tgt.expression;
 }

@@ -3,9 +3,9 @@
 /// title = 'FML Conversion for SubstanceSourceMaterial: R4B to R5'
 
 uses "http://hl7.org/fhir/4.3/StructureDefinition/SubstanceSourceMaterial" alias SubstanceSourceMaterialR4B as source
-uses "http://hl7.org/fhir/StructureDefinition/SubstanceSourceMaterial" alias AccountR5 as target
+uses "http://hl7.org/fhir/StructureDefinition/SubstanceSourceMaterial" alias SubstanceSourceMaterialR5 as target
 
-imports "http://hl7.org/fhir/StructureMap/*4Bto5
+imports "http://hl7.org/fhir/StructureMap/*4Bto5"
 
 group SubstanceSourceMaterial(source src : SubstanceSourceMaterialR4B, target tgt : SubstanceSourceMaterialR5) extends DomainResource <<type+>> {
   src.sourceMaterialClass -> tgt.sourceMaterialClass;
@@ -23,12 +23,12 @@ group SubstanceSourceMaterial(source src : SubstanceSourceMaterialR4B, target tg
   src.partDescription as s -> tgt.partDescription as t then SubstanceSourceMaterialPartDescription(s,t);
 }
 
-group SubstanceSourceMaterialFractionDescription(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group SubstanceSourceMaterialFractionDescription(source src, target tgt) extends BackboneElement {
   src.fraction -> tgt.fraction;
   src.materialType -> tgt.materialType;
 }
 
-group SubstanceSourceMaterialOrganism(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group SubstanceSourceMaterialOrganism(source src, target tgt) extends BackboneElement {
   src.family -> tgt.family;
   src.genus -> tgt.genus;
   src.species -> tgt.species;
@@ -39,12 +39,12 @@ group SubstanceSourceMaterialOrganism(source src : null, target tgt : null) exte
   src.organismGeneral as s -> tgt.organismGeneral as t then SubstanceSourceMaterialOrganismOrganismGeneral(s,t);
 }
 
-group SubstanceSourceMaterialOrganismAuthor(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group SubstanceSourceMaterialOrganismAuthor(source src, target tgt) extends BackboneElement {
   src.authorType -> tgt.authorType;
   src.authorDescription -> tgt.authorDescription;
 }
 
-group SubstanceSourceMaterialOrganismHybrid(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group SubstanceSourceMaterialOrganismHybrid(source src, target tgt) extends BackboneElement {
   src.maternalOrganismId -> tgt.maternalOrganismId;
   src.maternalOrganismName -> tgt.maternalOrganismName;
   src.paternalOrganismId -> tgt.paternalOrganismId;
@@ -52,14 +52,14 @@ group SubstanceSourceMaterialOrganismHybrid(source src : null, target tgt : null
   src.hybridType -> tgt.hybridType;
 }
 
-group SubstanceSourceMaterialOrganismOrganismGeneral(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group SubstanceSourceMaterialOrganismOrganismGeneral(source src, target tgt) extends BackboneElement {
   src.kingdom -> tgt.kingdom;
   src.phylum -> tgt.phylum;
   src.class -> tgt.class;
   src.order -> tgt.order;
 }
 
-group SubstanceSourceMaterialPartDescription(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group SubstanceSourceMaterialPartDescription(source src, target tgt) extends BackboneElement {
   src.part -> tgt.part;
   src.partLocation -> tgt.partLocation;
 }

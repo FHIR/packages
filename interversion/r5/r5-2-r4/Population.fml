@@ -3,9 +3,9 @@
 /// title = 'FML Conversion for Population: R5 to R4'
 
 uses "http://hl7.org/fhir/StructureDefinition/Population" alias PopulationR5 as source
-uses "http://hl7.org/fhir/4.0/StructureDefinition/Population" alias AccountR4 as target
+uses "http://hl7.org/fhir/4.0/StructureDefinition/Population" alias PopulationR4 as target
 
-imports "http://hl7.org/fhir/StructureMap/*5to4
+imports "http://hl7.org/fhir/StructureMap/*5to4"
 
 group Population(source src : PopulationR5, target tgt : PopulationR4) extends BackboneType <<type+>> {
   src.age : Range -> tgt.age;

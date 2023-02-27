@@ -3,9 +3,9 @@
 /// title = 'FML Conversion for DeviceRequest: R4 to R5'
 
 uses "http://hl7.org/fhir/4.0/StructureDefinition/DeviceRequest" alias DeviceRequestR4 as source
-uses "http://hl7.org/fhir/StructureDefinition/DeviceRequest" alias AccountR5 as target
+uses "http://hl7.org/fhir/StructureDefinition/DeviceRequest" alias DeviceRequestR5 as target
 
-imports "http://hl7.org/fhir/StructureMap/*4to5
+imports "http://hl7.org/fhir/StructureMap/*4to5"
 
 group DeviceRequest(source src : DeviceRequestR4, target tgt : DeviceRequestR5) extends DomainResource <<type+>> {
   src.identifier -> tgt.identifier;
@@ -37,7 +37,7 @@ group DeviceRequest(source src : DeviceRequestR4, target tgt : DeviceRequestR5) 
   src.relevantHistory -> tgt.relevantHistory;
 }
 
-group DeviceRequestParameter(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group DeviceRequestParameter(source src, target tgt) extends BackboneElement {
   src.code -> tgt.code;
   src.value : CodeableConcept -> tgt.value;
   src.value : Quantity -> tgt.value;

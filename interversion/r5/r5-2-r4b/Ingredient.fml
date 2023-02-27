@@ -3,9 +3,9 @@
 /// title = 'FML Conversion for Ingredient: R5 to R4B'
 
 uses "http://hl7.org/fhir/StructureDefinition/Ingredient" alias IngredientR5 as source
-uses "http://hl7.org/fhir/4.3/StructureDefinition/Ingredient" alias AccountR4B as target
+uses "http://hl7.org/fhir/4.3/StructureDefinition/Ingredient" alias IngredientR4B as target
 
-imports "http://hl7.org/fhir/StructureMap/*5to4B
+imports "http://hl7.org/fhir/StructureMap/*5to4B"
 
 group Ingredient(source src : IngredientR5, target tgt : IngredientR4B) extends DomainResource <<type+>> {
   src.identifier -> tgt.identifier;
@@ -20,17 +20,17 @@ group Ingredient(source src : IngredientR5, target tgt : IngredientR4B) extends 
   src.substance as s -> tgt.substance as t then IngredientSubstance(s,t);
 }
 
-group IngredientManufacturer(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group IngredientManufacturer(source src, target tgt) extends BackboneElement {
   src.role -> tgt.role;
   src.manufacturer -> tgt.manufacturer;
 }
 
-group IngredientSubstance(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group IngredientSubstance(source src, target tgt) extends BackboneElement {
   src.code -> tgt.code;
   src.strength as s -> tgt.strength as t then IngredientSubstanceStrength(s,t);
 }
 
-group IngredientSubstanceStrength(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group IngredientSubstanceStrength(source src, target tgt) extends BackboneElement {
   src.presentation : Ratio -> tgt.presentation;
   src.presentation : RatioRange -> tgt.presentation;
   src.presentation : CodeableConcept -> tgt.presentation;
@@ -47,7 +47,7 @@ group IngredientSubstanceStrength(source src : null, target tgt : null) extends 
   src.referenceStrength as s -> tgt.referenceStrength as t then IngredientSubstanceStrengthReferenceStrength(s,t);
 }
 
-group IngredientSubstanceStrengthReferenceStrength(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group IngredientSubstanceStrengthReferenceStrength(source src, target tgt) extends BackboneElement {
   src.substance -> tgt.substance;
   src.strength : Ratio -> tgt.strength;
   src.strength : RatioRange -> tgt.strength;

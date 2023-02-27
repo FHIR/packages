@@ -3,9 +3,9 @@
 /// title = 'FML Conversion for VerificationResult: R5 to R4'
 
 uses "http://hl7.org/fhir/StructureDefinition/VerificationResult" alias VerificationResultR5 as source
-uses "http://hl7.org/fhir/4.0/StructureDefinition/VerificationResult" alias AccountR4 as target
+uses "http://hl7.org/fhir/4.0/StructureDefinition/VerificationResult" alias VerificationResultR4 as target
 
-imports "http://hl7.org/fhir/StructureMap/*5to4
+imports "http://hl7.org/fhir/StructureMap/*5to4"
 
 group VerificationResult(source src : VerificationResultR5, target tgt : VerificationResultR4) extends DomainResource <<type+>> {
   src.target -> tgt.target;
@@ -24,7 +24,7 @@ group VerificationResult(source src : VerificationResultR5, target tgt : Verific
   src.validator as s -> tgt.validator as t then VerificationResultValidator(s,t);
 }
 
-group VerificationResultPrimarySource(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group VerificationResultPrimarySource(source src, target tgt) extends BackboneElement {
   src.who -> tgt.who;
   src.type -> tgt.type;
   src.communicationMethod -> tgt.communicationMethod;
@@ -34,7 +34,7 @@ group VerificationResultPrimarySource(source src : null, target tgt : null) exte
   src.pushTypeAvailable -> tgt.pushTypeAvailable;
 }
 
-group VerificationResultAttestation(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group VerificationResultAttestation(source src, target tgt) extends BackboneElement {
   src.who -> tgt.who;
   src.onBehalfOf -> tgt.onBehalfOf;
   src.communicationMethod -> tgt.communicationMethod;
@@ -45,7 +45,7 @@ group VerificationResultAttestation(source src : null, target tgt : null) extend
   src.sourceSignature -> tgt.sourceSignature;
 }
 
-group VerificationResultValidator(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group VerificationResultValidator(source src, target tgt) extends BackboneElement {
   src.organization -> tgt.organization;
   src.identityCertificate -> tgt.identityCertificate;
   src.attestationSignature -> tgt.attestationSignature;

@@ -3,9 +3,9 @@
 /// title = 'FML Conversion for CompartmentDefinition: R5 to R4B'
 
 uses "http://hl7.org/fhir/StructureDefinition/CompartmentDefinition" alias CompartmentDefinitionR5 as source
-uses "http://hl7.org/fhir/4.3/StructureDefinition/CompartmentDefinition" alias AccountR4B as target
+uses "http://hl7.org/fhir/4.3/StructureDefinition/CompartmentDefinition" alias CompartmentDefinitionR4B as target
 
-imports "http://hl7.org/fhir/StructureMap/*5to4B
+imports "http://hl7.org/fhir/StructureMap/*5to4B"
 
 group CompartmentDefinition(source src : CompartmentDefinitionR5, target tgt : CompartmentDefinitionR4B) extends DomainResource <<type+>> {
   src.url -> tgt.url;
@@ -27,7 +27,7 @@ group CompartmentDefinition(source src : CompartmentDefinitionR5, target tgt : C
   src.resource as s -> tgt.resource as t then CompartmentDefinitionResource(s,t);
 }
 
-group CompartmentDefinitionResource(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group CompartmentDefinitionResource(source src, target tgt) extends BackboneElement {
   src.code -> tgt.code;
   src.param -> tgt.param;
   src.documentation -> tgt.documentation;

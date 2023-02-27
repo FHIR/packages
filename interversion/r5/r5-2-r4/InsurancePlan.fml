@@ -3,9 +3,9 @@
 /// title = 'FML Conversion for InsurancePlan: R5 to R4'
 
 uses "http://hl7.org/fhir/StructureDefinition/InsurancePlan" alias InsurancePlanR5 as source
-uses "http://hl7.org/fhir/4.0/StructureDefinition/InsurancePlan" alias AccountR4 as target
+uses "http://hl7.org/fhir/4.0/StructureDefinition/InsurancePlan" alias InsurancePlanR4 as target
 
-imports "http://hl7.org/fhir/StructureMap/*5to4
+imports "http://hl7.org/fhir/StructureMap/*5to4"
 
 group InsurancePlan(source src : InsurancePlanR5, target tgt : InsurancePlanR4) extends DomainResource <<type+>> {
   src.identifier -> tgt.identifier;
@@ -24,24 +24,24 @@ group InsurancePlan(source src : InsurancePlanR5, target tgt : InsurancePlanR4) 
   src.plan as s -> tgt.plan as t then InsurancePlanPlan(s,t);
 }
 
-group InsurancePlanCoverage(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group InsurancePlanCoverage(source src, target tgt) extends BackboneElement {
   src.type -> tgt.type;
   src.network -> tgt.network;
   src.benefit as s -> tgt.benefit as t then InsurancePlanCoverageBenefit(s,t);
 }
 
-group InsurancePlanCoverageBenefit(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group InsurancePlanCoverageBenefit(source src, target tgt) extends BackboneElement {
   src.type -> tgt.type;
   src.requirement -> tgt.requirement;
   src.limit as s -> tgt.limit as t then InsurancePlanCoverageBenefitLimit(s,t);
 }
 
-group InsurancePlanCoverageBenefitLimit(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group InsurancePlanCoverageBenefitLimit(source src, target tgt) extends BackboneElement {
   src.value -> tgt.value;
   src.code -> tgt.code;
 }
 
-group InsurancePlanPlan(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group InsurancePlanPlan(source src, target tgt) extends BackboneElement {
   src.identifier -> tgt.identifier;
   src.type -> tgt.type;
   src.coverageArea -> tgt.coverageArea;
@@ -50,24 +50,24 @@ group InsurancePlanPlan(source src : null, target tgt : null) extends DomainReso
   src.specificCost as s -> tgt.specificCost as t then InsurancePlanPlanSpecificCost(s,t);
 }
 
-group InsurancePlanPlanGeneralCost(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group InsurancePlanPlanGeneralCost(source src, target tgt) extends BackboneElement {
   src.type -> tgt.type;
   src.groupSize -> tgt.groupSize;
   src.cost -> tgt.cost;
   src.comment -> tgt.comment;
 }
 
-group InsurancePlanPlanSpecificCost(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group InsurancePlanPlanSpecificCost(source src, target tgt) extends BackboneElement {
   src.category -> tgt.category;
   src.benefit as s -> tgt.benefit as t then InsurancePlanPlanSpecificCostBenefit(s,t);
 }
 
-group InsurancePlanPlanSpecificCostBenefit(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group InsurancePlanPlanSpecificCostBenefit(source src, target tgt) extends BackboneElement {
   src.type -> tgt.type;
   src.cost as s -> tgt.cost as t then InsurancePlanPlanSpecificCostBenefitCost(s,t);
 }
 
-group InsurancePlanPlanSpecificCostBenefitCost(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group InsurancePlanPlanSpecificCostBenefitCost(source src, target tgt) extends BackboneElement {
   src.type -> tgt.type;
   src.applicability -> tgt.applicability;
   src.qualifiers -> tgt.qualifiers;

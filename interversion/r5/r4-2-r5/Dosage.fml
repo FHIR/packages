@@ -3,9 +3,9 @@
 /// title = 'FML Conversion for Dosage: R4 to R5'
 
 uses "http://hl7.org/fhir/4.0/StructureDefinition/Dosage" alias DosageR4 as source
-uses "http://hl7.org/fhir/StructureDefinition/Dosage" alias AccountR5 as target
+uses "http://hl7.org/fhir/StructureDefinition/Dosage" alias DosageR5 as target
 
-imports "http://hl7.org/fhir/StructureMap/*4to5
+imports "http://hl7.org/fhir/StructureMap/*4to5"
 
 group Dosage(source src : DosageR4, target tgt : DosageR5) extends BackboneType <<type+>> {
   src.sequence -> tgt.sequence;
@@ -24,7 +24,7 @@ group Dosage(source src : DosageR4, target tgt : DosageR5) extends BackboneType 
   src.maxDosePerLifetime -> tgt.maxDosePerLifetime;
 }
 
-group DosageDoseAndRate(source src : null, target tgt : null) extends BackboneType <<type+>> {
+group DosageDoseAndRate(source src, target tgt) extends Element {
   src.type -> tgt.type;
   src.dose : Range -> tgt.dose;
   src.dose : Quantity -> tgt.dose;

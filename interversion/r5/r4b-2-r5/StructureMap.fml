@@ -3,9 +3,9 @@
 /// title = 'FML Conversion for StructureMap: R4B to R5'
 
 uses "http://hl7.org/fhir/4.3/StructureDefinition/StructureMap" alias StructureMapR4B as source
-uses "http://hl7.org/fhir/StructureDefinition/StructureMap" alias AccountR5 as target
+uses "http://hl7.org/fhir/StructureDefinition/StructureMap" alias StructureMapR5 as target
 
-imports "http://hl7.org/fhir/StructureMap/*4Bto5
+imports "http://hl7.org/fhir/StructureMap/*4Bto5"
 
 group StructureMap(source src : StructureMapR4B, target tgt : StructureMapR5) extends DomainResource <<type+>> {
   src.url -> tgt.url;
@@ -32,19 +32,19 @@ group StructureMap(source src : StructureMapR4B, target tgt : StructureMapR5) ex
   src.group as s -> tgt.group as t then StructureMapGroup(s,t);
 }
 
-group StructureMapStructure(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group StructureMapStructure(source src, target tgt) extends BackboneElement {
   src.url -> tgt.url;
   src.mode -> tgt.mode;
   src.alias -> tgt.alias;
   src.documentation -> tgt.documentation;
 }
 
-group StructureMapConst(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group StructureMapConst(source src, target tgt) extends BackboneElement {
   src.name -> tgt.name;
   src.value -> tgt.value;
 }
 
-group StructureMapGroup(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group StructureMapGroup(source src, target tgt) extends BackboneElement {
   src.name -> tgt.name;
   src.extends -> tgt.extends;
   src.typeMode -> tgt.typeMode;
@@ -53,14 +53,14 @@ group StructureMapGroup(source src : null, target tgt : null) extends DomainReso
   src.rule as s -> tgt.rule as t then StructureMapGroupRule(s,t);
 }
 
-group StructureMapGroupInput(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group StructureMapGroupInput(source src, target tgt) extends BackboneElement {
   src.name -> tgt.name;
   src.type -> tgt.type;
   src.mode -> tgt.mode;
   src.documentation -> tgt.documentation;
 }
 
-group StructureMapGroupRule(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group StructureMapGroupRule(source src, target tgt) extends BackboneElement {
   src.name -> tgt.name;
   src.source as s -> tgt.source as t then StructureMapGroupRuleSource(s,t);
   src.target as s -> tgt.target as t then StructureMapGroupRuleTarget(s,t);
@@ -68,7 +68,7 @@ group StructureMapGroupRule(source src : null, target tgt : null) extends Domain
   src.documentation -> tgt.documentation;
 }
 
-group StructureMapGroupRuleSource(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group StructureMapGroupRuleSource(source src, target tgt) extends BackboneElement {
   src.context -> tgt.context;
   src.min -> tgt.min;
   src.max -> tgt.max;
@@ -82,7 +82,7 @@ group StructureMapGroupRuleSource(source src : null, target tgt : null) extends 
   src.logMessage -> tgt.logMessage;
 }
 
-group StructureMapGroupRuleTarget(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group StructureMapGroupRuleTarget(source src, target tgt) extends BackboneElement {
   src.context -> tgt.context;
   src.element -> tgt.element;
   src.variable -> tgt.variable;
@@ -92,7 +92,7 @@ group StructureMapGroupRuleTarget(source src : null, target tgt : null) extends 
   src.parameter as s -> tgt.parameter as t then StructureMapGroupRuleTargetParameter(s,t);
 }
 
-group StructureMapGroupRuleTargetParameter(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group StructureMapGroupRuleTargetParameter(source src, target tgt) extends BackboneElement {
   src.value : id -> tgt.value;
   src.value : string -> tgt.value;
   src.value : boolean -> tgt.value;
@@ -103,7 +103,7 @@ group StructureMapGroupRuleTargetParameter(source src : null, target tgt : null)
   src.value : dateTime -> tgt.value;
 }
 
-group StructureMapGroupRuleDependent(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group StructureMapGroupRuleDependent(source src, target tgt) extends BackboneElement {
   src.name -> tgt.name;
 }
 

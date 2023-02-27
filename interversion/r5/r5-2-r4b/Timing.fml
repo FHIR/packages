@@ -3,9 +3,9 @@
 /// title = 'FML Conversion for Timing: R5 to R4B'
 
 uses "http://hl7.org/fhir/StructureDefinition/Timing" alias TimingR5 as source
-uses "http://hl7.org/fhir/4.3/StructureDefinition/Timing" alias AccountR4B as target
+uses "http://hl7.org/fhir/4.3/StructureDefinition/Timing" alias TimingR4B as target
 
-imports "http://hl7.org/fhir/StructureMap/*5to4B
+imports "http://hl7.org/fhir/StructureMap/*5to4B"
 
 group Timing(source src : TimingR5, target tgt : TimingR4B) extends BackboneType <<type+>> {
   src.event -> tgt.event;
@@ -13,7 +13,7 @@ group Timing(source src : TimingR5, target tgt : TimingR4B) extends BackboneType
   src.code -> tgt.code;
 }
 
-group TimingRepeat(source src : null, target tgt : null) extends BackboneType <<type+>> {
+group TimingRepeat(source src, target tgt) extends Element {
   src.bounds : Duration -> tgt.bounds;
   src.bounds : Range -> tgt.bounds;
   src.bounds : Period -> tgt.bounds;

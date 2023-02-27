@@ -3,9 +3,9 @@
 /// title = 'FML Conversion for Condition: R4B to R5'
 
 uses "http://hl7.org/fhir/4.3/StructureDefinition/Condition" alias ConditionR4B as source
-uses "http://hl7.org/fhir/StructureDefinition/Condition" alias AccountR5 as target
+uses "http://hl7.org/fhir/StructureDefinition/Condition" alias ConditionR5 as target
 
-imports "http://hl7.org/fhir/StructureMap/*4Bto5
+imports "http://hl7.org/fhir/StructureMap/*4Bto5"
 
 group Condition(source src : ConditionR4B, target tgt : ConditionR5) extends DomainResource <<type+>> {
   src.identifier -> tgt.identifier;
@@ -34,12 +34,12 @@ group Condition(source src : ConditionR4B, target tgt : ConditionR5) extends Dom
   src.note -> tgt.note;
 }
 
-group ConditionParticipant(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group ConditionParticipant(source src, target tgt) extends BackboneElement {
   src.function -> tgt.function;
   src.actor -> tgt.actor;
 }
 
-group ConditionStage(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group ConditionStage(source src, target tgt) extends BackboneElement {
   src.summary -> tgt.summary;
   src.assessment -> tgt.assessment;
   src.type -> tgt.type;

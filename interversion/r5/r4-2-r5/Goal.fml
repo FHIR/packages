@@ -3,9 +3,9 @@
 /// title = 'FML Conversion for Goal: R4 to R5'
 
 uses "http://hl7.org/fhir/4.0/StructureDefinition/Goal" alias GoalR4 as source
-uses "http://hl7.org/fhir/StructureDefinition/Goal" alias AccountR5 as target
+uses "http://hl7.org/fhir/StructureDefinition/Goal" alias GoalR5 as target
 
-imports "http://hl7.org/fhir/StructureMap/*4to5
+imports "http://hl7.org/fhir/StructureMap/*4to5"
 
 group Goal(source src : GoalR4, target tgt : GoalR5) extends DomainResource <<type+>> {
   src.identifier -> tgt.identifier;
@@ -27,7 +27,7 @@ group Goal(source src : GoalR4, target tgt : GoalR5) extends DomainResource <<ty
   src.outcome -> tgt.outcome;
 }
 
-group GoalTarget(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group GoalTarget(source src, target tgt) extends BackboneElement {
   src.measure -> tgt.measure;
   src.detail : Quantity -> tgt.detail;
   src.detail : Range -> tgt.detail;

@@ -3,9 +3,9 @@
 /// title = 'FML Conversion for InventoryItem: R5 to R4B'
 
 uses "http://hl7.org/fhir/StructureDefinition/InventoryItem" alias InventoryItemR5 as source
-uses "http://hl7.org/fhir/4.3/StructureDefinition/InventoryItem" alias AccountR4B as target
+uses "http://hl7.org/fhir/4.3/StructureDefinition/InventoryItem" alias InventoryItemR4B as target
 
-imports "http://hl7.org/fhir/StructureMap/*5to4B
+imports "http://hl7.org/fhir/StructureMap/*5to4B"
 
 group InventoryItem(source src : InventoryItemR5, target tgt : InventoryItemR4B) extends DomainResource <<type+>> {
   src.status -> tgt.status;
@@ -23,29 +23,29 @@ group InventoryItem(source src : InventoryItemR5, target tgt : InventoryItemR4B)
   src.productReference -> tgt.productReference;
 }
 
-group InventoryItemName(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group InventoryItemName(source src, target tgt) extends BackboneElement {
   src.nameType -> tgt.nameType;
   src.language -> tgt.language;
   src.name -> tgt.name;
 }
 
-group InventoryItemResponsibleOrganization(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group InventoryItemResponsibleOrganization(source src, target tgt) extends BackboneElement {
   src.role -> tgt.role;
   src.organization -> tgt.organization;
 }
 
-group InventoryItemDescription(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group InventoryItemDescription(source src, target tgt) extends BackboneElement {
   src.language -> tgt.language;
   src.description -> tgt.description;
 }
 
-group InventoryItemAssociation(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group InventoryItemAssociation(source src, target tgt) extends BackboneElement {
   src.associationType -> tgt.associationType;
   src.relatedItem -> tgt.relatedItem;
   src.quantity -> tgt.quantity;
 }
 
-group InventoryItemCharacteristics(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group InventoryItemCharacteristics(source src, target tgt) extends BackboneElement {
   src.characteristicType -> tgt.characteristicType;
   src.value : string -> tgt.value;
   src.value : integer -> tgt.value;
@@ -62,7 +62,7 @@ group InventoryItemCharacteristics(source src : null, target tgt : null) extends
   src.value : CodeableConcept -> tgt.value;
 }
 
-group InventoryItemInstance(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group InventoryItemInstance(source src, target tgt) extends BackboneElement {
   src.identifier -> tgt.identifier;
   src.lotNumber -> tgt.lotNumber;
   src.expiry -> tgt.expiry;

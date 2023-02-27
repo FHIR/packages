@@ -3,9 +3,9 @@
 /// title = 'FML Conversion for Patient: R4 to R5'
 
 uses "http://hl7.org/fhir/4.0/StructureDefinition/Patient" alias PatientR4 as source
-uses "http://hl7.org/fhir/StructureDefinition/Patient" alias AccountR5 as target
+uses "http://hl7.org/fhir/StructureDefinition/Patient" alias PatientR5 as target
 
-imports "http://hl7.org/fhir/StructureMap/*4to5
+imports "http://hl7.org/fhir/StructureMap/*4to5"
 
 group Patient(source src : PatientR4, target tgt : PatientR5) extends DomainResource <<type+>> {
   src.identifier -> tgt.identifier;
@@ -28,7 +28,7 @@ group Patient(source src : PatientR4, target tgt : PatientR5) extends DomainReso
   src.link as s -> tgt.link as t then PatientLink(s,t);
 }
 
-group PatientContact(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group PatientContact(source src, target tgt) extends BackboneElement {
   src.relationship -> tgt.relationship;
   src.name -> tgt.name;
   src.telecom -> tgt.telecom;
@@ -38,12 +38,12 @@ group PatientContact(source src : null, target tgt : null) extends DomainResourc
   src.period -> tgt.period;
 }
 
-group PatientCommunication(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group PatientCommunication(source src, target tgt) extends BackboneElement {
   src.language -> tgt.language;
   src.preferred -> tgt.preferred;
 }
 
-group PatientLink(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group PatientLink(source src, target tgt) extends BackboneElement {
   src.other -> tgt.other;
   src.type -> tgt.type;
 }

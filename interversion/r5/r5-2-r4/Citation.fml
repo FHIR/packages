@@ -3,9 +3,9 @@
 /// title = 'FML Conversion for Citation: R5 to R4'
 
 uses "http://hl7.org/fhir/StructureDefinition/Citation" alias CitationR5 as source
-uses "http://hl7.org/fhir/4.0/StructureDefinition/Citation" alias AccountR4 as target
+uses "http://hl7.org/fhir/4.0/StructureDefinition/Citation" alias CitationR4 as target
 
-imports "http://hl7.org/fhir/StructureMap/*5to4
+imports "http://hl7.org/fhir/StructureMap/*5to4"
 
 group Citation(source src : CitationR5, target tgt : CitationR4) extends DomainResource <<type+>> {
   src.url -> tgt.url;
@@ -42,23 +42,23 @@ group Citation(source src : CitationR5, target tgt : CitationR4) extends DomainR
   src.citedArtifact as s -> tgt.citedArtifact as t then CitationCitedArtifact(s,t);
 }
 
-group CitationSummary(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group CitationSummary(source src, target tgt) extends BackboneElement {
   src.style -> tgt.style;
   src.text -> tgt.text;
 }
 
-group CitationClassification(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group CitationClassification(source src, target tgt) extends BackboneElement {
   src.type -> tgt.type;
   src.classifier -> tgt.classifier;
 }
 
-group CitationStatusDate(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group CitationStatusDate(source src, target tgt) extends BackboneElement {
   src.activity -> tgt.activity;
   src.actual -> tgt.actual;
   src.period -> tgt.period;
 }
 
-group CitationCitedArtifact(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group CitationCitedArtifact(source src, target tgt) extends BackboneElement {
   src.identifier -> tgt.identifier;
   src.relatedIdentifier -> tgt.relatedIdentifier;
   src.dateAccessed -> tgt.dateAccessed;
@@ -76,37 +76,37 @@ group CitationCitedArtifact(source src : null, target tgt : null) extends Domain
   src.note -> tgt.note;
 }
 
-group CitationCitedArtifactVersion(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group CitationCitedArtifactVersion(source src, target tgt) extends BackboneElement {
   src.value -> tgt.value;
   src.baseCitation -> tgt.baseCitation;
 }
 
-group CitationCitedArtifactStatusDate(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group CitationCitedArtifactStatusDate(source src, target tgt) extends BackboneElement {
   src.activity -> tgt.activity;
   src.actual -> tgt.actual;
   src.period -> tgt.period;
 }
 
-group CitationCitedArtifactTitle(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group CitationCitedArtifactTitle(source src, target tgt) extends BackboneElement {
   src.type -> tgt.type;
   src.language -> tgt.language;
   src.text -> tgt.text;
 }
 
-group CitationCitedArtifactAbstract(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group CitationCitedArtifactAbstract(source src, target tgt) extends BackboneElement {
   src.type -> tgt.type;
   src.language -> tgt.language;
   src.text -> tgt.text;
   src.copyright -> tgt.copyright;
 }
 
-group CitationCitedArtifactPart(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group CitationCitedArtifactPart(source src, target tgt) extends BackboneElement {
   src.type -> tgt.type;
   src.value -> tgt.value;
   src.baseCitation -> tgt.baseCitation;
 }
 
-group CitationCitedArtifactRelatesTo(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group CitationCitedArtifactRelatesTo(source src, target tgt) extends BackboneElement {
   src.type -> tgt.type;
   src.classifier -> tgt.classifier;
   src.label -> tgt.label;
@@ -117,7 +117,7 @@ group CitationCitedArtifactRelatesTo(source src : null, target tgt : null) exten
   src.resourceReference -> tgt.resourceReference;
 }
 
-group CitationCitedArtifactPublicationForm(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group CitationCitedArtifactPublicationForm(source src, target tgt) extends BackboneElement {
   src.publishedIn as s -> tgt.publishedIn as t then CitationCitedArtifactPublicationFormPublishedIn(s,t);
   src.citedMedium -> tgt.citedMedium;
   src.volume -> tgt.volume;
@@ -135,7 +135,7 @@ group CitationCitedArtifactPublicationForm(source src : null, target tgt : null)
   src.copyright -> tgt.copyright;
 }
 
-group CitationCitedArtifactPublicationFormPublishedIn(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group CitationCitedArtifactPublicationFormPublishedIn(source src, target tgt) extends BackboneElement {
   src.type -> tgt.type;
   src.identifier -> tgt.identifier;
   src.title -> tgt.title;
@@ -143,24 +143,24 @@ group CitationCitedArtifactPublicationFormPublishedIn(source src : null, target 
   src.publisherLocation -> tgt.publisherLocation;
 }
 
-group CitationCitedArtifactWebLocation(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group CitationCitedArtifactWebLocation(source src, target tgt) extends BackboneElement {
   src.classifier -> tgt.classifier;
   src.url -> tgt.url;
 }
 
-group CitationCitedArtifactClassification(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group CitationCitedArtifactClassification(source src, target tgt) extends BackboneElement {
   src.type -> tgt.type;
   src.classifier -> tgt.classifier;
   src.artifactAssessment -> tgt.artifactAssessment;
 }
 
-group CitationCitedArtifactContributorship(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group CitationCitedArtifactContributorship(source src, target tgt) extends BackboneElement {
   src.complete -> tgt.complete;
   src.entry as s -> tgt.entry as t then CitationCitedArtifactContributorshipEntry(s,t);
   src.summary as s -> tgt.summary as t then CitationCitedArtifactContributorshipSummary(s,t);
 }
 
-group CitationCitedArtifactContributorshipEntry(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group CitationCitedArtifactContributorshipEntry(source src, target tgt) extends BackboneElement {
   src.contributor -> tgt.contributor;
   src.forenameInitials -> tgt.forenameInitials;
   src.affiliation -> tgt.affiliation;
@@ -171,12 +171,12 @@ group CitationCitedArtifactContributorshipEntry(source src : null, target tgt : 
   src.rankingOrder -> tgt.rankingOrder;
 }
 
-group CitationCitedArtifactContributorshipEntryContributionInstance(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group CitationCitedArtifactContributorshipEntryContributionInstance(source src, target tgt) extends BackboneElement {
   src.type -> tgt.type;
   src.time -> tgt.time;
 }
 
-group CitationCitedArtifactContributorshipSummary(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group CitationCitedArtifactContributorshipSummary(source src, target tgt) extends BackboneElement {
   src.type -> tgt.type;
   src.style -> tgt.style;
   src.source -> tgt.source;

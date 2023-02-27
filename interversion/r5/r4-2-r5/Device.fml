@@ -3,9 +3,9 @@
 /// title = 'FML Conversion for Device: R4 to R5'
 
 uses "http://hl7.org/fhir/4.0/StructureDefinition/Device" alias DeviceR4 as source
-uses "http://hl7.org/fhir/StructureDefinition/Device" alias AccountR5 as target
+uses "http://hl7.org/fhir/StructureDefinition/Device" alias DeviceR5 as target
 
-imports "http://hl7.org/fhir/StructureMap/*4to5
+imports "http://hl7.org/fhir/StructureMap/*4to5"
 
 group Device(source src : DeviceR4, target tgt : DeviceR5) extends DomainResource <<type+>> {
   src.identifier -> tgt.identifier;
@@ -42,7 +42,7 @@ group Device(source src : DeviceR4, target tgt : DeviceR5) extends DomainResourc
   src.parent -> tgt.parent;
 }
 
-group DeviceUdiCarrier(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group DeviceUdiCarrier(source src, target tgt) extends BackboneElement {
   src.deviceIdentifier -> tgt.deviceIdentifier;
   src.issuer -> tgt.issuer;
   src.jurisdiction -> tgt.jurisdiction;
@@ -51,26 +51,26 @@ group DeviceUdiCarrier(source src : null, target tgt : null) extends DomainResou
   src.entryType -> tgt.entryType;
 }
 
-group DeviceName(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group DeviceName(source src, target tgt) extends BackboneElement {
   src.value -> tgt.value;
   src.type -> tgt.type;
   src.display -> tgt.display;
 }
 
-group DeviceVersion(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group DeviceVersion(source src, target tgt) extends BackboneElement {
   src.type -> tgt.type;
   src.component -> tgt.component;
   src.installDate -> tgt.installDate;
   src.value -> tgt.value;
 }
 
-group DeviceConformsTo(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group DeviceConformsTo(source src, target tgt) extends BackboneElement {
   src.category -> tgt.category;
   src.specification -> tgt.specification;
   src.version -> tgt.version;
 }
 
-group DeviceProperty(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group DeviceProperty(source src, target tgt) extends BackboneElement {
   src.type -> tgt.type;
   src.value : Quantity -> tgt.value;
   src.value : CodeableConcept -> tgt.value;

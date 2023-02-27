@@ -3,9 +3,9 @@
 /// title = 'FML Conversion for Medication: R4B to R5'
 
 uses "http://hl7.org/fhir/4.3/StructureDefinition/Medication" alias MedicationR4B as source
-uses "http://hl7.org/fhir/StructureDefinition/Medication" alias AccountR5 as target
+uses "http://hl7.org/fhir/StructureDefinition/Medication" alias MedicationR5 as target
 
-imports "http://hl7.org/fhir/StructureMap/*4Bto5
+imports "http://hl7.org/fhir/StructureMap/*4Bto5"
 
 group Medication(source src : MedicationR4B, target tgt : MedicationR5) extends DomainResource <<type+>> {
   src.identifier -> tgt.identifier;
@@ -18,7 +18,7 @@ group Medication(source src : MedicationR4B, target tgt : MedicationR5) extends 
   src.batch as s -> tgt.batch as t then MedicationBatch(s,t);
 }
 
-group MedicationIngredient(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group MedicationIngredient(source src, target tgt) extends BackboneElement {
   src.item -> tgt.item;
   src.isActive -> tgt.isActive;
   src.strength : Ratio -> tgt.strength;
@@ -26,7 +26,7 @@ group MedicationIngredient(source src : null, target tgt : null) extends DomainR
   src.strength : Quantity -> tgt.strength;
 }
 
-group MedicationBatch(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group MedicationBatch(source src, target tgt) extends BackboneElement {
   src.lotNumber -> tgt.lotNumber;
   src.expirationDate -> tgt.expirationDate;
 }

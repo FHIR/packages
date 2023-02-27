@@ -3,15 +3,15 @@
 /// title = 'FML Conversion for OperationOutcome: R5 to R4B'
 
 uses "http://hl7.org/fhir/StructureDefinition/OperationOutcome" alias OperationOutcomeR5 as source
-uses "http://hl7.org/fhir/4.3/StructureDefinition/OperationOutcome" alias AccountR4B as target
+uses "http://hl7.org/fhir/4.3/StructureDefinition/OperationOutcome" alias OperationOutcomeR4B as target
 
-imports "http://hl7.org/fhir/StructureMap/*5to4B
+imports "http://hl7.org/fhir/StructureMap/*5to4B"
 
 group OperationOutcome(source src : OperationOutcomeR5, target tgt : OperationOutcomeR4B) extends DomainResource <<type+>> {
   src.issue as s -> tgt.issue as t then OperationOutcomeIssue(s,t);
 }
 
-group OperationOutcomeIssue(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group OperationOutcomeIssue(source src, target tgt) extends BackboneElement {
   src.severity -> tgt.severity;
   src.code -> tgt.code;
   src.details -> tgt.details;

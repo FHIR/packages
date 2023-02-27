@@ -3,9 +3,9 @@
 /// title = 'FML Conversion for SupplyRequest: R5 to R4'
 
 uses "http://hl7.org/fhir/StructureDefinition/SupplyRequest" alias SupplyRequestR5 as source
-uses "http://hl7.org/fhir/4.0/StructureDefinition/SupplyRequest" alias AccountR4 as target
+uses "http://hl7.org/fhir/4.0/StructureDefinition/SupplyRequest" alias SupplyRequestR4 as target
 
-imports "http://hl7.org/fhir/StructureMap/*5to4
+imports "http://hl7.org/fhir/StructureMap/*5to4"
 
 group SupplyRequest(source src : SupplyRequestR5, target tgt : SupplyRequestR4) extends DomainResource <<type+>> {
   src.identifier -> tgt.identifier;
@@ -28,7 +28,7 @@ group SupplyRequest(source src : SupplyRequestR5, target tgt : SupplyRequestR4) 
   src.deliverTo -> tgt.deliverTo;
 }
 
-group SupplyRequestParameter(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group SupplyRequestParameter(source src, target tgt) extends BackboneElement {
   src.code -> tgt.code;
   src.value : CodeableConcept -> tgt.value;
   src.value : Quantity -> tgt.value;

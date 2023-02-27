@@ -3,9 +3,9 @@
 /// title = 'FML Conversion for ExampleScenario: R4 to R5'
 
 uses "http://hl7.org/fhir/4.0/StructureDefinition/ExampleScenario" alias ExampleScenarioR4 as source
-uses "http://hl7.org/fhir/StructureDefinition/ExampleScenario" alias AccountR5 as target
+uses "http://hl7.org/fhir/StructureDefinition/ExampleScenario" alias ExampleScenarioR5 as target
 
-imports "http://hl7.org/fhir/StructureMap/*4to5
+imports "http://hl7.org/fhir/StructureMap/*4to5"
 
 group ExampleScenario(source src : ExampleScenarioR4, target tgt : ExampleScenarioR5) extends DomainResource <<type+>> {
   src.url -> tgt.url;
@@ -31,14 +31,14 @@ group ExampleScenario(source src : ExampleScenarioR4, target tgt : ExampleScenar
   src.process as s -> tgt.process as t then ExampleScenarioProcess(s,t);
 }
 
-group ExampleScenarioActor(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group ExampleScenarioActor(source src, target tgt) extends BackboneElement {
   src.key -> tgt.key;
   src.type -> tgt.type;
   src.title -> tgt.title;
   src.description -> tgt.description;
 }
 
-group ExampleScenarioInstance(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group ExampleScenarioInstance(source src, target tgt) extends BackboneElement {
   src.key -> tgt.key;
   src.structureType -> tgt.structureType;
   src.structureVersion -> tgt.structureVersion;
@@ -51,19 +51,19 @@ group ExampleScenarioInstance(source src : null, target tgt : null) extends Doma
   src.containedInstance as s -> tgt.containedInstance as t then ExampleScenarioInstanceContainedInstance(s,t);
 }
 
-group ExampleScenarioInstanceVersion(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group ExampleScenarioInstanceVersion(source src, target tgt) extends BackboneElement {
   src.key -> tgt.key;
   src.title -> tgt.title;
   src.description -> tgt.description;
   src.content -> tgt.content;
 }
 
-group ExampleScenarioInstanceContainedInstance(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group ExampleScenarioInstanceContainedInstance(source src, target tgt) extends BackboneElement {
   src.instanceReference -> tgt.instanceReference;
   src.versionReference -> tgt.versionReference;
 }
 
-group ExampleScenarioProcess(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group ExampleScenarioProcess(source src, target tgt) extends BackboneElement {
   src.title -> tgt.title;
   src.description -> tgt.description;
   src.preConditions -> tgt.preConditions;
@@ -71,7 +71,7 @@ group ExampleScenarioProcess(source src : null, target tgt : null) extends Domai
   src.step as s -> tgt.step as t then ExampleScenarioProcessStep(s,t);
 }
 
-group ExampleScenarioProcessStep(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group ExampleScenarioProcessStep(source src, target tgt) extends BackboneElement {
   src.number -> tgt.number;
   src.workflow -> tgt.workflow;
   src.operation as s -> tgt.operation as t then ExampleScenarioProcessStepOperation(s,t);
@@ -79,7 +79,7 @@ group ExampleScenarioProcessStep(source src : null, target tgt : null) extends D
   src.pause -> tgt.pause;
 }
 
-group ExampleScenarioProcessStepOperation(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group ExampleScenarioProcessStepOperation(source src, target tgt) extends BackboneElement {
   src.type -> tgt.type;
   src.title -> tgt.title;
   src.initiator -> tgt.initiator;
@@ -89,7 +89,7 @@ group ExampleScenarioProcessStepOperation(source src : null, target tgt : null) 
   src.receiverActive -> tgt.receiverActive;
 }
 
-group ExampleScenarioProcessStepAlternative(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group ExampleScenarioProcessStepAlternative(source src, target tgt) extends BackboneElement {
   src.title -> tgt.title;
   src.description -> tgt.description;
 }

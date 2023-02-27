@@ -3,9 +3,9 @@
 /// title = 'FML Conversion for NamingSystem: R4 to R5'
 
 uses "http://hl7.org/fhir/4.0/StructureDefinition/NamingSystem" alias NamingSystemR4 as source
-uses "http://hl7.org/fhir/StructureDefinition/NamingSystem" alias AccountR5 as target
+uses "http://hl7.org/fhir/StructureDefinition/NamingSystem" alias NamingSystemR5 as target
 
-imports "http://hl7.org/fhir/StructureMap/*4to5
+imports "http://hl7.org/fhir/StructureMap/*4to5"
 
 group NamingSystem(source src : NamingSystemR4, target tgt : NamingSystemR5) extends DomainResource <<type+>> {
   src.url -> tgt.url;
@@ -42,7 +42,7 @@ group NamingSystem(source src : NamingSystemR4, target tgt : NamingSystemR5) ext
   src.uniqueId as s -> tgt.uniqueId as t then NamingSystemUniqueId(s,t);
 }
 
-group NamingSystemUniqueId(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group NamingSystemUniqueId(source src, target tgt) extends BackboneElement {
   src.type -> tgt.type;
   src.value -> tgt.value;
   src.preferred -> tgt.preferred;

@@ -3,9 +3,9 @@
 /// title = 'FML Conversion for GuidanceResponse: R5 to R4'
 
 uses "http://hl7.org/fhir/StructureDefinition/GuidanceResponse" alias GuidanceResponseR5 as source
-uses "http://hl7.org/fhir/4.0/StructureDefinition/GuidanceResponse" alias AccountR4 as target
+uses "http://hl7.org/fhir/4.0/StructureDefinition/GuidanceResponse" alias GuidanceResponseR4 as target
 
-imports "http://hl7.org/fhir/StructureMap/*5to4
+imports "http://hl7.org/fhir/StructureMap/*5to4"
 
 group GuidanceResponse(source src : GuidanceResponseR5, target tgt : GuidanceResponseR4) extends DomainResource <<type+>> {
   src.requestIdentifier -> tgt.requestIdentifier;

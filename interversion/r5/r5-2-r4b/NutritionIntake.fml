@@ -3,9 +3,9 @@
 /// title = 'FML Conversion for NutritionIntake: R5 to R4B'
 
 uses "http://hl7.org/fhir/StructureDefinition/NutritionIntake" alias NutritionIntakeR5 as source
-uses "http://hl7.org/fhir/4.3/StructureDefinition/NutritionIntake" alias AccountR4B as target
+uses "http://hl7.org/fhir/4.3/StructureDefinition/NutritionIntake" alias NutritionIntakeR4B as target
 
-imports "http://hl7.org/fhir/StructureMap/*5to4B
+imports "http://hl7.org/fhir/StructureMap/*5to4B"
 
 group NutritionIntake(source src : NutritionIntakeR5, target tgt : NutritionIntakeR4B) extends DomainResource <<type+>> {
   src.identifier -> tgt.identifier;
@@ -32,7 +32,7 @@ group NutritionIntake(source src : NutritionIntakeR5, target tgt : NutritionInta
   src.note -> tgt.note;
 }
 
-group NutritionIntakeConsumedItem(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group NutritionIntakeConsumedItem(source src, target tgt) extends BackboneElement {
   src.type -> tgt.type;
   src.nutritionProduct -> tgt.nutritionProduct;
   src.schedule -> tgt.schedule;
@@ -42,12 +42,12 @@ group NutritionIntakeConsumedItem(source src : null, target tgt : null) extends 
   src.notConsumedReason -> tgt.notConsumedReason;
 }
 
-group NutritionIntakeIngredientLabel(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group NutritionIntakeIngredientLabel(source src, target tgt) extends BackboneElement {
   src.nutrient -> tgt.nutrient;
   src.amount -> tgt.amount;
 }
 
-group NutritionIntakePerformer(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group NutritionIntakePerformer(source src, target tgt) extends BackboneElement {
   src.function -> tgt.function;
   src.actor -> tgt.actor;
 }

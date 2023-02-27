@@ -3,9 +3,9 @@
 /// title = 'FML Conversion for Consent: R4B to R5'
 
 uses "http://hl7.org/fhir/4.3/StructureDefinition/Consent" alias ConsentR4B as source
-uses "http://hl7.org/fhir/StructureDefinition/Consent" alias AccountR5 as target
+uses "http://hl7.org/fhir/StructureDefinition/Consent" alias ConsentR5 as target
 
-imports "http://hl7.org/fhir/StructureMap/*4Bto5
+imports "http://hl7.org/fhir/StructureMap/*4Bto5"
 
 group Consent(source src : ConsentR4B, target tgt : ConsentR5) extends DomainResource <<type+>> {
   src.identifier -> tgt.identifier;
@@ -28,12 +28,12 @@ group Consent(source src : ConsentR4B, target tgt : ConsentR5) extends DomainRes
   src.provision as s -> tgt.provision as t then ConsentProvision(s,t);
 }
 
-group ConsentPolicyBasis(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group ConsentPolicyBasis(source src, target tgt) extends BackboneElement {
   src.reference -> tgt.reference;
   src.url -> tgt.url;
 }
 
-group ConsentVerification(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group ConsentVerification(source src, target tgt) extends BackboneElement {
   src.verified -> tgt.verified;
   src.verificationType -> tgt.verificationType;
   src.verifiedBy -> tgt.verifiedBy;
@@ -41,7 +41,7 @@ group ConsentVerification(source src : null, target tgt : null) extends DomainRe
   src.verificationDate -> tgt.verificationDate;
 }
 
-group ConsentProvision(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group ConsentProvision(source src, target tgt) extends BackboneElement {
   src.period -> tgt.period;
   src.actor as s -> tgt.actor as t then ConsentProvisionActor(s,t);
   src.action -> tgt.action;
@@ -55,12 +55,12 @@ group ConsentProvision(source src : null, target tgt : null) extends DomainResou
   src.expression -> tgt.expression;
 }
 
-group ConsentProvisionActor(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group ConsentProvisionActor(source src, target tgt) extends BackboneElement {
   src.role -> tgt.role;
   src.reference -> tgt.reference;
 }
 
-group ConsentProvisionData(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group ConsentProvisionData(source src, target tgt) extends BackboneElement {
   src.meaning -> tgt.meaning;
   src.reference -> tgt.reference;
 }

@@ -3,9 +3,9 @@
 /// title = 'FML Conversion for TestReport: R4 to R5'
 
 uses "http://hl7.org/fhir/4.0/StructureDefinition/TestReport" alias TestReportR4 as source
-uses "http://hl7.org/fhir/StructureDefinition/TestReport" alias AccountR5 as target
+uses "http://hl7.org/fhir/StructureDefinition/TestReport" alias TestReportR5 as target
 
-imports "http://hl7.org/fhir/StructureMap/*4to5
+imports "http://hl7.org/fhir/StructureMap/*4to5"
 
 group TestReport(source src : TestReportR4, target tgt : TestReportR5) extends DomainResource <<type+>> {
   src.identifier -> tgt.identifier;
@@ -22,52 +22,52 @@ group TestReport(source src : TestReportR4, target tgt : TestReportR5) extends D
   src.teardown as s -> tgt.teardown as t then TestReportTeardown(s,t);
 }
 
-group TestReportParticipant(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group TestReportParticipant(source src, target tgt) extends BackboneElement {
   src.type -> tgt.type;
   src.uri -> tgt.uri;
   src.display -> tgt.display;
 }
 
-group TestReportSetup(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group TestReportSetup(source src, target tgt) extends BackboneElement {
   src.action as s -> tgt.action as t then TestReportSetupAction(s,t);
 }
 
-group TestReportSetupAction(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group TestReportSetupAction(source src, target tgt) extends BackboneElement {
   src.operation as s -> tgt.operation as t then TestReportSetupActionOperation(s,t);
   src.assert as s -> tgt.assert as t then TestReportSetupActionAssert(s,t);
 }
 
-group TestReportSetupActionOperation(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group TestReportSetupActionOperation(source src, target tgt) extends BackboneElement {
   src.result -> tgt.result;
   src.message -> tgt.message;
   src.detail -> tgt.detail;
 }
 
-group TestReportSetupActionAssert(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group TestReportSetupActionAssert(source src, target tgt) extends BackboneElement {
   src.result -> tgt.result;
   src.message -> tgt.message;
   src.detail -> tgt.detail;
   src.requirement as s -> tgt.requirement as t then TestReportSetupActionAssertRequirement(s,t);
 }
 
-group TestReportSetupActionAssertRequirement(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group TestReportSetupActionAssertRequirement(source src, target tgt) extends BackboneElement {
   src.link : uri -> tgt.link;
   src.link : canonical -> tgt.link;
 }
 
-group TestReportTest(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group TestReportTest(source src, target tgt) extends BackboneElement {
   src.name -> tgt.name;
   src.description -> tgt.description;
   src.action as s -> tgt.action as t then TestReportTestAction(s,t);
 }
 
-group TestReportTestAction(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group TestReportTestAction(source src, target tgt) extends BackboneElement {
 }
 
-group TestReportTeardown(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group TestReportTeardown(source src, target tgt) extends BackboneElement {
   src.action as s -> tgt.action as t then TestReportTeardownAction(s,t);
 }
 
-group TestReportTeardownAction(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group TestReportTeardownAction(source src, target tgt) extends BackboneElement {
 }
 

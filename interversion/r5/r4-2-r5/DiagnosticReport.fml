@@ -3,9 +3,9 @@
 /// title = 'FML Conversion for DiagnosticReport: R4 to R5'
 
 uses "http://hl7.org/fhir/4.0/StructureDefinition/DiagnosticReport" alias DiagnosticReportR4 as source
-uses "http://hl7.org/fhir/StructureDefinition/DiagnosticReport" alias AccountR5 as target
+uses "http://hl7.org/fhir/StructureDefinition/DiagnosticReport" alias DiagnosticReportR5 as target
 
-imports "http://hl7.org/fhir/StructureMap/*4to5
+imports "http://hl7.org/fhir/StructureMap/*4to5"
 
 group DiagnosticReport(source src : DiagnosticReportR4, target tgt : DiagnosticReportR5) extends DomainResource <<type+>> {
   src.identifier -> tgt.identifier;
@@ -32,12 +32,12 @@ group DiagnosticReport(source src : DiagnosticReportR4, target tgt : DiagnosticR
   src.presentedForm -> tgt.presentedForm;
 }
 
-group DiagnosticReportSupportingInfo(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group DiagnosticReportSupportingInfo(source src, target tgt) extends BackboneElement {
   src.type -> tgt.type;
   src.reference -> tgt.reference;
 }
 
-group DiagnosticReportMedia(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group DiagnosticReportMedia(source src, target tgt) extends BackboneElement {
   src.comment -> tgt.comment;
   src.link -> tgt.link;
 }

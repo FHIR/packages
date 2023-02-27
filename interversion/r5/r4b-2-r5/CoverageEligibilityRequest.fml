@@ -3,9 +3,9 @@
 /// title = 'FML Conversion for CoverageEligibilityRequest: R4B to R5'
 
 uses "http://hl7.org/fhir/4.3/StructureDefinition/CoverageEligibilityRequest" alias CoverageEligibilityRequestR4B as source
-uses "http://hl7.org/fhir/StructureDefinition/CoverageEligibilityRequest" alias AccountR5 as target
+uses "http://hl7.org/fhir/StructureDefinition/CoverageEligibilityRequest" alias CoverageEligibilityRequestR5 as target
 
-imports "http://hl7.org/fhir/StructureMap/*4Bto5
+imports "http://hl7.org/fhir/StructureMap/*4Bto5"
 
 group CoverageEligibilityRequest(source src : CoverageEligibilityRequestR4B, target tgt : CoverageEligibilityRequestR5) extends DomainResource <<type+>> {
   src.identifier -> tgt.identifier;
@@ -26,25 +26,25 @@ group CoverageEligibilityRequest(source src : CoverageEligibilityRequestR4B, tar
   src.item as s -> tgt.item as t then CoverageEligibilityRequestItem(s,t);
 }
 
-group CoverageEligibilityRequestEvent(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group CoverageEligibilityRequestEvent(source src, target tgt) extends BackboneElement {
   src.type -> tgt.type;
   src.when : dateTime -> tgt.when;
   src.when : Period -> tgt.when;
 }
 
-group CoverageEligibilityRequestSupportingInfo(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group CoverageEligibilityRequestSupportingInfo(source src, target tgt) extends BackboneElement {
   src.sequence -> tgt.sequence;
   src.information -> tgt.information;
   src.appliesToAll -> tgt.appliesToAll;
 }
 
-group CoverageEligibilityRequestInsurance(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group CoverageEligibilityRequestInsurance(source src, target tgt) extends BackboneElement {
   src.focal -> tgt.focal;
   src.coverage -> tgt.coverage;
   src.businessArrangement -> tgt.businessArrangement;
 }
 
-group CoverageEligibilityRequestItem(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group CoverageEligibilityRequestItem(source src, target tgt) extends BackboneElement {
   src.supportingInfoSequence -> tgt.supportingInfoSequence;
   src.category -> tgt.category;
   src.productOrService -> tgt.productOrService;
@@ -57,7 +57,7 @@ group CoverageEligibilityRequestItem(source src : null, target tgt : null) exten
   src.detail -> tgt.detail;
 }
 
-group CoverageEligibilityRequestItemDiagnosis(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group CoverageEligibilityRequestItemDiagnosis(source src, target tgt) extends BackboneElement {
   src.diagnosis : CodeableConcept -> tgt.diagnosis;
   src.diagnosis : Reference -> tgt.diagnosis;
 }

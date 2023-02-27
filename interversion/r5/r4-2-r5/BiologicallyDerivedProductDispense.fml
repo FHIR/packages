@@ -3,9 +3,9 @@
 /// title = 'FML Conversion for BiologicallyDerivedProductDispense: R4 to R5'
 
 uses "http://hl7.org/fhir/4.0/StructureDefinition/BiologicallyDerivedProductDispense" alias BiologicallyDerivedProductDispenseR4 as source
-uses "http://hl7.org/fhir/StructureDefinition/BiologicallyDerivedProductDispense" alias AccountR5 as target
+uses "http://hl7.org/fhir/StructureDefinition/BiologicallyDerivedProductDispense" alias BiologicallyDerivedProductDispenseR5 as target
 
-imports "http://hl7.org/fhir/StructureMap/*4to5
+imports "http://hl7.org/fhir/StructureMap/*4to5"
 
 group BiologicallyDerivedProductDispense(source src : BiologicallyDerivedProductDispenseR4, target tgt : BiologicallyDerivedProductDispenseR5) extends DomainResource <<type+>> {
   src.identifier -> tgt.identifier;
@@ -26,7 +26,7 @@ group BiologicallyDerivedProductDispense(source src : BiologicallyDerivedProduct
   src.usageInstruction -> tgt.usageInstruction;
 }
 
-group BiologicallyDerivedProductDispensePerformer(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group BiologicallyDerivedProductDispensePerformer(source src, target tgt) extends BackboneElement {
   src.function -> tgt.function;
   src.actor -> tgt.actor;
 }

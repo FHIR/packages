@@ -3,9 +3,9 @@
 /// title = 'FML Conversion for PaymentNotice: R5 to R4'
 
 uses "http://hl7.org/fhir/StructureDefinition/PaymentNotice" alias PaymentNoticeR5 as source
-uses "http://hl7.org/fhir/4.0/StructureDefinition/PaymentNotice" alias AccountR4 as target
+uses "http://hl7.org/fhir/4.0/StructureDefinition/PaymentNotice" alias PaymentNoticeR4 as target
 
-imports "http://hl7.org/fhir/StructureMap/*5to4
+imports "http://hl7.org/fhir/StructureMap/*5to4"
 
 group PaymentNotice(source src : PaymentNoticeR5, target tgt : PaymentNoticeR4) extends DomainResource <<type+>> {
   src.identifier -> tgt.identifier;

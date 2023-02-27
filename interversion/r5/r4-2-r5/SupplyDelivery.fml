@@ -3,9 +3,9 @@
 /// title = 'FML Conversion for SupplyDelivery: R4 to R5'
 
 uses "http://hl7.org/fhir/4.0/StructureDefinition/SupplyDelivery" alias SupplyDeliveryR4 as source
-uses "http://hl7.org/fhir/StructureDefinition/SupplyDelivery" alias AccountR5 as target
+uses "http://hl7.org/fhir/StructureDefinition/SupplyDelivery" alias SupplyDeliveryR5 as target
 
-imports "http://hl7.org/fhir/StructureMap/*4to5
+imports "http://hl7.org/fhir/StructureMap/*4to5"
 
 group SupplyDelivery(source src : SupplyDeliveryR4, target tgt : SupplyDeliveryR5) extends DomainResource <<type+>> {
   src.identifier -> tgt.identifier;
@@ -23,7 +23,7 @@ group SupplyDelivery(source src : SupplyDeliveryR4, target tgt : SupplyDeliveryR
   src.receiver -> tgt.receiver;
 }
 
-group SupplyDeliverySuppliedItem(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group SupplyDeliverySuppliedItem(source src, target tgt) extends BackboneElement {
   src.quantity -> tgt.quantity;
   src.item : CodeableConcept -> tgt.item;
   src.item : Reference -> tgt.item;

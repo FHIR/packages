@@ -3,9 +3,9 @@
 /// title = 'FML Conversion for ChargeItem: R4 to R5'
 
 uses "http://hl7.org/fhir/4.0/StructureDefinition/ChargeItem" alias ChargeItemR4 as source
-uses "http://hl7.org/fhir/StructureDefinition/ChargeItem" alias AccountR5 as target
+uses "http://hl7.org/fhir/StructureDefinition/ChargeItem" alias ChargeItemR5 as target
 
-imports "http://hl7.org/fhir/StructureMap/*4to5
+imports "http://hl7.org/fhir/StructureMap/*4to5"
 
 group ChargeItem(source src : ChargeItemR4, target tgt : ChargeItemR5) extends DomainResource <<type+>> {
   src.identifier -> tgt.identifier;
@@ -38,7 +38,7 @@ group ChargeItem(source src : ChargeItemR4, target tgt : ChargeItemR5) extends D
   src.supportingInformation -> tgt.supportingInformation;
 }
 
-group ChargeItemPerformer(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group ChargeItemPerformer(source src, target tgt) extends BackboneElement {
   src.function -> tgt.function;
   src.actor -> tgt.actor;
 }

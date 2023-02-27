@@ -3,9 +3,9 @@
 /// title = 'FML Conversion for Measure: R4 to R5'
 
 uses "http://hl7.org/fhir/4.0/StructureDefinition/Measure" alias MeasureR4 as source
-uses "http://hl7.org/fhir/StructureDefinition/Measure" alias AccountR5 as target
+uses "http://hl7.org/fhir/StructureDefinition/Measure" alias MeasureR5 as target
 
-imports "http://hl7.org/fhir/StructureMap/*4to5
+imports "http://hl7.org/fhir/StructureMap/*4to5"
 
 group Measure(source src : MeasureR4, target tgt : MeasureR5) extends DomainResource <<type+>> {
   src.url -> tgt.url;
@@ -57,12 +57,12 @@ group Measure(source src : MeasureR4, target tgt : MeasureR5) extends DomainReso
   src.supplementalData as s -> tgt.supplementalData as t then MeasureSupplementalData(s,t);
 }
 
-group MeasureTerm(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group MeasureTerm(source src, target tgt) extends BackboneElement {
   src.code -> tgt.code;
   src.definition -> tgt.definition;
 }
 
-group MeasureGroup(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group MeasureGroup(source src, target tgt) extends BackboneElement {
   src.code -> tgt.code;
   src.description -> tgt.description;
   src.type -> tgt.type;
@@ -74,7 +74,7 @@ group MeasureGroup(source src : null, target tgt : null) extends DomainResource 
   src.stratifier as s -> tgt.stratifier as t then MeasureGroupStratifier(s,t);
 }
 
-group MeasureGroupPopulation(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group MeasureGroupPopulation(source src, target tgt) extends BackboneElement {
   src.code -> tgt.code;
   src.description -> tgt.description;
   src.criteria -> tgt.criteria;
@@ -82,20 +82,20 @@ group MeasureGroupPopulation(source src : null, target tgt : null) extends Domai
   src.aggregateMethod -> tgt.aggregateMethod;
 }
 
-group MeasureGroupStratifier(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group MeasureGroupStratifier(source src, target tgt) extends BackboneElement {
   src.code -> tgt.code;
   src.description -> tgt.description;
   src.criteria -> tgt.criteria;
   src.component as s -> tgt.component as t then MeasureGroupStratifierComponent(s,t);
 }
 
-group MeasureGroupStratifierComponent(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group MeasureGroupStratifierComponent(source src, target tgt) extends BackboneElement {
   src.code -> tgt.code;
   src.description -> tgt.description;
   src.criteria -> tgt.criteria;
 }
 
-group MeasureSupplementalData(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group MeasureSupplementalData(source src, target tgt) extends BackboneElement {
   src.code -> tgt.code;
   src.usage -> tgt.usage;
   src.description -> tgt.description;

@@ -3,9 +3,9 @@
 /// title = 'FML Conversion for ElementDefinition: R4B to R5'
 
 uses "http://hl7.org/fhir/4.3/StructureDefinition/ElementDefinition" alias ElementDefinitionR4B as source
-uses "http://hl7.org/fhir/StructureDefinition/ElementDefinition" alias AccountR5 as target
+uses "http://hl7.org/fhir/StructureDefinition/ElementDefinition" alias ElementDefinitionR5 as target
 
-imports "http://hl7.org/fhir/StructureMap/*4Bto5
+imports "http://hl7.org/fhir/StructureMap/*4Bto5"
 
 group ElementDefinition(source src : ElementDefinitionR4B, target tgt : ElementDefinitionR5) extends BackboneType <<type+>> {
   src.path -> tgt.path;
@@ -223,25 +223,25 @@ group ElementDefinition(source src : ElementDefinitionR4B, target tgt : ElementD
   src.mapping as s -> tgt.mapping as t then ElementDefinitionMapping(s,t);
 }
 
-group ElementDefinitionSlicing(source src : null, target tgt : null) extends BackboneType <<type+>> {
+group ElementDefinitionSlicing(source src, target tgt) extends Element {
   src.discriminator as s -> tgt.discriminator as t then ElementDefinitionSlicingDiscriminator(s,t);
   src.description -> tgt.description;
   src.ordered -> tgt.ordered;
   src.rules -> tgt.rules;
 }
 
-group ElementDefinitionSlicingDiscriminator(source src : null, target tgt : null) extends BackboneType <<type+>> {
+group ElementDefinitionSlicingDiscriminator(source src, target tgt) extends Element {
   src.type -> tgt.type;
   src.path -> tgt.path;
 }
 
-group ElementDefinitionBase(source src : null, target tgt : null) extends BackboneType <<type+>> {
+group ElementDefinitionBase(source src, target tgt) extends Element {
   src.path -> tgt.path;
   src.min -> tgt.min;
   src.max -> tgt.max;
 }
 
-group ElementDefinitionType(source src : null, target tgt : null) extends BackboneType <<type+>> {
+group ElementDefinitionType(source src, target tgt) extends Element {
   src.code -> tgt.code;
   src.profile -> tgt.profile;
   src.targetProfile -> tgt.targetProfile;
@@ -249,7 +249,7 @@ group ElementDefinitionType(source src : null, target tgt : null) extends Backbo
   src.versioning -> tgt.versioning;
 }
 
-group ElementDefinitionExample(source src : null, target tgt : null) extends BackboneType <<type+>> {
+group ElementDefinitionExample(source src, target tgt) extends Element {
   src.label -> tgt.label;
   src.value : base64Binary -> tgt.value;
   src.value : boolean -> tgt.value;
@@ -307,7 +307,7 @@ group ElementDefinitionExample(source src : null, target tgt : null) extends Bac
   src.value : Meta -> tgt.value;
 }
 
-group ElementDefinitionConstraint(source src : null, target tgt : null) extends BackboneType <<type+>> {
+group ElementDefinitionConstraint(source src, target tgt) extends Element {
   src.key -> tgt.key;
   src.requirements -> tgt.requirements;
   src.severity -> tgt.severity;
@@ -317,14 +317,14 @@ group ElementDefinitionConstraint(source src : null, target tgt : null) extends 
   src.source -> tgt.source;
 }
 
-group ElementDefinitionBinding(source src : null, target tgt : null) extends BackboneType <<type+>> {
+group ElementDefinitionBinding(source src, target tgt) extends Element {
   src.strength -> tgt.strength;
   src.description -> tgt.description;
   src.valueSet -> tgt.valueSet;
   src.additional as s -> tgt.additional as t then ElementDefinitionBindingAdditional(s,t);
 }
 
-group ElementDefinitionBindingAdditional(source src : null, target tgt : null) extends BackboneType <<type+>> {
+group ElementDefinitionBindingAdditional(source src, target tgt) extends Element {
   src.purpose -> tgt.purpose;
   src.valueSet -> tgt.valueSet;
   src.documentation -> tgt.documentation;
@@ -333,7 +333,7 @@ group ElementDefinitionBindingAdditional(source src : null, target tgt : null) e
   src.any -> tgt.any;
 }
 
-group ElementDefinitionMapping(source src : null, target tgt : null) extends BackboneType <<type+>> {
+group ElementDefinitionMapping(source src, target tgt) extends Element {
   src.identity -> tgt.identity;
   src.language -> tgt.language;
   src.map -> tgt.map;

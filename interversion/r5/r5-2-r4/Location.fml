@@ -3,9 +3,9 @@
 /// title = 'FML Conversion for Location: R5 to R4'
 
 uses "http://hl7.org/fhir/StructureDefinition/Location" alias LocationR5 as source
-uses "http://hl7.org/fhir/4.0/StructureDefinition/Location" alias AccountR4 as target
+uses "http://hl7.org/fhir/4.0/StructureDefinition/Location" alias LocationR4 as target
 
-imports "http://hl7.org/fhir/StructureMap/*5to4
+imports "http://hl7.org/fhir/StructureMap/*5to4"
 
 group Location(source src : LocationR5, target tgt : LocationR4) extends DomainResource <<type+>> {
   src.identifier -> tgt.identifier;
@@ -28,7 +28,7 @@ group Location(source src : LocationR5, target tgt : LocationR4) extends DomainR
   src.endpoint -> tgt.endpoint;
 }
 
-group LocationPosition(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group LocationPosition(source src, target tgt) extends BackboneElement {
   src.longitude -> tgt.longitude;
   src.latitude -> tgt.latitude;
   src.altitude -> tgt.altitude;

@@ -3,9 +3,9 @@
 /// title = 'FML Conversion for MeasureReport: R5 to R4'
 
 uses "http://hl7.org/fhir/StructureDefinition/MeasureReport" alias MeasureReportR5 as source
-uses "http://hl7.org/fhir/4.0/StructureDefinition/MeasureReport" alias AccountR4 as target
+uses "http://hl7.org/fhir/4.0/StructureDefinition/MeasureReport" alias MeasureReportR4 as target
 
-imports "http://hl7.org/fhir/StructureMap/*5to4
+imports "http://hl7.org/fhir/StructureMap/*5to4"
 
 group MeasureReport(source src : MeasureReportR5, target tgt : MeasureReportR4) extends DomainResource <<type+>> {
   src.identifier -> tgt.identifier;
@@ -26,7 +26,7 @@ group MeasureReport(source src : MeasureReportR5, target tgt : MeasureReportR4) 
   src.evaluatedResource -> tgt.evaluatedResource;
 }
 
-group MeasureReportGroup(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group MeasureReportGroup(source src, target tgt) extends BackboneElement {
   src.code -> tgt.code;
   src.population as s -> tgt.population as t then MeasureReportGroupPopulation(s,t);
   src.measureScore : Quantity -> tgt.measureScore;
@@ -38,18 +38,18 @@ group MeasureReportGroup(source src : null, target tgt : null) extends DomainRes
   src.stratifier as s -> tgt.stratifier as t then MeasureReportGroupStratifier(s,t);
 }
 
-group MeasureReportGroupPopulation(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group MeasureReportGroupPopulation(source src, target tgt) extends BackboneElement {
   src.code -> tgt.code;
   src.count -> tgt.count;
   src.subjectResults -> tgt.subjectResults;
 }
 
-group MeasureReportGroupStratifier(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group MeasureReportGroupStratifier(source src, target tgt) extends BackboneElement {
   src.code -> tgt.code;
   src.stratum as s -> tgt.stratum as t then MeasureReportGroupStratifierStratum(s,t);
 }
 
-group MeasureReportGroupStratifierStratum(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group MeasureReportGroupStratifierStratum(source src, target tgt) extends BackboneElement {
   src.value : CodeableConcept -> tgt.value;
   src.value : boolean -> tgt.value;
   src.value : Quantity -> tgt.value;
@@ -65,7 +65,7 @@ group MeasureReportGroupStratifierStratum(source src : null, target tgt : null) 
   src.measureScore : Duration -> tgt.measureScore;
 }
 
-group MeasureReportGroupStratifierStratumComponent(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group MeasureReportGroupStratifierStratumComponent(source src, target tgt) extends BackboneElement {
   src.code -> tgt.code;
   src.value : CodeableConcept -> tgt.value;
   src.value : boolean -> tgt.value;
@@ -74,7 +74,7 @@ group MeasureReportGroupStratifierStratumComponent(source src : null, target tgt
   src.value : Reference -> tgt.value;
 }
 
-group MeasureReportGroupStratifierStratumPopulation(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group MeasureReportGroupStratifierStratumPopulation(source src, target tgt) extends BackboneElement {
   src.code -> tgt.code;
   src.count -> tgt.count;
   src.subjectResults -> tgt.subjectResults;

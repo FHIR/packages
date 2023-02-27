@@ -3,9 +3,9 @@
 /// title = 'FML Conversion for ActivityDefinition: R4 to R5'
 
 uses "http://hl7.org/fhir/4.0/StructureDefinition/ActivityDefinition" alias ActivityDefinitionR4 as source
-uses "http://hl7.org/fhir/StructureDefinition/ActivityDefinition" alias AccountR5 as target
+uses "http://hl7.org/fhir/StructureDefinition/ActivityDefinition" alias ActivityDefinitionR5 as target
 
-imports "http://hl7.org/fhir/StructureMap/*4to5
+imports "http://hl7.org/fhir/StructureMap/*4to5"
 
 group ActivityDefinition(source src : ActivityDefinitionR4, target tgt : ActivityDefinitionR5) extends DomainResource <<type+>> {
   src.url -> tgt.url;
@@ -67,7 +67,7 @@ group ActivityDefinition(source src : ActivityDefinitionR4, target tgt : Activit
   src.dynamicValue as s -> tgt.dynamicValue as t then ActivityDefinitionDynamicValue(s,t);
 }
 
-group ActivityDefinitionParticipant(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group ActivityDefinitionParticipant(source src, target tgt) extends BackboneElement {
   src.type -> tgt.type;
   src.typeCanonical -> tgt.typeCanonical;
   src.typeReference -> tgt.typeReference;
@@ -75,7 +75,7 @@ group ActivityDefinitionParticipant(source src : null, target tgt : null) extend
   src.function -> tgt.function;
 }
 
-group ActivityDefinitionDynamicValue(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group ActivityDefinitionDynamicValue(source src, target tgt) extends BackboneElement {
   src.path -> tgt.path;
   src.expression -> tgt.expression;
 }

@@ -3,9 +3,9 @@
 /// title = 'FML Conversion for Composition: R4 to R5'
 
 uses "http://hl7.org/fhir/4.0/StructureDefinition/Composition" alias CompositionR4 as source
-uses "http://hl7.org/fhir/StructureDefinition/Composition" alias AccountR5 as target
+uses "http://hl7.org/fhir/StructureDefinition/Composition" alias CompositionR5 as target
 
-imports "http://hl7.org/fhir/StructureMap/*4to5
+imports "http://hl7.org/fhir/StructureMap/*4to5"
 
 group Composition(source src : CompositionR4, target tgt : CompositionR5) extends DomainResource <<type+>> {
   src.url -> tgt.url;
@@ -29,19 +29,19 @@ group Composition(source src : CompositionR4, target tgt : CompositionR5) extend
   src.section as s -> tgt.section as t then CompositionSection(s,t);
 }
 
-group CompositionAttester(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group CompositionAttester(source src, target tgt) extends BackboneElement {
   src.mode -> tgt.mode;
   src.time -> tgt.time;
   src.party -> tgt.party;
 }
 
-group CompositionEvent(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group CompositionEvent(source src, target tgt) extends BackboneElement {
   src.code -> tgt.code;
   src.period -> tgt.period;
   src.detail -> tgt.detail;
 }
 
-group CompositionSection(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group CompositionSection(source src, target tgt) extends BackboneElement {
   src.title -> tgt.title;
   src.code -> tgt.code;
   src.author -> tgt.author;

@@ -3,9 +3,9 @@
 /// title = 'FML Conversion for ClinicalUseDefinition: R5 to R4'
 
 uses "http://hl7.org/fhir/StructureDefinition/ClinicalUseDefinition" alias ClinicalUseDefinitionR5 as source
-uses "http://hl7.org/fhir/4.0/StructureDefinition/ClinicalUseDefinition" alias AccountR4 as target
+uses "http://hl7.org/fhir/4.0/StructureDefinition/ClinicalUseDefinition" alias ClinicalUseDefinitionR4 as target
 
-imports "http://hl7.org/fhir/StructureMap/*5to4
+imports "http://hl7.org/fhir/StructureMap/*5to4"
 
 group ClinicalUseDefinition(source src : ClinicalUseDefinitionR5, target tgt : ClinicalUseDefinitionR4) extends DomainResource <<type+>> {
   src.identifier -> tgt.identifier;
@@ -22,7 +22,7 @@ group ClinicalUseDefinition(source src : ClinicalUseDefinitionR5, target tgt : C
   src.warning as s -> tgt.warning as t then ClinicalUseDefinitionWarning(s,t);
 }
 
-group ClinicalUseDefinitionContraindication(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group ClinicalUseDefinitionContraindication(source src, target tgt) extends BackboneElement {
   src.diseaseSymptomProcedure -> tgt.diseaseSymptomProcedure;
   src.diseaseStatus -> tgt.diseaseStatus;
   src.comorbidity -> tgt.comorbidity;
@@ -31,12 +31,12 @@ group ClinicalUseDefinitionContraindication(source src : null, target tgt : null
   src.otherTherapy as s -> tgt.otherTherapy as t then ClinicalUseDefinitionContraindicationOtherTherapy(s,t);
 }
 
-group ClinicalUseDefinitionContraindicationOtherTherapy(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group ClinicalUseDefinitionContraindicationOtherTherapy(source src, target tgt) extends BackboneElement {
   src.relationshipType -> tgt.relationshipType;
   src.treatment -> tgt.treatment;
 }
 
-group ClinicalUseDefinitionIndication(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group ClinicalUseDefinitionIndication(source src, target tgt) extends BackboneElement {
   src.diseaseSymptomProcedure -> tgt.diseaseSymptomProcedure;
   src.diseaseStatus -> tgt.diseaseStatus;
   src.comorbidity -> tgt.comorbidity;
@@ -47,7 +47,7 @@ group ClinicalUseDefinitionIndication(source src : null, target tgt : null) exte
   src.applicability -> tgt.applicability;
 }
 
-group ClinicalUseDefinitionInteraction(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group ClinicalUseDefinitionInteraction(source src, target tgt) extends BackboneElement {
   src.interactant as s -> tgt.interactant as t then ClinicalUseDefinitionInteractionInteractant(s,t);
   src.type -> tgt.type;
   src.effect -> tgt.effect;
@@ -55,18 +55,18 @@ group ClinicalUseDefinitionInteraction(source src : null, target tgt : null) ext
   src.management -> tgt.management;
 }
 
-group ClinicalUseDefinitionInteractionInteractant(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group ClinicalUseDefinitionInteractionInteractant(source src, target tgt) extends BackboneElement {
   src.item : Reference -> tgt.item;
   src.item : CodeableConcept -> tgt.item;
 }
 
-group ClinicalUseDefinitionUndesirableEffect(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group ClinicalUseDefinitionUndesirableEffect(source src, target tgt) extends BackboneElement {
   src.symptomConditionEffect -> tgt.symptomConditionEffect;
   src.classification -> tgt.classification;
   src.frequencyOfOccurrence -> tgt.frequencyOfOccurrence;
 }
 
-group ClinicalUseDefinitionWarning(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group ClinicalUseDefinitionWarning(source src, target tgt) extends BackboneElement {
   src.description -> tgt.description;
   src.code -> tgt.code;
 }

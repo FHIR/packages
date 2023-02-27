@@ -3,9 +3,9 @@
 /// title = 'FML Conversion for List: R5 to R4'
 
 uses "http://hl7.org/fhir/StructureDefinition/List" alias ListR5 as source
-uses "http://hl7.org/fhir/4.0/StructureDefinition/List" alias AccountR4 as target
+uses "http://hl7.org/fhir/4.0/StructureDefinition/List" alias ListR4 as target
 
-imports "http://hl7.org/fhir/StructureMap/*5to4
+imports "http://hl7.org/fhir/StructureMap/*5to4"
 
 group List(source src : ListR5, target tgt : ListR4) extends DomainResource <<type+>> {
   src.identifier -> tgt.identifier;
@@ -23,7 +23,7 @@ group List(source src : ListR5, target tgt : ListR4) extends DomainResource <<ty
   src.emptyReason -> tgt.emptyReason;
 }
 
-group ListEntry(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group ListEntry(source src, target tgt) extends BackboneElement {
   src.flag -> tgt.flag;
   src.deleted -> tgt.deleted;
   src.date -> tgt.date;

@@ -3,9 +3,9 @@
 /// title = 'FML Conversion for Provenance: R5 to R4'
 
 uses "http://hl7.org/fhir/StructureDefinition/Provenance" alias ProvenanceR5 as source
-uses "http://hl7.org/fhir/4.0/StructureDefinition/Provenance" alias AccountR4 as target
+uses "http://hl7.org/fhir/4.0/StructureDefinition/Provenance" alias ProvenanceR4 as target
 
-imports "http://hl7.org/fhir/StructureMap/*5to4
+imports "http://hl7.org/fhir/StructureMap/*5to4"
 
 group Provenance(source src : ProvenanceR5, target tgt : ProvenanceR4) extends DomainResource <<type+>> {
   src.target -> tgt.target;
@@ -24,14 +24,14 @@ group Provenance(source src : ProvenanceR5, target tgt : ProvenanceR4) extends D
   src.signature -> tgt.signature;
 }
 
-group ProvenanceAgent(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group ProvenanceAgent(source src, target tgt) extends BackboneElement {
   src.type -> tgt.type;
   src.role -> tgt.role;
   src.who -> tgt.who;
   src.onBehalfOf -> tgt.onBehalfOf;
 }
 
-group ProvenanceEntity(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group ProvenanceEntity(source src, target tgt) extends BackboneElement {
   src.role -> tgt.role;
   src.what -> tgt.what;
 }

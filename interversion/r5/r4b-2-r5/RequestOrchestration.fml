@@ -3,9 +3,9 @@
 /// title = 'FML Conversion for RequestOrchestration: R4B to R5'
 
 uses "http://hl7.org/fhir/4.3/StructureDefinition/RequestOrchestration" alias RequestOrchestrationR4B as source
-uses "http://hl7.org/fhir/StructureDefinition/RequestOrchestration" alias AccountR5 as target
+uses "http://hl7.org/fhir/StructureDefinition/RequestOrchestration" alias RequestOrchestrationR5 as target
 
-imports "http://hl7.org/fhir/StructureMap/*4Bto5
+imports "http://hl7.org/fhir/StructureMap/*4Bto5"
 
 group RequestOrchestration(source src : RequestOrchestrationR4B, target tgt : RequestOrchestrationR5) extends DomainResource <<type+>> {
   src.identifier -> tgt.identifier;
@@ -28,7 +28,7 @@ group RequestOrchestration(source src : RequestOrchestrationR4B, target tgt : Re
   src.action as s -> tgt.action as t then RequestOrchestrationAction(s,t);
 }
 
-group RequestOrchestrationAction(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group RequestOrchestrationAction(source src, target tgt) extends BackboneElement {
   src.linkId -> tgt.linkId;
   src.prefix -> tgt.prefix;
   src.title -> tgt.title;
@@ -63,24 +63,24 @@ group RequestOrchestrationAction(source src : null, target tgt : null) extends D
   src.dynamicValue as s -> tgt.dynamicValue as t then RequestOrchestrationActionDynamicValue(s,t);
 }
 
-group RequestOrchestrationActionCondition(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group RequestOrchestrationActionCondition(source src, target tgt) extends BackboneElement {
   src.kind -> tgt.kind;
   src.expression -> tgt.expression;
 }
 
-group RequestOrchestrationActionInput(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group RequestOrchestrationActionInput(source src, target tgt) extends BackboneElement {
   src.title -> tgt.title;
   src.requirement -> tgt.requirement;
   src.relatedData -> tgt.relatedData;
 }
 
-group RequestOrchestrationActionOutput(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group RequestOrchestrationActionOutput(source src, target tgt) extends BackboneElement {
   src.title -> tgt.title;
   src.requirement -> tgt.requirement;
   src.relatedData -> tgt.relatedData;
 }
 
-group RequestOrchestrationActionRelatedAction(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group RequestOrchestrationActionRelatedAction(source src, target tgt) extends BackboneElement {
   src.targetId -> tgt.targetId;
   src.relationship -> tgt.relationship;
   src.endRelationship -> tgt.endRelationship;
@@ -88,7 +88,7 @@ group RequestOrchestrationActionRelatedAction(source src : null, target tgt : nu
   src.offset : Range -> tgt.offset;
 }
 
-group RequestOrchestrationActionParticipant(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group RequestOrchestrationActionParticipant(source src, target tgt) extends BackboneElement {
   src.type -> tgt.type;
   src.typeCanonical -> tgt.typeCanonical;
   src.typeReference -> tgt.typeReference;
@@ -98,7 +98,7 @@ group RequestOrchestrationActionParticipant(source src : null, target tgt : null
   src.actor : Reference -> tgt.actor;
 }
 
-group RequestOrchestrationActionDynamicValue(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group RequestOrchestrationActionDynamicValue(source src, target tgt) extends BackboneElement {
   src.path -> tgt.path;
   src.expression -> tgt.expression;
 }

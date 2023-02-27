@@ -3,9 +3,9 @@
 /// title = 'FML Conversion for SubstanceProtein: R4B to R5'
 
 uses "http://hl7.org/fhir/4.3/StructureDefinition/SubstanceProtein" alias SubstanceProteinR4B as source
-uses "http://hl7.org/fhir/StructureDefinition/SubstanceProtein" alias AccountR5 as target
+uses "http://hl7.org/fhir/StructureDefinition/SubstanceProtein" alias SubstanceProteinR5 as target
 
-imports "http://hl7.org/fhir/StructureMap/*4Bto5
+imports "http://hl7.org/fhir/StructureMap/*4Bto5"
 
 group SubstanceProtein(source src : SubstanceProteinR4B, target tgt : SubstanceProteinR5) extends DomainResource <<type+>> {
   src.sequenceType -> tgt.sequenceType;
@@ -14,7 +14,7 @@ group SubstanceProtein(source src : SubstanceProteinR4B, target tgt : SubstanceP
   src.subunit as s -> tgt.subunit as t then SubstanceProteinSubunit(s,t);
 }
 
-group SubstanceProteinSubunit(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group SubstanceProteinSubunit(source src, target tgt) extends BackboneElement {
   src.subunit -> tgt.subunit;
   src.sequence -> tgt.sequence;
   src.length -> tgt.length;

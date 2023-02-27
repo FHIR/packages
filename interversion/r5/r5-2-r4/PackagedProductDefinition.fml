@@ -3,9 +3,9 @@
 /// title = 'FML Conversion for PackagedProductDefinition: R5 to R4'
 
 uses "http://hl7.org/fhir/StructureDefinition/PackagedProductDefinition" alias PackagedProductDefinitionR5 as source
-uses "http://hl7.org/fhir/4.0/StructureDefinition/PackagedProductDefinition" alias AccountR4 as target
+uses "http://hl7.org/fhir/4.0/StructureDefinition/PackagedProductDefinition" alias PackagedProductDefinitionR4 as target
 
-imports "http://hl7.org/fhir/StructureMap/*5to4
+imports "http://hl7.org/fhir/StructureMap/*5to4"
 
 group PackagedProductDefinition(source src : PackagedProductDefinitionR5, target tgt : PackagedProductDefinitionR4) extends DomainResource <<type+>> {
   src.identifier -> tgt.identifier;
@@ -24,12 +24,12 @@ group PackagedProductDefinition(source src : PackagedProductDefinitionR5, target
   src.packaging as s -> tgt.packaging as t then PackagedProductDefinitionPackaging(s,t);
 }
 
-group PackagedProductDefinitionLegalStatusOfSupply(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group PackagedProductDefinitionLegalStatusOfSupply(source src, target tgt) extends BackboneElement {
   src.code -> tgt.code;
   src.jurisdiction -> tgt.jurisdiction;
 }
 
-group PackagedProductDefinitionPackaging(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group PackagedProductDefinitionPackaging(source src, target tgt) extends BackboneElement {
   src.identifier -> tgt.identifier;
   src.type -> tgt.type;
   src.componentPart -> tgt.componentPart;
@@ -42,7 +42,7 @@ group PackagedProductDefinitionPackaging(source src : null, target tgt : null) e
   src.containedItem as s -> tgt.containedItem as t then PackagedProductDefinitionPackagingContainedItem(s,t);
 }
 
-group PackagedProductDefinitionPackagingProperty(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group PackagedProductDefinitionPackagingProperty(source src, target tgt) extends BackboneElement {
   src.type -> tgt.type;
   src.value : CodeableConcept -> tgt.value;
   src.value : Quantity -> tgt.value;
@@ -51,7 +51,7 @@ group PackagedProductDefinitionPackagingProperty(source src : null, target tgt :
   src.value : Attachment -> tgt.value;
 }
 
-group PackagedProductDefinitionPackagingContainedItem(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group PackagedProductDefinitionPackagingContainedItem(source src, target tgt) extends BackboneElement {
   src.item -> tgt.item;
   src.amount -> tgt.amount;
 }

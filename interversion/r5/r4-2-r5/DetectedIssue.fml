@@ -3,9 +3,9 @@
 /// title = 'FML Conversion for DetectedIssue: R4 to R5'
 
 uses "http://hl7.org/fhir/4.0/StructureDefinition/DetectedIssue" alias DetectedIssueR4 as source
-uses "http://hl7.org/fhir/StructureDefinition/DetectedIssue" alias AccountR5 as target
+uses "http://hl7.org/fhir/StructureDefinition/DetectedIssue" alias DetectedIssueR5 as target
 
-imports "http://hl7.org/fhir/StructureMap/*4to5
+imports "http://hl7.org/fhir/StructureMap/*4to5"
 
 group DetectedIssue(source src : DetectedIssueR4, target tgt : DetectedIssueR5) extends DomainResource <<type+>> {
   src.identifier -> tgt.identifier;
@@ -25,12 +25,12 @@ group DetectedIssue(source src : DetectedIssueR4, target tgt : DetectedIssueR5) 
   src.mitigation as s -> tgt.mitigation as t then DetectedIssueMitigation(s,t);
 }
 
-group DetectedIssueEvidence(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group DetectedIssueEvidence(source src, target tgt) extends BackboneElement {
   src.code -> tgt.code;
   src.detail -> tgt.detail;
 }
 
-group DetectedIssueMitigation(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group DetectedIssueMitigation(source src, target tgt) extends BackboneElement {
   src.action -> tgt.action;
   src.date -> tgt.date;
   src.author -> tgt.author;

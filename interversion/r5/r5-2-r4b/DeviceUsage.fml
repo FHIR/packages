@@ -3,9 +3,9 @@
 /// title = 'FML Conversion for DeviceUsage: R5 to R4B'
 
 uses "http://hl7.org/fhir/StructureDefinition/DeviceUsage" alias DeviceUsageR5 as source
-uses "http://hl7.org/fhir/4.3/StructureDefinition/DeviceUsage" alias AccountR4B as target
+uses "http://hl7.org/fhir/4.3/StructureDefinition/DeviceUsage" alias DeviceUsageR4B as target
 
-imports "http://hl7.org/fhir/StructureMap/*5to4B
+imports "http://hl7.org/fhir/StructureMap/*5to4B"
 
 group DeviceUsage(source src : DeviceUsageR5, target tgt : DeviceUsageR4B) extends DomainResource <<type+>> {
   src.identifier -> tgt.identifier;
@@ -29,7 +29,7 @@ group DeviceUsage(source src : DeviceUsageR5, target tgt : DeviceUsageR4B) exten
   src.note -> tgt.note;
 }
 
-group DeviceUsageAdherence(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group DeviceUsageAdherence(source src, target tgt) extends BackboneElement {
   src.code -> tgt.code;
   src.reason -> tgt.reason;
 }

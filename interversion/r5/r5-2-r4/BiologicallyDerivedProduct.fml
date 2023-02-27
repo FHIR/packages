@@ -3,9 +3,9 @@
 /// title = 'FML Conversion for BiologicallyDerivedProduct: R5 to R4'
 
 uses "http://hl7.org/fhir/StructureDefinition/BiologicallyDerivedProduct" alias BiologicallyDerivedProductR5 as source
-uses "http://hl7.org/fhir/4.0/StructureDefinition/BiologicallyDerivedProduct" alias AccountR4 as target
+uses "http://hl7.org/fhir/4.0/StructureDefinition/BiologicallyDerivedProduct" alias BiologicallyDerivedProductR4 as target
 
-imports "http://hl7.org/fhir/StructureMap/*5to4
+imports "http://hl7.org/fhir/StructureMap/*5to4"
 
 group BiologicallyDerivedProduct(source src : BiologicallyDerivedProductR5, target tgt : BiologicallyDerivedProductR4) extends DomainResource <<type+>> {
   src.productCategory -> tgt.productCategory;
@@ -23,14 +23,14 @@ group BiologicallyDerivedProduct(source src : BiologicallyDerivedProductR5, targ
   src.property as s -> tgt.property as t then BiologicallyDerivedProductProperty(s,t);
 }
 
-group BiologicallyDerivedProductCollection(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group BiologicallyDerivedProductCollection(source src, target tgt) extends BackboneElement {
   src.collector -> tgt.collector;
   src.source -> tgt.source;
   src.collected : dateTime -> tgt.collected;
   src.collected : Period -> tgt.collected;
 }
 
-group BiologicallyDerivedProductProperty(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group BiologicallyDerivedProductProperty(source src, target tgt) extends BackboneElement {
   src.type -> tgt.type;
   src.value : boolean -> tgt.value;
   src.value : integer -> tgt.value;

@@ -3,9 +3,9 @@
 /// title = 'FML Conversion for MedicationStatement: R4B to R5'
 
 uses "http://hl7.org/fhir/4.3/StructureDefinition/MedicationStatement" alias MedicationStatementR4B as source
-uses "http://hl7.org/fhir/StructureDefinition/MedicationStatement" alias AccountR5 as target
+uses "http://hl7.org/fhir/StructureDefinition/MedicationStatement" alias MedicationStatementR5 as target
 
-imports "http://hl7.org/fhir/StructureMap/*4Bto5
+imports "http://hl7.org/fhir/StructureMap/*4Bto5"
 
 group MedicationStatement(source src : MedicationStatementR4B, target tgt : MedicationStatementR5) extends DomainResource <<type+>> {
   src.identifier -> tgt.identifier;
@@ -29,7 +29,7 @@ group MedicationStatement(source src : MedicationStatementR4B, target tgt : Medi
   src.adherence as s -> tgt.adherence as t then MedicationStatementAdherence(s,t);
 }
 
-group MedicationStatementAdherence(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group MedicationStatementAdherence(source src, target tgt) extends BackboneElement {
   src.code -> tgt.code;
   src.reason -> tgt.reason;
 }

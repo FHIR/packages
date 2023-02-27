@@ -3,9 +3,9 @@
 /// title = 'FML Conversion for GenomicStudy: R4 to R5'
 
 uses "http://hl7.org/fhir/4.0/StructureDefinition/GenomicStudy" alias GenomicStudyR4 as source
-uses "http://hl7.org/fhir/StructureDefinition/GenomicStudy" alias AccountR5 as target
+uses "http://hl7.org/fhir/StructureDefinition/GenomicStudy" alias GenomicStudyR5 as target
 
-imports "http://hl7.org/fhir/StructureMap/*4to5
+imports "http://hl7.org/fhir/StructureMap/*4to5"
 
 group GenomicStudy(source src : GenomicStudyR4, target tgt : GenomicStudyR5) extends DomainResource <<type+>> {
   src.identifier -> tgt.identifier;
@@ -25,7 +25,7 @@ group GenomicStudy(source src : GenomicStudyR4, target tgt : GenomicStudyR5) ext
   src.analysis as s -> tgt.analysis as t then GenomicStudyAnalysis(s,t);
 }
 
-group GenomicStudyAnalysis(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group GenomicStudyAnalysis(source src, target tgt) extends BackboneElement {
   src.identifier -> tgt.identifier;
   src.methodType -> tgt.methodType;
   src.changeType -> tgt.changeType;
@@ -46,24 +46,24 @@ group GenomicStudyAnalysis(source src : null, target tgt : null) extends DomainR
   src.device as s -> tgt.device as t then GenomicStudyAnalysisDevice(s,t);
 }
 
-group GenomicStudyAnalysisInput(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group GenomicStudyAnalysisInput(source src, target tgt) extends BackboneElement {
   src.file -> tgt.file;
   src.type -> tgt.type;
   src.generatedBy : Identifier -> tgt.generatedBy;
   src.generatedBy : Reference -> tgt.generatedBy;
 }
 
-group GenomicStudyAnalysisOutput(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group GenomicStudyAnalysisOutput(source src, target tgt) extends BackboneElement {
   src.file -> tgt.file;
   src.type -> tgt.type;
 }
 
-group GenomicStudyAnalysisPerformer(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group GenomicStudyAnalysisPerformer(source src, target tgt) extends BackboneElement {
   src.actor -> tgt.actor;
   src.role -> tgt.role;
 }
 
-group GenomicStudyAnalysisDevice(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group GenomicStudyAnalysisDevice(source src, target tgt) extends BackboneElement {
   src.device -> tgt.device;
   src.function -> tgt.function;
 }

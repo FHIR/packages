@@ -3,9 +3,9 @@
 /// title = 'FML Conversion for ResearchStudy: R4 to R5'
 
 uses "http://hl7.org/fhir/4.0/StructureDefinition/ResearchStudy" alias ResearchStudyR4 as source
-uses "http://hl7.org/fhir/StructureDefinition/ResearchStudy" alias AccountR5 as target
+uses "http://hl7.org/fhir/StructureDefinition/ResearchStudy" alias ResearchStudyR5 as target
 
-imports "http://hl7.org/fhir/StructureMap/*4to5
+imports "http://hl7.org/fhir/StructureMap/*4to5"
 
 group ResearchStudy(source src : ResearchStudyR4, target tgt : ResearchStudyR5) extends DomainResource <<type+>> {
   src.url -> tgt.url;
@@ -42,12 +42,12 @@ group ResearchStudy(source src : ResearchStudyR4, target tgt : ResearchStudyR5) 
   src.result -> tgt.result;
 }
 
-group ResearchStudyLabel(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group ResearchStudyLabel(source src, target tgt) extends BackboneElement {
   src.type -> tgt.type;
   src.value -> tgt.value;
 }
 
-group ResearchStudyAssociatedParty(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group ResearchStudyAssociatedParty(source src, target tgt) extends BackboneElement {
   src.name -> tgt.name;
   src.role -> tgt.role;
   src.period -> tgt.period;
@@ -55,20 +55,20 @@ group ResearchStudyAssociatedParty(source src : null, target tgt : null) extends
   src.party -> tgt.party;
 }
 
-group ResearchStudyProgressStatus(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group ResearchStudyProgressStatus(source src, target tgt) extends BackboneElement {
   src.state -> tgt.state;
   src.actual -> tgt.actual;
   src.period -> tgt.period;
 }
 
-group ResearchStudyRecruitment(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group ResearchStudyRecruitment(source src, target tgt) extends BackboneElement {
   src.targetNumber -> tgt.targetNumber;
   src.actualNumber -> tgt.actualNumber;
   src.eligibility -> tgt.eligibility;
   src.actualGroup -> tgt.actualGroup;
 }
 
-group ResearchStudyComparisonGroup(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group ResearchStudyComparisonGroup(source src, target tgt) extends BackboneElement {
   src.linkId -> tgt.linkId;
   src.name -> tgt.name;
   src.type -> tgt.type;
@@ -77,13 +77,13 @@ group ResearchStudyComparisonGroup(source src : null, target tgt : null) extends
   src.observedGroup -> tgt.observedGroup;
 }
 
-group ResearchStudyObjective(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group ResearchStudyObjective(source src, target tgt) extends BackboneElement {
   src.name -> tgt.name;
   src.type -> tgt.type;
   src.description -> tgt.description;
 }
 
-group ResearchStudyOutcomeMeasure(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group ResearchStudyOutcomeMeasure(source src, target tgt) extends BackboneElement {
   src.name -> tgt.name;
   src.type -> tgt.type;
   src.description -> tgt.description;

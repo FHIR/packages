@@ -3,9 +3,9 @@
 /// title = 'FML Conversion for ConditionDefinition: R4B to R5'
 
 uses "http://hl7.org/fhir/4.3/StructureDefinition/ConditionDefinition" alias ConditionDefinitionR4B as source
-uses "http://hl7.org/fhir/StructureDefinition/ConditionDefinition" alias AccountR5 as target
+uses "http://hl7.org/fhir/StructureDefinition/ConditionDefinition" alias ConditionDefinitionR5 as target
 
-imports "http://hl7.org/fhir/StructureMap/*4Bto5
+imports "http://hl7.org/fhir/StructureMap/*4Bto5"
 
 group ConditionDefinition(source src : ConditionDefinitionR4B, target tgt : ConditionDefinitionR5) extends DomainResource <<type+>> {
   src.url -> tgt.url;
@@ -38,29 +38,29 @@ group ConditionDefinition(source src : ConditionDefinitionR4B, target tgt : Cond
   src.plan as s -> tgt.plan as t then ConditionDefinitionPlan(s,t);
 }
 
-group ConditionDefinitionObservation(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group ConditionDefinitionObservation(source src, target tgt) extends BackboneElement {
   src.category -> tgt.category;
   src.code -> tgt.code;
 }
 
-group ConditionDefinitionMedication(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group ConditionDefinitionMedication(source src, target tgt) extends BackboneElement {
   src.category -> tgt.category;
   src.code -> tgt.code;
 }
 
-group ConditionDefinitionPrecondition(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group ConditionDefinitionPrecondition(source src, target tgt) extends BackboneElement {
   src.type -> tgt.type;
   src.code -> tgt.code;
   src.value : CodeableConcept -> tgt.value;
   src.value : Quantity -> tgt.value;
 }
 
-group ConditionDefinitionQuestionnaire(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group ConditionDefinitionQuestionnaire(source src, target tgt) extends BackboneElement {
   src.purpose -> tgt.purpose;
   src.reference -> tgt.reference;
 }
 
-group ConditionDefinitionPlan(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group ConditionDefinitionPlan(source src, target tgt) extends BackboneElement {
   src.role -> tgt.role;
   src.reference -> tgt.reference;
 }

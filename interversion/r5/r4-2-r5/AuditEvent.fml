@@ -3,9 +3,9 @@
 /// title = 'FML Conversion for AuditEvent: R4 to R5'
 
 uses "http://hl7.org/fhir/4.0/StructureDefinition/AuditEvent" alias AuditEventR4 as source
-uses "http://hl7.org/fhir/StructureDefinition/AuditEvent" alias AccountR5 as target
+uses "http://hl7.org/fhir/StructureDefinition/AuditEvent" alias AuditEventR5 as target
 
-imports "http://hl7.org/fhir/StructureMap/*4to5
+imports "http://hl7.org/fhir/StructureMap/*4to5"
 
 group AuditEvent(source src : AuditEventR4, target tgt : AuditEventR5) extends DomainResource <<type+>> {
   src.category -> tgt.category;
@@ -25,12 +25,12 @@ group AuditEvent(source src : AuditEventR4, target tgt : AuditEventR5) extends D
   src.entity as s -> tgt.entity as t then AuditEventEntity(s,t);
 }
 
-group AuditEventOutcome(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group AuditEventOutcome(source src, target tgt) extends BackboneElement {
   src.code -> tgt.code;
   src.detail -> tgt.detail;
 }
 
-group AuditEventAgent(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group AuditEventAgent(source src, target tgt) extends BackboneElement {
   src.type -> tgt.type;
   src.role -> tgt.role;
   src.who -> tgt.who;
@@ -43,13 +43,13 @@ group AuditEventAgent(source src : null, target tgt : null) extends DomainResour
   src.authorization -> tgt.authorization;
 }
 
-group AuditEventSource(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group AuditEventSource(source src, target tgt) extends BackboneElement {
   src.site -> tgt.site;
   src.observer -> tgt.observer;
   src.type -> tgt.type;
 }
 
-group AuditEventEntity(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group AuditEventEntity(source src, target tgt) extends BackboneElement {
   src.what -> tgt.what;
   src.role -> tgt.role;
   src.securityLabel -> tgt.securityLabel;
@@ -57,7 +57,7 @@ group AuditEventEntity(source src : null, target tgt : null) extends DomainResou
   src.detail as s -> tgt.detail as t then AuditEventEntityDetail(s,t);
 }
 
-group AuditEventEntityDetail(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group AuditEventEntityDetail(source src, target tgt) extends BackboneElement {
   src.type -> tgt.type;
   src.value : Quantity -> tgt.value;
   src.value : CodeableConcept -> tgt.value;

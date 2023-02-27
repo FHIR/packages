@@ -3,9 +3,9 @@
 /// title = 'FML Conversion for SubscriptionStatus: R4B to R5'
 
 uses "http://hl7.org/fhir/4.3/StructureDefinition/SubscriptionStatus" alias SubscriptionStatusR4B as source
-uses "http://hl7.org/fhir/StructureDefinition/SubscriptionStatus" alias AccountR5 as target
+uses "http://hl7.org/fhir/StructureDefinition/SubscriptionStatus" alias SubscriptionStatusR5 as target
 
-imports "http://hl7.org/fhir/StructureMap/*4Bto5
+imports "http://hl7.org/fhir/StructureMap/*4Bto5"
 
 group SubscriptionStatus(source src : SubscriptionStatusR4B, target tgt : SubscriptionStatusR5) extends DomainResource <<type+>> {
   src.status -> tgt.status;
@@ -17,7 +17,7 @@ group SubscriptionStatus(source src : SubscriptionStatusR4B, target tgt : Subscr
   src.error -> tgt.error;
 }
 
-group SubscriptionStatusNotificationEvent(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group SubscriptionStatusNotificationEvent(source src, target tgt) extends BackboneElement {
   src.eventNumber -> tgt.eventNumber;
   src.timestamp -> tgt.timestamp;
   src.focus -> tgt.focus;

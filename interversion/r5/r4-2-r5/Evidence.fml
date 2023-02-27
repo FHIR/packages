@@ -3,9 +3,9 @@
 /// title = 'FML Conversion for Evidence: R4 to R5'
 
 uses "http://hl7.org/fhir/4.0/StructureDefinition/Evidence" alias EvidenceR4 as source
-uses "http://hl7.org/fhir/StructureDefinition/Evidence" alias AccountR5 as target
+uses "http://hl7.org/fhir/StructureDefinition/Evidence" alias EvidenceR5 as target
 
-imports "http://hl7.org/fhir/StructureMap/*4to5
+imports "http://hl7.org/fhir/StructureMap/*4to5"
 
 group Evidence(source src : EvidenceR4, target tgt : EvidenceR5) extends DomainResource <<type+>> {
   src.url -> tgt.url;
@@ -43,7 +43,7 @@ group Evidence(source src : EvidenceR4, target tgt : EvidenceR5) extends DomainR
   src.certainty as s -> tgt.certainty as t then EvidenceCertainty(s,t);
 }
 
-group EvidenceVariableDefinition(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group EvidenceVariableDefinition(source src, target tgt) extends BackboneElement {
   src.description -> tgt.description;
   src.note -> tgt.note;
   src.variableRole -> tgt.variableRole;
@@ -52,7 +52,7 @@ group EvidenceVariableDefinition(source src : null, target tgt : null) extends D
   src.directnessMatch -> tgt.directnessMatch;
 }
 
-group EvidenceStatistic(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group EvidenceStatistic(source src, target tgt) extends BackboneElement {
   src.description -> tgt.description;
   src.note -> tgt.note;
   src.statisticType -> tgt.statisticType;
@@ -65,7 +65,7 @@ group EvidenceStatistic(source src : null, target tgt : null) extends DomainReso
   src.modelCharacteristic as s -> tgt.modelCharacteristic as t then EvidenceStatisticModelCharacteristic(s,t);
 }
 
-group EvidenceStatisticSampleSize(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group EvidenceStatisticSampleSize(source src, target tgt) extends BackboneElement {
   src.description -> tgt.description;
   src.note -> tgt.note;
   src.numberOfStudies -> tgt.numberOfStudies;
@@ -73,7 +73,7 @@ group EvidenceStatisticSampleSize(source src : null, target tgt : null) extends 
   src.knownDataCount -> tgt.knownDataCount;
 }
 
-group EvidenceStatisticAttributeEstimate(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group EvidenceStatisticAttributeEstimate(source src, target tgt) extends BackboneElement {
   src.description -> tgt.description;
   src.note -> tgt.note;
   src.type -> tgt.type;
@@ -82,13 +82,13 @@ group EvidenceStatisticAttributeEstimate(source src : null, target tgt : null) e
   src.range -> tgt.range;
 }
 
-group EvidenceStatisticModelCharacteristic(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group EvidenceStatisticModelCharacteristic(source src, target tgt) extends BackboneElement {
   src.code -> tgt.code;
   src.value -> tgt.value;
   src.variable as s -> tgt.variable as t then EvidenceStatisticModelCharacteristicVariable(s,t);
 }
 
-group EvidenceStatisticModelCharacteristicVariable(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group EvidenceStatisticModelCharacteristicVariable(source src, target tgt) extends BackboneElement {
   src.variableDefinition -> tgt.variableDefinition;
   src.handling -> tgt.handling;
   src.valueCategory -> tgt.valueCategory;
@@ -96,7 +96,7 @@ group EvidenceStatisticModelCharacteristicVariable(source src : null, target tgt
   src.valueRange -> tgt.valueRange;
 }
 
-group EvidenceCertainty(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group EvidenceCertainty(source src, target tgt) extends BackboneElement {
   src.description -> tgt.description;
   src.note -> tgt.note;
   src.type -> tgt.type;

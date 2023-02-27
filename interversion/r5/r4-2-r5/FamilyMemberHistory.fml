@@ -3,9 +3,9 @@
 /// title = 'FML Conversion for FamilyMemberHistory: R4 to R5'
 
 uses "http://hl7.org/fhir/4.0/StructureDefinition/FamilyMemberHistory" alias FamilyMemberHistoryR4 as source
-uses "http://hl7.org/fhir/StructureDefinition/FamilyMemberHistory" alias AccountR5 as target
+uses "http://hl7.org/fhir/StructureDefinition/FamilyMemberHistory" alias FamilyMemberHistoryR5 as target
 
-imports "http://hl7.org/fhir/StructureMap/*4to5
+imports "http://hl7.org/fhir/StructureMap/*4to5"
 
 group FamilyMemberHistory(source src : FamilyMemberHistoryR4, target tgt : FamilyMemberHistoryR5) extends DomainResource <<type+>> {
   src.identifier -> tgt.identifier;
@@ -37,12 +37,12 @@ group FamilyMemberHistory(source src : FamilyMemberHistoryR4, target tgt : Famil
   src.procedure as s -> tgt.procedure as t then FamilyMemberHistoryProcedure(s,t);
 }
 
-group FamilyMemberHistoryParticipant(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group FamilyMemberHistoryParticipant(source src, target tgt) extends BackboneElement {
   src.function -> tgt.function;
   src.actor -> tgt.actor;
 }
 
-group FamilyMemberHistoryCondition(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group FamilyMemberHistoryCondition(source src, target tgt) extends BackboneElement {
   src.code -> tgt.code;
   src.outcome -> tgt.outcome;
   src.contributedToDeath -> tgt.contributedToDeath;
@@ -53,7 +53,7 @@ group FamilyMemberHistoryCondition(source src : null, target tgt : null) extends
   src.note -> tgt.note;
 }
 
-group FamilyMemberHistoryProcedure(source src : null, target tgt : null) extends DomainResource <<type+>> {
+group FamilyMemberHistoryProcedure(source src, target tgt) extends BackboneElement {
   src.code -> tgt.code;
   src.outcome -> tgt.outcome;
   src.contributedToDeath -> tgt.contributedToDeath;
