@@ -7,6 +7,19 @@ uses "http://hl7.org/fhir/4.3/StructureDefinition/CarePlan" alias CarePlanR4B as
 
 imports "http://hl7.org/fhir/StructureMap/*5to4B"
 
+conceptmap "CarePlanStatus" {
+  prefix s = "http://hl7.org/fhir/request-status"
+  prefix t = "http://hl7.org/fhir/4.3/request-status"
+
+  s:draft - t:draft
+  s:active - t:active
+  s:on-hold - t:on-hold
+  s:revoked - t:revoked
+  s:completed - t:completed
+  s:entered-in-error - t:entered-in-error
+  s:unknown - t:unknown
+}
+
 group CarePlan(source src : CarePlanR5, target tgt : CarePlanR4B) extends DomainResource <<type+>> {
   src.identifier -> tgt.identifier;
   src.instantiatesCanonical -> tgt.instantiatesCanonical;
@@ -14,7 +27,7 @@ group CarePlan(source src : CarePlanR5, target tgt : CarePlanR4B) extends Domain
   src.basedOn -> tgt.basedOn;
   src.replaces -> tgt.replaces;
   src.partOf -> tgt.partOf;
-  src.status -> tgt.status;
+  src.status as v -> tgt.status = translate(v, '#CarePlanStatus', 'c');
   src.intent -> tgt.intent;
   src.category -> tgt.category;
   src.title -> tgt.title;

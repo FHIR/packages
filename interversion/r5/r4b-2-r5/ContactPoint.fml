@@ -7,10 +7,34 @@ uses "http://hl7.org/fhir/StructureDefinition/ContactPoint" alias ContactPointR5
 
 imports "http://hl7.org/fhir/StructureMap/*4Bto5"
 
+conceptmap "ContactPointSystem" {
+  prefix s = "http://hl7.org/fhir/4.3/contact-point-system"
+  prefix t = "http://hl7.org/fhir/contact-point-system"
+
+  s:phone - t:phone
+  s:fax - t:fax
+  s:email - t:email
+  s:pager - t:pager
+  s:url - t:url
+  s:sms - t:sms
+  s:other - t:other
+}
+
+conceptmap "ContactPointUse" {
+  prefix s = "http://hl7.org/fhir/4.3/contact-point-use"
+  prefix t = "http://hl7.org/fhir/contact-point-use"
+
+  s:home - t:home
+  s:work - t:work
+  s:temp - t:temp
+  s:old - t:old
+  s:mobile - t:mobile
+}
+
 group ContactPoint(source src : ContactPointR4B, target tgt : ContactPointR5) extends DataType <<type+>> {
-  src.system -> tgt.system;
+  src.system as v -> tgt.system = translate(v, '#ContactPointSystem', 'c');
   src.value -> tgt.value;
-  src.use -> tgt.use;
+  src.use as v -> tgt.use = translate(v, '#ContactPointUse', 'c');
   src.rank -> tgt.rank;
   src.period -> tgt.period;
 }

@@ -7,9 +7,21 @@ uses "http://hl7.org/fhir/StructureDefinition/Goal" alias GoalR5 as target
 
 imports "http://hl7.org/fhir/StructureMap/*4to5"
 
+conceptmap "GoalLifecycleStatus" {
+  prefix s = "http://hl7.org/fhir/4.0/goal-status"
+  prefix t = "http://hl7.org/fhir/goal-status"
+
+  s:proposed - t:proposed
+  s:planned - t:planned
+  s:accepted - t:accepted
+  s:cancelled - t:cancelled
+  s:entered-in-error - t:entered-in-error
+  s:rejected - t:rejected
+}
+
 group Goal(source src : GoalR4, target tgt : GoalR5) extends DomainResource <<type+>> {
   src.identifier -> tgt.identifier;
-  src.lifecycleStatus -> tgt.lifecycleStatus;
+  src.lifecycleStatus as v -> tgt.lifecycleStatus = translate(v, '#GoalLifecycleStatus', 'c');
   src.achievementStatus -> tgt.achievementStatus;
   src.category -> tgt.category;
   src.continuous -> tgt.continuous;

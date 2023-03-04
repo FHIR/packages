@@ -7,14 +7,55 @@ uses "http://hl7.org/fhir/StructureDefinition/GraphDefinition" alias GraphDefini
 
 imports "http://hl7.org/fhir/StructureMap/*4Bto5"
 
+conceptmap "CompartmentCode" {
+  prefix s = "http://hl7.org/fhir/4.3/compartment-type"
+  prefix t = "http://hl7.org/fhir/compartment-type"
+
+  s:Patient - t:Patient
+  s:Encounter - t:Encounter
+  s:RelatedPerson - t:RelatedPerson
+  s:Practitioner - t:Practitioner
+  s:Device - t:Device
+  s:EpisodeOfCare - t:EpisodeOfCare
+}
+
+conceptmap "GraphCompartmentRule" {
+  prefix s = "http://hl7.org/fhir/4.3/graph-compartment-rule"
+  prefix t = "http://hl7.org/fhir/graph-compartment-rule"
+
+  s:identical - t:identical
+  s:matching - t:matching
+  s:different - t:different
+  s:custom - t:custom
+}
+
+conceptmap "GraphCompartmentUse" {
+  prefix s = "http://hl7.org/fhir/4.3/graph-compartment-use"
+  prefix t = "http://hl7.org/fhir/graph-compartment-use"
+
+  s:where - t:where
+  s:requires - t:requires
+}
+
+conceptmap "PublicationStatus" {
+  prefix s = "http://hl7.org/fhir/4.3/publication-status"
+  prefix t = "http://hl7.org/fhir/publication-status"
+
+  s:draft - t:draft
+  s:active - t:active
+  s:retired - t:retired
+  s:unknown - t:unknown
+}
+
 group GraphDefinition(source src : GraphDefinitionR4B, target tgt : GraphDefinitionR5) extends DomainResource <<type+>> {
   src.url -> tgt.url;
+  src.identifier -> tgt.identifier;
   src.version -> tgt.version;
   src.versionAlgorithm : string -> tgt.versionAlgorithm;
   src.versionAlgorithm : Coding -> tgt.versionAlgorithm;
   src.name -> tgt.name;
   src.title -> tgt.title;
-  src.status -> tgt.status;
+  src.status as v -> tgt.status = translate(v, '#PublicationStatus', 'c');
   src.experimental -> tgt.experimental;
   src.date -> tgt.date;
   src.publisher -> tgt.publisher;
@@ -23,6 +64,8 @@ group GraphDefinition(source src : GraphDefinitionR4B, target tgt : GraphDefinit
   src.useContext -> tgt.useContext;
   src.jurisdiction -> tgt.jurisdiction;
   src.purpose -> tgt.purpose;
+  src.copyright -> tgt.copyright;
+  src.copyrightLabel -> tgt.copyrightLabel;
   src.start -> tgt.start;
   src.node as s -> tgt.node as t then GraphDefinitionNode(s,t);
   src.link as s -> tgt.link as t then GraphDefinitionLink(s,t);
@@ -48,9 +91,9 @@ group GraphDefinitionLink(source src, target tgt) extends BackboneElement {
 }
 
 group GraphDefinitionLinkCompartment(source src, target tgt) extends BackboneElement {
-  src.use -> tgt.use;
-  src.rule -> tgt.rule;
-  src.code -> tgt.code;
+  src.use as v -> tgt.use = translate(v, '#GraphCompartmentUse', 'c');
+  src.rule as v -> tgt.rule = translate(v, '#GraphCompartmentRule', 'c');
+  src.code as v -> tgt.code = translate(v, '#CompartmentCode', 'c');
   src.expression -> tgt.expression;
   src.description -> tgt.description;
 }

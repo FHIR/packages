@@ -7,9 +7,39 @@ uses "http://hl7.org/fhir/4.0/StructureDefinition/Consent" alias ConsentR4 as ta
 
 imports "http://hl7.org/fhir/StructureMap/*5to4"
 
+conceptmap "ConsentDataMeaning" {
+  prefix s = "http://hl7.org/fhir/consent-data-meaning"
+  prefix t = "http://hl7.org/fhir/4.0/consent-data-meaning"
+
+  s:instance - t:instance
+  s:related - t:related
+  s:dependents - t:dependents
+  s:authoredby - t:authoredby
+}
+
+conceptmap "ConsentProvisionType" {
+  prefix s = "http://hl7.org/fhir/consent-provision-type"
+  prefix t = "http://hl7.org/fhir/4.0/consent-provision-type"
+
+  s:deny - t:deny
+  s:permit - t:permit
+}
+
+conceptmap "ConsentState" {
+  prefix s = "http://hl7.org/fhir/consent-state-codes"
+  prefix t = "http://hl7.org/fhir/4.0/consent-state-codes"
+
+  s:draft - t:draft
+  s:active - t:active
+  s:inactive - t:inactive
+  s:not-done - t:not-done
+  s:entered-in-error - t:entered-in-error
+  s:unknown - t:unknown
+}
+
 group Consent(source src : ConsentR5, target tgt : ConsentR4) extends DomainResource <<type+>> {
   src.identifier -> tgt.identifier;
-  src.status -> tgt.status;
+  src.status as v -> tgt.status = translate(v, '#ConsentState', 'c');
   src.category -> tgt.category;
   src.subject -> tgt.subject;
   src.date -> tgt.date;
@@ -24,7 +54,7 @@ group Consent(source src : ConsentR5, target tgt : ConsentR4) extends DomainReso
   src.policyBasis as s -> tgt.policyBasis as t then ConsentPolicyBasis(s,t);
   src.policyText -> tgt.policyText;
   src.verification as s -> tgt.verification as t then ConsentVerification(s,t);
-  src.decision -> tgt.decision;
+  src.decision as v -> tgt.decision = translate(v, '#ConsentProvisionType', 'c');
   src.provision as s -> tgt.provision as t then ConsentProvision(s,t);
 }
 
@@ -61,7 +91,7 @@ group ConsentProvisionActor(source src, target tgt) extends BackboneElement {
 }
 
 group ConsentProvisionData(source src, target tgt) extends BackboneElement {
-  src.meaning -> tgt.meaning;
+  src.meaning as v -> tgt.meaning = translate(v, '#ConsentDataMeaning', 'c');
   src.reference -> tgt.reference;
 }
 

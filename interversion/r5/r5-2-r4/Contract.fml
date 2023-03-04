@@ -7,11 +7,53 @@ uses "http://hl7.org/fhir/4.0/StructureDefinition/Contract" alias ContractR4 as 
 
 imports "http://hl7.org/fhir/StructureMap/*5to4"
 
+conceptmap "ContractPublicationStatus" {
+  prefix s = "http://hl7.org/fhir/contract-publicationstatus"
+  prefix t = "http://hl7.org/fhir/4.0/contract-publicationstatus"
+
+  s:amended - t:amended
+  s:appended - t:appended
+  s:cancelled - t:cancelled
+  s:disputed - t:disputed
+  s:entered-in-error - t:entered-in-error
+  s:executable - t:executable
+  s:executed - t:executed
+  s:negotiable - t:negotiable
+  s:offered - t:offered
+  s:policy - t:policy
+  s:rejected - t:rejected
+  s:renewed - t:renewed
+  s:revoked - t:revoked
+  s:resolved - t:resolved
+  s:terminated - t:terminated
+}
+
+conceptmap "ContractStatus" {
+  prefix s = "http://hl7.org/fhir/contract-status"
+  prefix t = "http://hl7.org/fhir/4.0/contract-status"
+
+  s:amended - t:amended
+  s:appended - t:appended
+  s:cancelled - t:cancelled
+  s:disputed - t:disputed
+  s:entered-in-error - t:entered-in-error
+  s:executable - t:executable
+  s:executed - t:executed
+  s:negotiable - t:negotiable
+  s:offered - t:offered
+  s:policy - t:policy
+  s:rejected - t:rejected
+  s:renewed - t:renewed
+  s:revoked - t:revoked
+  s:resolved - t:resolved
+  s:terminated - t:terminated
+}
+
 group Contract(source src : ContractR5, target tgt : ContractR4) extends DomainResource <<type+>> {
   src.identifier -> tgt.identifier;
   src.url -> tgt.url;
   src.version -> tgt.version;
-  src.status -> tgt.status;
+  src.status as v -> tgt.status = translate(v, '#ContractStatus', 'c');
   src.legalState -> tgt.legalState;
   src.instantiatesCanonical -> tgt.instantiatesCanonical;
   src.instantiatesUri -> tgt.instantiatesUri;
@@ -50,7 +92,7 @@ group ContractContentDefinition(source src, target tgt) extends BackboneElement 
   src.subType -> tgt.subType;
   src.publisher -> tgt.publisher;
   src.publicationDate -> tgt.publicationDate;
-  src.publicationStatus -> tgt.publicationStatus;
+  src.publicationStatus as v -> tgt.publicationStatus = translate(v, '#ContractPublicationStatus', 'c');
   src.copyright -> tgt.copyright;
 }
 

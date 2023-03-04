@@ -7,12 +7,52 @@ uses "http://hl7.org/fhir/4.3/StructureDefinition/TestReport" alias TestReportR4
 
 imports "http://hl7.org/fhir/StructureMap/*5to4B"
 
+conceptmap "TestReportActionResult" {
+  prefix s = "http://hl7.org/fhir/report-action-result-codes"
+  prefix t = "http://hl7.org/fhir/4.3/report-action-result-codes"
+
+  s:pass - t:pass
+  s:skip - t:skip
+  s:fail - t:fail
+  s:warning - t:warning
+  s:error - t:error
+}
+
+conceptmap "TestReportParticipantType" {
+  prefix s = "http://hl7.org/fhir/report-participant-type"
+  prefix t = "http://hl7.org/fhir/4.3/report-participant-type"
+
+  s:test-engine - t:test-engine
+  s:client - t:client
+  s:server - t:server
+}
+
+conceptmap "TestReportResult" {
+  prefix s = "http://hl7.org/fhir/report-result-codes"
+  prefix t = "http://hl7.org/fhir/4.3/report-result-codes"
+
+  s:pass - t:pass
+  s:fail - t:fail
+  s:pending - t:pending
+}
+
+conceptmap "TestReportStatus" {
+  prefix s = "http://hl7.org/fhir/report-status-codes"
+  prefix t = "http://hl7.org/fhir/4.3/report-status-codes"
+
+  s:completed - t:completed
+  s:in-progress - t:in-progress
+  s:waiting - t:waiting
+  s:stopped - t:stopped
+  s:entered-in-error - t:entered-in-error
+}
+
 group TestReport(source src : TestReportR5, target tgt : TestReportR4B) extends DomainResource <<type+>> {
   src.identifier -> tgt.identifier;
   src.name -> tgt.name;
-  src.status -> tgt.status;
+  src.status as v -> tgt.status = translate(v, '#TestReportStatus', 'c');
   src.testScript -> tgt.testScript;
-  src.result -> tgt.result;
+  src.result as v -> tgt.result = translate(v, '#TestReportResult', 'c');
   src.score -> tgt.score;
   src.tester -> tgt.tester;
   src.issued -> tgt.issued;
@@ -23,7 +63,7 @@ group TestReport(source src : TestReportR5, target tgt : TestReportR4B) extends 
 }
 
 group TestReportParticipant(source src, target tgt) extends BackboneElement {
-  src.type -> tgt.type;
+  src.type as v -> tgt.type = translate(v, '#TestReportParticipantType', 'c');
   src.uri -> tgt.uri;
   src.display -> tgt.display;
 }
@@ -38,13 +78,13 @@ group TestReportSetupAction(source src, target tgt) extends BackboneElement {
 }
 
 group TestReportSetupActionOperation(source src, target tgt) extends BackboneElement {
-  src.result -> tgt.result;
+  src.result as v -> tgt.result = translate(v, '#TestReportActionResult', 'c');
   src.message -> tgt.message;
   src.detail -> tgt.detail;
 }
 
 group TestReportSetupActionAssert(source src, target tgt) extends BackboneElement {
-  src.result -> tgt.result;
+  src.result as v -> tgt.result = translate(v, '#TestReportActionResult', 'c');
   src.message -> tgt.message;
   src.detail -> tgt.detail;
   src.requirement as s -> tgt.requirement as t then TestReportSetupActionAssertRequirement(s,t);

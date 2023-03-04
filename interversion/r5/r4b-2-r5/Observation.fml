@@ -7,6 +7,28 @@ uses "http://hl7.org/fhir/StructureDefinition/Observation" alias ObservationR5 a
 
 imports "http://hl7.org/fhir/StructureMap/*4Bto5"
 
+conceptmap "ObservationStatus" {
+  prefix s = "http://hl7.org/fhir/4.3/observation-status"
+  prefix t = "http://hl7.org/fhir/observation-status"
+
+  s:registered - t:registered
+  s:preliminary - t:preliminary
+  s:final - t:final
+  s:amended - t:amended
+  s:cancelled - t:cancelled
+  s:entered-in-error - t:entered-in-error
+  s:unknown - t:unknown
+}
+
+conceptmap "TriggeredByType" {
+  prefix s = "http://hl7.org/fhir/4.3/observation-triggeredbytype"
+  prefix t = "http://hl7.org/fhir/observation-triggeredbytype"
+
+  s:reflex - t:reflex
+  s:repeat - t:repeat
+  s:re-run - t:re-run
+}
+
 group Observation(source src : ObservationR4B, target tgt : ObservationR5) extends DomainResource <<type+>> {
   src.identifier -> tgt.identifier;
   src.instantiates : canonical -> tgt.instantiates;
@@ -14,7 +36,7 @@ group Observation(source src : ObservationR4B, target tgt : ObservationR5) exten
   src.basedOn -> tgt.basedOn;
   src.triggeredBy as s -> tgt.triggeredBy as t then ObservationTriggeredBy(s,t);
   src.partOf -> tgt.partOf;
-  src.status -> tgt.status;
+  src.status as v -> tgt.status = translate(v, '#ObservationStatus', 'c');
   src.category -> tgt.category;
   src.code -> tgt.code;
   src.subject -> tgt.subject;
@@ -56,7 +78,7 @@ group Observation(source src : ObservationR4B, target tgt : ObservationR5) exten
 
 group ObservationTriggeredBy(source src, target tgt) extends BackboneElement {
   src.observation -> tgt.observation;
-  src.type -> tgt.type;
+  src.type as v -> tgt.type = translate(v, '#TriggeredByType', 'c');
   src.reason -> tgt.reason;
 }
 

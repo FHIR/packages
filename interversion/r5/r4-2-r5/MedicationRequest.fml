@@ -7,17 +7,49 @@ uses "http://hl7.org/fhir/StructureDefinition/MedicationRequest" alias Medicatio
 
 imports "http://hl7.org/fhir/StructureMap/*4to5"
 
+conceptmap "MedicationRequestIntent" {
+  prefix s = "http://hl7.org/fhir/4.0/CodeSystem/medicationrequest-intent"
+  prefix t = "http://hl7.org/fhir/CodeSystem/medicationrequest-intent"
+
+  s:proposal - t:proposal
+  s:plan - t:plan
+  s:order - t:order
+  s:option - t:option
+}
+
+conceptmap "MedicationRequestPriority" {
+  prefix s = "http://hl7.org/fhir/4.0/request-priority"
+  prefix t = "http://hl7.org/fhir/request-priority"
+
+  s:routine - t:routine
+  s:urgent - t:urgent
+  s:asap - t:asap
+  s:stat - t:stat
+}
+
+conceptmap "MedicationRequestStatus" {
+  prefix s = "http://hl7.org/fhir/4.0/CodeSystem/medicationrequest-status"
+  prefix t = "http://hl7.org/fhir/CodeSystem/medicationrequest-status"
+
+  s:active - t:active
+  s:on-hold - t:on-hold
+  s:ended - t:ended
+  s:entered-in-error - t:entered-in-error
+  s:draft - t:draft
+  s:unknown - t:unknown
+}
+
 group MedicationRequest(source src : MedicationRequestR4, target tgt : MedicationRequestR5) extends DomainResource <<type+>> {
   src.identifier -> tgt.identifier;
   src.basedOn -> tgt.basedOn;
   src.priorPrescription -> tgt.priorPrescription;
   src.groupIdentifier -> tgt.groupIdentifier;
-  src.status -> tgt.status;
+  src.status as v -> tgt.status = translate(v, '#MedicationRequestStatus', 'c');
   src.statusReason -> tgt.statusReason;
   src.statusChanged -> tgt.statusChanged;
-  src.intent -> tgt.intent;
+  src.intent as v -> tgt.intent = translate(v, '#MedicationRequestIntent', 'c');
   src.category -> tgt.category;
-  src.priority -> tgt.priority;
+  src.priority as v -> tgt.priority = translate(v, '#MedicationRequestPriority', 'c');
   src.doNotPerform -> tgt.doNotPerform;
   src.medication -> tgt.medication;
   src.subject -> tgt.subject;

@@ -7,13 +7,25 @@ uses "http://hl7.org/fhir/4.0/StructureDefinition/GuidanceResponse" alias Guidan
 
 imports "http://hl7.org/fhir/StructureMap/*5to4"
 
+conceptmap "GuidanceResponseStatus" {
+  prefix s = "http://hl7.org/fhir/guidance-response-status"
+  prefix t = "http://hl7.org/fhir/4.0/guidance-response-status"
+
+  s:success - t:success
+  s:data-requested - t:data-requested
+  s:data-required - t:data-required
+  s:in-progress - t:in-progress
+  s:failure - t:failure
+  s:entered-in-error - t:entered-in-error
+}
+
 group GuidanceResponse(source src : GuidanceResponseR5, target tgt : GuidanceResponseR4) extends DomainResource <<type+>> {
   src.requestIdentifier -> tgt.requestIdentifier;
   src.identifier -> tgt.identifier;
   src.module : uri -> tgt.module;
   src.module : canonical -> tgt.module;
   src.module : CodeableConcept -> tgt.module;
-  src.status -> tgt.status;
+  src.status as v -> tgt.status = translate(v, '#GuidanceResponseStatus', 'c');
   src.subject -> tgt.subject;
   src.encounter -> tgt.encounter;
   src.occurrenceDateTime -> tgt.occurrenceDateTime;

@@ -7,6 +7,44 @@ uses "http://hl7.org/fhir/StructureDefinition/ArtifactAssessment" alias Artifact
 
 imports "http://hl7.org/fhir/StructureMap/*4to5"
 
+conceptmap "Disposition" {
+  prefix s = "http://hl7.org/fhir/4.0/artifactassessment-disposition"
+  prefix t = "http://hl7.org/fhir/artifactassessment-disposition"
+
+  s:unresolved - t:unresolved
+  s:not-persuasive - t:not-persuasive
+  s:persuasive - t:persuasive
+  s:persuasive-with-modification - t:persuasive-with-modification
+  s:not-persuasive-with-modification - t:not-persuasive-with-modification
+}
+
+conceptmap "InformationType" {
+  prefix s = "http://hl7.org/fhir/4.0/artifactassessment-information-type"
+  prefix t = "http://hl7.org/fhir/artifactassessment-information-type"
+
+  s:comment - t:comment
+  s:classifier - t:classifier
+  s:rating - t:rating
+  s:container - t:container
+  s:response - t:response
+  s:change-request - t:change-request
+}
+
+conceptmap "WorkflowStatus" {
+  prefix s = "http://hl7.org/fhir/4.0/artifactassessment-workflow-status"
+  prefix t = "http://hl7.org/fhir/artifactassessment-workflow-status"
+
+  s:submitted - t:submitted
+  s:triaged - t:triaged
+  s:waiting-for-input - t:waiting-for-input
+  s:resolved-no-change - t:resolved-no-change
+  s:resolved-change-required - t:resolved-change-required
+  s:deferred - t:deferred
+  s:duplicate - t:duplicate
+  s:applied - t:applied
+  s:published - t:published
+}
+
 group ArtifactAssessment(source src : ArtifactAssessmentR4, target tgt : ArtifactAssessmentR5) extends DomainResource <<type+>> {
   src.identifier -> tgt.identifier;
   src.title -> tgt.title;
@@ -20,15 +58,16 @@ group ArtifactAssessment(source src : ArtifactAssessmentR4, target tgt : Artifac
   src.artifact : canonical -> tgt.artifact;
   src.artifact : uri -> tgt.artifact;
   src.content as s -> tgt.content as t then ArtifactAssessmentContent(s,t);
-  src.workflowStatus -> tgt.workflowStatus;
-  src.disposition -> tgt.disposition;
+  src.workflowStatus as v -> tgt.workflowStatus = translate(v, '#WorkflowStatus', 'c');
+  src.disposition as v -> tgt.disposition = translate(v, '#Disposition', 'c');
 }
 
 group ArtifactAssessmentContent(source src, target tgt) extends BackboneElement {
-  src.informationType -> tgt.informationType;
+  src.informationType as v -> tgt.informationType = translate(v, '#InformationType', 'c');
   src.summary -> tgt.summary;
   src.type -> tgt.type;
   src.classifier -> tgt.classifier;
+  src.quantity -> tgt.quantity;
   src.author -> tgt.author;
   src.path -> tgt.path;
   src.relatedArtifact -> tgt.relatedArtifact;

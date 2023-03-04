@@ -7,9 +7,20 @@ uses "http://hl7.org/fhir/StructureDefinition/Invoice" alias InvoiceR5 as target
 
 imports "http://hl7.org/fhir/StructureMap/*4Bto5"
 
+conceptmap "InvoiceStatus" {
+  prefix s = "http://hl7.org/fhir/4.3/invoice-status"
+  prefix t = "http://hl7.org/fhir/invoice-status"
+
+  s:draft - t:draft
+  s:issued - t:issued
+  s:balanced - t:balanced
+  s:cancelled - t:cancelled
+  s:entered-in-error - t:entered-in-error
+}
+
 group Invoice(source src : InvoiceR4B, target tgt : InvoiceR5) extends DomainResource <<type+>> {
   src.identifier -> tgt.identifier;
-  src.status -> tgt.status;
+  src.status as v -> tgt.status = translate(v, '#InvoiceStatus', 'c');
   src.cancelledReason -> tgt.cancelledReason;
   src.type -> tgt.type;
   src.subject -> tgt.subject;

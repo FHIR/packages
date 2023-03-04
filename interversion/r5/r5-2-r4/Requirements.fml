@@ -7,13 +7,35 @@ uses "http://hl7.org/fhir/4.0/StructureDefinition/Requirements" alias Requiremen
 
 imports "http://hl7.org/fhir/StructureMap/*5to4"
 
+conceptmap "??" {
+  prefix s = "http://hl7.org/fhir/conformance-expectation"
+  prefix t = "http://hl7.org/fhir/4.0/conformance-expectation"
+
+  s:SHALL - t:SHALL
+  s:SHOULD - t:SHOULD
+  s:MAY - t:MAY
+  s:SHOULD-NOT - t:SHOULD-NOT
+}
+
+conceptmap "PublicationStatus" {
+  prefix s = "http://hl7.org/fhir/publication-status"
+  prefix t = "http://hl7.org/fhir/4.0/publication-status"
+
+  s:draft - t:draft
+  s:active - t:active
+  s:retired - t:retired
+  s:unknown - t:unknown
+}
+
 group Requirements(source src : RequirementsR5, target tgt : RequirementsR4) extends DomainResource <<type+>> {
   src.url -> tgt.url;
   src.identifier -> tgt.identifier;
   src.version -> tgt.version;
+  src.versionAlgorithm : string -> tgt.versionAlgorithm;
+  src.versionAlgorithm : Coding -> tgt.versionAlgorithm;
   src.name -> tgt.name;
   src.title -> tgt.title;
-  src.status -> tgt.status;
+  src.status as v -> tgt.status = translate(v, '#PublicationStatus', 'c');
   src.experimental -> tgt.experimental;
   src.date -> tgt.date;
   src.publisher -> tgt.publisher;
@@ -25,6 +47,7 @@ group Requirements(source src : RequirementsR5, target tgt : RequirementsR4) ext
   src.copyright -> tgt.copyright;
   src.copyrightLabel -> tgt.copyrightLabel;
   src.derivedFrom -> tgt.derivedFrom;
+  src.reference -> tgt.reference;
   src.actor -> tgt.actor;
   src.statement as s -> tgt.statement as t then RequirementsStatement(s,t);
 }
@@ -32,7 +55,7 @@ group Requirements(source src : RequirementsR5, target tgt : RequirementsR4) ext
 group RequirementsStatement(source src, target tgt) extends BackboneElement {
   src.key -> tgt.key;
   src.label -> tgt.label;
-  src.conformance -> tgt.conformance;
+  src.conformance as v -> tgt.conformance = translate(v, '#??', 'c');
   src.conditionality -> tgt.conditionality;
   src.requirement -> tgt.requirement;
   src.derivedFrom -> tgt.derivedFrom;

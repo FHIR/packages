@@ -7,12 +7,23 @@ uses "http://hl7.org/fhir/4.0/StructureDefinition/QuestionnaireResponse" alias Q
 
 imports "http://hl7.org/fhir/StructureMap/*5to4"
 
+conceptmap "QuestionnaireResponseStatus" {
+  prefix s = "http://hl7.org/fhir/questionnaire-answers-status"
+  prefix t = "http://hl7.org/fhir/4.0/questionnaire-answers-status"
+
+  s:in-progress - t:in-progress
+  s:completed - t:completed
+  s:amended - t:amended
+  s:entered-in-error - t:entered-in-error
+  s:stopped - t:stopped
+}
+
 group QuestionnaireResponse(source src : QuestionnaireResponseR5, target tgt : QuestionnaireResponseR4) extends DomainResource <<type+>> {
   src.identifier -> tgt.identifier;
   src.basedOn -> tgt.basedOn;
   src.partOf -> tgt.partOf;
   src.questionnaire -> tgt.questionnaire;
-  src.status -> tgt.status;
+  src.status as v -> tgt.status = translate(v, '#QuestionnaireResponseStatus', 'c');
   src.subject -> tgt.subject;
   src.encounter -> tgt.encounter;
   src.authored -> tgt.authored;

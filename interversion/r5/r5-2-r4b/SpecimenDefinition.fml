@@ -7,6 +7,24 @@ uses "http://hl7.org/fhir/4.3/StructureDefinition/SpecimenDefinition" alias Spec
 
 imports "http://hl7.org/fhir/StructureMap/*5to4B"
 
+conceptmap "PublicationStatus" {
+  prefix s = "http://hl7.org/fhir/publication-status"
+  prefix t = "http://hl7.org/fhir/4.3/publication-status"
+
+  s:draft - t:draft
+  s:active - t:active
+  s:retired - t:retired
+  s:unknown - t:unknown
+}
+
+conceptmap "SpecimenContainedPreference" {
+  prefix s = "http://hl7.org/fhir/specimen-contained-preference"
+  prefix t = "http://hl7.org/fhir/4.3/specimen-contained-preference"
+
+  s:preferred - t:preferred
+  s:alternate - t:alternate
+}
+
 group SpecimenDefinition(source src : SpecimenDefinitionR5, target tgt : SpecimenDefinitionR4B) extends DomainResource <<type+>> {
   src.url -> tgt.url;
   src.identifier -> tgt.identifier;
@@ -17,7 +35,7 @@ group SpecimenDefinition(source src : SpecimenDefinitionR5, target tgt : Specime
   src.title -> tgt.title;
   src.derivedFromCanonical -> tgt.derivedFromCanonical;
   src.derivedFromUri -> tgt.derivedFromUri;
-  src.status -> tgt.status;
+  src.status as v -> tgt.status = translate(v, '#PublicationStatus', 'c');
   src.experimental -> tgt.experimental;
   src.subject : CodeableConcept -> tgt.subject;
   src.subject : Reference -> tgt.subject;
@@ -43,7 +61,7 @@ group SpecimenDefinition(source src : SpecimenDefinitionR5, target tgt : Specime
 group SpecimenDefinitionTypeTested(source src, target tgt) extends BackboneElement {
   src.isDerived -> tgt.isDerived;
   src.type -> tgt.type;
-  src.preference -> tgt.preference;
+  src.preference as v -> tgt.preference = translate(v, '#SpecimenContainedPreference', 'c');
   src.container as s -> tgt.container as t then SpecimenDefinitionTypeTestedContainer(s,t);
   src.requirement -> tgt.requirement;
   src.retentionTime -> tgt.retentionTime;

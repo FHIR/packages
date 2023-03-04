@@ -7,10 +7,18 @@ uses "http://hl7.org/fhir/StructureDefinition/AdverseEvent" alias AdverseEventR5
 
 imports "http://hl7.org/fhir/StructureMap/*4Bto5"
 
+conceptmap "AdverseEventActuality" {
+  prefix s = "http://hl7.org/fhir/4.3/adverse-event-actuality"
+  prefix t = "http://hl7.org/fhir/adverse-event-actuality"
+
+  s:actual - t:actual
+  s:potential - t:potential
+}
+
 group AdverseEvent(source src : AdverseEventR4B, target tgt : AdverseEventR5) extends DomainResource <<type+>> {
   src.identifier -> tgt.identifier;
   src.status -> tgt.status;
-  src.actuality -> tgt.actuality;
+  src.actuality as v -> tgt.actuality = translate(v, '#AdverseEventActuality', 'c');
   src.category -> tgt.category;
   src.code -> tgt.code;
   src.subject -> tgt.subject;

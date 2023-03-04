@@ -7,13 +7,36 @@ uses "http://hl7.org/fhir/4.0/StructureDefinition/OperationOutcome" alias Operat
 
 imports "http://hl7.org/fhir/StructureMap/*5to4"
 
+conceptmap "IssueSeverity" {
+  prefix s = "http://hl7.org/fhir/issue-severity"
+  prefix t = "http://hl7.org/fhir/4.0/issue-severity"
+
+  s:fatal - t:fatal
+  s:error - t:error
+  s:warning - t:warning
+  s:information - t:information
+  s:success - t:success
+}
+
+conceptmap "IssueType" {
+  prefix s = "http://hl7.org/fhir/issue-type"
+  prefix t = "http://hl7.org/fhir/4.0/issue-type"
+
+  s:invalid - t:invalid
+  s:security - t:security
+  s:processing - t:processing
+  s:transient - t:transient
+  s:informational - t:informational
+  s:success - t:success
+}
+
 group OperationOutcome(source src : OperationOutcomeR5, target tgt : OperationOutcomeR4) extends DomainResource <<type+>> {
   src.issue as s -> tgt.issue as t then OperationOutcomeIssue(s,t);
 }
 
 group OperationOutcomeIssue(source src, target tgt) extends BackboneElement {
-  src.severity -> tgt.severity;
-  src.code -> tgt.code;
+  src.severity as v -> tgt.severity = translate(v, '#IssueSeverity', 'c');
+  src.code as v -> tgt.code = translate(v, '#IssueType', 'c');
   src.details -> tgt.details;
   src.diagnostics -> tgt.diagnostics;
   src.location -> tgt.location;

@@ -7,21 +7,75 @@ uses "http://hl7.org/fhir/4.0/StructureDefinition/DeviceMetric" alias DeviceMetr
 
 imports "http://hl7.org/fhir/StructureMap/*5to4"
 
+conceptmap "DeviceMetricCalibrationState" {
+  prefix s = "http://hl7.org/fhir/metric-calibration-state"
+  prefix t = "http://hl7.org/fhir/4.0/metric-calibration-state"
+
+  s:not-calibrated - t:not-calibrated
+  s:calibration-required - t:calibration-required
+  s:calibrated - t:calibrated
+  s:unspecified - t:unspecified
+}
+
+conceptmap "DeviceMetricCalibrationType" {
+  prefix s = "http://hl7.org/fhir/metric-calibration-type"
+  prefix t = "http://hl7.org/fhir/4.0/metric-calibration-type"
+
+  s:unspecified - t:unspecified
+  s:offset - t:offset
+  s:gain - t:gain
+  s:two-point - t:two-point
+}
+
+conceptmap "DeviceMetricCategory" {
+  prefix s = "http://hl7.org/fhir/metric-category"
+  prefix t = "http://hl7.org/fhir/4.0/metric-category"
+
+  s:measurement - t:measurement
+  s:setting - t:setting
+  s:calculation - t:calculation
+  s:unspecified - t:unspecified
+}
+
+conceptmap "DeviceMetricColor" {
+  prefix s = "http://hl7.org/fhir/metric-color"
+  prefix t = "http://hl7.org/fhir/4.0/metric-color"
+
+  s:black - t:black
+  s:red - t:red
+  s:green - t:green
+  s:yellow - t:yellow
+  s:blue - t:blue
+  s:magenta - t:magenta
+  s:cyan - t:cyan
+  s:white - t:white
+}
+
+conceptmap "DeviceMetricOperationalStatus" {
+  prefix s = "http://hl7.org/fhir/metric-operational-status"
+  prefix t = "http://hl7.org/fhir/4.0/metric-operational-status"
+
+  s:on - t:on
+  s:off - t:off
+  s:standby - t:standby
+  s:entered-in-error - t:entered-in-error
+}
+
 group DeviceMetric(source src : DeviceMetricR5, target tgt : DeviceMetricR4) extends DomainResource <<type+>> {
   src.identifier -> tgt.identifier;
   src.type -> tgt.type;
   src.unit -> tgt.unit;
   src.device -> tgt.device;
-  src.operationalStatus -> tgt.operationalStatus;
-  src.color -> tgt.color;
-  src.category -> tgt.category;
+  src.operationalStatus as v -> tgt.operationalStatus = translate(v, '#DeviceMetricOperationalStatus', 'c');
+  src.color as v -> tgt.color = translate(v, '#DeviceMetricColor', 'c');
+  src.category as v -> tgt.category = translate(v, '#DeviceMetricCategory', 'c');
   src.measurementFrequency -> tgt.measurementFrequency;
   src.calibration as s -> tgt.calibration as t then DeviceMetricCalibration(s,t);
 }
 
 group DeviceMetricCalibration(source src, target tgt) extends BackboneElement {
-  src.type -> tgt.type;
-  src.state -> tgt.state;
+  src.type as v -> tgt.type = translate(v, '#DeviceMetricCalibrationType', 'c');
+  src.state as v -> tgt.state = translate(v, '#DeviceMetricCalibrationState', 'c');
   src.time -> tgt.time;
 }
 

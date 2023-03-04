@@ -7,8 +7,18 @@ uses "http://hl7.org/fhir/StructureDefinition/Contributor" alias ContributorR5 a
 
 imports "http://hl7.org/fhir/StructureMap/*4to5"
 
+conceptmap "ContributorType" {
+  prefix s = "http://hl7.org/fhir/4.0/contributor-type"
+  prefix t = "http://hl7.org/fhir/contributor-type"
+
+  s:author - t:author
+  s:editor - t:editor
+  s:reviewer - t:reviewer
+  s:endorser - t:endorser
+}
+
 group Contributor(source src : ContributorR4, target tgt : ContributorR5) extends DataType <<type+>> {
-  src.type -> tgt.type;
+  src.type as v -> tgt.type = translate(v, '#ContributorType', 'c');
   src.name -> tgt.name;
   src.contact -> tgt.contact;
 }

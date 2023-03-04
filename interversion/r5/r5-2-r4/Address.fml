@@ -7,9 +7,29 @@ uses "http://hl7.org/fhir/4.0/StructureDefinition/Address" alias AddressR4 as ta
 
 imports "http://hl7.org/fhir/StructureMap/*5to4"
 
+conceptmap "AddressType" {
+  prefix s = "http://hl7.org/fhir/address-type"
+  prefix t = "http://hl7.org/fhir/4.0/address-type"
+
+  s:postal - t:postal
+  s:physical - t:physical
+  s:both - t:both
+}
+
+conceptmap "AddressUse" {
+  prefix s = "http://hl7.org/fhir/address-use"
+  prefix t = "http://hl7.org/fhir/4.0/address-use"
+
+  s:home - t:home
+  s:work - t:work
+  s:temp - t:temp
+  s:old - t:old
+  s:billing - t:billing
+}
+
 group Address(source src : AddressR5, target tgt : AddressR4) extends DataType <<type+>> {
-  src.use -> tgt.use;
-  src.type -> tgt.type;
+  src.use as v -> tgt.use = translate(v, '#AddressUse', 'c');
+  src.type as v -> tgt.type = translate(v, '#AddressType', 'c');
   src.text -> tgt.text;
   src.line -> tgt.line;
   src.city -> tgt.city;

@@ -7,6 +7,63 @@ uses "http://hl7.org/fhir/StructureDefinition/Questionnaire" alias Questionnaire
 
 imports "http://hl7.org/fhir/StructureMap/*4Bto5"
 
+conceptmap "DisabledDisplay" {
+  prefix s = "http://hl7.org/fhir/4.3/questionnaire-disabled-display"
+  prefix t = "http://hl7.org/fhir/questionnaire-disabled-display"
+
+  s:hidden - t:hidden
+  s:protected - t:protected
+}
+
+conceptmap "EnableWhenBehavior" {
+  prefix s = "http://hl7.org/fhir/4.3/questionnaire-enable-behavior"
+  prefix t = "http://hl7.org/fhir/questionnaire-enable-behavior"
+
+  s:all - t:all
+  s:any - t:any
+}
+
+conceptmap "PublicationStatus" {
+  prefix s = "http://hl7.org/fhir/4.3/publication-status"
+  prefix t = "http://hl7.org/fhir/publication-status"
+
+  s:draft - t:draft
+  s:active - t:active
+  s:retired - t:retired
+  s:unknown - t:unknown
+}
+
+conceptmap "QuestionnaireAnswerConstraint" {
+  prefix s = "http://hl7.org/fhir/4.3/questionnaire-answer-constraint"
+  prefix t = "http://hl7.org/fhir/questionnaire-answer-constraint"
+
+  s:optionsOnly - t:optionsOnly
+  s:optionsOrType - t:optionsOrType
+  s:optionsOrString - t:optionsOrString
+}
+
+conceptmap "QuestionnaireItemOperator" {
+  prefix s = "http://hl7.org/fhir/4.3/questionnaire-enable-operator"
+  prefix t = "http://hl7.org/fhir/questionnaire-enable-operator"
+
+  s:exists - t:exists
+  s:= - t:=
+  s:!= - t:!=
+  s:> - t:>
+  s:< - t:<
+  s:>= - t:>=
+  s:<= - t:<=
+}
+
+conceptmap "QuestionnaireItemType" {
+  prefix s = "http://hl7.org/fhir/4.3/item-type"
+  prefix t = "http://hl7.org/fhir/item-type"
+
+  s:group - t:group
+  s:display - t:display
+  s:question - t:question
+}
+
 group Questionnaire(source src : QuestionnaireR4B, target tgt : QuestionnaireR5) extends DomainResource <<type+>> {
   src.url -> tgt.url;
   src.identifier -> tgt.identifier;
@@ -16,7 +73,7 @@ group Questionnaire(source src : QuestionnaireR4B, target tgt : QuestionnaireR5)
   src.name -> tgt.name;
   src.title -> tgt.title;
   src.derivedFrom -> tgt.derivedFrom;
-  src.status -> tgt.status;
+  src.status as v -> tgt.status = translate(v, '#PublicationStatus', 'c');
   src.experimental -> tgt.experimental;
   src.subjectType -> tgt.subjectType;
   src.date -> tgt.date;
@@ -41,15 +98,15 @@ group QuestionnaireItem(source src, target tgt) extends BackboneElement {
   src.code -> tgt.code;
   src.prefix -> tgt.prefix;
   src.text -> tgt.text;
-  src.type -> tgt.type;
+  src.type as v -> tgt.type = translate(v, '#QuestionnaireItemType', 'c');
   src.enableWhen as s -> tgt.enableWhen as t then QuestionnaireItemEnableWhen(s,t);
-  src.enableBehavior -> tgt.enableBehavior;
-  src.disabledDisplay -> tgt.disabledDisplay;
+  src.enableBehavior as v -> tgt.enableBehavior = translate(v, '#EnableWhenBehavior', 'c');
+  src.disabledDisplay as v -> tgt.disabledDisplay = translate(v, '#DisabledDisplay', 'c');
   src.required -> tgt.required;
   src.repeats -> tgt.repeats;
   src.readOnly -> tgt.readOnly;
   src.maxLength -> tgt.maxLength;
-  src.answerConstraint -> tgt.answerConstraint;
+  src.answerConstraint as v -> tgt.answerConstraint = translate(v, '#QuestionnaireAnswerConstraint', 'c');
   src.answerValueSet -> tgt.answerValueSet;
   src.answerOption as s -> tgt.answerOption as t then QuestionnaireItemAnswerOption(s,t);
   src.initial as s -> tgt.initial as t then QuestionnaireItemInitial(s,t);
@@ -57,7 +114,7 @@ group QuestionnaireItem(source src, target tgt) extends BackboneElement {
 
 group QuestionnaireItemEnableWhen(source src, target tgt) extends BackboneElement {
   src.question -> tgt.question;
-  src.operator -> tgt.operator;
+  src.operator as v -> tgt.operator = translate(v, '#QuestionnaireItemOperator', 'c');
   src.answer : boolean -> tgt.answer;
   src.answer : decimal -> tgt.answer;
   src.answer : integer -> tgt.answer;

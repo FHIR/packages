@@ -7,9 +7,18 @@ uses "http://hl7.org/fhir/4.0/StructureDefinition/Flag" alias FlagR4 as target
 
 imports "http://hl7.org/fhir/StructureMap/*5to4"
 
+conceptmap "FlagStatus" {
+  prefix s = "http://hl7.org/fhir/flag-status"
+  prefix t = "http://hl7.org/fhir/4.0/flag-status"
+
+  s:active - t:active
+  s:inactive - t:inactive
+  s:entered-in-error - t:entered-in-error
+}
+
 group Flag(source src : FlagR5, target tgt : FlagR4) extends DomainResource <<type+>> {
   src.identifier -> tgt.identifier;
-  src.status -> tgt.status;
+  src.status as v -> tgt.status = translate(v, '#FlagStatus', 'c');
   src.category -> tgt.category;
   src.code -> tgt.code;
   src.subject -> tgt.subject;

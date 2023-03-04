@@ -7,11 +7,26 @@ uses "http://hl7.org/fhir/StructureDefinition/DeviceDispense" alias DeviceDispen
 
 imports "http://hl7.org/fhir/StructureMap/*4Bto5"
 
+conceptmap "DeviceDispenseStatus" {
+  prefix s = "http://hl7.org/fhir/4.3/devicedispense-status"
+  prefix t = "http://hl7.org/fhir/devicedispense-status"
+
+  s:preparation - t:preparation
+  s:in-progress - t:in-progress
+  s:cancelled - t:cancelled
+  s:on-hold - t:on-hold
+  s:completed - t:completed
+  s:entered-in-error - t:entered-in-error
+  s:stopped - t:stopped
+  s:declined - t:declined
+  s:unknown - t:unknown
+}
+
 group DeviceDispense(source src : DeviceDispenseR4B, target tgt : DeviceDispenseR5) extends DomainResource <<type+>> {
   src.identifier -> tgt.identifier;
   src.basedOn -> tgt.basedOn;
   src.partOf -> tgt.partOf;
-  src.status -> tgt.status;
+  src.status as v -> tgt.status = translate(v, '#DeviceDispenseStatus', 'c');
   src.statusReason -> tgt.statusReason;
   src.category -> tgt.category;
   src.device -> tgt.device;

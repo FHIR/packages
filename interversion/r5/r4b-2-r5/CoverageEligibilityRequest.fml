@@ -7,11 +7,31 @@ uses "http://hl7.org/fhir/StructureDefinition/CoverageEligibilityRequest" alias 
 
 imports "http://hl7.org/fhir/StructureMap/*4Bto5"
 
+conceptmap "EligibilityRequestPurpose" {
+  prefix s = "http://hl7.org/fhir/4.3/eligibilityrequest-purpose"
+  prefix t = "http://hl7.org/fhir/eligibilityrequest-purpose"
+
+  s:auth-requirements - t:auth-requirements
+  s:benefits - t:benefits
+  s:discovery - t:discovery
+  s:validation - t:validation
+}
+
+conceptmap "EligibilityRequestStatus" {
+  prefix s = "http://hl7.org/fhir/4.3/fm-status"
+  prefix t = "http://hl7.org/fhir/fm-status"
+
+  s:active - t:active
+  s:cancelled - t:cancelled
+  s:draft - t:draft
+  s:entered-in-error - t:entered-in-error
+}
+
 group CoverageEligibilityRequest(source src : CoverageEligibilityRequestR4B, target tgt : CoverageEligibilityRequestR5) extends DomainResource <<type+>> {
   src.identifier -> tgt.identifier;
-  src.status -> tgt.status;
+  src.status as v -> tgt.status = translate(v, '#EligibilityRequestStatus', 'c');
   src.priority -> tgt.priority;
-  src.purpose -> tgt.purpose;
+  src.purpose as v -> tgt.purpose = translate(v, '#EligibilityRequestPurpose', 'c');
   src.patient -> tgt.patient;
   src.event as s -> tgt.event as t then CoverageEligibilityRequestEvent(s,t);
   src.serviced : date -> tgt.serviced;

@@ -7,8 +7,19 @@ uses "http://hl7.org/fhir/StructureDefinition/InventoryItem" alias InventoryItem
 
 imports "http://hl7.org/fhir/StructureMap/*4to5"
 
+conceptmap "InventoryItemStatus" {
+  prefix s = "http://hl7.org/fhir/4.0/inventoryitem-status"
+  prefix t = "http://hl7.org/fhir/inventoryitem-status"
+
+  s:active - t:active
+  s:inactive - t:inactive
+  s:entered-in-error - t:entered-in-error
+  s:unknown - t:unknown
+}
+
 group InventoryItem(source src : InventoryItemR4, target tgt : InventoryItemR5) extends DomainResource <<type+>> {
-  src.status -> tgt.status;
+  src.identifier -> tgt.identifier;
+  src.status as v -> tgt.status = translate(v, '#InventoryItemStatus', 'c');
   src.category -> tgt.category;
   src.code -> tgt.code;
   src.name as s -> tgt.name as t then InventoryItemName(s,t);
@@ -18,7 +29,7 @@ group InventoryItem(source src : InventoryItemR4, target tgt : InventoryItemR5) 
   src.baseUnit -> tgt.baseUnit;
   src.netContent -> tgt.netContent;
   src.association as s -> tgt.association as t then InventoryItemAssociation(s,t);
-  src.characteristics as s -> tgt.characteristics as t then InventoryItemCharacteristics(s,t);
+  src.characteristic as s -> tgt.characteristic as t then InventoryItemCharacteristic(s,t);
   src.instance as s -> tgt.instance as t then InventoryItemInstance(s,t);
   src.productReference -> tgt.productReference;
 }
@@ -45,7 +56,7 @@ group InventoryItemAssociation(source src, target tgt) extends BackboneElement {
   src.quantity -> tgt.quantity;
 }
 
-group InventoryItemCharacteristics(source src, target tgt) extends BackboneElement {
+group InventoryItemCharacteristic(source src, target tgt) extends BackboneElement {
   src.characteristicType -> tgt.characteristicType;
   src.value : string -> tgt.value;
   src.value : integer -> tgt.value;

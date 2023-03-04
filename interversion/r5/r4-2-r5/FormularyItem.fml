@@ -7,9 +7,18 @@ uses "http://hl7.org/fhir/StructureDefinition/FormularyItem" alias FormularyItem
 
 imports "http://hl7.org/fhir/StructureMap/*4to5"
 
+conceptmap "FormularyItemStatus" {
+  prefix s = "http://hl7.org/fhir/4.0/CodeSystem/formularyitem-status"
+  prefix t = "http://hl7.org/fhir/CodeSystem/formularyitem-status"
+
+  s:active - t:active
+  s:entered-in-error - t:entered-in-error
+  s:inactive - t:inactive
+}
+
 group FormularyItem(source src : FormularyItemR4, target tgt : FormularyItemR5) extends DomainResource <<type+>> {
   src.identifier -> tgt.identifier;
   src.code -> tgt.code;
-  src.status -> tgt.status;
+  src.status as v -> tgt.status = translate(v, '#FormularyItemStatus', 'c');
 }
 

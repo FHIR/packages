@@ -7,9 +7,42 @@ uses "http://hl7.org/fhir/StructureDefinition/EvidenceReport" alias EvidenceRepo
 
 imports "http://hl7.org/fhir/StructureMap/*4to5"
 
+conceptmap "PublicationStatus" {
+  prefix s = "http://hl7.org/fhir/4.0/publication-status"
+  prefix t = "http://hl7.org/fhir/publication-status"
+
+  s:draft - t:draft
+  s:active - t:active
+  s:retired - t:retired
+  s:unknown - t:unknown
+}
+
+conceptmap "ReportRelationshipType" {
+  prefix s = "http://hl7.org/fhir/4.0/report-relation-type"
+  prefix t = "http://hl7.org/fhir/report-relation-type"
+
+  s:replaces - t:replaces
+  s:amends - t:amends
+  s:appends - t:appends
+  s:transforms - t:transforms
+  s:replacedWith - t:replacedWith
+  s:amendedWith - t:amendedWith
+  s:appendedWith - t:appendedWith
+  s:transformedWith - t:transformedWith
+}
+
+conceptmap "SectionMode" {
+  prefix s = "http://hl7.org/fhir/4.0/list-mode"
+  prefix t = "http://hl7.org/fhir/list-mode"
+
+  s:working - t:working
+  s:snapshot - t:snapshot
+  s:changes - t:changes
+}
+
 group EvidenceReport(source src : EvidenceReportR4, target tgt : EvidenceReportR5) extends DomainResource <<type+>> {
   src.url -> tgt.url;
-  src.status -> tgt.status;
+  src.status as v -> tgt.status = translate(v, '#PublicationStatus', 'c');
   src.useContext -> tgt.useContext;
   src.identifier -> tgt.identifier;
   src.relatedIdentifier -> tgt.relatedIdentifier;
@@ -46,7 +79,7 @@ group EvidenceReportSubjectCharacteristic(source src, target tgt) extends Backbo
 }
 
 group EvidenceReportRelatesTo(source src, target tgt) extends BackboneElement {
-  src.code -> tgt.code;
+  src.code as v -> tgt.code = translate(v, '#ReportRelationshipType', 'c');
   src.target as s -> tgt.target as t then EvidenceReportRelatesToTarget(s,t);
 }
 
@@ -63,7 +96,7 @@ group EvidenceReportSection(source src, target tgt) extends BackboneElement {
   src.focusReference -> tgt.focusReference;
   src.author -> tgt.author;
   src.text -> tgt.text;
-  src.mode -> tgt.mode;
+  src.mode as v -> tgt.mode = translate(v, '#SectionMode', 'c');
   src.orderedBy -> tgt.orderedBy;
   src.entryClassifier -> tgt.entryClassifier;
   src.entryReference -> tgt.entryReference;

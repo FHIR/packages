@@ -7,11 +7,22 @@ uses "http://hl7.org/fhir/StructureDefinition/DeviceAssociation" alias DeviceAss
 
 imports "http://hl7.org/fhir/StructureMap/*4to5"
 
+conceptmap "DeviceAssociationStatus" {
+  prefix s = "http://hl7.org/fhir/4.0/deviceassociation-status"
+  prefix t = "http://hl7.org/fhir/deviceassociation-status"
+
+  s:implanted - t:implanted
+  s:explanted - t:explanted
+  s:entered-in-error - t:entered-in-error
+  s:attached - t:attached
+  s:unknown - t:unknown
+}
+
 group DeviceAssociation(source src : DeviceAssociationR4, target tgt : DeviceAssociationR5) extends DomainResource <<type+>> {
   src.identifier -> tgt.identifier;
   src.device -> tgt.device;
   src.category -> tgt.category;
-  src.status -> tgt.status;
+  src.status as v -> tgt.status = translate(v, '#DeviceAssociationStatus', 'c');
   src.statusReason -> tgt.statusReason;
   src.subject -> tgt.subject;
   src.bodyStructure -> tgt.bodyStructure;
@@ -20,6 +31,7 @@ group DeviceAssociation(source src : DeviceAssociationR4, target tgt : DeviceAss
 }
 
 group DeviceAssociationOperation(source src, target tgt) extends BackboneElement {
+  src.status -> tgt.status;
   src.operator -> tgt.operator;
   src.period -> tgt.period;
 }

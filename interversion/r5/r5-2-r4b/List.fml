@@ -7,10 +7,28 @@ uses "http://hl7.org/fhir/4.3/StructureDefinition/List" alias ListR4B as target
 
 imports "http://hl7.org/fhir/StructureMap/*5to4B"
 
+conceptmap "ListMode" {
+  prefix s = "http://hl7.org/fhir/list-mode"
+  prefix t = "http://hl7.org/fhir/4.3/list-mode"
+
+  s:working - t:working
+  s:snapshot - t:snapshot
+  s:changes - t:changes
+}
+
+conceptmap "ListStatus" {
+  prefix s = "http://hl7.org/fhir/list-status"
+  prefix t = "http://hl7.org/fhir/4.3/list-status"
+
+  s:current - t:current
+  s:retired - t:retired
+  s:entered-in-error - t:entered-in-error
+}
+
 group List(source src : ListR5, target tgt : ListR4B) extends DomainResource <<type+>> {
   src.identifier -> tgt.identifier;
-  src.status -> tgt.status;
-  src.mode -> tgt.mode;
+  src.status as v -> tgt.status = translate(v, '#ListStatus', 'c');
+  src.mode as v -> tgt.mode = translate(v, '#ListMode', 'c');
   src.title -> tgt.title;
   src.code -> tgt.code;
   src.subject -> tgt.subject;

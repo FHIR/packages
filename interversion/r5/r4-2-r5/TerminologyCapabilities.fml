@@ -7,13 +7,54 @@ uses "http://hl7.org/fhir/StructureDefinition/TerminologyCapabilities" alias Ter
 
 imports "http://hl7.org/fhir/StructureMap/*4to5"
 
+conceptmap "CapabilityStatementKind" {
+  prefix s = "http://hl7.org/fhir/4.0/capability-statement-kind"
+  prefix t = "http://hl7.org/fhir/capability-statement-kind"
+
+  s:instance - t:instance
+  s:capability - t:capability
+  s:requirements - t:requirements
+}
+
+conceptmap "CodeSearchSupport" {
+  prefix s = "http://hl7.org/fhir/4.0/code-search-support"
+  prefix t = "http://hl7.org/fhir/code-search-support"
+
+  s:in-compose - t:in-compose
+  s:in-expansion - t:in-expansion
+  s:in-compose-or-expansion - t:in-compose-or-expansion
+}
+
+conceptmap "CodeSystemContentMode" {
+  prefix s = "http://hl7.org/fhir/4.0/codesystem-content-mode"
+  prefix t = "http://hl7.org/fhir/codesystem-content-mode"
+
+  s:not-present - t:not-present
+  s:example - t:example
+  s:fragment - t:fragment
+  s:complete - t:complete
+  s:supplement - t:supplement
+}
+
+conceptmap "PublicationStatus" {
+  prefix s = "http://hl7.org/fhir/4.0/publication-status"
+  prefix t = "http://hl7.org/fhir/publication-status"
+
+  s:draft - t:draft
+  s:active - t:active
+  s:retired - t:retired
+  s:unknown - t:unknown
+}
+
 group TerminologyCapabilities(source src : TerminologyCapabilitiesR4, target tgt : TerminologyCapabilitiesR5) extends DomainResource <<type+>> {
   src.url -> tgt.url;
   src.identifier -> tgt.identifier;
   src.version -> tgt.version;
+  src.versionAlgorithm : string -> tgt.versionAlgorithm;
+  src.versionAlgorithm : Coding -> tgt.versionAlgorithm;
   src.name -> tgt.name;
   src.title -> tgt.title;
-  src.status -> tgt.status;
+  src.status as v -> tgt.status = translate(v, '#PublicationStatus', 'c');
   src.experimental -> tgt.experimental;
   src.date -> tgt.date;
   src.publisher -> tgt.publisher;
@@ -23,13 +64,14 @@ group TerminologyCapabilities(source src : TerminologyCapabilitiesR4, target tgt
   src.jurisdiction -> tgt.jurisdiction;
   src.purpose -> tgt.purpose;
   src.copyright -> tgt.copyright;
-  src.kind -> tgt.kind;
+  src.copyrightLabel -> tgt.copyrightLabel;
+  src.kind as v -> tgt.kind = translate(v, '#CapabilityStatementKind', 'c');
   src.software as s -> tgt.software as t then TerminologyCapabilitiesSoftware(s,t);
   src.implementation as s -> tgt.implementation as t then TerminologyCapabilitiesImplementation(s,t);
   src.lockedDate -> tgt.lockedDate;
   src.codeSystem as s -> tgt.codeSystem as t then TerminologyCapabilitiesCodeSystem(s,t);
   src.expansion as s -> tgt.expansion as t then TerminologyCapabilitiesExpansion(s,t);
-  src.codeSearch -> tgt.codeSearch;
+  src.codeSearch as v -> tgt.codeSearch = translate(v, '#CodeSearchSupport', 'c');
   src.validateCode as s -> tgt.validateCode as t then TerminologyCapabilitiesValidateCode(s,t);
   src.translation as s -> tgt.translation as t then TerminologyCapabilitiesTranslation(s,t);
   src.closure as s -> tgt.closure as t then TerminologyCapabilitiesClosure(s,t);
@@ -48,7 +90,7 @@ group TerminologyCapabilitiesImplementation(source src, target tgt) extends Back
 group TerminologyCapabilitiesCodeSystem(source src, target tgt) extends BackboneElement {
   src.uri -> tgt.uri;
   src.version as s -> tgt.version as t then TerminologyCapabilitiesCodeSystemVersion(s,t);
-  src.content -> tgt.content;
+  src.content as v -> tgt.content = translate(v, '#CodeSystemContentMode', 'c');
   src.subsumption -> tgt.subsumption;
 }
 

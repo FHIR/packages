@@ -7,14 +7,31 @@ uses "http://hl7.org/fhir/4.3/StructureDefinition/Location" alias LocationR4B as
 
 imports "http://hl7.org/fhir/StructureMap/*5to4B"
 
+conceptmap "LocationMode" {
+  prefix s = "http://hl7.org/fhir/location-mode"
+  prefix t = "http://hl7.org/fhir/4.3/location-mode"
+
+  s:instance - t:instance
+  s:kind - t:kind
+}
+
+conceptmap "LocationStatus" {
+  prefix s = "http://hl7.org/fhir/location-status"
+  prefix t = "http://hl7.org/fhir/4.3/location-status"
+
+  s:active - t:active
+  s:suspended - t:suspended
+  s:inactive - t:inactive
+}
+
 group Location(source src : LocationR5, target tgt : LocationR4B) extends DomainResource <<type+>> {
   src.identifier -> tgt.identifier;
-  src.status -> tgt.status;
+  src.status as v -> tgt.status = translate(v, '#LocationStatus', 'c');
   src.operationalStatus -> tgt.operationalStatus;
   src.name -> tgt.name;
   src.alias -> tgt.alias;
   src.description -> tgt.description;
-  src.mode -> tgt.mode;
+  src.mode as v -> tgt.mode = translate(v, '#LocationMode', 'c');
   src.type -> tgt.type;
   src.contact -> tgt.contact;
   src.address -> tgt.address;

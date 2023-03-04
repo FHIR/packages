@@ -7,8 +7,19 @@ uses "http://hl7.org/fhir/4.3/StructureDefinition/TriggerDefinition" alias Trigg
 
 imports "http://hl7.org/fhir/StructureMap/*5to4B"
 
+conceptmap "TriggerType" {
+  prefix s = "http://hl7.org/fhir/trigger-type"
+  prefix t = "http://hl7.org/fhir/4.3/trigger-type"
+
+  s:named-event - t:named-event
+  s:periodic - t:periodic
+  s:data-changed - t:data-changed
+  s:data-accessed - t:data-accessed
+  s:data-access-ended - t:data-access-ended
+}
+
 group TriggerDefinition(source src : TriggerDefinitionR5, target tgt : TriggerDefinitionR4B) extends DataType <<type+>> {
-  src.type -> tgt.type;
+  src.type as v -> tgt.type = translate(v, '#TriggerType', 'c');
   src.name -> tgt.name;
   src.code -> tgt.code;
   src.subscriptionTopic -> tgt.subscriptionTopic;

@@ -7,9 +7,31 @@ uses "http://hl7.org/fhir/StructureDefinition/SubscriptionStatus" alias Subscrip
 
 imports "http://hl7.org/fhir/StructureMap/*4to5"
 
+conceptmap "SubscriptionNotificationType" {
+  prefix s = "http://hl7.org/fhir/4.0/subscription-notification-type"
+  prefix t = "http://hl7.org/fhir/subscription-notification-type"
+
+  s:handshake - t:handshake
+  s:heartbeat - t:heartbeat
+  s:event-notification - t:event-notification
+  s:query-status - t:query-status
+  s:query-event - t:query-event
+}
+
+conceptmap "SubscriptionStatus" {
+  prefix s = "http://hl7.org/fhir/4.0/subscription-status"
+  prefix t = "http://hl7.org/fhir/subscription-status"
+
+  s:requested - t:requested
+  s:active - t:active
+  s:error - t:error
+  s:off - t:off
+  s:entered-in-error - t:entered-in-error
+}
+
 group SubscriptionStatus(source src : SubscriptionStatusR4, target tgt : SubscriptionStatusR5) extends DomainResource <<type+>> {
-  src.status -> tgt.status;
-  src.type -> tgt.type;
+  src.status as v -> tgt.status = translate(v, '#SubscriptionStatus', 'c');
+  src.type as v -> tgt.type = translate(v, '#SubscriptionNotificationType', 'c');
   src.eventsSinceSubscriptionStart -> tgt.eventsSinceSubscriptionStart;
   src.notificationEvent as s -> tgt.notificationEvent as t then SubscriptionStatusNotificationEvent(s,t);
   src.subscription -> tgt.subscription;

@@ -7,6 +7,15 @@ uses "http://hl7.org/fhir/StructureDefinition/MessageHeader" alias MessageHeader
 
 imports "http://hl7.org/fhir/StructureMap/*4to5"
 
+conceptmap "ResponseType" {
+  prefix s = "http://hl7.org/fhir/4.0/response-code"
+  prefix t = "http://hl7.org/fhir/response-code"
+
+  s:ok - t:ok
+  s:transient-error - t:transient-error
+  s:fatal-error - t:fatal-error
+}
+
 group MessageHeader(source src : MessageHeaderR4, target tgt : MessageHeaderR5) extends DomainResource <<type+>> {
   src.event : Coding -> tgt.event;
   src.event : canonical -> tgt.event;
@@ -40,7 +49,7 @@ group MessageHeaderSource(source src, target tgt) extends BackboneElement {
 
 group MessageHeaderResponse(source src, target tgt) extends BackboneElement {
   src.identifier -> tgt.identifier;
-  src.code -> tgt.code;
+  src.code as v -> tgt.code = translate(v, '#ResponseType', 'c');
   src.details -> tgt.details;
 }
 

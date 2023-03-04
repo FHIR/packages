@@ -7,8 +7,18 @@ uses "http://hl7.org/fhir/4.3/StructureDefinition/Narrative" alias NarrativeR4B 
 
 imports "http://hl7.org/fhir/StructureMap/*5to4B"
 
+conceptmap "NarrativeStatus" {
+  prefix s = "http://hl7.org/fhir/narrative-status"
+  prefix t = "http://hl7.org/fhir/4.3/narrative-status"
+
+  s:generated - t:generated
+  s:extensions - t:extensions
+  s:additional - t:additional
+  s:empty - t:empty
+}
+
 group Narrative(source src : NarrativeR5, target tgt : NarrativeR4B) extends DataType <<type+>> {
-  src.status -> tgt.status;
+  src.status as v -> tgt.status = translate(v, '#NarrativeStatus', 'c');
   src.div -> tgt.div;
 }
 

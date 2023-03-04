@@ -7,6 +7,37 @@ uses "http://hl7.org/fhir/4.0/StructureDefinition/NamingSystem" alias NamingSyst
 
 imports "http://hl7.org/fhir/StructureMap/*5to4"
 
+conceptmap "NamingSystemIdentifierType" {
+  prefix s = "http://hl7.org/fhir/namingsystem-identifier-type"
+  prefix t = "http://hl7.org/fhir/4.0/namingsystem-identifier-type"
+
+  s:oid - t:oid
+  s:uuid - t:uuid
+  s:uri - t:uri
+  s:iri-stem - t:iri-stem
+  s:v2csmnemonic - t:v2csmnemonic
+  s:other - t:other
+}
+
+conceptmap "NamingSystemType" {
+  prefix s = "http://hl7.org/fhir/namingsystem-type"
+  prefix t = "http://hl7.org/fhir/4.0/namingsystem-type"
+
+  s:codesystem - t:codesystem
+  s:identifier - t:identifier
+  s:root - t:root
+}
+
+conceptmap "PublicationStatus" {
+  prefix s = "http://hl7.org/fhir/publication-status"
+  prefix t = "http://hl7.org/fhir/4.0/publication-status"
+
+  s:draft - t:draft
+  s:active - t:active
+  s:retired - t:retired
+  s:unknown - t:unknown
+}
+
 group NamingSystem(source src : NamingSystemR5, target tgt : NamingSystemR4) extends DomainResource <<type+>> {
   src.url -> tgt.url;
   src.identifier -> tgt.identifier;
@@ -15,8 +46,8 @@ group NamingSystem(source src : NamingSystemR5, target tgt : NamingSystemR4) ext
   src.versionAlgorithm : Coding -> tgt.versionAlgorithm;
   src.name -> tgt.name;
   src.title -> tgt.title;
-  src.status -> tgt.status;
-  src.kind -> tgt.kind;
+  src.status as v -> tgt.status = translate(v, '#PublicationStatus', 'c');
+  src.kind as v -> tgt.kind = translate(v, '#NamingSystemType', 'c');
   src.experimental -> tgt.experimental;
   src.date -> tgt.date;
   src.publisher -> tgt.publisher;
@@ -43,7 +74,7 @@ group NamingSystem(source src : NamingSystemR5, target tgt : NamingSystemR4) ext
 }
 
 group NamingSystemUniqueId(source src, target tgt) extends BackboneElement {
-  src.type -> tgt.type;
+  src.type as v -> tgt.type = translate(v, '#NamingSystemIdentifierType', 'c');
   src.value -> tgt.value;
   src.preferred -> tgt.preferred;
   src.comment -> tgt.comment;

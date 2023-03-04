@@ -7,10 +7,28 @@ uses "http://hl7.org/fhir/4.0/StructureDefinition/InventoryReport" alias Invento
 
 imports "http://hl7.org/fhir/StructureMap/*5to4"
 
+conceptmap "InventoryCountType" {
+  prefix s = "http://hl7.org/fhir/inventoryreport-counttype"
+  prefix t = "http://hl7.org/fhir/4.0/inventoryreport-counttype"
+
+  s:snapshot - t:snapshot
+  s:difference - t:difference
+}
+
+conceptmap "InventoryReportStatus" {
+  prefix s = "http://hl7.org/fhir/inventoryreport-status"
+  prefix t = "http://hl7.org/fhir/4.0/inventoryreport-status"
+
+  s:draft - t:draft
+  s:requested - t:requested
+  s:active - t:active
+  s:entered-in-error - t:entered-in-error
+}
+
 group InventoryReport(source src : InventoryReportR5, target tgt : InventoryReportR4) extends DomainResource <<type+>> {
   src.identifier -> tgt.identifier;
-  src.status -> tgt.status;
-  src.countType -> tgt.countType;
+  src.status as v -> tgt.status = translate(v, '#InventoryReportStatus', 'c');
+  src.countType as v -> tgt.countType = translate(v, '#InventoryCountType', 'c');
   src.operationType -> tgt.operationType;
   src.operationTypeReason -> tgt.operationTypeReason;
   src.reportedDateTime -> tgt.reportedDateTime;
@@ -24,10 +42,10 @@ group InventoryReportInventoryListing(source src, target tgt) extends BackboneEl
   src.location -> tgt.location;
   src.itemStatus -> tgt.itemStatus;
   src.countingDateTime -> tgt.countingDateTime;
-  src.items as s -> tgt.items as t then InventoryReportInventoryListingItems(s,t);
+  src.item as s -> tgt.item as t then InventoryReportInventoryListingItem(s,t);
 }
 
-group InventoryReportInventoryListingItems(source src, target tgt) extends BackboneElement {
+group InventoryReportInventoryListingItem(source src, target tgt) extends BackboneElement {
   src.category -> tgt.category;
   src.quantity -> tgt.quantity;
   src.item -> tgt.item;

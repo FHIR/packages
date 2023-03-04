@@ -7,8 +7,19 @@ uses "http://hl7.org/fhir/StructureDefinition/Identifier" alias IdentifierR5 as 
 
 imports "http://hl7.org/fhir/StructureMap/*4Bto5"
 
+conceptmap "IdentifierUse" {
+  prefix s = "http://hl7.org/fhir/4.3/identifier-use"
+  prefix t = "http://hl7.org/fhir/identifier-use"
+
+  s:usual - t:usual
+  s:official - t:official
+  s:temp - t:temp
+  s:secondary - t:secondary
+  s:old - t:old
+}
+
 group Identifier(source src : IdentifierR4B, target tgt : IdentifierR5) extends DataType <<type+>> {
-  src.use -> tgt.use;
+  src.use as v -> tgt.use = translate(v, '#IdentifierUse', 'c');
   src.type -> tgt.type;
   src.system -> tgt.system;
   src.value -> tgt.value;

@@ -7,10 +7,40 @@ uses "http://hl7.org/fhir/4.0/StructureDefinition/CoverageEligibilityResponse" a
 
 imports "http://hl7.org/fhir/StructureMap/*5to4"
 
+conceptmap "EligibilityOutcome" {
+  prefix s = "http://hl7.org/fhir/eligibility-outcome"
+  prefix t = "http://hl7.org/fhir/4.0/eligibility-outcome"
+
+  s:queued - t:queued
+  s:complete - t:complete
+  s:error - t:error
+  s:partial - t:partial
+}
+
+conceptmap "EligibilityResponsePurpose" {
+  prefix s = "http://hl7.org/fhir/eligibilityresponse-purpose"
+  prefix t = "http://hl7.org/fhir/4.0/eligibilityresponse-purpose"
+
+  s:auth-requirements - t:auth-requirements
+  s:benefits - t:benefits
+  s:discovery - t:discovery
+  s:validation - t:validation
+}
+
+conceptmap "EligibilityResponseStatus" {
+  prefix s = "http://hl7.org/fhir/fm-status"
+  prefix t = "http://hl7.org/fhir/4.0/fm-status"
+
+  s:active - t:active
+  s:cancelled - t:cancelled
+  s:draft - t:draft
+  s:entered-in-error - t:entered-in-error
+}
+
 group CoverageEligibilityResponse(source src : CoverageEligibilityResponseR5, target tgt : CoverageEligibilityResponseR4) extends DomainResource <<type+>> {
   src.identifier -> tgt.identifier;
-  src.status -> tgt.status;
-  src.purpose -> tgt.purpose;
+  src.status as v -> tgt.status = translate(v, '#EligibilityResponseStatus', 'c');
+  src.purpose as v -> tgt.purpose = translate(v, '#EligibilityResponsePurpose', 'c');
   src.patient -> tgt.patient;
   src.event as s -> tgt.event as t then CoverageEligibilityResponseEvent(s,t);
   src.serviced : date -> tgt.serviced;
@@ -18,7 +48,7 @@ group CoverageEligibilityResponse(source src : CoverageEligibilityResponseR5, ta
   src.created -> tgt.created;
   src.requestor -> tgt.requestor;
   src.request -> tgt.request;
-  src.outcome -> tgt.outcome;
+  src.outcome as v -> tgt.outcome = translate(v, '#EligibilityOutcome', 'c');
   src.disposition -> tgt.disposition;
   src.insurer -> tgt.insurer;
   src.insurance as s -> tgt.insurance as t then CoverageEligibilityResponseInsurance(s,t);
@@ -69,5 +99,6 @@ group CoverageEligibilityResponseInsuranceItemBenefit(source src, target tgt) ex
 
 group CoverageEligibilityResponseError(source src, target tgt) extends BackboneElement {
   src.code -> tgt.code;
+  src.expression -> tgt.expression;
 }
 

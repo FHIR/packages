@@ -7,13 +7,23 @@ uses "http://hl7.org/fhir/StructureDefinition/TestPlan" alias TestPlanR5 as targ
 
 imports "http://hl7.org/fhir/StructureMap/*4Bto5"
 
+conceptmap "PublicationStatus" {
+  prefix s = "http://hl7.org/fhir/4.3/publication-status"
+  prefix t = "http://hl7.org/fhir/publication-status"
+
+  s:draft - t:draft
+  s:active - t:active
+  s:retired - t:retired
+  s:unknown - t:unknown
+}
+
 group TestPlan(source src : TestPlanR4B, target tgt : TestPlanR5) extends DomainResource <<type+>> {
   src.url -> tgt.url;
   src.identifier -> tgt.identifier;
   src.version -> tgt.version;
   src.name -> tgt.name;
   src.title -> tgt.title;
-  src.status -> tgt.status;
+  src.status as v -> tgt.status = translate(v, '#PublicationStatus', 'c');
   src.date -> tgt.date;
   src.publisher -> tgt.publisher;
   src.contact -> tgt.contact;

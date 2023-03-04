@@ -7,6 +7,15 @@ uses "http://hl7.org/fhir/StructureDefinition/Linkage" alias LinkageR5 as target
 
 imports "http://hl7.org/fhir/StructureMap/*4to5"
 
+conceptmap "LinkageType" {
+  prefix s = "http://hl7.org/fhir/4.0/linkage-type"
+  prefix t = "http://hl7.org/fhir/linkage-type"
+
+  s:source - t:source
+  s:alternate - t:alternate
+  s:historical - t:historical
+}
+
 group Linkage(source src : LinkageR4, target tgt : LinkageR5) extends DomainResource <<type+>> {
   src.active -> tgt.active;
   src.author -> tgt.author;
@@ -14,7 +23,7 @@ group Linkage(source src : LinkageR4, target tgt : LinkageR5) extends DomainReso
 }
 
 group LinkageItem(source src, target tgt) extends BackboneElement {
-  src.type -> tgt.type;
+  src.type as v -> tgt.type = translate(v, '#LinkageType', 'c');
   src.resource -> tgt.resource;
 }
 

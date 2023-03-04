@@ -7,16 +7,34 @@ uses "http://hl7.org/fhir/StructureDefinition/Specimen" alias SpecimenR5 as targ
 
 imports "http://hl7.org/fhir/StructureMap/*4to5"
 
+conceptmap "PublicationStatus" {
+  prefix s = "http://hl7.org/fhir/4.0/specimen-combined"
+  prefix t = "http://hl7.org/fhir/specimen-combined"
+
+  s:grouped - t:grouped
+  s:pooled - t:pooled
+}
+
+conceptmap "SpecimenStatus" {
+  prefix s = "http://hl7.org/fhir/4.0/specimen-status"
+  prefix t = "http://hl7.org/fhir/specimen-status"
+
+  s:available - t:available
+  s:unavailable - t:unavailable
+  s:unsatisfactory - t:unsatisfactory
+  s:entered-in-error - t:entered-in-error
+}
+
 group Specimen(source src : SpecimenR4, target tgt : SpecimenR5) extends DomainResource <<type+>> {
   src.identifier -> tgt.identifier;
   src.accessionIdentifier -> tgt.accessionIdentifier;
-  src.status -> tgt.status;
+  src.status as v -> tgt.status = translate(v, '#SpecimenStatus', 'c');
   src.type -> tgt.type;
   src.subject -> tgt.subject;
   src.receivedTime -> tgt.receivedTime;
   src.parent -> tgt.parent;
   src.request -> tgt.request;
-  src.combined -> tgt.combined;
+  src.combined as v -> tgt.combined = translate(v, '#PublicationStatus', 'c');
   src.role -> tgt.role;
   src.feature as s -> tgt.feature as t then SpecimenFeature(s,t);
   src.collection as s -> tgt.collection as t then SpecimenCollection(s,t);

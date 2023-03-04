@@ -7,14 +7,45 @@ uses "http://hl7.org/fhir/4.3/StructureDefinition/MessageDefinition" alias Messa
 
 imports "http://hl7.org/fhir/StructureMap/*5to4B"
 
+conceptmap "MessageSignificanceCategory" {
+  prefix s = "http://hl7.org/fhir/message-significance-category"
+  prefix t = "http://hl7.org/fhir/4.3/message-significance-category"
+
+  s:consequence - t:consequence
+  s:currency - t:currency
+  s:notification - t:notification
+}
+
+conceptmap "PublicationStatus" {
+  prefix s = "http://hl7.org/fhir/publication-status"
+  prefix t = "http://hl7.org/fhir/4.3/publication-status"
+
+  s:draft - t:draft
+  s:active - t:active
+  s:retired - t:retired
+  s:unknown - t:unknown
+}
+
+conceptmap "messageheader-response-request" {
+  prefix s = "http://hl7.org/fhir/messageheader-response-request"
+  prefix t = "http://hl7.org/fhir/4.3/messageheader-response-request"
+
+  s:always - t:always
+  s:on-error - t:on-error
+  s:never - t:never
+  s:on-success - t:on-success
+}
+
 group MessageDefinition(source src : MessageDefinitionR5, target tgt : MessageDefinitionR4B) extends DomainResource <<type+>> {
   src.url -> tgt.url;
   src.identifier -> tgt.identifier;
   src.version -> tgt.version;
+  src.versionAlgorithm : string -> tgt.versionAlgorithm;
+  src.versionAlgorithm : Coding -> tgt.versionAlgorithm;
   src.name -> tgt.name;
   src.title -> tgt.title;
   src.replaces -> tgt.replaces;
-  src.status -> tgt.status;
+  src.status as v -> tgt.status = translate(v, '#PublicationStatus', 'c');
   src.experimental -> tgt.experimental;
   src.date -> tgt.date;
   src.publisher -> tgt.publisher;
@@ -24,13 +55,14 @@ group MessageDefinition(source src : MessageDefinitionR5, target tgt : MessageDe
   src.jurisdiction -> tgt.jurisdiction;
   src.purpose -> tgt.purpose;
   src.copyright -> tgt.copyright;
+  src.copyrightLabel -> tgt.copyrightLabel;
   src.base -> tgt.base;
   src.parent -> tgt.parent;
   src.event : Coding -> tgt.event;
   src.event : uri -> tgt.event;
-  src.category -> tgt.category;
+  src.category as v -> tgt.category = translate(v, '#MessageSignificanceCategory', 'c');
   src.focus as s -> tgt.focus as t then MessageDefinitionFocus(s,t);
-  src.responseRequired -> tgt.responseRequired;
+  src.responseRequired as v -> tgt.responseRequired = translate(v, '#messageheader-response-request', 'c');
   src.allowedResponse as s -> tgt.allowedResponse as t then MessageDefinitionAllowedResponse(s,t);
   src.graph -> tgt.graph;
 }

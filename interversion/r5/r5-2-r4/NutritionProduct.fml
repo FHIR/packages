@@ -7,9 +7,18 @@ uses "http://hl7.org/fhir/4.0/StructureDefinition/NutritionProduct" alias Nutrit
 
 imports "http://hl7.org/fhir/StructureMap/*5to4"
 
+conceptmap "NutritionProductStatus" {
+  prefix s = "http://hl7.org/fhir/nutritionproduct-status"
+  prefix t = "http://hl7.org/fhir/4.0/nutritionproduct-status"
+
+  s:active - t:active
+  s:inactive - t:inactive
+  s:entered-in-error - t:entered-in-error
+}
+
 group NutritionProduct(source src : NutritionProductR5, target tgt : NutritionProductR4) extends DomainResource <<type+>> {
   src.code -> tgt.code;
-  src.status -> tgt.status;
+  src.status as v -> tgt.status = translate(v, '#NutritionProductStatus', 'c');
   src.category -> tgt.category;
   src.manufacturer -> tgt.manufacturer;
   src.nutrient as s -> tgt.nutrient as t then NutritionProductNutrient(s,t);

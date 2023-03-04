@@ -7,6 +7,65 @@ uses "http://hl7.org/fhir/StructureDefinition/ConceptMap" alias ConceptMapR5 as 
 
 imports "http://hl7.org/fhir/StructureMap/*4to5"
 
+conceptmap "ConceptMapGroupUnmappedMode" {
+  prefix s = "http://hl7.org/fhir/4.0/conceptmap-unmapped-mode"
+  prefix t = "http://hl7.org/fhir/conceptmap-unmapped-mode"
+
+  s:use-source-code - t:use-source-code
+  s:fixed - t:fixed
+  s:other-map - t:other-map
+}
+
+conceptmap "ConceptMapRelationship" {
+  prefix s = "http://hl7.org/fhir/4.0/concept-map-relationship"
+  prefix t = "http://hl7.org/fhir/concept-map-relationship"
+
+  s:related-to - t:related-to
+  s:not-related-to - t:not-related-to
+}
+
+conceptmap "ConceptMapmapAttributeType" {
+  prefix s = "http://hl7.org/fhir/4.0/conceptmap-attribute-type"
+  prefix t = "http://hl7.org/fhir/conceptmap-attribute-type"
+
+  s:code - t:code
+  s:Coding - t:Coding
+  s:string - t:string
+  s:boolean - t:boolean
+  s:Quantity - t:Quantity
+}
+
+conceptmap "PropertyType" {
+  prefix s = "http://hl7.org/fhir/4.0/conceptmap-property-type"
+  prefix t = "http://hl7.org/fhir/conceptmap-property-type"
+
+  s:Coding - t:Coding
+  s:string - t:string
+  s:integer - t:integer
+  s:boolean - t:boolean
+  s:dateTime - t:dateTime
+  s:decimal - t:decimal
+  s:code - t:code
+}
+
+conceptmap "PublicationStatus" {
+  prefix s = "http://hl7.org/fhir/4.0/publication-status"
+  prefix t = "http://hl7.org/fhir/publication-status"
+
+  s:draft - t:draft
+  s:active - t:active
+  s:retired - t:retired
+  s:unknown - t:unknown
+}
+
+conceptmap "UnmappedConceptMapRelationship" {
+  prefix s = "http://hl7.org/fhir/4.0/concept-map-relationship"
+  prefix t = "http://hl7.org/fhir/concept-map-relationship"
+
+  s:related-to - t:related-to
+  s:not-related-to - t:not-related-to
+}
+
 group ConceptMap(source src : ConceptMapR4, target tgt : ConceptMapR5) extends DomainResource <<type+>> {
   src.url -> tgt.url;
   src.identifier -> tgt.identifier;
@@ -15,7 +74,7 @@ group ConceptMap(source src : ConceptMapR4, target tgt : ConceptMapR5) extends D
   src.versionAlgorithm : Coding -> tgt.versionAlgorithm;
   src.name -> tgt.name;
   src.title -> tgt.title;
-  src.status -> tgt.status;
+  src.status as v -> tgt.status = translate(v, '#PublicationStatus', 'c');
   src.experimental -> tgt.experimental;
   src.date -> tgt.date;
   src.publisher -> tgt.publisher;
@@ -36,6 +95,7 @@ group ConceptMap(source src : ConceptMapR4, target tgt : ConceptMapR5) extends D
   src.endorser -> tgt.endorser;
   src.relatedArtifact -> tgt.relatedArtifact;
   src.property as s -> tgt.property as t then ConceptMapProperty(s,t);
+  src.additionalAttribute as s -> tgt.additionalAttribute as t then ConceptMapAdditionalAttribute(s,t);
   src.sourceScope : uri -> tgt.sourceScope;
   src.sourceScope : canonical -> tgt.sourceScope;
   src.targetScope : uri -> tgt.targetScope;
@@ -47,7 +107,15 @@ group ConceptMapProperty(source src, target tgt) extends BackboneElement {
   src.code -> tgt.code;
   src.uri -> tgt.uri;
   src.description -> tgt.description;
-  src.type -> tgt.type;
+  src.type as v -> tgt.type = translate(v, '#PropertyType', 'c');
+  src.system -> tgt.system;
+}
+
+group ConceptMapAdditionalAttribute(source src, target tgt) extends BackboneElement {
+  src.code -> tgt.code;
+  src.uri -> tgt.uri;
+  src.description -> tgt.description;
+  src.type as v -> tgt.type = translate(v, '#ConceptMapmapAttributeType', 'c');
 }
 
 group ConceptMapGroup(source src, target tgt) extends BackboneElement {
@@ -69,13 +137,25 @@ group ConceptMapGroupElementTarget(source src, target tgt) extends BackboneEleme
   src.code -> tgt.code;
   src.display -> tgt.display;
   src.valueSet -> tgt.valueSet;
-  src.relationship -> tgt.relationship;
+  src.relationship as v -> tgt.relationship = translate(v, '#ConceptMapRelationship', 'c');
   src.comment -> tgt.comment;
+  src.property as s -> tgt.property as t then ConceptMapGroupElementTargetProperty(s,t);
   src.dependsOn as s -> tgt.dependsOn as t then ConceptMapGroupElementTargetDependsOn(s,t);
 }
 
+group ConceptMapGroupElementTargetProperty(source src, target tgt) extends BackboneElement {
+  src.code -> tgt.code;
+  src.value : Coding -> tgt.value;
+  src.value : string -> tgt.value;
+  src.value : integer -> tgt.value;
+  src.value : boolean -> tgt.value;
+  src.value : dateTime -> tgt.value;
+  src.value : decimal -> tgt.value;
+  src.value : code -> tgt.value;
+}
+
 group ConceptMapGroupElementTargetDependsOn(source src, target tgt) extends BackboneElement {
-  src.property -> tgt.property;
+  src.attribute -> tgt.attribute;
   src.value : code -> tgt.value;
   src.value : Coding -> tgt.value;
   src.value : string -> tgt.value;
@@ -85,11 +165,11 @@ group ConceptMapGroupElementTargetDependsOn(source src, target tgt) extends Back
 }
 
 group ConceptMapGroupUnmapped(source src, target tgt) extends BackboneElement {
-  src.mode -> tgt.mode;
+  src.mode as v -> tgt.mode = translate(v, '#ConceptMapGroupUnmappedMode', 'c');
   src.code -> tgt.code;
   src.display -> tgt.display;
   src.valueSet -> tgt.valueSet;
-  src.relationship -> tgt.relationship;
+  src.relationship as v -> tgt.relationship = translate(v, '#UnmappedConceptMapRelationship', 'c');
   src.otherMap -> tgt.otherMap;
 }
 

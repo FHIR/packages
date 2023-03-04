@@ -7,15 +7,86 @@ uses "http://hl7.org/fhir/StructureDefinition/SearchParameter" alias SearchParam
 
 imports "http://hl7.org/fhir/StructureMap/*4to5"
 
+conceptmap "PublicationStatus" {
+  prefix s = "http://hl7.org/fhir/4.0/publication-status"
+  prefix t = "http://hl7.org/fhir/publication-status"
+
+  s:draft - t:draft
+  s:active - t:active
+  s:retired - t:retired
+  s:unknown - t:unknown
+}
+
+conceptmap "SearchComparator" {
+  prefix s = "http://hl7.org/fhir/4.0/search-comparator"
+  prefix t = "http://hl7.org/fhir/search-comparator"
+
+  s:eq - t:eq
+  s:ne - t:ne
+  s:gt - t:gt
+  s:lt - t:lt
+  s:ge - t:ge
+  s:le - t:le
+  s:sa - t:sa
+  s:eb - t:eb
+  s:ap - t:ap
+}
+
+conceptmap "SearchModifierCode" {
+  prefix s = "http://hl7.org/fhir/4.0/search-modifier-code"
+  prefix t = "http://hl7.org/fhir/search-modifier-code"
+
+  s:missing - t:missing
+  s:exact - t:exact
+  s:contains - t:contains
+  s:not - t:not
+  s:text - t:text
+  s:in - t:in
+  s:not-in - t:not-in
+  s:below - t:below
+  s:above - t:above
+  s:type - t:type
+  s:identifier - t:identifier
+  s:of-type - t:of-type
+  s:code-text - t:code-text
+  s:text-advanced - t:text-advanced
+  s:iterate - t:iterate
+}
+
+conceptmap "SearchParamType" {
+  prefix s = "http://hl7.org/fhir/4.0/search-param-type"
+  prefix t = "http://hl7.org/fhir/search-param-type"
+
+  s:number - t:number
+  s:date - t:date
+  s:string - t:string
+  s:token - t:token
+  s:reference - t:reference
+  s:composite - t:composite
+  s:quantity - t:quantity
+  s:uri - t:uri
+  s:special - t:special
+}
+
+conceptmap "SearchProcessingModeType" {
+  prefix s = "http://hl7.org/fhir/4.0/search-processingmode"
+  prefix t = "http://hl7.org/fhir/search-processingmode"
+
+  s:normal - t:normal
+  s:phonetic - t:phonetic
+  s:other - t:other
+}
+
 group SearchParameter(source src : SearchParameterR4, target tgt : SearchParameterR5) extends DomainResource <<type+>> {
   src.url -> tgt.url;
+  src.identifier -> tgt.identifier;
   src.version -> tgt.version;
   src.versionAlgorithm : string -> tgt.versionAlgorithm;
   src.versionAlgorithm : Coding -> tgt.versionAlgorithm;
   src.name -> tgt.name;
   src.title -> tgt.title;
   src.derivedFrom -> tgt.derivedFrom;
-  src.status -> tgt.status;
+  src.status as v -> tgt.status = translate(v, '#PublicationStatus', 'c');
   src.experimental -> tgt.experimental;
   src.date -> tgt.date;
   src.publisher -> tgt.publisher;
@@ -24,17 +95,19 @@ group SearchParameter(source src : SearchParameterR4, target tgt : SearchParamet
   src.useContext -> tgt.useContext;
   src.jurisdiction -> tgt.jurisdiction;
   src.purpose -> tgt.purpose;
+  src.copyright -> tgt.copyright;
+  src.copyrightLabel -> tgt.copyrightLabel;
   src.code -> tgt.code;
   src.base -> tgt.base;
-  src.type -> tgt.type;
+  src.type as v -> tgt.type = translate(v, '#SearchParamType', 'c');
   src.expression -> tgt.expression;
-  src.processingMode -> tgt.processingMode;
+  src.processingMode as v -> tgt.processingMode = translate(v, '#SearchProcessingModeType', 'c');
   src.constraint -> tgt.constraint;
   src.target -> tgt.target;
   src.multipleOr -> tgt.multipleOr;
   src.multipleAnd -> tgt.multipleAnd;
-  src.comparator -> tgt.comparator;
-  src.modifier -> tgt.modifier;
+  src.comparator as v -> tgt.comparator = translate(v, '#SearchComparator', 'c');
+  src.modifier as v -> tgt.modifier = translate(v, '#SearchModifierCode', 'c');
   src.chain -> tgt.chain;
   src.component as s -> tgt.component as t then SearchParameterComponent(s,t);
 }

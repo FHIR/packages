@@ -7,6 +7,19 @@ uses "http://hl7.org/fhir/StructureDefinition/Timing" alias TimingR5 as target
 
 imports "http://hl7.org/fhir/StructureMap/*4to5"
 
+conceptmap "DayOfWeek" {
+  prefix s = "http://hl7.org/fhir/4.0/days-of-week"
+  prefix t = "http://hl7.org/fhir/days-of-week"
+
+  s:mon - t:mon
+  s:tue - t:tue
+  s:wed - t:wed
+  s:thu - t:thu
+  s:fri - t:fri
+  s:sat - t:sat
+  s:sun - t:sun
+}
+
 group Timing(source src : TimingR4, target tgt : TimingR5) extends BackboneType <<type+>> {
   src.event -> tgt.event;
   src.repeat as s -> tgt.repeat as t then TimingRepeat(s,t);
@@ -27,7 +40,7 @@ group TimingRepeat(source src, target tgt) extends Element {
   src.period -> tgt.period;
   src.periodMax -> tgt.periodMax;
   src.periodUnit -> tgt.periodUnit;
-  src.dayOfWeek -> tgt.dayOfWeek;
+  src.dayOfWeek as v -> tgt.dayOfWeek = translate(v, '#DayOfWeek', 'c');
   src.timeOfDay -> tgt.timeOfDay;
   src.when -> tgt.when;
   src.offset -> tgt.offset;

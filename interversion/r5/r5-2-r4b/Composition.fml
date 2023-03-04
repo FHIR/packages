@@ -7,11 +7,34 @@ uses "http://hl7.org/fhir/4.3/StructureDefinition/Composition" alias Composition
 
 imports "http://hl7.org/fhir/StructureMap/*5to4B"
 
+conceptmap "CompositionStatus" {
+  prefix s = "http://hl7.org/fhir/composition-status"
+  prefix t = "http://hl7.org/fhir/4.3/composition-status"
+
+  s:registered - t:registered
+  s:partial - t:partial
+  s:final - t:final
+  s:amended - t:amended
+  s:cancelled - t:cancelled
+  s:entered-in-error - t:entered-in-error
+  s:deprecated - t:deprecated
+  s:unknown - t:unknown
+}
+
+conceptmap "SectionMode" {
+  prefix s = "http://hl7.org/fhir/list-mode"
+  prefix t = "http://hl7.org/fhir/4.3/list-mode"
+
+  s:working - t:working
+  s:snapshot - t:snapshot
+  s:changes - t:changes
+}
+
 group Composition(source src : CompositionR5, target tgt : CompositionR4B) extends DomainResource <<type+>> {
   src.url -> tgt.url;
   src.identifier -> tgt.identifier;
   src.version -> tgt.version;
-  src.status -> tgt.status;
+  src.status as v -> tgt.status = translate(v, '#CompositionStatus', 'c');
   src.type -> tgt.type;
   src.category -> tgt.category;
   src.subject -> tgt.subject;
@@ -47,7 +70,7 @@ group CompositionSection(source src, target tgt) extends BackboneElement {
   src.author -> tgt.author;
   src.focus -> tgt.focus;
   src.text -> tgt.text;
-  src.mode -> tgt.mode;
+  src.mode as v -> tgt.mode = translate(v, '#SectionMode', 'c');
   src.orderedBy -> tgt.orderedBy;
   src.entry -> tgt.entry;
   src.emptyReason -> tgt.emptyReason;

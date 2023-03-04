@@ -7,6 +7,16 @@ uses "http://hl7.org/fhir/StructureDefinition/EventDefinition" alias EventDefini
 
 imports "http://hl7.org/fhir/StructureMap/*4to5"
 
+conceptmap "PublicationStatus" {
+  prefix s = "http://hl7.org/fhir/4.0/publication-status"
+  prefix t = "http://hl7.org/fhir/publication-status"
+
+  s:draft - t:draft
+  s:active - t:active
+  s:retired - t:retired
+  s:unknown - t:unknown
+}
+
 group EventDefinition(source src : EventDefinitionR4, target tgt : EventDefinitionR5) extends DomainResource <<type+>> {
   src.url -> tgt.url;
   src.identifier -> tgt.identifier;
@@ -16,7 +26,7 @@ group EventDefinition(source src : EventDefinitionR4, target tgt : EventDefiniti
   src.name -> tgt.name;
   src.title -> tgt.title;
   src.subtitle -> tgt.subtitle;
-  src.status -> tgt.status;
+  src.status as v -> tgt.status = translate(v, '#PublicationStatus', 'c');
   src.experimental -> tgt.experimental;
   src.subject : CodeableConcept -> tgt.subject;
   src.subject : Reference -> tgt.subject;

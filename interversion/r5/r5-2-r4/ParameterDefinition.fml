@@ -7,13 +7,28 @@ uses "http://hl7.org/fhir/4.0/StructureDefinition/ParameterDefinition" alias Par
 
 imports "http://hl7.org/fhir/StructureMap/*5to4"
 
+conceptmap "FHIRTypes" {
+  prefix s = "http://hl7.org/fhir/fhir-types"
+  prefix t = "http://hl7.org/fhir/4.0/fhir-types"
+
+  s:Base - t:Base
+}
+
+conceptmap "ParameterUse" {
+  prefix s = "http://hl7.org/fhir/operation-parameter-use"
+  prefix t = "http://hl7.org/fhir/4.0/operation-parameter-use"
+
+  s:in - t:in
+  s:out - t:out
+}
+
 group ParameterDefinition(source src : ParameterDefinitionR5, target tgt : ParameterDefinitionR4) extends DataType <<type+>> {
   src.name -> tgt.name;
-  src.use -> tgt.use;
+  src.use as v -> tgt.use = translate(v, '#ParameterUse', 'c');
   src.min -> tgt.min;
   src.max -> tgt.max;
   src.documentation -> tgt.documentation;
-  src.type -> tgt.type;
+  src.type as v -> tgt.type = translate(v, '#FHIRTypes', 'c');
   src.profile -> tgt.profile;
 }
 

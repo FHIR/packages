@@ -7,9 +7,20 @@ uses "http://hl7.org/fhir/4.0/StructureDefinition/GenomicStudy" alias GenomicStu
 
 imports "http://hl7.org/fhir/StructureMap/*5to4"
 
+conceptmap "GenomicStudyStatus" {
+  prefix s = "http://hl7.org/fhir/genomicstudy-status"
+  prefix t = "http://hl7.org/fhir/4.0/genomicstudy-status"
+
+  s:registered - t:registered
+  s:available - t:available
+  s:cancelled - t:cancelled
+  s:entered-in-error - t:entered-in-error
+  s:unknown - t:unknown
+}
+
 group GenomicStudy(source src : GenomicStudyR5, target tgt : GenomicStudyR4) extends DomainResource <<type+>> {
   src.identifier -> tgt.identifier;
-  src.status -> tgt.status;
+  src.status as v -> tgt.status = translate(v, '#GenomicStudyStatus', 'c');
   src.type -> tgt.type;
   src.subject -> tgt.subject;
   src.encounter -> tgt.encounter;

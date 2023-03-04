@@ -7,11 +7,24 @@ uses "http://hl7.org/fhir/StructureDefinition/RiskAssessment" alias RiskAssessme
 
 imports "http://hl7.org/fhir/StructureMap/*4Bto5"
 
+conceptmap "RiskAssessmentStatus" {
+  prefix s = "http://hl7.org/fhir/4.3/observation-status"
+  prefix t = "http://hl7.org/fhir/observation-status"
+
+  s:registered - t:registered
+  s:preliminary - t:preliminary
+  s:final - t:final
+  s:amended - t:amended
+  s:cancelled - t:cancelled
+  s:entered-in-error - t:entered-in-error
+  s:unknown - t:unknown
+}
+
 group RiskAssessment(source src : RiskAssessmentR4B, target tgt : RiskAssessmentR5) extends DomainResource <<type+>> {
   src.identifier -> tgt.identifier;
   src.basedOn -> tgt.basedOn;
   src.parent -> tgt.parent;
-  src.status -> tgt.status;
+  src.status as v -> tgt.status = translate(v, '#RiskAssessmentStatus', 'c');
   src.method -> tgt.method;
   src.code -> tgt.code;
   src.subject -> tgt.subject;

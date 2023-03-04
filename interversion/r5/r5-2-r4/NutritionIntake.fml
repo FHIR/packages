@@ -7,13 +7,27 @@ uses "http://hl7.org/fhir/4.0/StructureDefinition/NutritionIntake" alias Nutriti
 
 imports "http://hl7.org/fhir/StructureMap/*5to4"
 
+conceptmap "NutritionIntakeStatus" {
+  prefix s = "http://hl7.org/fhir/event-status"
+  prefix t = "http://hl7.org/fhir/4.0/event-status"
+
+  s:preparation - t:preparation
+  s:in-progress - t:in-progress
+  s:not-done - t:not-done
+  s:on-hold - t:on-hold
+  s:stopped - t:stopped
+  s:completed - t:completed
+  s:entered-in-error - t:entered-in-error
+  s:unknown - t:unknown
+}
+
 group NutritionIntake(source src : NutritionIntakeR5, target tgt : NutritionIntakeR4) extends DomainResource <<type+>> {
   src.identifier -> tgt.identifier;
   src.instantiatesCanonical -> tgt.instantiatesCanonical;
   src.instantiatesUri -> tgt.instantiatesUri;
   src.basedOn -> tgt.basedOn;
   src.partOf -> tgt.partOf;
-  src.status -> tgt.status;
+  src.status as v -> tgt.status = translate(v, '#NutritionIntakeStatus', 'c');
   src.statusReason -> tgt.statusReason;
   src.code -> tgt.code;
   src.subject -> tgt.subject;

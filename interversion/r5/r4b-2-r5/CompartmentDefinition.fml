@@ -7,6 +7,28 @@ uses "http://hl7.org/fhir/StructureDefinition/CompartmentDefinition" alias Compa
 
 imports "http://hl7.org/fhir/StructureMap/*4Bto5"
 
+conceptmap "CompartmentType" {
+  prefix s = "http://hl7.org/fhir/4.3/compartment-type"
+  prefix t = "http://hl7.org/fhir/compartment-type"
+
+  s:Patient - t:Patient
+  s:Encounter - t:Encounter
+  s:RelatedPerson - t:RelatedPerson
+  s:Practitioner - t:Practitioner
+  s:Device - t:Device
+  s:EpisodeOfCare - t:EpisodeOfCare
+}
+
+conceptmap "PublicationStatus" {
+  prefix s = "http://hl7.org/fhir/4.3/publication-status"
+  prefix t = "http://hl7.org/fhir/publication-status"
+
+  s:draft - t:draft
+  s:active - t:active
+  s:retired - t:retired
+  s:unknown - t:unknown
+}
+
 group CompartmentDefinition(source src : CompartmentDefinitionR4B, target tgt : CompartmentDefinitionR5) extends DomainResource <<type+>> {
   src.url -> tgt.url;
   src.version -> tgt.version;
@@ -14,7 +36,7 @@ group CompartmentDefinition(source src : CompartmentDefinitionR4B, target tgt : 
   src.versionAlgorithm : Coding -> tgt.versionAlgorithm;
   src.name -> tgt.name;
   src.title -> tgt.title;
-  src.status -> tgt.status;
+  src.status as v -> tgt.status = translate(v, '#PublicationStatus', 'c');
   src.experimental -> tgt.experimental;
   src.date -> tgt.date;
   src.publisher -> tgt.publisher;
@@ -22,7 +44,7 @@ group CompartmentDefinition(source src : CompartmentDefinitionR4B, target tgt : 
   src.description -> tgt.description;
   src.useContext -> tgt.useContext;
   src.purpose -> tgt.purpose;
-  src.code -> tgt.code;
+  src.code as v -> tgt.code = translate(v, '#CompartmentType', 'c');
   src.search -> tgt.search;
   src.resource as s -> tgt.resource as t then CompartmentDefinitionResource(s,t);
 }

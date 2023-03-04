@@ -7,6 +7,39 @@ uses "http://hl7.org/fhir/StructureDefinition/EvidenceVariable" alias EvidenceVa
 
 imports "http://hl7.org/fhir/StructureMap/*4Bto5"
 
+conceptmap "CharacteristicCombination" {
+  prefix s = "http://hl7.org/fhir/4.3/characteristic-combination"
+  prefix t = "http://hl7.org/fhir/characteristic-combination"
+
+  s:all-of - t:all-of
+  s:any-of - t:any-of
+  s:at-least - t:at-least
+  s:at-most - t:at-most
+  s:statistical - t:statistical
+  s:net-effect - t:net-effect
+  s:dataset - t:dataset
+}
+
+conceptmap "EvidenceVariableHandling" {
+  prefix s = "http://hl7.org/fhir/4.3/variable-handling"
+  prefix t = "http://hl7.org/fhir/variable-handling"
+
+  s:continuous - t:continuous
+  s:dichotomous - t:dichotomous
+  s:ordinal - t:ordinal
+  s:polychotomous - t:polychotomous
+}
+
+conceptmap "PublicationStatus" {
+  prefix s = "http://hl7.org/fhir/4.3/publication-status"
+  prefix t = "http://hl7.org/fhir/publication-status"
+
+  s:draft - t:draft
+  s:active - t:active
+  s:retired - t:retired
+  s:unknown - t:unknown
+}
+
 group EvidenceVariable(source src : EvidenceVariableR4B, target tgt : EvidenceVariableR5) extends DomainResource <<type+>> {
   src.url -> tgt.url;
   src.identifier -> tgt.identifier;
@@ -16,7 +49,7 @@ group EvidenceVariable(source src : EvidenceVariableR4B, target tgt : EvidenceVa
   src.name -> tgt.name;
   src.title -> tgt.title;
   src.shortTitle -> tgt.shortTitle;
-  src.status -> tgt.status;
+  src.status as v -> tgt.status = translate(v, '#PublicationStatus', 'c');
   src.experimental -> tgt.experimental;
   src.date -> tgt.date;
   src.publisher -> tgt.publisher;
@@ -37,7 +70,7 @@ group EvidenceVariable(source src : EvidenceVariableR4B, target tgt : EvidenceVa
   src.relatedArtifact -> tgt.relatedArtifact;
   src.actual -> tgt.actual;
   src.characteristic as s -> tgt.characteristic as t then EvidenceVariableCharacteristic(s,t);
-  src.handling -> tgt.handling;
+  src.handling as v -> tgt.handling = translate(v, '#EvidenceVariableHandling', 'c');
   src.category as s -> tgt.category as t then EvidenceVariableCategory(s,t);
 }
 
@@ -74,7 +107,7 @@ group EvidenceVariableCharacteristicDefinitionByTypeAndValue(source src, target 
 }
 
 group EvidenceVariableCharacteristicDefinitionByCombination(source src, target tgt) extends BackboneElement {
-  src.code -> tgt.code;
+  src.code as v -> tgt.code = translate(v, '#CharacteristicCombination', 'c');
   src.threshold -> tgt.threshold;
 }
 

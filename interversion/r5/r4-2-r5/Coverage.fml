@@ -7,10 +7,29 @@ uses "http://hl7.org/fhir/StructureDefinition/Coverage" alias CoverageR5 as targ
 
 imports "http://hl7.org/fhir/StructureMap/*4to5"
 
+conceptmap "CoverageKind" {
+  prefix s = "http://hl7.org/fhir/4.0/coverage-kind"
+  prefix t = "http://hl7.org/fhir/coverage-kind"
+
+  s:insurance - t:insurance
+  s:self-pay - t:self-pay
+  s:other - t:other
+}
+
+conceptmap "CoverageStatus" {
+  prefix s = "http://hl7.org/fhir/4.0/fm-status"
+  prefix t = "http://hl7.org/fhir/fm-status"
+
+  s:active - t:active
+  s:cancelled - t:cancelled
+  s:draft - t:draft
+  s:entered-in-error - t:entered-in-error
+}
+
 group Coverage(source src : CoverageR4, target tgt : CoverageR5) extends DomainResource <<type+>> {
   src.identifier -> tgt.identifier;
-  src.status -> tgt.status;
-  src.kind -> tgt.kind;
+  src.status as v -> tgt.status = translate(v, '#CoverageStatus', 'c');
+  src.kind as v -> tgt.kind = translate(v, '#CoverageKind', 'c');
   src.paymentBy as s -> tgt.paymentBy as t then CoveragePaymentBy(s,t);
   src.type -> tgt.type;
   src.policyHolder -> tgt.policyHolder;

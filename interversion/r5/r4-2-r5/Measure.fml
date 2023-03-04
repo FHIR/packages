@@ -7,6 +7,23 @@ uses "http://hl7.org/fhir/StructureDefinition/Measure" alias MeasureR5 as target
 
 imports "http://hl7.org/fhir/StructureMap/*4to5"
 
+conceptmap "BasisType" {
+  prefix s = "http://hl7.org/fhir/4.0/fhir-types"
+  prefix t = "http://hl7.org/fhir/fhir-types"
+
+  s:Base - t:Base
+}
+
+conceptmap "PublicationStatus" {
+  prefix s = "http://hl7.org/fhir/4.0/publication-status"
+  prefix t = "http://hl7.org/fhir/publication-status"
+
+  s:draft - t:draft
+  s:active - t:active
+  s:retired - t:retired
+  s:unknown - t:unknown
+}
+
 group Measure(source src : MeasureR4, target tgt : MeasureR5) extends DomainResource <<type+>> {
   src.url -> tgt.url;
   src.identifier -> tgt.identifier;
@@ -16,11 +33,11 @@ group Measure(source src : MeasureR4, target tgt : MeasureR5) extends DomainReso
   src.name -> tgt.name;
   src.title -> tgt.title;
   src.subtitle -> tgt.subtitle;
-  src.status -> tgt.status;
+  src.status as v -> tgt.status = translate(v, '#PublicationStatus', 'c');
   src.experimental -> tgt.experimental;
   src.subject : CodeableConcept -> tgt.subject;
   src.subject : Reference -> tgt.subject;
-  src.basis -> tgt.basis;
+  src.basis as v -> tgt.basis = translate(v, '#BasisType', 'c');
   src.date -> tgt.date;
   src.publisher -> tgt.publisher;
   src.contact -> tgt.contact;
@@ -63,39 +80,51 @@ group MeasureTerm(source src, target tgt) extends BackboneElement {
 }
 
 group MeasureGroup(source src, target tgt) extends BackboneElement {
+  src.linkId -> tgt.linkId;
   src.code -> tgt.code;
   src.description -> tgt.description;
   src.type -> tgt.type;
-  src.basis -> tgt.basis;
+  src.subject : CodeableConcept -> tgt.subject;
+  src.subject : Reference -> tgt.subject;
+  src.basis as v -> tgt.basis = translate(v, '#BasisType', 'c');
   src.scoring -> tgt.scoring;
   src.scoringUnit -> tgt.scoringUnit;
+  src.rateAggregation -> tgt.rateAggregation;
   src.improvementNotation -> tgt.improvementNotation;
+  src.library -> tgt.library;
   src.population as s -> tgt.population as t then MeasureGroupPopulation(s,t);
   src.stratifier as s -> tgt.stratifier as t then MeasureGroupStratifier(s,t);
 }
 
 group MeasureGroupPopulation(source src, target tgt) extends BackboneElement {
+  src.linkId -> tgt.linkId;
   src.code -> tgt.code;
   src.description -> tgt.description;
   src.criteria -> tgt.criteria;
+  src.groupDefinition -> tgt.groupDefinition;
   src.inputPopulationId -> tgt.inputPopulationId;
   src.aggregateMethod -> tgt.aggregateMethod;
 }
 
 group MeasureGroupStratifier(source src, target tgt) extends BackboneElement {
+  src.linkId -> tgt.linkId;
   src.code -> tgt.code;
   src.description -> tgt.description;
   src.criteria -> tgt.criteria;
+  src.groupDefinition -> tgt.groupDefinition;
   src.component as s -> tgt.component as t then MeasureGroupStratifierComponent(s,t);
 }
 
 group MeasureGroupStratifierComponent(source src, target tgt) extends BackboneElement {
+  src.linkId -> tgt.linkId;
   src.code -> tgt.code;
   src.description -> tgt.description;
   src.criteria -> tgt.criteria;
+  src.groupDefinition -> tgt.groupDefinition;
 }
 
 group MeasureSupplementalData(source src, target tgt) extends BackboneElement {
+  src.linkId -> tgt.linkId;
   src.code -> tgt.code;
   src.usage -> tgt.usage;
   src.description -> tgt.description;

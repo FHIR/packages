@@ -7,9 +7,34 @@ uses "http://hl7.org/fhir/4.0/StructureDefinition/Encounter" alias EncounterR4 a
 
 imports "http://hl7.org/fhir/StructureMap/*5to4"
 
+conceptmap "EncounterLocationStatus" {
+  prefix s = "http://hl7.org/fhir/encounter-location-status"
+  prefix t = "http://hl7.org/fhir/4.0/encounter-location-status"
+
+  s:planned - t:planned
+  s:active - t:active
+  s:reserved - t:reserved
+  s:completed - t:completed
+}
+
+conceptmap "EncounterStatus" {
+  prefix s = "http://hl7.org/fhir/encounter-status"
+  prefix t = "http://hl7.org/fhir/4.0/encounter-status"
+
+  s:planned - t:planned
+  s:in-progress - t:in-progress
+  s:on-hold - t:on-hold
+  s:discharged - t:discharged
+  s:completed - t:completed
+  s:cancelled - t:cancelled
+  s:discontinued - t:discontinued
+  s:entered-in-error - t:entered-in-error
+  s:unknown - t:unknown
+}
+
 group Encounter(source src : EncounterR5, target tgt : EncounterR4) extends DomainResource <<type+>> {
   src.identifier -> tgt.identifier;
-  src.status -> tgt.status;
+  src.status as v -> tgt.status = translate(v, '#EncounterStatus', 'c');
   src.class -> tgt.class;
   src.priority -> tgt.priority;
   src.type -> tgt.type;
@@ -65,7 +90,7 @@ group EncounterAdmission(source src, target tgt) extends BackboneElement {
 
 group EncounterLocation(source src, target tgt) extends BackboneElement {
   src.location -> tgt.location;
-  src.status -> tgt.status;
+  src.status as v -> tgt.status = translate(v, '#EncounterLocationStatus', 'c');
   src.form -> tgt.form;
   src.period -> tgt.period;
 }

@@ -7,6 +7,16 @@ uses "http://hl7.org/fhir/StructureDefinition/CanonicalResource" alias Canonical
 
 imports "http://hl7.org/fhir/StructureMap/*4Bto5"
 
+conceptmap "PublicationStatus" {
+  prefix s = "http://hl7.org/fhir/4.3/publication-status"
+  prefix t = "http://hl7.org/fhir/publication-status"
+
+  s:draft - t:draft
+  s:active - t:active
+  s:retired - t:retired
+  s:unknown - t:unknown
+}
+
 group CanonicalResource(source src : CanonicalResourceR4B, target tgt : CanonicalResourceR5) extends DomainResource <<type+>> {
   src.url -> tgt.url;
   src.identifier -> tgt.identifier;
@@ -15,7 +25,7 @@ group CanonicalResource(source src : CanonicalResourceR4B, target tgt : Canonica
   src.versionAlgorithm : Coding -> tgt.versionAlgorithm;
   src.name -> tgt.name;
   src.title -> tgt.title;
-  src.status -> tgt.status;
+  src.status as v -> tgt.status = translate(v, '#PublicationStatus', 'c');
   src.experimental -> tgt.experimental;
   src.date -> tgt.date;
   src.publisher -> tgt.publisher;

@@ -7,9 +7,20 @@ uses "http://hl7.org/fhir/4.0/StructureDefinition/Quantity" alias QuantityR4 as 
 
 imports "http://hl7.org/fhir/StructureMap/*5to4"
 
+conceptmap "QuantityComparator" {
+  prefix s = "http://hl7.org/fhir/quantity-comparator"
+  prefix t = "http://hl7.org/fhir/4.0/quantity-comparator"
+
+  s:< - t:<
+  s:<= - t:<=
+  s:>= - t:>=
+  s:> - t:>
+  s:ad - t:ad
+}
+
 group Quantity(source src : QuantityR5, target tgt : QuantityR4) extends DataType <<type+>> {
   src.value -> tgt.value;
-  src.comparator -> tgt.comparator;
+  src.comparator as v -> tgt.comparator = translate(v, '#QuantityComparator', 'c');
   src.unit -> tgt.unit;
   src.system -> tgt.system;
   src.code -> tgt.code;

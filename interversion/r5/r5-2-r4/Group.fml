@@ -7,11 +7,35 @@ uses "http://hl7.org/fhir/4.0/StructureDefinition/Group" alias GroupR4 as target
 
 imports "http://hl7.org/fhir/StructureMap/*5to4"
 
+conceptmap "GroupType" {
+  prefix s = "http://hl7.org/fhir/group-type"
+  prefix t = "http://hl7.org/fhir/4.0/group-type"
+
+  s:person - t:person
+  s:animal - t:animal
+  s:practitioner - t:practitioner
+  s:device - t:device
+  s:careteam - t:careteam
+  s:healthcareservice - t:healthcareservice
+  s:location - t:location
+  s:organization - t:organization
+  s:relatedperson - t:relatedperson
+  s:specimen - t:specimen
+}
+
+conceptmap "group-membership-basis" {
+  prefix s = "http://hl7.org/fhir/group-membership-basis"
+  prefix t = "http://hl7.org/fhir/4.0/group-membership-basis"
+
+  s:definitional - t:definitional
+  s:enumerated - t:enumerated
+}
+
 group Group(source src : GroupR5, target tgt : GroupR4) extends DomainResource <<type+>> {
   src.identifier -> tgt.identifier;
   src.active -> tgt.active;
-  src.type -> tgt.type;
-  src.membership -> tgt.membership;
+  src.type as v -> tgt.type = translate(v, '#GroupType', 'c');
+  src.membership as v -> tgt.membership = translate(v, '#group-membership-basis', 'c');
   src.code -> tgt.code;
   src.name -> tgt.name;
   src.description -> tgt.description;

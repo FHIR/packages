@@ -7,11 +7,31 @@ uses "http://hl7.org/fhir/4.0/StructureDefinition/EnrollmentResponse" alias Enro
 
 imports "http://hl7.org/fhir/StructureMap/*5to4"
 
+conceptmap "EnrollmentOutcome" {
+  prefix s = "http://hl7.org/fhir/enrollment-outcome"
+  prefix t = "http://hl7.org/fhir/4.0/enrollment-outcome"
+
+  s:queued - t:queued
+  s:complete - t:complete
+  s:error - t:error
+  s:partial - t:partial
+}
+
+conceptmap "EnrollmentResponseStatus" {
+  prefix s = "http://hl7.org/fhir/fm-status"
+  prefix t = "http://hl7.org/fhir/4.0/fm-status"
+
+  s:active - t:active
+  s:cancelled - t:cancelled
+  s:draft - t:draft
+  s:entered-in-error - t:entered-in-error
+}
+
 group EnrollmentResponse(source src : EnrollmentResponseR5, target tgt : EnrollmentResponseR4) extends DomainResource <<type+>> {
   src.identifier -> tgt.identifier;
-  src.status -> tgt.status;
+  src.status as v -> tgt.status = translate(v, '#EnrollmentResponseStatus', 'c');
   src.request -> tgt.request;
-  src.outcome -> tgt.outcome;
+  src.outcome as v -> tgt.outcome = translate(v, '#EnrollmentOutcome', 'c');
   src.disposition -> tgt.disposition;
   src.created -> tgt.created;
   src.organization -> tgt.organization;

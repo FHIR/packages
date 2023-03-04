@@ -7,6 +7,17 @@ uses "http://hl7.org/fhir/StructureDefinition/Provenance" alias ProvenanceR5 as 
 
 imports "http://hl7.org/fhir/StructureMap/*4to5"
 
+conceptmap "ProvenanceEntityRole" {
+  prefix s = "http://hl7.org/fhir/4.0/provenance-entity-role"
+  prefix t = "http://hl7.org/fhir/provenance-entity-role"
+
+  s:revision - t:revision
+  s:quotation - t:quotation
+  s:source - t:source
+  s:instantiates - t:instantiates
+  s:removal - t:removal
+}
+
 group Provenance(source src : ProvenanceR4, target tgt : ProvenanceR5) extends DomainResource <<type+>> {
   src.target -> tgt.target;
   src.occurred : Period -> tgt.occurred;
@@ -32,7 +43,7 @@ group ProvenanceAgent(source src, target tgt) extends BackboneElement {
 }
 
 group ProvenanceEntity(source src, target tgt) extends BackboneElement {
-  src.role -> tgt.role;
+  src.role as v -> tgt.role = translate(v, '#ProvenanceEntityRole', 'c');
   src.what -> tgt.what;
 }
 

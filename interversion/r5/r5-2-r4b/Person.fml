@@ -7,12 +7,32 @@ uses "http://hl7.org/fhir/4.3/StructureDefinition/Person" alias PersonR4B as tar
 
 imports "http://hl7.org/fhir/StructureMap/*5to4B"
 
+conceptmap "AdministrativeGender" {
+  prefix s = "http://hl7.org/fhir/administrative-gender"
+  prefix t = "http://hl7.org/fhir/4.3/administrative-gender"
+
+  s:male - t:male
+  s:female - t:female
+  s:other - t:other
+  s:unknown - t:unknown
+}
+
+conceptmap "IdentityAssuranceLevel" {
+  prefix s = "http://hl7.org/fhir/identity-assuranceLevel"
+  prefix t = "http://hl7.org/fhir/4.3/identity-assuranceLevel"
+
+  s:level1 - t:level1
+  s:level2 - t:level2
+  s:level3 - t:level3
+  s:level4 - t:level4
+}
+
 group Person(source src : PersonR5, target tgt : PersonR4B) extends DomainResource <<type+>> {
   src.identifier -> tgt.identifier;
   src.active -> tgt.active;
   src.name -> tgt.name;
   src.telecom -> tgt.telecom;
-  src.gender -> tgt.gender;
+  src.gender as v -> tgt.gender = translate(v, '#AdministrativeGender', 'c');
   src.birthDate -> tgt.birthDate;
   src.deceased : boolean -> tgt.deceased;
   src.deceased : dateTime -> tgt.deceased;
@@ -31,6 +51,6 @@ group PersonCommunication(source src, target tgt) extends BackboneElement {
 
 group PersonLink(source src, target tgt) extends BackboneElement {
   src.target -> tgt.target;
-  src.assurance -> tgt.assurance;
+  src.assurance as v -> tgt.assurance = translate(v, '#IdentityAssuranceLevel', 'c');
 }
 

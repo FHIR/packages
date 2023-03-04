@@ -7,11 +7,21 @@ uses "http://hl7.org/fhir/StructureDefinition/FamilyMemberHistory" alias FamilyM
 
 imports "http://hl7.org/fhir/StructureMap/*4Bto5"
 
+conceptmap "FamilyHistoryStatus" {
+  prefix s = "http://hl7.org/fhir/4.3/history-status"
+  prefix t = "http://hl7.org/fhir/history-status"
+
+  s:partial - t:partial
+  s:completed - t:completed
+  s:entered-in-error - t:entered-in-error
+  s:health-unknown - t:health-unknown
+}
+
 group FamilyMemberHistory(source src : FamilyMemberHistoryR4B, target tgt : FamilyMemberHistoryR5) extends DomainResource <<type+>> {
   src.identifier -> tgt.identifier;
   src.instantiatesCanonical -> tgt.instantiatesCanonical;
   src.instantiatesUri -> tgt.instantiatesUri;
-  src.status -> tgt.status;
+  src.status as v -> tgt.status = translate(v, '#FamilyHistoryStatus', 'c');
   src.dataAbsentReason -> tgt.dataAbsentReason;
   src.patient -> tgt.patient;
   src.date -> tgt.date;

@@ -7,10 +7,19 @@ uses "http://hl7.org/fhir/StructureDefinition/Substance" alias SubstanceR5 as ta
 
 imports "http://hl7.org/fhir/StructureMap/*4to5"
 
+conceptmap "FHIRSubstanceStatus" {
+  prefix s = "http://hl7.org/fhir/4.0/substance-status"
+  prefix t = "http://hl7.org/fhir/substance-status"
+
+  s:active - t:active
+  s:inactive - t:inactive
+  s:entered-in-error - t:entered-in-error
+}
+
 group Substance(source src : SubstanceR4, target tgt : SubstanceR5) extends DomainResource <<type+>> {
   src.identifier -> tgt.identifier;
   src.instance -> tgt.instance;
-  src.status -> tgt.status;
+  src.status as v -> tgt.status = translate(v, '#FHIRSubstanceStatus', 'c');
   src.category -> tgt.category;
   src.code -> tgt.code;
   src.description -> tgt.description;

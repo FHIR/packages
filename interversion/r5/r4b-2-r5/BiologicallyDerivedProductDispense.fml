@@ -7,14 +7,28 @@ uses "http://hl7.org/fhir/StructureDefinition/BiologicallyDerivedProductDispense
 
 imports "http://hl7.org/fhir/StructureMap/*4Bto5"
 
+conceptmap "BiologicallyDerivedProductDispenseStatus" {
+  prefix s = "http://hl7.org/fhir/4.3/biologicallyderivedproductdispense-status"
+  prefix t = "http://hl7.org/fhir/biologicallyderivedproductdispense-status"
+
+  s:preparation - t:preparation
+  s:in-progress - t:in-progress
+  s:allocated - t:allocated
+  s:issued - t:issued
+  s:unfulfilled - t:unfulfilled
+  s:returned - t:returned
+  s:entered-in-error - t:entered-in-error
+  s:unknown - t:unknown
+}
+
 group BiologicallyDerivedProductDispense(source src : BiologicallyDerivedProductDispenseR4B, target tgt : BiologicallyDerivedProductDispenseR5) extends DomainResource <<type+>> {
   src.identifier -> tgt.identifier;
   src.basedOn -> tgt.basedOn;
   src.partOf -> tgt.partOf;
-  src.status -> tgt.status;
+  src.status as v -> tgt.status = translate(v, '#BiologicallyDerivedProductDispenseStatus', 'c');
   src.originRelationshipType -> tgt.originRelationshipType;
   src.product -> tgt.product;
-  src.subject -> tgt.subject;
+  src.patient -> tgt.patient;
   src.matchStatus -> tgt.matchStatus;
   src.performer as s -> tgt.performer as t then BiologicallyDerivedProductDispensePerformer(s,t);
   src.location -> tgt.location;

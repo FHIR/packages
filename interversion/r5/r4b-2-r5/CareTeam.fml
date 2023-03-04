@@ -7,9 +7,20 @@ uses "http://hl7.org/fhir/StructureDefinition/CareTeam" alias CareTeamR5 as targ
 
 imports "http://hl7.org/fhir/StructureMap/*4Bto5"
 
+conceptmap "CareTeamStatus" {
+  prefix s = "http://hl7.org/fhir/4.3/care-team-status"
+  prefix t = "http://hl7.org/fhir/care-team-status"
+
+  s:proposed - t:proposed
+  s:active - t:active
+  s:suspended - t:suspended
+  s:inactive - t:inactive
+  s:entered-in-error - t:entered-in-error
+}
+
 group CareTeam(source src : CareTeamR4B, target tgt : CareTeamR5) extends DomainResource <<type+>> {
   src.identifier -> tgt.identifier;
-  src.status -> tgt.status;
+  src.status as v -> tgt.status = translate(v, '#CareTeamStatus', 'c');
   src.category -> tgt.category;
   src.name -> tgt.name;
   src.subject -> tgt.subject;

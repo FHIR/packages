@@ -7,12 +7,32 @@ uses "http://hl7.org/fhir/4.3/StructureDefinition/Patient" alias PatientR4B as t
 
 imports "http://hl7.org/fhir/StructureMap/*5to4B"
 
+conceptmap "AdministrativeGender" {
+  prefix s = "http://hl7.org/fhir/administrative-gender"
+  prefix t = "http://hl7.org/fhir/4.3/administrative-gender"
+
+  s:male - t:male
+  s:female - t:female
+  s:other - t:other
+  s:unknown - t:unknown
+}
+
+conceptmap "LinkType" {
+  prefix s = "http://hl7.org/fhir/link-type"
+  prefix t = "http://hl7.org/fhir/4.3/link-type"
+
+  s:replaced-by - t:replaced-by
+  s:replaces - t:replaces
+  s:refer - t:refer
+  s:seealso - t:seealso
+}
+
 group Patient(source src : PatientR5, target tgt : PatientR4B) extends DomainResource <<type+>> {
   src.identifier -> tgt.identifier;
   src.active -> tgt.active;
   src.name -> tgt.name;
   src.telecom -> tgt.telecom;
-  src.gender -> tgt.gender;
+  src.gender as v -> tgt.gender = translate(v, '#AdministrativeGender', 'c');
   src.birthDate -> tgt.birthDate;
   src.deceased : boolean -> tgt.deceased;
   src.deceased : dateTime -> tgt.deceased;
@@ -33,7 +53,7 @@ group PatientContact(source src, target tgt) extends BackboneElement {
   src.name -> tgt.name;
   src.telecom -> tgt.telecom;
   src.address -> tgt.address;
-  src.gender -> tgt.gender;
+  src.gender as v -> tgt.gender = translate(v, '#AdministrativeGender', 'c');
   src.organization -> tgt.organization;
   src.period -> tgt.period;
 }
@@ -45,6 +65,6 @@ group PatientCommunication(source src, target tgt) extends BackboneElement {
 
 group PatientLink(source src, target tgt) extends BackboneElement {
   src.other -> tgt.other;
-  src.type -> tgt.type;
+  src.type as v -> tgt.type = translate(v, '#LinkType', 'c');
 }
 

@@ -7,6 +7,115 @@ uses "http://hl7.org/fhir/StructureDefinition/TestScript" alias TestScriptR5 as 
 
 imports "http://hl7.org/fhir/StructureMap/*4to5"
 
+conceptmap "AssertionDirectionType" {
+  prefix s = "http://hl7.org/fhir/4.0/assert-direction-codes"
+  prefix t = "http://hl7.org/fhir/assert-direction-codes"
+
+  s:response - t:response
+  s:request - t:request
+}
+
+conceptmap "AssertionManualCompletionType" {
+  prefix s = "http://hl7.org/fhir/4.0/assert-manual-completion-codes"
+  prefix t = "http://hl7.org/fhir/assert-manual-completion-codes"
+
+  s:fail - t:fail
+  s:pass - t:pass
+  s:skip - t:skip
+  s:stop - t:stop
+}
+
+conceptmap "AssertionOperatorType" {
+  prefix s = "http://hl7.org/fhir/4.0/assert-operator-codes"
+  prefix t = "http://hl7.org/fhir/assert-operator-codes"
+
+  s:equals - t:equals
+  s:notEquals - t:notEquals
+  s:in - t:in
+  s:notIn - t:notIn
+  s:greaterThan - t:greaterThan
+  s:lessThan - t:lessThan
+  s:empty - t:empty
+  s:notEmpty - t:notEmpty
+  s:contains - t:contains
+  s:notContains - t:notContains
+  s:eval - t:eval
+  s:manualEval - t:manualEval
+}
+
+conceptmap "AssertionResponseTypes" {
+  prefix s = "http://hl7.org/fhir/4.0/assert-response-code-types"
+  prefix t = "http://hl7.org/fhir/assert-response-code-types"
+
+  s:continue - t:continue
+  s:switchingProtocols - t:switchingProtocols
+  s:okay - t:okay
+  s:created - t:created
+  s:accepted - t:accepted
+  s:nonAuthoritativeInformation - t:nonAuthoritativeInformation
+  s:noContent - t:noContent
+  s:resetContent - t:resetContent
+  s:partialContent - t:partialContent
+  s:multipleChoices - t:multipleChoices
+  s:movedPermanently - t:movedPermanently
+  s:found - t:found
+  s:seeOther - t:seeOther
+  s:notModified - t:notModified
+  s:useProxy - t:useProxy
+  s:temporaryRedirect - t:temporaryRedirect
+  s:permanentRedirect - t:permanentRedirect
+  s:badRequest - t:badRequest
+  s:unauthorized - t:unauthorized
+  s:paymentRequired - t:paymentRequired
+  s:forbidden - t:forbidden
+  s:notFound - t:notFound
+  s:methodNotAllowed - t:methodNotAllowed
+  s:notAcceptable - t:notAcceptable
+  s:proxyAuthenticationRequired - t:proxyAuthenticationRequired
+  s:requestTimeout - t:requestTimeout
+  s:conflict - t:conflict
+  s:gone - t:gone
+  s:lengthRequired - t:lengthRequired
+  s:preconditionFailed - t:preconditionFailed
+  s:contentTooLarge - t:contentTooLarge
+  s:uriTooLong - t:uriTooLong
+  s:unsupportedMediaType - t:unsupportedMediaType
+  s:rangeNotSatisfiable - t:rangeNotSatisfiable
+  s:expectationFailed - t:expectationFailed
+  s:misdirectedRequest - t:misdirectedRequest
+  s:unprocessableContent - t:unprocessableContent
+  s:upgradeRequired - t:upgradeRequired
+  s:internalServerError - t:internalServerError
+  s:notImplemented - t:notImplemented
+  s:badGateway - t:badGateway
+  s:serviceUnavailable - t:serviceUnavailable
+  s:gatewayTimeout - t:gatewayTimeout
+  s:httpVersionNotSupported - t:httpVersionNotSupported
+}
+
+conceptmap "PublicationStatus" {
+  prefix s = "http://hl7.org/fhir/4.0/publication-status"
+  prefix t = "http://hl7.org/fhir/publication-status"
+
+  s:draft - t:draft
+  s:active - t:active
+  s:retired - t:retired
+  s:unknown - t:unknown
+}
+
+conceptmap "TestScriptRequestMethodCode" {
+  prefix s = "http://hl7.org/fhir/4.0/http-operations"
+  prefix t = "http://hl7.org/fhir/http-operations"
+
+  s:delete - t:delete
+  s:get - t:get
+  s:options - t:options
+  s:patch - t:patch
+  s:post - t:post
+  s:put - t:put
+  s:head - t:head
+}
+
 group TestScript(source src : TestScriptR4, target tgt : TestScriptR5) extends DomainResource <<type+>> {
   src.url -> tgt.url;
   src.identifier -> tgt.identifier;
@@ -15,7 +124,7 @@ group TestScript(source src : TestScriptR4, target tgt : TestScriptR5) extends D
   src.versionAlgorithm : Coding -> tgt.versionAlgorithm;
   src.name -> tgt.name;
   src.title -> tgt.title;
-  src.status -> tgt.status;
+  src.status as v -> tgt.status = translate(v, '#PublicationStatus', 'c');
   src.experimental -> tgt.experimental;
   src.date -> tgt.date;
   src.publisher -> tgt.publisher;
@@ -111,7 +220,7 @@ group TestScriptSetupActionOperation(source src, target tgt) extends BackboneEle
   src.contentType -> tgt.contentType;
   src.destination -> tgt.destination;
   src.encodeRequestUrl -> tgt.encodeRequestUrl;
-  src.method -> tgt.method;
+  src.method as v -> tgt.method = translate(v, '#TestScriptRequestMethodCode', 'c');
   src.origin -> tgt.origin;
   src.params -> tgt.params;
   src.requestHeader as s -> tgt.requestHeader as t then TestScriptSetupActionOperationRequestHeader(s,t);
@@ -130,22 +239,22 @@ group TestScriptSetupActionOperationRequestHeader(source src, target tgt) extend
 group TestScriptSetupActionAssert(source src, target tgt) extends BackboneElement {
   src.label -> tgt.label;
   src.description -> tgt.description;
-  src.direction -> tgt.direction;
+  src.direction as v -> tgt.direction = translate(v, '#AssertionDirectionType', 'c');
   src.compareToSourceId -> tgt.compareToSourceId;
   src.compareToSourceExpression -> tgt.compareToSourceExpression;
   src.compareToSourcePath -> tgt.compareToSourcePath;
   src.contentType -> tgt.contentType;
-  src.defaultManualCompletion -> tgt.defaultManualCompletion;
+  src.defaultManualCompletion as v -> tgt.defaultManualCompletion = translate(v, '#AssertionManualCompletionType', 'c');
   src.expression -> tgt.expression;
   src.headerField -> tgt.headerField;
   src.minimumId -> tgt.minimumId;
   src.navigationLinks -> tgt.navigationLinks;
-  src.operator -> tgt.operator;
+  src.operator as v -> tgt.operator = translate(v, '#AssertionOperatorType', 'c');
   src.path -> tgt.path;
-  src.requestMethod -> tgt.requestMethod;
+  src.requestMethod as v -> tgt.requestMethod = translate(v, '#TestScriptRequestMethodCode', 'c');
   src.requestURL -> tgt.requestURL;
   src.resource -> tgt.resource;
-  src.response -> tgt.response;
+  src.response as v -> tgt.response = translate(v, '#AssertionResponseTypes', 'c');
   src.responseCode -> tgt.responseCode;
   src.sourceId -> tgt.sourceId;
   src.stopTestOnFail -> tgt.stopTestOnFail;

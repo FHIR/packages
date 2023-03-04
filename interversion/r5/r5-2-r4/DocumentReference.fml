@@ -7,12 +7,35 @@ uses "http://hl7.org/fhir/4.0/StructureDefinition/DocumentReference" alias Docum
 
 imports "http://hl7.org/fhir/StructureMap/*5to4"
 
+conceptmap "DocumentReferenceStatus" {
+  prefix s = "http://hl7.org/fhir/document-reference-status"
+  prefix t = "http://hl7.org/fhir/4.0/document-reference-status"
+
+  s:current - t:current
+  s:superseded - t:superseded
+  s:entered-in-error - t:entered-in-error
+}
+
+conceptmap "ReferredDocumentStatus" {
+  prefix s = "http://hl7.org/fhir/composition-status"
+  prefix t = "http://hl7.org/fhir/4.0/composition-status"
+
+  s:registered - t:registered
+  s:partial - t:partial
+  s:final - t:final
+  s:amended - t:amended
+  s:cancelled - t:cancelled
+  s:entered-in-error - t:entered-in-error
+  s:deprecated - t:deprecated
+  s:unknown - t:unknown
+}
+
 group DocumentReference(source src : DocumentReferenceR5, target tgt : DocumentReferenceR4) extends DomainResource <<type+>> {
   src.identifier -> tgt.identifier;
   src.version -> tgt.version;
   src.basedOn -> tgt.basedOn;
-  src.status -> tgt.status;
-  src.docStatus -> tgt.docStatus;
+  src.status as v -> tgt.status = translate(v, '#DocumentReferenceStatus', 'c');
+  src.docStatus as v -> tgt.docStatus = translate(v, '#ReferredDocumentStatus', 'c');
   src.modality -> tgt.modality;
   src.type -> tgt.type;
   src.category -> tgt.category;

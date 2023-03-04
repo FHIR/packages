@@ -7,11 +7,26 @@ uses "http://hl7.org/fhir/StructureDefinition/MedicationDispense" alias Medicati
 
 imports "http://hl7.org/fhir/StructureMap/*4to5"
 
+conceptmap "MedicationDispenseStatus" {
+  prefix s = "http://hl7.org/fhir/4.0/CodeSystem/medicationdispense-status"
+  prefix t = "http://hl7.org/fhir/CodeSystem/medicationdispense-status"
+
+  s:preparation - t:preparation
+  s:in-progress - t:in-progress
+  s:cancelled - t:cancelled
+  s:on-hold - t:on-hold
+  s:completed - t:completed
+  s:entered-in-error - t:entered-in-error
+  s:stopped - t:stopped
+  s:declined - t:declined
+  s:unknown - t:unknown
+}
+
 group MedicationDispense(source src : MedicationDispenseR4, target tgt : MedicationDispenseR5) extends DomainResource <<type+>> {
   src.identifier -> tgt.identifier;
   src.basedOn -> tgt.basedOn;
   src.partOf -> tgt.partOf;
-  src.status -> tgt.status;
+  src.status as v -> tgt.status = translate(v, '#MedicationDispenseStatus', 'c');
   src.notPerformedReason -> tgt.notPerformedReason;
   src.statusChanged -> tgt.statusChanged;
   src.category -> tgt.category;

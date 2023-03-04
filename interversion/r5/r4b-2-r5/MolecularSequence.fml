@@ -7,9 +7,34 @@ uses "http://hl7.org/fhir/StructureDefinition/MolecularSequence" alias Molecular
 
 imports "http://hl7.org/fhir/StructureMap/*4Bto5"
 
+conceptmap "orientationType" {
+  prefix s = "http://hl7.org/fhir/4.3/orientation-type"
+  prefix t = "http://hl7.org/fhir/orientation-type"
+
+  s:sense - t:sense
+  s:antisense - t:antisense
+}
+
+conceptmap "sequenceType" {
+  prefix s = "http://hl7.org/fhir/4.3/sequence-type"
+  prefix t = "http://hl7.org/fhir/sequence-type"
+
+  s:aa - t:aa
+  s:dna - t:dna
+  s:rna - t:rna
+}
+
+conceptmap "strandType" {
+  prefix s = "http://hl7.org/fhir/4.3/strand-type"
+  prefix t = "http://hl7.org/fhir/strand-type"
+
+  s:watson - t:watson
+  s:crick - t:crick
+}
+
 group MolecularSequence(source src : MolecularSequenceR4B, target tgt : MolecularSequenceR5) extends DomainResource <<type+>> {
   src.identifier -> tgt.identifier;
-  src.type -> tgt.type;
+  src.type as v -> tgt.type = translate(v, '#sequenceType', 'c');
   src.subject -> tgt.subject;
   src.focus -> tgt.focus;
   src.specimen -> tgt.specimen;
@@ -36,8 +61,8 @@ group MolecularSequenceRelativeStartingSequence(source src, target tgt) extends 
   src.sequence : Reference -> tgt.sequence;
   src.windowStart -> tgt.windowStart;
   src.windowEnd -> tgt.windowEnd;
-  src.orientation -> tgt.orientation;
-  src.strand -> tgt.strand;
+  src.orientation as v -> tgt.orientation = translate(v, '#orientationType', 'c');
+  src.strand as v -> tgt.strand = translate(v, '#strandType', 'c');
 }
 
 group MolecularSequenceRelativeEdit(source src, target tgt) extends BackboneElement {

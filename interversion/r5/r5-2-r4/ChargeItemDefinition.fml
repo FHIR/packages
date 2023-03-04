@@ -7,6 +7,16 @@ uses "http://hl7.org/fhir/4.0/StructureDefinition/ChargeItemDefinition" alias Ch
 
 imports "http://hl7.org/fhir/StructureMap/*5to4"
 
+conceptmap "PublicationStatus" {
+  prefix s = "http://hl7.org/fhir/publication-status"
+  prefix t = "http://hl7.org/fhir/4.0/publication-status"
+
+  s:draft - t:draft
+  s:active - t:active
+  s:retired - t:retired
+  s:unknown - t:unknown
+}
+
 group ChargeItemDefinition(source src : ChargeItemDefinitionR5, target tgt : ChargeItemDefinitionR4) extends DomainResource <<type+>> {
   src.url -> tgt.url;
   src.identifier -> tgt.identifier;
@@ -18,7 +28,7 @@ group ChargeItemDefinition(source src : ChargeItemDefinitionR5, target tgt : Cha
   src.derivedFromUri -> tgt.derivedFromUri;
   src.partOf -> tgt.partOf;
   src.replaces -> tgt.replaces;
-  src.status -> tgt.status;
+  src.status as v -> tgt.status = translate(v, '#PublicationStatus', 'c');
   src.experimental -> tgt.experimental;
   src.date -> tgt.date;
   src.publisher -> tgt.publisher;

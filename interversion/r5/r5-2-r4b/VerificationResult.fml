@@ -7,11 +7,23 @@ uses "http://hl7.org/fhir/4.3/StructureDefinition/VerificationResult" alias Veri
 
 imports "http://hl7.org/fhir/StructureMap/*5to4B"
 
+conceptmap "status" {
+  prefix s = "http://hl7.org/fhir/CodeSystem/verificationresult-status"
+  prefix t = "http://hl7.org/fhir/4.3/CodeSystem/verificationresult-status"
+
+  s:attested - t:attested
+  s:validated - t:validated
+  s:in-process - t:in-process
+  s:req-revalid - t:req-revalid
+  s:val-fail - t:val-fail
+  s:reval-fail - t:reval-fail
+}
+
 group VerificationResult(source src : VerificationResultR5, target tgt : VerificationResultR4B) extends DomainResource <<type+>> {
   src.target -> tgt.target;
   src.targetLocation -> tgt.targetLocation;
   src.need -> tgt.need;
-  src.status -> tgt.status;
+  src.status as v -> tgt.status = translate(v, '#status', 'c');
   src.statusDate -> tgt.statusDate;
   src.validationType -> tgt.validationType;
   src.validationProcess -> tgt.validationProcess;

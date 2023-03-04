@@ -7,10 +7,19 @@ uses "http://hl7.org/fhir/4.3/StructureDefinition/MedicationKnowledge" alias Med
 
 imports "http://hl7.org/fhir/StructureMap/*5to4B"
 
+conceptmap "MedicationKnowledgeStatus" {
+  prefix s = "http://hl7.org/fhir/CodeSystem/medicationknowledge-status"
+  prefix t = "http://hl7.org/fhir/4.3/CodeSystem/medicationknowledge-status"
+
+  s:active - t:active
+  s:entered-in-error - t:entered-in-error
+  s:inactive - t:inactive
+}
+
 group MedicationKnowledge(source src : MedicationKnowledgeR5, target tgt : MedicationKnowledgeR4B) extends DomainResource <<type+>> {
   src.identifier -> tgt.identifier;
   src.code -> tgt.code;
-  src.status -> tgt.status;
+  src.status as v -> tgt.status = translate(v, '#MedicationKnowledgeStatus', 'c');
   src.author -> tgt.author;
   src.intendedJurisdiction -> tgt.intendedJurisdiction;
   src.name -> tgt.name;

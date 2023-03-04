@@ -7,6 +7,120 @@ uses "http://hl7.org/fhir/4.0/StructureDefinition/RequestOrchestration" alias Re
 
 imports "http://hl7.org/fhir/StructureMap/*5to4"
 
+conceptmap "ActionCardinalityBehavior" {
+  prefix s = "http://hl7.org/fhir/action-cardinality-behavior"
+  prefix t = "http://hl7.org/fhir/4.0/action-cardinality-behavior"
+
+  s:single - t:single
+  s:multiple - t:multiple
+}
+
+conceptmap "ActionConditionKind" {
+  prefix s = "http://hl7.org/fhir/action-condition-kind"
+  prefix t = "http://hl7.org/fhir/4.0/action-condition-kind"
+
+  s:applicability - t:applicability
+  s:start - t:start
+  s:stop - t:stop
+}
+
+conceptmap "ActionGroupingBehavior" {
+  prefix s = "http://hl7.org/fhir/action-grouping-behavior"
+  prefix t = "http://hl7.org/fhir/4.0/action-grouping-behavior"
+
+  s:visual-group - t:visual-group
+  s:logical-group - t:logical-group
+  s:sentence-group - t:sentence-group
+}
+
+conceptmap "ActionPrecheckBehavior" {
+  prefix s = "http://hl7.org/fhir/action-precheck-behavior"
+  prefix t = "http://hl7.org/fhir/4.0/action-precheck-behavior"
+
+  s:yes - t:yes
+  s:no - t:no
+}
+
+conceptmap "ActionRelationshipType" {
+  prefix s = "http://hl7.org/fhir/action-relationship-type"
+  prefix t = "http://hl7.org/fhir/4.0/action-relationship-type"
+
+  s:before - t:before
+  s:concurrent - t:concurrent
+  s:after - t:after
+}
+
+conceptmap "ActionRequiredBehavior" {
+  prefix s = "http://hl7.org/fhir/action-required-behavior"
+  prefix t = "http://hl7.org/fhir/4.0/action-required-behavior"
+
+  s:must - t:must
+  s:could - t:could
+  s:must-unless-documented - t:must-unless-documented
+}
+
+conceptmap "ActionSelectionBehavior" {
+  prefix s = "http://hl7.org/fhir/action-selection-behavior"
+  prefix t = "http://hl7.org/fhir/4.0/action-selection-behavior"
+
+  s:any - t:any
+  s:all - t:all
+  s:all-or-none - t:all-or-none
+  s:exactly-one - t:exactly-one
+  s:at-most-one - t:at-most-one
+  s:one-or-more - t:one-or-more
+}
+
+conceptmap "ActivityParticipantType" {
+  prefix s = "http://hl7.org/fhir/action-participant-type"
+  prefix t = "http://hl7.org/fhir/4.0/action-participant-type"
+
+  s:careteam - t:careteam
+  s:device - t:device
+  s:group - t:group
+  s:healthcareservice - t:healthcareservice
+  s:location - t:location
+  s:organization - t:organization
+  s:patient - t:patient
+  s:practitioner - t:practitioner
+  s:practitionerrole - t:practitionerrole
+  s:relatedperson - t:relatedperson
+}
+
+conceptmap "RequestIntent" {
+  prefix s = "http://hl7.org/fhir/request-intent"
+  prefix t = "http://hl7.org/fhir/4.0/request-intent"
+
+  s:proposal - t:proposal
+  s:plan - t:plan
+  s:directive - t:directive
+  s:order - t:order
+  s:option - t:option
+}
+
+conceptmap "RequestPriority" {
+  prefix s = "http://hl7.org/fhir/request-priority"
+  prefix t = "http://hl7.org/fhir/4.0/request-priority"
+
+  s:routine - t:routine
+  s:urgent - t:urgent
+  s:asap - t:asap
+  s:stat - t:stat
+}
+
+conceptmap "RequestStatus" {
+  prefix s = "http://hl7.org/fhir/request-status"
+  prefix t = "http://hl7.org/fhir/4.0/request-status"
+
+  s:draft - t:draft
+  s:active - t:active
+  s:on-hold - t:on-hold
+  s:revoked - t:revoked
+  s:completed - t:completed
+  s:entered-in-error - t:entered-in-error
+  s:unknown - t:unknown
+}
+
 group RequestOrchestration(source src : RequestOrchestrationR5, target tgt : RequestOrchestrationR4) extends DomainResource <<type+>> {
   src.identifier -> tgt.identifier;
   src.instantiatesCanonical -> tgt.instantiatesCanonical;
@@ -14,9 +128,9 @@ group RequestOrchestration(source src : RequestOrchestrationR5, target tgt : Req
   src.basedOn -> tgt.basedOn;
   src.replaces -> tgt.replaces;
   src.groupIdentifier -> tgt.groupIdentifier;
-  src.status -> tgt.status;
-  src.intent -> tgt.intent;
-  src.priority -> tgt.priority;
+  src.status as v -> tgt.status = translate(v, '#RequestStatus', 'c');
+  src.intent as v -> tgt.intent = translate(v, '#RequestIntent', 'c');
+  src.priority as v -> tgt.priority = translate(v, '#RequestPriority', 'c');
   src.code -> tgt.code;
   src.subject -> tgt.subject;
   src.encounter -> tgt.encounter;
@@ -34,7 +148,7 @@ group RequestOrchestrationAction(source src, target tgt) extends BackboneElement
   src.title -> tgt.title;
   src.description -> tgt.description;
   src.textEquivalent -> tgt.textEquivalent;
-  src.priority -> tgt.priority;
+  src.priority as v -> tgt.priority = translate(v, '#RequestPriority', 'c');
   src.code -> tgt.code;
   src.documentation -> tgt.documentation;
   src.goal -> tgt.goal;
@@ -51,11 +165,11 @@ group RequestOrchestrationAction(source src, target tgt) extends BackboneElement
   src.location -> tgt.location;
   src.participant as s -> tgt.participant as t then RequestOrchestrationActionParticipant(s,t);
   src.type -> tgt.type;
-  src.groupingBehavior -> tgt.groupingBehavior;
-  src.selectionBehavior -> tgt.selectionBehavior;
-  src.requiredBehavior -> tgt.requiredBehavior;
-  src.precheckBehavior -> tgt.precheckBehavior;
-  src.cardinalityBehavior -> tgt.cardinalityBehavior;
+  src.groupingBehavior as v -> tgt.groupingBehavior = translate(v, '#ActionGroupingBehavior', 'c');
+  src.selectionBehavior as v -> tgt.selectionBehavior = translate(v, '#ActionSelectionBehavior', 'c');
+  src.requiredBehavior as v -> tgt.requiredBehavior = translate(v, '#ActionRequiredBehavior', 'c');
+  src.precheckBehavior as v -> tgt.precheckBehavior = translate(v, '#ActionPrecheckBehavior', 'c');
+  src.cardinalityBehavior as v -> tgt.cardinalityBehavior = translate(v, '#ActionCardinalityBehavior', 'c');
   src.resource -> tgt.resource;
   src.definition : canonical -> tgt.definition;
   src.definition : uri -> tgt.definition;
@@ -64,7 +178,7 @@ group RequestOrchestrationAction(source src, target tgt) extends BackboneElement
 }
 
 group RequestOrchestrationActionCondition(source src, target tgt) extends BackboneElement {
-  src.kind -> tgt.kind;
+  src.kind as v -> tgt.kind = translate(v, '#ActionConditionKind', 'c');
   src.expression -> tgt.expression;
 }
 
@@ -82,14 +196,14 @@ group RequestOrchestrationActionOutput(source src, target tgt) extends BackboneE
 
 group RequestOrchestrationActionRelatedAction(source src, target tgt) extends BackboneElement {
   src.targetId -> tgt.targetId;
-  src.relationship -> tgt.relationship;
-  src.endRelationship -> tgt.endRelationship;
+  src.relationship as v -> tgt.relationship = translate(v, '#ActionRelationshipType', 'c');
+  src.endRelationship as v -> tgt.endRelationship = translate(v, '#ActionRelationshipType', 'c');
   src.offset : Duration -> tgt.offset;
   src.offset : Range -> tgt.offset;
 }
 
 group RequestOrchestrationActionParticipant(source src, target tgt) extends BackboneElement {
-  src.type -> tgt.type;
+  src.type as v -> tgt.type = translate(v, '#ActivityParticipantType', 'c');
   src.typeCanonical -> tgt.typeCanonical;
   src.typeReference -> tgt.typeReference;
   src.role -> tgt.role;

@@ -7,9 +7,20 @@ uses "http://hl7.org/fhir/StructureDefinition/ClinicalUseDefinition" alias Clini
 
 imports "http://hl7.org/fhir/StructureMap/*4Bto5"
 
+conceptmap "ClinicalUseDefinitionType" {
+  prefix s = "http://hl7.org/fhir/4.3/clinical-use-definition-type"
+  prefix t = "http://hl7.org/fhir/clinical-use-definition-type"
+
+  s:indication - t:indication
+  s:contraindication - t:contraindication
+  s:interaction - t:interaction
+  s:undesirable-effect - t:undesirable-effect
+  s:warning - t:warning
+}
+
 group ClinicalUseDefinition(source src : ClinicalUseDefinitionR4B, target tgt : ClinicalUseDefinitionR5) extends DomainResource <<type+>> {
   src.identifier -> tgt.identifier;
-  src.type -> tgt.type;
+  src.type as v -> tgt.type = translate(v, '#ClinicalUseDefinitionType', 'c');
   src.category -> tgt.category;
   src.subject -> tgt.subject;
   src.status -> tgt.status;

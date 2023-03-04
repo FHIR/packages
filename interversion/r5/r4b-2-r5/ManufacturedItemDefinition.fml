@@ -7,9 +7,19 @@ uses "http://hl7.org/fhir/StructureDefinition/ManufacturedItemDefinition" alias 
 
 imports "http://hl7.org/fhir/StructureMap/*4Bto5"
 
+conceptmap "PublicationStatus" {
+  prefix s = "http://hl7.org/fhir/4.3/publication-status"
+  prefix t = "http://hl7.org/fhir/publication-status"
+
+  s:draft - t:draft
+  s:active - t:active
+  s:retired - t:retired
+  s:unknown - t:unknown
+}
+
 group ManufacturedItemDefinition(source src : ManufacturedItemDefinitionR4B, target tgt : ManufacturedItemDefinitionR5) extends DomainResource <<type+>> {
   src.identifier -> tgt.identifier;
-  src.status -> tgt.status;
+  src.status as v -> tgt.status = translate(v, '#PublicationStatus', 'c');
   src.name -> tgt.name;
   src.manufacturedDoseForm -> tgt.manufacturedDoseForm;
   src.unitOfPresentation -> tgt.unitOfPresentation;

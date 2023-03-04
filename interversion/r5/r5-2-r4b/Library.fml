@@ -7,6 +7,16 @@ uses "http://hl7.org/fhir/4.3/StructureDefinition/Library" alias LibraryR4B as t
 
 imports "http://hl7.org/fhir/StructureMap/*5to4B"
 
+conceptmap "PublicationStatus" {
+  prefix s = "http://hl7.org/fhir/publication-status"
+  prefix t = "http://hl7.org/fhir/4.3/publication-status"
+
+  s:draft - t:draft
+  s:active - t:active
+  s:retired - t:retired
+  s:unknown - t:unknown
+}
+
 group Library(source src : LibraryR5, target tgt : LibraryR4B) extends DomainResource <<type+>> {
   src.url -> tgt.url;
   src.identifier -> tgt.identifier;
@@ -16,7 +26,7 @@ group Library(source src : LibraryR5, target tgt : LibraryR4B) extends DomainRes
   src.name -> tgt.name;
   src.title -> tgt.title;
   src.subtitle -> tgt.subtitle;
-  src.status -> tgt.status;
+  src.status as v -> tgt.status = translate(v, '#PublicationStatus', 'c');
   src.experimental -> tgt.experimental;
   src.type -> tgt.type;
   src.subject : CodeableConcept -> tgt.subject;

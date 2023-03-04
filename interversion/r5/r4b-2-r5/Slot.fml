@@ -7,6 +7,17 @@ uses "http://hl7.org/fhir/StructureDefinition/Slot" alias SlotR5 as target
 
 imports "http://hl7.org/fhir/StructureMap/*4Bto5"
 
+conceptmap "SlotStatus" {
+  prefix s = "http://hl7.org/fhir/4.3/slotstatus"
+  prefix t = "http://hl7.org/fhir/slotstatus"
+
+  s:busy - t:busy
+  s:free - t:free
+  s:busy-unavailable - t:busy-unavailable
+  s:busy-tentative - t:busy-tentative
+  s:entered-in-error - t:entered-in-error
+}
+
 group Slot(source src : SlotR4B, target tgt : SlotR5) extends DomainResource <<type+>> {
   src.identifier -> tgt.identifier;
   src.serviceCategory -> tgt.serviceCategory;
@@ -14,7 +25,7 @@ group Slot(source src : SlotR4B, target tgt : SlotR5) extends DomainResource <<t
   src.specialty -> tgt.specialty;
   src.appointmentType -> tgt.appointmentType;
   src.schedule -> tgt.schedule;
-  src.status -> tgt.status;
+  src.status as v -> tgt.status = translate(v, '#SlotStatus', 'c');
   src.start -> tgt.start;
   src.end -> tgt.end;
   src.overbooked -> tgt.overbooked;

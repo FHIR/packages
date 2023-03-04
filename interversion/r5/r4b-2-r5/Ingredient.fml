@@ -7,9 +7,28 @@ uses "http://hl7.org/fhir/StructureDefinition/Ingredient" alias IngredientR5 as 
 
 imports "http://hl7.org/fhir/StructureMap/*4Bto5"
 
+conceptmap "IngredientManufacturerRole" {
+  prefix s = "http://hl7.org/fhir/4.3/ingredient-manufacturer-role"
+  prefix t = "http://hl7.org/fhir/ingredient-manufacturer-role"
+
+  s:allowed - t:allowed
+  s:possible - t:possible
+  s:actual - t:actual
+}
+
+conceptmap "PublicationStatus" {
+  prefix s = "http://hl7.org/fhir/4.3/publication-status"
+  prefix t = "http://hl7.org/fhir/publication-status"
+
+  s:draft - t:draft
+  s:active - t:active
+  s:retired - t:retired
+  s:unknown - t:unknown
+}
+
 group Ingredient(source src : IngredientR4B, target tgt : IngredientR5) extends DomainResource <<type+>> {
   src.identifier -> tgt.identifier;
-  src.status -> tgt.status;
+  src.status as v -> tgt.status = translate(v, '#PublicationStatus', 'c');
   src.for -> tgt.for;
   src.role -> tgt.role;
   src.function -> tgt.function;
@@ -21,7 +40,7 @@ group Ingredient(source src : IngredientR4B, target tgt : IngredientR5) extends 
 }
 
 group IngredientManufacturer(source src, target tgt) extends BackboneElement {
-  src.role -> tgt.role;
+  src.role as v -> tgt.role = translate(v, '#IngredientManufacturerRole', 'c');
   src.manufacturer -> tgt.manufacturer;
 }
 

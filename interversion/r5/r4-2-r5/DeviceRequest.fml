@@ -7,15 +7,50 @@ uses "http://hl7.org/fhir/StructureDefinition/DeviceRequest" alias DeviceRequest
 
 imports "http://hl7.org/fhir/StructureMap/*4to5"
 
+conceptmap "DeviceRequestStatus" {
+  prefix s = "http://hl7.org/fhir/4.0/request-status"
+  prefix t = "http://hl7.org/fhir/request-status"
+
+  s:draft - t:draft
+  s:active - t:active
+  s:on-hold - t:on-hold
+  s:revoked - t:revoked
+  s:completed - t:completed
+  s:entered-in-error - t:entered-in-error
+  s:unknown - t:unknown
+}
+
+conceptmap "RequestIntent" {
+  prefix s = "http://hl7.org/fhir/4.0/request-intent"
+  prefix t = "http://hl7.org/fhir/request-intent"
+
+  s:proposal - t:proposal
+  s:plan - t:plan
+  s:directive - t:directive
+  s:order - t:order
+  s:option - t:option
+}
+
+conceptmap "RequestPriority" {
+  prefix s = "http://hl7.org/fhir/4.0/request-priority"
+  prefix t = "http://hl7.org/fhir/request-priority"
+
+  s:routine - t:routine
+  s:urgent - t:urgent
+  s:asap - t:asap
+  s:stat - t:stat
+}
+
 group DeviceRequest(source src : DeviceRequestR4, target tgt : DeviceRequestR5) extends DomainResource <<type+>> {
   src.identifier -> tgt.identifier;
   src.instantiatesCanonical -> tgt.instantiatesCanonical;
+  src.instantiatesUri -> tgt.instantiatesUri;
   src.basedOn -> tgt.basedOn;
   src.replaces -> tgt.replaces;
   src.groupIdentifier -> tgt.groupIdentifier;
-  src.status -> tgt.status;
-  src.intent -> tgt.intent;
-  src.priority -> tgt.priority;
+  src.status as v -> tgt.status = translate(v, '#DeviceRequestStatus', 'c');
+  src.intent as v -> tgt.intent = translate(v, '#RequestIntent', 'c');
+  src.priority as v -> tgt.priority = translate(v, '#RequestPriority', 'c');
   src.doNotPerform -> tgt.doNotPerform;
   src.code -> tgt.code;
   src.quantity -> tgt.quantity;

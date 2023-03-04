@@ -7,8 +7,23 @@ uses "http://hl7.org/fhir/4.3/StructureDefinition/DataRequirement" alias DataReq
 
 imports "http://hl7.org/fhir/StructureMap/*5to4B"
 
+conceptmap "FHIRTypes" {
+  prefix s = "http://hl7.org/fhir/fhir-types"
+  prefix t = "http://hl7.org/fhir/4.3/fhir-types"
+
+  s:Base - t:Base
+}
+
+conceptmap "SortDirection" {
+  prefix s = "http://hl7.org/fhir/sort-direction"
+  prefix t = "http://hl7.org/fhir/4.3/sort-direction"
+
+  s:ascending - t:ascending
+  s:descending - t:descending
+}
+
 group DataRequirement(source src : DataRequirementR5, target tgt : DataRequirementR4B) extends DataType <<type+>> {
-  src.type -> tgt.type;
+  src.type as v -> tgt.type = translate(v, '#FHIRTypes', 'c');
   src.profile -> tgt.profile;
   src.subject : CodeableConcept -> tgt.subject;
   src.subject : Reference -> tgt.subject;
@@ -46,6 +61,6 @@ group DataRequirementValueFilter(source src, target tgt) extends Element {
 
 group DataRequirementSort(source src, target tgt) extends Element {
   src.path -> tgt.path;
-  src.direction -> tgt.direction;
+  src.direction as v -> tgt.direction = translate(v, '#SortDirection', 'c');
 }
 

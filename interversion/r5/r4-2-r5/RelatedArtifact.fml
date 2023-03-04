@@ -7,8 +7,60 @@ uses "http://hl7.org/fhir/StructureDefinition/RelatedArtifact" alias RelatedArti
 
 imports "http://hl7.org/fhir/StructureMap/*4to5"
 
+conceptmap "RelatedArtifactPublicationStatus" {
+  prefix s = "http://hl7.org/fhir/4.0/publication-status"
+  prefix t = "http://hl7.org/fhir/publication-status"
+
+  s:draft - t:draft
+  s:active - t:active
+  s:retired - t:retired
+  s:unknown - t:unknown
+}
+
+conceptmap "RelatedArtifactType" {
+  prefix s = "http://hl7.org/fhir/4.0/related-artifact-type"
+  prefix t = "http://hl7.org/fhir/related-artifact-type"
+
+  s:documentation - t:documentation
+  s:justification - t:justification
+  s:citation - t:citation
+  s:predecessor - t:predecessor
+  s:successor - t:successor
+  s:derived-from - t:derived-from
+  s:depends-on - t:depends-on
+  s:composed-of - t:composed-of
+  s:part-of - t:part-of
+  s:amends - t:amends
+  s:amended-with - t:amended-with
+  s:appends - t:appends
+  s:appended-with - t:appended-with
+  s:cites - t:cites
+  s:cited-by - t:cited-by
+  s:comments-on - t:comments-on
+  s:comment-in - t:comment-in
+  s:contains - t:contains
+  s:contained-in - t:contained-in
+  s:corrects - t:corrects
+  s:correction-in - t:correction-in
+  s:replaces - t:replaces
+  s:replaced-with - t:replaced-with
+  s:retracts - t:retracts
+  s:retracted-by - t:retracted-by
+  s:signs - t:signs
+  s:similar-to - t:similar-to
+  s:supports - t:supports
+  s:supported-with - t:supported-with
+  s:transforms - t:transforms
+  s:transformed-into - t:transformed-into
+  s:transformed-with - t:transformed-with
+  s:documents - t:documents
+  s:specification-of - t:specification-of
+  s:created-with - t:created-with
+  s:cite-as - t:cite-as
+}
+
 group RelatedArtifact(source src : RelatedArtifactR4, target tgt : RelatedArtifactR5) extends DataType <<type+>> {
-  src.type -> tgt.type;
+  src.type as v -> tgt.type = translate(v, '#RelatedArtifactType', 'c');
   src.classifier -> tgt.classifier;
   src.label -> tgt.label;
   src.display -> tgt.display;
@@ -16,7 +68,7 @@ group RelatedArtifact(source src : RelatedArtifactR4, target tgt : RelatedArtifa
   src.document -> tgt.document;
   src.resource -> tgt.resource;
   src.resourceReference -> tgt.resourceReference;
-  src.publicationStatus -> tgt.publicationStatus;
+  src.publicationStatus as v -> tgt.publicationStatus = translate(v, '#RelatedArtifactPublicationStatus', 'c');
   src.publicationDate -> tgt.publicationDate;
 }
 

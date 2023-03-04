@@ -7,13 +7,42 @@ uses "http://hl7.org/fhir/StructureDefinition/ExplanationOfBenefit" alias Explan
 
 imports "http://hl7.org/fhir/StructureMap/*4Bto5"
 
+conceptmap "ClaimOutcome" {
+  prefix s = "http://hl7.org/fhir/4.3/claim-outcome"
+  prefix t = "http://hl7.org/fhir/claim-outcome"
+
+  s:queued - t:queued
+  s:complete - t:complete
+  s:error - t:error
+  s:partial - t:partial
+}
+
+conceptmap "ExplanationOfBenefitStatus" {
+  prefix s = "http://hl7.org/fhir/4.3/explanationofbenefit-status"
+  prefix t = "http://hl7.org/fhir/explanationofbenefit-status"
+
+  s:active - t:active
+  s:cancelled - t:cancelled
+  s:draft - t:draft
+  s:entered-in-error - t:entered-in-error
+}
+
+conceptmap "Use" {
+  prefix s = "http://hl7.org/fhir/4.3/claim-use"
+  prefix t = "http://hl7.org/fhir/claim-use"
+
+  s:claim - t:claim
+  s:preauthorization - t:preauthorization
+  s:predetermination - t:predetermination
+}
+
 group ExplanationOfBenefit(source src : ExplanationOfBenefitR4B, target tgt : ExplanationOfBenefitR5) extends DomainResource <<type+>> {
   src.identifier -> tgt.identifier;
   src.traceNumber -> tgt.traceNumber;
-  src.status -> tgt.status;
+  src.status as v -> tgt.status = translate(v, '#ExplanationOfBenefitStatus', 'c');
   src.type -> tgt.type;
   src.subType -> tgt.subType;
-  src.use -> tgt.use;
+  src.use as v -> tgt.use = translate(v, '#Use', 'c');
   src.patient -> tgt.patient;
   src.billablePeriod -> tgt.billablePeriod;
   src.created -> tgt.created;
@@ -33,7 +62,7 @@ group ExplanationOfBenefit(source src : ExplanationOfBenefitR4B, target tgt : Ex
   src.facility -> tgt.facility;
   src.claim -> tgt.claim;
   src.claimResponse -> tgt.claimResponse;
-  src.outcome -> tgt.outcome;
+  src.outcome as v -> tgt.outcome = translate(v, '#ClaimOutcome', 'c');
   src.decision -> tgt.decision;
   src.disposition -> tgt.disposition;
   src.preAuthRef -> tgt.preAuthRef;
@@ -139,6 +168,7 @@ group ExplanationOfBenefitItem(source src, target tgt) extends BackboneElement {
   src.category -> tgt.category;
   src.productOrService -> tgt.productOrService;
   src.productOrServiceEnd -> tgt.productOrServiceEnd;
+  src.request -> tgt.request;
   src.modifier -> tgt.modifier;
   src.programCode -> tgt.programCode;
   src.serviced : date -> tgt.serviced;
@@ -177,7 +207,7 @@ group ExplanationOfBenefitItemAdjudication(source src, target tgt) extends Backb
   src.category -> tgt.category;
   src.reason -> tgt.reason;
   src.amount -> tgt.amount;
-  src.value -> tgt.value;
+  src.quantity -> tgt.quantity;
 }
 
 group ExplanationOfBenefitItemDetail(source src, target tgt) extends BackboneElement {
@@ -228,6 +258,7 @@ group ExplanationOfBenefitAddItem(source src, target tgt) extends BackboneElemen
   src.revenue -> tgt.revenue;
   src.productOrService -> tgt.productOrService;
   src.productOrServiceEnd -> tgt.productOrServiceEnd;
+  src.request -> tgt.request;
   src.modifier -> tgt.modifier;
   src.programCode -> tgt.programCode;
   src.serviced : date -> tgt.serviced;

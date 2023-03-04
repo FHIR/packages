@@ -7,9 +7,20 @@ uses "http://hl7.org/fhir/StructureDefinition/ImagingStudy" alias ImagingStudyR5
 
 imports "http://hl7.org/fhir/StructureMap/*4to5"
 
+conceptmap "ImagingStudyStatus" {
+  prefix s = "http://hl7.org/fhir/4.0/imagingstudy-status"
+  prefix t = "http://hl7.org/fhir/imagingstudy-status"
+
+  s:registered - t:registered
+  s:available - t:available
+  s:cancelled - t:cancelled
+  s:entered-in-error - t:entered-in-error
+  s:unknown - t:unknown
+}
+
 group ImagingStudy(source src : ImagingStudyR4, target tgt : ImagingStudyR5) extends DomainResource <<type+>> {
   src.identifier -> tgt.identifier;
-  src.status -> tgt.status;
+  src.status as v -> tgt.status = translate(v, '#ImagingStudyStatus', 'c');
   src.modality -> tgt.modality;
   src.subject -> tgt.subject;
   src.encounter -> tgt.encounter;

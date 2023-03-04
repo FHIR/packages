@@ -7,9 +7,41 @@ uses "http://hl7.org/fhir/StructureDefinition/ImagingSelection" alias ImagingSel
 
 imports "http://hl7.org/fhir/StructureMap/*4to5"
 
+conceptmap "ImagingSelection2DGraphicType" {
+  prefix s = "http://hl7.org/fhir/4.0/imagingselection-2dgraphictype"
+  prefix t = "http://hl7.org/fhir/imagingselection-2dgraphictype"
+
+  s:point - t:point
+  s:polyline - t:polyline
+  s:interpolated - t:interpolated
+  s:circle - t:circle
+  s:ellipse - t:ellipse
+}
+
+conceptmap "ImagingSelection3DGraphicType" {
+  prefix s = "http://hl7.org/fhir/4.0/imagingselection-3dgraphictype"
+  prefix t = "http://hl7.org/fhir/imagingselection-3dgraphictype"
+
+  s:point - t:point
+  s:multipoint - t:multipoint
+  s:polyline - t:polyline
+  s:polygon - t:polygon
+  s:ellipse - t:ellipse
+  s:ellipsoid - t:ellipsoid
+}
+
+conceptmap "ImagingSelectionStatus" {
+  prefix s = "http://hl7.org/fhir/4.0/imagingselection-status"
+  prefix t = "http://hl7.org/fhir/imagingselection-status"
+
+  s:available - t:available
+  s:entered-in-error - t:entered-in-error
+  s:unknown - t:unknown
+}
+
 group ImagingSelection(source src : ImagingSelectionR4, target tgt : ImagingSelectionR5) extends DomainResource <<type+>> {
   src.identifier -> tgt.identifier;
-  src.status -> tgt.status;
+  src.status as v -> tgt.status = translate(v, '#ImagingSelectionStatus', 'c');
   src.subject -> tgt.subject;
   src.issued -> tgt.issued;
   src.performer as s -> tgt.performer as t then ImagingSelectionPerformer(s,t);
@@ -42,12 +74,12 @@ group ImagingSelectionInstance(source src, target tgt) extends BackboneElement {
 }
 
 group ImagingSelectionInstanceImageRegion2D(source src, target tgt) extends BackboneElement {
-  src.regionType -> tgt.regionType;
+  src.regionType as v -> tgt.regionType = translate(v, '#ImagingSelection2DGraphicType', 'c');
   src.coordinate -> tgt.coordinate;
 }
 
 group ImagingSelectionInstanceImageRegion3D(source src, target tgt) extends BackboneElement {
-  src.regionType -> tgt.regionType;
+  src.regionType as v -> tgt.regionType = translate(v, '#ImagingSelection3DGraphicType', 'c');
   src.coordinate -> tgt.coordinate;
 }
 

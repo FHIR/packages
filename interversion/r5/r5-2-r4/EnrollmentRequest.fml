@@ -7,9 +7,19 @@ uses "http://hl7.org/fhir/4.0/StructureDefinition/EnrollmentRequest" alias Enrol
 
 imports "http://hl7.org/fhir/StructureMap/*5to4"
 
+conceptmap "EnrollmentRequestStatus" {
+  prefix s = "http://hl7.org/fhir/fm-status"
+  prefix t = "http://hl7.org/fhir/4.0/fm-status"
+
+  s:active - t:active
+  s:cancelled - t:cancelled
+  s:draft - t:draft
+  s:entered-in-error - t:entered-in-error
+}
+
 group EnrollmentRequest(source src : EnrollmentRequestR5, target tgt : EnrollmentRequestR4) extends DomainResource <<type+>> {
   src.identifier -> tgt.identifier;
-  src.status -> tgt.status;
+  src.status as v -> tgt.status = translate(v, '#EnrollmentRequestStatus', 'c');
   src.created -> tgt.created;
   src.insurer -> tgt.insurer;
   src.provider -> tgt.provider;

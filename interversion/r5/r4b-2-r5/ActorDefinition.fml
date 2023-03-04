@@ -7,13 +7,33 @@ uses "http://hl7.org/fhir/StructureDefinition/ActorDefinition" alias ActorDefini
 
 imports "http://hl7.org/fhir/StructureMap/*4Bto5"
 
+conceptmap "ExampleScenarioActorType" {
+  prefix s = "http://hl7.org/fhir/4.3/examplescenario-actor-type"
+  prefix t = "http://hl7.org/fhir/examplescenario-actor-type"
+
+  s:person - t:person
+  s:system - t:system
+}
+
+conceptmap "PublicationStatus" {
+  prefix s = "http://hl7.org/fhir/4.3/publication-status"
+  prefix t = "http://hl7.org/fhir/publication-status"
+
+  s:draft - t:draft
+  s:active - t:active
+  s:retired - t:retired
+  s:unknown - t:unknown
+}
+
 group ActorDefinition(source src : ActorDefinitionR4B, target tgt : ActorDefinitionR5) extends DomainResource <<type+>> {
   src.url -> tgt.url;
   src.identifier -> tgt.identifier;
   src.version -> tgt.version;
+  src.versionAlgorithm : string -> tgt.versionAlgorithm;
+  src.versionAlgorithm : Coding -> tgt.versionAlgorithm;
   src.name -> tgt.name;
   src.title -> tgt.title;
-  src.status -> tgt.status;
+  src.status as v -> tgt.status = translate(v, '#PublicationStatus', 'c');
   src.experimental -> tgt.experimental;
   src.date -> tgt.date;
   src.publisher -> tgt.publisher;
@@ -24,7 +44,7 @@ group ActorDefinition(source src : ActorDefinitionR4B, target tgt : ActorDefinit
   src.purpose -> tgt.purpose;
   src.copyright -> tgt.copyright;
   src.copyrightLabel -> tgt.copyrightLabel;
-  src.type -> tgt.type;
+  src.type as v -> tgt.type = translate(v, '#ExampleScenarioActorType', 'c');
   src.documentation -> tgt.documentation;
   src.reference -> tgt.reference;
   src.capabilities -> tgt.capabilities;

@@ -7,13 +7,70 @@ uses "http://hl7.org/fhir/4.3/StructureDefinition/SubscriptionTopic" alias Subsc
 
 imports "http://hl7.org/fhir/StructureMap/*5to4B"
 
+conceptmap "CriteriaNotExistsBehavior" {
+  prefix s = "http://hl7.org/fhir/subscriptiontopic-cr-behavior"
+  prefix t = "http://hl7.org/fhir/4.3/subscriptiontopic-cr-behavior"
+
+  s:test-passes - t:test-passes
+  s:test-fails - t:test-fails
+}
+
+conceptmap "PublicationStatus" {
+  prefix s = "http://hl7.org/fhir/publication-status"
+  prefix t = "http://hl7.org/fhir/4.3/publication-status"
+
+  s:draft - t:draft
+  s:active - t:active
+  s:retired - t:retired
+  s:unknown - t:unknown
+}
+
+conceptmap "SearchComparator" {
+  prefix s = "http://hl7.org/fhir/search-comparator"
+  prefix t = "http://hl7.org/fhir/4.3/search-comparator"
+
+  s:eq - t:eq
+  s:ne - t:ne
+  s:gt - t:gt
+  s:lt - t:lt
+  s:ge - t:ge
+  s:le - t:le
+  s:sa - t:sa
+  s:eb - t:eb
+  s:ap - t:ap
+}
+
+conceptmap "SearchModifierCode" {
+  prefix s = "http://hl7.org/fhir/search-modifier-code"
+  prefix t = "http://hl7.org/fhir/4.3/search-modifier-code"
+
+  s:missing - t:missing
+  s:exact - t:exact
+  s:contains - t:contains
+  s:not - t:not
+  s:text - t:text
+  s:in - t:in
+  s:not-in - t:not-in
+  s:below - t:below
+  s:above - t:above
+  s:type - t:type
+  s:identifier - t:identifier
+  s:of-type - t:of-type
+  s:code-text - t:code-text
+  s:text-advanced - t:text-advanced
+  s:iterate - t:iterate
+}
+
 group SubscriptionTopic(source src : SubscriptionTopicR5, target tgt : SubscriptionTopicR4B) extends DomainResource <<type+>> {
   src.url -> tgt.url;
   src.identifier -> tgt.identifier;
   src.version -> tgt.version;
+  src.versionAlgorithm : string -> tgt.versionAlgorithm;
+  src.versionAlgorithm : Coding -> tgt.versionAlgorithm;
+  src.name -> tgt.name;
   src.title -> tgt.title;
   src.derivedFrom -> tgt.derivedFrom;
-  src.status -> tgt.status;
+  src.status as v -> tgt.status = translate(v, '#PublicationStatus', 'c');
   src.experimental -> tgt.experimental;
   src.date -> tgt.date;
   src.publisher -> tgt.publisher;
@@ -43,9 +100,9 @@ group SubscriptionTopicResourceTrigger(source src, target tgt) extends BackboneE
 
 group SubscriptionTopicResourceTriggerQueryCriteria(source src, target tgt) extends BackboneElement {
   src.previous -> tgt.previous;
-  src.resultForCreate -> tgt.resultForCreate;
+  src.resultForCreate as v -> tgt.resultForCreate = translate(v, '#CriteriaNotExistsBehavior', 'c');
   src.current -> tgt.current;
-  src.resultForDelete -> tgt.resultForDelete;
+  src.resultForDelete as v -> tgt.resultForDelete = translate(v, '#CriteriaNotExistsBehavior', 'c');
   src.requireBoth -> tgt.requireBoth;
 }
 
@@ -60,7 +117,8 @@ group SubscriptionTopicCanFilterBy(source src, target tgt) extends BackboneEleme
   src.resource -> tgt.resource;
   src.filterParameter -> tgt.filterParameter;
   src.filterDefinition -> tgt.filterDefinition;
-  src.modifier -> tgt.modifier;
+  src.comparator as v -> tgt.comparator = translate(v, '#SearchComparator', 'c');
+  src.modifier as v -> tgt.modifier = translate(v, '#SearchModifierCode', 'c');
 }
 
 group SubscriptionTopicNotificationShape(source src, target tgt) extends BackboneElement {

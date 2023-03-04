@@ -7,12 +7,21 @@ uses "http://hl7.org/fhir/4.3/StructureDefinition/DetectedIssue" alias DetectedI
 
 imports "http://hl7.org/fhir/StructureMap/*5to4B"
 
+conceptmap "DetectedIssueSeverity" {
+  prefix s = "http://hl7.org/fhir/detectedissue-severity"
+  prefix t = "http://hl7.org/fhir/4.3/detectedissue-severity"
+
+  s:high - t:high
+  s:moderate - t:moderate
+  s:low - t:low
+}
+
 group DetectedIssue(source src : DetectedIssueR5, target tgt : DetectedIssueR4B) extends DomainResource <<type+>> {
   src.identifier -> tgt.identifier;
   src.status -> tgt.status;
   src.category -> tgt.category;
   src.code -> tgt.code;
-  src.severity -> tgt.severity;
+  src.severity as v -> tgt.severity = translate(v, '#DetectedIssueSeverity', 'c');
   src.subject -> tgt.subject;
   src.encounter -> tgt.encounter;
   src.identified : dateTime -> tgt.identified;

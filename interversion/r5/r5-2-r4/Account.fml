@@ -7,9 +7,20 @@ uses "http://hl7.org/fhir/4.0/StructureDefinition/Account" alias AccountR4 as ta
 
 imports "http://hl7.org/fhir/StructureMap/*5to4"
 
+conceptmap "AccountStatus" {
+  prefix s = "http://hl7.org/fhir/account-status"
+  prefix t = "http://hl7.org/fhir/4.0/account-status"
+
+  s:active - t:active
+  s:inactive - t:inactive
+  s:entered-in-error - t:entered-in-error
+  s:on-hold - t:on-hold
+  s:unknown - t:unknown
+}
+
 group Account(source src : AccountR5, target tgt : AccountR4) extends DomainResource <<type+>> {
   src.identifier -> tgt.identifier;
-  src.status -> tgt.status;
+  src.status as v -> tgt.status = translate(v, '#AccountStatus', 'c');
   src.billingStatus -> tgt.billingStatus;
   src.type -> tgt.type;
   src.name -> tgt.name;

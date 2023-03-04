@@ -7,11 +7,24 @@ uses "http://hl7.org/fhir/StructureDefinition/MedicationAdministration" alias Me
 
 imports "http://hl7.org/fhir/StructureMap/*4Bto5"
 
+conceptmap "MedicationAdministrationStatus" {
+  prefix s = "http://hl7.org/fhir/4.3/CodeSystem/medication-admin-status"
+  prefix t = "http://hl7.org/fhir/CodeSystem/medication-admin-status"
+
+  s:in-progress - t:in-progress
+  s:not-done - t:not-done
+  s:on-hold - t:on-hold
+  s:completed - t:completed
+  s:entered-in-error - t:entered-in-error
+  s:stopped - t:stopped
+  s:unknown - t:unknown
+}
+
 group MedicationAdministration(source src : MedicationAdministrationR4B, target tgt : MedicationAdministrationR5) extends DomainResource <<type+>> {
   src.identifier -> tgt.identifier;
   src.basedOn -> tgt.basedOn;
   src.partOf -> tgt.partOf;
-  src.status -> tgt.status;
+  src.status as v -> tgt.status = translate(v, '#MedicationAdministrationStatus', 'c');
   src.statusReason -> tgt.statusReason;
   src.category -> tgt.category;
   src.medication -> tgt.medication;
