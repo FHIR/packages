@@ -2,23 +2,23 @@
 /// name = 'Flag4to5'
 /// title = 'FML Conversion for Flag: R4 to R5'
 
+conceptmap "FlagStatus" {
+  prefix s = "http://hl7.org/fhir/4.0/flag-status"
+  prefix t = "http://hl7.org/fhir/flag-status"
+
+  s:"active" - t:"active"
+  s:"inactive" - t:"inactive"
+  s:"entered-in-error" - t:"entered-in-error"
+}
+
 uses "http://hl7.org/fhir/4.0/StructureDefinition/Flag" alias FlagR4 as source
 uses "http://hl7.org/fhir/StructureDefinition/Flag" alias FlagR5 as target
 
 imports "http://hl7.org/fhir/StructureMap/*4to5"
 
-conceptmap "FlagStatus" {
-  prefix s = "http://hl7.org/fhir/4.0/flag-status"
-  prefix t = "http://hl7.org/fhir/flag-status"
-
-  s:active - t:active
-  s:inactive - t:inactive
-  s:entered-in-error - t:entered-in-error
-}
-
 group Flag(source src : FlagR4, target tgt : FlagR5) extends DomainResource <<type+>> {
   src.identifier -> tgt.identifier;
-  src.status as v -> tgt.status = translate(v, '#FlagStatus', 'c');
+  src.status as v -> tgt.status = translate(v, '#FlagStatus', 'code');
   src.category -> tgt.category;
   src.code -> tgt.code;
   src.subject -> tgt.subject;

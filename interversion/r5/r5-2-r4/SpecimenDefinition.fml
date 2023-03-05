@@ -2,28 +2,28 @@
 /// name = 'SpecimenDefinition5to4'
 /// title = 'FML Conversion for SpecimenDefinition: R5 to R4'
 
-uses "http://hl7.org/fhir/StructureDefinition/SpecimenDefinition" alias SpecimenDefinitionR5 as source
-uses "http://hl7.org/fhir/4.0/StructureDefinition/SpecimenDefinition" alias SpecimenDefinitionR4 as target
-
-imports "http://hl7.org/fhir/StructureMap/*5to4"
-
 conceptmap "PublicationStatus" {
   prefix s = "http://hl7.org/fhir/publication-status"
   prefix t = "http://hl7.org/fhir/4.0/publication-status"
 
-  s:draft - t:draft
-  s:active - t:active
-  s:retired - t:retired
-  s:unknown - t:unknown
+  s:"draft" - t:"draft"
+  s:"active" - t:"active"
+  s:"retired" - t:"retired"
+  s:"unknown" - t:"unknown"
 }
 
 conceptmap "SpecimenContainedPreference" {
   prefix s = "http://hl7.org/fhir/specimen-contained-preference"
   prefix t = "http://hl7.org/fhir/4.0/specimen-contained-preference"
 
-  s:preferred - t:preferred
-  s:alternate - t:alternate
+  s:"preferred" - t:"preferred"
+  s:"alternate" - t:"alternate"
 }
+
+uses "http://hl7.org/fhir/StructureDefinition/SpecimenDefinition" alias SpecimenDefinitionR5 as source
+uses "http://hl7.org/fhir/4.0/StructureDefinition/SpecimenDefinition" alias SpecimenDefinitionR4 as target
+
+imports "http://hl7.org/fhir/StructureMap/*5to4"
 
 group SpecimenDefinition(source src : SpecimenDefinitionR5, target tgt : SpecimenDefinitionR4) extends DomainResource <<type+>> {
   src.url -> tgt.url;
@@ -35,7 +35,7 @@ group SpecimenDefinition(source src : SpecimenDefinitionR5, target tgt : Specime
   src.title -> tgt.title;
   src.derivedFromCanonical -> tgt.derivedFromCanonical;
   src.derivedFromUri -> tgt.derivedFromUri;
-  src.status as v -> tgt.status = translate(v, '#PublicationStatus', 'c');
+  src.status as v -> tgt.status = translate(v, '#PublicationStatus', 'code');
   src.experimental -> tgt.experimental;
   src.subject : CodeableConcept -> tgt.subject;
   src.subject : Reference -> tgt.subject;
@@ -61,7 +61,7 @@ group SpecimenDefinition(source src : SpecimenDefinitionR5, target tgt : Specime
 group SpecimenDefinitionTypeTested(source src, target tgt) extends BackboneElement {
   src.isDerived -> tgt.isDerived;
   src.type -> tgt.type;
-  src.preference as v -> tgt.preference = translate(v, '#SpecimenContainedPreference', 'c');
+  src.preference as v -> tgt.preference = translate(v, '#SpecimenContainedPreference', 'code');
   src.container as s -> tgt.container as t then SpecimenDefinitionTypeTestedContainer(s,t);
   src.requirement -> tgt.requirement;
   src.retentionTime -> tgt.retentionTime;

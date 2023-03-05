@@ -2,27 +2,27 @@
 /// name = 'Practitioner5to4'
 /// title = 'FML Conversion for Practitioner: R5 to R4'
 
-uses "http://hl7.org/fhir/StructureDefinition/Practitioner" alias PractitionerR5 as source
-uses "http://hl7.org/fhir/4.0/StructureDefinition/Practitioner" alias PractitionerR4 as target
-
-imports "http://hl7.org/fhir/StructureMap/*5to4"
-
 conceptmap "AdministrativeGender" {
   prefix s = "http://hl7.org/fhir/administrative-gender"
   prefix t = "http://hl7.org/fhir/4.0/administrative-gender"
 
-  s:male - t:male
-  s:female - t:female
-  s:other - t:other
-  s:unknown - t:unknown
+  s:"male" - t:"male"
+  s:"female" - t:"female"
+  s:"other" - t:"other"
+  s:"unknown" - t:"unknown"
 }
+
+uses "http://hl7.org/fhir/StructureDefinition/Practitioner" alias PractitionerR5 as source
+uses "http://hl7.org/fhir/4.0/StructureDefinition/Practitioner" alias PractitionerR4 as target
+
+imports "http://hl7.org/fhir/StructureMap/*5to4"
 
 group Practitioner(source src : PractitionerR5, target tgt : PractitionerR4) extends DomainResource <<type+>> {
   src.identifier -> tgt.identifier;
   src.active -> tgt.active;
   src.name -> tgt.name;
   src.telecom -> tgt.telecom;
-  src.gender as v -> tgt.gender = translate(v, '#AdministrativeGender', 'c');
+  src.gender as v -> tgt.gender = translate(v, '#AdministrativeGender', 'code');
   src.birthDate -> tgt.birthDate;
   src.deceased : boolean -> tgt.deceased;
   src.deceased : dateTime -> tgt.deceased;

@@ -2,30 +2,30 @@
 /// name = 'Requirements4Bto5'
 /// title = 'FML Conversion for Requirements: R4B to R5'
 
-uses "http://hl7.org/fhir/4.3/StructureDefinition/Requirements" alias RequirementsR4B as source
-uses "http://hl7.org/fhir/StructureDefinition/Requirements" alias RequirementsR5 as target
-
-imports "http://hl7.org/fhir/StructureMap/*4Bto5"
-
 conceptmap "??" {
   prefix s = "http://hl7.org/fhir/4.3/conformance-expectation"
   prefix t = "http://hl7.org/fhir/conformance-expectation"
 
-  s:SHALL - t:SHALL
-  s:SHOULD - t:SHOULD
-  s:MAY - t:MAY
-  s:SHOULD-NOT - t:SHOULD-NOT
+  s:"SHALL" - t:"SHALL"
+  s:"SHOULD" - t:"SHOULD"
+  s:"MAY" - t:"MAY"
+  s:"SHOULD-NOT" - t:"SHOULD-NOT"
 }
 
 conceptmap "PublicationStatus" {
   prefix s = "http://hl7.org/fhir/4.3/publication-status"
   prefix t = "http://hl7.org/fhir/publication-status"
 
-  s:draft - t:draft
-  s:active - t:active
-  s:retired - t:retired
-  s:unknown - t:unknown
+  s:"draft" - t:"draft"
+  s:"active" - t:"active"
+  s:"retired" - t:"retired"
+  s:"unknown" - t:"unknown"
 }
+
+uses "http://hl7.org/fhir/4.3/StructureDefinition/Requirements" alias RequirementsR4B as source
+uses "http://hl7.org/fhir/StructureDefinition/Requirements" alias RequirementsR5 as target
+
+imports "http://hl7.org/fhir/StructureMap/*4Bto5"
 
 group Requirements(source src : RequirementsR4B, target tgt : RequirementsR5) extends DomainResource <<type+>> {
   src.url -> tgt.url;
@@ -35,7 +35,7 @@ group Requirements(source src : RequirementsR4B, target tgt : RequirementsR5) ex
   src.versionAlgorithm : Coding -> tgt.versionAlgorithm;
   src.name -> tgt.name;
   src.title -> tgt.title;
-  src.status as v -> tgt.status = translate(v, '#PublicationStatus', 'c');
+  src.status as v -> tgt.status = translate(v, '#PublicationStatus', 'code');
   src.experimental -> tgt.experimental;
   src.date -> tgt.date;
   src.publisher -> tgt.publisher;
@@ -55,7 +55,7 @@ group Requirements(source src : RequirementsR4B, target tgt : RequirementsR5) ex
 group RequirementsStatement(source src, target tgt) extends BackboneElement {
   src.key -> tgt.key;
   src.label -> tgt.label;
-  src.conformance as v -> tgt.conformance = translate(v, '#??', 'c');
+  src.conformance as v -> tgt.conformance = translate(v, '#??', 'code');
   src.conditionality -> tgt.conditionality;
   src.requirement -> tgt.requirement;
   src.derivedFrom -> tgt.derivedFrom;

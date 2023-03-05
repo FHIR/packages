@@ -2,25 +2,25 @@
 /// name = 'Endpoint5to4B'
 /// title = 'FML Conversion for Endpoint: R5 to R4B'
 
+conceptmap "EndpointStatus" {
+  prefix s = "http://hl7.org/fhir/endpoint-status"
+  prefix t = "http://hl7.org/fhir/4.3/endpoint-status"
+
+  s:"active" - t:"active"
+  s:"suspended" - t:"suspended"
+  s:"error" - t:"error"
+  s:"off" - t:"off"
+  s:"entered-in-error" - t:"entered-in-error"
+}
+
 uses "http://hl7.org/fhir/StructureDefinition/Endpoint" alias EndpointR5 as source
 uses "http://hl7.org/fhir/4.3/StructureDefinition/Endpoint" alias EndpointR4B as target
 
 imports "http://hl7.org/fhir/StructureMap/*5to4B"
 
-conceptmap "EndpointStatus" {
-  prefix s = "http://hl7.org/fhir/endpoint-status"
-  prefix t = "http://hl7.org/fhir/4.3/endpoint-status"
-
-  s:active - t:active
-  s:suspended - t:suspended
-  s:error - t:error
-  s:off - t:off
-  s:entered-in-error - t:entered-in-error
-}
-
 group Endpoint(source src : EndpointR5, target tgt : EndpointR4B) extends DomainResource <<type+>> {
   src.identifier -> tgt.identifier;
-  src.status as v -> tgt.status = translate(v, '#EndpointStatus', 'c');
+  src.status as v -> tgt.status = translate(v, '#EndpointStatus', 'code');
   src.connectionType -> tgt.connectionType;
   src.name -> tgt.name;
   src.description -> tgt.description;

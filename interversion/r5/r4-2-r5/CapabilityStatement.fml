@@ -2,136 +2,136 @@
 /// name = 'CapabilityStatement4to5'
 /// title = 'FML Conversion for CapabilityStatement: R4 to R5'
 
-uses "http://hl7.org/fhir/4.0/StructureDefinition/CapabilityStatement" alias CapabilityStatementR4 as source
-uses "http://hl7.org/fhir/StructureDefinition/CapabilityStatement" alias CapabilityStatementR5 as target
-
-imports "http://hl7.org/fhir/StructureMap/*4to5"
-
 conceptmap "CapabilityStatementKind" {
   prefix s = "http://hl7.org/fhir/4.0/capability-statement-kind"
   prefix t = "http://hl7.org/fhir/capability-statement-kind"
 
-  s:instance - t:instance
-  s:capability - t:capability
-  s:requirements - t:requirements
+  s:"instance" - t:"instance"
+  s:"capability" - t:"capability"
+  s:"requirements" - t:"requirements"
 }
 
 conceptmap "ConditionalDeleteStatus" {
   prefix s = "http://hl7.org/fhir/4.0/conditional-delete-status"
   prefix t = "http://hl7.org/fhir/conditional-delete-status"
 
-  s:not-supported - t:not-supported
-  s:single - t:single
-  s:multiple - t:multiple
+  s:"not-supported" - t:"not-supported"
+  s:"single" - t:"single"
+  s:"multiple" - t:"multiple"
 }
 
 conceptmap "ConditionalReadStatus" {
   prefix s = "http://hl7.org/fhir/4.0/conditional-read-status"
   prefix t = "http://hl7.org/fhir/conditional-read-status"
 
-  s:not-supported - t:not-supported
-  s:modified-since - t:modified-since
-  s:not-match - t:not-match
-  s:full-support - t:full-support
+  s:"not-supported" - t:"not-supported"
+  s:"modified-since" - t:"modified-since"
+  s:"not-match" - t:"not-match"
+  s:"full-support" - t:"full-support"
 }
 
 conceptmap "DocumentMode" {
   prefix s = "http://hl7.org/fhir/4.0/document-mode"
   prefix t = "http://hl7.org/fhir/document-mode"
 
-  s:producer - t:producer
-  s:consumer - t:consumer
+  s:"producer" - t:"producer"
+  s:"consumer" - t:"consumer"
 }
 
 conceptmap "EventCapabilityMode" {
   prefix s = "http://hl7.org/fhir/4.0/event-capability-mode"
   prefix t = "http://hl7.org/fhir/event-capability-mode"
 
-  s:sender - t:sender
-  s:receiver - t:receiver
+  s:"sender" - t:"sender"
+  s:"receiver" - t:"receiver"
 }
 
 conceptmap "FHIRVersion" {
   prefix s = "http://hl7.org/fhir/4.0/FHIR-version"
   prefix t = "http://hl7.org/fhir/FHIR-version"
 
-  s:0.01 - t:0.01
-  s:0.05 - t:0.05
-  s:0.06 - t:0.06
-  s:0.11 - t:0.11
-  s:0.0 - t:0.0
-  s:0.4 - t:0.4
-  s:0.5 - t:0.5
-  s:1.0 - t:1.0
-  s:1.1 - t:1.1
-  s:1.4 - t:1.4
-  s:1.6 - t:1.6
-  s:1.8 - t:1.8
-  s:3.0 - t:3.0
-  s:3.3 - t:3.3
-  s:3.5 - t:3.5
-  s:4.0 - t:4.0
-  s:4.1 - t:4.1
-  s:4.2 - t:4.2
-  s:4.3 - t:4.3
-  s:4.4 - t:4.4
-  s:4.5 - t:4.5
-  s:4.6 - t:4.6
-  s:5.0 - t:5.0
+  s:"0.01" - t:"0.01"
+  s:"0.05" - t:"0.05"
+  s:"0.06" - t:"0.06"
+  s:"0.11" - t:"0.11"
+  s:"0.0" - t:"0.0"
+  s:"0.4" - t:"0.4"
+  s:"0.5" - t:"0.5"
+  s:"1.0" - t:"1.0"
+  s:"1.1" - t:"1.1"
+  s:"1.4" - t:"1.4"
+  s:"1.6" - t:"1.6"
+  s:"1.8" - t:"1.8"
+  s:"3.0" - t:"3.0"
+  s:"3.3" - t:"3.3"
+  s:"3.5" - t:"3.5"
+  s:"4.0" - t:"4.0"
+  s:"4.1" - t:"4.1"
+  s:"4.2" - t:"4.2"
+  s:"4.3" - t:"4.3"
+  s:"4.4" - t:"4.4"
+  s:"4.5" - t:"4.5"
+  s:"4.6" - t:"4.6"
+  s:"5.0" - t:"5.0"
 }
 
 conceptmap "PublicationStatus" {
   prefix s = "http://hl7.org/fhir/4.0/publication-status"
   prefix t = "http://hl7.org/fhir/publication-status"
 
-  s:draft - t:draft
-  s:active - t:active
-  s:retired - t:retired
-  s:unknown - t:unknown
+  s:"draft" - t:"draft"
+  s:"active" - t:"active"
+  s:"retired" - t:"retired"
+  s:"unknown" - t:"unknown"
 }
 
 conceptmap "ReferenceHandlingPolicy" {
   prefix s = "http://hl7.org/fhir/4.0/reference-handling-policy"
   prefix t = "http://hl7.org/fhir/reference-handling-policy"
 
-  s:literal - t:literal
-  s:logical - t:logical
-  s:resolves - t:resolves
-  s:enforced - t:enforced
-  s:local - t:local
+  s:"literal" - t:"literal"
+  s:"logical" - t:"logical"
+  s:"resolves" - t:"resolves"
+  s:"enforced" - t:"enforced"
+  s:"local" - t:"local"
 }
 
 conceptmap "ResourceVersionPolicy" {
   prefix s = "http://hl7.org/fhir/4.0/versioning-policy"
   prefix t = "http://hl7.org/fhir/versioning-policy"
 
-  s:no-version - t:no-version
-  s:versioned - t:versioned
-  s:versioned-update - t:versioned-update
+  s:"no-version" - t:"no-version"
+  s:"versioned" - t:"versioned"
+  s:"versioned-update" - t:"versioned-update"
 }
 
 conceptmap "RestfulCapabilityMode" {
   prefix s = "http://hl7.org/fhir/4.0/restful-capability-mode"
   prefix t = "http://hl7.org/fhir/restful-capability-mode"
 
-  s:client - t:client
-  s:server - t:server
+  s:"client" - t:"client"
+  s:"server" - t:"server"
 }
 
 conceptmap "SearchParamType" {
   prefix s = "http://hl7.org/fhir/4.0/search-param-type"
   prefix t = "http://hl7.org/fhir/search-param-type"
 
-  s:number - t:number
-  s:date - t:date
-  s:string - t:string
-  s:token - t:token
-  s:reference - t:reference
-  s:composite - t:composite
-  s:quantity - t:quantity
-  s:uri - t:uri
-  s:special - t:special
+  s:"number" - t:"number"
+  s:"date" - t:"date"
+  s:"string" - t:"string"
+  s:"token" - t:"token"
+  s:"reference" - t:"reference"
+  s:"composite" - t:"composite"
+  s:"quantity" - t:"quantity"
+  s:"uri" - t:"uri"
+  s:"special" - t:"special"
 }
+
+uses "http://hl7.org/fhir/4.0/StructureDefinition/CapabilityStatement" alias CapabilityStatementR4 as source
+uses "http://hl7.org/fhir/StructureDefinition/CapabilityStatement" alias CapabilityStatementR5 as target
+
+imports "http://hl7.org/fhir/StructureMap/*4to5"
 
 group CapabilityStatement(source src : CapabilityStatementR4, target tgt : CapabilityStatementR5) extends DomainResource <<type+>> {
   src.url -> tgt.url;
@@ -141,7 +141,7 @@ group CapabilityStatement(source src : CapabilityStatementR4, target tgt : Capab
   src.versionAlgorithm : Coding -> tgt.versionAlgorithm;
   src.name -> tgt.name;
   src.title -> tgt.title;
-  src.status as v -> tgt.status = translate(v, '#PublicationStatus', 'c');
+  src.status as v -> tgt.status = translate(v, '#PublicationStatus', 'code');
   src.experimental -> tgt.experimental;
   src.date -> tgt.date;
   src.publisher -> tgt.publisher;
@@ -152,12 +152,12 @@ group CapabilityStatement(source src : CapabilityStatementR4, target tgt : Capab
   src.purpose -> tgt.purpose;
   src.copyright -> tgt.copyright;
   src.copyrightLabel -> tgt.copyrightLabel;
-  src.kind as v -> tgt.kind = translate(v, '#CapabilityStatementKind', 'c');
+  src.kind as v -> tgt.kind = translate(v, '#CapabilityStatementKind', 'code');
   src.instantiates -> tgt.instantiates;
   src.imports -> tgt.imports;
   src.software as s -> tgt.software as t then CapabilityStatementSoftware(s,t);
   src.implementation as s -> tgt.implementation as t then CapabilityStatementImplementation(s,t);
-  src.fhirVersion as v -> tgt.fhirVersion = translate(v, '#FHIRVersion', 'c');
+  src.fhirVersion as v -> tgt.fhirVersion = translate(v, '#FHIRVersion', 'code');
   src.format -> tgt.format;
   src.patchFormat -> tgt.patchFormat;
   src.acceptLanguage -> tgt.acceptLanguage;
@@ -180,7 +180,7 @@ group CapabilityStatementImplementation(source src, target tgt) extends Backbone
 }
 
 group CapabilityStatementRest(source src, target tgt) extends BackboneElement {
-  src.mode as v -> tgt.mode = translate(v, '#RestfulCapabilityMode', 'c');
+  src.mode as v -> tgt.mode = translate(v, '#RestfulCapabilityMode', 'code');
   src.documentation -> tgt.documentation;
   src.security as s -> tgt.security as t then CapabilityStatementRestSecurity(s,t);
   src.resource as s -> tgt.resource as t then CapabilityStatementRestResource(s,t);
@@ -200,15 +200,15 @@ group CapabilityStatementRestResource(source src, target tgt) extends BackboneEl
   src.supportedProfile -> tgt.supportedProfile;
   src.documentation -> tgt.documentation;
   src.interaction as s -> tgt.interaction as t then CapabilityStatementRestResourceInteraction(s,t);
-  src.versioning as v -> tgt.versioning = translate(v, '#ResourceVersionPolicy', 'c');
+  src.versioning as v -> tgt.versioning = translate(v, '#ResourceVersionPolicy', 'code');
   src.readHistory -> tgt.readHistory;
   src.updateCreate -> tgt.updateCreate;
   src.conditionalCreate -> tgt.conditionalCreate;
-  src.conditionalRead as v -> tgt.conditionalRead = translate(v, '#ConditionalReadStatus', 'c');
+  src.conditionalRead as v -> tgt.conditionalRead = translate(v, '#ConditionalReadStatus', 'code');
   src.conditionalUpdate -> tgt.conditionalUpdate;
   src.conditionalPatch -> tgt.conditionalPatch;
-  src.conditionalDelete as v -> tgt.conditionalDelete = translate(v, '#ConditionalDeleteStatus', 'c');
-  src.referencePolicy as v -> tgt.referencePolicy = translate(v, '#ReferenceHandlingPolicy', 'c');
+  src.conditionalDelete as v -> tgt.conditionalDelete = translate(v, '#ConditionalDeleteStatus', 'code');
+  src.referencePolicy as v -> tgt.referencePolicy = translate(v, '#ReferenceHandlingPolicy', 'code');
   src.searchInclude -> tgt.searchInclude;
   src.searchRevInclude -> tgt.searchRevInclude;
   src.searchParam as s -> tgt.searchParam as t then CapabilityStatementRestResourceSearchParam(s,t);
@@ -223,7 +223,7 @@ group CapabilityStatementRestResourceInteraction(source src, target tgt) extends
 group CapabilityStatementRestResourceSearchParam(source src, target tgt) extends BackboneElement {
   src.name -> tgt.name;
   src.definition -> tgt.definition;
-  src.type as v -> tgt.type = translate(v, '#SearchParamType', 'c');
+  src.type as v -> tgt.type = translate(v, '#SearchParamType', 'code');
   src.documentation -> tgt.documentation;
 }
 
@@ -251,12 +251,12 @@ group CapabilityStatementMessagingEndpoint(source src, target tgt) extends Backb
 }
 
 group CapabilityStatementMessagingSupportedMessage(source src, target tgt) extends BackboneElement {
-  src.mode as v -> tgt.mode = translate(v, '#EventCapabilityMode', 'c');
+  src.mode as v -> tgt.mode = translate(v, '#EventCapabilityMode', 'code');
   src.definition -> tgt.definition;
 }
 
 group CapabilityStatementDocument(source src, target tgt) extends BackboneElement {
-  src.mode as v -> tgt.mode = translate(v, '#DocumentMode', 'c');
+  src.mode as v -> tgt.mode = translate(v, '#DocumentMode', 'code');
   src.documentation -> tgt.documentation;
   src.profile -> tgt.profile;
 }

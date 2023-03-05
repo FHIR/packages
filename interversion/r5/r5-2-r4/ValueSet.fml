@@ -2,37 +2,37 @@
 /// name = 'ValueSet5to4'
 /// title = 'FML Conversion for ValueSet: R5 to R4'
 
-uses "http://hl7.org/fhir/StructureDefinition/ValueSet" alias ValueSetR5 as source
-uses "http://hl7.org/fhir/4.0/StructureDefinition/ValueSet" alias ValueSetR4 as target
-
-imports "http://hl7.org/fhir/StructureMap/*5to4"
-
 conceptmap "FilterOperator" {
   prefix s = "http://hl7.org/fhir/filter-operator"
   prefix t = "http://hl7.org/fhir/4.0/filter-operator"
 
-  s:= - t:=
-  s:is-a - t:is-a
-  s:descendent-of - t:descendent-of
-  s:is-not-a - t:is-not-a
-  s:regex - t:regex
-  s:in - t:in
-  s:not-in - t:not-in
-  s:generalizes - t:generalizes
-  s:child-of - t:child-of
-  s:descendent-leaf - t:descendent-leaf
-  s:exists - t:exists
+  s:"=" - t:"="
+  s:"is-a" - t:"is-a"
+  s:"descendent-of" - t:"descendent-of"
+  s:"is-not-a" - t:"is-not-a"
+  s:"regex" - t:"regex"
+  s:"in" - t:"in"
+  s:"not-in" - t:"not-in"
+  s:"generalizes" - t:"generalizes"
+  s:"child-of" - t:"child-of"
+  s:"descendent-leaf" - t:"descendent-leaf"
+  s:"exists" - t:"exists"
 }
 
 conceptmap "PublicationStatus" {
   prefix s = "http://hl7.org/fhir/publication-status"
   prefix t = "http://hl7.org/fhir/4.0/publication-status"
 
-  s:draft - t:draft
-  s:active - t:active
-  s:retired - t:retired
-  s:unknown - t:unknown
+  s:"draft" - t:"draft"
+  s:"active" - t:"active"
+  s:"retired" - t:"retired"
+  s:"unknown" - t:"unknown"
 }
+
+uses "http://hl7.org/fhir/StructureDefinition/ValueSet" alias ValueSetR5 as source
+uses "http://hl7.org/fhir/4.0/StructureDefinition/ValueSet" alias ValueSetR4 as target
+
+imports "http://hl7.org/fhir/StructureMap/*5to4"
 
 group ValueSet(source src : ValueSetR5, target tgt : ValueSetR4) extends DomainResource <<type+>> {
   src.url -> tgt.url;
@@ -42,7 +42,7 @@ group ValueSet(source src : ValueSetR5, target tgt : ValueSetR4) extends DomainR
   src.versionAlgorithm : Coding -> tgt.versionAlgorithm;
   src.name -> tgt.name;
   src.title -> tgt.title;
-  src.status as v -> tgt.status = translate(v, '#PublicationStatus', 'c');
+  src.status as v -> tgt.status = translate(v, '#PublicationStatus', 'code');
   src.experimental -> tgt.experimental;
   src.date -> tgt.date;
   src.publisher -> tgt.publisher;
@@ -99,7 +99,7 @@ group ValueSetComposeIncludeConceptDesignation(source src, target tgt) extends B
 
 group ValueSetComposeIncludeFilter(source src, target tgt) extends BackboneElement {
   src.property -> tgt.property;
-  src.op as v -> tgt.op = translate(v, '#FilterOperator', 'c');
+  src.op as v -> tgt.op = translate(v, '#FilterOperator', 'code');
   src.value -> tgt.value;
 }
 

@@ -2,20 +2,20 @@
 /// name = 'RelatedPerson5to4B'
 /// title = 'FML Conversion for RelatedPerson: R5 to R4B'
 
-uses "http://hl7.org/fhir/StructureDefinition/RelatedPerson" alias RelatedPersonR5 as source
-uses "http://hl7.org/fhir/4.3/StructureDefinition/RelatedPerson" alias RelatedPersonR4B as target
-
-imports "http://hl7.org/fhir/StructureMap/*5to4B"
-
 conceptmap "AdministrativeGender" {
   prefix s = "http://hl7.org/fhir/administrative-gender"
   prefix t = "http://hl7.org/fhir/4.3/administrative-gender"
 
-  s:male - t:male
-  s:female - t:female
-  s:other - t:other
-  s:unknown - t:unknown
+  s:"male" - t:"male"
+  s:"female" - t:"female"
+  s:"other" - t:"other"
+  s:"unknown" - t:"unknown"
 }
+
+uses "http://hl7.org/fhir/StructureDefinition/RelatedPerson" alias RelatedPersonR5 as source
+uses "http://hl7.org/fhir/4.3/StructureDefinition/RelatedPerson" alias RelatedPersonR4B as target
+
+imports "http://hl7.org/fhir/StructureMap/*5to4B"
 
 group RelatedPerson(source src : RelatedPersonR5, target tgt : RelatedPersonR4B) extends DomainResource <<type+>> {
   src.identifier -> tgt.identifier;
@@ -24,7 +24,7 @@ group RelatedPerson(source src : RelatedPersonR5, target tgt : RelatedPersonR4B)
   src.relationship -> tgt.relationship;
   src.name -> tgt.name;
   src.telecom -> tgt.telecom;
-  src.gender as v -> tgt.gender = translate(v, '#AdministrativeGender', 'c');
+  src.gender as v -> tgt.gender = translate(v, '#AdministrativeGender', 'code');
   src.birthDate -> tgt.birthDate;
   src.address -> tgt.address;
   src.photo -> tgt.photo;

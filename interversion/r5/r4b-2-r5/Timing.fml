@@ -2,23 +2,23 @@
 /// name = 'Timing4Bto5'
 /// title = 'FML Conversion for Timing: R4B to R5'
 
-uses "http://hl7.org/fhir/4.3/StructureDefinition/Timing" alias TimingR4B as source
-uses "http://hl7.org/fhir/StructureDefinition/Timing" alias TimingR5 as target
-
-imports "http://hl7.org/fhir/StructureMap/*4Bto5"
-
 conceptmap "DayOfWeek" {
   prefix s = "http://hl7.org/fhir/4.3/days-of-week"
   prefix t = "http://hl7.org/fhir/days-of-week"
 
-  s:mon - t:mon
-  s:tue - t:tue
-  s:wed - t:wed
-  s:thu - t:thu
-  s:fri - t:fri
-  s:sat - t:sat
-  s:sun - t:sun
+  s:"mon" - t:"mon"
+  s:"tue" - t:"tue"
+  s:"wed" - t:"wed"
+  s:"thu" - t:"thu"
+  s:"fri" - t:"fri"
+  s:"sat" - t:"sat"
+  s:"sun" - t:"sun"
 }
+
+uses "http://hl7.org/fhir/4.3/StructureDefinition/Timing" alias TimingR4B as source
+uses "http://hl7.org/fhir/StructureDefinition/Timing" alias TimingR5 as target
+
+imports "http://hl7.org/fhir/StructureMap/*4Bto5"
 
 group Timing(source src : TimingR4B, target tgt : TimingR5) extends BackboneType <<type+>> {
   src.event -> tgt.event;
@@ -40,7 +40,7 @@ group TimingRepeat(source src, target tgt) extends Element {
   src.period -> tgt.period;
   src.periodMax -> tgt.periodMax;
   src.periodUnit -> tgt.periodUnit;
-  src.dayOfWeek as v -> tgt.dayOfWeek = translate(v, '#DayOfWeek', 'c');
+  src.dayOfWeek as v -> tgt.dayOfWeek = translate(v, '#DayOfWeek', 'code');
   src.timeOfDay -> tgt.timeOfDay;
   src.when -> tgt.when;
   src.offset -> tgt.offset;

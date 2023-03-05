@@ -2,34 +2,34 @@
 /// name = 'Coverage4Bto5'
 /// title = 'FML Conversion for Coverage: R4B to R5'
 
-uses "http://hl7.org/fhir/4.3/StructureDefinition/Coverage" alias CoverageR4B as source
-uses "http://hl7.org/fhir/StructureDefinition/Coverage" alias CoverageR5 as target
-
-imports "http://hl7.org/fhir/StructureMap/*4Bto5"
-
 conceptmap "CoverageKind" {
   prefix s = "http://hl7.org/fhir/4.3/coverage-kind"
   prefix t = "http://hl7.org/fhir/coverage-kind"
 
-  s:insurance - t:insurance
-  s:self-pay - t:self-pay
-  s:other - t:other
+  s:"insurance" - t:"insurance"
+  s:"self-pay" - t:"self-pay"
+  s:"other" - t:"other"
 }
 
 conceptmap "CoverageStatus" {
   prefix s = "http://hl7.org/fhir/4.3/fm-status"
   prefix t = "http://hl7.org/fhir/fm-status"
 
-  s:active - t:active
-  s:cancelled - t:cancelled
-  s:draft - t:draft
-  s:entered-in-error - t:entered-in-error
+  s:"active" - t:"active"
+  s:"cancelled" - t:"cancelled"
+  s:"draft" - t:"draft"
+  s:"entered-in-error" - t:"entered-in-error"
 }
+
+uses "http://hl7.org/fhir/4.3/StructureDefinition/Coverage" alias CoverageR4B as source
+uses "http://hl7.org/fhir/StructureDefinition/Coverage" alias CoverageR5 as target
+
+imports "http://hl7.org/fhir/StructureMap/*4Bto5"
 
 group Coverage(source src : CoverageR4B, target tgt : CoverageR5) extends DomainResource <<type+>> {
   src.identifier -> tgt.identifier;
-  src.status as v -> tgt.status = translate(v, '#CoverageStatus', 'c');
-  src.kind as v -> tgt.kind = translate(v, '#CoverageKind', 'c');
+  src.status as v -> tgt.status = translate(v, '#CoverageStatus', 'code');
+  src.kind as v -> tgt.kind = translate(v, '#CoverageKind', 'code');
   src.paymentBy as s -> tgt.paymentBy as t then CoveragePaymentBy(s,t);
   src.type -> tgt.type;
   src.policyHolder -> tgt.policyHolder;

@@ -2,177 +2,177 @@
 /// name = 'Bundle5to4'
 /// title = 'FML Conversion for Bundle: R5 to R4'
 
-uses "http://hl7.org/fhir/StructureDefinition/Bundle" alias BundleR5 as source
-uses "http://hl7.org/fhir/4.0/StructureDefinition/Bundle" alias BundleR4 as target
-
-imports "http://hl7.org/fhir/StructureMap/*5to4"
-
 conceptmap "BundleType" {
   prefix s = "http://hl7.org/fhir/bundle-type"
   prefix t = "http://hl7.org/fhir/4.0/bundle-type"
 
-  s:document - t:document
-  s:message - t:message
-  s:transaction - t:transaction
-  s:transaction-response - t:transaction-response
-  s:batch - t:batch
-  s:batch-response - t:batch-response
-  s:history - t:history
-  s:searchset - t:searchset
-  s:collection - t:collection
-  s:subscription-notification - t:subscription-notification
+  s:"document" - t:"document"
+  s:"message" - t:"message"
+  s:"transaction" - t:"transaction"
+  s:"transaction-response" - t:"transaction-response"
+  s:"batch" - t:"batch"
+  s:"batch-response" - t:"batch-response"
+  s:"history" - t:"history"
+  s:"searchset" - t:"searchset"
+  s:"collection" - t:"collection"
+  s:"subscription-notification" - t:"subscription-notification"
 }
 
 conceptmap "HTTPVerb" {
   prefix s = "http://hl7.org/fhir/http-verb"
   prefix t = "http://hl7.org/fhir/4.0/http-verb"
 
-  s:GET - t:GET
-  s:HEAD - t:HEAD
-  s:POST - t:POST
-  s:PUT - t:PUT
-  s:DELETE - t:DELETE
-  s:PATCH - t:PATCH
+  s:"GET" - t:"GET"
+  s:"HEAD" - t:"HEAD"
+  s:"POST" - t:"POST"
+  s:"PUT" - t:"PUT"
+  s:"DELETE" - t:"DELETE"
+  s:"PATCH" - t:"PATCH"
 }
 
 conceptmap "SearchEntryMode" {
   prefix s = "http://hl7.org/fhir/search-entry-mode"
   prefix t = "http://hl7.org/fhir/4.0/search-entry-mode"
 
-  s:match - t:match
-  s:include - t:include
-  s:outcome - t:outcome
+  s:"match" - t:"match"
+  s:"include" - t:"include"
+  s:"outcome" - t:"outcome"
 }
 
 conceptmap "iana-link-relations" {
   prefix s = "http://hl7.org/fhir/CodeSystem/iana-link-relations"
   prefix t = "http://hl7.org/fhir/4.0/CodeSystem/iana-link-relations"
 
-  s:about - t:about
-  s:acl - t:acl
-  s:alternate - t:alternate
-  s:amphtml - t:amphtml
-  s:appendix - t:appendix
-  s:apple-touch-icon - t:apple-touch-icon
-  s:apple-touch-startup-image - t:apple-touch-startup-image
-  s:archives - t:archives
-  s:author - t:author
-  s:blocked-by - t:blocked-by
-  s:bookmark - t:bookmark
-  s:canonical - t:canonical
-  s:chapter - t:chapter
-  s:cite-as - t:cite-as
-  s:collection - t:collection
-  s:contents - t:contents
-  s:convertedFrom - t:convertedFrom
-  s:copyright - t:copyright
-  s:create-form - t:create-form
-  s:current - t:current
-  s:describedby - t:describedby
-  s:describes - t:describes
-  s:disclosure - t:disclosure
-  s:dns-prefetch - t:dns-prefetch
-  s:duplicate - t:duplicate
-  s:edit - t:edit
-  s:edit-form - t:edit-form
-  s:edit-media - t:edit-media
-  s:enclosure - t:enclosure
-  s:external - t:external
-  s:first - t:first
-  s:glossary - t:glossary
-  s:help - t:help
-  s:hosts - t:hosts
-  s:hub - t:hub
-  s:icon - t:icon
-  s:index - t:index
-  s:intervalAfter - t:intervalAfter
-  s:intervalBefore - t:intervalBefore
-  s:intervalContains - t:intervalContains
-  s:intervalDisjoint - t:intervalDisjoint
-  s:intervalDuring - t:intervalDuring
-  s:intervalEquals - t:intervalEquals
-  s:intervalFinishedBy - t:intervalFinishedBy
-  s:intervalFinishes - t:intervalFinishes
-  s:intervalIn - t:intervalIn
-  s:intervalMeets - t:intervalMeets
-  s:intervalMetBy - t:intervalMetBy
-  s:intervalOverlappedBy - t:intervalOverlappedBy
-  s:intervalOverlaps - t:intervalOverlaps
-  s:intervalStartedBy - t:intervalStartedBy
-  s:intervalStarts - t:intervalStarts
-  s:item - t:item
-  s:last - t:last
-  s:latest-version - t:latest-version
-  s:license - t:license
-  s:linkset - t:linkset
-  s:lrdd - t:lrdd
-  s:manifest - t:manifest
-  s:mask-icon - t:mask-icon
-  s:media-feed - t:media-feed
-  s:memento - t:memento
-  s:micropub - t:micropub
-  s:modulepreload - t:modulepreload
-  s:monitor - t:monitor
-  s:monitor-group - t:monitor-group
-  s:next - t:next
-  s:next-archive - t:next-archive
-  s:nofollow - t:nofollow
-  s:noopener - t:noopener
-  s:noreferrer - t:noreferrer
-  s:opener - t:opener
-  s:openid2.local_id - t:openid2.local_id
-  s:openid2.provider - t:openid2.provider
-  s:original - t:original
-  s:P3Pv1 - t:P3Pv1
-  s:payment - t:payment
-  s:pingback - t:pingback
-  s:preconnect - t:preconnect
-  s:predecessor-version - t:predecessor-version
-  s:prefetch - t:prefetch
-  s:preload - t:preload
-  s:prerender - t:prerender
-  s:prev - t:prev
-  s:preview - t:preview
-  s:previous - t:previous
-  s:prev-archive - t:prev-archive
-  s:privacy-policy - t:privacy-policy
-  s:profile - t:profile
-  s:publication - t:publication
-  s:related - t:related
-  s:restconf - t:restconf
-  s:replies - t:replies
-  s:ruleinput - t:ruleinput
-  s:search - t:search
-  s:section - t:section
-  s:self - t:self
-  s:service - t:service
-  s:service-desc - t:service-desc
-  s:service-doc - t:service-doc
-  s:service-meta - t:service-meta
-  s:sponsored - t:sponsored
-  s:start - t:start
-  s:status - t:status
-  s:stylesheet - t:stylesheet
-  s:subsection - t:subsection
-  s:successor-version - t:successor-version
-  s:sunset - t:sunset
-  s:tag - t:tag
-  s:terms-of-service - t:terms-of-service
-  s:timegate - t:timegate
-  s:timemap - t:timemap
-  s:type - t:type
-  s:ugc - t:ugc
-  s:up - t:up
-  s:version-history - t:version-history
-  s:via - t:via
-  s:webmention - t:webmention
-  s:working-copy - t:working-copy
-  s:working-copy-of - t:working-copy-of
+  s:"about" - t:"about"
+  s:"acl" - t:"acl"
+  s:"alternate" - t:"alternate"
+  s:"amphtml" - t:"amphtml"
+  s:"appendix" - t:"appendix"
+  s:"apple-touch-icon" - t:"apple-touch-icon"
+  s:"apple-touch-startup-image" - t:"apple-touch-startup-image"
+  s:"archives" - t:"archives"
+  s:"author" - t:"author"
+  s:"blocked-by" - t:"blocked-by"
+  s:"bookmark" - t:"bookmark"
+  s:"canonical" - t:"canonical"
+  s:"chapter" - t:"chapter"
+  s:"cite-as" - t:"cite-as"
+  s:"collection" - t:"collection"
+  s:"contents" - t:"contents"
+  s:"convertedFrom" - t:"convertedFrom"
+  s:"copyright" - t:"copyright"
+  s:"create-form" - t:"create-form"
+  s:"current" - t:"current"
+  s:"describedby" - t:"describedby"
+  s:"describes" - t:"describes"
+  s:"disclosure" - t:"disclosure"
+  s:"dns-prefetch" - t:"dns-prefetch"
+  s:"duplicate" - t:"duplicate"
+  s:"edit" - t:"edit"
+  s:"edit-form" - t:"edit-form"
+  s:"edit-media" - t:"edit-media"
+  s:"enclosure" - t:"enclosure"
+  s:"external" - t:"external"
+  s:"first" - t:"first"
+  s:"glossary" - t:"glossary"
+  s:"help" - t:"help"
+  s:"hosts" - t:"hosts"
+  s:"hub" - t:"hub"
+  s:"icon" - t:"icon"
+  s:"index" - t:"index"
+  s:"intervalAfter" - t:"intervalAfter"
+  s:"intervalBefore" - t:"intervalBefore"
+  s:"intervalContains" - t:"intervalContains"
+  s:"intervalDisjoint" - t:"intervalDisjoint"
+  s:"intervalDuring" - t:"intervalDuring"
+  s:"intervalEquals" - t:"intervalEquals"
+  s:"intervalFinishedBy" - t:"intervalFinishedBy"
+  s:"intervalFinishes" - t:"intervalFinishes"
+  s:"intervalIn" - t:"intervalIn"
+  s:"intervalMeets" - t:"intervalMeets"
+  s:"intervalMetBy" - t:"intervalMetBy"
+  s:"intervalOverlappedBy" - t:"intervalOverlappedBy"
+  s:"intervalOverlaps" - t:"intervalOverlaps"
+  s:"intervalStartedBy" - t:"intervalStartedBy"
+  s:"intervalStarts" - t:"intervalStarts"
+  s:"item" - t:"item"
+  s:"last" - t:"last"
+  s:"latest-version" - t:"latest-version"
+  s:"license" - t:"license"
+  s:"linkset" - t:"linkset"
+  s:"lrdd" - t:"lrdd"
+  s:"manifest" - t:"manifest"
+  s:"mask-icon" - t:"mask-icon"
+  s:"media-feed" - t:"media-feed"
+  s:"memento" - t:"memento"
+  s:"micropub" - t:"micropub"
+  s:"modulepreload" - t:"modulepreload"
+  s:"monitor" - t:"monitor"
+  s:"monitor-group" - t:"monitor-group"
+  s:"next" - t:"next"
+  s:"next-archive" - t:"next-archive"
+  s:"nofollow" - t:"nofollow"
+  s:"noopener" - t:"noopener"
+  s:"noreferrer" - t:"noreferrer"
+  s:"opener" - t:"opener"
+  s:"openid2.local_id" - t:"openid2.local_id"
+  s:"openid2.provider" - t:"openid2.provider"
+  s:"original" - t:"original"
+  s:"P3Pv1" - t:"P3Pv1"
+  s:"payment" - t:"payment"
+  s:"pingback" - t:"pingback"
+  s:"preconnect" - t:"preconnect"
+  s:"predecessor-version" - t:"predecessor-version"
+  s:"prefetch" - t:"prefetch"
+  s:"preload" - t:"preload"
+  s:"prerender" - t:"prerender"
+  s:"prev" - t:"prev"
+  s:"preview" - t:"preview"
+  s:"previous" - t:"previous"
+  s:"prev-archive" - t:"prev-archive"
+  s:"privacy-policy" - t:"privacy-policy"
+  s:"profile" - t:"profile"
+  s:"publication" - t:"publication"
+  s:"related" - t:"related"
+  s:"restconf" - t:"restconf"
+  s:"replies" - t:"replies"
+  s:"ruleinput" - t:"ruleinput"
+  s:"search" - t:"search"
+  s:"section" - t:"section"
+  s:"self" - t:"self"
+  s:"service" - t:"service"
+  s:"service-desc" - t:"service-desc"
+  s:"service-doc" - t:"service-doc"
+  s:"service-meta" - t:"service-meta"
+  s:"sponsored" - t:"sponsored"
+  s:"start" - t:"start"
+  s:"status" - t:"status"
+  s:"stylesheet" - t:"stylesheet"
+  s:"subsection" - t:"subsection"
+  s:"successor-version" - t:"successor-version"
+  s:"sunset" - t:"sunset"
+  s:"tag" - t:"tag"
+  s:"terms-of-service" - t:"terms-of-service"
+  s:"timegate" - t:"timegate"
+  s:"timemap" - t:"timemap"
+  s:"type" - t:"type"
+  s:"ugc" - t:"ugc"
+  s:"up" - t:"up"
+  s:"version-history" - t:"version-history"
+  s:"via" - t:"via"
+  s:"webmention" - t:"webmention"
+  s:"working-copy" - t:"working-copy"
+  s:"working-copy-of" - t:"working-copy-of"
 }
+
+uses "http://hl7.org/fhir/StructureDefinition/Bundle" alias BundleR5 as source
+uses "http://hl7.org/fhir/4.0/StructureDefinition/Bundle" alias BundleR4 as target
+
+imports "http://hl7.org/fhir/StructureMap/*5to4"
 
 group Bundle(source src : BundleR5, target tgt : BundleR4) extends Resource <<type+>> {
   src.identifier -> tgt.identifier;
-  src.type as v -> tgt.type = translate(v, '#BundleType', 'c');
+  src.type as v -> tgt.type = translate(v, '#BundleType', 'code');
   src.timestamp -> tgt.timestamp;
   src.total -> tgt.total;
   src.link as s -> tgt.link as t then BundleLink(s,t);
@@ -182,7 +182,7 @@ group Bundle(source src : BundleR5, target tgt : BundleR4) extends Resource <<ty
 }
 
 group BundleLink(source src, target tgt) extends BackboneElement {
-  src.relation as v -> tgt.relation = translate(v, '#iana-link-relations', 'c');
+  src.relation as v -> tgt.relation = translate(v, '#iana-link-relations', 'code');
   src.url -> tgt.url;
 }
 
@@ -195,12 +195,12 @@ group BundleEntry(source src, target tgt) extends BackboneElement {
 }
 
 group BundleEntrySearch(source src, target tgt) extends BackboneElement {
-  src.mode as v -> tgt.mode = translate(v, '#SearchEntryMode', 'c');
+  src.mode as v -> tgt.mode = translate(v, '#SearchEntryMode', 'code');
   src.score -> tgt.score;
 }
 
 group BundleEntryRequest(source src, target tgt) extends BackboneElement {
-  src.method as v -> tgt.method = translate(v, '#HTTPVerb', 'c');
+  src.method as v -> tgt.method = translate(v, '#HTTPVerb', 'code');
   src.url -> tgt.url;
   src.ifNoneMatch -> tgt.ifNoneMatch;
   src.ifModifiedSince -> tgt.ifModifiedSince;

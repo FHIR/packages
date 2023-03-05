@@ -2,45 +2,45 @@
 /// name = 'CoverageEligibilityResponse4to5'
 /// title = 'FML Conversion for CoverageEligibilityResponse: R4 to R5'
 
-uses "http://hl7.org/fhir/4.0/StructureDefinition/CoverageEligibilityResponse" alias CoverageEligibilityResponseR4 as source
-uses "http://hl7.org/fhir/StructureDefinition/CoverageEligibilityResponse" alias CoverageEligibilityResponseR5 as target
-
-imports "http://hl7.org/fhir/StructureMap/*4to5"
-
 conceptmap "EligibilityOutcome" {
   prefix s = "http://hl7.org/fhir/4.0/eligibility-outcome"
   prefix t = "http://hl7.org/fhir/eligibility-outcome"
 
-  s:queued - t:queued
-  s:complete - t:complete
-  s:error - t:error
-  s:partial - t:partial
+  s:"queued" - t:"queued"
+  s:"complete" - t:"complete"
+  s:"error" - t:"error"
+  s:"partial" - t:"partial"
 }
 
 conceptmap "EligibilityResponsePurpose" {
   prefix s = "http://hl7.org/fhir/4.0/eligibilityresponse-purpose"
   prefix t = "http://hl7.org/fhir/eligibilityresponse-purpose"
 
-  s:auth-requirements - t:auth-requirements
-  s:benefits - t:benefits
-  s:discovery - t:discovery
-  s:validation - t:validation
+  s:"auth-requirements" - t:"auth-requirements"
+  s:"benefits" - t:"benefits"
+  s:"discovery" - t:"discovery"
+  s:"validation" - t:"validation"
 }
 
 conceptmap "EligibilityResponseStatus" {
   prefix s = "http://hl7.org/fhir/4.0/fm-status"
   prefix t = "http://hl7.org/fhir/fm-status"
 
-  s:active - t:active
-  s:cancelled - t:cancelled
-  s:draft - t:draft
-  s:entered-in-error - t:entered-in-error
+  s:"active" - t:"active"
+  s:"cancelled" - t:"cancelled"
+  s:"draft" - t:"draft"
+  s:"entered-in-error" - t:"entered-in-error"
 }
+
+uses "http://hl7.org/fhir/4.0/StructureDefinition/CoverageEligibilityResponse" alias CoverageEligibilityResponseR4 as source
+uses "http://hl7.org/fhir/StructureDefinition/CoverageEligibilityResponse" alias CoverageEligibilityResponseR5 as target
+
+imports "http://hl7.org/fhir/StructureMap/*4to5"
 
 group CoverageEligibilityResponse(source src : CoverageEligibilityResponseR4, target tgt : CoverageEligibilityResponseR5) extends DomainResource <<type+>> {
   src.identifier -> tgt.identifier;
-  src.status as v -> tgt.status = translate(v, '#EligibilityResponseStatus', 'c');
-  src.purpose as v -> tgt.purpose = translate(v, '#EligibilityResponsePurpose', 'c');
+  src.status as v -> tgt.status = translate(v, '#EligibilityResponseStatus', 'code');
+  src.purpose as v -> tgt.purpose = translate(v, '#EligibilityResponsePurpose', 'code');
   src.patient -> tgt.patient;
   src.event as s -> tgt.event as t then CoverageEligibilityResponseEvent(s,t);
   src.serviced : date -> tgt.serviced;
@@ -48,7 +48,7 @@ group CoverageEligibilityResponse(source src : CoverageEligibilityResponseR4, ta
   src.created -> tgt.created;
   src.requestor -> tgt.requestor;
   src.request -> tgt.request;
-  src.outcome as v -> tgt.outcome = translate(v, '#EligibilityOutcome', 'c');
+  src.outcome as v -> tgt.outcome = translate(v, '#EligibilityOutcome', 'code');
   src.disposition -> tgt.disposition;
   src.insurer -> tgt.insurer;
   src.insurance as s -> tgt.insurance as t then CoverageEligibilityResponseInsurance(s,t);

@@ -2,25 +2,25 @@
 /// name = 'ClinicalUseDefinition5to4B'
 /// title = 'FML Conversion for ClinicalUseDefinition: R5 to R4B'
 
+conceptmap "ClinicalUseDefinitionType" {
+  prefix s = "http://hl7.org/fhir/clinical-use-definition-type"
+  prefix t = "http://hl7.org/fhir/4.3/clinical-use-definition-type"
+
+  s:"indication" - t:"indication"
+  s:"contraindication" - t:"contraindication"
+  s:"interaction" - t:"interaction"
+  s:"undesirable-effect" - t:"undesirable-effect"
+  s:"warning" - t:"warning"
+}
+
 uses "http://hl7.org/fhir/StructureDefinition/ClinicalUseDefinition" alias ClinicalUseDefinitionR5 as source
 uses "http://hl7.org/fhir/4.3/StructureDefinition/ClinicalUseDefinition" alias ClinicalUseDefinitionR4B as target
 
 imports "http://hl7.org/fhir/StructureMap/*5to4B"
 
-conceptmap "ClinicalUseDefinitionType" {
-  prefix s = "http://hl7.org/fhir/clinical-use-definition-type"
-  prefix t = "http://hl7.org/fhir/4.3/clinical-use-definition-type"
-
-  s:indication - t:indication
-  s:contraindication - t:contraindication
-  s:interaction - t:interaction
-  s:undesirable-effect - t:undesirable-effect
-  s:warning - t:warning
-}
-
 group ClinicalUseDefinition(source src : ClinicalUseDefinitionR5, target tgt : ClinicalUseDefinitionR4B) extends DomainResource <<type+>> {
   src.identifier -> tgt.identifier;
-  src.type as v -> tgt.type = translate(v, '#ClinicalUseDefinitionType', 'c');
+  src.type as v -> tgt.type = translate(v, '#ClinicalUseDefinitionType', 'code');
   src.category -> tgt.category;
   src.subject -> tgt.subject;
   src.status -> tgt.status;

@@ -2,77 +2,77 @@
 /// name = 'OperationDefinition5to4'
 /// title = 'FML Conversion for OperationDefinition: R5 to R4'
 
-uses "http://hl7.org/fhir/StructureDefinition/OperationDefinition" alias OperationDefinitionR5 as source
-uses "http://hl7.org/fhir/4.0/StructureDefinition/OperationDefinition" alias OperationDefinitionR4 as target
-
-imports "http://hl7.org/fhir/StructureMap/*5to4"
-
 conceptmap "BindingStrength" {
   prefix s = "http://hl7.org/fhir/binding-strength"
   prefix t = "http://hl7.org/fhir/4.0/binding-strength"
 
-  s:required - t:required
-  s:extensible - t:extensible
-  s:preferred - t:preferred
-  s:example - t:example
+  s:"required" - t:"required"
+  s:"extensible" - t:"extensible"
+  s:"preferred" - t:"preferred"
+  s:"example" - t:"example"
 }
 
 conceptmap "FHIRAllTypes" {
   prefix s = "http://hl7.org/fhir/fhir-types"
   prefix t = "http://hl7.org/fhir/4.0/fhir-types"
 
-  s:Base - t:Base
+  s:"Base" - t:"Base"
 }
 
 conceptmap "OperationKind" {
   prefix s = "http://hl7.org/fhir/operation-kind"
   prefix t = "http://hl7.org/fhir/4.0/operation-kind"
 
-  s:operation - t:operation
-  s:query - t:query
+  s:"operation" - t:"operation"
+  s:"query" - t:"query"
 }
 
 conceptmap "OperationParameterScope" {
   prefix s = "http://hl7.org/fhir/operation-parameter-scope"
   prefix t = "http://hl7.org/fhir/4.0/operation-parameter-scope"
 
-  s:instance - t:instance
-  s:type - t:type
-  s:system - t:system
+  s:"instance" - t:"instance"
+  s:"type" - t:"type"
+  s:"system" - t:"system"
 }
 
 conceptmap "OperationParameterUse" {
   prefix s = "http://hl7.org/fhir/operation-parameter-use"
   prefix t = "http://hl7.org/fhir/4.0/operation-parameter-use"
 
-  s:in - t:in
-  s:out - t:out
+  s:"in" - t:"in"
+  s:"out" - t:"out"
 }
 
 conceptmap "PublicationStatus" {
   prefix s = "http://hl7.org/fhir/publication-status"
   prefix t = "http://hl7.org/fhir/4.0/publication-status"
 
-  s:draft - t:draft
-  s:active - t:active
-  s:retired - t:retired
-  s:unknown - t:unknown
+  s:"draft" - t:"draft"
+  s:"active" - t:"active"
+  s:"retired" - t:"retired"
+  s:"unknown" - t:"unknown"
 }
 
 conceptmap "SearchParamType" {
   prefix s = "http://hl7.org/fhir/search-param-type"
   prefix t = "http://hl7.org/fhir/4.0/search-param-type"
 
-  s:number - t:number
-  s:date - t:date
-  s:string - t:string
-  s:token - t:token
-  s:reference - t:reference
-  s:composite - t:composite
-  s:quantity - t:quantity
-  s:uri - t:uri
-  s:special - t:special
+  s:"number" - t:"number"
+  s:"date" - t:"date"
+  s:"string" - t:"string"
+  s:"token" - t:"token"
+  s:"reference" - t:"reference"
+  s:"composite" - t:"composite"
+  s:"quantity" - t:"quantity"
+  s:"uri" - t:"uri"
+  s:"special" - t:"special"
 }
+
+uses "http://hl7.org/fhir/StructureDefinition/OperationDefinition" alias OperationDefinitionR5 as source
+uses "http://hl7.org/fhir/4.0/StructureDefinition/OperationDefinition" alias OperationDefinitionR4 as target
+
+imports "http://hl7.org/fhir/StructureMap/*5to4"
 
 group OperationDefinition(source src : OperationDefinitionR5, target tgt : OperationDefinitionR4) extends DomainResource <<type+>> {
   src.url -> tgt.url;
@@ -82,8 +82,8 @@ group OperationDefinition(source src : OperationDefinitionR5, target tgt : Opera
   src.versionAlgorithm : Coding -> tgt.versionAlgorithm;
   src.name -> tgt.name;
   src.title -> tgt.title;
-  src.status as v -> tgt.status = translate(v, '#PublicationStatus', 'c');
-  src.kind as v -> tgt.kind = translate(v, '#OperationKind', 'c');
+  src.status as v -> tgt.status = translate(v, '#PublicationStatus', 'code');
+  src.kind as v -> tgt.kind = translate(v, '#OperationKind', 'code');
   src.experimental -> tgt.experimental;
   src.date -> tgt.date;
   src.publisher -> tgt.publisher;
@@ -110,21 +110,21 @@ group OperationDefinition(source src : OperationDefinitionR5, target tgt : Opera
 
 group OperationDefinitionParameter(source src, target tgt) extends BackboneElement {
   src.name -> tgt.name;
-  src.use as v -> tgt.use = translate(v, '#OperationParameterUse', 'c');
-  src.scope as v -> tgt.scope = translate(v, '#OperationParameterScope', 'c');
+  src.use as v -> tgt.use = translate(v, '#OperationParameterUse', 'code');
+  src.scope as v -> tgt.scope = translate(v, '#OperationParameterScope', 'code');
   src.min -> tgt.min;
   src.max -> tgt.max;
   src.documentation -> tgt.documentation;
-  src.type as v -> tgt.type = translate(v, '#FHIRAllTypes', 'c');
-  src.allowedType as v -> tgt.allowedType = translate(v, '#FHIRAllTypes', 'c');
+  src.type as v -> tgt.type = translate(v, '#FHIRAllTypes', 'code');
+  src.allowedType as v -> tgt.allowedType = translate(v, '#FHIRAllTypes', 'code');
   src.targetProfile -> tgt.targetProfile;
-  src.searchType as v -> tgt.searchType = translate(v, '#SearchParamType', 'c');
+  src.searchType as v -> tgt.searchType = translate(v, '#SearchParamType', 'code');
   src.binding as s -> tgt.binding as t then OperationDefinitionParameterBinding(s,t);
   src.referencedFrom as s -> tgt.referencedFrom as t then OperationDefinitionParameterReferencedFrom(s,t);
 }
 
 group OperationDefinitionParameterBinding(source src, target tgt) extends BackboneElement {
-  src.strength as v -> tgt.strength = translate(v, '#BindingStrength', 'c');
+  src.strength as v -> tgt.strength = translate(v, '#BindingStrength', 'code');
   src.valueSet -> tgt.valueSet;
 }
 

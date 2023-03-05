@@ -2,23 +2,23 @@
 /// name = 'Availability4to5'
 /// title = 'FML Conversion for Availability: R4 to R5'
 
-uses "http://hl7.org/fhir/4.0/StructureDefinition/Availability" alias AvailabilityR4 as source
-uses "http://hl7.org/fhir/StructureDefinition/Availability" alias AvailabilityR5 as target
-
-imports "http://hl7.org/fhir/StructureMap/*4to5"
-
 conceptmap "DaysOfWeek" {
   prefix s = "http://hl7.org/fhir/4.0/days-of-week"
   prefix t = "http://hl7.org/fhir/days-of-week"
 
-  s:mon - t:mon
-  s:tue - t:tue
-  s:wed - t:wed
-  s:thu - t:thu
-  s:fri - t:fri
-  s:sat - t:sat
-  s:sun - t:sun
+  s:"mon" - t:"mon"
+  s:"tue" - t:"tue"
+  s:"wed" - t:"wed"
+  s:"thu" - t:"thu"
+  s:"fri" - t:"fri"
+  s:"sat" - t:"sat"
+  s:"sun" - t:"sun"
 }
+
+uses "http://hl7.org/fhir/4.0/StructureDefinition/Availability" alias AvailabilityR4 as source
+uses "http://hl7.org/fhir/StructureDefinition/Availability" alias AvailabilityR5 as target
+
+imports "http://hl7.org/fhir/StructureMap/*4to5"
 
 group Availability(source src : AvailabilityR4, target tgt : AvailabilityR5) extends DataType <<type+>> {
   src.availableTime as s -> tgt.availableTime as t then AvailabilityAvailableTime(s,t);
@@ -26,7 +26,7 @@ group Availability(source src : AvailabilityR4, target tgt : AvailabilityR5) ext
 }
 
 group AvailabilityAvailableTime(source src, target tgt) extends Element {
-  src.daysOfWeek as v -> tgt.daysOfWeek = translate(v, '#DaysOfWeek', 'c');
+  src.daysOfWeek as v -> tgt.daysOfWeek = translate(v, '#DaysOfWeek', 'code');
   src.allDay -> tgt.allDay;
   src.availableStartTime -> tgt.availableStartTime;
   src.availableEndTime -> tgt.availableEndTime;

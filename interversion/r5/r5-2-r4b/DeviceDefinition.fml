@@ -2,49 +2,49 @@
 /// name = 'DeviceDefinition5to4B'
 /// title = 'FML Conversion for DeviceDefinition: R5 to R4B'
 
-uses "http://hl7.org/fhir/StructureDefinition/DeviceDefinition" alias DeviceDefinitionR5 as source
-uses "http://hl7.org/fhir/4.3/StructureDefinition/DeviceDefinition" alias DeviceDefinitionR4B as target
-
-imports "http://hl7.org/fhir/StructureMap/*5to4B"
-
 conceptmap "DeviceCorrectiveActionScope" {
   prefix s = "http://hl7.org/fhir/device-correctiveactionscope"
   prefix t = "http://hl7.org/fhir/4.3/device-correctiveactionscope"
 
-  s:model - t:model
-  s:lot-numbers - t:lot-numbers
-  s:serial-numbers - t:serial-numbers
+  s:"model" - t:"model"
+  s:"lot-numbers" - t:"lot-numbers"
+  s:"serial-numbers" - t:"serial-numbers"
 }
 
 conceptmap "DeviceNameType" {
   prefix s = "http://hl7.org/fhir/device-nametype"
   prefix t = "http://hl7.org/fhir/4.3/device-nametype"
 
-  s:registered-name - t:registered-name
-  s:user-friendly-name - t:user-friendly-name
-  s:patient-reported-name - t:patient-reported-name
+  s:"registered-name" - t:"registered-name"
+  s:"user-friendly-name" - t:"user-friendly-name"
+  s:"patient-reported-name" - t:"patient-reported-name"
 }
 
 conceptmap "DeviceProductionIdentifierInUDI" {
   prefix s = "http://hl7.org/fhir/device-productidentifierinudi"
   prefix t = "http://hl7.org/fhir/4.3/device-productidentifierinudi"
 
-  s:lot-number - t:lot-number
-  s:manufactured-date - t:manufactured-date
-  s:serial-number - t:serial-number
-  s:expiration-date - t:expiration-date
-  s:biological-source - t:biological-source
-  s:software-version - t:software-version
+  s:"lot-number" - t:"lot-number"
+  s:"manufactured-date" - t:"manufactured-date"
+  s:"serial-number" - t:"serial-number"
+  s:"expiration-date" - t:"expiration-date"
+  s:"biological-source" - t:"biological-source"
+  s:"software-version" - t:"software-version"
 }
 
 conceptmap "DeviceRegulatoryIdentifierType" {
   prefix s = "http://hl7.org/fhir/devicedefinition-regulatory-identifier-type"
   prefix t = "http://hl7.org/fhir/4.3/devicedefinition-regulatory-identifier-type"
 
-  s:basic - t:basic
-  s:master - t:master
-  s:license - t:license
+  s:"basic" - t:"basic"
+  s:"master" - t:"master"
+  s:"license" - t:"license"
 }
+
+uses "http://hl7.org/fhir/StructureDefinition/DeviceDefinition" alias DeviceDefinitionR5 as source
+uses "http://hl7.org/fhir/4.3/StructureDefinition/DeviceDefinition" alias DeviceDefinitionR4B as target
+
+imports "http://hl7.org/fhir/StructureMap/*5to4B"
 
 group DeviceDefinition(source src : DeviceDefinitionR5, target tgt : DeviceDefinitionR4B) extends DomainResource <<type+>> {
   src.description -> tgt.description;
@@ -69,7 +69,7 @@ group DeviceDefinition(source src : DeviceDefinitionR5, target tgt : DeviceDefin
   src.link as s -> tgt.link as t then DeviceDefinitionLink(s,t);
   src.note -> tgt.note;
   src.material as s -> tgt.material as t then DeviceDefinitionMaterial(s,t);
-  src.productionIdentifierInUDI as v -> tgt.productionIdentifierInUDI = translate(v, '#DeviceProductionIdentifierInUDI', 'c');
+  src.productionIdentifierInUDI as v -> tgt.productionIdentifierInUDI = translate(v, '#DeviceProductionIdentifierInUDI', 'code');
   src.guideline as s -> tgt.guideline as t then DeviceDefinitionGuideline(s,t);
   src.correctiveAction as s -> tgt.correctiveAction as t then DeviceDefinitionCorrectiveAction(s,t);
   src.chargeItem as s -> tgt.chargeItem as t then DeviceDefinitionChargeItem(s,t);
@@ -88,7 +88,7 @@ group DeviceDefinitionUdiDeviceIdentifierMarketDistribution(source src, target t
 }
 
 group DeviceDefinitionRegulatoryIdentifier(source src, target tgt) extends BackboneElement {
-  src.type as v -> tgt.type = translate(v, '#DeviceRegulatoryIdentifierType', 'c');
+  src.type as v -> tgt.type = translate(v, '#DeviceRegulatoryIdentifierType', 'code');
   src.deviceIdentifier -> tgt.deviceIdentifier;
   src.issuer -> tgt.issuer;
   src.jurisdiction -> tgt.jurisdiction;
@@ -96,7 +96,7 @@ group DeviceDefinitionRegulatoryIdentifier(source src, target tgt) extends Backb
 
 group DeviceDefinitionDeviceName(source src, target tgt) extends BackboneElement {
   src.name -> tgt.name;
-  src.type as v -> tgt.type = translate(v, '#DeviceNameType', 'c');
+  src.type as v -> tgt.type = translate(v, '#DeviceNameType', 'code');
 }
 
 group DeviceDefinitionClassification(source src, target tgt) extends BackboneElement {
@@ -168,7 +168,7 @@ group DeviceDefinitionGuideline(source src, target tgt) extends BackboneElement 
 
 group DeviceDefinitionCorrectiveAction(source src, target tgt) extends BackboneElement {
   src.recall -> tgt.recall;
-  src.scope as v -> tgt.scope = translate(v, '#DeviceCorrectiveActionScope', 'c');
+  src.scope as v -> tgt.scope = translate(v, '#DeviceCorrectiveActionScope', 'code');
   src.period -> tgt.period;
 }
 

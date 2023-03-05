@@ -2,39 +2,39 @@
 /// name = 'Encounter4Bto5'
 /// title = 'FML Conversion for Encounter: R4B to R5'
 
-uses "http://hl7.org/fhir/4.3/StructureDefinition/Encounter" alias EncounterR4B as source
-uses "http://hl7.org/fhir/StructureDefinition/Encounter" alias EncounterR5 as target
-
-imports "http://hl7.org/fhir/StructureMap/*4Bto5"
-
 conceptmap "EncounterLocationStatus" {
   prefix s = "http://hl7.org/fhir/4.3/encounter-location-status"
   prefix t = "http://hl7.org/fhir/encounter-location-status"
 
-  s:planned - t:planned
-  s:active - t:active
-  s:reserved - t:reserved
-  s:completed - t:completed
+  s:"planned" - t:"planned"
+  s:"active" - t:"active"
+  s:"reserved" - t:"reserved"
+  s:"completed" - t:"completed"
 }
 
 conceptmap "EncounterStatus" {
   prefix s = "http://hl7.org/fhir/4.3/encounter-status"
   prefix t = "http://hl7.org/fhir/encounter-status"
 
-  s:planned - t:planned
-  s:in-progress - t:in-progress
-  s:on-hold - t:on-hold
-  s:discharged - t:discharged
-  s:completed - t:completed
-  s:cancelled - t:cancelled
-  s:discontinued - t:discontinued
-  s:entered-in-error - t:entered-in-error
-  s:unknown - t:unknown
+  s:"planned" - t:"planned"
+  s:"in-progress" - t:"in-progress"
+  s:"on-hold" - t:"on-hold"
+  s:"discharged" - t:"discharged"
+  s:"completed" - t:"completed"
+  s:"cancelled" - t:"cancelled"
+  s:"discontinued" - t:"discontinued"
+  s:"entered-in-error" - t:"entered-in-error"
+  s:"unknown" - t:"unknown"
 }
+
+uses "http://hl7.org/fhir/4.3/StructureDefinition/Encounter" alias EncounterR4B as source
+uses "http://hl7.org/fhir/StructureDefinition/Encounter" alias EncounterR5 as target
+
+imports "http://hl7.org/fhir/StructureMap/*4Bto5"
 
 group Encounter(source src : EncounterR4B, target tgt : EncounterR5) extends DomainResource <<type+>> {
   src.identifier -> tgt.identifier;
-  src.status as v -> tgt.status = translate(v, '#EncounterStatus', 'c');
+  src.status as v -> tgt.status = translate(v, '#EncounterStatus', 'code');
   src.class -> tgt.class;
   src.priority -> tgt.priority;
   src.type -> tgt.type;
@@ -90,7 +90,7 @@ group EncounterAdmission(source src, target tgt) extends BackboneElement {
 
 group EncounterLocation(source src, target tgt) extends BackboneElement {
   src.location -> tgt.location;
-  src.status as v -> tgt.status = translate(v, '#EncounterLocationStatus', 'c');
+  src.status as v -> tgt.status = translate(v, '#EncounterLocationStatus', 'code');
   src.form -> tgt.form;
   src.period -> tgt.period;
 }

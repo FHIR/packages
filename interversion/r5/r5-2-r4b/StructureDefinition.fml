@@ -2,76 +2,76 @@
 /// name = 'StructureDefinition5to4B'
 /// title = 'FML Conversion for StructureDefinition: R5 to R4B'
 
-uses "http://hl7.org/fhir/StructureDefinition/StructureDefinition" alias StructureDefinitionR5 as source
-uses "http://hl7.org/fhir/4.3/StructureDefinition/StructureDefinition" alias StructureDefinitionR4B as target
-
-imports "http://hl7.org/fhir/StructureMap/*5to4B"
-
 conceptmap "ExtensionContextType" {
   prefix s = "http://hl7.org/fhir/extension-context-type"
   prefix t = "http://hl7.org/fhir/4.3/extension-context-type"
 
-  s:fhirpath - t:fhirpath
-  s:element - t:element
-  s:extension - t:extension
+  s:"fhirpath" - t:"fhirpath"
+  s:"element" - t:"element"
+  s:"extension" - t:"extension"
 }
 
 conceptmap "FHIRVersion" {
   prefix s = "http://hl7.org/fhir/FHIR-version"
   prefix t = "http://hl7.org/fhir/4.3/FHIR-version"
 
-  s:0.01 - t:0.01
-  s:0.05 - t:0.05
-  s:0.06 - t:0.06
-  s:0.11 - t:0.11
-  s:0.0 - t:0.0
-  s:0.4 - t:0.4
-  s:0.5 - t:0.5
-  s:1.0 - t:1.0
-  s:1.1 - t:1.1
-  s:1.4 - t:1.4
-  s:1.6 - t:1.6
-  s:1.8 - t:1.8
-  s:3.0 - t:3.0
-  s:3.3 - t:3.3
-  s:3.5 - t:3.5
-  s:4.0 - t:4.0
-  s:4.1 - t:4.1
-  s:4.2 - t:4.2
-  s:4.3 - t:4.3
-  s:4.4 - t:4.4
-  s:4.5 - t:4.5
-  s:4.6 - t:4.6
-  s:5.0 - t:5.0
+  s:"0.01" - t:"0.01"
+  s:"0.05" - t:"0.05"
+  s:"0.06" - t:"0.06"
+  s:"0.11" - t:"0.11"
+  s:"0.0" - t:"0.0"
+  s:"0.4" - t:"0.4"
+  s:"0.5" - t:"0.5"
+  s:"1.0" - t:"1.0"
+  s:"1.1" - t:"1.1"
+  s:"1.4" - t:"1.4"
+  s:"1.6" - t:"1.6"
+  s:"1.8" - t:"1.8"
+  s:"3.0" - t:"3.0"
+  s:"3.3" - t:"3.3"
+  s:"3.5" - t:"3.5"
+  s:"4.0" - t:"4.0"
+  s:"4.1" - t:"4.1"
+  s:"4.2" - t:"4.2"
+  s:"4.3" - t:"4.3"
+  s:"4.4" - t:"4.4"
+  s:"4.5" - t:"4.5"
+  s:"4.6" - t:"4.6"
+  s:"5.0" - t:"5.0"
 }
 
 conceptmap "PublicationStatus" {
   prefix s = "http://hl7.org/fhir/publication-status"
   prefix t = "http://hl7.org/fhir/4.3/publication-status"
 
-  s:draft - t:draft
-  s:active - t:active
-  s:retired - t:retired
-  s:unknown - t:unknown
+  s:"draft" - t:"draft"
+  s:"active" - t:"active"
+  s:"retired" - t:"retired"
+  s:"unknown" - t:"unknown"
 }
 
 conceptmap "StructureDefinitionKind" {
   prefix s = "http://hl7.org/fhir/structure-definition-kind"
   prefix t = "http://hl7.org/fhir/4.3/structure-definition-kind"
 
-  s:primitive-type - t:primitive-type
-  s:complex-type - t:complex-type
-  s:resource - t:resource
-  s:logical - t:logical
+  s:"primitive-type" - t:"primitive-type"
+  s:"complex-type" - t:"complex-type"
+  s:"resource" - t:"resource"
+  s:"logical" - t:"logical"
 }
 
 conceptmap "TypeDerivationRule" {
   prefix s = "http://hl7.org/fhir/type-derivation-rule"
   prefix t = "http://hl7.org/fhir/4.3/type-derivation-rule"
 
-  s:specialization - t:specialization
-  s:constraint - t:constraint
+  s:"specialization" - t:"specialization"
+  s:"constraint" - t:"constraint"
 }
+
+uses "http://hl7.org/fhir/StructureDefinition/StructureDefinition" alias StructureDefinitionR5 as source
+uses "http://hl7.org/fhir/4.3/StructureDefinition/StructureDefinition" alias StructureDefinitionR4B as target
+
+imports "http://hl7.org/fhir/StructureMap/*5to4B"
 
 group StructureDefinition(source src : StructureDefinitionR5, target tgt : StructureDefinitionR4B) extends DomainResource <<type+>> {
   src.url -> tgt.url;
@@ -81,7 +81,7 @@ group StructureDefinition(source src : StructureDefinitionR5, target tgt : Struc
   src.versionAlgorithm : Coding -> tgt.versionAlgorithm;
   src.name -> tgt.name;
   src.title -> tgt.title;
-  src.status as v -> tgt.status = translate(v, '#PublicationStatus', 'c');
+  src.status as v -> tgt.status = translate(v, '#PublicationStatus', 'code');
   src.experimental -> tgt.experimental;
   src.date -> tgt.date;
   src.publisher -> tgt.publisher;
@@ -93,15 +93,15 @@ group StructureDefinition(source src : StructureDefinitionR5, target tgt : Struc
   src.copyright -> tgt.copyright;
   src.copyrightLabel -> tgt.copyrightLabel;
   src.keyword -> tgt.keyword;
-  src.fhirVersion as v -> tgt.fhirVersion = translate(v, '#FHIRVersion', 'c');
+  src.fhirVersion as v -> tgt.fhirVersion = translate(v, '#FHIRVersion', 'code');
   src.mapping as s -> tgt.mapping as t then StructureDefinitionMapping(s,t);
-  src.kind as v -> tgt.kind = translate(v, '#StructureDefinitionKind', 'c');
+  src.kind as v -> tgt.kind = translate(v, '#StructureDefinitionKind', 'code');
   src.abstract -> tgt.abstract;
   src.context as s -> tgt.context as t then StructureDefinitionContext(s,t);
   src.contextInvariant -> tgt.contextInvariant;
   src.type -> tgt.type;
   src.baseDefinition -> tgt.baseDefinition;
-  src.derivation as v -> tgt.derivation = translate(v, '#TypeDerivationRule', 'c');
+  src.derivation as v -> tgt.derivation = translate(v, '#TypeDerivationRule', 'code');
   src.snapshot as s -> tgt.snapshot as t then StructureDefinitionSnapshot(s,t);
   src.differential as s -> tgt.differential as t then StructureDefinitionDifferential(s,t);
 }
@@ -114,7 +114,7 @@ group StructureDefinitionMapping(source src, target tgt) extends BackboneElement
 }
 
 group StructureDefinitionContext(source src, target tgt) extends BackboneElement {
-  src.type as v -> tgt.type = translate(v, '#ExtensionContextType', 'c');
+  src.type as v -> tgt.type = translate(v, '#ExtensionContextType', 'code');
   src.expression -> tgt.expression;
 }
 

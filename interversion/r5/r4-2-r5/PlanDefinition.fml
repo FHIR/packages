@@ -2,110 +2,110 @@
 /// name = 'PlanDefinition4to5'
 /// title = 'FML Conversion for PlanDefinition: R4 to R5'
 
-uses "http://hl7.org/fhir/4.0/StructureDefinition/PlanDefinition" alias PlanDefinitionR4 as source
-uses "http://hl7.org/fhir/StructureDefinition/PlanDefinition" alias PlanDefinitionR5 as target
-
-imports "http://hl7.org/fhir/StructureMap/*4to5"
-
 conceptmap "ActionCardinalityBehavior" {
   prefix s = "http://hl7.org/fhir/4.0/action-cardinality-behavior"
   prefix t = "http://hl7.org/fhir/action-cardinality-behavior"
 
-  s:single - t:single
-  s:multiple - t:multiple
+  s:"single" - t:"single"
+  s:"multiple" - t:"multiple"
 }
 
 conceptmap "ActionConditionKind" {
   prefix s = "http://hl7.org/fhir/4.0/action-condition-kind"
   prefix t = "http://hl7.org/fhir/action-condition-kind"
 
-  s:applicability - t:applicability
-  s:start - t:start
-  s:stop - t:stop
+  s:"applicability" - t:"applicability"
+  s:"start" - t:"start"
+  s:"stop" - t:"stop"
 }
 
 conceptmap "ActionGroupingBehavior" {
   prefix s = "http://hl7.org/fhir/4.0/action-grouping-behavior"
   prefix t = "http://hl7.org/fhir/action-grouping-behavior"
 
-  s:visual-group - t:visual-group
-  s:logical-group - t:logical-group
-  s:sentence-group - t:sentence-group
+  s:"visual-group" - t:"visual-group"
+  s:"logical-group" - t:"logical-group"
+  s:"sentence-group" - t:"sentence-group"
 }
 
 conceptmap "ActionPrecheckBehavior" {
   prefix s = "http://hl7.org/fhir/4.0/action-precheck-behavior"
   prefix t = "http://hl7.org/fhir/action-precheck-behavior"
 
-  s:yes - t:yes
-  s:no - t:no
+  s:"yes" - t:"yes"
+  s:"no" - t:"no"
 }
 
 conceptmap "ActionRelationshipType" {
   prefix s = "http://hl7.org/fhir/4.0/action-relationship-type"
   prefix t = "http://hl7.org/fhir/action-relationship-type"
 
-  s:before - t:before
-  s:concurrent - t:concurrent
-  s:after - t:after
+  s:"before" - t:"before"
+  s:"concurrent" - t:"concurrent"
+  s:"after" - t:"after"
 }
 
 conceptmap "ActionRequiredBehavior" {
   prefix s = "http://hl7.org/fhir/4.0/action-required-behavior"
   prefix t = "http://hl7.org/fhir/action-required-behavior"
 
-  s:must - t:must
-  s:could - t:could
-  s:must-unless-documented - t:must-unless-documented
+  s:"must" - t:"must"
+  s:"could" - t:"could"
+  s:"must-unless-documented" - t:"must-unless-documented"
 }
 
 conceptmap "ActionSelectionBehavior" {
   prefix s = "http://hl7.org/fhir/4.0/action-selection-behavior"
   prefix t = "http://hl7.org/fhir/action-selection-behavior"
 
-  s:any - t:any
-  s:all - t:all
-  s:all-or-none - t:all-or-none
-  s:exactly-one - t:exactly-one
-  s:at-most-one - t:at-most-one
-  s:one-or-more - t:one-or-more
+  s:"any" - t:"any"
+  s:"all" - t:"all"
+  s:"all-or-none" - t:"all-or-none"
+  s:"exactly-one" - t:"exactly-one"
+  s:"at-most-one" - t:"at-most-one"
+  s:"one-or-more" - t:"one-or-more"
 }
 
 conceptmap "ActivityParticipantType" {
   prefix s = "http://hl7.org/fhir/4.0/action-participant-type"
   prefix t = "http://hl7.org/fhir/action-participant-type"
 
-  s:careteam - t:careteam
-  s:device - t:device
-  s:group - t:group
-  s:healthcareservice - t:healthcareservice
-  s:location - t:location
-  s:organization - t:organization
-  s:patient - t:patient
-  s:practitioner - t:practitioner
-  s:practitionerrole - t:practitionerrole
-  s:relatedperson - t:relatedperson
+  s:"careteam" - t:"careteam"
+  s:"device" - t:"device"
+  s:"group" - t:"group"
+  s:"healthcareservice" - t:"healthcareservice"
+  s:"location" - t:"location"
+  s:"organization" - t:"organization"
+  s:"patient" - t:"patient"
+  s:"practitioner" - t:"practitioner"
+  s:"practitionerrole" - t:"practitionerrole"
+  s:"relatedperson" - t:"relatedperson"
 }
 
 conceptmap "PublicationStatus" {
   prefix s = "http://hl7.org/fhir/4.0/publication-status"
   prefix t = "http://hl7.org/fhir/publication-status"
 
-  s:draft - t:draft
-  s:active - t:active
-  s:retired - t:retired
-  s:unknown - t:unknown
+  s:"draft" - t:"draft"
+  s:"active" - t:"active"
+  s:"retired" - t:"retired"
+  s:"unknown" - t:"unknown"
 }
 
 conceptmap "RequestPriority" {
   prefix s = "http://hl7.org/fhir/4.0/request-priority"
   prefix t = "http://hl7.org/fhir/request-priority"
 
-  s:routine - t:routine
-  s:urgent - t:urgent
-  s:asap - t:asap
-  s:stat - t:stat
+  s:"routine" - t:"routine"
+  s:"urgent" - t:"urgent"
+  s:"asap" - t:"asap"
+  s:"stat" - t:"stat"
 }
+
+uses "http://hl7.org/fhir/4.0/StructureDefinition/PlanDefinition" alias PlanDefinitionR4 as source
+uses "http://hl7.org/fhir/StructureDefinition/PlanDefinition" alias PlanDefinitionR5 as target
+
+imports "http://hl7.org/fhir/StructureMap/*4to5"
 
 group PlanDefinition(source src : PlanDefinitionR4, target tgt : PlanDefinitionR5) extends DomainResource <<type+>> {
   src.url -> tgt.url;
@@ -117,7 +117,7 @@ group PlanDefinition(source src : PlanDefinitionR4, target tgt : PlanDefinitionR
   src.title -> tgt.title;
   src.subtitle -> tgt.subtitle;
   src.type -> tgt.type;
-  src.status as v -> tgt.status = translate(v, '#PublicationStatus', 'c');
+  src.status as v -> tgt.status = translate(v, '#PublicationStatus', 'code');
   src.experimental -> tgt.experimental;
   src.subject : CodeableConcept -> tgt.subject;
   src.subject : Reference -> tgt.subject;
@@ -178,7 +178,7 @@ group PlanDefinitionActor(source src, target tgt) extends BackboneElement {
 }
 
 group PlanDefinitionActorOption(source src, target tgt) extends BackboneElement {
-  src.type as v -> tgt.type = translate(v, '#ActivityParticipantType', 'c');
+  src.type as v -> tgt.type = translate(v, '#ActivityParticipantType', 'code');
   src.typeCanonical -> tgt.typeCanonical;
   src.typeReference -> tgt.typeReference;
   src.role -> tgt.role;
@@ -190,7 +190,7 @@ group PlanDefinitionAction(source src, target tgt) extends BackboneElement {
   src.title -> tgt.title;
   src.description -> tgt.description;
   src.textEquivalent -> tgt.textEquivalent;
-  src.priority as v -> tgt.priority = translate(v, '#RequestPriority', 'c');
+  src.priority as v -> tgt.priority = translate(v, '#RequestPriority', 'code');
   src.code -> tgt.code;
   src.reason -> tgt.reason;
   src.documentation -> tgt.documentation;
@@ -210,11 +210,11 @@ group PlanDefinitionAction(source src, target tgt) extends BackboneElement {
   src.location -> tgt.location;
   src.participant as s -> tgt.participant as t then PlanDefinitionActionParticipant(s,t);
   src.type -> tgt.type;
-  src.groupingBehavior as v -> tgt.groupingBehavior = translate(v, '#ActionGroupingBehavior', 'c');
-  src.selectionBehavior as v -> tgt.selectionBehavior = translate(v, '#ActionSelectionBehavior', 'c');
-  src.requiredBehavior as v -> tgt.requiredBehavior = translate(v, '#ActionRequiredBehavior', 'c');
-  src.precheckBehavior as v -> tgt.precheckBehavior = translate(v, '#ActionPrecheckBehavior', 'c');
-  src.cardinalityBehavior as v -> tgt.cardinalityBehavior = translate(v, '#ActionCardinalityBehavior', 'c');
+  src.groupingBehavior as v -> tgt.groupingBehavior = translate(v, '#ActionGroupingBehavior', 'code');
+  src.selectionBehavior as v -> tgt.selectionBehavior = translate(v, '#ActionSelectionBehavior', 'code');
+  src.requiredBehavior as v -> tgt.requiredBehavior = translate(v, '#ActionRequiredBehavior', 'code');
+  src.precheckBehavior as v -> tgt.precheckBehavior = translate(v, '#ActionPrecheckBehavior', 'code');
+  src.cardinalityBehavior as v -> tgt.cardinalityBehavior = translate(v, '#ActionCardinalityBehavior', 'code');
   src.definition : canonical -> tgt.definition;
   src.definition : uri -> tgt.definition;
   src.transform -> tgt.transform;
@@ -222,7 +222,7 @@ group PlanDefinitionAction(source src, target tgt) extends BackboneElement {
 }
 
 group PlanDefinitionActionCondition(source src, target tgt) extends BackboneElement {
-  src.kind as v -> tgt.kind = translate(v, '#ActionConditionKind', 'c');
+  src.kind as v -> tgt.kind = translate(v, '#ActionConditionKind', 'code');
   src.expression -> tgt.expression;
 }
 
@@ -240,15 +240,15 @@ group PlanDefinitionActionOutput(source src, target tgt) extends BackboneElement
 
 group PlanDefinitionActionRelatedAction(source src, target tgt) extends BackboneElement {
   src.targetId -> tgt.targetId;
-  src.relationship as v -> tgt.relationship = translate(v, '#ActionRelationshipType', 'c');
-  src.endRelationship as v -> tgt.endRelationship = translate(v, '#ActionRelationshipType', 'c');
+  src.relationship as v -> tgt.relationship = translate(v, '#ActionRelationshipType', 'code');
+  src.endRelationship as v -> tgt.endRelationship = translate(v, '#ActionRelationshipType', 'code');
   src.offset : Duration -> tgt.offset;
   src.offset : Range -> tgt.offset;
 }
 
 group PlanDefinitionActionParticipant(source src, target tgt) extends BackboneElement {
   src.actorId -> tgt.actorId;
-  src.type as v -> tgt.type = translate(v, '#ActivityParticipantType', 'c');
+  src.type as v -> tgt.type = translate(v, '#ActivityParticipantType', 'code');
   src.typeCanonical -> tgt.typeCanonical;
   src.typeReference -> tgt.typeReference;
   src.role -> tgt.role;

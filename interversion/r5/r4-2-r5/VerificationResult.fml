@@ -2,28 +2,28 @@
 /// name = 'VerificationResult4to5'
 /// title = 'FML Conversion for VerificationResult: R4 to R5'
 
+conceptmap "status" {
+  prefix s = "http://hl7.org/fhir/4.0/CodeSystem/verificationresult-status"
+  prefix t = "http://hl7.org/fhir/CodeSystem/verificationresult-status"
+
+  s:"attested" - t:"attested"
+  s:"validated" - t:"validated"
+  s:"in-process" - t:"in-process"
+  s:"req-revalid" - t:"req-revalid"
+  s:"val-fail" - t:"val-fail"
+  s:"reval-fail" - t:"reval-fail"
+}
+
 uses "http://hl7.org/fhir/4.0/StructureDefinition/VerificationResult" alias VerificationResultR4 as source
 uses "http://hl7.org/fhir/StructureDefinition/VerificationResult" alias VerificationResultR5 as target
 
 imports "http://hl7.org/fhir/StructureMap/*4to5"
 
-conceptmap "status" {
-  prefix s = "http://hl7.org/fhir/4.0/CodeSystem/verificationresult-status"
-  prefix t = "http://hl7.org/fhir/CodeSystem/verificationresult-status"
-
-  s:attested - t:attested
-  s:validated - t:validated
-  s:in-process - t:in-process
-  s:req-revalid - t:req-revalid
-  s:val-fail - t:val-fail
-  s:reval-fail - t:reval-fail
-}
-
 group VerificationResult(source src : VerificationResultR4, target tgt : VerificationResultR5) extends DomainResource <<type+>> {
   src.target -> tgt.target;
   src.targetLocation -> tgt.targetLocation;
   src.need -> tgt.need;
-  src.status as v -> tgt.status = translate(v, '#status', 'c');
+  src.status as v -> tgt.status = translate(v, '#status', 'code');
   src.statusDate -> tgt.statusDate;
   src.validationType -> tgt.validationType;
   src.validationProcess -> tgt.validationProcess;

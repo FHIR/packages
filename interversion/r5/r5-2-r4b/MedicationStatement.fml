@@ -2,24 +2,24 @@
 /// name = 'MedicationStatement5to4B'
 /// title = 'FML Conversion for MedicationStatement: R5 to R4B'
 
+conceptmap "MedicationStatementStatus" {
+  prefix s = "http://hl7.org/fhir/CodeSystem/medication-statement-status"
+  prefix t = "http://hl7.org/fhir/4.3/CodeSystem/medication-statement-status"
+
+  s:"recorded" - t:"recorded"
+  s:"entered-in-error" - t:"entered-in-error"
+  s:"draft" - t:"draft"
+}
+
 uses "http://hl7.org/fhir/StructureDefinition/MedicationStatement" alias MedicationStatementR5 as source
 uses "http://hl7.org/fhir/4.3/StructureDefinition/MedicationStatement" alias MedicationStatementR4B as target
 
 imports "http://hl7.org/fhir/StructureMap/*5to4B"
 
-conceptmap "MedicationStatementStatus" {
-  prefix s = "http://hl7.org/fhir/CodeSystem/medication-statement-status"
-  prefix t = "http://hl7.org/fhir/4.3/CodeSystem/medication-statement-status"
-
-  s:recorded - t:recorded
-  s:entered-in-error - t:entered-in-error
-  s:draft - t:draft
-}
-
 group MedicationStatement(source src : MedicationStatementR5, target tgt : MedicationStatementR4B) extends DomainResource <<type+>> {
   src.identifier -> tgt.identifier;
   src.partOf -> tgt.partOf;
-  src.status as v -> tgt.status = translate(v, '#MedicationStatementStatus', 'c');
+  src.status as v -> tgt.status = translate(v, '#MedicationStatementStatus', 'code');
   src.category -> tgt.category;
   src.medication -> tgt.medication;
   src.subject -> tgt.subject;

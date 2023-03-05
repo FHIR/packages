@@ -2,26 +2,26 @@
 /// name = 'FamilyMemberHistory5to4'
 /// title = 'FML Conversion for FamilyMemberHistory: R5 to R4'
 
+conceptmap "FamilyHistoryStatus" {
+  prefix s = "http://hl7.org/fhir/history-status"
+  prefix t = "http://hl7.org/fhir/4.0/history-status"
+
+  s:"partial" - t:"partial"
+  s:"completed" - t:"completed"
+  s:"entered-in-error" - t:"entered-in-error"
+  s:"health-unknown" - t:"health-unknown"
+}
+
 uses "http://hl7.org/fhir/StructureDefinition/FamilyMemberHistory" alias FamilyMemberHistoryR5 as source
 uses "http://hl7.org/fhir/4.0/StructureDefinition/FamilyMemberHistory" alias FamilyMemberHistoryR4 as target
 
 imports "http://hl7.org/fhir/StructureMap/*5to4"
 
-conceptmap "FamilyHistoryStatus" {
-  prefix s = "http://hl7.org/fhir/history-status"
-  prefix t = "http://hl7.org/fhir/4.0/history-status"
-
-  s:partial - t:partial
-  s:completed - t:completed
-  s:entered-in-error - t:entered-in-error
-  s:health-unknown - t:health-unknown
-}
-
 group FamilyMemberHistory(source src : FamilyMemberHistoryR5, target tgt : FamilyMemberHistoryR4) extends DomainResource <<type+>> {
   src.identifier -> tgt.identifier;
   src.instantiatesCanonical -> tgt.instantiatesCanonical;
   src.instantiatesUri -> tgt.instantiatesUri;
-  src.status as v -> tgt.status = translate(v, '#FamilyHistoryStatus', 'c');
+  src.status as v -> tgt.status = translate(v, '#FamilyHistoryStatus', 'code');
   src.dataAbsentReason -> tgt.dataAbsentReason;
   src.patient -> tgt.patient;
   src.date -> tgt.date;

@@ -2,20 +2,20 @@
 /// name = 'ResearchStudy4Bto5'
 /// title = 'FML Conversion for ResearchStudy: R4B to R5'
 
-uses "http://hl7.org/fhir/4.3/StructureDefinition/ResearchStudy" alias ResearchStudyR4B as source
-uses "http://hl7.org/fhir/StructureDefinition/ResearchStudy" alias ResearchStudyR5 as target
-
-imports "http://hl7.org/fhir/StructureMap/*4Bto5"
-
 conceptmap "PublicationStatus" {
   prefix s = "http://hl7.org/fhir/4.3/publication-status"
   prefix t = "http://hl7.org/fhir/publication-status"
 
-  s:draft - t:draft
-  s:active - t:active
-  s:retired - t:retired
-  s:unknown - t:unknown
+  s:"draft" - t:"draft"
+  s:"active" - t:"active"
+  s:"retired" - t:"retired"
+  s:"unknown" - t:"unknown"
 }
+
+uses "http://hl7.org/fhir/4.3/StructureDefinition/ResearchStudy" alias ResearchStudyR4B as source
+uses "http://hl7.org/fhir/StructureDefinition/ResearchStudy" alias ResearchStudyR5 as target
+
+imports "http://hl7.org/fhir/StructureMap/*4Bto5"
 
 group ResearchStudy(source src : ResearchStudyR4B, target tgt : ResearchStudyR5) extends DomainResource <<type+>> {
   src.url -> tgt.url;
@@ -28,7 +28,7 @@ group ResearchStudy(source src : ResearchStudyR4B, target tgt : ResearchStudyR5)
   src.partOf -> tgt.partOf;
   src.relatedArtifact -> tgt.relatedArtifact;
   src.date -> tgt.date;
-  src.status as v -> tgt.status = translate(v, '#PublicationStatus', 'c');
+  src.status as v -> tgt.status = translate(v, '#PublicationStatus', 'code');
   src.primaryPurposeType -> tgt.primaryPurposeType;
   src.phase -> tgt.phase;
   src.studyDesign -> tgt.studyDesign;

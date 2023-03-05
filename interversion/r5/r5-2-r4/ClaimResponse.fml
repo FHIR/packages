@@ -2,53 +2,53 @@
 /// name = 'ClaimResponse5to4'
 /// title = 'FML Conversion for ClaimResponse: R5 to R4'
 
-uses "http://hl7.org/fhir/StructureDefinition/ClaimResponse" alias ClaimResponseR5 as source
-uses "http://hl7.org/fhir/4.0/StructureDefinition/ClaimResponse" alias ClaimResponseR4 as target
-
-imports "http://hl7.org/fhir/StructureMap/*5to4"
-
 conceptmap "ClaimResponseStatus" {
   prefix s = "http://hl7.org/fhir/fm-status"
   prefix t = "http://hl7.org/fhir/4.0/fm-status"
 
-  s:active - t:active
-  s:cancelled - t:cancelled
-  s:draft - t:draft
-  s:entered-in-error - t:entered-in-error
+  s:"active" - t:"active"
+  s:"cancelled" - t:"cancelled"
+  s:"draft" - t:"draft"
+  s:"entered-in-error" - t:"entered-in-error"
 }
 
 conceptmap "RemittanceOutcome" {
   prefix s = "http://hl7.org/fhir/claim-outcome"
   prefix t = "http://hl7.org/fhir/4.0/claim-outcome"
 
-  s:queued - t:queued
-  s:complete - t:complete
-  s:error - t:error
-  s:partial - t:partial
+  s:"queued" - t:"queued"
+  s:"complete" - t:"complete"
+  s:"error" - t:"error"
+  s:"partial" - t:"partial"
 }
 
 conceptmap "Use" {
   prefix s = "http://hl7.org/fhir/claim-use"
   prefix t = "http://hl7.org/fhir/4.0/claim-use"
 
-  s:claim - t:claim
-  s:preauthorization - t:preauthorization
-  s:predetermination - t:predetermination
+  s:"claim" - t:"claim"
+  s:"preauthorization" - t:"preauthorization"
+  s:"predetermination" - t:"predetermination"
 }
+
+uses "http://hl7.org/fhir/StructureDefinition/ClaimResponse" alias ClaimResponseR5 as source
+uses "http://hl7.org/fhir/4.0/StructureDefinition/ClaimResponse" alias ClaimResponseR4 as target
+
+imports "http://hl7.org/fhir/StructureMap/*5to4"
 
 group ClaimResponse(source src : ClaimResponseR5, target tgt : ClaimResponseR4) extends DomainResource <<type+>> {
   src.identifier -> tgt.identifier;
   src.traceNumber -> tgt.traceNumber;
-  src.status as v -> tgt.status = translate(v, '#ClaimResponseStatus', 'c');
+  src.status as v -> tgt.status = translate(v, '#ClaimResponseStatus', 'code');
   src.type -> tgt.type;
   src.subType -> tgt.subType;
-  src.use as v -> tgt.use = translate(v, '#Use', 'c');
+  src.use as v -> tgt.use = translate(v, '#Use', 'code');
   src.patient -> tgt.patient;
   src.created -> tgt.created;
   src.insurer -> tgt.insurer;
   src.requestor -> tgt.requestor;
   src.request -> tgt.request;
-  src.outcome as v -> tgt.outcome = translate(v, '#RemittanceOutcome', 'c');
+  src.outcome as v -> tgt.outcome = translate(v, '#RemittanceOutcome', 'code');
   src.decision -> tgt.decision;
   src.disposition -> tgt.disposition;
   src.preAuthRef -> tgt.preAuthRef;

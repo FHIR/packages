@@ -2,25 +2,25 @@
 /// name = 'HumanName5to4B'
 /// title = 'FML Conversion for HumanName: R5 to R4B'
 
+conceptmap "NameUse" {
+  prefix s = "http://hl7.org/fhir/name-use"
+  prefix t = "http://hl7.org/fhir/4.3/name-use"
+
+  s:"usual" - t:"usual"
+  s:"official" - t:"official"
+  s:"temp" - t:"temp"
+  s:"nickname" - t:"nickname"
+  s:"anonymous" - t:"anonymous"
+  s:"old" - t:"old"
+}
+
 uses "http://hl7.org/fhir/StructureDefinition/HumanName" alias HumanNameR5 as source
 uses "http://hl7.org/fhir/4.3/StructureDefinition/HumanName" alias HumanNameR4B as target
 
 imports "http://hl7.org/fhir/StructureMap/*5to4B"
 
-conceptmap "NameUse" {
-  prefix s = "http://hl7.org/fhir/name-use"
-  prefix t = "http://hl7.org/fhir/4.3/name-use"
-
-  s:usual - t:usual
-  s:official - t:official
-  s:temp - t:temp
-  s:nickname - t:nickname
-  s:anonymous - t:anonymous
-  s:old - t:old
-}
-
 group HumanName(source src : HumanNameR5, target tgt : HumanNameR4B) extends DataType <<type+>> {
-  src.use as v -> tgt.use = translate(v, '#NameUse', 'c');
+  src.use as v -> tgt.use = translate(v, '#NameUse', 'code');
   src.text -> tgt.text;
   src.family -> tgt.family;
   src.given -> tgt.given;

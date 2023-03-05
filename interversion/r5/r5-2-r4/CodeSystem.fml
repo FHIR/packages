@@ -2,71 +2,71 @@
 /// name = 'CodeSystem5to4'
 /// title = 'FML Conversion for CodeSystem: R5 to R4'
 
-uses "http://hl7.org/fhir/StructureDefinition/CodeSystem" alias CodeSystemR5 as source
-uses "http://hl7.org/fhir/4.0/StructureDefinition/CodeSystem" alias CodeSystemR4 as target
-
-imports "http://hl7.org/fhir/StructureMap/*5to4"
-
 conceptmap "CodeSystemContentMode" {
   prefix s = "http://hl7.org/fhir/codesystem-content-mode"
   prefix t = "http://hl7.org/fhir/4.0/codesystem-content-mode"
 
-  s:not-present - t:not-present
-  s:example - t:example
-  s:fragment - t:fragment
-  s:complete - t:complete
-  s:supplement - t:supplement
+  s:"not-present" - t:"not-present"
+  s:"example" - t:"example"
+  s:"fragment" - t:"fragment"
+  s:"complete" - t:"complete"
+  s:"supplement" - t:"supplement"
 }
 
 conceptmap "CodeSystemHierarchyMeaning" {
   prefix s = "http://hl7.org/fhir/codesystem-hierarchy-meaning"
   prefix t = "http://hl7.org/fhir/4.0/codesystem-hierarchy-meaning"
 
-  s:grouped-by - t:grouped-by
-  s:is-a - t:is-a
-  s:part-of - t:part-of
-  s:classified-with - t:classified-with
+  s:"grouped-by" - t:"grouped-by"
+  s:"is-a" - t:"is-a"
+  s:"part-of" - t:"part-of"
+  s:"classified-with" - t:"classified-with"
 }
 
 conceptmap "FilterOperator" {
   prefix s = "http://hl7.org/fhir/filter-operator"
   prefix t = "http://hl7.org/fhir/4.0/filter-operator"
 
-  s:= - t:=
-  s:is-a - t:is-a
-  s:descendent-of - t:descendent-of
-  s:is-not-a - t:is-not-a
-  s:regex - t:regex
-  s:in - t:in
-  s:not-in - t:not-in
-  s:generalizes - t:generalizes
-  s:child-of - t:child-of
-  s:descendent-leaf - t:descendent-leaf
-  s:exists - t:exists
+  s:"=" - t:"="
+  s:"is-a" - t:"is-a"
+  s:"descendent-of" - t:"descendent-of"
+  s:"is-not-a" - t:"is-not-a"
+  s:"regex" - t:"regex"
+  s:"in" - t:"in"
+  s:"not-in" - t:"not-in"
+  s:"generalizes" - t:"generalizes"
+  s:"child-of" - t:"child-of"
+  s:"descendent-leaf" - t:"descendent-leaf"
+  s:"exists" - t:"exists"
 }
 
 conceptmap "PropertyType" {
   prefix s = "http://hl7.org/fhir/concept-property-type"
   prefix t = "http://hl7.org/fhir/4.0/concept-property-type"
 
-  s:code - t:code
-  s:Coding - t:Coding
-  s:string - t:string
-  s:integer - t:integer
-  s:boolean - t:boolean
-  s:dateTime - t:dateTime
-  s:decimal - t:decimal
+  s:"code" - t:"code"
+  s:"Coding" - t:"Coding"
+  s:"string" - t:"string"
+  s:"integer" - t:"integer"
+  s:"boolean" - t:"boolean"
+  s:"dateTime" - t:"dateTime"
+  s:"decimal" - t:"decimal"
 }
 
 conceptmap "PublicationStatus" {
   prefix s = "http://hl7.org/fhir/publication-status"
   prefix t = "http://hl7.org/fhir/4.0/publication-status"
 
-  s:draft - t:draft
-  s:active - t:active
-  s:retired - t:retired
-  s:unknown - t:unknown
+  s:"draft" - t:"draft"
+  s:"active" - t:"active"
+  s:"retired" - t:"retired"
+  s:"unknown" - t:"unknown"
 }
+
+uses "http://hl7.org/fhir/StructureDefinition/CodeSystem" alias CodeSystemR5 as source
+uses "http://hl7.org/fhir/4.0/StructureDefinition/CodeSystem" alias CodeSystemR4 as target
+
+imports "http://hl7.org/fhir/StructureMap/*5to4"
 
 group CodeSystem(source src : CodeSystemR5, target tgt : CodeSystemR4) extends DomainResource <<type+>> {
   src.url -> tgt.url;
@@ -76,7 +76,7 @@ group CodeSystem(source src : CodeSystemR5, target tgt : CodeSystemR4) extends D
   src.versionAlgorithm : Coding -> tgt.versionAlgorithm;
   src.name -> tgt.name;
   src.title -> tgt.title;
-  src.status as v -> tgt.status = translate(v, '#PublicationStatus', 'c');
+  src.status as v -> tgt.status = translate(v, '#PublicationStatus', 'code');
   src.experimental -> tgt.experimental;
   src.date -> tgt.date;
   src.publisher -> tgt.publisher;
@@ -98,10 +98,10 @@ group CodeSystem(source src : CodeSystemR5, target tgt : CodeSystemR4) extends D
   src.relatedArtifact -> tgt.relatedArtifact;
   src.caseSensitive -> tgt.caseSensitive;
   src.valueSet -> tgt.valueSet;
-  src.hierarchyMeaning as v -> tgt.hierarchyMeaning = translate(v, '#CodeSystemHierarchyMeaning', 'c');
+  src.hierarchyMeaning as v -> tgt.hierarchyMeaning = translate(v, '#CodeSystemHierarchyMeaning', 'code');
   src.compositional -> tgt.compositional;
   src.versionNeeded -> tgt.versionNeeded;
-  src.content as v -> tgt.content = translate(v, '#CodeSystemContentMode', 'c');
+  src.content as v -> tgt.content = translate(v, '#CodeSystemContentMode', 'code');
   src.supplements -> tgt.supplements;
   src.count -> tgt.count;
   src.filter as s -> tgt.filter as t then CodeSystemFilter(s,t);
@@ -112,7 +112,7 @@ group CodeSystem(source src : CodeSystemR5, target tgt : CodeSystemR4) extends D
 group CodeSystemFilter(source src, target tgt) extends BackboneElement {
   src.code -> tgt.code;
   src.description -> tgt.description;
-  src.operator as v -> tgt.operator = translate(v, '#FilterOperator', 'c');
+  src.operator as v -> tgt.operator = translate(v, '#FilterOperator', 'code');
   src.value -> tgt.value;
 }
 
@@ -120,7 +120,7 @@ group CodeSystemProperty(source src, target tgt) extends BackboneElement {
   src.code -> tgt.code;
   src.uri -> tgt.uri;
   src.description -> tgt.description;
-  src.type as v -> tgt.type = translate(v, '#PropertyType', 'c');
+  src.type as v -> tgt.type = translate(v, '#PropertyType', 'code');
 }
 
 group CodeSystemConcept(source src, target tgt) extends BackboneElement {

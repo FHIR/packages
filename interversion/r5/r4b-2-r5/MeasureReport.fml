@@ -2,43 +2,43 @@
 /// name = 'MeasureReport4Bto5'
 /// title = 'FML Conversion for MeasureReport: R4B to R5'
 
-uses "http://hl7.org/fhir/4.3/StructureDefinition/MeasureReport" alias MeasureReportR4B as source
-uses "http://hl7.org/fhir/StructureDefinition/MeasureReport" alias MeasureReportR5 as target
-
-imports "http://hl7.org/fhir/StructureMap/*4Bto5"
-
 conceptmap "MeasureReportStatus" {
   prefix s = "http://hl7.org/fhir/4.3/measure-report-status"
   prefix t = "http://hl7.org/fhir/measure-report-status"
 
-  s:complete - t:complete
-  s:pending - t:pending
-  s:error - t:error
+  s:"complete" - t:"complete"
+  s:"pending" - t:"pending"
+  s:"error" - t:"error"
 }
 
 conceptmap "MeasureReportType" {
   prefix s = "http://hl7.org/fhir/4.3/measure-report-type"
   prefix t = "http://hl7.org/fhir/measure-report-type"
 
-  s:individual - t:individual
-  s:subject-list - t:subject-list
-  s:summary - t:summary
-  s:data-exchange - t:data-exchange
+  s:"individual" - t:"individual"
+  s:"subject-list" - t:"subject-list"
+  s:"summary" - t:"summary"
+  s:"data-exchange" - t:"data-exchange"
 }
 
 conceptmap "SubmitDataUpdateType" {
   prefix s = "http://hl7.org/fhir/4.3/CodeSystem/submit-data-update-type"
   prefix t = "http://hl7.org/fhir/CodeSystem/submit-data-update-type"
 
-  s:incremental - t:incremental
-  s:snapshot - t:snapshot
+  s:"incremental" - t:"incremental"
+  s:"snapshot" - t:"snapshot"
 }
+
+uses "http://hl7.org/fhir/4.3/StructureDefinition/MeasureReport" alias MeasureReportR4B as source
+uses "http://hl7.org/fhir/StructureDefinition/MeasureReport" alias MeasureReportR5 as target
+
+imports "http://hl7.org/fhir/StructureMap/*4Bto5"
 
 group MeasureReport(source src : MeasureReportR4B, target tgt : MeasureReportR5) extends DomainResource <<type+>> {
   src.identifier -> tgt.identifier;
-  src.status as v -> tgt.status = translate(v, '#MeasureReportStatus', 'c');
-  src.type as v -> tgt.type = translate(v, '#MeasureReportType', 'c');
-  src.dataUpdateType as v -> tgt.dataUpdateType = translate(v, '#SubmitDataUpdateType', 'c');
+  src.status as v -> tgt.status = translate(v, '#MeasureReportStatus', 'code');
+  src.type as v -> tgt.type = translate(v, '#MeasureReportType', 'code');
+  src.dataUpdateType as v -> tgt.dataUpdateType = translate(v, '#SubmitDataUpdateType', 'code');
   src.measure -> tgt.measure;
   src.subject -> tgt.subject;
   src.date -> tgt.date;

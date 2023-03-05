@@ -2,37 +2,37 @@
 /// name = 'Claim4Bto5'
 /// title = 'FML Conversion for Claim: R4B to R5'
 
-uses "http://hl7.org/fhir/4.3/StructureDefinition/Claim" alias ClaimR4B as source
-uses "http://hl7.org/fhir/StructureDefinition/Claim" alias ClaimR5 as target
-
-imports "http://hl7.org/fhir/StructureMap/*4Bto5"
-
 conceptmap "ClaimStatus" {
   prefix s = "http://hl7.org/fhir/4.3/fm-status"
   prefix t = "http://hl7.org/fhir/fm-status"
 
-  s:active - t:active
-  s:cancelled - t:cancelled
-  s:draft - t:draft
-  s:entered-in-error - t:entered-in-error
+  s:"active" - t:"active"
+  s:"cancelled" - t:"cancelled"
+  s:"draft" - t:"draft"
+  s:"entered-in-error" - t:"entered-in-error"
 }
 
 conceptmap "Use" {
   prefix s = "http://hl7.org/fhir/4.3/claim-use"
   prefix t = "http://hl7.org/fhir/claim-use"
 
-  s:claim - t:claim
-  s:preauthorization - t:preauthorization
-  s:predetermination - t:predetermination
+  s:"claim" - t:"claim"
+  s:"preauthorization" - t:"preauthorization"
+  s:"predetermination" - t:"predetermination"
 }
+
+uses "http://hl7.org/fhir/4.3/StructureDefinition/Claim" alias ClaimR4B as source
+uses "http://hl7.org/fhir/StructureDefinition/Claim" alias ClaimR5 as target
+
+imports "http://hl7.org/fhir/StructureMap/*4Bto5"
 
 group Claim(source src : ClaimR4B, target tgt : ClaimR5) extends DomainResource <<type+>> {
   src.identifier -> tgt.identifier;
   src.traceNumber -> tgt.traceNumber;
-  src.status as v -> tgt.status = translate(v, '#ClaimStatus', 'c');
+  src.status as v -> tgt.status = translate(v, '#ClaimStatus', 'code');
   src.type -> tgt.type;
   src.subType -> tgt.subType;
-  src.use as v -> tgt.use = translate(v, '#Use', 'c');
+  src.use as v -> tgt.use = translate(v, '#Use', 'code');
   src.patient -> tgt.patient;
   src.billablePeriod -> tgt.billablePeriod;
   src.created -> tgt.created;

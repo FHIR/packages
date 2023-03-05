@@ -2,44 +2,44 @@
 /// name = 'ServiceRequest5to4'
 /// title = 'FML Conversion for ServiceRequest: R5 to R4'
 
-uses "http://hl7.org/fhir/StructureDefinition/ServiceRequest" alias ServiceRequestR5 as source
-uses "http://hl7.org/fhir/4.0/StructureDefinition/ServiceRequest" alias ServiceRequestR4 as target
-
-imports "http://hl7.org/fhir/StructureMap/*5to4"
-
 conceptmap "ServiceRequestIntent" {
   prefix s = "http://hl7.org/fhir/request-intent"
   prefix t = "http://hl7.org/fhir/4.0/request-intent"
 
-  s:proposal - t:proposal
-  s:plan - t:plan
-  s:directive - t:directive
-  s:order - t:order
-  s:option - t:option
+  s:"proposal" - t:"proposal"
+  s:"plan" - t:"plan"
+  s:"directive" - t:"directive"
+  s:"order" - t:"order"
+  s:"option" - t:"option"
 }
 
 conceptmap "ServiceRequestPriority" {
   prefix s = "http://hl7.org/fhir/request-priority"
   prefix t = "http://hl7.org/fhir/4.0/request-priority"
 
-  s:routine - t:routine
-  s:urgent - t:urgent
-  s:asap - t:asap
-  s:stat - t:stat
+  s:"routine" - t:"routine"
+  s:"urgent" - t:"urgent"
+  s:"asap" - t:"asap"
+  s:"stat" - t:"stat"
 }
 
 conceptmap "ServiceRequestStatus" {
   prefix s = "http://hl7.org/fhir/request-status"
   prefix t = "http://hl7.org/fhir/4.0/request-status"
 
-  s:draft - t:draft
-  s:active - t:active
-  s:on-hold - t:on-hold
-  s:revoked - t:revoked
-  s:completed - t:completed
-  s:entered-in-error - t:entered-in-error
-  s:unknown - t:unknown
+  s:"draft" - t:"draft"
+  s:"active" - t:"active"
+  s:"on-hold" - t:"on-hold"
+  s:"revoked" - t:"revoked"
+  s:"completed" - t:"completed"
+  s:"entered-in-error" - t:"entered-in-error"
+  s:"unknown" - t:"unknown"
 }
+
+uses "http://hl7.org/fhir/StructureDefinition/ServiceRequest" alias ServiceRequestR5 as source
+uses "http://hl7.org/fhir/4.0/StructureDefinition/ServiceRequest" alias ServiceRequestR4 as target
+
+imports "http://hl7.org/fhir/StructureMap/*5to4"
 
 group ServiceRequest(source src : ServiceRequestR5, target tgt : ServiceRequestR4) extends DomainResource <<type+>> {
   src.identifier -> tgt.identifier;
@@ -48,10 +48,10 @@ group ServiceRequest(source src : ServiceRequestR5, target tgt : ServiceRequestR
   src.basedOn -> tgt.basedOn;
   src.replaces -> tgt.replaces;
   src.requisition -> tgt.requisition;
-  src.status as v -> tgt.status = translate(v, '#ServiceRequestStatus', 'c');
-  src.intent as v -> tgt.intent = translate(v, '#ServiceRequestIntent', 'c');
+  src.status as v -> tgt.status = translate(v, '#ServiceRequestStatus', 'code');
+  src.intent as v -> tgt.intent = translate(v, '#ServiceRequestIntent', 'code');
   src.category -> tgt.category;
-  src.priority as v -> tgt.priority = translate(v, '#ServiceRequestPriority', 'c');
+  src.priority as v -> tgt.priority = translate(v, '#ServiceRequestPriority', 'code');
   src.doNotPerform -> tgt.doNotPerform;
   src.code -> tgt.code;
   src.orderDetail as s -> tgt.orderDetail as t then ServiceRequestOrderDetail(s,t);

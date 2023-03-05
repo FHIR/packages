@@ -2,33 +2,33 @@
 /// name = 'List5to4'
 /// title = 'FML Conversion for List: R5 to R4'
 
-uses "http://hl7.org/fhir/StructureDefinition/List" alias ListR5 as source
-uses "http://hl7.org/fhir/4.0/StructureDefinition/List" alias ListR4 as target
-
-imports "http://hl7.org/fhir/StructureMap/*5to4"
-
 conceptmap "ListMode" {
   prefix s = "http://hl7.org/fhir/list-mode"
   prefix t = "http://hl7.org/fhir/4.0/list-mode"
 
-  s:working - t:working
-  s:snapshot - t:snapshot
-  s:changes - t:changes
+  s:"working" - t:"working"
+  s:"snapshot" - t:"snapshot"
+  s:"changes" - t:"changes"
 }
 
 conceptmap "ListStatus" {
   prefix s = "http://hl7.org/fhir/list-status"
   prefix t = "http://hl7.org/fhir/4.0/list-status"
 
-  s:current - t:current
-  s:retired - t:retired
-  s:entered-in-error - t:entered-in-error
+  s:"current" - t:"current"
+  s:"retired" - t:"retired"
+  s:"entered-in-error" - t:"entered-in-error"
 }
+
+uses "http://hl7.org/fhir/StructureDefinition/List" alias ListR5 as source
+uses "http://hl7.org/fhir/4.0/StructureDefinition/List" alias ListR4 as target
+
+imports "http://hl7.org/fhir/StructureMap/*5to4"
 
 group List(source src : ListR5, target tgt : ListR4) extends DomainResource <<type+>> {
   src.identifier -> tgt.identifier;
-  src.status as v -> tgt.status = translate(v, '#ListStatus', 'c');
-  src.mode as v -> tgt.mode = translate(v, '#ListMode', 'c');
+  src.status as v -> tgt.status = translate(v, '#ListStatus', 'code');
+  src.mode as v -> tgt.mode = translate(v, '#ListMode', 'code');
   src.title -> tgt.title;
   src.code -> tgt.code;
   src.subject -> tgt.subject;

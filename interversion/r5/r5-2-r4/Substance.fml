@@ -2,24 +2,24 @@
 /// name = 'Substance5to4'
 /// title = 'FML Conversion for Substance: R5 to R4'
 
+conceptmap "FHIRSubstanceStatus" {
+  prefix s = "http://hl7.org/fhir/substance-status"
+  prefix t = "http://hl7.org/fhir/4.0/substance-status"
+
+  s:"active" - t:"active"
+  s:"inactive" - t:"inactive"
+  s:"entered-in-error" - t:"entered-in-error"
+}
+
 uses "http://hl7.org/fhir/StructureDefinition/Substance" alias SubstanceR5 as source
 uses "http://hl7.org/fhir/4.0/StructureDefinition/Substance" alias SubstanceR4 as target
 
 imports "http://hl7.org/fhir/StructureMap/*5to4"
 
-conceptmap "FHIRSubstanceStatus" {
-  prefix s = "http://hl7.org/fhir/substance-status"
-  prefix t = "http://hl7.org/fhir/4.0/substance-status"
-
-  s:active - t:active
-  s:inactive - t:inactive
-  s:entered-in-error - t:entered-in-error
-}
-
 group Substance(source src : SubstanceR5, target tgt : SubstanceR4) extends DomainResource <<type+>> {
   src.identifier -> tgt.identifier;
   src.instance -> tgt.instance;
-  src.status as v -> tgt.status = translate(v, '#FHIRSubstanceStatus', 'c');
+  src.status as v -> tgt.status = translate(v, '#FHIRSubstanceStatus', 'code');
   src.category -> tgt.category;
   src.code -> tgt.code;
   src.description -> tgt.description;

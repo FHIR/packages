@@ -2,39 +2,39 @@
 /// name = 'Specimen5to4'
 /// title = 'FML Conversion for Specimen: R5 to R4'
 
-uses "http://hl7.org/fhir/StructureDefinition/Specimen" alias SpecimenR5 as source
-uses "http://hl7.org/fhir/4.0/StructureDefinition/Specimen" alias SpecimenR4 as target
-
-imports "http://hl7.org/fhir/StructureMap/*5to4"
-
 conceptmap "PublicationStatus" {
   prefix s = "http://hl7.org/fhir/specimen-combined"
   prefix t = "http://hl7.org/fhir/4.0/specimen-combined"
 
-  s:grouped - t:grouped
-  s:pooled - t:pooled
+  s:"grouped" - t:"grouped"
+  s:"pooled" - t:"pooled"
 }
 
 conceptmap "SpecimenStatus" {
   prefix s = "http://hl7.org/fhir/specimen-status"
   prefix t = "http://hl7.org/fhir/4.0/specimen-status"
 
-  s:available - t:available
-  s:unavailable - t:unavailable
-  s:unsatisfactory - t:unsatisfactory
-  s:entered-in-error - t:entered-in-error
+  s:"available" - t:"available"
+  s:"unavailable" - t:"unavailable"
+  s:"unsatisfactory" - t:"unsatisfactory"
+  s:"entered-in-error" - t:"entered-in-error"
 }
+
+uses "http://hl7.org/fhir/StructureDefinition/Specimen" alias SpecimenR5 as source
+uses "http://hl7.org/fhir/4.0/StructureDefinition/Specimen" alias SpecimenR4 as target
+
+imports "http://hl7.org/fhir/StructureMap/*5to4"
 
 group Specimen(source src : SpecimenR5, target tgt : SpecimenR4) extends DomainResource <<type+>> {
   src.identifier -> tgt.identifier;
   src.accessionIdentifier -> tgt.accessionIdentifier;
-  src.status as v -> tgt.status = translate(v, '#SpecimenStatus', 'c');
+  src.status as v -> tgt.status = translate(v, '#SpecimenStatus', 'code');
   src.type -> tgt.type;
   src.subject -> tgt.subject;
   src.receivedTime -> tgt.receivedTime;
   src.parent -> tgt.parent;
   src.request -> tgt.request;
-  src.combined as v -> tgt.combined = translate(v, '#PublicationStatus', 'c');
+  src.combined as v -> tgt.combined = translate(v, '#PublicationStatus', 'code');
   src.role -> tgt.role;
   src.feature as s -> tgt.feature as t then SpecimenFeature(s,t);
   src.collection as s -> tgt.collection as t then SpecimenCollection(s,t);

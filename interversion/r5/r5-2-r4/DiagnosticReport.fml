@@ -2,28 +2,28 @@
 /// name = 'DiagnosticReport5to4'
 /// title = 'FML Conversion for DiagnosticReport: R5 to R4'
 
+conceptmap "DiagnosticReportStatus" {
+  prefix s = "http://hl7.org/fhir/diagnostic-report-status"
+  prefix t = "http://hl7.org/fhir/4.0/diagnostic-report-status"
+
+  s:"registered" - t:"registered"
+  s:"partial" - t:"partial"
+  s:"final" - t:"final"
+  s:"amended" - t:"amended"
+  s:"cancelled" - t:"cancelled"
+  s:"entered-in-error" - t:"entered-in-error"
+  s:"unknown" - t:"unknown"
+}
+
 uses "http://hl7.org/fhir/StructureDefinition/DiagnosticReport" alias DiagnosticReportR5 as source
 uses "http://hl7.org/fhir/4.0/StructureDefinition/DiagnosticReport" alias DiagnosticReportR4 as target
 
 imports "http://hl7.org/fhir/StructureMap/*5to4"
 
-conceptmap "DiagnosticReportStatus" {
-  prefix s = "http://hl7.org/fhir/diagnostic-report-status"
-  prefix t = "http://hl7.org/fhir/4.0/diagnostic-report-status"
-
-  s:registered - t:registered
-  s:partial - t:partial
-  s:final - t:final
-  s:amended - t:amended
-  s:cancelled - t:cancelled
-  s:entered-in-error - t:entered-in-error
-  s:unknown - t:unknown
-}
-
 group DiagnosticReport(source src : DiagnosticReportR5, target tgt : DiagnosticReportR4) extends DomainResource <<type+>> {
   src.identifier -> tgt.identifier;
   src.basedOn -> tgt.basedOn;
-  src.status as v -> tgt.status = translate(v, '#DiagnosticReportStatus', 'c');
+  src.status as v -> tgt.status = translate(v, '#DiagnosticReportStatus', 'code');
   src.category -> tgt.category;
   src.code -> tgt.code;
   src.subject -> tgt.subject;

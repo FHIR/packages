@@ -2,24 +2,24 @@
 /// name = 'NutritionIntake4Bto5'
 /// title = 'FML Conversion for NutritionIntake: R4B to R5'
 
-uses "http://hl7.org/fhir/4.3/StructureDefinition/NutritionIntake" alias NutritionIntakeR4B as source
-uses "http://hl7.org/fhir/StructureDefinition/NutritionIntake" alias NutritionIntakeR5 as target
-
-imports "http://hl7.org/fhir/StructureMap/*4Bto5"
-
 conceptmap "NutritionIntakeStatus" {
   prefix s = "http://hl7.org/fhir/4.3/event-status"
   prefix t = "http://hl7.org/fhir/event-status"
 
-  s:preparation - t:preparation
-  s:in-progress - t:in-progress
-  s:not-done - t:not-done
-  s:on-hold - t:on-hold
-  s:stopped - t:stopped
-  s:completed - t:completed
-  s:entered-in-error - t:entered-in-error
-  s:unknown - t:unknown
+  s:"preparation" - t:"preparation"
+  s:"in-progress" - t:"in-progress"
+  s:"not-done" - t:"not-done"
+  s:"on-hold" - t:"on-hold"
+  s:"stopped" - t:"stopped"
+  s:"completed" - t:"completed"
+  s:"entered-in-error" - t:"entered-in-error"
+  s:"unknown" - t:"unknown"
 }
+
+uses "http://hl7.org/fhir/4.3/StructureDefinition/NutritionIntake" alias NutritionIntakeR4B as source
+uses "http://hl7.org/fhir/StructureDefinition/NutritionIntake" alias NutritionIntakeR5 as target
+
+imports "http://hl7.org/fhir/StructureMap/*4Bto5"
 
 group NutritionIntake(source src : NutritionIntakeR4B, target tgt : NutritionIntakeR5) extends DomainResource <<type+>> {
   src.identifier -> tgt.identifier;
@@ -27,7 +27,7 @@ group NutritionIntake(source src : NutritionIntakeR4B, target tgt : NutritionInt
   src.instantiatesUri -> tgt.instantiatesUri;
   src.basedOn -> tgt.basedOn;
   src.partOf -> tgt.partOf;
-  src.status as v -> tgt.status = translate(v, '#NutritionIntakeStatus', 'c');
+  src.status as v -> tgt.status = translate(v, '#NutritionIntakeStatus', 'code');
   src.statusReason -> tgt.statusReason;
   src.code -> tgt.code;
   src.subject -> tgt.subject;

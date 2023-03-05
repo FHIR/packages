@@ -2,57 +2,57 @@
 /// name = 'TestReport5to4'
 /// title = 'FML Conversion for TestReport: R5 to R4'
 
-uses "http://hl7.org/fhir/StructureDefinition/TestReport" alias TestReportR5 as source
-uses "http://hl7.org/fhir/4.0/StructureDefinition/TestReport" alias TestReportR4 as target
-
-imports "http://hl7.org/fhir/StructureMap/*5to4"
-
 conceptmap "TestReportActionResult" {
   prefix s = "http://hl7.org/fhir/report-action-result-codes"
   prefix t = "http://hl7.org/fhir/4.0/report-action-result-codes"
 
-  s:pass - t:pass
-  s:skip - t:skip
-  s:fail - t:fail
-  s:warning - t:warning
-  s:error - t:error
+  s:"pass" - t:"pass"
+  s:"skip" - t:"skip"
+  s:"fail" - t:"fail"
+  s:"warning" - t:"warning"
+  s:"error" - t:"error"
 }
 
 conceptmap "TestReportParticipantType" {
   prefix s = "http://hl7.org/fhir/report-participant-type"
   prefix t = "http://hl7.org/fhir/4.0/report-participant-type"
 
-  s:test-engine - t:test-engine
-  s:client - t:client
-  s:server - t:server
+  s:"test-engine" - t:"test-engine"
+  s:"client" - t:"client"
+  s:"server" - t:"server"
 }
 
 conceptmap "TestReportResult" {
   prefix s = "http://hl7.org/fhir/report-result-codes"
   prefix t = "http://hl7.org/fhir/4.0/report-result-codes"
 
-  s:pass - t:pass
-  s:fail - t:fail
-  s:pending - t:pending
+  s:"pass" - t:"pass"
+  s:"fail" - t:"fail"
+  s:"pending" - t:"pending"
 }
 
 conceptmap "TestReportStatus" {
   prefix s = "http://hl7.org/fhir/report-status-codes"
   prefix t = "http://hl7.org/fhir/4.0/report-status-codes"
 
-  s:completed - t:completed
-  s:in-progress - t:in-progress
-  s:waiting - t:waiting
-  s:stopped - t:stopped
-  s:entered-in-error - t:entered-in-error
+  s:"completed" - t:"completed"
+  s:"in-progress" - t:"in-progress"
+  s:"waiting" - t:"waiting"
+  s:"stopped" - t:"stopped"
+  s:"entered-in-error" - t:"entered-in-error"
 }
+
+uses "http://hl7.org/fhir/StructureDefinition/TestReport" alias TestReportR5 as source
+uses "http://hl7.org/fhir/4.0/StructureDefinition/TestReport" alias TestReportR4 as target
+
+imports "http://hl7.org/fhir/StructureMap/*5to4"
 
 group TestReport(source src : TestReportR5, target tgt : TestReportR4) extends DomainResource <<type+>> {
   src.identifier -> tgt.identifier;
   src.name -> tgt.name;
-  src.status as v -> tgt.status = translate(v, '#TestReportStatus', 'c');
+  src.status as v -> tgt.status = translate(v, '#TestReportStatus', 'code');
   src.testScript -> tgt.testScript;
-  src.result as v -> tgt.result = translate(v, '#TestReportResult', 'c');
+  src.result as v -> tgt.result = translate(v, '#TestReportResult', 'code');
   src.score -> tgt.score;
   src.tester -> tgt.tester;
   src.issued -> tgt.issued;
@@ -63,7 +63,7 @@ group TestReport(source src : TestReportR5, target tgt : TestReportR4) extends D
 }
 
 group TestReportParticipant(source src, target tgt) extends BackboneElement {
-  src.type as v -> tgt.type = translate(v, '#TestReportParticipantType', 'c');
+  src.type as v -> tgt.type = translate(v, '#TestReportParticipantType', 'code');
   src.uri -> tgt.uri;
   src.display -> tgt.display;
 }
@@ -78,13 +78,13 @@ group TestReportSetupAction(source src, target tgt) extends BackboneElement {
 }
 
 group TestReportSetupActionOperation(source src, target tgt) extends BackboneElement {
-  src.result as v -> tgt.result = translate(v, '#TestReportActionResult', 'c');
+  src.result as v -> tgt.result = translate(v, '#TestReportActionResult', 'code');
   src.message -> tgt.message;
   src.detail -> tgt.detail;
 }
 
 group TestReportSetupActionAssert(source src, target tgt) extends BackboneElement {
-  src.result as v -> tgt.result = translate(v, '#TestReportActionResult', 'c');
+  src.result as v -> tgt.result = translate(v, '#TestReportActionResult', 'code');
   src.message -> tgt.message;
   src.detail -> tgt.detail;
   src.requirement as s -> tgt.requirement as t then TestReportSetupActionAssertRequirement(s,t);

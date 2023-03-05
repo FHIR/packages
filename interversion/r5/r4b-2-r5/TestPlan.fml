@@ -2,20 +2,20 @@
 /// name = 'TestPlan4Bto5'
 /// title = 'FML Conversion for TestPlan: R4B to R5'
 
-uses "http://hl7.org/fhir/4.3/StructureDefinition/TestPlan" alias TestPlanR4B as source
-uses "http://hl7.org/fhir/StructureDefinition/TestPlan" alias TestPlanR5 as target
-
-imports "http://hl7.org/fhir/StructureMap/*4Bto5"
-
 conceptmap "PublicationStatus" {
   prefix s = "http://hl7.org/fhir/4.3/publication-status"
   prefix t = "http://hl7.org/fhir/publication-status"
 
-  s:draft - t:draft
-  s:active - t:active
-  s:retired - t:retired
-  s:unknown - t:unknown
+  s:"draft" - t:"draft"
+  s:"active" - t:"active"
+  s:"retired" - t:"retired"
+  s:"unknown" - t:"unknown"
 }
+
+uses "http://hl7.org/fhir/4.3/StructureDefinition/TestPlan" alias TestPlanR4B as source
+uses "http://hl7.org/fhir/StructureDefinition/TestPlan" alias TestPlanR5 as target
+
+imports "http://hl7.org/fhir/StructureMap/*4Bto5"
 
 group TestPlan(source src : TestPlanR4B, target tgt : TestPlanR5) extends DomainResource <<type+>> {
   src.url -> tgt.url;
@@ -23,7 +23,7 @@ group TestPlan(source src : TestPlanR4B, target tgt : TestPlanR5) extends Domain
   src.version -> tgt.version;
   src.name -> tgt.name;
   src.title -> tgt.title;
-  src.status as v -> tgt.status = translate(v, '#PublicationStatus', 'c');
+  src.status as v -> tgt.status = translate(v, '#PublicationStatus', 'code');
   src.date -> tgt.date;
   src.publisher -> tgt.publisher;
   src.contact -> tgt.contact;

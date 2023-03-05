@@ -2,39 +2,39 @@
 /// name = 'MessageDefinition4Bto5'
 /// title = 'FML Conversion for MessageDefinition: R4B to R5'
 
-uses "http://hl7.org/fhir/4.3/StructureDefinition/MessageDefinition" alias MessageDefinitionR4B as source
-uses "http://hl7.org/fhir/StructureDefinition/MessageDefinition" alias MessageDefinitionR5 as target
-
-imports "http://hl7.org/fhir/StructureMap/*4Bto5"
-
 conceptmap "MessageSignificanceCategory" {
   prefix s = "http://hl7.org/fhir/4.3/message-significance-category"
   prefix t = "http://hl7.org/fhir/message-significance-category"
 
-  s:consequence - t:consequence
-  s:currency - t:currency
-  s:notification - t:notification
+  s:"consequence" - t:"consequence"
+  s:"currency" - t:"currency"
+  s:"notification" - t:"notification"
 }
 
 conceptmap "PublicationStatus" {
   prefix s = "http://hl7.org/fhir/4.3/publication-status"
   prefix t = "http://hl7.org/fhir/publication-status"
 
-  s:draft - t:draft
-  s:active - t:active
-  s:retired - t:retired
-  s:unknown - t:unknown
+  s:"draft" - t:"draft"
+  s:"active" - t:"active"
+  s:"retired" - t:"retired"
+  s:"unknown" - t:"unknown"
 }
 
 conceptmap "messageheader-response-request" {
   prefix s = "http://hl7.org/fhir/4.3/messageheader-response-request"
   prefix t = "http://hl7.org/fhir/messageheader-response-request"
 
-  s:always - t:always
-  s:on-error - t:on-error
-  s:never - t:never
-  s:on-success - t:on-success
+  s:"always" - t:"always"
+  s:"on-error" - t:"on-error"
+  s:"never" - t:"never"
+  s:"on-success" - t:"on-success"
 }
+
+uses "http://hl7.org/fhir/4.3/StructureDefinition/MessageDefinition" alias MessageDefinitionR4B as source
+uses "http://hl7.org/fhir/StructureDefinition/MessageDefinition" alias MessageDefinitionR5 as target
+
+imports "http://hl7.org/fhir/StructureMap/*4Bto5"
 
 group MessageDefinition(source src : MessageDefinitionR4B, target tgt : MessageDefinitionR5) extends DomainResource <<type+>> {
   src.url -> tgt.url;
@@ -45,7 +45,7 @@ group MessageDefinition(source src : MessageDefinitionR4B, target tgt : MessageD
   src.name -> tgt.name;
   src.title -> tgt.title;
   src.replaces -> tgt.replaces;
-  src.status as v -> tgt.status = translate(v, '#PublicationStatus', 'c');
+  src.status as v -> tgt.status = translate(v, '#PublicationStatus', 'code');
   src.experimental -> tgt.experimental;
   src.date -> tgt.date;
   src.publisher -> tgt.publisher;
@@ -60,9 +60,9 @@ group MessageDefinition(source src : MessageDefinitionR4B, target tgt : MessageD
   src.parent -> tgt.parent;
   src.event : Coding -> tgt.event;
   src.event : uri -> tgt.event;
-  src.category as v -> tgt.category = translate(v, '#MessageSignificanceCategory', 'c');
+  src.category as v -> tgt.category = translate(v, '#MessageSignificanceCategory', 'code');
   src.focus as s -> tgt.focus as t then MessageDefinitionFocus(s,t);
-  src.responseRequired as v -> tgt.responseRequired = translate(v, '#messageheader-response-request', 'c');
+  src.responseRequired as v -> tgt.responseRequired = translate(v, '#messageheader-response-request', 'code');
   src.allowedResponse as s -> tgt.allowedResponse as t then MessageDefinitionAllowedResponse(s,t);
   src.graph -> tgt.graph;
 }

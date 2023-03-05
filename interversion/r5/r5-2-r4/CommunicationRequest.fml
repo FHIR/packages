@@ -2,55 +2,55 @@
 /// name = 'CommunicationRequest5to4'
 /// title = 'FML Conversion for CommunicationRequest: R5 to R4'
 
-uses "http://hl7.org/fhir/StructureDefinition/CommunicationRequest" alias CommunicationRequestR5 as source
-uses "http://hl7.org/fhir/4.0/StructureDefinition/CommunicationRequest" alias CommunicationRequestR4 as target
-
-imports "http://hl7.org/fhir/StructureMap/*5to4"
-
 conceptmap "CommunicationPriority" {
   prefix s = "http://hl7.org/fhir/request-priority"
   prefix t = "http://hl7.org/fhir/4.0/request-priority"
 
-  s:routine - t:routine
-  s:urgent - t:urgent
-  s:asap - t:asap
-  s:stat - t:stat
+  s:"routine" - t:"routine"
+  s:"urgent" - t:"urgent"
+  s:"asap" - t:"asap"
+  s:"stat" - t:"stat"
 }
 
 conceptmap "CommunicationRequestIntent" {
   prefix s = "http://hl7.org/fhir/request-intent"
   prefix t = "http://hl7.org/fhir/4.0/request-intent"
 
-  s:proposal - t:proposal
-  s:plan - t:plan
-  s:directive - t:directive
-  s:order - t:order
-  s:option - t:option
+  s:"proposal" - t:"proposal"
+  s:"plan" - t:"plan"
+  s:"directive" - t:"directive"
+  s:"order" - t:"order"
+  s:"option" - t:"option"
 }
 
 conceptmap "CommunicationRequestStatus" {
   prefix s = "http://hl7.org/fhir/request-status"
   prefix t = "http://hl7.org/fhir/4.0/request-status"
 
-  s:draft - t:draft
-  s:active - t:active
-  s:on-hold - t:on-hold
-  s:revoked - t:revoked
-  s:completed - t:completed
-  s:entered-in-error - t:entered-in-error
-  s:unknown - t:unknown
+  s:"draft" - t:"draft"
+  s:"active" - t:"active"
+  s:"on-hold" - t:"on-hold"
+  s:"revoked" - t:"revoked"
+  s:"completed" - t:"completed"
+  s:"entered-in-error" - t:"entered-in-error"
+  s:"unknown" - t:"unknown"
 }
+
+uses "http://hl7.org/fhir/StructureDefinition/CommunicationRequest" alias CommunicationRequestR5 as source
+uses "http://hl7.org/fhir/4.0/StructureDefinition/CommunicationRequest" alias CommunicationRequestR4 as target
+
+imports "http://hl7.org/fhir/StructureMap/*5to4"
 
 group CommunicationRequest(source src : CommunicationRequestR5, target tgt : CommunicationRequestR4) extends DomainResource <<type+>> {
   src.identifier -> tgt.identifier;
   src.basedOn -> tgt.basedOn;
   src.replaces -> tgt.replaces;
   src.groupIdentifier -> tgt.groupIdentifier;
-  src.status as v -> tgt.status = translate(v, '#CommunicationRequestStatus', 'c');
+  src.status as v -> tgt.status = translate(v, '#CommunicationRequestStatus', 'code');
   src.statusReason -> tgt.statusReason;
-  src.intent as v -> tgt.intent = translate(v, '#CommunicationRequestIntent', 'c');
+  src.intent as v -> tgt.intent = translate(v, '#CommunicationRequestIntent', 'code');
   src.category -> tgt.category;
-  src.priority as v -> tgt.priority = translate(v, '#CommunicationPriority', 'c');
+  src.priority as v -> tgt.priority = translate(v, '#CommunicationPriority', 'code');
   src.doNotPerform -> tgt.doNotPerform;
   src.medium -> tgt.medium;
   src.subject -> tgt.subject;

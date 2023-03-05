@@ -2,30 +2,30 @@
 /// name = 'EncounterHistory5to4'
 /// title = 'FML Conversion for EncounterHistory: R5 to R4'
 
+conceptmap "EncounterStatus" {
+  prefix s = "http://hl7.org/fhir/encounter-status"
+  prefix t = "http://hl7.org/fhir/4.0/encounter-status"
+
+  s:"planned" - t:"planned"
+  s:"in-progress" - t:"in-progress"
+  s:"on-hold" - t:"on-hold"
+  s:"discharged" - t:"discharged"
+  s:"completed" - t:"completed"
+  s:"cancelled" - t:"cancelled"
+  s:"discontinued" - t:"discontinued"
+  s:"entered-in-error" - t:"entered-in-error"
+  s:"unknown" - t:"unknown"
+}
+
 uses "http://hl7.org/fhir/StructureDefinition/EncounterHistory" alias EncounterHistoryR5 as source
 uses "http://hl7.org/fhir/4.0/StructureDefinition/EncounterHistory" alias EncounterHistoryR4 as target
 
 imports "http://hl7.org/fhir/StructureMap/*5to4"
 
-conceptmap "EncounterStatus" {
-  prefix s = "http://hl7.org/fhir/encounter-status"
-  prefix t = "http://hl7.org/fhir/4.0/encounter-status"
-
-  s:planned - t:planned
-  s:in-progress - t:in-progress
-  s:on-hold - t:on-hold
-  s:discharged - t:discharged
-  s:completed - t:completed
-  s:cancelled - t:cancelled
-  s:discontinued - t:discontinued
-  s:entered-in-error - t:entered-in-error
-  s:unknown - t:unknown
-}
-
 group EncounterHistory(source src : EncounterHistoryR5, target tgt : EncounterHistoryR4) extends DomainResource <<type+>> {
   src.encounter -> tgt.encounter;
   src.identifier -> tgt.identifier;
-  src.status as v -> tgt.status = translate(v, '#EncounterStatus', 'c');
+  src.status as v -> tgt.status = translate(v, '#EncounterStatus', 'code');
   src.class -> tgt.class;
   src.type -> tgt.type;
   src.serviceType -> tgt.serviceType;

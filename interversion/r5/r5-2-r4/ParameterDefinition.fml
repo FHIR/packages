@@ -2,33 +2,33 @@
 /// name = 'ParameterDefinition5to4'
 /// title = 'FML Conversion for ParameterDefinition: R5 to R4'
 
-uses "http://hl7.org/fhir/StructureDefinition/ParameterDefinition" alias ParameterDefinitionR5 as source
-uses "http://hl7.org/fhir/4.0/StructureDefinition/ParameterDefinition" alias ParameterDefinitionR4 as target
-
-imports "http://hl7.org/fhir/StructureMap/*5to4"
-
 conceptmap "FHIRTypes" {
   prefix s = "http://hl7.org/fhir/fhir-types"
   prefix t = "http://hl7.org/fhir/4.0/fhir-types"
 
-  s:Base - t:Base
+  s:"Base" - t:"Base"
 }
 
 conceptmap "ParameterUse" {
   prefix s = "http://hl7.org/fhir/operation-parameter-use"
   prefix t = "http://hl7.org/fhir/4.0/operation-parameter-use"
 
-  s:in - t:in
-  s:out - t:out
+  s:"in" - t:"in"
+  s:"out" - t:"out"
 }
+
+uses "http://hl7.org/fhir/StructureDefinition/ParameterDefinition" alias ParameterDefinitionR5 as source
+uses "http://hl7.org/fhir/4.0/StructureDefinition/ParameterDefinition" alias ParameterDefinitionR4 as target
+
+imports "http://hl7.org/fhir/StructureMap/*5to4"
 
 group ParameterDefinition(source src : ParameterDefinitionR5, target tgt : ParameterDefinitionR4) extends DataType <<type+>> {
   src.name -> tgt.name;
-  src.use as v -> tgt.use = translate(v, '#ParameterUse', 'c');
+  src.use as v -> tgt.use = translate(v, '#ParameterUse', 'code');
   src.min -> tgt.min;
   src.max -> tgt.max;
   src.documentation -> tgt.documentation;
-  src.type as v -> tgt.type = translate(v, '#FHIRTypes', 'c');
+  src.type as v -> tgt.type = translate(v, '#FHIRTypes', 'code');
   src.profile -> tgt.profile;
 }
 

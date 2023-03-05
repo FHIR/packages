@@ -2,37 +2,37 @@
 /// name = 'ConditionDefinition4Bto5'
 /// title = 'FML Conversion for ConditionDefinition: R4B to R5'
 
-uses "http://hl7.org/fhir/4.3/StructureDefinition/ConditionDefinition" alias ConditionDefinitionR4B as source
-uses "http://hl7.org/fhir/StructureDefinition/ConditionDefinition" alias ConditionDefinitionR5 as target
-
-imports "http://hl7.org/fhir/StructureMap/*4Bto5"
-
 conceptmap "ConditionPreconditionType" {
   prefix s = "http://hl7.org/fhir/4.3/condition-precondition-type"
   prefix t = "http://hl7.org/fhir/condition-precondition-type"
 
-  s:sensitive - t:sensitive
-  s:specific - t:specific
+  s:"sensitive" - t:"sensitive"
+  s:"specific" - t:"specific"
 }
 
 conceptmap "ConditionQuestionnairePurpose" {
   prefix s = "http://hl7.org/fhir/4.3/condition-questionnaire-purpose"
   prefix t = "http://hl7.org/fhir/condition-questionnaire-purpose"
 
-  s:preadmit - t:preadmit
-  s:diff-diagnosis - t:diff-diagnosis
-  s:outcome - t:outcome
+  s:"preadmit" - t:"preadmit"
+  s:"diff-diagnosis" - t:"diff-diagnosis"
+  s:"outcome" - t:"outcome"
 }
 
 conceptmap "PublicationStatus" {
   prefix s = "http://hl7.org/fhir/4.3/publication-status"
   prefix t = "http://hl7.org/fhir/publication-status"
 
-  s:draft - t:draft
-  s:active - t:active
-  s:retired - t:retired
-  s:unknown - t:unknown
+  s:"draft" - t:"draft"
+  s:"active" - t:"active"
+  s:"retired" - t:"retired"
+  s:"unknown" - t:"unknown"
 }
+
+uses "http://hl7.org/fhir/4.3/StructureDefinition/ConditionDefinition" alias ConditionDefinitionR4B as source
+uses "http://hl7.org/fhir/StructureDefinition/ConditionDefinition" alias ConditionDefinitionR5 as target
+
+imports "http://hl7.org/fhir/StructureMap/*4Bto5"
 
 group ConditionDefinition(source src : ConditionDefinitionR4B, target tgt : ConditionDefinitionR5) extends DomainResource <<type+>> {
   src.url -> tgt.url;
@@ -43,7 +43,7 @@ group ConditionDefinition(source src : ConditionDefinitionR4B, target tgt : Cond
   src.name -> tgt.name;
   src.title -> tgt.title;
   src.subtitle -> tgt.subtitle;
-  src.status as v -> tgt.status = translate(v, '#PublicationStatus', 'c');
+  src.status as v -> tgt.status = translate(v, '#PublicationStatus', 'code');
   src.experimental -> tgt.experimental;
   src.date -> tgt.date;
   src.publisher -> tgt.publisher;
@@ -78,14 +78,14 @@ group ConditionDefinitionMedication(source src, target tgt) extends BackboneElem
 }
 
 group ConditionDefinitionPrecondition(source src, target tgt) extends BackboneElement {
-  src.type as v -> tgt.type = translate(v, '#ConditionPreconditionType', 'c');
+  src.type as v -> tgt.type = translate(v, '#ConditionPreconditionType', 'code');
   src.code -> tgt.code;
   src.value : CodeableConcept -> tgt.value;
   src.value : Quantity -> tgt.value;
 }
 
 group ConditionDefinitionQuestionnaire(source src, target tgt) extends BackboneElement {
-  src.purpose as v -> tgt.purpose = translate(v, '#ConditionQuestionnairePurpose', 'c');
+  src.purpose as v -> tgt.purpose = translate(v, '#ConditionQuestionnairePurpose', 'code');
   src.reference -> tgt.reference;
 }
 

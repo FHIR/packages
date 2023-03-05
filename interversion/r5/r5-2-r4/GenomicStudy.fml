@@ -2,25 +2,25 @@
 /// name = 'GenomicStudy5to4'
 /// title = 'FML Conversion for GenomicStudy: R5 to R4'
 
+conceptmap "GenomicStudyStatus" {
+  prefix s = "http://hl7.org/fhir/genomicstudy-status"
+  prefix t = "http://hl7.org/fhir/4.0/genomicstudy-status"
+
+  s:"registered" - t:"registered"
+  s:"available" - t:"available"
+  s:"cancelled" - t:"cancelled"
+  s:"entered-in-error" - t:"entered-in-error"
+  s:"unknown" - t:"unknown"
+}
+
 uses "http://hl7.org/fhir/StructureDefinition/GenomicStudy" alias GenomicStudyR5 as source
 uses "http://hl7.org/fhir/4.0/StructureDefinition/GenomicStudy" alias GenomicStudyR4 as target
 
 imports "http://hl7.org/fhir/StructureMap/*5to4"
 
-conceptmap "GenomicStudyStatus" {
-  prefix s = "http://hl7.org/fhir/genomicstudy-status"
-  prefix t = "http://hl7.org/fhir/4.0/genomicstudy-status"
-
-  s:registered - t:registered
-  s:available - t:available
-  s:cancelled - t:cancelled
-  s:entered-in-error - t:entered-in-error
-  s:unknown - t:unknown
-}
-
 group GenomicStudy(source src : GenomicStudyR5, target tgt : GenomicStudyR4) extends DomainResource <<type+>> {
   src.identifier -> tgt.identifier;
-  src.status as v -> tgt.status = translate(v, '#GenomicStudyStatus', 'c');
+  src.status as v -> tgt.status = translate(v, '#GenomicStudyStatus', 'code');
   src.type -> tgt.type;
   src.subject -> tgt.subject;
   src.encounter -> tgt.encounter;

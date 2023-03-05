@@ -2,29 +2,29 @@
 /// name = 'ChargeItem4to5'
 /// title = 'FML Conversion for ChargeItem: R4 to R5'
 
+conceptmap "ChargeItemStatus" {
+  prefix s = "http://hl7.org/fhir/4.0/chargeitem-status"
+  prefix t = "http://hl7.org/fhir/chargeitem-status"
+
+  s:"planned" - t:"planned"
+  s:"billable" - t:"billable"
+  s:"not-billable" - t:"not-billable"
+  s:"aborted" - t:"aborted"
+  s:"billed" - t:"billed"
+  s:"entered-in-error" - t:"entered-in-error"
+  s:"unknown" - t:"unknown"
+}
+
 uses "http://hl7.org/fhir/4.0/StructureDefinition/ChargeItem" alias ChargeItemR4 as source
 uses "http://hl7.org/fhir/StructureDefinition/ChargeItem" alias ChargeItemR5 as target
 
 imports "http://hl7.org/fhir/StructureMap/*4to5"
 
-conceptmap "ChargeItemStatus" {
-  prefix s = "http://hl7.org/fhir/4.0/chargeitem-status"
-  prefix t = "http://hl7.org/fhir/chargeitem-status"
-
-  s:planned - t:planned
-  s:billable - t:billable
-  s:not-billable - t:not-billable
-  s:aborted - t:aborted
-  s:billed - t:billed
-  s:entered-in-error - t:entered-in-error
-  s:unknown - t:unknown
-}
-
 group ChargeItem(source src : ChargeItemR4, target tgt : ChargeItemR5) extends DomainResource <<type+>> {
   src.identifier -> tgt.identifier;
   src.definitionUri -> tgt.definitionUri;
   src.definitionCanonical -> tgt.definitionCanonical;
-  src.status as v -> tgt.status = translate(v, '#ChargeItemStatus', 'c');
+  src.status as v -> tgt.status = translate(v, '#ChargeItemStatus', 'code');
   src.partOf -> tgt.partOf;
   src.code -> tgt.code;
   src.subject -> tgt.subject;

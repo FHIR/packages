@@ -2,24 +2,24 @@
 /// name = 'Procedure4to5'
 /// title = 'FML Conversion for Procedure: R4 to R5'
 
-uses "http://hl7.org/fhir/4.0/StructureDefinition/Procedure" alias ProcedureR4 as source
-uses "http://hl7.org/fhir/StructureDefinition/Procedure" alias ProcedureR5 as target
-
-imports "http://hl7.org/fhir/StructureMap/*4to5"
-
 conceptmap "ProcedureStatus" {
   prefix s = "http://hl7.org/fhir/4.0/event-status"
   prefix t = "http://hl7.org/fhir/event-status"
 
-  s:preparation - t:preparation
-  s:in-progress - t:in-progress
-  s:not-done - t:not-done
-  s:on-hold - t:on-hold
-  s:stopped - t:stopped
-  s:completed - t:completed
-  s:entered-in-error - t:entered-in-error
-  s:unknown - t:unknown
+  s:"preparation" - t:"preparation"
+  s:"in-progress" - t:"in-progress"
+  s:"not-done" - t:"not-done"
+  s:"on-hold" - t:"on-hold"
+  s:"stopped" - t:"stopped"
+  s:"completed" - t:"completed"
+  s:"entered-in-error" - t:"entered-in-error"
+  s:"unknown" - t:"unknown"
 }
+
+uses "http://hl7.org/fhir/4.0/StructureDefinition/Procedure" alias ProcedureR4 as source
+uses "http://hl7.org/fhir/StructureDefinition/Procedure" alias ProcedureR5 as target
+
+imports "http://hl7.org/fhir/StructureMap/*4to5"
 
 group Procedure(source src : ProcedureR4, target tgt : ProcedureR5) extends DomainResource <<type+>> {
   src.identifier -> tgt.identifier;
@@ -27,7 +27,7 @@ group Procedure(source src : ProcedureR4, target tgt : ProcedureR5) extends Doma
   src.instantiatesUri -> tgt.instantiatesUri;
   src.basedOn -> tgt.basedOn;
   src.partOf -> tgt.partOf;
-  src.status as v -> tgt.status = translate(v, '#ProcedureStatus', 'c');
+  src.status as v -> tgt.status = translate(v, '#ProcedureStatus', 'code');
   src.statusReason -> tgt.statusReason;
   src.category -> tgt.category;
   src.code -> tgt.code;

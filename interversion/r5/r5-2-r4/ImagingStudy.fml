@@ -2,25 +2,25 @@
 /// name = 'ImagingStudy5to4'
 /// title = 'FML Conversion for ImagingStudy: R5 to R4'
 
+conceptmap "ImagingStudyStatus" {
+  prefix s = "http://hl7.org/fhir/imagingstudy-status"
+  prefix t = "http://hl7.org/fhir/4.0/imagingstudy-status"
+
+  s:"registered" - t:"registered"
+  s:"available" - t:"available"
+  s:"cancelled" - t:"cancelled"
+  s:"entered-in-error" - t:"entered-in-error"
+  s:"unknown" - t:"unknown"
+}
+
 uses "http://hl7.org/fhir/StructureDefinition/ImagingStudy" alias ImagingStudyR5 as source
 uses "http://hl7.org/fhir/4.0/StructureDefinition/ImagingStudy" alias ImagingStudyR4 as target
 
 imports "http://hl7.org/fhir/StructureMap/*5to4"
 
-conceptmap "ImagingStudyStatus" {
-  prefix s = "http://hl7.org/fhir/imagingstudy-status"
-  prefix t = "http://hl7.org/fhir/4.0/imagingstudy-status"
-
-  s:registered - t:registered
-  s:available - t:available
-  s:cancelled - t:cancelled
-  s:entered-in-error - t:entered-in-error
-  s:unknown - t:unknown
-}
-
 group ImagingStudy(source src : ImagingStudyR5, target tgt : ImagingStudyR4) extends DomainResource <<type+>> {
   src.identifier -> tgt.identifier;
-  src.status as v -> tgt.status = translate(v, '#ImagingStudyStatus', 'c');
+  src.status as v -> tgt.status = translate(v, '#ImagingStudyStatus', 'code');
   src.modality -> tgt.modality;
   src.subject -> tgt.subject;
   src.encounter -> tgt.encounter;

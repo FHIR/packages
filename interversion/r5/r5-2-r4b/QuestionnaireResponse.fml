@@ -2,28 +2,28 @@
 /// name = 'QuestionnaireResponse5to4B'
 /// title = 'FML Conversion for QuestionnaireResponse: R5 to R4B'
 
-uses "http://hl7.org/fhir/StructureDefinition/QuestionnaireResponse" alias QuestionnaireResponseR5 as source
-uses "http://hl7.org/fhir/4.3/StructureDefinition/QuestionnaireResponse" alias QuestionnaireResponseR4B as target
-
-imports "http://hl7.org/fhir/StructureMap/*5to4B"
-
 conceptmap "QuestionnaireResponseStatus" {
   prefix s = "http://hl7.org/fhir/questionnaire-answers-status"
   prefix t = "http://hl7.org/fhir/4.3/questionnaire-answers-status"
 
-  s:in-progress - t:in-progress
-  s:completed - t:completed
-  s:amended - t:amended
-  s:entered-in-error - t:entered-in-error
-  s:stopped - t:stopped
+  s:"in-progress" - t:"in-progress"
+  s:"completed" - t:"completed"
+  s:"amended" - t:"amended"
+  s:"entered-in-error" - t:"entered-in-error"
+  s:"stopped" - t:"stopped"
 }
+
+uses "http://hl7.org/fhir/StructureDefinition/QuestionnaireResponse" alias QuestionnaireResponseR5 as source
+uses "http://hl7.org/fhir/4.3/StructureDefinition/QuestionnaireResponse" alias QuestionnaireResponseR4B as target
+
+imports "http://hl7.org/fhir/StructureMap/*5to4B"
 
 group QuestionnaireResponse(source src : QuestionnaireResponseR5, target tgt : QuestionnaireResponseR4B) extends DomainResource <<type+>> {
   src.identifier -> tgt.identifier;
   src.basedOn -> tgt.basedOn;
   src.partOf -> tgt.partOf;
   src.questionnaire -> tgt.questionnaire;
-  src.status as v -> tgt.status = translate(v, '#QuestionnaireResponseStatus', 'c');
+  src.status as v -> tgt.status = translate(v, '#QuestionnaireResponseStatus', 'code');
   src.subject -> tgt.subject;
   src.encounter -> tgt.encounter;
   src.authored -> tgt.authored;

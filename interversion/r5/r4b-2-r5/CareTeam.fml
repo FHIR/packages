@@ -2,25 +2,25 @@
 /// name = 'CareTeam4Bto5'
 /// title = 'FML Conversion for CareTeam: R4B to R5'
 
+conceptmap "CareTeamStatus" {
+  prefix s = "http://hl7.org/fhir/4.3/care-team-status"
+  prefix t = "http://hl7.org/fhir/care-team-status"
+
+  s:"proposed" - t:"proposed"
+  s:"active" - t:"active"
+  s:"suspended" - t:"suspended"
+  s:"inactive" - t:"inactive"
+  s:"entered-in-error" - t:"entered-in-error"
+}
+
 uses "http://hl7.org/fhir/4.3/StructureDefinition/CareTeam" alias CareTeamR4B as source
 uses "http://hl7.org/fhir/StructureDefinition/CareTeam" alias CareTeamR5 as target
 
 imports "http://hl7.org/fhir/StructureMap/*4Bto5"
 
-conceptmap "CareTeamStatus" {
-  prefix s = "http://hl7.org/fhir/4.3/care-team-status"
-  prefix t = "http://hl7.org/fhir/care-team-status"
-
-  s:proposed - t:proposed
-  s:active - t:active
-  s:suspended - t:suspended
-  s:inactive - t:inactive
-  s:entered-in-error - t:entered-in-error
-}
-
 group CareTeam(source src : CareTeamR4B, target tgt : CareTeamR5) extends DomainResource <<type+>> {
   src.identifier -> tgt.identifier;
-  src.status as v -> tgt.status = translate(v, '#CareTeamStatus', 'c');
+  src.status as v -> tgt.status = translate(v, '#CareTeamStatus', 'code');
   src.category -> tgt.category;
   src.name -> tgt.name;
   src.subject -> tgt.subject;

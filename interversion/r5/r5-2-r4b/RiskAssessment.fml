@@ -2,29 +2,29 @@
 /// name = 'RiskAssessment5to4B'
 /// title = 'FML Conversion for RiskAssessment: R5 to R4B'
 
+conceptmap "RiskAssessmentStatus" {
+  prefix s = "http://hl7.org/fhir/observation-status"
+  prefix t = "http://hl7.org/fhir/4.3/observation-status"
+
+  s:"registered" - t:"registered"
+  s:"preliminary" - t:"preliminary"
+  s:"final" - t:"final"
+  s:"amended" - t:"amended"
+  s:"cancelled" - t:"cancelled"
+  s:"entered-in-error" - t:"entered-in-error"
+  s:"unknown" - t:"unknown"
+}
+
 uses "http://hl7.org/fhir/StructureDefinition/RiskAssessment" alias RiskAssessmentR5 as source
 uses "http://hl7.org/fhir/4.3/StructureDefinition/RiskAssessment" alias RiskAssessmentR4B as target
 
 imports "http://hl7.org/fhir/StructureMap/*5to4B"
 
-conceptmap "RiskAssessmentStatus" {
-  prefix s = "http://hl7.org/fhir/observation-status"
-  prefix t = "http://hl7.org/fhir/4.3/observation-status"
-
-  s:registered - t:registered
-  s:preliminary - t:preliminary
-  s:final - t:final
-  s:amended - t:amended
-  s:cancelled - t:cancelled
-  s:entered-in-error - t:entered-in-error
-  s:unknown - t:unknown
-}
-
 group RiskAssessment(source src : RiskAssessmentR5, target tgt : RiskAssessmentR4B) extends DomainResource <<type+>> {
   src.identifier -> tgt.identifier;
   src.basedOn -> tgt.basedOn;
   src.parent -> tgt.parent;
-  src.status as v -> tgt.status = translate(v, '#RiskAssessmentStatus', 'c');
+  src.status as v -> tgt.status = translate(v, '#RiskAssessmentStatus', 'code');
   src.method -> tgt.method;
   src.code -> tgt.code;
   src.subject -> tgt.subject;

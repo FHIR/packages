@@ -2,44 +2,44 @@
 /// name = 'PaymentReconciliation5to4'
 /// title = 'FML Conversion for PaymentReconciliation: R5 to R4'
 
-uses "http://hl7.org/fhir/StructureDefinition/PaymentReconciliation" alias PaymentReconciliationR5 as source
-uses "http://hl7.org/fhir/4.0/StructureDefinition/PaymentReconciliation" alias PaymentReconciliationR4 as target
-
-imports "http://hl7.org/fhir/StructureMap/*5to4"
-
 conceptmap "NoteType" {
   prefix s = "http://hl7.org/fhir/note-type"
   prefix t = "http://hl7.org/fhir/4.0/note-type"
 
-  s:display - t:display
-  s:print - t:print
-  s:printoper - t:printoper
+  s:"display" - t:"display"
+  s:"print" - t:"print"
+  s:"printoper" - t:"printoper"
 }
 
 conceptmap "PaymentOutcome" {
   prefix s = "http://hl7.org/fhir/payment-outcome"
   prefix t = "http://hl7.org/fhir/4.0/payment-outcome"
 
-  s:queued - t:queued
-  s:complete - t:complete
-  s:error - t:error
-  s:partial - t:partial
+  s:"queued" - t:"queued"
+  s:"complete" - t:"complete"
+  s:"error" - t:"error"
+  s:"partial" - t:"partial"
 }
 
 conceptmap "PaymentReconciliationStatus" {
   prefix s = "http://hl7.org/fhir/fm-status"
   prefix t = "http://hl7.org/fhir/4.0/fm-status"
 
-  s:active - t:active
-  s:cancelled - t:cancelled
-  s:draft - t:draft
-  s:entered-in-error - t:entered-in-error
+  s:"active" - t:"active"
+  s:"cancelled" - t:"cancelled"
+  s:"draft" - t:"draft"
+  s:"entered-in-error" - t:"entered-in-error"
 }
+
+uses "http://hl7.org/fhir/StructureDefinition/PaymentReconciliation" alias PaymentReconciliationR5 as source
+uses "http://hl7.org/fhir/4.0/StructureDefinition/PaymentReconciliation" alias PaymentReconciliationR4 as target
+
+imports "http://hl7.org/fhir/StructureMap/*5to4"
 
 group PaymentReconciliation(source src : PaymentReconciliationR5, target tgt : PaymentReconciliationR4) extends DomainResource <<type+>> {
   src.identifier -> tgt.identifier;
   src.type -> tgt.type;
-  src.status as v -> tgt.status = translate(v, '#PaymentReconciliationStatus', 'c');
+  src.status as v -> tgt.status = translate(v, '#PaymentReconciliationStatus', 'code');
   src.kind -> tgt.kind;
   src.period -> tgt.period;
   src.created -> tgt.created;
@@ -48,7 +48,7 @@ group PaymentReconciliation(source src : PaymentReconciliationR5, target tgt : P
   src.paymentIssuer -> tgt.paymentIssuer;
   src.request -> tgt.request;
   src.requestor -> tgt.requestor;
-  src.outcome as v -> tgt.outcome = translate(v, '#PaymentOutcome', 'c');
+  src.outcome as v -> tgt.outcome = translate(v, '#PaymentOutcome', 'code');
   src.disposition -> tgt.disposition;
   src.date -> tgt.date;
   src.location -> tgt.location;
@@ -87,7 +87,7 @@ group PaymentReconciliationAllocation(source src, target tgt) extends BackboneEl
 }
 
 group PaymentReconciliationProcessNote(source src, target tgt) extends BackboneElement {
-  src.type as v -> tgt.type = translate(v, '#NoteType', 'c');
+  src.type as v -> tgt.type = translate(v, '#NoteType', 'code');
   src.text -> tgt.text;
 }
 

@@ -2,50 +2,50 @@
 /// name = 'GraphDefinition5to4B'
 /// title = 'FML Conversion for GraphDefinition: R5 to R4B'
 
-uses "http://hl7.org/fhir/StructureDefinition/GraphDefinition" alias GraphDefinitionR5 as source
-uses "http://hl7.org/fhir/4.3/StructureDefinition/GraphDefinition" alias GraphDefinitionR4B as target
-
-imports "http://hl7.org/fhir/StructureMap/*5to4B"
-
 conceptmap "CompartmentCode" {
   prefix s = "http://hl7.org/fhir/compartment-type"
   prefix t = "http://hl7.org/fhir/4.3/compartment-type"
 
-  s:Patient - t:Patient
-  s:Encounter - t:Encounter
-  s:RelatedPerson - t:RelatedPerson
-  s:Practitioner - t:Practitioner
-  s:Device - t:Device
-  s:EpisodeOfCare - t:EpisodeOfCare
+  s:"Patient" - t:"Patient"
+  s:"Encounter" - t:"Encounter"
+  s:"RelatedPerson" - t:"RelatedPerson"
+  s:"Practitioner" - t:"Practitioner"
+  s:"Device" - t:"Device"
+  s:"EpisodeOfCare" - t:"EpisodeOfCare"
 }
 
 conceptmap "GraphCompartmentRule" {
   prefix s = "http://hl7.org/fhir/graph-compartment-rule"
   prefix t = "http://hl7.org/fhir/4.3/graph-compartment-rule"
 
-  s:identical - t:identical
-  s:matching - t:matching
-  s:different - t:different
-  s:custom - t:custom
+  s:"identical" - t:"identical"
+  s:"matching" - t:"matching"
+  s:"different" - t:"different"
+  s:"custom" - t:"custom"
 }
 
 conceptmap "GraphCompartmentUse" {
   prefix s = "http://hl7.org/fhir/graph-compartment-use"
   prefix t = "http://hl7.org/fhir/4.3/graph-compartment-use"
 
-  s:where - t:where
-  s:requires - t:requires
+  s:"where" - t:"where"
+  s:"requires" - t:"requires"
 }
 
 conceptmap "PublicationStatus" {
   prefix s = "http://hl7.org/fhir/publication-status"
   prefix t = "http://hl7.org/fhir/4.3/publication-status"
 
-  s:draft - t:draft
-  s:active - t:active
-  s:retired - t:retired
-  s:unknown - t:unknown
+  s:"draft" - t:"draft"
+  s:"active" - t:"active"
+  s:"retired" - t:"retired"
+  s:"unknown" - t:"unknown"
 }
+
+uses "http://hl7.org/fhir/StructureDefinition/GraphDefinition" alias GraphDefinitionR5 as source
+uses "http://hl7.org/fhir/4.3/StructureDefinition/GraphDefinition" alias GraphDefinitionR4B as target
+
+imports "http://hl7.org/fhir/StructureMap/*5to4B"
 
 group GraphDefinition(source src : GraphDefinitionR5, target tgt : GraphDefinitionR4B) extends DomainResource <<type+>> {
   src.url -> tgt.url;
@@ -55,7 +55,7 @@ group GraphDefinition(source src : GraphDefinitionR5, target tgt : GraphDefiniti
   src.versionAlgorithm : Coding -> tgt.versionAlgorithm;
   src.name -> tgt.name;
   src.title -> tgt.title;
-  src.status as v -> tgt.status = translate(v, '#PublicationStatus', 'c');
+  src.status as v -> tgt.status = translate(v, '#PublicationStatus', 'code');
   src.experimental -> tgt.experimental;
   src.date -> tgt.date;
   src.publisher -> tgt.publisher;
@@ -91,9 +91,9 @@ group GraphDefinitionLink(source src, target tgt) extends BackboneElement {
 }
 
 group GraphDefinitionLinkCompartment(source src, target tgt) extends BackboneElement {
-  src.use as v -> tgt.use = translate(v, '#GraphCompartmentUse', 'c');
-  src.rule as v -> tgt.rule = translate(v, '#GraphCompartmentRule', 'c');
-  src.code as v -> tgt.code = translate(v, '#CompartmentCode', 'c');
+  src.use as v -> tgt.use = translate(v, '#GraphCompartmentUse', 'code');
+  src.rule as v -> tgt.rule = translate(v, '#GraphCompartmentRule', 'code');
+  src.code as v -> tgt.code = translate(v, '#CompartmentCode', 'code');
   src.expression -> tgt.expression;
   src.description -> tgt.description;
 }

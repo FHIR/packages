@@ -2,20 +2,20 @@
 /// name = 'EventDefinition5to4B'
 /// title = 'FML Conversion for EventDefinition: R5 to R4B'
 
-uses "http://hl7.org/fhir/StructureDefinition/EventDefinition" alias EventDefinitionR5 as source
-uses "http://hl7.org/fhir/4.3/StructureDefinition/EventDefinition" alias EventDefinitionR4B as target
-
-imports "http://hl7.org/fhir/StructureMap/*5to4B"
-
 conceptmap "PublicationStatus" {
   prefix s = "http://hl7.org/fhir/publication-status"
   prefix t = "http://hl7.org/fhir/4.3/publication-status"
 
-  s:draft - t:draft
-  s:active - t:active
-  s:retired - t:retired
-  s:unknown - t:unknown
+  s:"draft" - t:"draft"
+  s:"active" - t:"active"
+  s:"retired" - t:"retired"
+  s:"unknown" - t:"unknown"
 }
+
+uses "http://hl7.org/fhir/StructureDefinition/EventDefinition" alias EventDefinitionR5 as source
+uses "http://hl7.org/fhir/4.3/StructureDefinition/EventDefinition" alias EventDefinitionR4B as target
+
+imports "http://hl7.org/fhir/StructureMap/*5to4B"
 
 group EventDefinition(source src : EventDefinitionR5, target tgt : EventDefinitionR4B) extends DomainResource <<type+>> {
   src.url -> tgt.url;
@@ -26,7 +26,7 @@ group EventDefinition(source src : EventDefinitionR5, target tgt : EventDefiniti
   src.name -> tgt.name;
   src.title -> tgt.title;
   src.subtitle -> tgt.subtitle;
-  src.status as v -> tgt.status = translate(v, '#PublicationStatus', 'c');
+  src.status as v -> tgt.status = translate(v, '#PublicationStatus', 'code');
   src.experimental -> tgt.experimental;
   src.subject : CodeableConcept -> tgt.subject;
   src.subject : Reference -> tgt.subject;

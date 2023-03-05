@@ -2,20 +2,20 @@
 /// name = 'CanonicalResource5to4B'
 /// title = 'FML Conversion for CanonicalResource: R5 to R4B'
 
-uses "http://hl7.org/fhir/StructureDefinition/CanonicalResource" alias CanonicalResourceR5 as source
-uses "http://hl7.org/fhir/4.3/StructureDefinition/CanonicalResource" alias CanonicalResourceR4B as target
-
-imports "http://hl7.org/fhir/StructureMap/*5to4B"
-
 conceptmap "PublicationStatus" {
   prefix s = "http://hl7.org/fhir/publication-status"
   prefix t = "http://hl7.org/fhir/4.3/publication-status"
 
-  s:draft - t:draft
-  s:active - t:active
-  s:retired - t:retired
-  s:unknown - t:unknown
+  s:"draft" - t:"draft"
+  s:"active" - t:"active"
+  s:"retired" - t:"retired"
+  s:"unknown" - t:"unknown"
 }
+
+uses "http://hl7.org/fhir/StructureDefinition/CanonicalResource" alias CanonicalResourceR5 as source
+uses "http://hl7.org/fhir/4.3/StructureDefinition/CanonicalResource" alias CanonicalResourceR4B as target
+
+imports "http://hl7.org/fhir/StructureMap/*5to4B"
 
 group CanonicalResource(source src : CanonicalResourceR5, target tgt : CanonicalResourceR4B) extends DomainResource <<type+>> {
   src.url -> tgt.url;
@@ -25,7 +25,7 @@ group CanonicalResource(source src : CanonicalResourceR5, target tgt : Canonical
   src.versionAlgorithm : Coding -> tgt.versionAlgorithm;
   src.name -> tgt.name;
   src.title -> tgt.title;
-  src.status as v -> tgt.status = translate(v, '#PublicationStatus', 'c');
+  src.status as v -> tgt.status = translate(v, '#PublicationStatus', 'code');
   src.experimental -> tgt.experimental;
   src.date -> tgt.date;
   src.publisher -> tgt.publisher;

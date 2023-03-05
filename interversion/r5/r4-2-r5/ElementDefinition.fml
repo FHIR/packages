@@ -2,97 +2,97 @@
 /// name = 'ElementDefinition4to5'
 /// title = 'FML Conversion for ElementDefinition: R4 to R5'
 
-uses "http://hl7.org/fhir/4.0/StructureDefinition/ElementDefinition" alias ElementDefinitionR4 as source
-uses "http://hl7.org/fhir/StructureDefinition/ElementDefinition" alias ElementDefinitionR5 as target
-
-imports "http://hl7.org/fhir/StructureMap/*4to5"
-
 conceptmap "AdditionalBindingPurpose" {
   prefix s = "http://hl7.org/fhir/4.0/CodeSystem/additional-binding-purpose"
   prefix t = "http://hl7.org/fhir/CodeSystem/additional-binding-purpose"
 
-  s:maximum - t:maximum
-  s:minimum - t:minimum
-  s:required - t:required
-  s:extensible - t:extensible
-  s:candidate - t:candidate
-  s:current - t:current
-  s:preferred - t:preferred
-  s:ui - t:ui
-  s:starter - t:starter
-  s:component - t:component
+  s:"maximum" - t:"maximum"
+  s:"minimum" - t:"minimum"
+  s:"required" - t:"required"
+  s:"extensible" - t:"extensible"
+  s:"candidate" - t:"candidate"
+  s:"current" - t:"current"
+  s:"preferred" - t:"preferred"
+  s:"ui" - t:"ui"
+  s:"starter" - t:"starter"
+  s:"component" - t:"component"
 }
 
 conceptmap "AggregationMode" {
   prefix s = "http://hl7.org/fhir/4.0/resource-aggregation-mode"
   prefix t = "http://hl7.org/fhir/resource-aggregation-mode"
 
-  s:contained - t:contained
-  s:referenced - t:referenced
+  s:"contained" - t:"contained"
+  s:"referenced" - t:"referenced"
 }
 
 conceptmap "BindingStrength" {
   prefix s = "http://hl7.org/fhir/4.0/binding-strength"
   prefix t = "http://hl7.org/fhir/binding-strength"
 
-  s:required - t:required
-  s:extensible - t:extensible
-  s:preferred - t:preferred
-  s:example - t:example
+  s:"required" - t:"required"
+  s:"extensible" - t:"extensible"
+  s:"preferred" - t:"preferred"
+  s:"example" - t:"example"
 }
 
 conceptmap "ConstraintSeverity" {
   prefix s = "http://hl7.org/fhir/4.0/constraint-severity"
   prefix t = "http://hl7.org/fhir/constraint-severity"
 
-  s:error - t:error
-  s:warning - t:warning
+  s:"error" - t:"error"
+  s:"warning" - t:"warning"
 }
 
 conceptmap "DiscriminatorType" {
   prefix s = "http://hl7.org/fhir/4.0/discriminator-type"
   prefix t = "http://hl7.org/fhir/discriminator-type"
 
-  s:value - t:value
-  s:exists - t:exists
-  s:pattern - t:pattern
-  s:type - t:type
-  s:profile - t:profile
-  s:position - t:position
+  s:"value" - t:"value"
+  s:"exists" - t:"exists"
+  s:"pattern" - t:"pattern"
+  s:"type" - t:"type"
+  s:"profile" - t:"profile"
+  s:"position" - t:"position"
 }
 
 conceptmap "PropertyRepresentation" {
   prefix s = "http://hl7.org/fhir/4.0/property-representation"
   prefix t = "http://hl7.org/fhir/property-representation"
 
-  s:xmlAttr - t:xmlAttr
-  s:xmlText - t:xmlText
-  s:typeAttr - t:typeAttr
-  s:cdaText - t:cdaText
-  s:xhtml - t:xhtml
+  s:"xmlAttr" - t:"xmlAttr"
+  s:"xmlText" - t:"xmlText"
+  s:"typeAttr" - t:"typeAttr"
+  s:"cdaText" - t:"cdaText"
+  s:"xhtml" - t:"xhtml"
 }
 
 conceptmap "ReferenceVersionRules" {
   prefix s = "http://hl7.org/fhir/4.0/reference-version-rules"
   prefix t = "http://hl7.org/fhir/reference-version-rules"
 
-  s:either - t:either
-  s:independent - t:independent
-  s:specific - t:specific
+  s:"either" - t:"either"
+  s:"independent" - t:"independent"
+  s:"specific" - t:"specific"
 }
 
 conceptmap "SlicingRules" {
   prefix s = "http://hl7.org/fhir/4.0/resource-slicing-rules"
   prefix t = "http://hl7.org/fhir/resource-slicing-rules"
 
-  s:closed - t:closed
-  s:open - t:open
-  s:openAtEnd - t:openAtEnd
+  s:"closed" - t:"closed"
+  s:"open" - t:"open"
+  s:"openAtEnd" - t:"openAtEnd"
 }
+
+uses "http://hl7.org/fhir/4.0/StructureDefinition/ElementDefinition" alias ElementDefinitionR4 as source
+uses "http://hl7.org/fhir/StructureDefinition/ElementDefinition" alias ElementDefinitionR5 as target
+
+imports "http://hl7.org/fhir/StructureMap/*4to5"
 
 group ElementDefinition(source src : ElementDefinitionR4, target tgt : ElementDefinitionR5) extends BackboneType <<type+>> {
   src.path -> tgt.path;
-  src.representation as v -> tgt.representation = translate(v, '#PropertyRepresentation', 'c');
+  src.representation as v -> tgt.representation = translate(v, '#PropertyRepresentation', 'code');
   src.sliceName -> tgt.sliceName;
   src.sliceIsConstraining -> tgt.sliceIsConstraining;
   src.label -> tgt.label;
@@ -310,11 +310,11 @@ group ElementDefinitionSlicing(source src, target tgt) extends Element {
   src.discriminator as s -> tgt.discriminator as t then ElementDefinitionSlicingDiscriminator(s,t);
   src.description -> tgt.description;
   src.ordered -> tgt.ordered;
-  src.rules as v -> tgt.rules = translate(v, '#SlicingRules', 'c');
+  src.rules as v -> tgt.rules = translate(v, '#SlicingRules', 'code');
 }
 
 group ElementDefinitionSlicingDiscriminator(source src, target tgt) extends Element {
-  src.type as v -> tgt.type = translate(v, '#DiscriminatorType', 'c');
+  src.type as v -> tgt.type = translate(v, '#DiscriminatorType', 'code');
   src.path -> tgt.path;
 }
 
@@ -328,8 +328,8 @@ group ElementDefinitionType(source src, target tgt) extends Element {
   src.code -> tgt.code;
   src.profile -> tgt.profile;
   src.targetProfile -> tgt.targetProfile;
-  src.aggregation as v -> tgt.aggregation = translate(v, '#AggregationMode', 'c');
-  src.versioning as v -> tgt.versioning = translate(v, '#ReferenceVersionRules', 'c');
+  src.aggregation as v -> tgt.aggregation = translate(v, '#AggregationMode', 'code');
+  src.versioning as v -> tgt.versioning = translate(v, '#ReferenceVersionRules', 'code');
 }
 
 group ElementDefinitionExample(source src, target tgt) extends Element {
@@ -393,7 +393,7 @@ group ElementDefinitionExample(source src, target tgt) extends Element {
 group ElementDefinitionConstraint(source src, target tgt) extends Element {
   src.key -> tgt.key;
   src.requirements -> tgt.requirements;
-  src.severity as v -> tgt.severity = translate(v, '#ConstraintSeverity', 'c');
+  src.severity as v -> tgt.severity = translate(v, '#ConstraintSeverity', 'code');
   src.suppress -> tgt.suppress;
   src.human -> tgt.human;
   src.expression -> tgt.expression;
@@ -401,14 +401,14 @@ group ElementDefinitionConstraint(source src, target tgt) extends Element {
 }
 
 group ElementDefinitionBinding(source src, target tgt) extends Element {
-  src.strength as v -> tgt.strength = translate(v, '#BindingStrength', 'c');
+  src.strength as v -> tgt.strength = translate(v, '#BindingStrength', 'code');
   src.description -> tgt.description;
   src.valueSet -> tgt.valueSet;
   src.additional as s -> tgt.additional as t then ElementDefinitionBindingAdditional(s,t);
 }
 
 group ElementDefinitionBindingAdditional(source src, target tgt) extends Element {
-  src.purpose as v -> tgt.purpose = translate(v, '#AdditionalBindingPurpose', 'c');
+  src.purpose as v -> tgt.purpose = translate(v, '#AdditionalBindingPurpose', 'code');
   src.valueSet -> tgt.valueSet;
   src.documentation -> tgt.documentation;
   src.shortDoco -> tgt.shortDoco;

@@ -2,33 +2,33 @@
 /// name = 'InventoryReport4to5'
 /// title = 'FML Conversion for InventoryReport: R4 to R5'
 
-uses "http://hl7.org/fhir/4.0/StructureDefinition/InventoryReport" alias InventoryReportR4 as source
-uses "http://hl7.org/fhir/StructureDefinition/InventoryReport" alias InventoryReportR5 as target
-
-imports "http://hl7.org/fhir/StructureMap/*4to5"
-
 conceptmap "InventoryCountType" {
   prefix s = "http://hl7.org/fhir/4.0/inventoryreport-counttype"
   prefix t = "http://hl7.org/fhir/inventoryreport-counttype"
 
-  s:snapshot - t:snapshot
-  s:difference - t:difference
+  s:"snapshot" - t:"snapshot"
+  s:"difference" - t:"difference"
 }
 
 conceptmap "InventoryReportStatus" {
   prefix s = "http://hl7.org/fhir/4.0/inventoryreport-status"
   prefix t = "http://hl7.org/fhir/inventoryreport-status"
 
-  s:draft - t:draft
-  s:requested - t:requested
-  s:active - t:active
-  s:entered-in-error - t:entered-in-error
+  s:"draft" - t:"draft"
+  s:"requested" - t:"requested"
+  s:"active" - t:"active"
+  s:"entered-in-error" - t:"entered-in-error"
 }
+
+uses "http://hl7.org/fhir/4.0/StructureDefinition/InventoryReport" alias InventoryReportR4 as source
+uses "http://hl7.org/fhir/StructureDefinition/InventoryReport" alias InventoryReportR5 as target
+
+imports "http://hl7.org/fhir/StructureMap/*4to5"
 
 group InventoryReport(source src : InventoryReportR4, target tgt : InventoryReportR5) extends DomainResource <<type+>> {
   src.identifier -> tgt.identifier;
-  src.status as v -> tgt.status = translate(v, '#InventoryReportStatus', 'c');
-  src.countType as v -> tgt.countType = translate(v, '#InventoryCountType', 'c');
+  src.status as v -> tgt.status = translate(v, '#InventoryReportStatus', 'code');
+  src.countType as v -> tgt.countType = translate(v, '#InventoryCountType', 'code');
   src.operationType -> tgt.operationType;
   src.operationTypeReason -> tgt.operationTypeReason;
   src.reportedDateTime -> tgt.reportedDateTime;

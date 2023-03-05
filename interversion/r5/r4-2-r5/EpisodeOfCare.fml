@@ -2,27 +2,27 @@
 /// name = 'EpisodeOfCare4to5'
 /// title = 'FML Conversion for EpisodeOfCare: R4 to R5'
 
+conceptmap "EpisodeOfCareStatus" {
+  prefix s = "http://hl7.org/fhir/4.0/episode-of-care-status"
+  prefix t = "http://hl7.org/fhir/episode-of-care-status"
+
+  s:"planned" - t:"planned"
+  s:"waitlist" - t:"waitlist"
+  s:"active" - t:"active"
+  s:"onhold" - t:"onhold"
+  s:"finished" - t:"finished"
+  s:"cancelled" - t:"cancelled"
+  s:"entered-in-error" - t:"entered-in-error"
+}
+
 uses "http://hl7.org/fhir/4.0/StructureDefinition/EpisodeOfCare" alias EpisodeOfCareR4 as source
 uses "http://hl7.org/fhir/StructureDefinition/EpisodeOfCare" alias EpisodeOfCareR5 as target
 
 imports "http://hl7.org/fhir/StructureMap/*4to5"
 
-conceptmap "EpisodeOfCareStatus" {
-  prefix s = "http://hl7.org/fhir/4.0/episode-of-care-status"
-  prefix t = "http://hl7.org/fhir/episode-of-care-status"
-
-  s:planned - t:planned
-  s:waitlist - t:waitlist
-  s:active - t:active
-  s:onhold - t:onhold
-  s:finished - t:finished
-  s:cancelled - t:cancelled
-  s:entered-in-error - t:entered-in-error
-}
-
 group EpisodeOfCare(source src : EpisodeOfCareR4, target tgt : EpisodeOfCareR5) extends DomainResource <<type+>> {
   src.identifier -> tgt.identifier;
-  src.status as v -> tgt.status = translate(v, '#EpisodeOfCareStatus', 'c');
+  src.status as v -> tgt.status = translate(v, '#EpisodeOfCareStatus', 'code');
   src.statusHistory as s -> tgt.statusHistory as t then EpisodeOfCareStatusHistory(s,t);
   src.type -> tgt.type;
   src.reason as s -> tgt.reason as t then EpisodeOfCareReason(s,t);
@@ -37,7 +37,7 @@ group EpisodeOfCare(source src : EpisodeOfCareR4, target tgt : EpisodeOfCareR5) 
 }
 
 group EpisodeOfCareStatusHistory(source src, target tgt) extends BackboneElement {
-  src.status as v -> tgt.status = translate(v, '#EpisodeOfCareStatus', 'c');
+  src.status as v -> tgt.status = translate(v, '#EpisodeOfCareStatus', 'code');
   src.period -> tgt.period;
 }
 

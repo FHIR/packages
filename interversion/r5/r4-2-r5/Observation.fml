@@ -2,32 +2,32 @@
 /// name = 'Observation4to5'
 /// title = 'FML Conversion for Observation: R4 to R5'
 
-uses "http://hl7.org/fhir/4.0/StructureDefinition/Observation" alias ObservationR4 as source
-uses "http://hl7.org/fhir/StructureDefinition/Observation" alias ObservationR5 as target
-
-imports "http://hl7.org/fhir/StructureMap/*4to5"
-
 conceptmap "ObservationStatus" {
   prefix s = "http://hl7.org/fhir/4.0/observation-status"
   prefix t = "http://hl7.org/fhir/observation-status"
 
-  s:registered - t:registered
-  s:preliminary - t:preliminary
-  s:final - t:final
-  s:amended - t:amended
-  s:cancelled - t:cancelled
-  s:entered-in-error - t:entered-in-error
-  s:unknown - t:unknown
+  s:"registered" - t:"registered"
+  s:"preliminary" - t:"preliminary"
+  s:"final" - t:"final"
+  s:"amended" - t:"amended"
+  s:"cancelled" - t:"cancelled"
+  s:"entered-in-error" - t:"entered-in-error"
+  s:"unknown" - t:"unknown"
 }
 
 conceptmap "TriggeredByType" {
   prefix s = "http://hl7.org/fhir/4.0/observation-triggeredbytype"
   prefix t = "http://hl7.org/fhir/observation-triggeredbytype"
 
-  s:reflex - t:reflex
-  s:repeat - t:repeat
-  s:re-run - t:re-run
+  s:"reflex" - t:"reflex"
+  s:"repeat" - t:"repeat"
+  s:"re-run" - t:"re-run"
 }
+
+uses "http://hl7.org/fhir/4.0/StructureDefinition/Observation" alias ObservationR4 as source
+uses "http://hl7.org/fhir/StructureDefinition/Observation" alias ObservationR5 as target
+
+imports "http://hl7.org/fhir/StructureMap/*4to5"
 
 group Observation(source src : ObservationR4, target tgt : ObservationR5) extends DomainResource <<type+>> {
   src.identifier -> tgt.identifier;
@@ -36,7 +36,7 @@ group Observation(source src : ObservationR4, target tgt : ObservationR5) extend
   src.basedOn -> tgt.basedOn;
   src.triggeredBy as s -> tgt.triggeredBy as t then ObservationTriggeredBy(s,t);
   src.partOf -> tgt.partOf;
-  src.status as v -> tgt.status = translate(v, '#ObservationStatus', 'c');
+  src.status as v -> tgt.status = translate(v, '#ObservationStatus', 'code');
   src.category -> tgt.category;
   src.code -> tgt.code;
   src.subject -> tgt.subject;
@@ -78,7 +78,7 @@ group Observation(source src : ObservationR4, target tgt : ObservationR5) extend
 
 group ObservationTriggeredBy(source src, target tgt) extends BackboneElement {
   src.observation -> tgt.observation;
-  src.type as v -> tgt.type = translate(v, '#TriggeredByType', 'c');
+  src.type as v -> tgt.type = translate(v, '#TriggeredByType', 'code');
   src.reason -> tgt.reason;
 }
 

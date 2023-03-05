@@ -2,48 +2,48 @@
 /// name = 'ArtifactAssessment5to4B'
 /// title = 'FML Conversion for ArtifactAssessment: R5 to R4B'
 
-uses "http://hl7.org/fhir/StructureDefinition/ArtifactAssessment" alias ArtifactAssessmentR5 as source
-uses "http://hl7.org/fhir/4.3/StructureDefinition/ArtifactAssessment" alias ArtifactAssessmentR4B as target
-
-imports "http://hl7.org/fhir/StructureMap/*5to4B"
-
 conceptmap "Disposition" {
   prefix s = "http://hl7.org/fhir/artifactassessment-disposition"
   prefix t = "http://hl7.org/fhir/4.3/artifactassessment-disposition"
 
-  s:unresolved - t:unresolved
-  s:not-persuasive - t:not-persuasive
-  s:persuasive - t:persuasive
-  s:persuasive-with-modification - t:persuasive-with-modification
-  s:not-persuasive-with-modification - t:not-persuasive-with-modification
+  s:"unresolved" - t:"unresolved"
+  s:"not-persuasive" - t:"not-persuasive"
+  s:"persuasive" - t:"persuasive"
+  s:"persuasive-with-modification" - t:"persuasive-with-modification"
+  s:"not-persuasive-with-modification" - t:"not-persuasive-with-modification"
 }
 
 conceptmap "InformationType" {
   prefix s = "http://hl7.org/fhir/artifactassessment-information-type"
   prefix t = "http://hl7.org/fhir/4.3/artifactassessment-information-type"
 
-  s:comment - t:comment
-  s:classifier - t:classifier
-  s:rating - t:rating
-  s:container - t:container
-  s:response - t:response
-  s:change-request - t:change-request
+  s:"comment" - t:"comment"
+  s:"classifier" - t:"classifier"
+  s:"rating" - t:"rating"
+  s:"container" - t:"container"
+  s:"response" - t:"response"
+  s:"change-request" - t:"change-request"
 }
 
 conceptmap "WorkflowStatus" {
   prefix s = "http://hl7.org/fhir/artifactassessment-workflow-status"
   prefix t = "http://hl7.org/fhir/4.3/artifactassessment-workflow-status"
 
-  s:submitted - t:submitted
-  s:triaged - t:triaged
-  s:waiting-for-input - t:waiting-for-input
-  s:resolved-no-change - t:resolved-no-change
-  s:resolved-change-required - t:resolved-change-required
-  s:deferred - t:deferred
-  s:duplicate - t:duplicate
-  s:applied - t:applied
-  s:published - t:published
+  s:"submitted" - t:"submitted"
+  s:"triaged" - t:"triaged"
+  s:"waiting-for-input" - t:"waiting-for-input"
+  s:"resolved-no-change" - t:"resolved-no-change"
+  s:"resolved-change-required" - t:"resolved-change-required"
+  s:"deferred" - t:"deferred"
+  s:"duplicate" - t:"duplicate"
+  s:"applied" - t:"applied"
+  s:"published" - t:"published"
 }
+
+uses "http://hl7.org/fhir/StructureDefinition/ArtifactAssessment" alias ArtifactAssessmentR5 as source
+uses "http://hl7.org/fhir/4.3/StructureDefinition/ArtifactAssessment" alias ArtifactAssessmentR4B as target
+
+imports "http://hl7.org/fhir/StructureMap/*5to4B"
 
 group ArtifactAssessment(source src : ArtifactAssessmentR5, target tgt : ArtifactAssessmentR4B) extends DomainResource <<type+>> {
   src.identifier -> tgt.identifier;
@@ -58,12 +58,12 @@ group ArtifactAssessment(source src : ArtifactAssessmentR5, target tgt : Artifac
   src.artifact : canonical -> tgt.artifact;
   src.artifact : uri -> tgt.artifact;
   src.content as s -> tgt.content as t then ArtifactAssessmentContent(s,t);
-  src.workflowStatus as v -> tgt.workflowStatus = translate(v, '#WorkflowStatus', 'c');
-  src.disposition as v -> tgt.disposition = translate(v, '#Disposition', 'c');
+  src.workflowStatus as v -> tgt.workflowStatus = translate(v, '#WorkflowStatus', 'code');
+  src.disposition as v -> tgt.disposition = translate(v, '#Disposition', 'code');
 }
 
 group ArtifactAssessmentContent(source src, target tgt) extends BackboneElement {
-  src.informationType as v -> tgt.informationType = translate(v, '#InformationType', 'c');
+  src.informationType as v -> tgt.informationType = translate(v, '#InformationType', 'code');
   src.summary -> tgt.summary;
   src.type -> tgt.type;
   src.classifier -> tgt.classifier;

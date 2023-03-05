@@ -2,64 +2,64 @@
 /// name = 'SubscriptionTopic5to4B'
 /// title = 'FML Conversion for SubscriptionTopic: R5 to R4B'
 
-uses "http://hl7.org/fhir/StructureDefinition/SubscriptionTopic" alias SubscriptionTopicR5 as source
-uses "http://hl7.org/fhir/4.3/StructureDefinition/SubscriptionTopic" alias SubscriptionTopicR4B as target
-
-imports "http://hl7.org/fhir/StructureMap/*5to4B"
-
 conceptmap "CriteriaNotExistsBehavior" {
   prefix s = "http://hl7.org/fhir/subscriptiontopic-cr-behavior"
   prefix t = "http://hl7.org/fhir/4.3/subscriptiontopic-cr-behavior"
 
-  s:test-passes - t:test-passes
-  s:test-fails - t:test-fails
+  s:"test-passes" - t:"test-passes"
+  s:"test-fails" - t:"test-fails"
 }
 
 conceptmap "PublicationStatus" {
   prefix s = "http://hl7.org/fhir/publication-status"
   prefix t = "http://hl7.org/fhir/4.3/publication-status"
 
-  s:draft - t:draft
-  s:active - t:active
-  s:retired - t:retired
-  s:unknown - t:unknown
+  s:"draft" - t:"draft"
+  s:"active" - t:"active"
+  s:"retired" - t:"retired"
+  s:"unknown" - t:"unknown"
 }
 
 conceptmap "SearchComparator" {
   prefix s = "http://hl7.org/fhir/search-comparator"
   prefix t = "http://hl7.org/fhir/4.3/search-comparator"
 
-  s:eq - t:eq
-  s:ne - t:ne
-  s:gt - t:gt
-  s:lt - t:lt
-  s:ge - t:ge
-  s:le - t:le
-  s:sa - t:sa
-  s:eb - t:eb
-  s:ap - t:ap
+  s:"eq" - t:"eq"
+  s:"ne" - t:"ne"
+  s:"gt" - t:"gt"
+  s:"lt" - t:"lt"
+  s:"ge" - t:"ge"
+  s:"le" - t:"le"
+  s:"sa" - t:"sa"
+  s:"eb" - t:"eb"
+  s:"ap" - t:"ap"
 }
 
 conceptmap "SearchModifierCode" {
   prefix s = "http://hl7.org/fhir/search-modifier-code"
   prefix t = "http://hl7.org/fhir/4.3/search-modifier-code"
 
-  s:missing - t:missing
-  s:exact - t:exact
-  s:contains - t:contains
-  s:not - t:not
-  s:text - t:text
-  s:in - t:in
-  s:not-in - t:not-in
-  s:below - t:below
-  s:above - t:above
-  s:type - t:type
-  s:identifier - t:identifier
-  s:of-type - t:of-type
-  s:code-text - t:code-text
-  s:text-advanced - t:text-advanced
-  s:iterate - t:iterate
+  s:"missing" - t:"missing"
+  s:"exact" - t:"exact"
+  s:"contains" - t:"contains"
+  s:"not" - t:"not"
+  s:"text" - t:"text"
+  s:"in" - t:"in"
+  s:"not-in" - t:"not-in"
+  s:"below" - t:"below"
+  s:"above" - t:"above"
+  s:"type" - t:"type"
+  s:"identifier" - t:"identifier"
+  s:"of-type" - t:"of-type"
+  s:"code-text" - t:"code-text"
+  s:"text-advanced" - t:"text-advanced"
+  s:"iterate" - t:"iterate"
 }
+
+uses "http://hl7.org/fhir/StructureDefinition/SubscriptionTopic" alias SubscriptionTopicR5 as source
+uses "http://hl7.org/fhir/4.3/StructureDefinition/SubscriptionTopic" alias SubscriptionTopicR4B as target
+
+imports "http://hl7.org/fhir/StructureMap/*5to4B"
 
 group SubscriptionTopic(source src : SubscriptionTopicR5, target tgt : SubscriptionTopicR4B) extends DomainResource <<type+>> {
   src.url -> tgt.url;
@@ -70,7 +70,7 @@ group SubscriptionTopic(source src : SubscriptionTopicR5, target tgt : Subscript
   src.name -> tgt.name;
   src.title -> tgt.title;
   src.derivedFrom -> tgt.derivedFrom;
-  src.status as v -> tgt.status = translate(v, '#PublicationStatus', 'c');
+  src.status as v -> tgt.status = translate(v, '#PublicationStatus', 'code');
   src.experimental -> tgt.experimental;
   src.date -> tgt.date;
   src.publisher -> tgt.publisher;
@@ -100,9 +100,9 @@ group SubscriptionTopicResourceTrigger(source src, target tgt) extends BackboneE
 
 group SubscriptionTopicResourceTriggerQueryCriteria(source src, target tgt) extends BackboneElement {
   src.previous -> tgt.previous;
-  src.resultForCreate as v -> tgt.resultForCreate = translate(v, '#CriteriaNotExistsBehavior', 'c');
+  src.resultForCreate as v -> tgt.resultForCreate = translate(v, '#CriteriaNotExistsBehavior', 'code');
   src.current -> tgt.current;
-  src.resultForDelete as v -> tgt.resultForDelete = translate(v, '#CriteriaNotExistsBehavior', 'c');
+  src.resultForDelete as v -> tgt.resultForDelete = translate(v, '#CriteriaNotExistsBehavior', 'code');
   src.requireBoth -> tgt.requireBoth;
 }
 
@@ -117,8 +117,8 @@ group SubscriptionTopicCanFilterBy(source src, target tgt) extends BackboneEleme
   src.resource -> tgt.resource;
   src.filterParameter -> tgt.filterParameter;
   src.filterDefinition -> tgt.filterDefinition;
-  src.comparator as v -> tgt.comparator = translate(v, '#SearchComparator', 'c');
-  src.modifier as v -> tgt.modifier = translate(v, '#SearchModifierCode', 'c');
+  src.comparator as v -> tgt.comparator = translate(v, '#SearchComparator', 'code');
+  src.modifier as v -> tgt.modifier = translate(v, '#SearchModifierCode', 'code');
 }
 
 group SubscriptionTopicNotificationShape(source src, target tgt) extends BackboneElement {

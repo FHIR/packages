@@ -2,48 +2,48 @@
 /// name = 'Device5to4B'
 /// title = 'FML Conversion for Device: R5 to R4B'
 
-uses "http://hl7.org/fhir/StructureDefinition/Device" alias DeviceR5 as source
-uses "http://hl7.org/fhir/4.3/StructureDefinition/Device" alias DeviceR4B as target
-
-imports "http://hl7.org/fhir/StructureMap/*5to4B"
-
 conceptmap "DeviceNameType" {
   prefix s = "http://hl7.org/fhir/device-nametype"
   prefix t = "http://hl7.org/fhir/4.3/device-nametype"
 
-  s:registered-name - t:registered-name
-  s:user-friendly-name - t:user-friendly-name
-  s:patient-reported-name - t:patient-reported-name
+  s:"registered-name" - t:"registered-name"
+  s:"user-friendly-name" - t:"user-friendly-name"
+  s:"patient-reported-name" - t:"patient-reported-name"
 }
 
 conceptmap "FHIRDeviceStatus" {
   prefix s = "http://hl7.org/fhir/device-status"
   prefix t = "http://hl7.org/fhir/4.3/device-status"
 
-  s:active - t:active
-  s:inactive - t:inactive
-  s:entered-in-error - t:entered-in-error
+  s:"active" - t:"active"
+  s:"inactive" - t:"inactive"
+  s:"entered-in-error" - t:"entered-in-error"
 }
 
 conceptmap "UDIEntryType" {
   prefix s = "http://hl7.org/fhir/udi-entry-type"
   prefix t = "http://hl7.org/fhir/4.3/udi-entry-type"
 
-  s:barcode - t:barcode
-  s:rfid - t:rfid
-  s:manual - t:manual
-  s:card - t:card
-  s:self-reported - t:self-reported
-  s:electronic-transmission - t:electronic-transmission
-  s:unknown - t:unknown
+  s:"barcode" - t:"barcode"
+  s:"rfid" - t:"rfid"
+  s:"manual" - t:"manual"
+  s:"card" - t:"card"
+  s:"self-reported" - t:"self-reported"
+  s:"electronic-transmission" - t:"electronic-transmission"
+  s:"unknown" - t:"unknown"
 }
+
+uses "http://hl7.org/fhir/StructureDefinition/Device" alias DeviceR5 as source
+uses "http://hl7.org/fhir/4.3/StructureDefinition/Device" alias DeviceR4B as target
+
+imports "http://hl7.org/fhir/StructureMap/*5to4B"
 
 group Device(source src : DeviceR5, target tgt : DeviceR4B) extends DomainResource <<type+>> {
   src.identifier -> tgt.identifier;
   src.displayName -> tgt.displayName;
   src.definition -> tgt.definition;
   src.udiCarrier as s -> tgt.udiCarrier as t then DeviceUdiCarrier(s,t);
-  src.status as v -> tgt.status = translate(v, '#FHIRDeviceStatus', 'c');
+  src.status as v -> tgt.status = translate(v, '#FHIRDeviceStatus', 'code');
   src.availabilityStatus -> tgt.availabilityStatus;
   src.biologicalSourceEvent -> tgt.biologicalSourceEvent;
   src.manufacturer -> tgt.manufacturer;
@@ -79,12 +79,12 @@ group DeviceUdiCarrier(source src, target tgt) extends BackboneElement {
   src.jurisdiction -> tgt.jurisdiction;
   src.carrierAIDC -> tgt.carrierAIDC;
   src.carrierHRF -> tgt.carrierHRF;
-  src.entryType as v -> tgt.entryType = translate(v, '#UDIEntryType', 'c');
+  src.entryType as v -> tgt.entryType = translate(v, '#UDIEntryType', 'code');
 }
 
 group DeviceName(source src, target tgt) extends BackboneElement {
   src.value -> tgt.value;
-  src.type as v -> tgt.type = translate(v, '#DeviceNameType', 'c');
+  src.type as v -> tgt.type = translate(v, '#DeviceNameType', 'code');
   src.display -> tgt.display;
 }
 

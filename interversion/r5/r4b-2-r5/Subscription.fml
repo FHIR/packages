@@ -2,71 +2,71 @@
 /// name = 'Subscription4Bto5'
 /// title = 'FML Conversion for Subscription: R4B to R5'
 
-uses "http://hl7.org/fhir/4.3/StructureDefinition/Subscription" alias SubscriptionR4B as source
-uses "http://hl7.org/fhir/StructureDefinition/Subscription" alias SubscriptionR5 as target
-
-imports "http://hl7.org/fhir/StructureMap/*4Bto5"
-
 conceptmap "SearchComparator" {
   prefix s = "http://hl7.org/fhir/4.3/search-comparator"
   prefix t = "http://hl7.org/fhir/search-comparator"
 
-  s:eq - t:eq
-  s:ne - t:ne
-  s:gt - t:gt
-  s:lt - t:lt
-  s:ge - t:ge
-  s:le - t:le
-  s:sa - t:sa
-  s:eb - t:eb
-  s:ap - t:ap
+  s:"eq" - t:"eq"
+  s:"ne" - t:"ne"
+  s:"gt" - t:"gt"
+  s:"lt" - t:"lt"
+  s:"ge" - t:"ge"
+  s:"le" - t:"le"
+  s:"sa" - t:"sa"
+  s:"eb" - t:"eb"
+  s:"ap" - t:"ap"
 }
 
 conceptmap "SearchModifierCode" {
   prefix s = "http://hl7.org/fhir/4.3/search-modifier-code"
   prefix t = "http://hl7.org/fhir/search-modifier-code"
 
-  s:missing - t:missing
-  s:exact - t:exact
-  s:contains - t:contains
-  s:not - t:not
-  s:text - t:text
-  s:in - t:in
-  s:not-in - t:not-in
-  s:below - t:below
-  s:above - t:above
-  s:type - t:type
-  s:identifier - t:identifier
-  s:of-type - t:of-type
-  s:code-text - t:code-text
-  s:text-advanced - t:text-advanced
-  s:iterate - t:iterate
+  s:"missing" - t:"missing"
+  s:"exact" - t:"exact"
+  s:"contains" - t:"contains"
+  s:"not" - t:"not"
+  s:"text" - t:"text"
+  s:"in" - t:"in"
+  s:"not-in" - t:"not-in"
+  s:"below" - t:"below"
+  s:"above" - t:"above"
+  s:"type" - t:"type"
+  s:"identifier" - t:"identifier"
+  s:"of-type" - t:"of-type"
+  s:"code-text" - t:"code-text"
+  s:"text-advanced" - t:"text-advanced"
+  s:"iterate" - t:"iterate"
 }
 
 conceptmap "SubscriptionPayloadContent" {
   prefix s = "http://hl7.org/fhir/4.3/subscription-payload-content"
   prefix t = "http://hl7.org/fhir/subscription-payload-content"
 
-  s:empty - t:empty
-  s:id-only - t:id-only
-  s:full-resource - t:full-resource
+  s:"empty" - t:"empty"
+  s:"id-only" - t:"id-only"
+  s:"full-resource" - t:"full-resource"
 }
 
 conceptmap "SubscriptionStatusCodes" {
   prefix s = "http://hl7.org/fhir/4.3/subscription-status"
   prefix t = "http://hl7.org/fhir/subscription-status"
 
-  s:requested - t:requested
-  s:active - t:active
-  s:error - t:error
-  s:off - t:off
-  s:entered-in-error - t:entered-in-error
+  s:"requested" - t:"requested"
+  s:"active" - t:"active"
+  s:"error" - t:"error"
+  s:"off" - t:"off"
+  s:"entered-in-error" - t:"entered-in-error"
 }
+
+uses "http://hl7.org/fhir/4.3/StructureDefinition/Subscription" alias SubscriptionR4B as source
+uses "http://hl7.org/fhir/StructureDefinition/Subscription" alias SubscriptionR5 as target
+
+imports "http://hl7.org/fhir/StructureMap/*4Bto5"
 
 group Subscription(source src : SubscriptionR4B, target tgt : SubscriptionR5) extends DomainResource <<type+>> {
   src.identifier -> tgt.identifier;
   src.name -> tgt.name;
-  src.status as v -> tgt.status = translate(v, '#SubscriptionStatusCodes', 'c');
+  src.status as v -> tgt.status = translate(v, '#SubscriptionStatusCodes', 'code');
   src.topic -> tgt.topic;
   src.contact -> tgt.contact;
   src.end -> tgt.end;
@@ -79,15 +79,15 @@ group Subscription(source src : SubscriptionR4B, target tgt : SubscriptionR5) ex
   src.heartbeatPeriod -> tgt.heartbeatPeriod;
   src.timeout -> tgt.timeout;
   src.contentType -> tgt.contentType;
-  src.content as v -> tgt.content = translate(v, '#SubscriptionPayloadContent', 'c');
+  src.content as v -> tgt.content = translate(v, '#SubscriptionPayloadContent', 'code');
   src.maxCount -> tgt.maxCount;
 }
 
 group SubscriptionFilterBy(source src, target tgt) extends BackboneElement {
   src.resourceType -> tgt.resourceType;
   src.filterParameter -> tgt.filterParameter;
-  src.comparator as v -> tgt.comparator = translate(v, '#SearchComparator', 'c');
-  src.modifier as v -> tgt.modifier = translate(v, '#SearchModifierCode', 'c');
+  src.comparator as v -> tgt.comparator = translate(v, '#SearchComparator', 'code');
+  src.modifier as v -> tgt.modifier = translate(v, '#SearchModifierCode', 'code');
   src.value -> tgt.value;
 }
 

@@ -2,23 +2,23 @@
 /// name = 'AdverseEvent4to5'
 /// title = 'FML Conversion for AdverseEvent: R4 to R5'
 
+conceptmap "AdverseEventActuality" {
+  prefix s = "http://hl7.org/fhir/4.0/adverse-event-actuality"
+  prefix t = "http://hl7.org/fhir/adverse-event-actuality"
+
+  s:"actual" - t:"actual"
+  s:"potential" - t:"potential"
+}
+
 uses "http://hl7.org/fhir/4.0/StructureDefinition/AdverseEvent" alias AdverseEventR4 as source
 uses "http://hl7.org/fhir/StructureDefinition/AdverseEvent" alias AdverseEventR5 as target
 
 imports "http://hl7.org/fhir/StructureMap/*4to5"
 
-conceptmap "AdverseEventActuality" {
-  prefix s = "http://hl7.org/fhir/4.0/adverse-event-actuality"
-  prefix t = "http://hl7.org/fhir/adverse-event-actuality"
-
-  s:actual - t:actual
-  s:potential - t:potential
-}
-
 group AdverseEvent(source src : AdverseEventR4, target tgt : AdverseEventR5) extends DomainResource <<type+>> {
   src.identifier -> tgt.identifier;
   src.status -> tgt.status;
-  src.actuality as v -> tgt.actuality = translate(v, '#AdverseEventActuality', 'c');
+  src.actuality as v -> tgt.actuality = translate(v, '#AdverseEventActuality', 'code');
   src.category -> tgt.category;
   src.code -> tgt.code;
   src.subject -> tgt.subject;

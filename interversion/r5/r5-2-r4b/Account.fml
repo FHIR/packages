@@ -2,25 +2,25 @@
 /// name = 'Account5to4B'
 /// title = 'FML Conversion for Account: R5 to R4B'
 
+conceptmap "AccountStatus" {
+  prefix s = "http://hl7.org/fhir/account-status"
+  prefix t = "http://hl7.org/fhir/4.3/account-status"
+
+  s:"active" - t:"active"
+  s:"inactive" - t:"inactive"
+  s:"entered-in-error" - t:"entered-in-error"
+  s:"on-hold" - t:"on-hold"
+  s:"unknown" - t:"unknown"
+}
+
 uses "http://hl7.org/fhir/StructureDefinition/Account" alias AccountR5 as source
 uses "http://hl7.org/fhir/4.3/StructureDefinition/Account" alias AccountR4B as target
 
 imports "http://hl7.org/fhir/StructureMap/*5to4B"
 
-conceptmap "AccountStatus" {
-  prefix s = "http://hl7.org/fhir/account-status"
-  prefix t = "http://hl7.org/fhir/4.3/account-status"
-
-  s:active - t:active
-  s:inactive - t:inactive
-  s:entered-in-error - t:entered-in-error
-  s:on-hold - t:on-hold
-  s:unknown - t:unknown
-}
-
 group Account(source src : AccountR5, target tgt : AccountR4B) extends DomainResource <<type+>> {
   src.identifier -> tgt.identifier;
-  src.status as v -> tgt.status = translate(v, '#AccountStatus', 'c');
+  src.status as v -> tgt.status = translate(v, '#AccountStatus', 'code');
   src.billingStatus -> tgt.billingStatus;
   src.type -> tgt.type;
   src.name -> tgt.name;

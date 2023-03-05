@@ -2,30 +2,30 @@
 /// name = 'Evidence4to5'
 /// title = 'FML Conversion for Evidence: R4 to R5'
 
-uses "http://hl7.org/fhir/4.0/StructureDefinition/Evidence" alias EvidenceR4 as source
-uses "http://hl7.org/fhir/StructureDefinition/Evidence" alias EvidenceR5 as target
-
-imports "http://hl7.org/fhir/StructureMap/*4to5"
-
 conceptmap "EvidenceVariableHandling" {
   prefix s = "http://hl7.org/fhir/4.0/variable-handling"
   prefix t = "http://hl7.org/fhir/variable-handling"
 
-  s:continuous - t:continuous
-  s:dichotomous - t:dichotomous
-  s:ordinal - t:ordinal
-  s:polychotomous - t:polychotomous
+  s:"continuous" - t:"continuous"
+  s:"dichotomous" - t:"dichotomous"
+  s:"ordinal" - t:"ordinal"
+  s:"polychotomous" - t:"polychotomous"
 }
 
 conceptmap "PublicationStatus" {
   prefix s = "http://hl7.org/fhir/4.0/publication-status"
   prefix t = "http://hl7.org/fhir/publication-status"
 
-  s:draft - t:draft
-  s:active - t:active
-  s:retired - t:retired
-  s:unknown - t:unknown
+  s:"draft" - t:"draft"
+  s:"active" - t:"active"
+  s:"retired" - t:"retired"
+  s:"unknown" - t:"unknown"
 }
+
+uses "http://hl7.org/fhir/4.0/StructureDefinition/Evidence" alias EvidenceR4 as source
+uses "http://hl7.org/fhir/StructureDefinition/Evidence" alias EvidenceR5 as target
+
+imports "http://hl7.org/fhir/StructureMap/*4to5"
 
 group Evidence(source src : EvidenceR4, target tgt : EvidenceR5) extends DomainResource <<type+>> {
   src.url -> tgt.url;
@@ -37,7 +37,7 @@ group Evidence(source src : EvidenceR4, target tgt : EvidenceR5) extends DomainR
   src.title -> tgt.title;
   src.citeAs : Reference -> tgt.citeAs;
   src.citeAs : markdown -> tgt.citeAs;
-  src.status as v -> tgt.status = translate(v, '#PublicationStatus', 'c');
+  src.status as v -> tgt.status = translate(v, '#PublicationStatus', 'code');
   src.experimental -> tgt.experimental;
   src.date -> tgt.date;
   src.approvalDate -> tgt.approvalDate;
@@ -110,7 +110,7 @@ group EvidenceStatisticModelCharacteristic(source src, target tgt) extends Backb
 
 group EvidenceStatisticModelCharacteristicVariable(source src, target tgt) extends BackboneElement {
   src.variableDefinition -> tgt.variableDefinition;
-  src.handling as v -> tgt.handling = translate(v, '#EvidenceVariableHandling', 'c');
+  src.handling as v -> tgt.handling = translate(v, '#EvidenceVariableHandling', 'code');
   src.valueCategory -> tgt.valueCategory;
   src.valueQuantity -> tgt.valueQuantity;
   src.valueRange -> tgt.valueRange;

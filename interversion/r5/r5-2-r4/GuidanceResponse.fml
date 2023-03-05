@@ -2,22 +2,22 @@
 /// name = 'GuidanceResponse5to4'
 /// title = 'FML Conversion for GuidanceResponse: R5 to R4'
 
-uses "http://hl7.org/fhir/StructureDefinition/GuidanceResponse" alias GuidanceResponseR5 as source
-uses "http://hl7.org/fhir/4.0/StructureDefinition/GuidanceResponse" alias GuidanceResponseR4 as target
-
-imports "http://hl7.org/fhir/StructureMap/*5to4"
-
 conceptmap "GuidanceResponseStatus" {
   prefix s = "http://hl7.org/fhir/guidance-response-status"
   prefix t = "http://hl7.org/fhir/4.0/guidance-response-status"
 
-  s:success - t:success
-  s:data-requested - t:data-requested
-  s:data-required - t:data-required
-  s:in-progress - t:in-progress
-  s:failure - t:failure
-  s:entered-in-error - t:entered-in-error
+  s:"success" - t:"success"
+  s:"data-requested" - t:"data-requested"
+  s:"data-required" - t:"data-required"
+  s:"in-progress" - t:"in-progress"
+  s:"failure" - t:"failure"
+  s:"entered-in-error" - t:"entered-in-error"
 }
+
+uses "http://hl7.org/fhir/StructureDefinition/GuidanceResponse" alias GuidanceResponseR5 as source
+uses "http://hl7.org/fhir/4.0/StructureDefinition/GuidanceResponse" alias GuidanceResponseR4 as target
+
+imports "http://hl7.org/fhir/StructureMap/*5to4"
 
 group GuidanceResponse(source src : GuidanceResponseR5, target tgt : GuidanceResponseR4) extends DomainResource <<type+>> {
   src.requestIdentifier -> tgt.requestIdentifier;
@@ -25,7 +25,7 @@ group GuidanceResponse(source src : GuidanceResponseR5, target tgt : GuidanceRes
   src.module : uri -> tgt.module;
   src.module : canonical -> tgt.module;
   src.module : CodeableConcept -> tgt.module;
-  src.status as v -> tgt.status = translate(v, '#GuidanceResponseStatus', 'c');
+  src.status as v -> tgt.status = translate(v, '#GuidanceResponseStatus', 'code');
   src.subject -> tgt.subject;
   src.encounter -> tgt.encounter;
   src.occurrenceDateTime -> tgt.occurrenceDateTime;

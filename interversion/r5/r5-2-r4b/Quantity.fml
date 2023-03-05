@@ -2,25 +2,25 @@
 /// name = 'Quantity5to4B'
 /// title = 'FML Conversion for Quantity: R5 to R4B'
 
+conceptmap "QuantityComparator" {
+  prefix s = "http://hl7.org/fhir/quantity-comparator"
+  prefix t = "http://hl7.org/fhir/4.3/quantity-comparator"
+
+  s:"<" - t:"<"
+  s:"<=" - t:"<="
+  s:">=" - t:">="
+  s:">" - t:">"
+  s:"ad" - t:"ad"
+}
+
 uses "http://hl7.org/fhir/StructureDefinition/Quantity" alias QuantityR5 as source
 uses "http://hl7.org/fhir/4.3/StructureDefinition/Quantity" alias QuantityR4B as target
 
 imports "http://hl7.org/fhir/StructureMap/*5to4B"
 
-conceptmap "QuantityComparator" {
-  prefix s = "http://hl7.org/fhir/quantity-comparator"
-  prefix t = "http://hl7.org/fhir/4.3/quantity-comparator"
-
-  s:< - t:<
-  s:<= - t:<=
-  s:>= - t:>=
-  s:> - t:>
-  s:ad - t:ad
-}
-
 group Quantity(source src : QuantityR5, target tgt : QuantityR4B) extends DataType <<type+>> {
   src.value -> tgt.value;
-  src.comparator as v -> tgt.comparator = translate(v, '#QuantityComparator', 'c');
+  src.comparator as v -> tgt.comparator = translate(v, '#QuantityComparator', 'code');
   src.unit -> tgt.unit;
   src.system -> tgt.system;
   src.code -> tgt.code;

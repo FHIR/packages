@@ -2,28 +2,28 @@
 /// name = 'ExampleScenario4Bto5'
 /// title = 'FML Conversion for ExampleScenario: R4B to R5'
 
-uses "http://hl7.org/fhir/4.3/StructureDefinition/ExampleScenario" alias ExampleScenarioR4B as source
-uses "http://hl7.org/fhir/StructureDefinition/ExampleScenario" alias ExampleScenarioR5 as target
-
-imports "http://hl7.org/fhir/StructureMap/*4Bto5"
-
 conceptmap "ExampleScenarioActorType" {
   prefix s = "http://hl7.org/fhir/4.3/examplescenario-actor-type"
   prefix t = "http://hl7.org/fhir/examplescenario-actor-type"
 
-  s:person - t:person
-  s:system - t:system
+  s:"person" - t:"person"
+  s:"system" - t:"system"
 }
 
 conceptmap "PublicationStatus" {
   prefix s = "http://hl7.org/fhir/4.3/publication-status"
   prefix t = "http://hl7.org/fhir/publication-status"
 
-  s:draft - t:draft
-  s:active - t:active
-  s:retired - t:retired
-  s:unknown - t:unknown
+  s:"draft" - t:"draft"
+  s:"active" - t:"active"
+  s:"retired" - t:"retired"
+  s:"unknown" - t:"unknown"
 }
+
+uses "http://hl7.org/fhir/4.3/StructureDefinition/ExampleScenario" alias ExampleScenarioR4B as source
+uses "http://hl7.org/fhir/StructureDefinition/ExampleScenario" alias ExampleScenarioR5 as target
+
+imports "http://hl7.org/fhir/StructureMap/*4Bto5"
 
 group ExampleScenario(source src : ExampleScenarioR4B, target tgt : ExampleScenarioR5) extends DomainResource <<type+>> {
   src.url -> tgt.url;
@@ -33,7 +33,7 @@ group ExampleScenario(source src : ExampleScenarioR4B, target tgt : ExampleScena
   src.versionAlgorithm : Coding -> tgt.versionAlgorithm;
   src.name -> tgt.name;
   src.title -> tgt.title;
-  src.status as v -> tgt.status = translate(v, '#PublicationStatus', 'c');
+  src.status as v -> tgt.status = translate(v, '#PublicationStatus', 'code');
   src.experimental -> tgt.experimental;
   src.date -> tgt.date;
   src.publisher -> tgt.publisher;
@@ -51,7 +51,7 @@ group ExampleScenario(source src : ExampleScenarioR4B, target tgt : ExampleScena
 
 group ExampleScenarioActor(source src, target tgt) extends BackboneElement {
   src.key -> tgt.key;
-  src.type as v -> tgt.type = translate(v, '#ExampleScenarioActorType', 'c');
+  src.type as v -> tgt.type = translate(v, '#ExampleScenarioActorType', 'code');
   src.title -> tgt.title;
   src.description -> tgt.description;
 }

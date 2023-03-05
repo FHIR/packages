@@ -2,64 +2,64 @@
 /// name = 'Appointment5to4B'
 /// title = 'FML Conversion for Appointment: R5 to R4B'
 
-uses "http://hl7.org/fhir/StructureDefinition/Appointment" alias AppointmentR5 as source
-uses "http://hl7.org/fhir/4.3/StructureDefinition/Appointment" alias AppointmentR4B as target
-
-imports "http://hl7.org/fhir/StructureMap/*5to4B"
-
 conceptmap "AppointmentStatus" {
   prefix s = "http://hl7.org/fhir/appointmentstatus"
   prefix t = "http://hl7.org/fhir/4.3/appointmentstatus"
 
-  s:proposed - t:proposed
-  s:pending - t:pending
-  s:booked - t:booked
-  s:arrived - t:arrived
-  s:fulfilled - t:fulfilled
-  s:cancelled - t:cancelled
-  s:noshow - t:noshow
-  s:entered-in-error - t:entered-in-error
-  s:checked-in - t:checked-in
-  s:waitlist - t:waitlist
+  s:"proposed" - t:"proposed"
+  s:"pending" - t:"pending"
+  s:"booked" - t:"booked"
+  s:"arrived" - t:"arrived"
+  s:"fulfilled" - t:"fulfilled"
+  s:"cancelled" - t:"cancelled"
+  s:"noshow" - t:"noshow"
+  s:"entered-in-error" - t:"entered-in-error"
+  s:"checked-in" - t:"checked-in"
+  s:"waitlist" - t:"waitlist"
 }
 
 conceptmap "DaysOfWeek" {
   prefix s = "http://hl7.org/fhir/days-of-week"
   prefix t = "http://hl7.org/fhir/4.3/days-of-week"
 
-  s:mon - t:mon
-  s:tue - t:tue
-  s:wed - t:wed
-  s:thu - t:thu
-  s:fri - t:fri
-  s:sat - t:sat
-  s:sun - t:sun
+  s:"mon" - t:"mon"
+  s:"tue" - t:"tue"
+  s:"wed" - t:"wed"
+  s:"thu" - t:"thu"
+  s:"fri" - t:"fri"
+  s:"sat" - t:"sat"
+  s:"sun" - t:"sun"
 }
 
 conceptmap "ParticipationStatus" {
   prefix s = "http://hl7.org/fhir/participationstatus"
   prefix t = "http://hl7.org/fhir/4.3/participationstatus"
 
-  s:accepted - t:accepted
-  s:declined - t:declined
-  s:tentative - t:tentative
-  s:needs-action - t:needs-action
+  s:"accepted" - t:"accepted"
+  s:"declined" - t:"declined"
+  s:"tentative" - t:"tentative"
+  s:"needs-action" - t:"needs-action"
 }
 
 conceptmap "WeekOfMonth" {
   prefix s = "http://hl7.org/fhir/week-of-month"
   prefix t = "http://hl7.org/fhir/4.3/week-of-month"
 
-  s:first - t:first
-  s:second - t:second
-  s:third - t:third
-  s:fourth - t:fourth
-  s:last - t:last
+  s:"first" - t:"first"
+  s:"second" - t:"second"
+  s:"third" - t:"third"
+  s:"fourth" - t:"fourth"
+  s:"last" - t:"last"
 }
+
+uses "http://hl7.org/fhir/StructureDefinition/Appointment" alias AppointmentR5 as source
+uses "http://hl7.org/fhir/4.3/StructureDefinition/Appointment" alias AppointmentR4B as target
+
+imports "http://hl7.org/fhir/StructureMap/*5to4B"
 
 group Appointment(source src : AppointmentR5, target tgt : AppointmentR4B) extends DomainResource <<type+>> {
   src.identifier -> tgt.identifier;
-  src.status as v -> tgt.status = translate(v, '#AppointmentStatus', 'c');
+  src.status as v -> tgt.status = translate(v, '#AppointmentStatus', 'code');
   src.cancellationReason -> tgt.cancellationReason;
   src.class -> tgt.class;
   src.serviceCategory -> tgt.serviceCategory;
@@ -97,7 +97,7 @@ group AppointmentParticipant(source src, target tgt) extends BackboneElement {
   src.period -> tgt.period;
   src.actor -> tgt.actor;
   src.required -> tgt.required;
-  src.status as v -> tgt.status = translate(v, '#ParticipationStatus', 'c');
+  src.status as v -> tgt.status = translate(v, '#ParticipationStatus', 'code');
 }
 
 group AppointmentRecurrenceTemplate(source src, target tgt) extends BackboneElement {
@@ -126,8 +126,8 @@ group AppointmentRecurrenceTemplateWeeklyTemplate(source src, target tgt) extend
 
 group AppointmentRecurrenceTemplateMonthlyTemplate(source src, target tgt) extends BackboneElement {
   src.dayOfMonth -> tgt.dayOfMonth;
-  src.nthWeekOfMonth as v -> tgt.nthWeekOfMonth = translate(v, '#WeekOfMonth', 'c');
-  src.dayOfWeek as v -> tgt.dayOfWeek = translate(v, '#DaysOfWeek', 'c');
+  src.nthWeekOfMonth as v -> tgt.nthWeekOfMonth = translate(v, '#WeekOfMonth', 'code');
+  src.dayOfWeek as v -> tgt.dayOfWeek = translate(v, '#DaysOfWeek', 'code');
   src.monthInterval -> tgt.monthInterval;
 }
 

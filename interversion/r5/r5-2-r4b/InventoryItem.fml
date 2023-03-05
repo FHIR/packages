@@ -2,24 +2,24 @@
 /// name = 'InventoryItem5to4B'
 /// title = 'FML Conversion for InventoryItem: R5 to R4B'
 
+conceptmap "InventoryItemStatus" {
+  prefix s = "http://hl7.org/fhir/inventoryitem-status"
+  prefix t = "http://hl7.org/fhir/4.3/inventoryitem-status"
+
+  s:"active" - t:"active"
+  s:"inactive" - t:"inactive"
+  s:"entered-in-error" - t:"entered-in-error"
+  s:"unknown" - t:"unknown"
+}
+
 uses "http://hl7.org/fhir/StructureDefinition/InventoryItem" alias InventoryItemR5 as source
 uses "http://hl7.org/fhir/4.3/StructureDefinition/InventoryItem" alias InventoryItemR4B as target
 
 imports "http://hl7.org/fhir/StructureMap/*5to4B"
 
-conceptmap "InventoryItemStatus" {
-  prefix s = "http://hl7.org/fhir/inventoryitem-status"
-  prefix t = "http://hl7.org/fhir/4.3/inventoryitem-status"
-
-  s:active - t:active
-  s:inactive - t:inactive
-  s:entered-in-error - t:entered-in-error
-  s:unknown - t:unknown
-}
-
 group InventoryItem(source src : InventoryItemR5, target tgt : InventoryItemR4B) extends DomainResource <<type+>> {
   src.identifier -> tgt.identifier;
-  src.status as v -> tgt.status = translate(v, '#InventoryItemStatus', 'c');
+  src.status as v -> tgt.status = translate(v, '#InventoryItemStatus', 'code');
   src.category -> tgt.category;
   src.code -> tgt.code;
   src.name as s -> tgt.name as t then InventoryItemName(s,t);

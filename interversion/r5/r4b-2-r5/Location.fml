@@ -2,36 +2,36 @@
 /// name = 'Location4Bto5'
 /// title = 'FML Conversion for Location: R4B to R5'
 
-uses "http://hl7.org/fhir/4.3/StructureDefinition/Location" alias LocationR4B as source
-uses "http://hl7.org/fhir/StructureDefinition/Location" alias LocationR5 as target
-
-imports "http://hl7.org/fhir/StructureMap/*4Bto5"
-
 conceptmap "LocationMode" {
   prefix s = "http://hl7.org/fhir/4.3/location-mode"
   prefix t = "http://hl7.org/fhir/location-mode"
 
-  s:instance - t:instance
-  s:kind - t:kind
+  s:"instance" - t:"instance"
+  s:"kind" - t:"kind"
 }
 
 conceptmap "LocationStatus" {
   prefix s = "http://hl7.org/fhir/4.3/location-status"
   prefix t = "http://hl7.org/fhir/location-status"
 
-  s:active - t:active
-  s:suspended - t:suspended
-  s:inactive - t:inactive
+  s:"active" - t:"active"
+  s:"suspended" - t:"suspended"
+  s:"inactive" - t:"inactive"
 }
+
+uses "http://hl7.org/fhir/4.3/StructureDefinition/Location" alias LocationR4B as source
+uses "http://hl7.org/fhir/StructureDefinition/Location" alias LocationR5 as target
+
+imports "http://hl7.org/fhir/StructureMap/*4Bto5"
 
 group Location(source src : LocationR4B, target tgt : LocationR5) extends DomainResource <<type+>> {
   src.identifier -> tgt.identifier;
-  src.status as v -> tgt.status = translate(v, '#LocationStatus', 'c');
+  src.status as v -> tgt.status = translate(v, '#LocationStatus', 'code');
   src.operationalStatus -> tgt.operationalStatus;
   src.name -> tgt.name;
   src.alias -> tgt.alias;
   src.description -> tgt.description;
-  src.mode as v -> tgt.mode = translate(v, '#LocationMode', 'c');
+  src.mode as v -> tgt.mode = translate(v, '#LocationMode', 'code');
   src.type -> tgt.type;
   src.contact -> tgt.contact;
   src.address -> tgt.address;

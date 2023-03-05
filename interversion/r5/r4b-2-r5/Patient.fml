@@ -2,37 +2,37 @@
 /// name = 'Patient4Bto5'
 /// title = 'FML Conversion for Patient: R4B to R5'
 
-uses "http://hl7.org/fhir/4.3/StructureDefinition/Patient" alias PatientR4B as source
-uses "http://hl7.org/fhir/StructureDefinition/Patient" alias PatientR5 as target
-
-imports "http://hl7.org/fhir/StructureMap/*4Bto5"
-
 conceptmap "AdministrativeGender" {
   prefix s = "http://hl7.org/fhir/4.3/administrative-gender"
   prefix t = "http://hl7.org/fhir/administrative-gender"
 
-  s:male - t:male
-  s:female - t:female
-  s:other - t:other
-  s:unknown - t:unknown
+  s:"male" - t:"male"
+  s:"female" - t:"female"
+  s:"other" - t:"other"
+  s:"unknown" - t:"unknown"
 }
 
 conceptmap "LinkType" {
   prefix s = "http://hl7.org/fhir/4.3/link-type"
   prefix t = "http://hl7.org/fhir/link-type"
 
-  s:replaced-by - t:replaced-by
-  s:replaces - t:replaces
-  s:refer - t:refer
-  s:seealso - t:seealso
+  s:"replaced-by" - t:"replaced-by"
+  s:"replaces" - t:"replaces"
+  s:"refer" - t:"refer"
+  s:"seealso" - t:"seealso"
 }
+
+uses "http://hl7.org/fhir/4.3/StructureDefinition/Patient" alias PatientR4B as source
+uses "http://hl7.org/fhir/StructureDefinition/Patient" alias PatientR5 as target
+
+imports "http://hl7.org/fhir/StructureMap/*4Bto5"
 
 group Patient(source src : PatientR4B, target tgt : PatientR5) extends DomainResource <<type+>> {
   src.identifier -> tgt.identifier;
   src.active -> tgt.active;
   src.name -> tgt.name;
   src.telecom -> tgt.telecom;
-  src.gender as v -> tgt.gender = translate(v, '#AdministrativeGender', 'c');
+  src.gender as v -> tgt.gender = translate(v, '#AdministrativeGender', 'code');
   src.birthDate -> tgt.birthDate;
   src.deceased : boolean -> tgt.deceased;
   src.deceased : dateTime -> tgt.deceased;
@@ -53,7 +53,7 @@ group PatientContact(source src, target tgt) extends BackboneElement {
   src.name -> tgt.name;
   src.telecom -> tgt.telecom;
   src.address -> tgt.address;
-  src.gender as v -> tgt.gender = translate(v, '#AdministrativeGender', 'c');
+  src.gender as v -> tgt.gender = translate(v, '#AdministrativeGender', 'code');
   src.organization -> tgt.organization;
   src.period -> tgt.period;
 }
@@ -65,6 +65,6 @@ group PatientCommunication(source src, target tgt) extends BackboneElement {
 
 group PatientLink(source src, target tgt) extends BackboneElement {
   src.other -> tgt.other;
-  src.type as v -> tgt.type = translate(v, '#LinkType', 'c');
+  src.type as v -> tgt.type = translate(v, '#LinkType', 'code');
 }
 
