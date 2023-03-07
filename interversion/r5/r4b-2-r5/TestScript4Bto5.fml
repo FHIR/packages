@@ -10,15 +10,15 @@ conceptmap "AssertionDirectionType" {
   s:"request" - t:"request"
 }
 
-conceptmap "AssertionManualCompletionType" {
-  prefix s = "http://hl7.org/fhir/4.3/assert-manual-completion-codes"
-  prefix t = "http://hl7.org/fhir/assert-manual-completion-codes"
-
-  s:"fail" - t:"fail"
-  s:"pass" - t:"pass"
-  s:"skip" - t:"skip"
-  s:"stop" - t:"stop"
-}
+//conceptmap "AssertionManualCompletionType" {
+//  prefix s = "http://hl7.org/fhir/4.3/assert-manual-completion-codes"
+//  prefix t = "http://hl7.org/fhir/assert-manual-completion-codes"
+//
+//  s:"fail" - t:"fail"
+//  s:"pass" - t:"pass"
+//  s:"skip" - t:"skip"
+//  s:"stop" - t:"stop"
+//}
 
 conceptmap "AssertionOperatorType" {
   prefix s = "http://hl7.org/fhir/4.3/assert-operator-codes"
@@ -35,57 +35,57 @@ conceptmap "AssertionOperatorType" {
   s:"contains" - t:"contains"
   s:"notContains" - t:"notContains"
   s:"eval" - t:"eval"
-  s:"manualEval" - t:"manualEval"
+//  s:"manualEval" - t:"manualEval"
 }
 
 conceptmap "AssertionResponseTypes" {
   prefix s = "http://hl7.org/fhir/4.3/assert-response-code-types"
   prefix t = "http://hl7.org/fhir/assert-response-code-types"
 
-  s:"continue" - t:"continue"
-  s:"switchingProtocols" - t:"switchingProtocols"
+//  s:"continue" - t:"continue"
+//  s:"switchingProtocols" - t:"switchingProtocols"
   s:"okay" - t:"okay"
   s:"created" - t:"created"
-  s:"accepted" - t:"accepted"
-  s:"nonAuthoritativeInformation" - t:"nonAuthoritativeInformation"
+//  s:"accepted" - t:"accepted"
+//  s:"nonAuthoritativeInformation" - t:"nonAuthoritativeInformation"
   s:"noContent" - t:"noContent"
-  s:"resetContent" - t:"resetContent"
-  s:"partialContent" - t:"partialContent"
-  s:"multipleChoices" - t:"multipleChoices"
-  s:"movedPermanently" - t:"movedPermanently"
-  s:"found" - t:"found"
-  s:"seeOther" - t:"seeOther"
+//  s:"resetContent" - t:"resetContent"
+//  s:"partialContent" - t:"partialContent"
+//  s:"multipleChoices" - t:"multipleChoices"
+//  s:"movedPermanently" - t:"movedPermanently"
+//  s:"found" - t:"found"
+//  s:"seeOther" - t:"seeOther"
   s:"notModified" - t:"notModified"
-  s:"useProxy" - t:"useProxy"
-  s:"temporaryRedirect" - t:"temporaryRedirect"
-  s:"permanentRedirect" - t:"permanentRedirect"
-  s:"badRequest" - t:"badRequest"
-  s:"unauthorized" - t:"unauthorized"
-  s:"paymentRequired" - t:"paymentRequired"
+//  s:"useProxy" - t:"useProxy"
+//  s:"temporaryRedirect" - t:"temporaryRedirect"
+//  s:"permanentRedirect" - t:"permanentRedirect"
+  s:"bad" - t:"badRequest"
+//  s:"unauthorized" - t:"unauthorized"
+//  s:"paymentRequired" - t:"paymentRequired"
   s:"forbidden" - t:"forbidden"
   s:"notFound" - t:"notFound"
   s:"methodNotAllowed" - t:"methodNotAllowed"
-  s:"notAcceptable" - t:"notAcceptable"
-  s:"proxyAuthenticationRequired" - t:"proxyAuthenticationRequired"
-  s:"requestTimeout" - t:"requestTimeout"
+//  s:"notAcceptable" - t:"notAcceptable"
+//  s:"proxyAuthenticationRequired" - t:"proxyAuthenticationRequired"
+//  s:"requestTimeout" - t:"requestTimeout"
   s:"conflict" - t:"conflict"
   s:"gone" - t:"gone"
-  s:"lengthRequired" - t:"lengthRequired"
+//  s:"lengthRequired" - t:"lengthRequired"
   s:"preconditionFailed" - t:"preconditionFailed"
-  s:"contentTooLarge" - t:"contentTooLarge"
-  s:"uriTooLong" - t:"uriTooLong"
-  s:"unsupportedMediaType" - t:"unsupportedMediaType"
-  s:"rangeNotSatisfiable" - t:"rangeNotSatisfiable"
-  s:"expectationFailed" - t:"expectationFailed"
-  s:"misdirectedRequest" - t:"misdirectedRequest"
-  s:"unprocessableContent" - t:"unprocessableContent"
-  s:"upgradeRequired" - t:"upgradeRequired"
-  s:"internalServerError" - t:"internalServerError"
-  s:"notImplemented" - t:"notImplemented"
-  s:"badGateway" - t:"badGateway"
-  s:"serviceUnavailable" - t:"serviceUnavailable"
-  s:"gatewayTimeout" - t:"gatewayTimeout"
-  s:"httpVersionNotSupported" - t:"httpVersionNotSupported"
+//  s:"contentTooLarge" - t:"contentTooLarge"
+//  s:"uriTooLong" - t:"uriTooLong"
+//  s:"unsupportedMediaType" - t:"unsupportedMediaType"
+//  s:"rangeNotSatisfiable" - t:"rangeNotSatisfiable"
+//  s:"expectationFailed" - t:"expectationFailed"
+//  s:"misdirectedRequest" - t:"misdirectedRequest"
+  s:"unprocessable" - t:"unprocessableContent"
+//  s:"upgradeRequired" - t:"upgradeRequired"
+//  s:"internalServerError" - t:"internalServerError"
+//  s:"notImplemented" - t:"notImplemented"
+//  s:"badGateway" - t:"badGateway"
+//  s:"serviceUnavailable" - t:"serviceUnavailable"
+//  s:"gatewayTimeout" - t:"gatewayTimeout"
+//  s:"httpVersionNotSupported" - t:"httpVersionNotSupported"
 }
 
 conceptmap "PublicationStatus" {
@@ -120,8 +120,8 @@ group TestScript(source src : TestScriptR4B, target tgt : TestScriptR5) extends 
   src.url -> tgt.url;
   src.identifier -> tgt.identifier;
   src.version -> tgt.version;
-  src.versionAlgorithm : string -> tgt.versionAlgorithm;
-  src.versionAlgorithm : Coding -> tgt.versionAlgorithm;
+//  src.versionAlgorithm : string -> tgt.versionAlgorithm;
+//  src.versionAlgorithm : Coding -> tgt.versionAlgorithm;
   src.name -> tgt.name;
   src.title -> tgt.title;
   src.status as v -> tgt.status = translate(v, '#PublicationStatus', 'code');
@@ -134,11 +134,11 @@ group TestScript(source src : TestScriptR4B, target tgt : TestScriptR5) extends 
   src.jurisdiction -> tgt.jurisdiction;
   src.purpose -> tgt.purpose;
   src.copyright -> tgt.copyright;
-  src.copyrightLabel -> tgt.copyrightLabel;
+//  src.copyrightLabel -> tgt.copyrightLabel;
   src.origin as s -> tgt.origin as t then TestScriptOrigin(s,t);
   src.destination as s -> tgt.destination as t then TestScriptDestination(s,t);
   src.metadata as s -> tgt.metadata as t then TestScriptMetadata(s,t);
-  src.scope as s -> tgt.scope as t then TestScriptScope(s,t);
+//  src.scope as s -> tgt.scope as t then TestScriptScope(s,t);
   src.fixture as s -> tgt.fixture as t then TestScriptFixture(s,t);
   src.profile -> tgt.profile;
   src.variable as s -> tgt.variable as t then TestScriptVariable(s,t);
@@ -150,13 +150,13 @@ group TestScript(source src : TestScriptR4B, target tgt : TestScriptR5) extends 
 group TestScriptOrigin(source src, target tgt) extends BackboneElement {
   src.index -> tgt.index;
   src.profile -> tgt.profile;
-  src.url -> tgt.url;
+//  src.url -> tgt.url;
 }
 
 group TestScriptDestination(source src, target tgt) extends BackboneElement {
   src.index -> tgt.index;
   src.profile -> tgt.profile;
-  src.url -> tgt.url;
+//  src.url -> tgt.url;
 }
 
 group TestScriptMetadata(source src, target tgt) extends BackboneElement {
@@ -179,11 +179,11 @@ group TestScriptMetadataCapability(source src, target tgt) extends BackboneEleme
   src.capabilities -> tgt.capabilities;
 }
 
-group TestScriptScope(source src, target tgt) extends BackboneElement {
-  src.artifact -> tgt.artifact;
-  src.conformance -> tgt.conformance;
-  src.phase -> tgt.phase;
-}
+//group TestScriptScope(source src, target tgt) extends BackboneElement {
+//  src.artifact -> tgt.artifact;
+//  src.conformance -> tgt.conformance;
+//  src.phase -> tgt.phase;
+//}
 
 group TestScriptFixture(source src, target tgt) extends BackboneElement {
   src.autocreate -> tgt.autocreate;
@@ -244,7 +244,7 @@ group TestScriptSetupActionAssert(source src, target tgt) extends BackboneElemen
   src.compareToSourceExpression -> tgt.compareToSourceExpression;
   src.compareToSourcePath -> tgt.compareToSourcePath;
   src.contentType -> tgt.contentType;
-  src.defaultManualCompletion as v -> tgt.defaultManualCompletion = translate(v, '#AssertionManualCompletionType', 'code');
+//  src.defaultManualCompletion as v -> tgt.defaultManualCompletion = translate(v, '#AssertionManualCompletionType', 'code');
   src.expression -> tgt.expression;
   src.headerField -> tgt.headerField;
   src.minimumId -> tgt.minimumId;
@@ -257,17 +257,17 @@ group TestScriptSetupActionAssert(source src, target tgt) extends BackboneElemen
   src.response as v -> tgt.response = translate(v, '#AssertionResponseTypes', 'code');
   src.responseCode -> tgt.responseCode;
   src.sourceId -> tgt.sourceId;
-  src.stopTestOnFail -> tgt.stopTestOnFail;
+//  src.stopTestOnFail -> tgt.stopTestOnFail;
   src.validateProfileId -> tgt.validateProfileId;
   src.value -> tgt.value;
   src.warningOnly -> tgt.warningOnly;
-  src.requirement as s -> tgt.requirement as t then TestScriptSetupActionAssertRequirement(s,t);
+//  src.requirement as s -> tgt.requirement as t then TestScriptSetupActionAssertRequirement(s,t);
 }
 
-group TestScriptSetupActionAssertRequirement(source src, target tgt) extends BackboneElement {
-  src.link : uri -> tgt.link;
-  src.link : canonical -> tgt.link;
-}
+//group TestScriptSetupActionAssertRequirement(source src, target tgt) extends BackboneElement {
+//  src.link : uri -> tgt.link;
+//  src.link : canonical -> tgt.link;
+//}
 
 group TestScriptTest(source src, target tgt) extends BackboneElement {
   src.name -> tgt.name;
