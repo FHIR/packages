@@ -2,21 +2,7 @@
 /// name = 'ElementDefinition4Bto5'
 /// title = 'FML Conversion for ElementDefinition: R4B to R5'
 
-conceptmap "AdditionalBindingPurpose" {
-  prefix s = "http://hl7.org/fhir/4.3/CodeSystem/additional-binding-purpose"
-  prefix t = "http://hl7.org/fhir/CodeSystem/additional-binding-purpose"
-
-  s:"maximum" - t:"maximum"
-  s:"minimum" - t:"minimum"
-  s:"required" - t:"required"
-  s:"extensible" - t:"extensible"
-  s:"candidate" - t:"candidate"
-  s:"current" - t:"current"
-  s:"preferred" - t:"preferred"
-  s:"ui" - t:"ui"
-  s:"starter" - t:"starter"
-  s:"component" - t:"component"
-}
+// GG 7-Mar 2023: All OK
 
 conceptmap "AggregationMode" {
   prefix s = "http://hl7.org/fhir/4.3/resource-aggregation-mode"
@@ -53,7 +39,7 @@ conceptmap "DiscriminatorType" {
   s:"pattern" - t:"pattern"
   s:"type" - t:"type"
   s:"profile" - t:"profile"
-  s:"position" - t:"position"
+//  s:"position" - t:"position"
 }
 
 conceptmap "PropertyRepresentation" {
@@ -119,7 +105,7 @@ group ElementDefinition(source src : ElementDefinitionR4B, target tgt : ElementD
   src.defaultValue : id -> tgt.defaultValue;
   src.defaultValue : instant -> tgt.defaultValue;
   src.defaultValue : integer -> tgt.defaultValue;
-  src.defaultValue : integer64 -> tgt.defaultValue;
+//  src.defaultValue : integer64 -> tgt.defaultValue;
   src.defaultValue : markdown -> tgt.defaultValue;
   src.defaultValue : oid -> tgt.defaultValue;
   src.defaultValue : positiveInt -> tgt.defaultValue;
@@ -159,10 +145,10 @@ group ElementDefinition(source src : ElementDefinitionR4B, target tgt : ElementD
   src.defaultValue : RelatedArtifact -> tgt.defaultValue;
   src.defaultValue : TriggerDefinition -> tgt.defaultValue;
   src.defaultValue : UsageContext -> tgt.defaultValue;
-  src.defaultValue : Availability -> tgt.defaultValue;
-  src.defaultValue : ExtendedContactDetail -> tgt.defaultValue;
+//  src.defaultValue : Availability -> tgt.defaultValue;
+//  src.defaultValue : ExtendedContactDetail -> tgt.defaultValue;
   src.defaultValue : Dosage -> tgt.defaultValue;
-  src.defaultValue : Meta -> tgt.defaultValue;
+//  src.defaultValue : Meta -> tgt.defaultValue;
   src.meaningWhenMissing -> tgt.meaningWhenMissing;
   src.orderMeaning -> tgt.orderMeaning;
   src.fixed : base64Binary -> tgt.fixed;
@@ -175,7 +161,7 @@ group ElementDefinition(source src : ElementDefinitionR4B, target tgt : ElementD
   src.fixed : id -> tgt.fixed;
   src.fixed : instant -> tgt.fixed;
   src.fixed : integer -> tgt.fixed;
-  src.fixed : integer64 -> tgt.fixed;
+//  src.fixed : integer64 -> tgt.fixed;
   src.fixed : markdown -> tgt.fixed;
   src.fixed : oid -> tgt.fixed;
   src.fixed : positiveInt -> tgt.fixed;
@@ -215,10 +201,10 @@ group ElementDefinition(source src : ElementDefinitionR4B, target tgt : ElementD
   src.fixed : RelatedArtifact -> tgt.fixed;
   src.fixed : TriggerDefinition -> tgt.fixed;
   src.fixed : UsageContext -> tgt.fixed;
-  src.fixed : Availability -> tgt.fixed;
-  src.fixed : ExtendedContactDetail -> tgt.fixed;
+//  src.fixed : Availability -> tgt.fixed;
+//  src.fixed : ExtendedContactDetail -> tgt.fixed;
   src.fixed : Dosage -> tgt.fixed;
-  src.fixed : Meta -> tgt.fixed;
+//  src.fixed : Meta -> tgt.fixed;
   src.pattern : base64Binary -> tgt.pattern;
   src.pattern : boolean -> tgt.pattern;
   src.pattern : canonical -> tgt.pattern;
@@ -229,7 +215,7 @@ group ElementDefinition(source src : ElementDefinitionR4B, target tgt : ElementD
   src.pattern : id -> tgt.pattern;
   src.pattern : instant -> tgt.pattern;
   src.pattern : integer -> tgt.pattern;
-  src.pattern : integer64 -> tgt.pattern;
+//  src.pattern : integer64 -> tgt.pattern;
   src.pattern : markdown -> tgt.pattern;
   src.pattern : oid -> tgt.pattern;
   src.pattern : positiveInt -> tgt.pattern;
@@ -269,10 +255,10 @@ group ElementDefinition(source src : ElementDefinitionR4B, target tgt : ElementD
   src.pattern : RelatedArtifact -> tgt.pattern;
   src.pattern : TriggerDefinition -> tgt.pattern;
   src.pattern : UsageContext -> tgt.pattern;
-  src.pattern : Availability -> tgt.pattern;
-  src.pattern : ExtendedContactDetail -> tgt.pattern;
+//  src.pattern : Availability -> tgt.pattern;
+//  src.pattern : ExtendedContactDetail -> tgt.pattern;
   src.pattern : Dosage -> tgt.pattern;
-  src.pattern : Meta -> tgt.pattern;
+//  src.pattern : Meta -> tgt.pattern;
   src.example as s -> tgt.example as t then ElementDefinitionExample(s,t);
   src.minValue : date -> tgt.minValue;
   src.minValue : dateTime -> tgt.minValue;
@@ -280,7 +266,7 @@ group ElementDefinition(source src : ElementDefinitionR4B, target tgt : ElementD
   src.minValue : time -> tgt.minValue;
   src.minValue : decimal -> tgt.minValue;
   src.minValue : integer -> tgt.minValue;
-  src.minValue : integer64 -> tgt.minValue;
+//  src.minValue : integer64 -> tgt.minValue;
   src.minValue : positiveInt -> tgt.minValue;
   src.minValue : unsignedInt -> tgt.minValue;
   src.minValue : Quantity -> tgt.minValue;
@@ -290,15 +276,15 @@ group ElementDefinition(source src : ElementDefinitionR4B, target tgt : ElementD
   src.maxValue : time -> tgt.maxValue;
   src.maxValue : decimal -> tgt.maxValue;
   src.maxValue : integer -> tgt.maxValue;
-  src.maxValue : integer64 -> tgt.maxValue;
+//  src.maxValue : integer64 -> tgt.maxValue;
   src.maxValue : positiveInt -> tgt.maxValue;
   src.maxValue : unsignedInt -> tgt.maxValue;
   src.maxValue : Quantity -> tgt.maxValue;
   src.maxLength -> tgt.maxLength;
   src.condition -> tgt.condition;
   src.constraint as s -> tgt.constraint as t then ElementDefinitionConstraint(s,t);
-  src.mustHaveValue -> tgt.mustHaveValue;
-  src.valueAlternatives -> tgt.valueAlternatives;
+//  src.mustHaveValue -> tgt.mustHaveValue;
+//  src.valueAlternatives -> tgt.valueAlternatives;
   src.mustSupport -> tgt.mustSupport;
   src.isModifier -> tgt.isModifier;
   src.isModifierReason -> tgt.isModifierReason;
@@ -345,7 +331,7 @@ group ElementDefinitionExample(source src, target tgt) extends Element {
   src.value : id -> tgt.value;
   src.value : instant -> tgt.value;
   src.value : integer -> tgt.value;
-  src.value : integer64 -> tgt.value;
+//  src.value : integer64 -> tgt.value;
   src.value : markdown -> tgt.value;
   src.value : oid -> tgt.value;
   src.value : positiveInt -> tgt.value;
@@ -385,17 +371,17 @@ group ElementDefinitionExample(source src, target tgt) extends Element {
   src.value : RelatedArtifact -> tgt.value;
   src.value : TriggerDefinition -> tgt.value;
   src.value : UsageContext -> tgt.value;
-  src.value : Availability -> tgt.value;
-  src.value : ExtendedContactDetail -> tgt.value;
+//  src.value : Availability -> tgt.value;
+//  src.value : ExtendedContactDetail -> tgt.value;
   src.value : Dosage -> tgt.value;
-  src.value : Meta -> tgt.value;
+//  src.value : Meta -> tgt.value;
 }
 
 group ElementDefinitionConstraint(source src, target tgt) extends Element {
   src.key -> tgt.key;
   src.requirements -> tgt.requirements;
   src.severity as v -> tgt.severity = translate(v, '#ConstraintSeverity', 'code');
-  src.suppress -> tgt.suppress;
+//  src.suppress -> tgt.suppress;
   src.human -> tgt.human;
   src.expression -> tgt.expression;
   src.source -> tgt.source;
@@ -405,16 +391,7 @@ group ElementDefinitionBinding(source src, target tgt) extends Element {
   src.strength as v -> tgt.strength = translate(v, '#BindingStrength', 'code');
   src.description -> tgt.description;
   src.valueSet -> tgt.valueSet;
-  src.additional as s -> tgt.additional as t then ElementDefinitionBindingAdditional(s,t);
-}
-
-group ElementDefinitionBindingAdditional(source src, target tgt) extends Element {
-  src.purpose as v -> tgt.purpose = translate(v, '#AdditionalBindingPurpose', 'code');
-  src.valueSet -> tgt.valueSet;
-  src.documentation -> tgt.documentation;
-  src.shortDoco -> tgt.shortDoco;
-  src.usage -> tgt.usage;
-  src.any -> tgt.any;
+//  src.additional as s -> tgt.additional as t then ElementDefinitionBindingAdditional(s,t);
 }
 
 group ElementDefinitionMapping(source src, target tgt) extends Element {

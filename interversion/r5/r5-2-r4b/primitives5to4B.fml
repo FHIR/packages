@@ -78,6 +78,9 @@ group id(source src : idR5, target tgt : idR4B) extends Element <<type+>> {
 group id2Code(source src : idR5, target tgt : codeR4B) extends Element <<types>> {
   src.value as v -> tgt.value = v "id2CodeValue";
 }
+group id2string(source src : idR5, target tgt : stringR4B) extends Element <<types>> {
+  src.value as v -> tgt.value = v "id2stringValue";
+}
 group instant(source src : instantR5, target tgt : instantR4B) extends Element <<type+>> {
   src.value as v -> tgt.value = v "instantValue";
 }
@@ -90,6 +93,10 @@ group integer64(source src : integer64R5, target tgt : integerR4B) extends Eleme
 group markdown(source src : markdownR5, target tgt : markdownR4B) extends Element <<type+>> {
   src.value as v -> tgt.value = v "markdownValue";
 }
+group markdown2string(source src : markdownR5, target tgt : stringR4B) extends Element <<types>> {
+  // todo: deal with markdown escaping issues
+  src.value as v -> tgt.value = v "markdown2stringValue";
+}
 group oid(source src : oidR5, target tgt : oidR4B) extends Element <<type+>> {
   src.value as v -> tgt.value = v "oidValue";
 }
@@ -98,6 +105,13 @@ group positiveInt(source src : positiveIntR5, target tgt : positiveIntR4B) exten
 }
 group string(source src : stringR5, target tgt : stringR4B) extends Element <<type+>> {
   src.value as v -> tgt.value = v "stringValue";
+}
+group string2markdown(source src : stringR5, target tgt : markdownR4B) extends Element <<types>> {
+  // todo: deal with markdown escaping issues
+  src.value as v -> tgt.value = v "string2markdownValue";
+}
+group string2id(source src : stringR5, target tgt : idR4B) extends Element <<types>> {
+  src.value as v -> tgt.value = v "string2idValue";
 }
 group time(source src : timeR5, target tgt : timeR4B) extends Element <<type+>> {
   src.value as v -> tgt.value = v "timeValue";

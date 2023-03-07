@@ -2,12 +2,14 @@
 /// name = 'Element5to4'
 /// title = 'FML Conversion for Element: R5 to R4'
 
+// GG 7-Mar 2023: All OK
+
 uses "http://hl7.org/fhir/StructureDefinition/Element" alias ElementR5 as source
 uses "http://hl7.org/fhir/4.0/StructureDefinition/Element" alias ElementR4 as target
 
 imports "http://hl7.org/fhir/StructureMap/*5to4"
 
-group Element(source src : ElementR5, target tgt : ElementR4) extends Base <<type+>> {
+group Element(source src : ElementR5, target tgt : ElementR4) <<type+>> {
   src.id -> tgt.id;
   src.extension -> tgt.extension;
 }
