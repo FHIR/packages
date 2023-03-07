@@ -2,6 +2,8 @@
 /// name = 'CodeSystem5to4B'
 /// title = 'FML Conversion for CodeSystem: R5 to R4B'
 
+// GG 7-Mar 2023: All OK
+
 conceptmap "CodeSystemContentMode" {
   prefix s = "http://hl7.org/fhir/codesystem-content-mode"
   prefix t = "http://hl7.org/fhir/4.3/codesystem-content-mode"
@@ -35,8 +37,8 @@ conceptmap "FilterOperator" {
   s:"in" - t:"in"
   s:"not-in" - t:"not-in"
   s:"generalizes" - t:"generalizes"
-  s:"child-of" - t:"child-of"
-  s:"descendent-leaf" - t:"descendent-leaf"
+//  s:"child-of" - t:"child-of"
+//  s:"descendent-leaf" - t:"descendent-leaf"
   s:"exists" - t:"exists"
 }
 
@@ -72,8 +74,8 @@ group CodeSystem(source src : CodeSystemR5, target tgt : CodeSystemR4B) extends 
   src.url -> tgt.url;
   src.identifier -> tgt.identifier;
   src.version -> tgt.version;
-  src.versionAlgorithm : string -> tgt.versionAlgorithm;
-  src.versionAlgorithm : Coding -> tgt.versionAlgorithm;
+//  src.versionAlgorithm : string -> tgt.versionAlgorithm;
+//  src.versionAlgorithm : Coding -> tgt.versionAlgorithm;
   src.name -> tgt.name;
   src.title -> tgt.title;
   src.status as v -> tgt.status = translate(v, '#PublicationStatus', 'code');
@@ -86,16 +88,16 @@ group CodeSystem(source src : CodeSystemR5, target tgt : CodeSystemR4B) extends 
   src.jurisdiction -> tgt.jurisdiction;
   src.purpose -> tgt.purpose;
   src.copyright -> tgt.copyright;
-  src.copyrightLabel -> tgt.copyrightLabel;
-  src.approvalDate -> tgt.approvalDate;
-  src.lastReviewDate -> tgt.lastReviewDate;
-  src.effectivePeriod -> tgt.effectivePeriod;
-  src.topic -> tgt.topic;
-  src.author -> tgt.author;
-  src.editor -> tgt.editor;
-  src.reviewer -> tgt.reviewer;
-  src.endorser -> tgt.endorser;
-  src.relatedArtifact -> tgt.relatedArtifact;
+//  src.copyrightLabel -> tgt.copyrightLabel;
+//  src.approvalDate -> tgt.approvalDate;
+//  src.lastReviewDate -> tgt.lastReviewDate;
+//  src.effectivePeriod -> tgt.effectivePeriod;
+//  src.topic -> tgt.topic;
+//  src.author -> tgt.author;
+//  src.editor -> tgt.editor;
+//  src.reviewer -> tgt.reviewer;
+//  src.endorser -> tgt.endorser;
+//  src.relatedArtifact -> tgt.relatedArtifact;
   src.caseSensitive -> tgt.caseSensitive;
   src.valueSet -> tgt.valueSet;
   src.hierarchyMeaning as v -> tgt.hierarchyMeaning = translate(v, '#CodeSystemHierarchyMeaning', 'code');
@@ -129,12 +131,13 @@ group CodeSystemConcept(source src, target tgt) extends BackboneElement {
   src.definition -> tgt.definition;
   src.designation as s -> tgt.designation as t then CodeSystemConceptDesignation(s,t);
   src.property as s -> tgt.property as t then CodeSystemConceptProperty(s,t);
+  src.concept as s -> tgt.concept as t then CodeSystemConcept(s,t);
 }
 
 group CodeSystemConceptDesignation(source src, target tgt) extends BackboneElement {
   src.language -> tgt.language;
   src.use -> tgt.use;
-  src.additionalUse -> tgt.additionalUse;
+//  src.additionalUse -> tgt.additionalUse;
   src.value -> tgt.value;
 }
 

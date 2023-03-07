@@ -2,34 +2,8 @@
 /// name = 'ImplementationGuide4to5'
 /// title = 'FML Conversion for ImplementationGuide: R4 to R5'
 
-conceptmap "FHIRVersion" {
-  prefix s = "http://hl7.org/fhir/4.0/FHIR-version"
-  prefix t = "http://hl7.org/fhir/FHIR-version"
+// GG 7-Mar 2023: All OK
 
-  s:"0.01" - t:"0.01"
-  s:"0.05" - t:"0.05"
-  s:"0.06" - t:"0.06"
-  s:"0.11" - t:"0.11"
-  s:"0.0" - t:"0.0"
-  s:"0.4" - t:"0.4"
-  s:"0.5" - t:"0.5"
-  s:"1.0" - t:"1.0"
-  s:"1.1" - t:"1.1"
-  s:"1.4" - t:"1.4"
-  s:"1.6" - t:"1.6"
-  s:"1.8" - t:"1.8"
-  s:"3.0" - t:"3.0"
-  s:"3.3" - t:"3.3"
-  s:"3.5" - t:"3.5"
-  s:"4.0" - t:"4.0"
-  s:"4.1" - t:"4.1"
-  s:"4.2" - t:"4.2"
-  s:"4.3" - t:"4.3"
-  s:"4.4" - t:"4.4"
-  s:"4.5" - t:"4.5"
-  s:"4.6" - t:"4.6"
-  s:"5.0" - t:"5.0"
-}
 
 conceptmap "GuidePageGeneration" {
   prefix s = "http://hl7.org/fhir/4.0/guide-page-generation"
@@ -410,10 +384,10 @@ imports "http://hl7.org/fhir/StructureMap/*4to5"
 
 group ImplementationGuide(source src : ImplementationGuideR4, target tgt : ImplementationGuideR5) extends DomainResource <<type+>> {
   src.url -> tgt.url;
-  src.identifier -> tgt.identifier;
+//  src.identifier -> tgt.identifier;
   src.version -> tgt.version;
-  src.versionAlgorithm : string -> tgt.versionAlgorithm;
-  src.versionAlgorithm : Coding -> tgt.versionAlgorithm;
+//  src.versionAlgorithm : string -> tgt.versionAlgorithm;
+//  src.versionAlgorithm : Coding -> tgt.versionAlgorithm;
   src.name -> tgt.name;
   src.title -> tgt.title;
   src.status as v -> tgt.status = translate(v, '#PublicationStatus', 'code');
@@ -424,12 +398,12 @@ group ImplementationGuide(source src : ImplementationGuideR4, target tgt : Imple
   src.description -> tgt.description;
   src.useContext -> tgt.useContext;
   src.jurisdiction -> tgt.jurisdiction;
-  src.purpose -> tgt.purpose;
+//  src.purpose -> tgt.purpose;
   src.copyright -> tgt.copyright;
-  src.copyrightLabel -> tgt.copyrightLabel;
+//  src.copyrightLabel -> tgt.copyrightLabel;
   src.packageId -> tgt.packageId;
   src.license as v -> tgt.license = translate(v, '#SPDXLicense', 'code');
-  src.fhirVersion as v -> tgt.fhirVersion = translate(v, '#FHIRVersion', 'code');
+  src.fhirVersion -> tgt.fhirVersion;
   src.dependsOn as s -> tgt.dependsOn as t then ImplementationGuideDependsOn(s,t);
   src.global as s -> tgt.global as t then ImplementationGuideGlobal(s,t);
   src.definition as s -> tgt.definition as t then ImplementationGuideDefinition(s,t);
@@ -440,7 +414,7 @@ group ImplementationGuideDependsOn(source src, target tgt) extends BackboneEleme
   src.uri -> tgt.uri;
   src.packageId -> tgt.packageId;
   src.version -> tgt.version;
-  src.reason -> tgt.reason;
+//  src.reason -> tgt.reason;
 }
 
 group ImplementationGuideGlobal(source src, target tgt) extends BackboneElement {
@@ -466,22 +440,22 @@ group ImplementationGuideDefinitionResource(source src, target tgt) extends Back
   src.fhirVersion as v -> tgt.fhirVersion = translate(v, '#FHIRVersion', 'code');
   src.name -> tgt.name;
   src.description -> tgt.description;
-  src.isExample -> tgt.isExample;
-  src.profile -> tgt.profile;
+  src.example : boolean -> tgt.isExample;
+  src.example : canonical -> tgt.profile;
   src.groupingId -> tgt.groupingId;
 }
 
 group ImplementationGuideDefinitionPage(source src, target tgt) extends BackboneElement {
-  src.source : url -> tgt.source;
-  src.source : string -> tgt.source;
-  src.source : markdown -> tgt.source;
-  src.name -> tgt.name;
+  src.name : url -> tgt.source;
+//   src.name : Reference -> tgt.source; - this wasn't used?
+  src.name : url -> tgt.name;
   src.title -> tgt.title;
   src.generation as v -> tgt.generation = translate(v, '#GuidePageGeneration', 'code');
+  src.page as s -> tgt.page as t then ImplementationGuideDefinitionPage(s,t);
 }
 
 group ImplementationGuideDefinitionParameter(source src, target tgt) extends BackboneElement {
-  src.code -> tgt.code;
+  src.code as s -> tgt.code as t, t.system = "http://hl7.org/fhir/guide-parameter-code", t.code = s;
   src.value -> tgt.value;
 }
 
@@ -501,8 +475,8 @@ group ImplementationGuideManifest(source src, target tgt) extends BackboneElemen
 
 group ImplementationGuideManifestResource(source src, target tgt) extends BackboneElement {
   src.reference -> tgt.reference;
-  src.isExample -> tgt.isExample;
-  src.profile -> tgt.profile;
+  src.example : boolean -> tgt.isExample;
+  src.example : canonical -> tgt.profile;
   src.relativePath -> tgt.relativePath;
 }
 

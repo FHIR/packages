@@ -2,6 +2,8 @@
 /// name = 'ValueSet4Bto5'
 /// title = 'FML Conversion for ValueSet: R4B to R5'
 
+// GG 7-Mar 2023: All OK
+
 conceptmap "FilterOperator" {
   prefix s = "http://hl7.org/fhir/4.3/filter-operator"
   prefix t = "http://hl7.org/fhir/filter-operator"
@@ -14,8 +16,8 @@ conceptmap "FilterOperator" {
   s:"in" - t:"in"
   s:"not-in" - t:"not-in"
   s:"generalizes" - t:"generalizes"
-  s:"child-of" - t:"child-of"
-  s:"descendent-leaf" - t:"descendent-leaf"
+//  s:"child-of" - t:"child-of"
+//  s:"descendent-leaf" - t:"descendent-leaf"
   s:"exists" - t:"exists"
 }
 
@@ -38,8 +40,8 @@ group ValueSet(source src : ValueSetR4B, target tgt : ValueSetR5) extends Domain
   src.url -> tgt.url;
   src.identifier -> tgt.identifier;
   src.version -> tgt.version;
-  src.versionAlgorithm : string -> tgt.versionAlgorithm;
-  src.versionAlgorithm : Coding -> tgt.versionAlgorithm;
+//  src.versionAlgorithm : string -> tgt.versionAlgorithm;
+//  src.versionAlgorithm : Coding -> tgt.versionAlgorithm;
   src.name -> tgt.name;
   src.title -> tgt.title;
   src.status as v -> tgt.status = translate(v, '#PublicationStatus', 'code');
@@ -53,26 +55,26 @@ group ValueSet(source src : ValueSetR4B, target tgt : ValueSetR5) extends Domain
   src.immutable -> tgt.immutable;
   src.purpose -> tgt.purpose;
   src.copyright -> tgt.copyright;
-  src.copyrightLabel -> tgt.copyrightLabel;
-  src.approvalDate -> tgt.approvalDate;
-  src.lastReviewDate -> tgt.lastReviewDate;
-  src.effectivePeriod -> tgt.effectivePeriod;
-  src.topic -> tgt.topic;
-  src.author -> tgt.author;
-  src.editor -> tgt.editor;
-  src.reviewer -> tgt.reviewer;
-  src.endorser -> tgt.endorser;
-  src.relatedArtifact -> tgt.relatedArtifact;
+//  src.copyrightLabel -> tgt.copyrightLabel;
+//  src.approvalDate -> tgt.approvalDate;
+//  src.lastReviewDate -> tgt.lastReviewDate;
+//  src.effectivePeriod -> tgt.effectivePeriod;
+//  src.topic -> tgt.topic;
+//  src.author -> tgt.author;
+//  src.editor -> tgt.editor;
+//  src.reviewer -> tgt.reviewer;
+//  src.endorser -> tgt.endorser;
+//  src.relatedArtifact -> tgt.relatedArtifact;
   src.compose as s -> tgt.compose as t then ValueSetCompose(s,t);
   src.expansion as s -> tgt.expansion as t then ValueSetExpansion(s,t);
-  src.scope as s -> tgt.scope as t then ValueSetScope(s,t);
+//  src.scope as s -> tgt.scope as t then ValueSetScope(s,t);
 }
 
 group ValueSetCompose(source src, target tgt) extends BackboneElement {
   src.lockedDate -> tgt.lockedDate;
   src.inactive -> tgt.inactive;
   src.include as s -> tgt.include as t then ValueSetComposeInclude(s,t);
-  src.property -> tgt.property;
+//  src.property -> tgt.property;
 }
 
 group ValueSetComposeInclude(source src, target tgt) extends BackboneElement {
@@ -81,7 +83,7 @@ group ValueSetComposeInclude(source src, target tgt) extends BackboneElement {
   src.concept as s -> tgt.concept as t then ValueSetComposeIncludeConcept(s,t);
   src.filter as s -> tgt.filter as t then ValueSetComposeIncludeFilter(s,t);
   src.valueSet -> tgt.valueSet;
-  src.copyright -> tgt.copyright;
+//  src.copyright -> tgt.copyright;
 }
 
 group ValueSetComposeIncludeConcept(source src, target tgt) extends BackboneElement {
@@ -93,7 +95,7 @@ group ValueSetComposeIncludeConcept(source src, target tgt) extends BackboneElem
 group ValueSetComposeIncludeConceptDesignation(source src, target tgt) extends BackboneElement {
   src.language -> tgt.language;
   src.use -> tgt.use;
-  src.additionalUse -> tgt.additionalUse;
+//  src.additionalUse -> tgt.additionalUse;
   src.value -> tgt.value;
 }
 
@@ -105,12 +107,12 @@ group ValueSetComposeIncludeFilter(source src, target tgt) extends BackboneEleme
 
 group ValueSetExpansion(source src, target tgt) extends BackboneElement {
   src.identifier -> tgt.identifier;
-  src.next -> tgt.next;
+//  src.next -> tgt.next;
   src.timestamp -> tgt.timestamp;
   src.total -> tgt.total;
   src.offset -> tgt.offset;
   src.parameter as s -> tgt.parameter as t then ValueSetExpansionParameter(s,t);
-  src.property as s -> tgt.property as t then ValueSetExpansionProperty(s,t);
+//  src.property as s -> tgt.property as t then ValueSetExpansionProperty(s,t);
   src.contains as s -> tgt.contains as t then ValueSetExpansionContains(s,t);
 }
 
@@ -125,11 +127,6 @@ group ValueSetExpansionParameter(source src, target tgt) extends BackboneElement
   src.value : dateTime -> tgt.value;
 }
 
-group ValueSetExpansionProperty(source src, target tgt) extends BackboneElement {
-  src.code -> tgt.code;
-  src.uri -> tgt.uri;
-}
-
 group ValueSetExpansionContains(source src, target tgt) extends BackboneElement {
   src.system -> tgt.system;
   src.abstract -> tgt.abstract;
@@ -137,34 +134,5 @@ group ValueSetExpansionContains(source src, target tgt) extends BackboneElement 
   src.version -> tgt.version;
   src.code -> tgt.code;
   src.display -> tgt.display;
-  src.property as s -> tgt.property as t then ValueSetExpansionContainsProperty(s,t);
+//  src.property as s -> tgt.property as t then ValueSetExpansionContainsProperty(s,t);
 }
-
-group ValueSetExpansionContainsProperty(source src, target tgt) extends BackboneElement {
-  src.code -> tgt.code;
-  src.value : code -> tgt.value;
-  src.value : Coding -> tgt.value;
-  src.value : string -> tgt.value;
-  src.value : integer -> tgt.value;
-  src.value : boolean -> tgt.value;
-  src.value : dateTime -> tgt.value;
-  src.value : decimal -> tgt.value;
-  src.subProperty as s -> tgt.subProperty as t then ValueSetExpansionContainsPropertySubProperty(s,t);
-}
-
-group ValueSetExpansionContainsPropertySubProperty(source src, target tgt) extends BackboneElement {
-  src.code -> tgt.code;
-  src.value : code -> tgt.value;
-  src.value : Coding -> tgt.value;
-  src.value : string -> tgt.value;
-  src.value : integer -> tgt.value;
-  src.value : boolean -> tgt.value;
-  src.value : dateTime -> tgt.value;
-  src.value : decimal -> tgt.value;
-}
-
-group ValueSetScope(source src, target tgt) extends BackboneElement {
-  src.inclusionCriteria -> tgt.inclusionCriteria;
-  src.exclusionCriteria -> tgt.exclusionCriteria;
-}
-

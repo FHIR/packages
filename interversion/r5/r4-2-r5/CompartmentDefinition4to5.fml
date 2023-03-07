@@ -2,6 +2,8 @@
 /// name = 'CompartmentDefinition4to5'
 /// title = 'FML Conversion for CompartmentDefinition: R4 to R5'
 
+// GG 8-Mar 2023: All OK
+
 conceptmap "CompartmentType" {
   prefix s = "http://hl7.org/fhir/4.0/compartment-type"
   prefix t = "http://hl7.org/fhir/compartment-type"
@@ -11,7 +13,7 @@ conceptmap "CompartmentType" {
   s:"RelatedPerson" - t:"RelatedPerson"
   s:"Practitioner" - t:"Practitioner"
   s:"Device" - t:"Device"
-  s:"EpisodeOfCare" - t:"EpisodeOfCare"
+//  s:"EpisodeOfCare" - t:"EpisodeOfCare"
 }
 
 conceptmap "PublicationStatus" {
@@ -32,10 +34,10 @@ imports "http://hl7.org/fhir/StructureMap/*4to5"
 group CompartmentDefinition(source src : CompartmentDefinitionR4, target tgt : CompartmentDefinitionR5) extends DomainResource <<type+>> {
   src.url -> tgt.url;
   src.version -> tgt.version;
-  src.versionAlgorithm : string -> tgt.versionAlgorithm;
-  src.versionAlgorithm : Coding -> tgt.versionAlgorithm;
+//  src.versionAlgorithm : string -> tgt.versionAlgorithm;
+//  src.versionAlgorithm : Coding -> tgt.versionAlgorithm;
   src.name -> tgt.name;
-  src.title -> tgt.title;
+//  src.title -> tgt.title;
   src.status as v -> tgt.status = translate(v, '#PublicationStatus', 'code');
   src.experimental -> tgt.experimental;
   src.date -> tgt.date;
@@ -53,7 +55,7 @@ group CompartmentDefinitionResource(source src, target tgt) extends BackboneElem
   src.code -> tgt.code;
   src.param -> tgt.param;
   src.documentation -> tgt.documentation;
-  src.startParam -> tgt.startParam;
-  src.endParam -> tgt.endParam;
+//  src.startParam -> tgt.startParam;
+//  src.endParam -> tgt.endParam;
 }
 

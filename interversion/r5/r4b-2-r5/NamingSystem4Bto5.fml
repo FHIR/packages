@@ -2,6 +2,8 @@
 /// name = 'NamingSystem4Bto5'
 /// title = 'FML Conversion for NamingSystem: R4B to R5'
 
+// GG 7-Mar 2023: All OK
+
 conceptmap "NamingSystemIdentifierType" {
   prefix s = "http://hl7.org/fhir/4.3/namingsystem-identifier-type"
   prefix t = "http://hl7.org/fhir/namingsystem-identifier-type"
@@ -9,8 +11,8 @@ conceptmap "NamingSystemIdentifierType" {
   s:"oid" - t:"oid"
   s:"uuid" - t:"uuid"
   s:"uri" - t:"uri"
-  s:"iri-stem" - t:"iri-stem"
-  s:"v2csmnemonic" - t:"v2csmnemonic"
+//  s:"iri-stem" - t:"iri-stem"
+//  s:"v2csmnemonic" - t:"v2csmnemonic"
   s:"other" - t:"other"
 }
 
@@ -39,16 +41,16 @@ uses "http://hl7.org/fhir/StructureDefinition/NamingSystem" alias NamingSystemR5
 imports "http://hl7.org/fhir/StructureMap/*4Bto5"
 
 group NamingSystem(source src : NamingSystemR4B, target tgt : NamingSystemR5) extends DomainResource <<type+>> {
-  src.url -> tgt.url;
-  src.identifier -> tgt.identifier;
-  src.version -> tgt.version;
-  src.versionAlgorithm : string -> tgt.versionAlgorithm;
-  src.versionAlgorithm : Coding -> tgt.versionAlgorithm;
+//  src.url -> tgt.url;
+//  src.identifier -> tgt.identifier;
+//  src.version -> tgt.version;
+//  src.versionAlgorithm : string -> tgt.versionAlgorithm;
+//  src.versionAlgorithm : Coding -> tgt.versionAlgorithm;
   src.name -> tgt.name;
-  src.title -> tgt.title;
+//  src.title -> tgt.title;
   src.status as v -> tgt.status = translate(v, '#PublicationStatus', 'code');
   src.kind as v -> tgt.kind = translate(v, '#NamingSystemType', 'code');
-  src.experimental -> tgt.experimental;
+//  src.experimental -> tgt.experimental;
   src.date -> tgt.date;
   src.publisher -> tgt.publisher;
   src.contact -> tgt.contact;
@@ -57,18 +59,18 @@ group NamingSystem(source src : NamingSystemR4B, target tgt : NamingSystemR5) ex
   src.description -> tgt.description;
   src.useContext -> tgt.useContext;
   src.jurisdiction -> tgt.jurisdiction;
-  src.purpose -> tgt.purpose;
-  src.copyright -> tgt.copyright;
-  src.copyrightLabel -> tgt.copyrightLabel;
-  src.approvalDate -> tgt.approvalDate;
-  src.lastReviewDate -> tgt.lastReviewDate;
-  src.effectivePeriod -> tgt.effectivePeriod;
-  src.topic -> tgt.topic;
-  src.author -> tgt.author;
-  src.editor -> tgt.editor;
-  src.reviewer -> tgt.reviewer;
-  src.endorser -> tgt.endorser;
-  src.relatedArtifact -> tgt.relatedArtifact;
+//  src.purpose -> tgt.purpose;
+//  src.copyright -> tgt.copyright;
+//  src.copyrightLabel -> tgt.copyrightLabel;
+//  src.approvalDate -> tgt.approvalDate;
+//  src.lastReviewDate -> tgt.lastReviewDate;
+//  src.effectivePeriod -> tgt.effectivePeriod;
+//  src.topic -> tgt.topic;
+//  src.author -> tgt.author;
+//  src.editor -> tgt.editor;
+//  src.reviewer -> tgt.reviewer;
+//  src.endorser -> tgt.endorser;
+//  src.relatedArtifact -> tgt.relatedArtifact;
   src.usage -> tgt.usage;
   src.uniqueId as s -> tgt.uniqueId as t then NamingSystemUniqueId(s,t);
 }
@@ -79,6 +81,6 @@ group NamingSystemUniqueId(source src, target tgt) extends BackboneElement {
   src.preferred -> tgt.preferred;
   src.comment -> tgt.comment;
   src.period -> tgt.period;
-  src.authoritative -> tgt.authoritative;
+//  src.authoritative -> tgt.authoritative;
 }
 

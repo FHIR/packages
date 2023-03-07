@@ -2,6 +2,8 @@
 /// name = 'StructureDefinition5to4'
 /// title = 'FML Conversion for StructureDefinition: R5 to R4'
 
+// GG 7-Mar 2023: All OK
+
 conceptmap "ExtensionContextType" {
   prefix s = "http://hl7.org/fhir/extension-context-type"
   prefix t = "http://hl7.org/fhir/4.0/extension-context-type"
@@ -9,35 +11,6 @@ conceptmap "ExtensionContextType" {
   s:"fhirpath" - t:"fhirpath"
   s:"element" - t:"element"
   s:"extension" - t:"extension"
-}
-
-conceptmap "FHIRVersion" {
-  prefix s = "http://hl7.org/fhir/FHIR-version"
-  prefix t = "http://hl7.org/fhir/4.0/FHIR-version"
-
-  s:"0.01" - t:"0.01"
-  s:"0.05" - t:"0.05"
-  s:"0.06" - t:"0.06"
-  s:"0.11" - t:"0.11"
-  s:"0.0" - t:"0.0"
-  s:"0.4" - t:"0.4"
-  s:"0.5" - t:"0.5"
-  s:"1.0" - t:"1.0"
-  s:"1.1" - t:"1.1"
-  s:"1.4" - t:"1.4"
-  s:"1.6" - t:"1.6"
-  s:"1.8" - t:"1.8"
-  s:"3.0" - t:"3.0"
-  s:"3.3" - t:"3.3"
-  s:"3.5" - t:"3.5"
-  s:"4.0" - t:"4.0"
-  s:"4.1" - t:"4.1"
-  s:"4.2" - t:"4.2"
-  s:"4.3" - t:"4.3"
-  s:"4.4" - t:"4.4"
-  s:"4.5" - t:"4.5"
-  s:"4.6" - t:"4.6"
-  s:"5.0" - t:"5.0"
 }
 
 conceptmap "PublicationStatus" {
@@ -77,8 +50,8 @@ group StructureDefinition(source src : StructureDefinitionR5, target tgt : Struc
   src.url -> tgt.url;
   src.identifier -> tgt.identifier;
   src.version -> tgt.version;
-  src.versionAlgorithm : string -> tgt.versionAlgorithm;
-  src.versionAlgorithm : Coding -> tgt.versionAlgorithm;
+//  src.versionAlgorithm : string -> tgt.versionAlgorithm;
+//  src.versionAlgorithm : Coding -> tgt.versionAlgorithm;
   src.name -> tgt.name;
   src.title -> tgt.title;
   src.status as v -> tgt.status = translate(v, '#PublicationStatus', 'code');
@@ -91,9 +64,9 @@ group StructureDefinition(source src : StructureDefinitionR5, target tgt : Struc
   src.jurisdiction -> tgt.jurisdiction;
   src.purpose -> tgt.purpose;
   src.copyright -> tgt.copyright;
-  src.copyrightLabel -> tgt.copyrightLabel;
+//  src.copyrightLabel -> tgt.copyrightLabel;
   src.keyword -> tgt.keyword;
-  src.fhirVersion as v -> tgt.fhirVersion = translate(v, '#FHIRVersion', 'code');
+  src.fhirVersion -> tgt.fhirVersion;
   src.mapping as s -> tgt.mapping as t then StructureDefinitionMapping(s,t);
   src.kind as v -> tgt.kind = translate(v, '#StructureDefinitionKind', 'code');
   src.abstract -> tgt.abstract;

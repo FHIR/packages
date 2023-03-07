@@ -16,6 +16,9 @@ conceptmap "ConceptMapRelationship" {
   prefix t = "http://hl7.org/fhir/concept-map-relationship"
 
   s:"related-to" - t:"related-to"
+  s:"equivalent" - t:"equivalent"
+  s:"source-is-narrower-than-target" - t:"source-is-narrower-than-target"
+  s:"source-is-broader-than-target" - t:"source-is-broader-than-target"
   s:"not-related-to" - t:"not-related-to"
 }
 
@@ -58,6 +61,9 @@ conceptmap "UnmappedConceptMapRelationship" {
   prefix t = "http://hl7.org/fhir/concept-map-relationship"
 
   s:"related-to" - t:"related-to"
+  s:"equivalent" - t:"equivalent"
+  s:"source-is-narrower-than-target" - t:"source-is-narrower-than-target"
+  s:"source-is-broader-than-target" - t:"source-is-broader-than-target"
   s:"not-related-to" - t:"not-related-to"
 }
 
@@ -70,8 +76,8 @@ group ConceptMap(source src : ConceptMapR4B, target tgt : ConceptMapR5) extends 
   src.url -> tgt.url;
   src.identifier -> tgt.identifier;
   src.version -> tgt.version;
-  src.versionAlgorithm : string -> tgt.versionAlgorithm;
-  src.versionAlgorithm : Coding -> tgt.versionAlgorithm;
+//  src.versionAlgorithm : string -> tgt.versionAlgorithm;
+//  src.versionAlgorithm : Coding -> tgt.versionAlgorithm;
   src.name -> tgt.name;
   src.title -> tgt.title;
   src.status as v -> tgt.status = translate(v, '#PublicationStatus', 'code');
@@ -84,22 +90,22 @@ group ConceptMap(source src : ConceptMapR4B, target tgt : ConceptMapR5) extends 
   src.jurisdiction -> tgt.jurisdiction;
   src.purpose -> tgt.purpose;
   src.copyright -> tgt.copyright;
-  src.copyrightLabel -> tgt.copyrightLabel;
-  src.approvalDate -> tgt.approvalDate;
-  src.lastReviewDate -> tgt.lastReviewDate;
-  src.effectivePeriod -> tgt.effectivePeriod;
-  src.topic -> tgt.topic;
-  src.author -> tgt.author;
-  src.editor -> tgt.editor;
-  src.reviewer -> tgt.reviewer;
-  src.endorser -> tgt.endorser;
-  src.relatedArtifact -> tgt.relatedArtifact;
+//  src.copyrightLabel -> tgt.copyrightLabel;
+//  src.approvalDate -> tgt.approvalDate;
+//  src.lastReviewDate -> tgt.lastReviewDate;
+//  src.effectivePeriod -> tgt.effectivePeriod;
+//  src.topic -> tgt.topic;
+//  src.author -> tgt.author;
+//  src.editor -> tgt.editor;
+//  src.reviewer -> tgt.reviewer;
+//  src.endorser -> tgt.endorser;
+//  src.relatedArtifact -> tgt.relatedArtifact;
   src.property as s -> tgt.property as t then ConceptMapProperty(s,t);
   src.additionalAttribute as s -> tgt.additionalAttribute as t then ConceptMapAdditionalAttribute(s,t);
-  src.sourceScope : uri -> tgt.sourceScope;
-  src.sourceScope : canonical -> tgt.sourceScope;
-  src.targetScope : uri -> tgt.targetScope;
-  src.targetScope : canonical -> tgt.targetScope;
+  src.source : uri -> tgt.sourceScope;
+  src.source : canonical -> tgt.sourceScope;
+  src.target : uri -> tgt.targetScope;
+  src.target : canonical -> tgt.targetScope;
   src.group as s -> tgt.group as t then ConceptMapGroup(s,t);
 }
 

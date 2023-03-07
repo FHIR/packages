@@ -2,6 +2,8 @@
 /// name = 'SearchParameter5to4B'
 /// title = 'FML Conversion for SearchParameter: R5 to R4B'
 
+// GG 8-Mar 2023: All OK
+
 conceptmap "PublicationStatus" {
   prefix s = "http://hl7.org/fhir/publication-status"
   prefix t = "http://hl7.org/fhir/4.3/publication-status"
@@ -42,10 +44,10 @@ conceptmap "SearchModifierCode" {
   s:"above" - t:"above"
   s:"type" - t:"type"
   s:"identifier" - t:"identifier"
-  s:"of-type" - t:"of-type"
-  s:"code-text" - t:"code-text"
-  s:"text-advanced" - t:"text-advanced"
-  s:"iterate" - t:"iterate"
+//  s:"of-type" - t:"of-type"
+//  s:"code-text" - t:"code-text"
+//  s:"text-advanced" - t:"text-advanced"
+//  s:"iterate" - t:"iterate"
 }
 
 conceptmap "SearchParamType" {
@@ -65,7 +67,7 @@ conceptmap "SearchParamType" {
 
 conceptmap "SearchProcessingModeType" {
   prefix s = "http://hl7.org/fhir/search-processingmode"
-  prefix t = "http://hl7.org/fhir/4.3/search-processingmode"
+  prefix t = "http://hl7.org/fhir/4.3/search-xpath-usage"
 
   s:"normal" - t:"normal"
   s:"phonetic" - t:"phonetic"
@@ -79,12 +81,12 @@ imports "http://hl7.org/fhir/StructureMap/*5to4B"
 
 group SearchParameter(source src : SearchParameterR5, target tgt : SearchParameterR4B) extends DomainResource <<type+>> {
   src.url -> tgt.url;
-  src.identifier -> tgt.identifier;
+//  src.identifier -> tgt.identifier;
   src.version -> tgt.version;
-  src.versionAlgorithm : string -> tgt.versionAlgorithm;
-  src.versionAlgorithm : Coding -> tgt.versionAlgorithm;
+//  src.versionAlgorithm : string -> tgt.versionAlgorithm;
+//  src.versionAlgorithm : Coding -> tgt.versionAlgorithm;
   src.name -> tgt.name;
-  src.title -> tgt.title;
+//  src.title -> tgt.title;
   src.derivedFrom -> tgt.derivedFrom;
   src.status as v -> tgt.status = translate(v, '#PublicationStatus', 'code');
   src.experimental -> tgt.experimental;
@@ -95,14 +97,14 @@ group SearchParameter(source src : SearchParameterR5, target tgt : SearchParamet
   src.useContext -> tgt.useContext;
   src.jurisdiction -> tgt.jurisdiction;
   src.purpose -> tgt.purpose;
-  src.copyright -> tgt.copyright;
-  src.copyrightLabel -> tgt.copyrightLabel;
+//  src.copyright -> tgt.copyright;
+//  src.copyrightLabel -> tgt.copyrightLabel;
   src.code -> tgt.code;
   src.base -> tgt.base;
   src.type as v -> tgt.type = translate(v, '#SearchParamType', 'code');
   src.expression -> tgt.expression;
-  src.processingMode as v -> tgt.processingMode = translate(v, '#SearchProcessingModeType', 'code');
-  src.constraint -> tgt.constraint;
+  src.processingMode as v -> tgt.xpathUsage = translate(v, '#SearchProcessingModeType', 'code');
+//  src.constraint -> tgt.constraint;
   src.target -> tgt.target;
   src.multipleOr -> tgt.multipleOr;
   src.multipleAnd -> tgt.multipleAnd;

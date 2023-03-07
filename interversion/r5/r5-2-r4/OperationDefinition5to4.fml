@@ -2,6 +2,8 @@
 /// name = 'OperationDefinition5to4'
 /// title = 'FML Conversion for OperationDefinition: R5 to R4'
 
+// GG 8-Mar 2023: All OK
+
 conceptmap "BindingStrength" {
   prefix s = "http://hl7.org/fhir/binding-strength"
   prefix t = "http://hl7.org/fhir/4.0/binding-strength"
@@ -12,13 +14,6 @@ conceptmap "BindingStrength" {
   s:"example" - t:"example"
 }
 
-conceptmap "FHIRAllTypes" {
-  prefix s = "http://hl7.org/fhir/fhir-types"
-  prefix t = "http://hl7.org/fhir/4.0/fhir-types"
-
-  s:"Base" - t:"Base"
-}
-
 conceptmap "OperationKind" {
   prefix s = "http://hl7.org/fhir/operation-kind"
   prefix t = "http://hl7.org/fhir/4.0/operation-kind"
@@ -27,14 +22,6 @@ conceptmap "OperationKind" {
   s:"query" - t:"query"
 }
 
-conceptmap "OperationParameterScope" {
-  prefix s = "http://hl7.org/fhir/operation-parameter-scope"
-  prefix t = "http://hl7.org/fhir/4.0/operation-parameter-scope"
-
-  s:"instance" - t:"instance"
-  s:"type" - t:"type"
-  s:"system" - t:"system"
-}
 
 conceptmap "OperationParameterUse" {
   prefix s = "http://hl7.org/fhir/operation-parameter-use"
@@ -76,10 +63,10 @@ imports "http://hl7.org/fhir/StructureMap/*5to4"
 
 group OperationDefinition(source src : OperationDefinitionR5, target tgt : OperationDefinitionR4) extends DomainResource <<type+>> {
   src.url -> tgt.url;
-  src.identifier -> tgt.identifier;
+//  src.identifier -> tgt.identifier;
   src.version -> tgt.version;
-  src.versionAlgorithm : string -> tgt.versionAlgorithm;
-  src.versionAlgorithm : Coding -> tgt.versionAlgorithm;
+//  src.versionAlgorithm : string -> tgt.versionAlgorithm;
+//  src.versionAlgorithm : Coding -> tgt.versionAlgorithm;
   src.name -> tgt.name;
   src.title -> tgt.title;
   src.status as v -> tgt.status = translate(v, '#PublicationStatus', 'code');
@@ -92,8 +79,8 @@ group OperationDefinition(source src : OperationDefinitionR5, target tgt : Opera
   src.useContext -> tgt.useContext;
   src.jurisdiction -> tgt.jurisdiction;
   src.purpose -> tgt.purpose;
-  src.copyright -> tgt.copyright;
-  src.copyrightLabel -> tgt.copyrightLabel;
+//  src.copyright -> tgt.copyright;
+//  src.copyrightLabel -> tgt.copyrightLabel;
   src.affectsState -> tgt.affectsState;
   src.code -> tgt.code;
   src.comment -> tgt.comment;
@@ -111,12 +98,12 @@ group OperationDefinition(source src : OperationDefinitionR5, target tgt : Opera
 group OperationDefinitionParameter(source src, target tgt) extends BackboneElement {
   src.name -> tgt.name;
   src.use as v -> tgt.use = translate(v, '#OperationParameterUse', 'code');
-  src.scope as v -> tgt.scope = translate(v, '#OperationParameterScope', 'code');
+//  src.scope as v -> tgt.scope = translate(v, '#OperationParameterScope', 'code');
   src.min -> tgt.min;
   src.max -> tgt.max;
   src.documentation -> tgt.documentation;
-  src.type as v -> tgt.type = translate(v, '#FHIRAllTypes', 'code');
-  src.allowedType as v -> tgt.allowedType = translate(v, '#FHIRAllTypes', 'code');
+  src.type as v -> tgt.type = translate(v, 'http://hl7.org/fhir/interversion/types5to4', 'code');
+//  src.allowedType as v -> tgt.allowedType = translate(v, 'http://hl7.org/fhir/interversion/types5to4', 'code');
   src.targetProfile -> tgt.targetProfile;
   src.searchType as v -> tgt.searchType = translate(v, '#SearchParamType', 'code');
   src.binding as s -> tgt.binding as t then OperationDefinitionParameterBinding(s,t);
