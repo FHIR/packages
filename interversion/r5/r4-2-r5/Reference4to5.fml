@@ -6,6 +6,7 @@
 
 uses "http://hl7.org/fhir/4.0/StructureDefinition/Reference" alias ReferenceR4 as source
 uses "http://hl7.org/fhir/StructureDefinition/Reference" alias ReferenceR5 as target
+uses "http://hl7.org/fhir/StructureDefinition/canonical" alias canonicalR5 as target
 
 imports "http://hl7.org/fhir/StructureMap/*4to5"
 
@@ -14,5 +15,9 @@ group Reference(source src : ReferenceR4, target tgt : ReferenceR5) extends Elem
   src.type -> tgt.type;
   src.identifier -> tgt.identifier;
   src.display -> tgt.display;
+}
+
+group Reference(source src : ReferenceR4, target tgt : canonicalR5) extends Element <<type+>> {
+  src.reference as v -> tgt.value = v "canonicalValue";
 }
 

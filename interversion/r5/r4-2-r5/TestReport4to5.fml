@@ -87,12 +87,6 @@ group TestReportSetupActionAssert(source src, target tgt) extends BackboneElemen
   src.result as v -> tgt.result = translate(v, '#TestReportActionResult', 'code');
   src.message -> tgt.message;
   src.detail -> tgt.detail;
-  src.requirement as s -> tgt.requirement as t then TestReportSetupActionAssertRequirement(s,t);
-}
-
-group TestReportSetupActionAssertRequirement(source src, target tgt) extends BackboneElement {
-  src.link : uri -> tgt.link;
-  src.link : canonical -> tgt.link;
 }
 
 group TestReportTest(source src, target tgt) extends BackboneElement {
@@ -102,6 +96,20 @@ group TestReportTest(source src, target tgt) extends BackboneElement {
 }
 
 group TestReportTestAction(source src, target tgt) extends BackboneElement {
+  src.operation as s -> tgt.operation as t then TestReportTestActionOperation(s,t);
+  src.assert as s -> tgt.assert as t then TestReportTestActionAssert(s,t);
+}
+
+group TestReportTestActionOperation(source src, target tgt) extends BackboneElement {
+  src.result as v -> tgt.result = translate(v, '#TestReportActionResult', 'code');
+  src.message -> tgt.message;
+  src.detail -> tgt.detail;
+}
+
+group TestReportTestActionAssert(source src, target tgt) extends BackboneElement {
+  src.result as v -> tgt.result = translate(v, '#TestReportActionResult', 'code');
+  src.message -> tgt.message;
+  src.detail -> tgt.detail;
 }
 
 group TestReportTeardown(source src, target tgt) extends BackboneElement {
@@ -109,5 +117,12 @@ group TestReportTeardown(source src, target tgt) extends BackboneElement {
 }
 
 group TestReportTeardownAction(source src, target tgt) extends BackboneElement {
+  src.operation as s -> tgt.operation as t then TestReportTeardownActionOperation(s,t);
+}
+
+group TestReportTeardownActionOperation(source src, target tgt) extends BackboneElement {
+  src.result as v -> tgt.result = translate(v, '#TestReportActionResult', 'code');
+  src.message -> tgt.message;
+  src.detail -> tgt.detail;
 }
 
