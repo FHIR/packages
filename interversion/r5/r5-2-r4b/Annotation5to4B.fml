@@ -2,12 +2,14 @@
 /// name = 'Annotation5to4B'
 /// title = 'FML Conversion for Annotation: R5 to R4B'
 
+// GG 7-Mar 2023: All OK
+
 uses "http://hl7.org/fhir/StructureDefinition/Annotation" alias AnnotationR5 as source
 uses "http://hl7.org/fhir/4.3/StructureDefinition/Annotation" alias AnnotationR4B as target
 
 imports "http://hl7.org/fhir/StructureMap/*5to4B"
 
-group Annotation(source src : AnnotationR5, target tgt : AnnotationR4B) extends DataType <<type+>> {
+group Annotation(source src : AnnotationR5, target tgt : AnnotationR4B) extends Element <<type+>> {
   src.author : Reference -> tgt.author;
   src.author : string -> tgt.author;
   src.time -> tgt.time;

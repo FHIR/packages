@@ -2,6 +2,8 @@
 /// name = 'Address5to4B'
 /// title = 'FML Conversion for Address: R5 to R4B'
 
+// GG 7-Mar 2023: All OK
+
 conceptmap "AddressType" {
   prefix s = "http://hl7.org/fhir/address-type"
   prefix t = "http://hl7.org/fhir/4.3/address-type"
@@ -27,7 +29,7 @@ uses "http://hl7.org/fhir/4.3/StructureDefinition/Address" alias AddressR4B as t
 
 imports "http://hl7.org/fhir/StructureMap/*5to4B"
 
-group Address(source src : AddressR5, target tgt : AddressR4B) extends DataType <<type+>> {
+group Address(source src : AddressR5, target tgt : AddressR4B) extends Element <<type+>> {
   src.use as v -> tgt.use = translate(v, '#AddressUse', 'code');
   src.type as v -> tgt.type = translate(v, '#AddressType', 'code');
   src.text -> tgt.text;

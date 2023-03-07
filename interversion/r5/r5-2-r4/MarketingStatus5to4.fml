@@ -7,7 +7,8 @@ uses "http://hl7.org/fhir/4.0/StructureDefinition/MarketingStatus" alias Marketi
 
 imports "http://hl7.org/fhir/StructureMap/*5to4"
 
-group MarketingStatus(source src : MarketingStatusR5, target tgt : MarketingStatusR4) extends BackboneType <<type+>> {
+group MarketingStatus(source src : MarketingStatusR5, target tgt : MarketingStatusR4) extends Element <<type+>> {
+  src.modifierExtension -> tgt.modifierExtension;
   src.country -> tgt.country;
   src.jurisdiction -> tgt.jurisdiction;
   src.status -> tgt.status;

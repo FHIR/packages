@@ -2,12 +2,14 @@
 /// name = 'Reference4to5'
 /// title = 'FML Conversion for Reference: R4 to R5'
 
+// GG 7-Mar 2023: All OK
+
 uses "http://hl7.org/fhir/4.0/StructureDefinition/Reference" alias ReferenceR4 as source
 uses "http://hl7.org/fhir/StructureDefinition/Reference" alias ReferenceR5 as target
 
 imports "http://hl7.org/fhir/StructureMap/*4to5"
 
-group Reference(source src : ReferenceR4, target tgt : ReferenceR5) extends DataType <<type+>> {
+group Reference(source src : ReferenceR4, target tgt : ReferenceR5) extends Element <<type+>> {
   src.reference -> tgt.reference;
   src.type -> tgt.type;
   src.identifier -> tgt.identifier;

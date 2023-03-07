@@ -2,12 +2,14 @@
 /// name = 'Attachment5to4B'
 /// title = 'FML Conversion for Attachment: R5 to R4B'
 
+// GG 7-Mar 2023: All OK
+
 uses "http://hl7.org/fhir/StructureDefinition/Attachment" alias AttachmentR5 as source
 uses "http://hl7.org/fhir/4.3/StructureDefinition/Attachment" alias AttachmentR4B as target
 
 imports "http://hl7.org/fhir/StructureMap/*5to4B"
 
-group Attachment(source src : AttachmentR5, target tgt : AttachmentR4B) extends DataType <<type+>> {
+group Attachment(source src : AttachmentR5, target tgt : AttachmentR4B) extends Element <<type+>> {
   src.contentType -> tgt.contentType;
   src.language -> tgt.language;
   src.data -> tgt.data;
@@ -16,10 +18,11 @@ group Attachment(source src : AttachmentR5, target tgt : AttachmentR4B) extends 
   src.hash -> tgt.hash;
   src.title -> tgt.title;
   src.creation -> tgt.creation;
-  src.height -> tgt.height;
-  src.width -> tgt.width;
-  src.frames -> tgt.frames;
-  src.duration -> tgt.duration;
-  src.pages -> tgt.pages;
+// do not exist before R5  
+//  src.height -> tgt.height;
+//  src.width -> tgt.width;
+//  src.frames -> tgt.frames;
+//  src.duration -> tgt.duration;
+//  src.pages -> tgt.pages;
 }
 

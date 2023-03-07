@@ -7,7 +7,8 @@ uses "http://hl7.org/fhir/4.0/StructureDefinition/ProductShelfLife" alias Produc
 
 imports "http://hl7.org/fhir/StructureMap/*5to4"
 
-group ProductShelfLife(source src : ProductShelfLifeR5, target tgt : ProductShelfLifeR4) extends BackboneType <<type+>> {
+group ProductShelfLife(source src : ProductShelfLifeR5, target tgt : ProductShelfLifeR4) extends Element <<type+>> {
+  src.modifierExtension -> tgt.modifierExtension;
   src.type -> tgt.type;
   src.period : Duration -> tgt.period;
   src.period : string -> tgt.period;

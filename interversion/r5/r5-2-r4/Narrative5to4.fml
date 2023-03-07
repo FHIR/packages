@@ -2,6 +2,8 @@
 /// name = 'Narrative5to4'
 /// title = 'FML Conversion for Narrative: R5 to R4'
 
+// GG 7-Mar 2023: All OK
+
 conceptmap "NarrativeStatus" {
   prefix s = "http://hl7.org/fhir/narrative-status"
   prefix t = "http://hl7.org/fhir/4.0/narrative-status"
@@ -17,7 +19,7 @@ uses "http://hl7.org/fhir/4.0/StructureDefinition/Narrative" alias NarrativeR4 a
 
 imports "http://hl7.org/fhir/StructureMap/*5to4"
 
-group Narrative(source src : NarrativeR5, target tgt : NarrativeR4) extends DataType <<type+>> {
+group Narrative(source src : NarrativeR5, target tgt : NarrativeR4) extends Element <<type+>> {
   src.status as v -> tgt.status = translate(v, '#NarrativeStatus', 'code');
   src.div -> tgt.div;
 }

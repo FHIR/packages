@@ -2,12 +2,14 @@
 /// name = 'Meta4to5'
 /// title = 'FML Conversion for Meta: R4 to R5'
 
+// GG 7-Mar 2023: All OK
+
 uses "http://hl7.org/fhir/4.0/StructureDefinition/Meta" alias MetaR4 as source
 uses "http://hl7.org/fhir/StructureDefinition/Meta" alias MetaR5 as target
 
 imports "http://hl7.org/fhir/StructureMap/*4to5"
 
-group Meta(source src : MetaR4, target tgt : MetaR5) extends DataType <<type+>> {
+group Meta(source src : MetaR4, target tgt : MetaR5) extends Element <<type+>> {
   src.versionId -> tgt.versionId;
   src.lastUpdated -> tgt.lastUpdated;
   src.source -> tgt.source;

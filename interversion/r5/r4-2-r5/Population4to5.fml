@@ -7,7 +7,8 @@ uses "http://hl7.org/fhir/StructureDefinition/Population" alias PopulationR5 as 
 
 imports "http://hl7.org/fhir/StructureMap/*4to5"
 
-group Population(source src : PopulationR4, target tgt : PopulationR5) extends BackboneType <<type+>> {
+group Population(source src : PopulationR4, target tgt : PopulationR5) extends Element <<type+>> {
+  src.modifierExtension -> tgt.modifierExtension;
   src.age : Range -> tgt.age;
   src.age : CodeableConcept -> tgt.age;
   src.gender -> tgt.gender;

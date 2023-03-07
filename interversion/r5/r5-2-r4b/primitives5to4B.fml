@@ -60,6 +60,9 @@ group canonical(source src : canonicalR5, target tgt : canonicalR4B) extends Ele
 group code(source src : codeR5, target tgt : codeR4B) extends Element <<type+>> {
   src.value as v -> tgt.value = v "codeValue";
 }
+group code2id(source src : codeR5, target tgt : idR4B) extends Element <<types>> {
+  src.value as v -> tgt.value = v "code2idValue";
+}
 group date(source src : dateR5, target tgt : dateR4B) extends Element <<type+>> {
   src.value as v -> tgt.value = v "dateValue";
 }
@@ -71,6 +74,9 @@ group decimal(source src : decimalR5, target tgt : decimalR4B) extends Element <
 }
 group id(source src : idR5, target tgt : idR4B) extends Element <<type+>> {
   src.value as v -> tgt.value = v "idValue";
+}
+group id2Code(source src : idR5, target tgt : codeR4B) extends Element <<types>> {
+  src.value as v -> tgt.value = v "id2CodeValue";
 }
 group instant(source src : instantR5, target tgt : instantR4B) extends Element <<type+>> {
   src.value as v -> tgt.value = v "instantValue";
@@ -97,6 +103,9 @@ group time(source src : timeR5, target tgt : timeR4B) extends Element <<type+>> 
   src.value as v -> tgt.value = v "timeValue";
 }
 group unsignedInt(source src : unsignedIntR5, target tgt : unsignedIntR4B) extends Element <<type+>> {
+  src.value as v -> tgt.value = v "unsignedIntValue";
+}
+group unsignedInt(source src : integer64R5, target tgt : unsignedIntR4B) extends Element <<type+>> {
   src.value as v -> tgt.value = v "unsignedIntValue";
 }
 group uri(source src : uriR5, target tgt : uriR4B) extends Element <<type+>> {

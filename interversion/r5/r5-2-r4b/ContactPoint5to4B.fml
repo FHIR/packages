@@ -2,6 +2,8 @@
 /// name = 'ContactPoint5to4B'
 /// title = 'FML Conversion for ContactPoint: R5 to R4B'
 
+// GG 7-Mar 2023: All OK
+
 conceptmap "ContactPointSystem" {
   prefix s = "http://hl7.org/fhir/contact-point-system"
   prefix t = "http://hl7.org/fhir/4.3/contact-point-system"
@@ -31,7 +33,7 @@ uses "http://hl7.org/fhir/4.3/StructureDefinition/ContactPoint" alias ContactPoi
 
 imports "http://hl7.org/fhir/StructureMap/*5to4B"
 
-group ContactPoint(source src : ContactPointR5, target tgt : ContactPointR4B) extends DataType <<type+>> {
+group ContactPoint(source src : ContactPointR5, target tgt : ContactPointR4B) extends Element <<type+>> {
   src.system as v -> tgt.system = translate(v, '#ContactPointSystem', 'code');
   src.value -> tgt.value;
   src.use as v -> tgt.use = translate(v, '#ContactPointUse', 'code');

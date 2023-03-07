@@ -90,7 +90,8 @@ uses "http://hl7.org/fhir/StructureDefinition/ElementDefinition" alias ElementDe
 
 imports "http://hl7.org/fhir/StructureMap/*4to5"
 
-group ElementDefinition(source src : ElementDefinitionR4, target tgt : ElementDefinitionR5) extends BackboneType <<type+>> {
+group ElementDefinition(source src : ElementDefinitionR4, target tgt : ElementDefinitionR5) extends Element <<type+>> {
+  src.modifierExtension -> tgt.modifierExtension;
   src.path -> tgt.path;
   src.representation as v -> tgt.representation = translate(v, '#PropertyRepresentation', 'code');
   src.sliceName -> tgt.sliceName;

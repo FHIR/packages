@@ -2,12 +2,8 @@
 /// name = 'ParameterDefinition4to5'
 /// title = 'FML Conversion for ParameterDefinition: R4 to R5'
 
-conceptmap "FHIRTypes" {
-  prefix s = "http://hl7.org/fhir/4.0/fhir-types"
-  prefix t = "http://hl7.org/fhir/fhir-types"
+// GG 7-Mar 2023: All OK
 
-  s:"Base" - t:"Base"
-}
 
 conceptmap "ParameterUse" {
   prefix s = "http://hl7.org/fhir/4.0/operation-parameter-use"
@@ -22,13 +18,13 @@ uses "http://hl7.org/fhir/StructureDefinition/ParameterDefinition" alias Paramet
 
 imports "http://hl7.org/fhir/StructureMap/*4to5"
 
-group ParameterDefinition(source src : ParameterDefinitionR4, target tgt : ParameterDefinitionR5) extends DataType <<type+>> {
+group ParameterDefinition(source src : ParameterDefinitionR4, target tgt : ParameterDefinitionR5) extends Element <<type+>> {
   src.name -> tgt.name;
   src.use as v -> tgt.use = translate(v, '#ParameterUse', 'code');
   src.min -> tgt.min;
   src.max -> tgt.max;
   src.documentation -> tgt.documentation;
-  src.type as v -> tgt.type = translate(v, '#FHIRTypes', 'code');
+  src.type as v -> tgt.type = translate(v, 'http://hl7.org/fhir/interversion/types4to5', 'code');
   src.profile -> tgt.profile;
 }
 

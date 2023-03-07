@@ -7,7 +7,8 @@ uses "http://hl7.org/fhir/StructureDefinition/MarketingStatus" alias MarketingSt
 
 imports "http://hl7.org/fhir/StructureMap/*4Bto5"
 
-group MarketingStatus(source src : MarketingStatusR4B, target tgt : MarketingStatusR5) extends BackboneType <<type+>> {
+group MarketingStatus(source src : MarketingStatusR4B, target tgt : MarketingStatusR5) extends Element <<type+>> {
+  src.modifierExtension -> tgt.modifierExtension;
   src.country -> tgt.country;
   src.jurisdiction -> tgt.jurisdiction;
   src.status -> tgt.status;

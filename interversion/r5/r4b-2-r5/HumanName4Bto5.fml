@@ -2,6 +2,8 @@
 /// name = 'HumanName4Bto5'
 /// title = 'FML Conversion for HumanName: R4B to R5'
 
+// GG 7-Mar 2023: All OK
+
 conceptmap "NameUse" {
   prefix s = "http://hl7.org/fhir/4.3/name-use"
   prefix t = "http://hl7.org/fhir/name-use"
@@ -19,7 +21,7 @@ uses "http://hl7.org/fhir/StructureDefinition/HumanName" alias HumanNameR5 as ta
 
 imports "http://hl7.org/fhir/StructureMap/*4Bto5"
 
-group HumanName(source src : HumanNameR4B, target tgt : HumanNameR5) extends DataType <<type+>> {
+group HumanName(source src : HumanNameR4B, target tgt : HumanNameR5) extends Element <<type+>> {
   src.use as v -> tgt.use = translate(v, '#NameUse', 'code');
   src.text -> tgt.text;
   src.family -> tgt.family;

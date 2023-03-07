@@ -2,12 +2,14 @@
 /// name = 'Expression4to5'
 /// title = 'FML Conversion for Expression: R4 to R5'
 
+// GG 7-Mar 2023: All OK
+
 uses "http://hl7.org/fhir/4.0/StructureDefinition/Expression" alias ExpressionR4 as source
 uses "http://hl7.org/fhir/StructureDefinition/Expression" alias ExpressionR5 as target
 
 imports "http://hl7.org/fhir/StructureMap/*4to5"
 
-group Expression(source src : ExpressionR4, target tgt : ExpressionR5) extends DataType <<type+>> {
+group Expression(source src : ExpressionR4, target tgt : ExpressionR5) extends Element <<type+>> {
   src.description -> tgt.description;
   src.name -> tgt.name;
   src.language -> tgt.language;

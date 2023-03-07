@@ -2,12 +2,14 @@
 /// name = 'Extension4Bto5'
 /// title = 'FML Conversion for Extension: R4B to R5'
 
+// GG 7-Mar 2023: All OK
+
 uses "http://hl7.org/fhir/4.3/StructureDefinition/Extension" alias ExtensionR4B as source
 uses "http://hl7.org/fhir/StructureDefinition/Extension" alias ExtensionR5 as target
 
 imports "http://hl7.org/fhir/StructureMap/*4Bto5"
 
-group Extension(source src : ExtensionR4B, target tgt : ExtensionR5) extends DataType <<type+>> {
+group Extension(source src : ExtensionR4B, target tgt : ExtensionR5) extends Element <<type+>> {
   src.url -> tgt.url;
   src.value : base64Binary -> tgt.value;
   src.value : boolean -> tgt.value;
@@ -19,7 +21,7 @@ group Extension(source src : ExtensionR4B, target tgt : ExtensionR5) extends Dat
   src.value : id -> tgt.value;
   src.value : instant -> tgt.value;
   src.value : integer -> tgt.value;
-  src.value : integer64 -> tgt.value;
+//  src.value : integer64 -> tgt.value;
   src.value : markdown -> tgt.value;
   src.value : oid -> tgt.value;
   src.value : positiveInt -> tgt.value;
@@ -59,9 +61,9 @@ group Extension(source src : ExtensionR4B, target tgt : ExtensionR5) extends Dat
   src.value : RelatedArtifact -> tgt.value;
   src.value : TriggerDefinition -> tgt.value;
   src.value : UsageContext -> tgt.value;
-  src.value : Availability -> tgt.value;
-  src.value : ExtendedContactDetail -> tgt.value;
+//  src.value : Availability -> tgt.value;
+//  src.value : ExtendedContactDetail -> tgt.value;
   src.value : Dosage -> tgt.value;
-  src.value : Meta -> tgt.value;
+//  src.value : Meta -> tgt.value;
 }
 

@@ -2,12 +2,7 @@
 /// name = 'DataRequirement5to4'
 /// title = 'FML Conversion for DataRequirement: R5 to R4'
 
-conceptmap "FHIRTypes" {
-  prefix s = "http://hl7.org/fhir/fhir-types"
-  prefix t = "http://hl7.org/fhir/4.0/fhir-types"
-
-  s:"Base" - t:"Base"
-}
+// GG 7-Mar 2023: All OK
 
 conceptmap "SortDirection" {
   prefix s = "http://hl7.org/fhir/sort-direction"
@@ -22,15 +17,15 @@ uses "http://hl7.org/fhir/4.0/StructureDefinition/DataRequirement" alias DataReq
 
 imports "http://hl7.org/fhir/StructureMap/*5to4"
 
-group DataRequirement(source src : DataRequirementR5, target tgt : DataRequirementR4) extends DataType <<type+>> {
-  src.type as v -> tgt.type = translate(v, '#FHIRTypes', 'code');
+group DataRequirement(source src : DataRequirementR5, target tgt : DataRequirementR4) extends Element <<type+>> {
+  src.type as v -> tgt.type = translate(v, 'http://hl7.org/fhir/interversion/types5to4', 'code');
   src.profile -> tgt.profile;
   src.subject : CodeableConcept -> tgt.subject;
   src.subject : Reference -> tgt.subject;
   src.mustSupport -> tgt.mustSupport;
   src.codeFilter as s -> tgt.codeFilter as t then DataRequirementCodeFilter(s,t);
   src.dateFilter as s -> tgt.dateFilter as t then DataRequirementDateFilter(s,t);
-  src.valueFilter as s -> tgt.valueFilter as t then DataRequirementValueFilter(s,t);
+//  src.valueFilter as s -> tgt.valueFilter as t then DataRequirementValueFilter(s,t); - not in R4
   src.limit -> tgt.limit;
   src.sort as s -> tgt.sort as t then DataRequirementSort(s,t);
 }
@@ -50,14 +45,15 @@ group DataRequirementDateFilter(source src, target tgt) extends Element {
   src.value : Duration -> tgt.value;
 }
 
-group DataRequirementValueFilter(source src, target tgt) extends Element {
-  src.path -> tgt.path;
-  src.searchParam -> tgt.searchParam;
-  src.comparator -> tgt.comparator;
-  src.value : dateTime -> tgt.value;
-  src.value : Period -> tgt.value;
-  src.value : Duration -> tgt.value;
-}
+// - not in R4
+//group DataRequirementValueFilter(source src, target tgt) extends Element {
+//  src.path -> tgt.path;
+//  src.searchParam -> tgt.searchParam;
+//  src.comparator -> tgt.comparator;
+//  src.value : dateTime -> tgt.value;
+//  src.value : Period -> tgt.value;
+//  src.value : Duration -> tgt.value;
+//}
 
 group DataRequirementSort(source src, target tgt) extends Element {
   src.path -> tgt.path;

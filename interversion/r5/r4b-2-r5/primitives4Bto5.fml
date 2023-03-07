@@ -24,6 +24,7 @@ uses "http://hl7.org/fhir/4.3/StructureDefinition/instant" alias instantR4B as s
 uses "http://hl7.org/fhir/StructureDefinition/instant" alias instantR5 as target
 uses "http://hl7.org/fhir/4.3/StructureDefinition/integer" alias integerR4B as source
 uses "http://hl7.org/fhir/StructureDefinition/integer" alias integerR5 as target
+uses "http://hl7.org/fhir/StructureDefinition/integer64" alias integer64R5 as target
 uses "http://hl7.org/fhir/4.3/StructureDefinition/markdown" alias markdownR4B as source
 uses "http://hl7.org/fhir/StructureDefinition/markdown" alias markdownR5 as target
 uses "http://hl7.org/fhir/4.3/StructureDefinition/oid" alias oidR4B as source
@@ -59,6 +60,9 @@ group canonical(source src : canonicalR4B, target tgt : canonicalR5) extends Ele
 group code(source src : codeR4B, target tgt : codeR5) extends Element <<type+>> {
   src.value as v -> tgt.value = v "codeValue";
 }
+group code2id(source src : codeR4B, target tgt : idR5) extends Element <<types>> {
+  src.value as v -> tgt.value = v "code2idValue";
+}
 group date(source src : dateR4B, target tgt : dateR5) extends Element <<type+>> {
   src.value as v -> tgt.value = v "dateValue";
 }
@@ -71,12 +75,20 @@ group decimal(source src : decimalR4B, target tgt : decimalR5) extends Element <
 group id(source src : idR4B, target tgt : idR5) extends Element <<type+>> {
   src.value as v -> tgt.value = v "idValue";
 }
+group id2code(source src : idR4B, target tgt : codeR5) extends Element <<types>> {
+  src.value as v -> tgt.value = v "id2codeValue";
+}
 group instant(source src : instantR4B, target tgt : instantR5) extends Element <<type+>> {
   src.value as v -> tgt.value = v "instantValue";
 }
 group integer(source src : integerR4B, target tgt : integerR5) extends Element <<type+>> {
   src.value as v -> tgt.value = v "integerValue";
 }
+
+group integer(source src : integerR4B, target tgt : integer64R5) extends Element <<type+>> {
+  src.value as v -> tgt.value = v "integerValue";
+}
+
 group markdown(source src : markdownR4B, target tgt : markdownR5) extends Element <<type+>> {
   src.value as v -> tgt.value = v "markdownValue";
 }
@@ -93,6 +105,9 @@ group time(source src : timeR4B, target tgt : timeR5) extends Element <<type+>> 
   src.value as v -> tgt.value = v "timeValue";
 }
 group unsignedInt(source src : unsignedIntR4B, target tgt : unsignedIntR5) extends Element <<type+>> {
+  src.value as v -> tgt.value = v "unsignedIntValue";
+}
+group unsignedInt(source src : unsignedIntR4B, target tgt : integer64R5) extends Element <<type+>> {
   src.value as v -> tgt.value = v "unsignedIntValue";
 }
 group uri(source src : uriR4B, target tgt : uriR5) extends Element <<type+>> {

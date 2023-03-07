@@ -2,12 +2,14 @@
 /// name = 'CodeableReference5to4B'
 /// title = 'FML Conversion for CodeableReference: R5 to R4B'
 
+// GG 7-Mar 2023: All OK
+
 uses "http://hl7.org/fhir/StructureDefinition/CodeableReference" alias CodeableReferenceR5 as source
 uses "http://hl7.org/fhir/4.3/StructureDefinition/CodeableReference" alias CodeableReferenceR4B as target
 
 imports "http://hl7.org/fhir/StructureMap/*5to4B"
 
-group CodeableReference(source src : CodeableReferenceR5, target tgt : CodeableReferenceR4B) extends DataType <<type+>> {
+group CodeableReference(source src : CodeableReferenceR5, target tgt : CodeableReferenceR4B) extends Element <<type+>> {
   src.concept -> tgt.concept;
   src.reference -> tgt.reference;
 }

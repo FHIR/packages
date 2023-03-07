@@ -2,6 +2,8 @@
 /// name = 'MonetaryComponent5to4'
 /// title = 'FML Conversion for MonetaryComponent: R5 to R4'
 
+// to be deleted once it's inlined into ChargeItem, ChargeItemDefinition and Invoice
+
 conceptmap "PriceComponentType" {
   prefix s = "http://hl7.org/fhir/price-component-type"
   prefix t = "http://hl7.org/fhir/4.0/price-component-type"
@@ -19,7 +21,7 @@ uses "http://hl7.org/fhir/4.0/StructureDefinition/MonetaryComponent" alias Monet
 
 imports "http://hl7.org/fhir/StructureMap/*5to4"
 
-group MonetaryComponent(source src : MonetaryComponentR5, target tgt : MonetaryComponentR4) extends DataType <<type+>> {
+group MonetaryComponent(source src : MonetaryComponentR5, target tgt : MonetaryComponentR4) extends Element <<type+>> {
   src.type as v -> tgt.type = translate(v, '#PriceComponentType', 'code');
   src.code -> tgt.code;
   src.factor -> tgt.factor;

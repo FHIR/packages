@@ -2,12 +2,14 @@
 /// name = 'ContactDetail5to4B'
 /// title = 'FML Conversion for ContactDetail: R5 to R4B'
 
+// GG 7-Mar 2023: All OK
+
 uses "http://hl7.org/fhir/StructureDefinition/ContactDetail" alias ContactDetailR5 as source
 uses "http://hl7.org/fhir/4.3/StructureDefinition/ContactDetail" alias ContactDetailR4B as target
 
 imports "http://hl7.org/fhir/StructureMap/*5to4B"
 
-group ContactDetail(source src : ContactDetailR5, target tgt : ContactDetailR4B) extends DataType <<type+>> {
+group ContactDetail(source src : ContactDetailR5, target tgt : ContactDetailR4B) extends Element <<type+>> {
   src.name -> tgt.name;
   src.telecom -> tgt.telecom;
 }

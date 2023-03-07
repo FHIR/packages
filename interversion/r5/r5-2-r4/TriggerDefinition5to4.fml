@@ -2,6 +2,8 @@
 /// name = 'TriggerDefinition5to4'
 /// title = 'FML Conversion for TriggerDefinition: R5 to R4'
 
+// GG 7-Mar 2023: All OK
+
 conceptmap "TriggerType" {
   prefix s = "http://hl7.org/fhir/trigger-type"
   prefix t = "http://hl7.org/fhir/4.0/trigger-type"
@@ -18,11 +20,12 @@ uses "http://hl7.org/fhir/4.0/StructureDefinition/TriggerDefinition" alias Trigg
 
 imports "http://hl7.org/fhir/StructureMap/*5to4"
 
-group TriggerDefinition(source src : TriggerDefinitionR5, target tgt : TriggerDefinitionR4) extends DataType <<type+>> {
+group TriggerDefinition(source src : TriggerDefinitionR5, target tgt : TriggerDefinitionR4) extends Element <<type+>> {
   src.type as v -> tgt.type = translate(v, '#TriggerType', 'code');
   src.name -> tgt.name;
-  src.code -> tgt.code;
-  src.subscriptionTopic -> tgt.subscriptionTopic;
+// introduced in R5  
+//  src.code -> tgt.code;
+//  src.subscriptionTopic -> tgt.subscriptionTopic;
   src.timing : Timing -> tgt.timing;
   src.timing : Reference -> tgt.timing;
   src.timing : date -> tgt.timing;

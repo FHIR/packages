@@ -2,21 +2,22 @@
 /// name = 'SampledData4Bto5'
 /// title = 'FML Conversion for SampledData: R4B to R5'
 
+// GG 7-Mar 2023: All OK
+
 uses "http://hl7.org/fhir/4.3/StructureDefinition/SampledData" alias SampledDataR4B as source
 uses "http://hl7.org/fhir/StructureDefinition/SampledData" alias SampledDataR5 as target
 
 imports "http://hl7.org/fhir/StructureMap/*4Bto5"
 
-group SampledData(source src : SampledDataR4B, target tgt : SampledDataR5) extends DataType <<type+>> {
+group SampledData(source src : SampledDataR4B, target tgt : SampledDataR5) extends Element <<type+>> {
   src.origin -> tgt.origin;
-  src.interval -> tgt.interval;
-  src.intervalUnit -> tgt.intervalUnit;
+  src.period as vs -> tgt.interval as vt, tgt.intervalUnit = "ms";
   src.factor -> tgt.factor;
   src.lowerLimit -> tgt.lowerLimit;
   src.upperLimit -> tgt.upperLimit;
   src.dimensions -> tgt.dimensions;
-  src.codeMap -> tgt.codeMap;
-  src.offsets -> tgt.offsets;
+//  src.codeMap -> tgt.codeMap; - doesn't exist in R4B
+//  src.offsets -> tgt.offsets; - doesn't exist in R4B
   src.data -> tgt.data;
 }
 

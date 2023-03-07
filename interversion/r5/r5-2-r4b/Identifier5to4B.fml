@@ -2,6 +2,8 @@
 /// name = 'Identifier5to4B'
 /// title = 'FML Conversion for Identifier: R5 to R4B'
 
+// GG 7-Mar 2023: All OK
+
 conceptmap "IdentifierUse" {
   prefix s = "http://hl7.org/fhir/identifier-use"
   prefix t = "http://hl7.org/fhir/4.3/identifier-use"
@@ -18,7 +20,7 @@ uses "http://hl7.org/fhir/4.3/StructureDefinition/Identifier" alias IdentifierR4
 
 imports "http://hl7.org/fhir/StructureMap/*5to4B"
 
-group Identifier(source src : IdentifierR5, target tgt : IdentifierR4B) extends DataType <<type+>> {
+group Identifier(source src : IdentifierR5, target tgt : IdentifierR4B) extends Element <<type+>> {
   src.use as v -> tgt.use = translate(v, '#IdentifierUse', 'code');
   src.type -> tgt.type;
   src.system -> tgt.system;

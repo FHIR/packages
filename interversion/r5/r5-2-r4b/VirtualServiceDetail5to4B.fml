@@ -2,12 +2,14 @@
 /// name = 'VirtualServiceDetail5to4B'
 /// title = 'FML Conversion for VirtualServiceDetail: R5 to R4B'
 
+// to be deleted once it's been inlined into Appointment, Encounter and Location
+
 uses "http://hl7.org/fhir/StructureDefinition/VirtualServiceDetail" alias VirtualServiceDetailR5 as source
 uses "http://hl7.org/fhir/4.3/StructureDefinition/VirtualServiceDetail" alias VirtualServiceDetailR4B as target
 
 imports "http://hl7.org/fhir/StructureMap/*5to4B"
 
-group VirtualServiceDetail(source src : VirtualServiceDetailR5, target tgt : VirtualServiceDetailR4B) extends DataType <<type+>> {
+group VirtualServiceDetail(source src : VirtualServiceDetailR5, target tgt : VirtualServiceDetailR4B) extends Element <<type+>> {
   src.channelType -> tgt.channelType;
   src.address : url -> tgt.address;
   src.address : string -> tgt.address;

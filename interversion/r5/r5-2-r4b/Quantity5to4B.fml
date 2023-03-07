@@ -2,6 +2,8 @@
 /// name = 'Quantity5to4B'
 /// title = 'FML Conversion for Quantity: R5 to R4B'
 
+// GG 7-Mar 2023: All OK
+
 conceptmap "QuantityComparator" {
   prefix s = "http://hl7.org/fhir/quantity-comparator"
   prefix t = "http://hl7.org/fhir/4.3/quantity-comparator"
@@ -10,7 +12,7 @@ conceptmap "QuantityComparator" {
   s:"<=" - t:"<="
   s:">=" - t:">="
   s:">" - t:">"
-  s:"ad" - t:"ad"
+  s:"ad" - t:"<=" // can't round trip this without an extension
 }
 
 uses "http://hl7.org/fhir/StructureDefinition/Quantity" alias QuantityR5 as source
@@ -18,7 +20,7 @@ uses "http://hl7.org/fhir/4.3/StructureDefinition/Quantity" alias QuantityR4B as
 
 imports "http://hl7.org/fhir/StructureMap/*5to4B"
 
-group Quantity(source src : QuantityR5, target tgt : QuantityR4B) extends DataType <<type+>> {
+group Quantity(source src : QuantityR5, target tgt : QuantityR4B) extends Element <<type+>> {
   src.value -> tgt.value;
   src.comparator as v -> tgt.comparator = translate(v, '#QuantityComparator', 'code');
   src.unit -> tgt.unit;

@@ -2,12 +2,14 @@
 /// name = 'Extension5to4B'
 /// title = 'FML Conversion for Extension: R5 to R4B'
 
+// GG 7-Mar 2023: All OK
+
 uses "http://hl7.org/fhir/StructureDefinition/Extension" alias ExtensionR5 as source
 uses "http://hl7.org/fhir/4.3/StructureDefinition/Extension" alias ExtensionR4B as target
 
 imports "http://hl7.org/fhir/StructureMap/*5to4B"
 
-group Extension(source src : ExtensionR5, target tgt : ExtensionR4B) extends DataType <<type+>> {
+group Extension(source src : ExtensionR5, target tgt : ExtensionR4B) extends Element <<type+>> {
   src.url -> tgt.url;
   src.value : base64Binary -> tgt.value;
   src.value : boolean -> tgt.value;
@@ -59,8 +61,8 @@ group Extension(source src : ExtensionR5, target tgt : ExtensionR4B) extends Dat
   src.value : RelatedArtifact -> tgt.value;
   src.value : TriggerDefinition -> tgt.value;
   src.value : UsageContext -> tgt.value;
-  src.value : Availability -> tgt.value;
-  src.value : ExtendedContactDetail -> tgt.value;
+//  src.value : Availability -> tgt.value;
+//  src.value : ExtendedContactDetail -> tgt.value;
   src.value : Dosage -> tgt.value;
   src.value : Meta -> tgt.value;
 }

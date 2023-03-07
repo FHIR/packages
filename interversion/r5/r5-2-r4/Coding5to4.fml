@@ -2,12 +2,14 @@
 /// name = 'Coding5to4'
 /// title = 'FML Conversion for Coding: R5 to R4'
 
+// GG 7-Mar 2023: All OK
+
 uses "http://hl7.org/fhir/StructureDefinition/Coding" alias CodingR5 as source
 uses "http://hl7.org/fhir/4.0/StructureDefinition/Coding" alias CodingR4 as target
 
 imports "http://hl7.org/fhir/StructureMap/*5to4"
 
-group Coding(source src : CodingR5, target tgt : CodingR4) extends DataType <<type+>> {
+group Coding(source src : CodingR5, target tgt : CodingR4) extends Element <<type+>> {
   src.system -> tgt.system;
   src.version -> tgt.version;
   src.code -> tgt.code;

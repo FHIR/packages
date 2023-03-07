@@ -2,12 +2,14 @@
 /// name = 'UsageContext4to5'
 /// title = 'FML Conversion for UsageContext: R4 to R5'
 
+// GG 7-Mar 2023: All OK
+
 uses "http://hl7.org/fhir/4.0/StructureDefinition/UsageContext" alias UsageContextR4 as source
 uses "http://hl7.org/fhir/StructureDefinition/UsageContext" alias UsageContextR5 as target
 
 imports "http://hl7.org/fhir/StructureMap/*4to5"
 
-group UsageContext(source src : UsageContextR4, target tgt : UsageContextR5) extends DataType <<type+>> {
+group UsageContext(source src : UsageContextR4, target tgt : UsageContextR5) extends Element <<type+>> {
   src.code -> tgt.code;
   src.value : CodeableConcept -> tgt.value;
   src.value : Quantity -> tgt.value;

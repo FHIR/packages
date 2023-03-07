@@ -2,6 +2,8 @@
 /// name = 'Timing4to5'
 /// title = 'FML Conversion for Timing: R4 to R5'
 
+// GG 7-Mar 2023: All OK
+
 conceptmap "DayOfWeek" {
   prefix s = "http://hl7.org/fhir/4.0/days-of-week"
   prefix t = "http://hl7.org/fhir/days-of-week"
@@ -20,7 +22,8 @@ uses "http://hl7.org/fhir/StructureDefinition/Timing" alias TimingR5 as target
 
 imports "http://hl7.org/fhir/StructureMap/*4to5"
 
-group Timing(source src : TimingR4, target tgt : TimingR5) extends BackboneType <<type+>> {
+group Timing(source src : TimingR4, target tgt : TimingR5) extends Element <<type+>> {
+  src.modifierExtension -> tgt.modifierExtension;
   src.event -> tgt.event;
   src.repeat as s -> tgt.repeat as t then TimingRepeat(s,t);
   src.code -> tgt.code;

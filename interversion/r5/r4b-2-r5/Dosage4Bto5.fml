@@ -2,19 +2,22 @@
 /// name = 'Dosage4Bto5'
 /// title = 'FML Conversion for Dosage: R4B to R5'
 
+// GG 7-Mar 2023: All OK
+
 uses "http://hl7.org/fhir/4.3/StructureDefinition/Dosage" alias DosageR4B as source
 uses "http://hl7.org/fhir/StructureDefinition/Dosage" alias DosageR5 as target
 
 imports "http://hl7.org/fhir/StructureMap/*4Bto5"
 
-group Dosage(source src : DosageR4B, target tgt : DosageR5) extends BackboneType <<type+>> {
+group Dosage(source src : DosageR4B, target tgt : DosageR5) extends Element <<type+>> {
+  src.modifierExtension -> tgt.modifierExtension;
   src.sequence -> tgt.sequence;
   src.text -> tgt.text;
   src.additionalInstruction -> tgt.additionalInstruction;
   src.patientInstruction -> tgt.patientInstruction;
   src.timing -> tgt.timing;
-  src.asNeeded -> tgt.asNeeded;
-  src.asNeededFor -> tgt.asNeededFor;
+  src.asNeeded : boolean -> tgt.asNeeded;
+  src.asNeeded : CodeableConcept -> tgt.asNeededFor;
   src.site -> tgt.site;
   src.route -> tgt.route;
   src.method -> tgt.method;

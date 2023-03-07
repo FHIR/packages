@@ -2,12 +2,14 @@
 /// name = 'Period4Bto5'
 /// title = 'FML Conversion for Period: R4B to R5'
 
+// GG 7-Mar 2023: All OK
+
 uses "http://hl7.org/fhir/4.3/StructureDefinition/Period" alias PeriodR4B as source
 uses "http://hl7.org/fhir/StructureDefinition/Period" alias PeriodR5 as target
 
 imports "http://hl7.org/fhir/StructureMap/*4Bto5"
 
-group Period(source src : PeriodR4B, target tgt : PeriodR5) extends DataType <<type+>> {
+group Period(source src : PeriodR4B, target tgt : PeriodR5) extends Element <<type+>> {
   src.start -> tgt.start;
   src.end -> tgt.end;
 }
