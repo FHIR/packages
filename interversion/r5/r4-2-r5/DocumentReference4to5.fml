@@ -2,6 +2,8 @@
 /// name = 'DocumentReference4to5'
 /// title = 'FML Conversion for DocumentReference: R4 to R5'
 
+// GG 8-Mar 2023: All OK
+
 conceptmap "DocumentReferenceStatus" {
   prefix s = "http://hl7.org/fhir/4.0/document-reference-status"
   prefix t = "http://hl7.org/fhir/document-reference-status"
@@ -15,17 +17,17 @@ conceptmap "ReferredDocumentStatus" {
   prefix s = "http://hl7.org/fhir/4.0/composition-status"
   prefix t = "http://hl7.org/fhir/composition-status"
 
-  s:"registered" - t:"registered"
-  s:"partial" - t:"partial"
+//  s:"registered" - t:"registered"
+//  s:"partial" - t:"partial"
   s:"preliminary" - t:"preliminary"
   s:"final" - t:"final"
   s:"amended" - t:"amended"
-  s:"corrected" - t:"corrected"
-  s:"appended" - t:"appended"
-  s:"cancelled" - t:"cancelled"
+//  s:"corrected" - t:"corrected"
+//  s:"appended" - t:"appended"
+//  s:"cancelled" - t:"cancelled"
   s:"entered-in-error" - t:"entered-in-error"
-  s:"deprecated" - t:"deprecated"
-  s:"unknown" - t:"unknown"
+//  s:"deprecated" - t:"deprecated"
+//  s:"unknown" - t:"unknown"
 }
 
 uses "http://hl7.org/fhir/4.0/StructureDefinition/DocumentReference" alias DocumentReferenceR4 as source
@@ -34,24 +36,27 @@ uses "http://hl7.org/fhir/StructureDefinition/DocumentReference" alias DocumentR
 imports "http://hl7.org/fhir/StructureMap/*4to5"
 
 group DocumentReference(source src : DocumentReferenceR4, target tgt : DocumentReferenceR5) extends DomainResource <<type+>> {
+  src.masterIdentifier -> tgt.identifier;
   src.identifier -> tgt.identifier;
-  src.version -> tgt.version;
-  src.basedOn -> tgt.basedOn;
+//  src.version -> tgt.version;
+//  src.basedOn -> tgt.basedOn;
   src.status as v -> tgt.status = translate(v, '#DocumentReferenceStatus', 'code');
   src.docStatus as v -> tgt.docStatus = translate(v, '#ReferredDocumentStatus', 'code');
-  src.modality -> tgt.modality;
+//  src.modality -> tgt.modality;
   src.type -> tgt.type;
   src.category -> tgt.category;
   src.subject -> tgt.subject;
-  src.context -> tgt.context;
-  src.event -> tgt.event;
-  src.bodySite -> tgt.bodySite;
-  src.facilityType -> tgt.facilityType;
-  src.practiceSetting -> tgt.practiceSetting;
-  src.period -> tgt.period;
+  src.context as s -> tgt then {
+    s.encounter -> tgt.context;
+    s.event as s -> tgt.event as t, t.concept = s;
+    s.period -> tgt.period;
+    s.facilityType -> tgt.facilityType;
+    s.practiceSetting -> tgt.practiceSetting;
+  };
+//  src.bodySite -> tgt.bodySite;
   src.date -> tgt.date;
   src.author -> tgt.author;
-  src.attester as s -> tgt.attester as t then DocumentReferenceAttester(s,t);
+  src.authenticator as s -> tgt.attester as t, t.mode = 'professional', t.party = s;
   src.custodian -> tgt.custodian;
   src.relatesTo as s -> tgt.relatesTo as t then DocumentReferenceRelatesTo(s,t);
   src.description -> tgt.description;
@@ -59,25 +64,14 @@ group DocumentReference(source src : DocumentReferenceR4, target tgt : DocumentR
   src.content as s -> tgt.content as t then DocumentReferenceContent(s,t);
 }
 
-group DocumentReferenceAttester(source src, target tgt) extends BackboneElement {
-  src.mode -> tgt.mode;
-  src.time -> tgt.time;
-  src.party -> tgt.party;
-}
-
 group DocumentReferenceRelatesTo(source src, target tgt) extends BackboneElement {
-  src.code -> tgt.code;
+  src.code as s -> tgt.code as t, t.coding = create('Coding') as c, c.system = 'http://hl7.org/fhir/document-relationship-type', c.code = s;
   src.target -> tgt.target;
 }
 
 group DocumentReferenceContent(source src, target tgt) extends BackboneElement {
   src.attachment -> tgt.attachment;
-  src.profile as s -> tgt.profile as t then DocumentReferenceContentProfile(s,t);
+  src.format as s -> tgt.profile as t, t.value = s;
 }
 
-group DocumentReferenceContentProfile(source src, target tgt) extends BackboneElement {
-  src.value : Coding -> tgt.value;
-  src.value : uri -> tgt.value;
-  src.value : canonical -> tgt.value;
-}
 
