@@ -87,7 +87,13 @@ group TestReportSetupActionAssert(source src, target tgt) extends BackboneElemen
   src.result as v -> tgt.result = translate(v, '#TestReportActionResult', 'code');
   src.message -> tgt.message;
   src.detail -> tgt.detail;
+//  src.requirement as s -> tgt.requirement as t then TestReportSetupActionAssertRequirement(s,t);
 }
+
+//group TestReportSetupActionAssertRequirement(source src, target tgt) extends BackboneElement {
+//  src.link : uri -> tgt.link;
+//  src.link : canonical -> tgt.link;
+//}
 
 group TestReportTest(source src, target tgt) extends BackboneElement {
   src.name -> tgt.name;
