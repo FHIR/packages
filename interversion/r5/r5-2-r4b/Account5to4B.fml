@@ -2,6 +2,8 @@
 /// name = 'Account5to4B'
 /// title = 'FML Conversion for Account: R5 to R4B'
 
+// VP 8-Mar 2023: All OK sans version-specific extensions
+
 conceptmap "AccountStatus" {
   prefix s = "http://hl7.org/fhir/account-status"
   prefix t = "http://hl7.org/fhir/4.3/account-status"
@@ -21,7 +23,8 @@ imports "http://hl7.org/fhir/StructureMap/*5to4B"
 group Account(source src : AccountR5, target tgt : AccountR4B) extends DomainResource <<type+>> {
   src.identifier -> tgt.identifier;
   src.status as v -> tgt.status = translate(v, '#AccountStatus', 'code');
-  src.billingStatus -> tgt.billingStatus;
+  // version-specific extension needs to be applied here
+  // src.billingStatus -> tgt.billingStatus;
   src.type -> tgt.type;
   src.name -> tgt.name;
   src.subject -> tgt.subject;
@@ -30,12 +33,12 @@ group Account(source src : AccountR5, target tgt : AccountR4B) extends DomainRes
   src.owner -> tgt.owner;
   src.description -> tgt.description;
   src.guarantor as s -> tgt.guarantor as t then AccountGuarantor(s,t);
-  src.diagnosis as s -> tgt.diagnosis as t then AccountDiagnosis(s,t);
-  src.procedure as s -> tgt.procedure as t then AccountProcedure(s,t);
-  src.relatedAccount as s -> tgt.relatedAccount as t then AccountRelatedAccount(s,t);
-  src.currency -> tgt.currency;
-  src.balance as s -> tgt.balance as t then AccountBalance(s,t);
-  src.calculatedAt -> tgt.calculatedAt;
+  // src.diagnosis as s -> tgt.diagnosis as t then AccountDiagnosis(s,t);
+  // src.procedure as s -> tgt.procedure as t then AccountProcedure(s,t);
+  // src.relatedAccount as s -> tgt.relatedAccount as t then AccountRelatedAccount(s,t);
+  // src.currency -> tgt.currency;
+  // src.balance as s -> tgt.balance as t then AccountBalance(s,t);
+  // src.calculatedAt -> tgt.calculatedAt;
 }
 
 group AccountCoverage(source src, target tgt) extends BackboneElement {
@@ -49,33 +52,33 @@ group AccountGuarantor(source src, target tgt) extends BackboneElement {
   src.period -> tgt.period;
 }
 
-group AccountDiagnosis(source src, target tgt) extends BackboneElement {
-  src.sequence -> tgt.sequence;
-  src.condition -> tgt.condition;
-  src.dateOfDiagnosis -> tgt.dateOfDiagnosis;
-  src.type -> tgt.type;
-  src.onAdmission -> tgt.onAdmission;
-  src.packageCode -> tgt.packageCode;
-}
+// group AccountDiagnosis(source src, target tgt) extends BackboneElement {
+//   src.sequence -> tgt.sequence;
+//   src.condition -> tgt.condition;
+//   src.dateOfDiagnosis -> tgt.dateOfDiagnosis;
+//   src.type -> tgt.type;
+//   src.onAdmission -> tgt.onAdmission;
+//   src.packageCode -> tgt.packageCode;
+// }
 
-group AccountProcedure(source src, target tgt) extends BackboneElement {
-  src.sequence -> tgt.sequence;
-  src.code -> tgt.code;
-  src.dateOfService -> tgt.dateOfService;
-  src.type -> tgt.type;
-  src.packageCode -> tgt.packageCode;
-  src.device -> tgt.device;
-}
+// group AccountProcedure(source src, target tgt) extends BackboneElement {
+//   src.sequence -> tgt.sequence;
+//   src.code -> tgt.code;
+//   src.dateOfService -> tgt.dateOfService;
+//   src.type -> tgt.type;
+//   src.packageCode -> tgt.packageCode;
+//   src.device -> tgt.device;
+// }
 
-group AccountRelatedAccount(source src, target tgt) extends BackboneElement {
-  src.relationship -> tgt.relationship;
-  src.account -> tgt.account;
-}
+// group AccountRelatedAccount(source src, target tgt) extends BackboneElement {
+//   src.relationship -> tgt.relationship;
+//   src.account -> tgt.account;
+// }
 
-group AccountBalance(source src, target tgt) extends BackboneElement {
-  src.aggregate -> tgt.aggregate;
-  src.term -> tgt.term;
-  src.estimate -> tgt.estimate;
-  src.amount -> tgt.amount;
-}
+// group AccountBalance(source src, target tgt) extends BackboneElement {
+//   src.aggregate -> tgt.aggregate;
+//   src.term -> tgt.term;
+//   src.estimate -> tgt.estimate;
+//   src.amount -> tgt.amount;
+// }
 
