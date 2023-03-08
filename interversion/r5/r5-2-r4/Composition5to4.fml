@@ -2,21 +2,23 @@
 /// name = 'Composition5to4'
 /// title = 'FML Conversion for Composition: R5 to R4'
 
+// GG 8-Mar 2023: All OK
+
 conceptmap "CompositionStatus" {
   prefix s = "http://hl7.org/fhir/composition-status"
   prefix t = "http://hl7.org/fhir/4.0/composition-status"
 
-  s:"registered" - t:"registered"
-  s:"partial" - t:"partial"
+//  s:"registered" - t:"registered"
+//  s:"partial" - t:"partial"
   s:"preliminary" - t:"preliminary"
   s:"final" - t:"final"
   s:"amended" - t:"amended"
-  s:"corrected" - t:"corrected"
-  s:"appended" - t:"appended"
-  s:"cancelled" - t:"cancelled"
+//  s:"corrected" - t:"corrected"
+//  s:"appended" - t:"appended"
+//  s:"cancelled" - t:"cancelled"
   s:"entered-in-error" - t:"entered-in-error"
-  s:"deprecated" - t:"deprecated"
-  s:"unknown" - t:"unknown"
+//  s:"deprecated" - t:"deprecated"
+//  s:"unknown" - t:"unknown"
 }
 
 conceptmap "SectionMode" {
@@ -34,29 +36,33 @@ uses "http://hl7.org/fhir/4.0/StructureDefinition/Composition" alias Composition
 imports "http://hl7.org/fhir/StructureMap/*5to4"
 
 group Composition(source src : CompositionR5, target tgt : CompositionR4) extends DomainResource <<type+>> {
-  src.url -> tgt.url;
+//  src.url -> tgt.url;
   src.identifier -> tgt.identifier;
-  src.version -> tgt.version;
+//  src.version -> tgt.version;
   src.status as v -> tgt.status = translate(v, '#CompositionStatus', 'code');
   src.type -> tgt.type;
   src.category -> tgt.category;
   src.subject -> tgt.subject;
   src.encounter -> tgt.encounter;
   src.date -> tgt.date;
-  src.useContext -> tgt.useContext;
+//  src.useContext -> tgt.useContext;
   src.author -> tgt.author;
-  src.name -> tgt.name;
+//  src.name -> tgt.name;
   src.title -> tgt.title;
-  src.note -> tgt.note;
+//  src.note -> tgt.note;
   src.attester as s -> tgt.attester as t then CompositionAttester(s,t);
   src.custodian -> tgt.custodian;
-  src.relatesTo -> tgt.relatesTo;
+  src.relatesTo as s -> tgt.relatesTo as t then CompositionRelatesTo(s,t);
   src.event as s -> tgt.event as t then CompositionEvent(s,t);
   src.section as s -> tgt.section as t then CompositionSection(s,t);
 }
 
 group CompositionAttester(source src, target tgt) extends BackboneElement {
-  src.mode -> tgt.mode;
+  src.mode as s -> tgt then {
+    s.coding as sc where s.system = 'http://hl7.org/fhir/composition-attestation-mode' -> tgt then {
+      sc.code -> tgt.mode;
+    };
+  };
   src.time -> tgt.time;
   src.party -> tgt.party;
 }
@@ -66,6 +72,13 @@ group CompositionEvent(source src, target tgt) extends BackboneElement {
   src.period -> tgt.period;
   src.detail -> tgt.detail;
 }
+
+
+group CompositionRelatesTo(source src, target tgt) extends Element {
+  src.type where src.type in ('replaces' | 'transforms' | 'signs' | 'appends') -> tgt.code;
+  src.resourceReference -> tgt.target;
+}
+
 
 group CompositionSection(source src, target tgt) extends BackboneElement {
   src.title -> tgt.title;
