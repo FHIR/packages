@@ -276,6 +276,8 @@ group TestScriptTest(source src, target tgt) extends BackboneElement {
 }
 
 group TestScriptTestAction(source src, target tgt) extends BackboneElement {
+  src.operation as s -> tgt.operation as t then TestScriptSetupActionOperation(s,t);
+  src.assert as s -> tgt.assert as t then TestScriptSetupActionAssert(s,t);
 }
 
 group TestScriptTeardown(source src, target tgt) extends BackboneElement {
@@ -283,5 +285,6 @@ group TestScriptTeardown(source src, target tgt) extends BackboneElement {
 }
 
 group TestScriptTeardownAction(source src, target tgt) extends BackboneElement {
+  src.operation as s -> tgt.operation as t then TestScriptSetupActionOperation(s,t);
 }
 
