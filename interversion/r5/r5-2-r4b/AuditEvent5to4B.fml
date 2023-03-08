@@ -13,46 +13,30 @@ conceptmap "AuditEventAction" {
   s:"E" - t:"E"
 }
 
-conceptmap "AuditEventSeverity" {
-  prefix s = "http://hl7.org/fhir/audit-event-severity"
-  prefix t = "http://hl7.org/fhir/4.3/audit-event-severity"
-
-  s:"emergency" - t:"emergency"
-  s:"alert" - t:"alert"
-  s:"critical" - t:"critical"
-  s:"error" - t:"error"
-  s:"warning" - t:"warning"
-  s:"notice" - t:"notice"
-  s:"informational" - t:"informational"
-  s:"debug" - t:"debug"
-}
-
 uses "http://hl7.org/fhir/StructureDefinition/AuditEvent" alias AuditEventR5 as source
 uses "http://hl7.org/fhir/4.3/StructureDefinition/AuditEvent" alias AuditEventR4B as target
 
 imports "http://hl7.org/fhir/StructureMap/*5to4B"
 
 group AuditEvent(source src : AuditEventR5, target tgt : AuditEventR4B) extends DomainResource <<type+>> {
-  src.category -> tgt.category;
-  src.code -> tgt.code;
+  src.category -> tgt.type;
+  src.code -> tgt.subtype;
   src.action as v -> tgt.action = translate(v, '#AuditEventAction', 'code');
-  src.severity as v -> tgt.severity = translate(v, '#AuditEventSeverity', 'code');
-  src.occurred : Period -> tgt.occurred;
-  src.occurred : dateTime -> tgt.occurred;
+//  src.severity as v -> tgt.severity = translate(v, '#AuditEventSeverity', 'code');
+//  src.occurred : Period -> tgt.occurred;
+//  src.occurred : dateTime -> tgt.occurred;
   src.recorded -> tgt.recorded;
-  src.outcome as s -> tgt.outcome as t then AuditEventOutcome(s,t);
-  src.authorization -> tgt.authorization;
-  src.basedOn -> tgt.basedOn;
-  src.patient -> tgt.patient;
-  src.encounter -> tgt.encounter;
+  src as s -> tgt.outcome as t then {
+    s.outcome as s -> tgt.code as t1, t1.system = 'http://hl7.org/fhir/issue-severity', t1.code = s;
+    s.outcomeDesc as s1 -> tgt.detail as t1, t1.text = s1;
+  };
+//  src.authorization -> tgt.authorization;
+//  src.basedOn -> tgt.basedOn;
+//  src.patient -> tgt.patient;
+//  src.encounter -> tgt.encounter;
   src.agent as s -> tgt.agent as t then AuditEventAgent(s,t);
   src.source as s -> tgt.source as t then AuditEventSource(s,t);
   src.entity as s -> tgt.entity as t then AuditEventEntity(s,t);
-}
-
-group AuditEventOutcome(source src, target tgt) extends BackboneElement {
-  src.code -> tgt.code;
-  src.detail -> tgt.detail;
 }
 
 group AuditEventAgent(source src, target tgt) extends BackboneElement {

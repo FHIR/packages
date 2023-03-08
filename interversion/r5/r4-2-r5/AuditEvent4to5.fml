@@ -13,38 +13,24 @@ conceptmap "AuditEventAction" {
   s:"E" - t:"E"
 }
 
-conceptmap "AuditEventSeverity" {
-  prefix s = "http://hl7.org/fhir/4.0/audit-event-severity"
-  prefix t = "http://hl7.org/fhir/audit-event-severity"
-
-  s:"emergency" - t:"emergency"
-  s:"alert" - t:"alert"
-  s:"critical" - t:"critical"
-  s:"error" - t:"error"
-  s:"warning" - t:"warning"
-  s:"notice" - t:"notice"
-  s:"informational" - t:"informational"
-  s:"debug" - t:"debug"
-}
-
 uses "http://hl7.org/fhir/4.0/StructureDefinition/AuditEvent" alias AuditEventR4 as source
 uses "http://hl7.org/fhir/StructureDefinition/AuditEvent" alias AuditEventR5 as target
 
 imports "http://hl7.org/fhir/StructureMap/*4to5"
 
 group AuditEvent(source src : AuditEventR4, target tgt : AuditEventR5) extends DomainResource <<type+>> {
-  src.category -> tgt.category;
-  src.code -> tgt.code;
+  src.type -> tgt.category;
+  src.subtype -> tgt.code;
   src.action as v -> tgt.action = translate(v, '#AuditEventAction', 'code');
-  src.severity as v -> tgt.severity = translate(v, '#AuditEventSeverity', 'code');
-  src.occurred : Period -> tgt.occurred;
-  src.occurred : dateTime -> tgt.occurred;
+//  src.severity as v -> tgt.severity = translate(v, '#AuditEventSeverity', 'code');
+//  src.occurred : Period -> tgt.occurred;
+//  src.occurred : dateTime -> tgt.occurred;
   src.recorded -> tgt.recorded;
   src.outcome as s -> tgt.outcome as t then AuditEventOutcome(s,t);
-  src.authorization -> tgt.authorization;
-  src.basedOn -> tgt.basedOn;
-  src.patient -> tgt.patient;
-  src.encounter -> tgt.encounter;
+//  src.authorization -> tgt.authorization;
+//  src.basedOn -> tgt.basedOn;
+//  src.patient -> tgt.patient;
+//  src.encounter -> tgt.encounter;
   src.agent as s -> tgt.agent as t then AuditEventAgent(s,t);
   src.source as s -> tgt.source as t then AuditEventSource(s,t);
   src.entity as s -> tgt.entity as t then AuditEventEntity(s,t);
