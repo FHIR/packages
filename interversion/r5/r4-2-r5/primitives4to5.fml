@@ -57,17 +57,32 @@ group boolean(source src : booleanR4, target tgt : booleanR5) extends Element <<
 group canonical(source src : canonicalR4, target tgt : canonicalR5) extends Element <<type+>> {
   src.value as v -> tgt.value = v "canonicalValue";
 }
+group canonical2uri(source src : canonicalR4, target tgt : uriR5) extends Element <<types>> {
+  src.value as v -> tgt.value = v "canonical2uriValue";
+}
 group code(source src : codeR4, target tgt : codeR5) extends Element <<type+>> {
   src.value as v -> tgt.value = v "codeValue";
 }
 group code2id(source src : codeR4, target tgt : idR5) extends Element <<types>> {
-  src.value as v -> tgt.value = v "codeValue";
+  src.value as v -> tgt.value = v "code2idValue";
+}
+group code2string(source src : codeR4, target tgt : stringR5) extends Element <<types>> {
+  src.value as v -> tgt.value = v "code2stringValue";
+}
+group code2uri(source src : codeR4, target tgt : uriR5) extends Element <<types>> {
+  src.value as v -> tgt.value = v "code2uriValue";
 }
 group date(source src : dateR4, target tgt : dateR5) extends Element <<type+>> {
   src.value as v -> tgt.value = v "dateValue";
 }
+group date2dateTime(source src : dateR4, target tgt : dateTimeR5) extends Element <<types>> {
+  src.value as v -> tgt.value = v "date2dateTimeValue";
+}
 group dateTime(source src : dateTimeR4, target tgt : dateTimeR5) extends Element <<type+>> {
   src.value as v -> tgt.value = v "dateTimeValue";
+}
+group dateTime2date(source src : dateTimeR4, target tgt : dateR5) extends Element <<types>> {
+  src.value as v -> tgt.value = v "dateTime2dateValue";
 }
 group decimal(source src : decimalR4, target tgt : decimalR5) extends Element <<type+>> {
   src.value as v -> tgt.value = v "decimalValue";
@@ -110,6 +125,9 @@ group string2markdown(source src : stringR4, target tgt : markdownR5) extends El
 group string2id(source src : stringR4, target tgt : idR5) extends Element <<types>> {
   src.value as v -> tgt.value = v "string2idValue";
 }
+group string2code(source src : stringR4, target tgt : codeR5) extends Element <<types>> {
+  src.value as v -> tgt.value = v "string2codeValue";
+}
 group time(source src : timeR4, target tgt : timeR5) extends Element <<type+>> {
   src.value as v -> tgt.value = v "timeValue";
 }
@@ -121,6 +139,12 @@ group unsignedInt(source src : unsignedIntR4, target tgt : integer64R5) extends 
 }
 group uri(source src : uriR4, target tgt : uriR5) extends Element <<type+>> {
   src.value as v -> tgt.value = v "uriValue";
+}
+group uri2canonical(source src : uriR4, target tgt : canonicalR5) extends Element <<types>> {
+  src.value as v -> tgt.value = v "uri2canonicalValue";
+}
+group uri2code(source src : uriR4, target tgt : codeR5) extends Element <<types>> {
+  src.value as v -> tgt.value = v "uri2codeValue";
 }
 group url(source src : urlR4, target tgt : urlR5) extends Element <<type+>> {
   src.value as v -> tgt.value = v "urlValue";

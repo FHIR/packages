@@ -2,6 +2,8 @@
 /// name = 'StructureMap4Bto5'
 /// title = 'FML Conversion for StructureMap: R4B to R5'
 
+// GG 8-Mar 2023: All OK
+
 conceptmap "PublicationStatus" {
   prefix s = "http://hl7.org/fhir/4.3/publication-status"
   prefix t = "http://hl7.org/fhir/publication-status"
@@ -56,7 +58,7 @@ conceptmap "StructureMapTargetListMode" {
   s:"first" - t:"first"
   s:"share" - t:"share"
   s:"last" - t:"last"
-  s:"single" - t:"single"
+  s:"collate" - t:"single"
 }
 
 conceptmap "StructureMapTransform" {
@@ -91,8 +93,8 @@ group StructureMap(source src : StructureMapR4B, target tgt : StructureMapR5) ex
   src.url -> tgt.url;
   src.identifier -> tgt.identifier;
   src.version -> tgt.version;
-  src.versionAlgorithm : string -> tgt.versionAlgorithm;
-  src.versionAlgorithm : Coding -> tgt.versionAlgorithm;
+//  src.versionAlgorithm : string -> tgt.versionAlgorithm;
+//  src.versionAlgorithm : Coding -> tgt.versionAlgorithm;
   src.name -> tgt.name;
   src.title -> tgt.title;
   src.status as v -> tgt.status = translate(v, '#PublicationStatus', 'code');
@@ -105,10 +107,10 @@ group StructureMap(source src : StructureMapR4B, target tgt : StructureMapR5) ex
   src.jurisdiction -> tgt.jurisdiction;
   src.purpose -> tgt.purpose;
   src.copyright -> tgt.copyright;
-  src.copyrightLabel -> tgt.copyrightLabel;
+//  src.copyrightLabel -> tgt.copyrightLabel;
   src.structure as s -> tgt.structure as t then StructureMapStructure(s,t);
   src.import -> tgt.import;
-  src.const as s -> tgt.const as t then StructureMapConst(s,t);
+//  src.const as s -> tgt.const as t then StructureMapConst(s,t);
   src.group as s -> tgt.group as t then StructureMapGroup(s,t);
 }
 
@@ -117,11 +119,6 @@ group StructureMapStructure(source src, target tgt) extends BackboneElement {
   src.mode as v -> tgt.mode = translate(v, '#StructureMapModelMode', 'code');
   src.alias -> tgt.alias;
   src.documentation -> tgt.documentation;
-}
-
-group StructureMapConst(source src, target tgt) extends BackboneElement {
-  src.name -> tgt.name;
-  src.value -> tgt.value;
 }
 
 group StructureMapGroup(source src, target tgt) extends BackboneElement {
@@ -153,7 +150,7 @@ group StructureMapGroupRuleSource(source src, target tgt) extends BackboneElemen
   src.min -> tgt.min;
   src.max -> tgt.max;
   src.type -> tgt.type;
-  src.defaultValue -> tgt.defaultValue;
+  src.defaultValue : string -> tgt.defaultValue;
   src.element -> tgt.element;
   src.listMode as v -> tgt.listMode = translate(v, '#StructureMapSourceListMode', 'code');
   src.variable -> tgt.variable;
@@ -178,9 +175,9 @@ group StructureMapGroupRuleTargetParameter(source src, target tgt) extends Backb
   src.value : boolean -> tgt.value;
   src.value : integer -> tgt.value;
   src.value : decimal -> tgt.value;
-  src.value : date -> tgt.value;
-  src.value : time -> tgt.value;
-  src.value : dateTime -> tgt.value;
+//  src.value : date -> tgt.value;
+//  src.value : time -> tgt.value;
+//  src.value : dateTime -> tgt.value;
 }
 
 group StructureMapGroupRuleDependent(source src, target tgt) extends BackboneElement {

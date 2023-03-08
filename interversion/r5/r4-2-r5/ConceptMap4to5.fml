@@ -2,48 +2,30 @@
 /// name = 'ConceptMap4to5'
 /// title = 'FML Conversion for ConceptMap: R4 to R5'
 
+// GG 8-Mar 2023: All OK
+
 conceptmap "ConceptMapGroupUnmappedMode" {
   prefix s = "http://hl7.org/fhir/4.0/conceptmap-unmapped-mode"
   prefix t = "http://hl7.org/fhir/conceptmap-unmapped-mode"
 
-  s:"use-source-code" - t:"use-source-code"
+  s:"provided" - t:"use-source-code"
   s:"fixed" - t:"fixed"
   s:"other-map" - t:"other-map"
 }
 
 conceptmap "ConceptMapRelationship" {
-  prefix s = "http://hl7.org/fhir/4.0/concept-map-relationship"
+  prefix s = "http://hl7.org/fhir/4.0/concept-map-equivalence"
   prefix t = "http://hl7.org/fhir/concept-map-relationship"
 
-  s:"related-to" - t:"related-to"
+  s:"relatedto" - t:"related-to"
+  s:"inexact" - t:"related-to"
   s:"equivalent" - t:"equivalent"
-  s:"source-is-narrower-than-target" - t:"source-is-narrower-than-target"
-  s:"source-is-broader-than-target" - t:"source-is-broader-than-target"
-  s:"not-related-to" - t:"not-related-to"
-}
-
-conceptmap "ConceptMapmapAttributeType" {
-  prefix s = "http://hl7.org/fhir/4.0/conceptmap-attribute-type"
-  prefix t = "http://hl7.org/fhir/conceptmap-attribute-type"
-
-  s:"code" - t:"code"
-  s:"Coding" - t:"Coding"
-  s:"string" - t:"string"
-  s:"boolean" - t:"boolean"
-  s:"Quantity" - t:"Quantity"
-}
-
-conceptmap "PropertyType" {
-  prefix s = "http://hl7.org/fhir/4.0/conceptmap-property-type"
-  prefix t = "http://hl7.org/fhir/conceptmap-property-type"
-
-  s:"Coding" - t:"Coding"
-  s:"string" - t:"string"
-  s:"integer" - t:"integer"
-  s:"boolean" - t:"boolean"
-  s:"dateTime" - t:"dateTime"
-  s:"decimal" - t:"decimal"
-  s:"code" - t:"code"
+  s:"equal" - t:"equivalent"
+  s:"wider" - t:"source-is-narrower-than-target"
+  s:"subsumes" - t:"source-is-narrower-than-target"
+  s:"narrower" - t:"source-is-broader-than-target"
+  s:"specializes" - t:"source-is-broader-than-target"
+  s:"unmatched" - t:"not-related-to"
 }
 
 conceptmap "PublicationStatus" {
@@ -54,17 +36,6 @@ conceptmap "PublicationStatus" {
   s:"active" - t:"active"
   s:"retired" - t:"retired"
   s:"unknown" - t:"unknown"
-}
-
-conceptmap "UnmappedConceptMapRelationship" {
-  prefix s = "http://hl7.org/fhir/4.0/concept-map-relationship"
-  prefix t = "http://hl7.org/fhir/concept-map-relationship"
-
-  s:"related-to" - t:"related-to"
-  s:"equivalent" - t:"equivalent"
-  s:"source-is-narrower-than-target" - t:"source-is-narrower-than-target"
-  s:"source-is-broader-than-target" - t:"source-is-broader-than-target"
-  s:"not-related-to" - t:"not-related-to"
 }
 
 uses "http://hl7.org/fhir/4.0/StructureDefinition/ConceptMap" alias ConceptMapR4 as source
@@ -100,28 +71,14 @@ group ConceptMap(source src : ConceptMapR4, target tgt : ConceptMapR5) extends D
 //  src.reviewer -> tgt.reviewer;
 //  src.endorser -> tgt.endorser;
 //  src.relatedArtifact -> tgt.relatedArtifact;
-  src.property as s -> tgt.property as t then ConceptMapProperty(s,t);
-  src.additionalAttribute as s -> tgt.additionalAttribute as t then ConceptMapAdditionalAttribute(s,t);
+//  src.property as s -> tgt.property as t then ConceptMapProperty(s,t);
+// additionalAttributes are created on the fly further in
+//  src.additionalAttribute as s -> tgt.additionalAttribute as t then ConceptMapAdditionalAttribute(s,t);
   src.source : uri -> tgt.sourceScope;
   src.source : canonical -> tgt.sourceScope;
   src.target : uri -> tgt.targetScope;
   src.target : canonical -> tgt.targetScope;
   src.group as s -> tgt.group as t then ConceptMapGroup(s,t);
-}
-
-group ConceptMapProperty(source src, target tgt) extends BackboneElement {
-  src.code -> tgt.code;
-  src.uri -> tgt.uri;
-  src.description -> tgt.description;
-  src.type as v -> tgt.type = translate(v, '#PropertyType', 'code');
-  src.system -> tgt.system;
-}
-
-group ConceptMapAdditionalAttribute(source src, target tgt) extends BackboneElement {
-  src.code -> tgt.code;
-  src.uri -> tgt.uri;
-  src.description -> tgt.description;
-  src.type as v -> tgt.type = translate(v, '#ConceptMapmapAttributeType', 'code');
 }
 
 group ConceptMapGroup(source src, target tgt) extends BackboneElement {
@@ -134,48 +91,39 @@ group ConceptMapGroup(source src, target tgt) extends BackboneElement {
 group ConceptMapGroupElement(source src, target tgt) extends BackboneElement {
   src.code -> tgt.code;
   src.display -> tgt.display;
-  src.valueSet -> tgt.valueSet;
-  src.noMap -> tgt.noMap;
-  src.target as s -> tgt.target as t then ConceptMapGroupElementTarget(s,t);
+//  src.valueSet -> tgt.valueSet;
+  src where src.target.all(equivalence = 'unmatched') as s -> tgt.noMap as t, t.value = true "unmapped";
+  src.target as s where s != unmatched -> tgt.target as t then ConceptMapGroupElementTarget(s,t);
 }
 
 group ConceptMapGroupElementTarget(source src, target tgt) extends BackboneElement {
   src.code -> tgt.code;
   src.display -> tgt.display;
-  src.valueSet -> tgt.valueSet;
-  src.relationship as v -> tgt.relationship = translate(v, '#ConceptMapRelationship', 'code');
+//  src.valueSet -> tgt.valueSet;
+  src.equivalence as v -> tgt.relationship = translate(v, '#ConceptMapRelationship', 'code');
   src.comment -> tgt.comment;
-  src.property as s -> tgt.property as t then ConceptMapGroupElementTargetProperty(s,t);
+//  src.property as s -> tgt.property as t then ConceptMapGroupElementTargetProperty(s,t);
   src.dependsOn as s -> tgt.dependsOn as t then ConceptMapGroupElementTargetDependsOn(s,t);
-}
-
-group ConceptMapGroupElementTargetProperty(source src, target tgt) extends BackboneElement {
-  src.code -> tgt.code;
-  src.value : Coding -> tgt.value;
-  src.value : string -> tgt.value;
-  src.value : integer -> tgt.value;
-  src.value : boolean -> tgt.value;
-  src.value : dateTime -> tgt.value;
-  src.value : decimal -> tgt.value;
-  src.value : code -> tgt.value;
+  src.product as s -> tgt.product as t then ConceptMapGroupElementTargetDependsOn(s,t);
 }
 
 group ConceptMapGroupElementTargetDependsOn(source src, target tgt) extends BackboneElement {
-  src.attribute -> tgt.attribute;
-  src.value : code -> tgt.value;
-  src.value : Coding -> tgt.value;
-  src.value : string -> tgt.value;
-  src.value : boolean -> tgt.value;
-  src.value : Quantity -> tgt.value;
-  src.valueSet -> tgt.valueSet;
+  src.property -> tgt.attribute; // todo: move the URL to ConceptMap.additionalAttribute - needs a new mapping language feature
+  src.value where src.system.empty() -> tgt.value;
+  src where src.system.exists() -> tgt.value = create('Coding') as t then {
+    src.system -> t.system;
+    src.value -> t.code;
+    src.display -> t.display;
+  } "attributeValue";
+//  src.valueSet -> tgt.valueSet;
 }
 
 group ConceptMapGroupUnmapped(source src, target tgt) extends BackboneElement {
   src.mode as v -> tgt.mode = translate(v, '#ConceptMapGroupUnmappedMode', 'code');
   src.code -> tgt.code;
   src.display -> tgt.display;
-  src.valueSet -> tgt.valueSet;
-  src.relationship as v -> tgt.relationship = translate(v, '#UnmappedConceptMapRelationship', 'code');
-  src.otherMap -> tgt.otherMap;
+//  src.valueSet -> tgt.valueSet;
+//  src.relationship as v -> tgt.relationship = translate(v, '#UnmappedConceptMapRelationship', 'code');
+  src.url -> tgt.otherMap;
 }
 

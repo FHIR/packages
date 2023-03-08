@@ -2,6 +2,8 @@
 /// name = 'MessageHeader5to4B'
 /// title = 'FML Conversion for MessageHeader: R5 to R4B'
 
+// GG 8-Mar 2023: All OK
+
 conceptmap "ResponseType" {
   prefix s = "http://hl7.org/fhir/response-code"
   prefix t = "http://hl7.org/fhir/4.3/response-code"
@@ -48,7 +50,9 @@ group MessageHeaderSource(source src, target tgt) extends BackboneElement {
 }
 
 group MessageHeaderResponse(source src, target tgt) extends BackboneElement {
-  src.identifier -> tgt.identifier;
+  src.identifier as s -> tgt as t then {
+    s.value -> tgt.identifier;
+  };
   src.code as v -> tgt.code = translate(v, '#ResponseType', 'code');
   src.details -> tgt.details;
 }

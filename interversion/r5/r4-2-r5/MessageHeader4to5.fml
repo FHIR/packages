@@ -2,6 +2,8 @@
 /// name = 'MessageHeader4to5'
 /// title = 'FML Conversion for MessageHeader: R4 to R5'
 
+// GG 8-Mar 2023: All OK
+
 conceptmap "ResponseType" {
   prefix s = "http://hl7.org/fhir/4.0/response-code"
   prefix t = "http://hl7.org/fhir/response-code"
@@ -18,7 +20,7 @@ imports "http://hl7.org/fhir/StructureMap/*4to5"
 
 group MessageHeader(source src : MessageHeaderR4, target tgt : MessageHeaderR5) extends DomainResource <<type+>> {
   src.event : Coding -> tgt.event;
-  src.event : canonical -> tgt.event;
+  src.event : uri -> tgt.event;
   src.destination as s -> tgt.destination as t then MessageHeaderDestination(s,t);
   src.sender -> tgt.sender;
   src.author -> tgt.author;
@@ -31,16 +33,14 @@ group MessageHeader(source src : MessageHeaderR4, target tgt : MessageHeaderR5) 
 }
 
 group MessageHeaderDestination(source src, target tgt) extends BackboneElement {
-  src.endpoint : url -> tgt.endpoint;
-  src.endpoint : Reference -> tgt.endpoint;
+  src.endpoint -> tgt.endpoint;
   src.name -> tgt.name;
   src.target -> tgt.target;
   src.receiver -> tgt.receiver;
 }
 
 group MessageHeaderSource(source src, target tgt) extends BackboneElement {
-  src.endpoint : url -> tgt.endpoint;
-  src.endpoint : Reference -> tgt.endpoint;
+  src.endpoint -> tgt.endpoint;
   src.name -> tgt.name;
   src.software -> tgt.software;
   src.version -> tgt.version;
@@ -48,7 +48,7 @@ group MessageHeaderSource(source src, target tgt) extends BackboneElement {
 }
 
 group MessageHeaderResponse(source src, target tgt) extends BackboneElement {
-  src.identifier -> tgt.identifier;
+  src.identifier as s -> tgt.identifier as t, t.value = s.value;
   src.code as v -> tgt.code = translate(v, '#ResponseType', 'code');
   src.details -> tgt.details;
 }

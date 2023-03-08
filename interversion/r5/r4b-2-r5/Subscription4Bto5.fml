@@ -55,7 +55,7 @@ conceptmap "SubscriptionStatusCodes" {
   s:"active" - t:"active"
   s:"error" - t:"error"
   s:"off" - t:"off"
-  s:"entered-in-error" - t:"entered-in-error"
+//  s:"entered-in-error" - t:"entered-in-error"
 }
 
 uses "http://hl7.org/fhir/4.3/StructureDefinition/Subscription" alias SubscriptionR4B as source
@@ -64,15 +64,16 @@ uses "http://hl7.org/fhir/StructureDefinition/Subscription" alias SubscriptionR5
 imports "http://hl7.org/fhir/StructureMap/*4Bto5"
 
 group Subscription(source src : SubscriptionR4B, target tgt : SubscriptionR5) extends DomainResource <<type+>> {
-  src.identifier -> tgt.identifier;
-  src.name -> tgt.name;
+//  src.identifier -> tgt.identifier;
+//  src.name -> tgt.name;
   src.status as v -> tgt.status = translate(v, '#SubscriptionStatusCodes', 'code');
-  src.topic -> tgt.topic;
+//  src.topic -> tgt.topic;
   src.contact -> tgt.contact;
   src.end -> tgt.end;
-  src.managingEntity -> tgt.managingEntity;
+//  src.managingEntity -> tgt.managingEntity;
   src.reason -> tgt.reason;
-  src.filterBy as s -> tgt.filterBy as t then SubscriptionFilterBy(s,t);
+// criteria replaced - see subscriptions backport IG
+//  src.filterBy as s -> tgt.filterBy as t then SubscriptionFilterBy(s,t);
   src.channelType -> tgt.channelType;
   src.endpoint -> tgt.endpoint;
   src.parameter as s -> tgt.parameter as t then SubscriptionParameter(s,t);
