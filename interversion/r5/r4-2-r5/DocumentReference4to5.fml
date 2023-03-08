@@ -65,7 +65,7 @@ group DocumentReference(source src : DocumentReferenceR4, target tgt : DocumentR
 }
 
 group DocumentReferenceRelatesTo(source src, target tgt) extends BackboneElement {
-  src.code as s -> tgt.code as t, t.coding = create('Coding') as c, c.system = 'http://hl7.org/fhir/document-relationship-type', c.code = s;
+  src.code as s -> tgt.code as t then code2CodeableConcept(s, t, 'http://hl7.org/fhir/document-relationship-type');
   src.target -> tgt.target;
 }
 

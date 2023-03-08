@@ -6,11 +6,33 @@
 
 uses "http://hl7.org/fhir/4.0/StructureDefinition/CodeableConcept" alias CodeableConceptR4 as source
 uses "http://hl7.org/fhir/StructureDefinition/CodeableConcept" alias CodeableConceptR5 as target
+uses "http://hl7.org/fhir/4.0/StructureDefinition/Coding" alias CodingR4 as source
+uses "http://hl7.org/fhir/4.0/StructureDefinition/code" alias codeR4 as source
+uses "http://hl7.org/fhir/StructureDefinition/Coding" alias CodingR5 as target
+uses "http://hl7.org/fhir/StructureDefinition/code" alias codeR5 as target
 
 imports "http://hl7.org/fhir/StructureMap/*4to5"
 
 group CodeableConcept(source src : CodeableConceptR4, target tgt : CodeableConceptR5) extends Element <<type+>> {
   src.coding -> tgt.coding;
   src.text -> tgt.text;
+}
+
+group CodeableConcept2Coding(source src : CodeableConceptR4, target tgt : CodingR5) extends Element <<types>> {
+  src.coding as s -> tgt as t then Coding(s,t);
+}
+
+group Coding2CodeableConcept(source src : CodingR4, target tgt : CodeableConceptR5) extends Element <<types>> {
+  src as s -> tgt.coding as t then Coding(s,t) "Coding";
+}
+
+group CodeableConcept2code(source src : CodeableConceptR4, target tgt : codeR5, source sysUrl : string) extends Element <<types>> {
+  src.coding as s where s.system = sysUrl -> tgt then {
+    s.code -> tgt.value;
+  };
+}
+
+group code2CodeableConcept(source src : codeR4, target tgt : CodeableConceptR5, source sysUrl : string) extends Element <<types>> {
+  src.value as s -> tgt.coding = create('Coding') as t, t.system = sysUrl, t.code = s;
 }
 

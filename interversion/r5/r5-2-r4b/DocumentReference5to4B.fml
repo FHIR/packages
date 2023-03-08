@@ -46,9 +46,7 @@ group DocumentReference(source src : DocumentReferenceR5, target tgt : DocumentR
   src.category -> tgt.category;
   src.subject -> tgt.subject;
   src as sn -> tgt.context as t then {
-    src.event as s -> tgt then {
-      s.concept -> t.event;
-    } "event";
+    src.event -> t.event;
     src.facilityType -> t.facilityType;
     src.practiceSetting -> t.practiceSetting;
     src.period -> t.period;
@@ -65,9 +63,10 @@ group DocumentReference(source src : DocumentReferenceR5, target tgt : DocumentR
 }
 
 group DocumentReferenceRelatesTo(source src, target tgt) extends BackboneElement {
-  src.code as s -> tgt then  {
-    s.coding as c where c.system = 'http://hl7.org/fhir/document-relationship-type' -> tgt.code = c.code;
-  };
+  src.code as s -> tgt.code as t then CodeableConcept2code(s, t, 'http://hl7.org/fhir/document-relationship-type');
+//  src.code as s -> tgt then  {
+//    s.coding as c where c.system = 'http://hl7.org/fhir/document-relationship-type' -> tgt.code = c.code;
+//  };
   src.target -> tgt.target;
 }
 

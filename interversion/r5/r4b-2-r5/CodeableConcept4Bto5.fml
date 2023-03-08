@@ -6,11 +6,43 @@
 
 uses "http://hl7.org/fhir/4.3/StructureDefinition/CodeableConcept" alias CodeableConceptR4B as source
 uses "http://hl7.org/fhir/StructureDefinition/CodeableConcept" alias CodeableConceptR5 as target
+uses "http://hl7.org/fhir/4.3/StructureDefinition/CodeableReference" alias CodeableReferenceR4B as source
+uses "http://hl7.org/fhir/StructureDefinition/CodeableReference" alias CodeableReferenceR5 as target
+uses "http://hl7.org/fhir/4.3/StructureDefinition/Coding" alias CodingR4B as source
+uses "http://hl7.org/fhir/4.3/StructureDefinition/code" alias codeR4B as source
+uses "http://hl7.org/fhir/StructureDefinition/Coding" alias CodingR5 as target
+uses "http://hl7.org/fhir/StructureDefinition/code" alias codeR5 as target
 
 imports "http://hl7.org/fhir/StructureMap/*4Bto5"
 
 group CodeableConcept(source src : CodeableConceptR4B, target tgt : CodeableConceptR5) extends Element <<type+>> {
   src.coding -> tgt.coding;
   src.text -> tgt.text;
+}
+
+group CodeableConcept2CodeableReference(source src : CodeableConceptR4B, target tgt : CodeableReferenceR5) extends Element <<types>> {
+  src as s -> tgt.concept as t then CodeableConcept(s,t) "concept";
+}
+
+group CodeableReference2CodeableConcept(source src : CodeableReferenceR4B, target tgt : CodeableConceptR5) extends Element <<types>> {
+  src.concept as s -> tgt then CodeableConcept(s, tgt);
+}
+
+group CodeableConcept2Coding(source src : CodeableConceptR4B, target tgt : CodingR5) extends Element <<types>> {
+  src.coding as s -> tgt as t then Coding(s,t);
+}
+
+group Coding2CodeableConcept(source src : CodingR4B, target tgt : CodeableConceptR5) extends Element <<types>> {
+  src as s -> tgt.coding as t then Coding(s,t) "Coding";
+}
+
+group CodeableConcept2code(source src : CodeableConceptR4B, target tgt : codeR5, source sysUrl : string) extends Element <<types>> {
+  src.coding as s where s.system = sysUrl -> tgt then {
+    s.code -> tgt.value;
+  };
+}
+
+group code2CodeableConcept(source src : codeR4B, target tgt : CodeableConceptR5, source sysUrl : string) extends Element <<types>> {
+  src.value as s -> tgt.coding = create('Coding') as t, t.system = sysUrl, t.code = s;
 }
 

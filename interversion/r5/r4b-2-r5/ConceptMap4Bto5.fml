@@ -14,14 +14,18 @@ conceptmap "ConceptMapGroupUnmappedMode" {
 }
 
 conceptmap "ConceptMapRelationship" {
-  prefix s = "http://hl7.org/fhir/concept-map-relationship"
-  prefix t = "http://hl7.org/fhir/4.0/concept-map-equivalence"
+  prefix s = "http://hl7.org/fhir/4.3/concept-map-equivalence"
+  prefix t = "http://hl7.org/fhir/concept-map-relationship"
 
-  s:"related-to" - t:"relatedto"
+  s:"relatedto" - t:"related-to"
+  s:"inexact" - t:"related-to"
   s:"equivalent" - t:"equivalent"
-  s:"source-is-narrower-than-target" - t:"wider"
-  s:"source-is-broader-than-target" - t:"narrower"
-  s:"not-related-to" - t:"unmatched"
+  s:"equal" - t:"equivalent"
+  s:"wider" - t:"source-is-narrower-than-target"
+  s:"subsumes" - t:"source-is-narrower-than-target"
+  s:"narrower" - t:"source-is-broader-than-target"
+  s:"specializes" - t:"source-is-broader-than-target"
+  s:"unmatched" - t:"not-related-to"
 }
 
 conceptmap "PublicationStatus" {
@@ -89,7 +93,8 @@ group ConceptMapGroupElement(source src, target tgt) extends BackboneElement {
   src.display -> tgt.display;
 //  src.valueSet -> tgt.valueSet;
   src where src.target.all(equivalence = 'unmatched') as s -> tgt.noMap as t, t.value = true "unmapped";
-  src.target as s where s != unmatched -> tgt.target as t then ConceptMapGroupElementTarget(s,t);}
+  src.target as s where s != unmatched -> tgt.target as t then ConceptMapGroupElementTarget(s,t);
+}
 
 group ConceptMapGroupElementTarget(source src, target tgt) extends BackboneElement {
   src.code -> tgt.code;
@@ -103,16 +108,13 @@ group ConceptMapGroupElementTarget(source src, target tgt) extends BackboneEleme
 }
 
 group ConceptMapGroupElementTargetDependsOn(source src, target tgt) extends BackboneElement {
-  src.attribute as s -> tgt.property = (%srcMap.additionalAttribute.where(code = %s).uri);
-  src.value : code -> tgt.value; // todo: look up system from srcMap.additionalAttribute
-  src.value : Coding as s -> tgt then {
-    s.system -> tgt.system;
-    s.code -> tgt.value;
-    s.display -> tgt.display;
-  };
-  src.value : string -> tgt.value;
-//  src.value : boolean -> tgt.value;
-//  src.value : Quantity -> tgt.value;
+  src.property -> tgt.attribute; // todo: move the URL to ConceptMap.additionalAttribute - needs a new mapping language feature
+  src.value where src.system.empty() -> tgt.value;
+  src where src.system.exists() -> tgt.value = create('Coding') as t then {
+    src.system -> t.system;
+    src.value -> t.code;
+    src.display -> t.display;
+  } "attributeValue";
 //  src.valueSet -> tgt.valueSet;
 }
 
