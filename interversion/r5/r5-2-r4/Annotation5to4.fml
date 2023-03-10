@@ -6,6 +6,7 @@
 
 uses "http://hl7.org/fhir/StructureDefinition/Annotation" alias AnnotationR5 as source
 uses "http://hl7.org/fhir/4.0/StructureDefinition/Annotation" alias AnnotationR4 as target
+uses "http://hl7.org/fhir/4.0/StructureDefinition/string" alias stringR4 as target
 
 imports "http://hl7.org/fhir/StructureMap/*5to4"
 
@@ -14,5 +15,9 @@ group Annotation(source src : AnnotationR5, target tgt : AnnotationR4) extends E
   src.author : string -> tgt.author;
   src.time -> tgt.time;
   src.text -> tgt.text;
+}
+
+group Annotation2string(source src : AnnotationR5, target tgt : stringR4) extends Element <<types>> {
+  src.text as v -> tgt.value = v "Annotation2string";
 }
 

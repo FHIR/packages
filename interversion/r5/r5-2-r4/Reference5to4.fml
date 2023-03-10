@@ -5,6 +5,7 @@
 // GG 7-Mar 2023: All OK
 
 uses "http://hl7.org/fhir/StructureDefinition/Reference" alias ReferenceR5 as source
+uses "http://hl7.org/fhir/StructureDefinition/CodeableReference" alias CodeableReferenceR5 as source
 uses "http://hl7.org/fhir/4.0/StructureDefinition/Reference" alias ReferenceR4 as target
 uses "http://hl7.org/fhir/StructureDefinition/canonical" alias canonicalR5 as source
 uses "http://hl7.org/fhir/4.0/StructureDefinition/url" alias urlR4 as target
@@ -23,12 +24,27 @@ group canonical(source src : canonicalR5, target tgt : ReferenceR4) extends Elem
   src.value as v -> tgt.reference = v "canonicalValue";
 }
 
-
 group Reference2Url(source src : ReferenceR5, target tgt : urlR4) extends Element <<type+>> {
   src.reference as v -> tgt.value = v "canonicalValue";
 }
+
 group url2Reference(source src : urlR5, target tgt : ReferenceR4) extends Element <<type+>> {
   src.value as v -> tgt.reference = v "canonicalValue";
+}
+
+group CodeableReference2Reference(source src : CodeableReferenceR5, target tgt : ReferenceR4) extends Element <<type+>> {
+  src.reference as v -> tgt.reference = v "canonicalValue";
+}
+
+group CodeableReference2Reference(source src : CodeableReferenceR5, target tgt : ReferenceR4) extends Element <<type+>> {
+  src.reference as s -> tgt.value as t then CodeableReferenceReference(s,t);
+}
+
+group CodeableReferenceReference(source src : ReferenceR5, target tgt : ReferenceR4) extends Element <<type+>> {
+  src.reference -> tgt.reference;
+  src.type -> tgt.type;
+  src.identifier -> tgt.identifier;
+  src.display -> tgt.display;
 }
 
 

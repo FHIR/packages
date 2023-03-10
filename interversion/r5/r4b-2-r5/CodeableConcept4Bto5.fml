@@ -4,13 +4,32 @@
 
 // GG 7-Mar 2023: All OK
 
+uses "http://hl7.org/fhir/4.3/StructureDefinition/string" alias stringR4B as source
 uses "http://hl7.org/fhir/4.3/StructureDefinition/CodeableConcept" alias CodeableConceptR4B as source
 uses "http://hl7.org/fhir/StructureDefinition/CodeableConcept" alias CodeableConceptR5 as target
+uses "http://hl7.org/fhir/StructureDefinition/CodeableReference" alias CodeableReferenceR5 as target
 
 imports "http://hl7.org/fhir/StructureMap/*4Bto5"
 
 group CodeableConcept(source src : CodeableConceptR4B, target tgt : CodeableConceptR5) extends Element <<type+>> {
   src.coding -> tgt.coding;
   src.text -> tgt.text;
+}
+
+group CodeableConcept2CodeableReference(source src : CodeableConceptR4B, target tgt : CodeableReferenceR5) extends Element <<type+>> {
+  src.value as s -> tgt.concept as t then CodeableReferenceConcept(s,t);
+}
+
+group CodeableReferenceConcept(source src : CodeableConceptR4B, target tgt : CodeableConceptR5) extends Element <<type+>> {
+  src.coding -> tgt.coding;
+  src.text -> tgt.text;
+}
+
+group string2CodeableConcept(source src : stringR4B, target tgt : CodeableConceptR5) extends Element <<types>> {
+  src.value as v -> tgt.text = v "string2CodeableConcept";
+}
+
+group string2CodeableReference(source src : stringR4B, target tgt : CodeableReferenceR5) extends Element <<types>> {
+  src.value as v -> tgt.text = v "string2CodeableReference";
 }
 

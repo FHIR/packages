@@ -4,6 +4,7 @@
 
 // GG 7-Mar 2023: All OK
 
+uses "http://hl7.org/fhir/4.3/StructureDefinition/string" alias stringR4B as source
 uses "http://hl7.org/fhir/4.3/StructureDefinition/Annotation" alias AnnotationR4B as source
 uses "http://hl7.org/fhir/StructureDefinition/Annotation" alias AnnotationR5 as target
 
@@ -14,5 +15,9 @@ group Annotation(source src : AnnotationR4B, target tgt : AnnotationR5) extends 
   src.author : string -> tgt.author;
   src.time -> tgt.time;
   src.text -> tgt.text;
+}
+
+group string2Annotation(source src : stringR4B, target tgt : AnnotationR5) extends Element <<types>> {
+  src.value as v -> tgt.text = v "string2Annotation";
 }
 

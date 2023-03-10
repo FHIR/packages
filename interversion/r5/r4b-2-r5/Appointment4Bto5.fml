@@ -2,6 +2,8 @@
 /// name = 'Appointment4Bto5'
 /// title = 'FML Conversion for Appointment: R4B to R5'
 
+// RJE 9-Mar 2023: All OK
+
 conceptmap "AppointmentStatus" {
   prefix s = "http://hl7.org/fhir/4.3/appointmentstatus"
   prefix t = "http://hl7.org/fhir/appointmentstatus"
@@ -18,18 +20,18 @@ conceptmap "AppointmentStatus" {
   s:"waitlist" - t:"waitlist"
 }
 
-conceptmap "DaysOfWeek" {
-  prefix s = "http://hl7.org/fhir/4.3/days-of-week"
-  prefix t = "http://hl7.org/fhir/days-of-week"
-
-  s:"mon" - t:"mon"
-  s:"tue" - t:"tue"
-  s:"wed" - t:"wed"
-  s:"thu" - t:"thu"
-  s:"fri" - t:"fri"
-  s:"sat" - t:"sat"
-  s:"sun" - t:"sun"
-}
+//conceptmap "DaysOfWeek" {
+//  prefix s = "http://hl7.org/fhir/4.3/days-of-week"
+//  prefix t = "http://hl7.org/fhir/days-of-week"
+//
+//  s:"mon" - t:"mon"
+//  s:"tue" - t:"tue"
+//  s:"wed" - t:"wed"
+//  s:"thu" - t:"thu"
+//  s:"fri" - t:"fri"
+//  s:"sat" - t:"sat"
+//  s:"sun" - t:"sun"
+//}
 
 conceptmap "ParticipationStatus" {
   prefix s = "http://hl7.org/fhir/4.3/participationstatus"
@@ -41,16 +43,16 @@ conceptmap "ParticipationStatus" {
   s:"needs-action" - t:"needs-action"
 }
 
-conceptmap "WeekOfMonth" {
-  prefix s = "http://hl7.org/fhir/4.3/week-of-month"
-  prefix t = "http://hl7.org/fhir/week-of-month"
-
-  s:"first" - t:"first"
-  s:"second" - t:"second"
-  s:"third" - t:"third"
-  s:"fourth" - t:"fourth"
-  s:"last" - t:"last"
-}
+//conceptmap "WeekOfMonth" {
+//  prefix s = "http://hl7.org/fhir/4.3/week-of-month"
+//  prefix t = "http://hl7.org/fhir/week-of-month"
+//
+//  s:"first" - t:"first"
+//  s:"second" - t:"second"
+//  s:"third" - t:"third"
+//  s:"fourth" - t:"fourth"
+//  s:"last" - t:"last"
+//}
 
 uses "http://hl7.org/fhir/4.3/StructureDefinition/Appointment" alias AppointmentR4B as source
 uses "http://hl7.org/fhir/StructureDefinition/Appointment" alias AppointmentR5 as target
@@ -60,78 +62,80 @@ imports "http://hl7.org/fhir/StructureMap/*4Bto5"
 group Appointment(source src : AppointmentR4B, target tgt : AppointmentR5) extends DomainResource <<type+>> {
   src.identifier -> tgt.identifier;
   src.status as v -> tgt.status = translate(v, '#AppointmentStatus', 'code');
-  src.cancellationReason -> tgt.cancellationReason;
-  src.class -> tgt.class;
+  src.cancelationReason -> tgt.cancellationReason;
+//  src.class -> tgt.class;
   src.serviceCategory -> tgt.serviceCategory;
   src.serviceType -> tgt.serviceType;
   src.specialty -> tgt.specialty;
   src.appointmentType -> tgt.appointmentType;
-  src.reason -> tgt.reason;
-  src.priority -> tgt.priority;
+  src.reasonCode -> tgt.reason;
+//  src.priority -> tgt.priority; // unsignedInt -> CodeableConcept.text ??
   src.description -> tgt.description;
-  src.replaces -> tgt.replaces;
-  src.virtualService -> tgt.virtualService;
+//  src.replaces -> tgt.replaces;
+//  src.virtualService -> tgt.virtualService;
   src.supportingInformation -> tgt.supportingInformation;
-  src.previousAppointment -> tgt.previousAppointment;
-  src.originatingAppointment -> tgt.originatingAppointment;
+//  src.previousAppointment -> tgt.previousAppointment;
+//  src.originatingAppointment -> tgt.originatingAppointment;
   src.start -> tgt.start;
   src.end -> tgt.end;
   src.minutesDuration -> tgt.minutesDuration;
   src.requestedPeriod -> tgt.requestedPeriod;
   src.slot -> tgt.slot;
-  src.account -> tgt.account;
+//  src.account -> tgt.account;
   src.created -> tgt.created;
-  src.cancellationDate -> tgt.cancellationDate;
-  src.note -> tgt.note;
+//  src.cancellationDate -> tgt.cancellationDate;
+  src.comment -> tgt.note;
   src.patientInstruction -> tgt.patientInstruction;
   src.basedOn -> tgt.basedOn;
-  src.subject -> tgt.subject;
+//  src.subject -> tgt.subject;
   src.participant as s -> tgt.participant as t then AppointmentParticipant(s,t);
-  src.recurrenceId -> tgt.recurrenceId;
-  src.occurrenceChanged -> tgt.occurrenceChanged;
-  src.recurrenceTemplate as s -> tgt.recurrenceTemplate as t then AppointmentRecurrenceTemplate(s,t);
+//  src.recurrenceId -> tgt.recurrenceId;
+//  src.occurrenceChanged -> tgt.occurrenceChanged;
+//  src.recurrenceTemplate as s -> tgt.recurrenceTemplate as t then AppointmentRecurrenceTemplate(s,t);
 }
 
 group AppointmentParticipant(source src, target tgt) extends BackboneElement {
   src.type -> tgt.type;
   src.period -> tgt.period;
   src.actor -> tgt.actor;
-  src.required -> tgt.required;
+  src.required as s where required = 'required' -> tgt.required as t, t.value = create('boolean') as c, c.value = 'true';
+  src.required as s where required = 'optional' -> tgt.required as t, t.value = create('boolean') as c, c.value = 'false';
+  src.required as s where required = 'information-only' -> tgt.required as t, t.value = create('boolean') as c, c.value = 'false';
   src.status as v -> tgt.status = translate(v, '#ParticipationStatus', 'code');
 }
 
-group AppointmentRecurrenceTemplate(source src, target tgt) extends BackboneElement {
-  src.timezone -> tgt.timezone;
-  src.recurrenceType -> tgt.recurrenceType;
-  src.lastOccurrenceDate -> tgt.lastOccurrenceDate;
-  src.occurrenceCount -> tgt.occurrenceCount;
-  src.occurrenceDate -> tgt.occurrenceDate;
-  src.weeklyTemplate as s -> tgt.weeklyTemplate as t then AppointmentRecurrenceTemplateWeeklyTemplate(s,t);
-  src.monthlyTemplate as s -> tgt.monthlyTemplate as t then AppointmentRecurrenceTemplateMonthlyTemplate(s,t);
-  src.yearlyTemplate as s -> tgt.yearlyTemplate as t then AppointmentRecurrenceTemplateYearlyTemplate(s,t);
-  src.excludingDate -> tgt.excludingDate;
-  src.excludingRecurrenceId -> tgt.excludingRecurrenceId;
-}
-
-group AppointmentRecurrenceTemplateWeeklyTemplate(source src, target tgt) extends BackboneElement {
-  src.monday -> tgt.monday;
-  src.tuesday -> tgt.tuesday;
-  src.wednesday -> tgt.wednesday;
-  src.thursday -> tgt.thursday;
-  src.friday -> tgt.friday;
-  src.saturday -> tgt.saturday;
-  src.sunday -> tgt.sunday;
-  src.weekInterval -> tgt.weekInterval;
-}
-
-group AppointmentRecurrenceTemplateMonthlyTemplate(source src, target tgt) extends BackboneElement {
-  src.dayOfMonth -> tgt.dayOfMonth;
-  src.nthWeekOfMonth as v -> tgt.nthWeekOfMonth = translate(v, '#WeekOfMonth', 'code');
-  src.dayOfWeek as v -> tgt.dayOfWeek = translate(v, '#DaysOfWeek', 'code');
-  src.monthInterval -> tgt.monthInterval;
-}
-
-group AppointmentRecurrenceTemplateYearlyTemplate(source src, target tgt) extends BackboneElement {
-  src.yearInterval -> tgt.yearInterval;
-}
+//group AppointmentRecurrenceTemplate(source src, target tgt) extends BackboneElement {
+//  src.timezone -> tgt.timezone;
+//  src.recurrenceType -> tgt.recurrenceType;
+//  src.lastOccurrenceDate -> tgt.lastOccurrenceDate;
+//  src.occurrenceCount -> tgt.occurrenceCount;
+//  src.occurrenceDate -> tgt.occurrenceDate;
+//  src.weeklyTemplate as s -> tgt.weeklyTemplate as t then AppointmentRecurrenceTemplateWeeklyTemplate(s,t);
+//  src.monthlyTemplate as s -> tgt.monthlyTemplate as t then AppointmentRecurrenceTemplateMonthlyTemplate(s,t);
+//  src.yearlyTemplate as s -> tgt.yearlyTemplate as t then AppointmentRecurrenceTemplateYearlyTemplate(s,t);
+//  src.excludingDate -> tgt.excludingDate;
+//  src.excludingRecurrenceId -> tgt.excludingRecurrenceId;
+//}
+//
+//group AppointmentRecurrenceTemplateWeeklyTemplate(source src, target tgt) extends BackboneElement {
+//  src.monday -> tgt.monday;
+//  src.tuesday -> tgt.tuesday;
+//  src.wednesday -> tgt.wednesday;
+//  src.thursday -> tgt.thursday;
+//  src.friday -> tgt.friday;
+//  src.saturday -> tgt.saturday;
+//  src.sunday -> tgt.sunday;
+//  src.weekInterval -> tgt.weekInterval;
+//}
+//
+//group AppointmentRecurrenceTemplateMonthlyTemplate(source src, target tgt) extends BackboneElement {
+//  src.dayOfMonth -> tgt.dayOfMonth;
+//  src.nthWeekOfMonth as v -> tgt.nthWeekOfMonth = translate(v, '#WeekOfMonth', 'code');
+//  src.dayOfWeek as v -> tgt.dayOfWeek = translate(v, '#DaysOfWeek', 'code');
+//  src.monthInterval -> tgt.monthInterval;
+//}
+//
+//group AppointmentRecurrenceTemplateYearlyTemplate(source src, target tgt) extends BackboneElement {
+//  src.yearInterval -> tgt.yearInterval;
+//}
 
