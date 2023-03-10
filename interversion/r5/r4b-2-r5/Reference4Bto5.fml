@@ -5,6 +5,7 @@
 /// status = 'active'
 
 uses "http://hl7.org/fhir/4.3/StructureDefinition/Reference" alias ReferenceR4B as source
+uses "http://hl7.org/fhir/StructureDefinition/CodeableReference" alias CodeableReferenceR5 as target
 uses "http://hl7.org/fhir/StructureDefinition/Reference" alias ReferenceR5 as target
 uses "http://hl7.org/fhir/StructureDefinition/canonical" alias canonicalR5 as target
 uses "http://hl7.org/fhir/4.3/StructureDefinition/url" alias urlR4B as source
@@ -29,6 +30,21 @@ group Reference2Url(source src : ReferenceR4B, target tgt : urlR5) extends Eleme
 }
 group url2Reference(source src : urlR4B, target tgt : ReferenceR5) extends Element <<type+>> {
   src.value as v -> tgt.reference = v "canonicalValue";
+}
+
+group Reference2CodeableReference(source src : ReferenceR4B, target tgt : CodeableReferenceR5) extends Element <<type+>> {
+  src.reference as v -> tgt.reference = v "canonicalValue";
+}
+
+group Reference2CodeableReference(source src : ReferenceR4B, target tgt : CodeableReferenceR5) extends Element <<type+>> {
+  src.value as s -> tgt.reference as t then CodeableReferenceReference(s,t);
+}
+
+group CodeableReferenceReference(source src : ReferenceR4B, target tgt : ReferenceR5) extends Element <<type+>> {
+  src.reference -> tgt.reference;
+  src.type -> tgt.type;
+  src.identifier -> tgt.identifier;
+  src.display -> tgt.display;
 }
 
 

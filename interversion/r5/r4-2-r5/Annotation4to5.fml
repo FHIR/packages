@@ -4,6 +4,7 @@
 
 /// status = 'active'
 
+uses "http://hl7.org/fhir/4.0/StructureDefinition/string" alias stringR4 as source
 uses "http://hl7.org/fhir/4.0/StructureDefinition/Annotation" alias AnnotationR4 as source
 uses "http://hl7.org/fhir/StructureDefinition/Annotation" alias AnnotationR5 as target
 
@@ -16,3 +17,6 @@ group Annotation(source src : AnnotationR4, target tgt : AnnotationR5) extends E
   src.text -> tgt.text;
 }
 
+group string2Annotation(source src : stringR4, target tgt : AnnotationR5) extends Element <<types>> {
+  src.value as v -> tgt.text = v "string2Annotation";
+}

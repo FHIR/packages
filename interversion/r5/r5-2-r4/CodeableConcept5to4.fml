@@ -1,15 +1,13 @@
-﻿/// url = 'http://hl7.org/fhir/StructureMap/CodeableConcept5to4'
+/// url = 'http://hl7.org/fhir/StructureMap/CodeableConcept5to4'
 /// name = 'CodeableConcept5to4'
 /// title = 'FML Conversion for CodeableConcept: R5 to R4'
 
 /// status = 'active'
 
 uses "http://hl7.org/fhir/StructureDefinition/CodeableConcept" alias CodeableConceptR5 as source
+uses "http://hl7.org/fhir/StructureDefinition/CodeableReference" alias CodeableReferenceR5 as source
 uses "http://hl7.org/fhir/4.0/StructureDefinition/CodeableConcept" alias CodeableConceptR4 as target
-uses "http://hl7.org/fhir/4.0/StructureDefinition/Coding" alias CodingR4 as target
-uses "http://hl7.org/fhir/4.0/StructureDefinition/code" alias codeR4 as target
-uses "http://hl7.org/fhir/StructureDefinition/Coding" alias CodingR5 as source
-uses "http://hl7.org/fhir/StructureDefinition/code" alias codeR5 as source
+uses "http://hl7.org/fhir/4.0/StructureDefinition/string" alias stringR4 as target
 
 imports "http://hl7.org/fhir/StructureMap/*5to4"
 
@@ -18,9 +16,26 @@ group CodeableConcept(source src : CodeableConceptR5, target tgt : CodeableConce
   src.text -> tgt.text;
 }
 
+group CodeableReference2CodeableConcept(source src : CodeableReferenceR5, target tgt : CodeableConceptR4) extends Element <<type+>> {
+  src.concept as s -> tgt.value as t then CodeableReferenceConcept2CodeableConcept(s,t);
+}
 group CodeableConcept2Coding(source src : CodeableConceptR5, target tgt : CodingR4) extends Element <<types>> {
   src.coding as s -> tgt as t then Coding(s,t);
 }
+
+group CodeableReferenceConcept2CodeableConcept(source src : CodeableConceptR5, target tgt : CodeableConceptR4) extends Element <<type+>> {
+  src.coding -> tgt.coding;
+  src.text -> tgt.text;
+}
+
+group CodeableConcept2string(source src : CodeableConceptR5, target tgt : stringR4) extends Element <<types>> {
+  src.text as v -> tgt.value = v "CodeableConcept2string";
+}
+
+group CodeableReference2string(source src : CodeableReferenceR5, target tgt : stringR4) extends Element <<types>> {
+  src.text as v -> tgt.value = v "CodeableReference2string";
+}
+
 
 group Coding2CodeableConcept(source src : CodingR5, target tgt : CodeableConceptR4) extends Element <<types>> {
   src as s -> tgt.coding as t then Coding(s,t) "Coding";
