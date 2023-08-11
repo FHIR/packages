@@ -1,64 +1,102 @@
 {
-  "resourceType": "ValueSet",
-  "id": "2.16.840.1.113883.10.20.22.5.300",
-  "meta": {
-    "versionId": "8",
-    "lastUpdated": "2019-04-25T15:36:46.000-04:00"
+  "resourceType" : "ValueSet",
+  "id" : "2.16.840.1.113883.10.20.22.5.300",
+  "meta" : {
+    "versionId" : "8",
+    "lastUpdated" : "2019-04-25T15:36:46.000-04:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "url": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.10.20.22.5.300",
-  "version": "20190425",
-  "name": "Transmission Based Precaution Types",
-  "status": "active",
-  "date": "2019-04-25T15:36:46-04:00",
-  "publisher": "HL7 Terminology",
-  "compose": {
-    "include": [
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "HL7 Structured Documents WG"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2022-12-15"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2019-04-25"
+    }
+  ],
+  "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.10.20.22.5.300",
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113883.10.20.22.5.300"
+    }
+  ],
+  "version" : "20190425",
+  "name" : "TransmissionBasedPrecautionTypes",
+  "title" : "Transmission Based Precaution Types",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2019-04-25T15:36:46-04:00",
+  "publisher" : "HL7 Terminology",
+  "description" : "Types of transmission-based precautions. Descendants of the SNOMED CT code 409583003 |Transmission-based precautions (procedure).\n\nNOTE: SNOMED CT code 409525007 |Respiratory secretion precautions (procedure) has a synonym of  Droplet precautions (procedure).",
+  "jurisdiction" : [
+    {
+      "extension" : [
+        {
+          "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
+          "valueString" : "UNKNOWN"
+        }
+      ]
+    }
+  ],
+  "purpose" : "(Clinical Focus: Codes used to represent the second tier of basic infection control used in addition to standard precautions for certain patients infected or colonized with pathogens requiring additional precautions to prevent transmission of infectious pathogens. See https://www.cdc.gov/infectioncontrol/pdf/guidelines/isolation-guidelines-H.pdf for further details.),(Data Element Scope: Data element representing the second tier of basic infection control used in addition to standard precautions for certain patients infected or colonized with pathogens requiring additional precautions to prevent transmission of infectious pathogens.),(Inclusion Criteria: Hierarchy descending from the SNOMED CT code 409583003 |Transmission-based precautions (procedure).),(Exclusion Criteria: None.)",
+  "compose" : {
+    "include" : [
       {
-        "system": "http://snomed.info/sct",
-        "version": "http://snomed.info/sct/731000124108/version/20220301",
-        "filter": [
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20230301",
+        "filter" : [
           {
-            "property": "concept",
-            "op": "descendent-of",
-            "value": "409583003"
+            "property" : "concept",
+            "op" : "descendent-of",
+            "value" : "409583003"
           }
         ]
       }
     ]
   },
-  "expansion": {
-    "identifier": "urn:uuid:532edd4f-abfe-4642-8a05-181a75a8c026",
-    "timestamp": "2022-09-28T02:30:51-04:00",
-    "total": 3,
-    "offset": 0,
-    "parameter": [
+  "expansion" : {
+    "identifier" : "urn:uuid:f264b35e-9c54-4bae-a21d-c4aed69dde03",
+    "timestamp" : "2023-06-29T20:18:35-04:00",
+    "total" : 3,
+    "offset" : 0,
+    "parameter" : [
       {
-        "name": "count",
-        "valueInteger": 1000
+        "name" : "count",
+        "valueInteger" : 1000
       },
       {
-        "name": "offset",
-        "valueInteger": 0
+        "name" : "offset",
+        "valueInteger" : 0
       }
     ],
-    "contains": [
+    "contains" : [
       {
-        "system": "http://snomed.info/sct",
-        "version": "http://snomed.info/sct/731000124108/version/20220301",
-        "code": "409524006",
-        "display": "Airborne precautions (procedure)"
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20230301",
+        "code" : "409524006",
+        "display" : "Airborne precautions (procedure)"
       },
       {
-        "system": "http://snomed.info/sct",
-        "version": "http://snomed.info/sct/731000124108/version/20220301",
-        "code": "409525007",
-        "display": "Respiratory secretion precautions (procedure)"
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20230301",
+        "code" : "409525007",
+        "display" : "Respiratory secretion precautions (procedure)"
       },
       {
-        "system": "http://snomed.info/sct",
-        "version": "http://snomed.info/sct/731000124108/version/20220301",
-        "code": "409529001",
-        "display": "Contact precautions (procedure)"
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20230301",
+        "code" : "409529001",
+        "display" : "Contact precautions (procedure)"
       }
     ]
   }

@@ -1,161 +1,886 @@
 {
-  "resourceType": "ValueSet",
-  "id": "2.16.840.1.113883.3.3157.4032",
-  "meta": {
-    "versionId": "12",
-    "lastUpdated": "2022-03-01T16:55:50.000-05:00"
+  "resourceType" : "ValueSet",
+  "id" : "2.16.840.1.113883.3.3157.4032",
+  "meta" : {
+    "versionId" : "18",
+    "lastUpdated" : "2023-02-18T01:03:13.000-05:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "url": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.3157.4032",
-  "version": "20220211",
-  "name": "Dementia",
-  "status": "active",
-  "date": "2022-02-11T01:02:23-05:00",
-  "publisher": "Yale",
-  "compose": {
-    "include": [
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "Yale Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2023-02-18"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2023-02-18"
+    }
+  ],
+  "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.3157.4032",
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113883.3.3157.4032"
+    }
+  ],
+  "version" : "20230218",
+  "name" : "DementiaAndRelatedIntracranialPathologies",
+  "title" : "Dementia and Related Intracranial Pathologies",
+  "status" : "active",
+  "date" : "2023-02-18T01:03:13-05:00",
+  "publisher" : "Yale",
+  "jurisdiction" : [
+    {
+      "extension" : [
+        {
+          "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
+          "valueString" : "UNKNOWN"
+        }
+      ]
+    }
+  ],
+  "purpose" : "(Clinical Focus: The purpose of this value set is to represent concepts for dementia.),(Data Element Scope: This value set may use a model element related to Diagnosis.),(Inclusion Criteria: Includes ICD-10CM codes associated with dementia.),(Exclusion Criteria: No exclusions.)",
+  "compose" : {
+    "include" : [
       {
-        "system": "http://hl7.org/fhir/sid/icd-10-cm",
-        "version": "2023",
-        "concept": [
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "concept" : [
           {
-            "code": "F01.50",
-            "display": "Vascular dementia without behavioral disturbance"
+            "code" : "F01.50",
+            "display" : "Vascular dementia, unspecified severity, without behavioral disturbance, psychotic disturbance, mood disturbance, and anxiety"
           },
           {
-            "code": "F01.51",
-            "display": "Vascular dementia with behavioral disturbance"
+            "code" : "F01.51",
+            "display" : "Vascular dementia, unspecified severity, with behavioral disturbance"
           },
           {
-            "code": "F02.80",
-            "display": "Dementia in other diseases classified elsewhere without behavioral disturbance"
+            "code" : "F01.511",
+            "display" : "Vascular dementia, unspecified severity, with agitation"
           },
           {
-            "code": "F02.81",
-            "display": "Dementia in other diseases classified elsewhere with behavioral disturbance"
+            "code" : "F01.518",
+            "display" : "Vascular dementia, unspecified severity, with other behavioral disturbance"
           },
           {
-            "code": "F03.90",
-            "display": "Unspecified dementia without behavioral disturbance"
+            "code" : "F01.52",
+            "display" : "Vascular dementia, unspecified severity, with psychotic disturbance"
           },
           {
-            "code": "F03.91",
-            "display": "Unspecified dementia with behavioral disturbance"
+            "code" : "F01.53",
+            "display" : "Vascular dementia, unspecified severity, with mood disturbance"
           },
           {
-            "code": "G30.0",
-            "display": "Alzheimer\u0027s disease with early onset"
+            "code" : "F01.54",
+            "display" : "Vascular dementia, unspecified severity, with anxiety"
           },
           {
-            "code": "G30.1",
-            "display": "Alzheimer\u0027s disease with late onset"
+            "code" : "F01.A0",
+            "display" : "Vascular dementia, mild, without behavioral disturbance, psychotic disturbance, mood disturbance, and anxiety"
           },
           {
-            "code": "G30.8",
-            "display": "Other Alzheimer\u0027s disease"
+            "code" : "F01.A11",
+            "display" : "Vascular dementia, mild, with agitation"
           },
           {
-            "code": "G30.9",
-            "display": "Alzheimer\u0027s disease, unspecified"
+            "code" : "F01.A18",
+            "display" : "Vascular dementia, mild, with other behavioral disturbance"
           },
           {
-            "code": "G31.09",
-            "display": "Other frontotemporal dementia"
+            "code" : "F01.A2",
+            "display" : "Vascular dementia, mild, with psychotic disturbance"
           },
           {
-            "code": "G31.83",
-            "display": "Dementia with Lewy bodies"
+            "code" : "F01.A3",
+            "display" : "Vascular dementia, mild, with mood disturbance"
+          },
+          {
+            "code" : "F01.A4",
+            "display" : "Vascular dementia, mild, with anxiety"
+          },
+          {
+            "code" : "F01.B0",
+            "display" : "Vascular dementia, moderate, without behavioral disturbance, psychotic disturbance, mood disturbance, and anxiety"
+          },
+          {
+            "code" : "F01.B11",
+            "display" : "Vascular dementia, moderate, with agitation"
+          },
+          {
+            "code" : "F01.B18",
+            "display" : "Vascular dementia, moderate, with other behavioral disturbance"
+          },
+          {
+            "code" : "F01.B2",
+            "display" : "Vascular dementia, moderate, with psychotic disturbance"
+          },
+          {
+            "code" : "F01.B3",
+            "display" : "Vascular dementia, moderate, with mood disturbance"
+          },
+          {
+            "code" : "F01.B4",
+            "display" : "Vascular dementia, moderate, with anxiety"
+          },
+          {
+            "code" : "F01.C0",
+            "display" : "Vascular dementia, severe, without behavioral disturbance, psychotic disturbance, mood disturbance, and anxiety"
+          },
+          {
+            "code" : "F01.C11",
+            "display" : "Vascular dementia, severe, with agitation"
+          },
+          {
+            "code" : "F01.C18",
+            "display" : "Vascular dementia, severe, with other behavioral disturbance"
+          },
+          {
+            "code" : "F01.C2",
+            "display" : "Vascular dementia, severe, with psychotic disturbance"
+          },
+          {
+            "code" : "F01.C3",
+            "display" : "Vascular dementia, severe, with mood disturbance"
+          },
+          {
+            "code" : "F01.C4",
+            "display" : "Vascular dementia, severe, with anxiety"
+          },
+          {
+            "code" : "F02.80",
+            "display" : "Dementia in other diseases classified elsewhere, unspecified severity, without behavioral disturbance, psychotic disturbance, mood disturbance, and anxiety"
+          },
+          {
+            "code" : "F02.81",
+            "display" : "Dementia in other diseases classified elsewhere, unspecified severity, with behavioral disturbance"
+          },
+          {
+            "code" : "F02.811",
+            "display" : "Dementia in other diseases classified elsewhere, unspecified severity, with agitation"
+          },
+          {
+            "code" : "F02.818",
+            "display" : "Dementia in other diseases classified elsewhere, unspecified severity, with other behavioral disturbance"
+          },
+          {
+            "code" : "F02.82",
+            "display" : "Dementia in other diseases classified elsewhere, unspecified severity, with psychotic disturbance"
+          },
+          {
+            "code" : "F02.83",
+            "display" : "Dementia in other diseases classified elsewhere, unspecified severity, with mood disturbance"
+          },
+          {
+            "code" : "F02.84",
+            "display" : "Dementia in other diseases classified elsewhere, unspecified severity, with anxiety"
+          },
+          {
+            "code" : "F02.A0",
+            "display" : "Dementia in other diseases classified elsewhere, mild, without behavioral disturbance, psychotic disturbance, mood disturbance, and anxiety"
+          },
+          {
+            "code" : "F02.A11",
+            "display" : "Dementia in other diseases classified elsewhere, mild, with agitation"
+          },
+          {
+            "code" : "F02.A18",
+            "display" : "Dementia in other diseases classified elsewhere, mild, with other behavioral disturbance"
+          },
+          {
+            "code" : "F02.A2",
+            "display" : "Dementia in other diseases classified elsewhere, mild, with psychotic disturbance"
+          },
+          {
+            "code" : "F02.A3",
+            "display" : "Dementia in other diseases classified elsewhere, mild, with mood disturbance"
+          },
+          {
+            "code" : "F02.A4",
+            "display" : "Dementia in other diseases classified elsewhere, mild, with anxiety"
+          },
+          {
+            "code" : "F02.B0",
+            "display" : "Dementia in other diseases classified elsewhere, moderate, without behavioral disturbance, psychotic disturbance, mood disturbance, and anxiety"
+          },
+          {
+            "code" : "F02.B11",
+            "display" : "Dementia in other diseases classified elsewhere, moderate, with agitation"
+          },
+          {
+            "code" : "F02.B18",
+            "display" : "Dementia in other diseases classified elsewhere, moderate, with other behavioral disturbance"
+          },
+          {
+            "code" : "F02.B2",
+            "display" : "Dementia in other diseases classified elsewhere, moderate, with psychotic disturbance"
+          },
+          {
+            "code" : "F02.B3",
+            "display" : "Dementia in other diseases classified elsewhere, moderate, with mood disturbance"
+          },
+          {
+            "code" : "F02.B4",
+            "display" : "Dementia in other diseases classified elsewhere, moderate, with anxiety"
+          },
+          {
+            "code" : "F02.C0",
+            "display" : "Dementia in other diseases classified elsewhere, severe, without behavioral disturbance, psychotic disturbance, mood disturbance, and anxiety"
+          },
+          {
+            "code" : "F02.C11",
+            "display" : "Dementia in other diseases classified elsewhere, severe, with agitation"
+          },
+          {
+            "code" : "F02.C18",
+            "display" : "Dementia in other diseases classified elsewhere, severe, with other behavioral disturbance"
+          },
+          {
+            "code" : "F02.C2",
+            "display" : "Dementia in other diseases classified elsewhere, severe, with psychotic disturbance"
+          },
+          {
+            "code" : "F02.C3",
+            "display" : "Dementia in other diseases classified elsewhere, severe, with mood disturbance"
+          },
+          {
+            "code" : "F02.C4",
+            "display" : "Dementia in other diseases classified elsewhere, severe, with anxiety"
+          },
+          {
+            "code" : "F03.90",
+            "display" : "Unspecified dementia, unspecified severity, without behavioral disturbance, psychotic disturbance, mood disturbance, and anxiety"
+          },
+          {
+            "code" : "F03.91",
+            "display" : "Unspecified dementia, unspecified severity, with behavioral disturbance"
+          },
+          {
+            "code" : "F03.911",
+            "display" : "Unspecified dementia, unspecified severity, with agitation"
+          },
+          {
+            "code" : "F03.918",
+            "display" : "Unspecified dementia, unspecified severity, with other behavioral disturbance"
+          },
+          {
+            "code" : "F03.92",
+            "display" : "Unspecified dementia, unspecified severity, with psychotic disturbance"
+          },
+          {
+            "code" : "F03.93",
+            "display" : "Unspecified dementia, unspecified severity, with mood disturbance"
+          },
+          {
+            "code" : "F03.94",
+            "display" : "Unspecified dementia, unspecified severity, with anxiety"
+          },
+          {
+            "code" : "F03.A0",
+            "display" : "Unspecified dementia, mild, without behavioral disturbance, psychotic disturbance, mood disturbance, and anxiety"
+          },
+          {
+            "code" : "F03.A11",
+            "display" : "Unspecified dementia, mild, with agitation"
+          },
+          {
+            "code" : "F03.A18",
+            "display" : "Unspecified dementia, mild, with other behavioral disturbance"
+          },
+          {
+            "code" : "F03.A2",
+            "display" : "Unspecified dementia, mild, with psychotic disturbance"
+          },
+          {
+            "code" : "F03.A3",
+            "display" : "Unspecified dementia, mild, with mood disturbance"
+          },
+          {
+            "code" : "F03.A4",
+            "display" : "Unspecified dementia, mild, with anxiety"
+          },
+          {
+            "code" : "F03.B0",
+            "display" : "Unspecified dementia, moderate, without behavioral disturbance, psychotic disturbance, mood disturbance, and anxiety"
+          },
+          {
+            "code" : "F03.B11",
+            "display" : "Unspecified dementia, moderate, with agitation"
+          },
+          {
+            "code" : "F03.B18",
+            "display" : "Unspecified dementia, moderate, with other behavioral disturbance"
+          },
+          {
+            "code" : "F03.B2",
+            "display" : "Unspecified dementia, moderate, with psychotic disturbance"
+          },
+          {
+            "code" : "F03.B3",
+            "display" : "Unspecified dementia, moderate, with mood disturbance"
+          },
+          {
+            "code" : "F03.B4",
+            "display" : "Unspecified dementia, moderate, with anxiety"
+          },
+          {
+            "code" : "F03.C0",
+            "display" : "Unspecified dementia, severe, without behavioral disturbance, psychotic disturbance, mood disturbance, and anxiety"
+          },
+          {
+            "code" : "F03.C11",
+            "display" : "Unspecified dementia, severe, with agitation"
+          },
+          {
+            "code" : "F03.C18",
+            "display" : "Unspecified dementia, severe, with other behavioral disturbance"
+          },
+          {
+            "code" : "F03.C2",
+            "display" : "Unspecified dementia, severe, with psychotic disturbance"
+          },
+          {
+            "code" : "F03.C3",
+            "display" : "Unspecified dementia, severe, with mood disturbance"
+          },
+          {
+            "code" : "F03.C4",
+            "display" : "Unspecified dementia, severe, with anxiety"
+          },
+          {
+            "code" : "G30.0",
+            "display" : "Alzheimer's disease with early onset"
+          },
+          {
+            "code" : "G30.1",
+            "display" : "Alzheimer's disease with late onset"
+          },
+          {
+            "code" : "G30.8",
+            "display" : "Other Alzheimer's disease"
+          },
+          {
+            "code" : "G30.9",
+            "display" : "Alzheimer's disease, unspecified"
+          },
+          {
+            "code" : "G31.09",
+            "display" : "Other frontotemporal neurocognitive disorder"
+          },
+          {
+            "code" : "G31.83",
+            "display" : "Neurocognitive disorder with Lewy bodies"
           }
         ]
       }
     ]
   },
-  "expansion": {
-    "identifier": "urn:uuid:d99abd11-0ad2-490d-8249-e5ea292c7c6b",
-    "timestamp": "2022-09-27T20:02:08-04:00",
-    "total": 12,
-    "offset": 0,
-    "parameter": [
+  "expansion" : {
+    "identifier" : "urn:uuid:b9fa5457-7cca-42f5-a06f-7e034213a2ca",
+    "timestamp" : "2023-06-29T16:56:19-04:00",
+    "total" : 81,
+    "offset" : 0,
+    "parameter" : [
       {
-        "name": "count",
-        "valueInteger": 1000
+        "name" : "count",
+        "valueInteger" : 1000
       },
       {
-        "name": "offset",
-        "valueInteger": 0
+        "name" : "offset",
+        "valueInteger" : 0
       }
     ],
-    "contains": [
+    "contains" : [
       {
-        "system": "http://hl7.org/fhir/sid/icd-10-cm",
-        "version": "2023",
-        "code": "F01.50",
-        "display": "Vascular dementia, unspecified severity, without behavioral disturbance, psychotic disturbance, mood disturbance, and anxiety"
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2023",
+        "code" : "F01.50",
+        "display" : "Vascular dementia, unspecified severity, without behavioral disturbance, psychotic disturbance, mood disturbance, and anxiety"
       },
       {
-        "system": "http://hl7.org/fhir/sid/icd-10-cm",
-        "version": "2023",
-        "code": "F01.51",
-        "display": "Vascular dementia, unspecified severity, with behavioral disturbance"
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2023",
+        "code" : "F01.51",
+        "display" : "Vascular dementia, unspecified severity, with behavioral disturbance"
       },
       {
-        "system": "http://hl7.org/fhir/sid/icd-10-cm",
-        "version": "2023",
-        "code": "F02.80",
-        "display": "Dementia in other diseases classified elsewhere, unspecified severity, without behavioral disturbance, psychotic disturbance, mood disturbance, and anxiety"
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2023",
+        "code" : "F01.511",
+        "display" : "Vascular dementia, unspecified severity, with agitation"
       },
       {
-        "system": "http://hl7.org/fhir/sid/icd-10-cm",
-        "version": "2023",
-        "code": "F02.81",
-        "display": "Dementia in other diseases classified elsewhere, unspecified severity, with behavioral disturbance"
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2023",
+        "code" : "F01.518",
+        "display" : "Vascular dementia, unspecified severity, with other behavioral disturbance"
       },
       {
-        "system": "http://hl7.org/fhir/sid/icd-10-cm",
-        "version": "2023",
-        "code": "F03.90",
-        "display": "Unspecified dementia, unspecified severity, without behavioral disturbance, psychotic disturbance, mood disturbance, and anxiety"
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2023",
+        "code" : "F01.52",
+        "display" : "Vascular dementia, unspecified severity, with psychotic disturbance"
       },
       {
-        "system": "http://hl7.org/fhir/sid/icd-10-cm",
-        "version": "2023",
-        "code": "F03.91",
-        "display": "Unspecified dementia, unspecified severity, with behavioral disturbance"
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2023",
+        "code" : "F01.53",
+        "display" : "Vascular dementia, unspecified severity, with mood disturbance"
       },
       {
-        "system": "http://hl7.org/fhir/sid/icd-10-cm",
-        "version": "2023",
-        "code": "G30.0",
-        "display": "Alzheimer\u0027s disease with early onset"
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2023",
+        "code" : "F01.54",
+        "display" : "Vascular dementia, unspecified severity, with anxiety"
       },
       {
-        "system": "http://hl7.org/fhir/sid/icd-10-cm",
-        "version": "2023",
-        "code": "G30.1",
-        "display": "Alzheimer\u0027s disease with late onset"
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2023",
+        "code" : "F01.A0",
+        "display" : "Vascular dementia, mild, without behavioral disturbance, psychotic disturbance, mood disturbance, and anxiety"
       },
       {
-        "system": "http://hl7.org/fhir/sid/icd-10-cm",
-        "version": "2023",
-        "code": "G30.8",
-        "display": "Other Alzheimer\u0027s disease"
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2023",
+        "code" : "F01.A11",
+        "display" : "Vascular dementia, mild, with agitation"
       },
       {
-        "system": "http://hl7.org/fhir/sid/icd-10-cm",
-        "version": "2023",
-        "code": "G30.9",
-        "display": "Alzheimer\u0027s disease, unspecified"
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2023",
+        "code" : "F01.A18",
+        "display" : "Vascular dementia, mild, with other behavioral disturbance"
       },
       {
-        "system": "http://hl7.org/fhir/sid/icd-10-cm",
-        "version": "2023",
-        "code": "G31.09",
-        "display": "Other frontotemporal neurocognitive disorder"
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2023",
+        "code" : "F01.A2",
+        "display" : "Vascular dementia, mild, with psychotic disturbance"
       },
       {
-        "system": "http://hl7.org/fhir/sid/icd-10-cm",
-        "version": "2023",
-        "code": "G31.83",
-        "display": "Neurocognitive disorder with Lewy bodies"
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2023",
+        "code" : "F01.A3",
+        "display" : "Vascular dementia, mild, with mood disturbance"
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2023",
+        "code" : "F01.A4",
+        "display" : "Vascular dementia, mild, with anxiety"
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2023",
+        "code" : "F01.B0",
+        "display" : "Vascular dementia, moderate, without behavioral disturbance, psychotic disturbance, mood disturbance, and anxiety"
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2023",
+        "code" : "F01.B11",
+        "display" : "Vascular dementia, moderate, with agitation"
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2023",
+        "code" : "F01.B18",
+        "display" : "Vascular dementia, moderate, with other behavioral disturbance"
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2023",
+        "code" : "F01.B2",
+        "display" : "Vascular dementia, moderate, with psychotic disturbance"
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2023",
+        "code" : "F01.B3",
+        "display" : "Vascular dementia, moderate, with mood disturbance"
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2023",
+        "code" : "F01.B4",
+        "display" : "Vascular dementia, moderate, with anxiety"
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2023",
+        "code" : "F01.C0",
+        "display" : "Vascular dementia, severe, without behavioral disturbance, psychotic disturbance, mood disturbance, and anxiety"
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2023",
+        "code" : "F01.C11",
+        "display" : "Vascular dementia, severe, with agitation"
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2023",
+        "code" : "F01.C18",
+        "display" : "Vascular dementia, severe, with other behavioral disturbance"
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2023",
+        "code" : "F01.C2",
+        "display" : "Vascular dementia, severe, with psychotic disturbance"
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2023",
+        "code" : "F01.C3",
+        "display" : "Vascular dementia, severe, with mood disturbance"
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2023",
+        "code" : "F01.C4",
+        "display" : "Vascular dementia, severe, with anxiety"
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2023",
+        "code" : "F02.80",
+        "display" : "Dementia in other diseases classified elsewhere, unspecified severity, without behavioral disturbance, psychotic disturbance, mood disturbance, and anxiety"
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2023",
+        "code" : "F02.81",
+        "display" : "Dementia in other diseases classified elsewhere, unspecified severity, with behavioral disturbance"
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2023",
+        "code" : "F02.811",
+        "display" : "Dementia in other diseases classified elsewhere, unspecified severity, with agitation"
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2023",
+        "code" : "F02.818",
+        "display" : "Dementia in other diseases classified elsewhere, unspecified severity, with other behavioral disturbance"
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2023",
+        "code" : "F02.82",
+        "display" : "Dementia in other diseases classified elsewhere, unspecified severity, with psychotic disturbance"
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2023",
+        "code" : "F02.83",
+        "display" : "Dementia in other diseases classified elsewhere, unspecified severity, with mood disturbance"
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2023",
+        "code" : "F02.84",
+        "display" : "Dementia in other diseases classified elsewhere, unspecified severity, with anxiety"
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2023",
+        "code" : "F02.A0",
+        "display" : "Dementia in other diseases classified elsewhere, mild, without behavioral disturbance, psychotic disturbance, mood disturbance, and anxiety"
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2023",
+        "code" : "F02.A11",
+        "display" : "Dementia in other diseases classified elsewhere, mild, with agitation"
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2023",
+        "code" : "F02.A18",
+        "display" : "Dementia in other diseases classified elsewhere, mild, with other behavioral disturbance"
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2023",
+        "code" : "F02.A2",
+        "display" : "Dementia in other diseases classified elsewhere, mild, with psychotic disturbance"
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2023",
+        "code" : "F02.A3",
+        "display" : "Dementia in other diseases classified elsewhere, mild, with mood disturbance"
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2023",
+        "code" : "F02.A4",
+        "display" : "Dementia in other diseases classified elsewhere, mild, with anxiety"
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2023",
+        "code" : "F02.B0",
+        "display" : "Dementia in other diseases classified elsewhere, moderate, without behavioral disturbance, psychotic disturbance, mood disturbance, and anxiety"
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2023",
+        "code" : "F02.B11",
+        "display" : "Dementia in other diseases classified elsewhere, moderate, with agitation"
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2023",
+        "code" : "F02.B18",
+        "display" : "Dementia in other diseases classified elsewhere, moderate, with other behavioral disturbance"
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2023",
+        "code" : "F02.B2",
+        "display" : "Dementia in other diseases classified elsewhere, moderate, with psychotic disturbance"
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2023",
+        "code" : "F02.B3",
+        "display" : "Dementia in other diseases classified elsewhere, moderate, with mood disturbance"
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2023",
+        "code" : "F02.B4",
+        "display" : "Dementia in other diseases classified elsewhere, moderate, with anxiety"
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2023",
+        "code" : "F02.C0",
+        "display" : "Dementia in other diseases classified elsewhere, severe, without behavioral disturbance, psychotic disturbance, mood disturbance, and anxiety"
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2023",
+        "code" : "F02.C11",
+        "display" : "Dementia in other diseases classified elsewhere, severe, with agitation"
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2023",
+        "code" : "F02.C18",
+        "display" : "Dementia in other diseases classified elsewhere, severe, with other behavioral disturbance"
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2023",
+        "code" : "F02.C2",
+        "display" : "Dementia in other diseases classified elsewhere, severe, with psychotic disturbance"
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2023",
+        "code" : "F02.C3",
+        "display" : "Dementia in other diseases classified elsewhere, severe, with mood disturbance"
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2023",
+        "code" : "F02.C4",
+        "display" : "Dementia in other diseases classified elsewhere, severe, with anxiety"
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2023",
+        "code" : "F03.90",
+        "display" : "Unspecified dementia, unspecified severity, without behavioral disturbance, psychotic disturbance, mood disturbance, and anxiety"
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2023",
+        "code" : "F03.91",
+        "display" : "Unspecified dementia, unspecified severity, with behavioral disturbance"
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2023",
+        "code" : "F03.911",
+        "display" : "Unspecified dementia, unspecified severity, with agitation"
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2023",
+        "code" : "F03.918",
+        "display" : "Unspecified dementia, unspecified severity, with other behavioral disturbance"
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2023",
+        "code" : "F03.92",
+        "display" : "Unspecified dementia, unspecified severity, with psychotic disturbance"
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2023",
+        "code" : "F03.93",
+        "display" : "Unspecified dementia, unspecified severity, with mood disturbance"
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2023",
+        "code" : "F03.94",
+        "display" : "Unspecified dementia, unspecified severity, with anxiety"
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2023",
+        "code" : "F03.A0",
+        "display" : "Unspecified dementia, mild, without behavioral disturbance, psychotic disturbance, mood disturbance, and anxiety"
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2023",
+        "code" : "F03.A11",
+        "display" : "Unspecified dementia, mild, with agitation"
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2023",
+        "code" : "F03.A18",
+        "display" : "Unspecified dementia, mild, with other behavioral disturbance"
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2023",
+        "code" : "F03.A2",
+        "display" : "Unspecified dementia, mild, with psychotic disturbance"
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2023",
+        "code" : "F03.A3",
+        "display" : "Unspecified dementia, mild, with mood disturbance"
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2023",
+        "code" : "F03.A4",
+        "display" : "Unspecified dementia, mild, with anxiety"
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2023",
+        "code" : "F03.B0",
+        "display" : "Unspecified dementia, moderate, without behavioral disturbance, psychotic disturbance, mood disturbance, and anxiety"
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2023",
+        "code" : "F03.B11",
+        "display" : "Unspecified dementia, moderate, with agitation"
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2023",
+        "code" : "F03.B18",
+        "display" : "Unspecified dementia, moderate, with other behavioral disturbance"
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2023",
+        "code" : "F03.B2",
+        "display" : "Unspecified dementia, moderate, with psychotic disturbance"
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2023",
+        "code" : "F03.B3",
+        "display" : "Unspecified dementia, moderate, with mood disturbance"
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2023",
+        "code" : "F03.B4",
+        "display" : "Unspecified dementia, moderate, with anxiety"
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2023",
+        "code" : "F03.C0",
+        "display" : "Unspecified dementia, severe, without behavioral disturbance, psychotic disturbance, mood disturbance, and anxiety"
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2023",
+        "code" : "F03.C11",
+        "display" : "Unspecified dementia, severe, with agitation"
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2023",
+        "code" : "F03.C18",
+        "display" : "Unspecified dementia, severe, with other behavioral disturbance"
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2023",
+        "code" : "F03.C2",
+        "display" : "Unspecified dementia, severe, with psychotic disturbance"
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2023",
+        "code" : "F03.C3",
+        "display" : "Unspecified dementia, severe, with mood disturbance"
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2023",
+        "code" : "F03.C4",
+        "display" : "Unspecified dementia, severe, with anxiety"
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2023",
+        "code" : "G30.0",
+        "display" : "Alzheimer's disease with early onset"
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2023",
+        "code" : "G30.1",
+        "display" : "Alzheimer's disease with late onset"
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2023",
+        "code" : "G30.8",
+        "display" : "Other Alzheimer's disease"
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2023",
+        "code" : "G30.9",
+        "display" : "Alzheimer's disease, unspecified"
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2023",
+        "code" : "G31.09",
+        "display" : "Other frontotemporal neurocognitive disorder"
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2023",
+        "code" : "G31.83",
+        "display" : "Neurocognitive disorder with Lewy bodies"
       }
     ]
   }

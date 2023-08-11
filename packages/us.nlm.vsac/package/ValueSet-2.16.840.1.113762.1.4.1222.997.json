@@ -1,52 +1,94 @@
 {
-  "resourceType": "ValueSet",
-  "id": "2.16.840.1.113762.1.4.1222.997",
-  "meta": {
-    "versionId": "5",
-    "lastUpdated": "2021-09-22T01:00:36.000-04:00"
+  "resourceType" : "ValueSet",
+  "id" : "2.16.840.1.113762.1.4.1222.997",
+  "meta" : {
+    "versionId" : "5",
+    "lastUpdated" : "2022-11-12T17:22:42.000-05:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "url": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1222.997",
-  "version": "20210922",
-  "name": "Pain Quality",
-  "status": "active",
-  "date": "2021-09-22T01:00:36-04:00",
-  "publisher": "HL7 Patient Care WG Steward",
-  "compose": {
-    "include": [
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "MCC eCare Plan Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-keyWord",
+      "valueString" : "MCC_IG"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2022-12-15"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2021-09-22"
+    }
+  ],
+  "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1222.997",
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113762.1.4.1222.997"
+    }
+  ],
+  "version" : "20210922",
+  "name" : "PainQuality",
+  "title" : "Pain Quality",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2021-09-22T01:00:36-04:00",
+  "publisher" : "HL7 Patient Care WG Steward",
+  "description" : "This value set may undergo changes until the HL7 Multiple Chronic Care FHIR IG is formally published in 2024.",
+  "jurisdiction" : [
+    {
+      "extension" : [
+        {
+          "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
+          "valueString" : "UNKNOWN"
+        }
+      ]
+    }
+  ],
+  "purpose" : "(Clinical Focus: This set of values addresses terms representing an observation of pain quality.),(Data Element Scope: The intent of this set of values is to identify patients who have a/an description of what the person's pain feels like, e.g., sharp, dull, stabbing, burning, crushing, throbbing, nauseating, shooting, twisting or stretching..),(Inclusion Criteria: Includes LOINC codes for Pain Quality.),(Exclusion Criteria: Terms not representative of observable encoded terms that may have values indicating Pain Quality.)",
+  "compose" : {
+    "include" : [
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "filter": [
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "filter" : [
           {
-            "property": "concept",
-            "op": "in",
-            "value": "32419-4"
+            "property" : "concept",
+            "op" : "in",
+            "value" : "32419-4"
           }
         ]
       }
     ]
   },
-  "expansion": {
-    "identifier": "urn:uuid:e0e7ce51-2478-4be4-a90c-034978bb6c8e",
-    "timestamp": "2022-09-27T23:46:24-04:00",
-    "total": 1,
-    "offset": 0,
-    "parameter": [
+  "expansion" : {
+    "identifier" : "urn:uuid:0276b373-9938-4d8d-acfc-fcf8257c94ff",
+    "timestamp" : "2023-06-29T19:09:05-04:00",
+    "total" : 1,
+    "offset" : 0,
+    "parameter" : [
       {
-        "name": "count",
-        "valueInteger": 1000
+        "name" : "count",
+        "valueInteger" : 1000
       },
       {
-        "name": "offset",
-        "valueInteger": 0
+        "name" : "offset",
+        "valueInteger" : 0
       }
     ],
-    "contains": [
+    "contains" : [
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "32419-4",
-        "display": "Pain quality"
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "32419-4",
+        "display" : "Pain quality"
       }
     ]
   }

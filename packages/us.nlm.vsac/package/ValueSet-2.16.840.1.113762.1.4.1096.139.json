@@ -1,61 +1,101 @@
 {
-  "resourceType": "ValueSet",
-  "id": "2.16.840.1.113762.1.4.1096.139",
-  "meta": {
-    "versionId": "7",
-    "lastUpdated": "2017-08-01T01:00:05.000-04:00"
+  "resourceType" : "ValueSet",
+  "id" : "2.16.840.1.113762.1.4.1096.139",
+  "meta" : {
+    "versionId" : "7",
+    "lastUpdated" : "2017-08-01T01:00:05.000-04:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "url": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1096.139",
-  "version": "20170801",
-  "name": "Status of Care Goal",
-  "status": "active",
-  "date": "2017-08-01T01:00:05-04:00",
-  "publisher": "PharmacyHIT",
-  "compose": {
-    "include": [
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "PharmacyHIT Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-keyWord",
+      "valueString" : "Active,PhCP"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2022-12-27"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2017-08-01"
+    }
+  ],
+  "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1096.139",
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113762.1.4.1096.139"
+    }
+  ],
+  "version" : "20170801",
+  "name" : "StatusOfCareGoal",
+  "title" : "Status of Care Goal",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2017-08-01T01:00:05-04:00",
+  "publisher" : "PharmacyHIT",
+  "jurisdiction" : [
+    {
+      "extension" : [
+        {
+          "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
+          "valueString" : "UNKNOWN"
+        }
+      ]
+    }
+  ],
+  "purpose" : "(Clinical Focus: This set of values contains codes that document the status of a patient goal.),(Data Element Scope: Attribute: Status\nDatatype: Care Goal\n\nThe intent of this data element is to document the status of a patient goal.),(Inclusion Criteria: Any code that documents the status of a patient goal.),(Exclusion Criteria: Any code is not related to the status of a patient goal.)",
+  "compose" : {
+    "include" : [
       {
-        "system": "http://snomed.info/sct",
-        "version": "http://snomed.info/sct/731000124108/version/20220301",
-        "concept": [
+        "system" : "http://snomed.info/sct",
+        "concept" : [
           {
-            "code": "390801001",
-            "display": "Goal not achieved (finding)"
+            "code" : "390801001",
+            "display" : "Goal not achieved (finding)"
           },
           {
-            "code": "390802008",
-            "display": "Goal achieved (finding)"
+            "code" : "390802008",
+            "display" : "Goal achieved (finding)"
           }
         ]
       }
     ]
   },
-  "expansion": {
-    "identifier": "urn:uuid:70cb1958-b187-4a80-b71d-d079a7198959",
-    "timestamp": "2022-09-28T01:52:40-04:00",
-    "total": 2,
-    "offset": 0,
-    "parameter": [
+  "expansion" : {
+    "identifier" : "urn:uuid:5148b3da-a4a5-42a9-bd41-2eb06ef4c565",
+    "timestamp" : "2023-06-29T20:03:26-04:00",
+    "total" : 2,
+    "offset" : 0,
+    "parameter" : [
       {
-        "name": "count",
-        "valueInteger": 1000
+        "name" : "count",
+        "valueInteger" : 1000
       },
       {
-        "name": "offset",
-        "valueInteger": 0
+        "name" : "offset",
+        "valueInteger" : 0
       }
     ],
-    "contains": [
+    "contains" : [
       {
-        "system": "http://snomed.info/sct",
-        "version": "http://snomed.info/sct/731000124108/version/20220301",
-        "code": "390801001",
-        "display": "Goal not achieved (finding)"
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20230301",
+        "code" : "390801001",
+        "display" : "Goal not achieved (finding)"
       },
       {
-        "system": "http://snomed.info/sct",
-        "version": "http://snomed.info/sct/731000124108/version/20220301",
-        "code": "390802008",
-        "display": "Goal achieved (finding)"
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20230301",
+        "code" : "390802008",
+        "display" : "Goal achieved (finding)"
       }
     ]
   }

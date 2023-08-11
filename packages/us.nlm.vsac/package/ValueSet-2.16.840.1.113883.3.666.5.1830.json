@@ -1,61 +1,97 @@
 {
-  "resourceType": "ValueSet",
-  "id": "2.16.840.1.113883.3.666.5.1830",
-  "meta": {
-    "versionId": "20",
-    "lastUpdated": "2016-03-31T01:00:12.000-04:00"
+  "resourceType" : "ValueSet",
+  "id" : "2.16.840.1.113883.3.666.5.1830",
+  "meta" : {
+    "versionId" : "20",
+    "lastUpdated" : "2016-03-31T01:00:12.000-04:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "url": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.666.5.1830",
-  "version": "20160331",
-  "name": "Abdominal Hysterectomy ICD10PCS",
-  "status": "active",
-  "date": "2016-03-31T01:00:12-04:00",
-  "publisher": "Lantana EH Steward",
-  "compose": {
-    "include": [
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "Lantana EH Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2022-12-15"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2016-03-31"
+    }
+  ],
+  "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.666.5.1830",
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113883.3.666.5.1830"
+    }
+  ],
+  "version" : "20160331",
+  "name" : "AbdominalHysterectomyICD10PCS",
+  "title" : "Abdominal Hysterectomy ICD10PCS",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2016-03-31T01:00:12-04:00",
+  "publisher" : "Lantana EH Steward",
+  "jurisdiction" : [
+    {
+      "extension" : [
+        {
+          "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
+          "valueString" : "UNKNOWN"
+        }
+      ]
+    }
+  ],
+  "purpose" : "(Clinical Focus: This set of values identifies patients who have a procedure of an abdominal hysterectomy.),(Data Element Scope: The intent of this data element is to identify patients who have an abdominal hysterectomy procedure.  Using the Quality Data Model, this particular element will map to the Procedure category.),(Inclusion Criteria: Only use codes which represent abdominal hysterectomy procedures. Codes used are to be ICD10PCS codes only.),(Exclusion Criteria: Exclude codes that represent an abdominal hysterectomy performed using a scope.)",
+  "compose" : {
+    "include" : [
       {
-        "system": "http://www.icd10data.com/icd10pcs",
-        "version": "2023",
-        "concept": [
+        "system" : "http://www.cms.gov/Medicare/Coding/ICD10",
+        "concept" : [
           {
-            "code": "0UT40ZZ",
-            "display": "Resection of Uterine Supporting Structure, Open Approach"
+            "code" : "0UT40ZZ",
+            "display" : "Resection of Uterine Supporting Structure, Open Approach"
           },
           {
-            "code": "0UT90ZZ",
-            "display": "Resection of Uterus, Open Approach"
+            "code" : "0UT90ZZ",
+            "display" : "Resection of Uterus, Open Approach"
           }
         ]
       }
     ]
   },
-  "expansion": {
-    "identifier": "urn:uuid:36ce5a75-60e8-46d3-a5ca-4aed929859ec",
-    "timestamp": "2022-09-27T16:50:27-04:00",
-    "total": 2,
-    "offset": 0,
-    "parameter": [
+  "expansion" : {
+    "identifier" : "urn:uuid:bbde00da-2a95-4cf8-a36a-374857c0346b",
+    "timestamp" : "2023-06-29T15:25:45-04:00",
+    "total" : 2,
+    "offset" : 0,
+    "parameter" : [
       {
-        "name": "count",
-        "valueInteger": 1000
+        "name" : "count",
+        "valueInteger" : 1000
       },
       {
-        "name": "offset",
-        "valueInteger": 0
+        "name" : "offset",
+        "valueInteger" : 0
       }
     ],
-    "contains": [
+    "contains" : [
       {
-        "system": "http://www.icd10data.com/icd10pcs",
-        "version": "2023",
-        "code": "0UT40ZZ",
-        "display": "Resection of Uterine Supporting Structure, Open Approach"
+        "system" : "http://www.cms.gov/Medicare/Coding/ICD10",
+        "version" : "2023",
+        "code" : "0UT40ZZ",
+        "display" : "Resection of Uterine Supporting Structure, Open Approach"
       },
       {
-        "system": "http://www.icd10data.com/icd10pcs",
-        "version": "2023",
-        "code": "0UT90ZZ",
-        "display": "Resection of Uterus, Open Approach"
+        "system" : "http://www.cms.gov/Medicare/Coding/ICD10",
+        "version" : "2023",
+        "code" : "0UT90ZZ",
+        "display" : "Resection of Uterus, Open Approach"
       }
     ]
   }

@@ -1,0 +1,124 @@
+{
+  "resourceType" : "ValueSet",
+  "id" : "2.16.840.1.113762.1.4.1078.220",
+  "meta" : {
+    "versionId" : "10",
+    "lastUpdated" : "2023-06-01T01:01:19.000-04:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
+  },
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "Optum Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2023-06-01"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2023-06-01"
+    }
+  ],
+  "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1078.220",
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113762.1.4.1078.220"
+    }
+  ],
+  "version" : "20230601",
+  "name" : "StageDHeartFailureSCT",
+  "title" : "Stage D Heart Failure SCT",
+  "status" : "active",
+  "date" : "2023-06-01T01:01:19-04:00",
+  "publisher" : "Optum Steward",
+  "description" : "SCT codes for Systolic Stage D Heart Failure",
+  "jurisdiction" : [
+    {
+      "extension" : [
+        {
+          "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
+          "valueString" : "UNKNOWN"
+        }
+      ]
+    }
+  ],
+  "purpose" : "(Clinical Focus: SCT Codes),(Data Element Scope: CONDITIONS:CLINICAL_DRIVER:),(Inclusion Criteria: Stage D codes only),(Exclusion Criteria: Stage A,B, C codes)",
+  "compose" : {
+    "include" : [
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20230301",
+        "filter" : [
+          {
+            "property" : "concept",
+            "op" : "is-a",
+            "value" : "120851000119104"
+          }
+        ]
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20230301",
+        "filter" : [
+          {
+            "property" : "concept",
+            "op" : "is-a",
+            "value" : "67431000119105"
+          }
+        ]
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20230301",
+        "filter" : [
+          {
+            "property" : "concept",
+            "op" : "is-a",
+            "value" : "120881000119106"
+          }
+        ]
+      }
+    ]
+  },
+  "expansion" : {
+    "identifier" : "urn:uuid:5fd1322d-5041-4f6c-b303-9d22ef2487cf",
+    "timestamp" : "2023-06-29T20:02:23-04:00",
+    "total" : 3,
+    "offset" : 0,
+    "parameter" : [
+      {
+        "name" : "count",
+        "valueInteger" : 1000
+      },
+      {
+        "name" : "offset",
+        "valueInteger" : 0
+      }
+    ],
+    "contains" : [
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20230301",
+        "code" : "120851000119104",
+        "display" : "Systolic heart failure stage D (disorder)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20230301",
+        "code" : "120881000119106",
+        "display" : "Diastolic heart failure stage D (disorder)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20230301",
+        "code" : "67431000119105",
+        "display" : "Congestive heart failure stage D (disorder)"
+      }
+    ]
+  }
+}

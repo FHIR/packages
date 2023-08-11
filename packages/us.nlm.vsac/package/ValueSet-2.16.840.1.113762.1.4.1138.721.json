@@ -1,81 +1,119 @@
 {
-  "resourceType": "ValueSet",
-  "id": "2.16.840.1.113762.1.4.1138.721",
-  "meta": {
-    "versionId": "8",
-    "lastUpdated": "2022-03-02T18:05:16.000-05:00"
+  "resourceType" : "ValueSet",
+  "id" : "2.16.840.1.113762.1.4.1138.721",
+  "meta" : {
+    "versionId" : "8",
+    "lastUpdated" : "2022-03-02T18:05:16.000-05:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "url": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1138.721",
-  "version": "20180211",
-  "name": "Discharge from Inpatient Facility",
-  "status": "active",
-  "date": "2022-03-03T18:46:01-05:00",
-  "publisher": "Change Healthcare Steward",
-  "compose": {
-    "include": [
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "Change Healthcare Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2022-12-15"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2018-02-11"
+    }
+  ],
+  "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1138.721",
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113762.1.4.1138.721"
+    }
+  ],
+  "version" : "20180211",
+  "name" : "DischargeFromInpatientFacility",
+  "title" : "Discharge from Inpatient Facility",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2022-03-03T18:46:01-05:00",
+  "publisher" : "Change Healthcare Steward",
+  "description" : "Value set for MSSP ACO (CARE-1)",
+  "jurisdiction" : [
+    {
+      "extension" : [
+        {
+          "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
+          "valueString" : "UNKNOWN"
+        }
+      ]
+    }
+  ],
+  "purpose" : "(Clinical Focus: Inpatient discharge - hospital and rehabilitation),(Data Element Scope: Grouping value set of CPT and SNOMED CT.  Can be used to inform MSSP ACO CARE-1.),(Inclusion Criteria: CPT and SNOMED CT Inpatient discharge - hospital and rehabilitation),(Exclusion Criteria: Not observation, admission, and stay codes.)",
+  "compose" : {
+    "include" : [
       {
-        "valueSet": [
+        "valueSet" : [
           "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1138.720"
         ]
       },
       {
-        "valueSet": [
+        "valueSet" : [
           "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1138.592"
         ]
       }
     ]
   },
-  "expansion": {
-    "identifier": "urn:uuid:6e8b1f9e-6921-416b-afce-b8967f817f7b",
-    "timestamp": "2022-09-27T20:14:50-04:00",
-    "total": 6,
-    "offset": 0,
-    "parameter": [
+  "expansion" : {
+    "identifier" : "urn:uuid:08e802c7-e77f-4048-85f1-1bfbb3165656",
+    "timestamp" : "2023-06-29T17:05:10-04:00",
+    "total" : 6,
+    "offset" : 0,
+    "parameter" : [
       {
-        "name": "count",
-        "valueInteger": 1000
+        "name" : "count",
+        "valueInteger" : 1000
       },
       {
-        "name": "offset",
-        "valueInteger": 0
+        "name" : "offset",
+        "valueInteger" : 0
       }
     ],
-    "contains": [
+    "contains" : [
       {
-        "system": "http://snomed.info/sct",
-        "version": "http://snomed.info/sct/731000124108/version/20220301",
-        "code": "449401000124108",
-        "display": "Discharge from inpatient rehabilitation facility (procedure)"
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20230301",
+        "code" : "449401000124108",
+        "display" : "Discharge from inpatient rehabilitation facility (procedure)"
       },
       {
-        "system": "http://snomed.info/sct",
-        "version": "http://snomed.info/sct/731000124108/version/20220301",
-        "code": "83362003",
-        "display": "Final inpatient visit with instructions at discharge (procedure)"
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20230301",
+        "code" : "83362003",
+        "display" : "Final inpatient visit with instructions at discharge (procedure)"
       },
       {
-        "system": "http://www.ama-assn.org/go/cpt",
-        "version": "2022",
-        "code": "99238",
-        "display": "Hospital discharge day management; 30 minutes or less"
+        "system" : "http://www.ama-assn.org/go/cpt",
+        "version" : "2023",
+        "code" : "99238",
+        "display" : "Hospital inpatient or observation discharge day management; 30 minutes or less on the date of the encounter"
       },
       {
-        "system": "http://www.ama-assn.org/go/cpt",
-        "version": "2022",
-        "code": "99239",
-        "display": "Hospital discharge day management; more than 30 minutes"
+        "system" : "http://www.ama-assn.org/go/cpt",
+        "version" : "2023",
+        "code" : "99239",
+        "display" : "Hospital inpatient or observation discharge day management; more than 30 minutes on the date of the encounter"
       },
       {
-        "system": "http://www.ama-assn.org/go/cpt",
-        "version": "2022",
-        "code": "99315",
-        "display": "Nursing facility discharge day management; 30 minutes or less"
+        "system" : "http://www.ama-assn.org/go/cpt",
+        "version" : "2023",
+        "code" : "99315",
+        "display" : "Nursing facility discharge management; 30 minutes or less total time on the date of the encounter"
       },
       {
-        "system": "http://www.ama-assn.org/go/cpt",
-        "version": "2022",
-        "code": "99316",
-        "display": "Nursing facility discharge day management; more than 30 minutes"
+        "system" : "http://www.ama-assn.org/go/cpt",
+        "version" : "2023",
+        "code" : "99316",
+        "display" : "Nursing facility discharge management; more than 30 minutes total time on the date of the encounter"
       }
     ]
   }

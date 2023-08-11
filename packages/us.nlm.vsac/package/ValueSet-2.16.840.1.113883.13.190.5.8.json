@@ -1,55 +1,92 @@
 {
-  "resourceType": "ValueSet",
-  "id": "2.16.840.1.113883.13.190.5.8",
-  "meta": {
-    "versionId": "4",
-    "lastUpdated": "2014-06-30T01:00:02.000-04:00"
+  "resourceType" : "ValueSet",
+  "id" : "2.16.840.1.113883.13.190.5.8",
+  "meta" : {
+    "versionId" : "4",
+    "lastUpdated" : "2014-06-30T01:00:02.000-04:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "url": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.13.190.5.8",
-  "version": "20140630",
-  "name": "Left Against Medical Advice",
-  "status": "active",
-  "date": "2014-06-30T01:00:02-04:00",
-  "publisher": "Yale",
-  "compose": {
-    "include": [
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "OFMQ-CMS-Abt"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2022-12-15"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2014-06-30"
+    }
+  ],
+  "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.13.190.5.8",
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113883.13.190.5.8"
+    }
+  ],
+  "version" : "20140630",
+  "name" : "LeftAgainstMedicalAdvice",
+  "title" : "Left Against Medical Advice",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2014-06-30T01:00:02-04:00",
+  "publisher" : "Yale",
+  "description" : "Yale AMI mortality de novo measure",
+  "jurisdiction" : [
+    {
+      "extension" : [
+        {
+          "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
+          "valueString" : "UNKNOWN"
+        }
+      ]
+    }
+  ],
+  "purpose" : "(Clinical Focus: This value set contains  procedures used to identify patients who were discharged against medical advice or elopement.),(Data Element Scope: The intent of the value set is to identify a patient discharged against medical advice. The QDM Category linked to this value set: Attribute),(Inclusion Criteria: Include SNOMED CT codes representing  leaving against medical advice.),(Exclusion Criteria: Exclude codes that do not meet the inclusion criteria.)",
+  "compose" : {
+    "include" : [
       {
-        "system": "http://snomed.info/sct",
-        "version": "http://snomed.info/sct/731000124108/version/20220301",
-        "concept": [
+        "system" : "http://snomed.info/sct",
+        "concept" : [
           {
-            "code": "30164005",
-            "display": "Patient discharge, signed out against medical advice (procedure)"
+            "code" : "30164005",
+            "display" : "Patient discharge, signed out against medical advice (procedure)"
           },
           {
-            "code": "34596002",
-            "display": "Patient discharge, elopement (procedure)"
+            "code" : "34596002",
+            "display" : "Patient discharge, elopement (procedure)"
           }
         ]
       }
     ]
   },
-  "expansion": {
-    "identifier": "urn:uuid:6aca75eb-e5d9-4381-870b-a6a4c92c619d",
-    "timestamp": "2022-09-27T22:09:29-04:00",
-    "total": 1,
-    "offset": 0,
-    "parameter": [
+  "expansion" : {
+    "identifier" : "urn:uuid:025eb276-a323-47d1-a3da-1497ee25ab92",
+    "timestamp" : "2023-06-29T18:15:19-04:00",
+    "total" : 1,
+    "offset" : 0,
+    "parameter" : [
       {
-        "name": "count",
-        "valueInteger": 1000
+        "name" : "count",
+        "valueInteger" : 1000
       },
       {
-        "name": "offset",
-        "valueInteger": 0
+        "name" : "offset",
+        "valueInteger" : 0
       }
     ],
-    "contains": [
+    "contains" : [
       {
-        "system": "http://snomed.info/sct",
-        "version": "http://snomed.info/sct/731000124108/version/20220301",
-        "code": "34596002",
-        "display": "Patient discharge, elopement (procedure)"
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20230301",
+        "code" : "34596002",
+        "display" : "Patient discharge, elopement (procedure)"
       }
     ]
   }

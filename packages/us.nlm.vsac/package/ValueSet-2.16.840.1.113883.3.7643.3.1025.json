@@ -1,52 +1,90 @@
 {
-  "resourceType": "ValueSet",
-  "id": "2.16.840.1.113883.3.7643.3.1025",
-  "meta": {
-    "versionId": "6",
-    "lastUpdated": "2022-03-02T18:05:07.000-05:00"
+  "resourceType" : "ValueSet",
+  "id" : "2.16.840.1.113883.3.7643.3.1025",
+  "meta" : {
+    "versionId" : "6",
+    "lastUpdated" : "2022-03-02T18:05:07.000-05:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "url": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.7643.3.1025",
-  "version": "20190108",
-  "name": "Free T4 (Thyroxine) Test",
-  "status": "active",
-  "date": "2022-03-03T18:46:01-05:00",
-  "publisher": "Oncology Nursing Society Steward",
-  "compose": {
-    "include": [
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "Oncology Nursing Society Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2022-12-15"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2019-01-08"
+    }
+  ],
+  "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.7643.3.1025",
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113883.3.7643.3.1025"
+    }
+  ],
+  "version" : "20190108",
+  "name" : "FreeT4ThyroxineTest",
+  "title" : "Free T4 (Thyroxine) Test",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2022-03-03T18:46:01-05:00",
+  "publisher" : "Oncology Nursing Society Steward",
+  "description" : "There were not any concepts related to blood only, just dried blood spot (DBS). Therefore, we have included the DBS concept for consideration.",
+  "jurisdiction" : [
+    {
+      "extension" : [
+        {
+          "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
+          "valueString" : "UNKNOWN"
+        }
+      ]
+    }
+  ],
+  "purpose" : "(Clinical Focus: This value set captures free T4 test.),(Data Element Scope: This would use \"Laboratory Test\" QDM category.),(Inclusion Criteria: Concepts derived from the free T4 and TSH panel using Mass/Volume.),(Exclusion Criteria: )",
+  "compose" : {
+    "include" : [
       {
-        "valueSet": [
+        "valueSet" : [
           "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.7643.2.1019"
         ]
       }
     ]
   },
-  "expansion": {
-    "identifier": "urn:uuid:e2fb8866-aeef-4a7a-9da5-585644687b5c",
-    "timestamp": "2022-09-27T20:54:40-04:00",
-    "total": 2,
-    "offset": 0,
-    "parameter": [
+  "expansion" : {
+    "identifier" : "urn:uuid:8689d567-2dfc-468d-a38b-4e88d8e96841",
+    "timestamp" : "2023-06-29T17:29:01-04:00",
+    "total" : 2,
+    "offset" : 0,
+    "parameter" : [
       {
-        "name": "count",
-        "valueInteger": 1000
+        "name" : "count",
+        "valueInteger" : 1000
       },
       {
-        "name": "offset",
-        "valueInteger": 0
+        "name" : "offset",
+        "valueInteger" : 0
       }
     ],
-    "contains": [
+    "contains" : [
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "3024-7",
-        "display": "Thyroxine (T4) free [Mass/volume] in Serum or Plasma"
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "3024-7",
+        "display" : "Thyroxine (T4) free [Mass/volume] in Serum or Plasma"
       },
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "53349-7",
-        "display": "Thyroxine (T4) free [Mass/volume] in DBS"
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "53349-7",
+        "display" : "Thyroxine (T4) free [Mass/volume] in DBS"
       }
     ]
   }

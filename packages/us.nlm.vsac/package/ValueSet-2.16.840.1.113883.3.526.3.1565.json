@@ -1,46 +1,83 @@
 {
-  "resourceType": "ValueSet",
-  "id": "2.16.840.1.113883.3.526.3.1565",
-  "meta": {
-    "versionId": "8",
-    "lastUpdated": "2022-03-02T18:06:18.000-05:00"
+  "resourceType" : "ValueSet",
+  "id" : "2.16.840.1.113883.3.526.3.1565",
+  "meta" : {
+    "versionId" : "8",
+    "lastUpdated" : "2022-03-02T18:06:18.000-05:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "url": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.526.3.1565",
-  "version": "20200307",
-  "name": "Positive Depression Screening",
-  "status": "active",
-  "date": "2022-03-03T18:46:01-05:00",
-  "publisher": "Mathematica",
-  "compose": {
-    "include": [
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "Mathematica EP"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2022-12-15"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2020-03-07"
+    }
+  ],
+  "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.526.3.1565",
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113883.3.526.3.1565"
+    }
+  ],
+  "version" : "20200307",
+  "name" : "PositiveDepressionScreening",
+  "title" : "Positive Depression Screening",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2022-03-03T18:46:01-05:00",
+  "publisher" : "Mathematica",
+  "jurisdiction" : [
+    {
+      "extension" : [
+        {
+          "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
+          "valueString" : "UNKNOWN"
+        }
+      ]
+    }
+  ],
+  "purpose" : "(Clinical Focus: This value set contains concepts that represent situations in which a depression screen was performed by the health care professional and the finding or result was positive for depression.),(Data Element Scope: This value set may use the Quality Data Model (QDM) category related to Assessment.),(Inclusion Criteria: Includes only relevant concepts associated with screening for depression whereby the outcome is positive.),(Exclusion Criteria: No exclusions.)",
+  "compose" : {
+    "include" : [
       {
-        "valueSet": [
+        "valueSet" : [
           "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.600.2450"
         ]
       }
     ]
   },
-  "expansion": {
-    "identifier": "urn:uuid:c6246105-8af6-41c0-8d2c-339a8fc27e6c",
-    "timestamp": "2022-09-28T00:11:43-04:00",
-    "total": 1,
-    "offset": 0,
-    "parameter": [
+  "expansion" : {
+    "identifier" : "urn:uuid:b1369868-7f54-41e9-97c7-c2298d6a2f76",
+    "timestamp" : "2023-06-29T19:20:56-04:00",
+    "total" : 1,
+    "offset" : 0,
+    "parameter" : [
       {
-        "name": "count",
-        "valueInteger": 1000
+        "name" : "count",
+        "valueInteger" : 1000
       },
       {
-        "name": "offset",
-        "valueInteger": 0
+        "name" : "offset",
+        "valueInteger" : 0
       }
     ],
-    "contains": [
+    "contains" : [
       {
-        "system": "http://snomed.info/sct",
-        "version": "http://snomed.info/sct/731000124108/version/20220301",
-        "code": "428181000124104",
-        "display": "Depression screening positive (finding)"
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20230301",
+        "code" : "428181000124104",
+        "display" : "Depression screening positive (finding)"
       }
     ]
   }

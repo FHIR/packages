@@ -1,52 +1,89 @@
 {
-  "resourceType": "ValueSet",
-  "id": "2.16.840.1.113762.1.4.1221.4",
-  "meta": {
-    "versionId": "9",
-    "lastUpdated": "2020-06-03T01:00:32.000-04:00"
+  "resourceType" : "ValueSet",
+  "id" : "2.16.840.1.113762.1.4.1221.4",
+  "meta" : {
+    "versionId" : "9",
+    "lastUpdated" : "2020-06-03T01:00:32.000-04:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "url": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1221.4",
-  "version": "20200603",
-  "name": "Progestogen only or Progestin only Pills (POP)",
-  "status": "active",
-  "date": "2020-06-03T01:00:32-04:00",
-  "publisher": "NACHC Steward",
-  "compose": {
-    "include": [
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "NACHC Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2022-12-15"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2020-06-03"
+    }
+  ],
+  "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1221.4",
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113762.1.4.1221.4"
+    }
+  ],
+  "version" : "20200603",
+  "name" : "ProgestogenOnlyOrProgestinOnlyPillsPOP",
+  "title" : "Progestogen only or Progestin only Pills (POP)",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2020-06-03T01:00:32-04:00",
+  "publisher" : "NACHC Steward",
+  "jurisdiction" : [
+    {
+      "extension" : [
+        {
+          "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
+          "valueString" : "UNKNOWN"
+        }
+      ]
+    }
+  ],
+  "purpose" : "(Clinical Focus: This set of values contains the use of both generic and brand name Progestogen-only or Progestin-only Pills (POP) for contraception.),(Data Element Scope: The intent of this data element is to identify patients who have expressed the use of both generic and brand name Progestogen-only / Progestin-only Pills (POP). Using the Quality Data Model, this particular element would map to the \"Medication\" category, with Datatype: \"Medication, Active\".),(Inclusion Criteria: Contraception use that indicates active usage of both generic and brand name Progestogen-only / Progestin-only Pills (POP).),(Exclusion Criteria: There is no exclusion criteria listed for this value set.)",
+  "compose" : {
+    "include" : [
       {
-        "system": "http://snomed.info/sct",
-        "version": "http://snomed.info/sct/731000124108/version/20220301",
-        "filter": [
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20230301",
+        "filter" : [
           {
-            "property": "concept",
-            "op": "is-a",
-            "value": "169467008"
+            "property" : "concept",
+            "op" : "is-a",
+            "value" : "169467008"
           }
         ]
       }
     ]
   },
-  "expansion": {
-    "identifier": "urn:uuid:eefb2240-e199-4a86-9581-10c9824b3bda",
-    "timestamp": "2022-09-28T00:28:48-04:00",
-    "total": 1,
-    "offset": 0,
-    "parameter": [
+  "expansion" : {
+    "identifier" : "urn:uuid:df29f75f-44f9-4268-86c8-81e27301020c",
+    "timestamp" : "2023-06-29T19:29:53-04:00",
+    "total" : 1,
+    "offset" : 0,
+    "parameter" : [
       {
-        "name": "count",
-        "valueInteger": 1000
+        "name" : "count",
+        "valueInteger" : 1000
       },
       {
-        "name": "offset",
-        "valueInteger": 0
+        "name" : "offset",
+        "valueInteger" : 0
       }
     ],
-    "contains": [
+    "contains" : [
       {
-        "system": "http://snomed.info/sct",
-        "version": "http://snomed.info/sct/731000124108/version/20220301",
-        "code": "169467008",
-        "display": "Progestogen only oral contraceptive (finding)"
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20230301",
+        "code" : "169467008",
+        "display" : "Uses progestogen only oral contraception (finding)"
       }
     ]
   }

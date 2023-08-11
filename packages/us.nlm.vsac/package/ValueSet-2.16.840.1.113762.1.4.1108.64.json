@@ -1,37 +1,80 @@
 {
-  "resourceType": "ValueSet",
-  "id": "2.16.840.1.113762.1.4.1108.64",
-  "meta": {
-    "versionId": "6",
-    "lastUpdated": "2021-07-19T14:02:41.000-04:00"
+  "resourceType" : "ValueSet",
+  "id" : "2.16.840.1.113762.1.4.1108.64",
+  "meta" : {
+    "versionId" : "5",
+    "lastUpdated" : "2023-03-06T16:09:31.000-05:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "url": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1108.64",
-  "version": "Draft",
-  "name": "test",
-  "status": "draft",
-  "date": "2021-07-19T14:02:41-04:00",
-  "publisher": "Mathematica",
-  "expansion": {
-    "identifier": "urn:uuid:3e484c20-b7b7-4630-9fd7-778c77dc96ab",
-    "timestamp": "2022-09-28T02:13:30-04:00",
-    "total": 1,
-    "offset": 0,
-    "parameter": [
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "Mathematica EP"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2022-12-15"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2021-03-23"
+    }
+  ],
+  "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1108.64",
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113762.1.4.1108.64"
+    }
+  ],
+  "version" : "20210323",
+  "name" : "Test",
+  "title" : "test",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2021-03-23T01:12:54-04:00",
+  "publisher" : "Mathematica",
+  "description" : "For testing use only",
+  "jurisdiction" : [
+    {
+      "extension" : [
+        {
+          "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
+          "valueString" : "UNKNOWN"
+        }
+      ]
+    }
+  ],
+  "purpose" : "(Clinical Focus: ),(Data Element Scope: ),(Inclusion Criteria: ),(Exclusion Criteria: )",
+  "compose" : {
+    "include" : [
       {
-        "name": "count",
-        "valueInteger": 1000
+        "system" : "http://www.ama-assn.org/go/cpt",
+        "concept" : [
+          {
+            "code" : "0497T",
+            "display" : "External patient-activated, physician- or other qualified health care professional-prescribed, electrocardiographic rhythm derived event recorder without 24-hour attended monitoring; in-office connection"
+          }
+        ]
+      }
+    ]
+  },
+  "expansion" : {
+    "identifier" : "urn:uuid:b7ed3b71-6bb1-4172-9c00-07e5313fcd2c",
+    "timestamp" : "2023-06-29T20:11:45-04:00",
+    "total" : 0,
+    "offset" : 0,
+    "parameter" : [
+      {
+        "name" : "count",
+        "valueInteger" : 1000
       },
       {
-        "name": "offset",
-        "valueInteger": 0
-      }
-    ],
-    "contains": [
-      {
-        "system": "http://www.ama-assn.org/go/cpt",
-        "version": "2022",
-        "code": "0497T",
-        "display": "External patient-activated, physician- or other qualified health care professional-prescribed, electrocardiographic rhythm derived event recorder without 24-hour attended monitoring; in-office connection"
+        "name" : "offset",
+        "valueInteger" : 0
       }
     ]
   }

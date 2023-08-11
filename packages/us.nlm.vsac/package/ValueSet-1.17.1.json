@@ -1,51 +1,88 @@
 {
-  "resourceType": "ValueSet",
-  "id": "1.17.1",
-  "meta": {
-    "versionId": "5",
-    "lastUpdated": "2020-10-20T01:02:44.000-04:00"
+  "resourceType" : "ValueSet",
+  "id" : "1.17.1",
+  "meta" : {
+    "versionId" : "5",
+    "lastUpdated" : "2020-10-20T01:02:44.000-04:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "url": "http://cts.nlm.nih.gov/fhir/ValueSet/1.17.1",
-  "version": "20201020",
-  "name": "Pain severity  0 to10 verbal numeric rating",
-  "status": "active",
-  "date": "2020-10-20T01:02:44-04:00",
-  "publisher": "Cliniwiz Steward",
-  "compose": {
-    "include": [
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "Cliniwiz Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2022-12-15"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2020-10-20"
+    }
+  ],
+  "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/1.17.1",
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:1.17.1"
+    }
+  ],
+  "version" : "20201020",
+  "name" : "PainSeverity0To10VerbalNumericRating",
+  "title" : "Pain severity  0 to10 verbal numeric rating",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2020-10-20T01:02:44-04:00",
+  "publisher" : "Cliniwiz Steward",
+  "description" : "0= No Pin\n1-3 = mild pain\n4-6 = Moderate pain\n7-9 = severe\n10 = very severe",
+  "jurisdiction" : [
+    {
+      "extension" : [
+        {
+          "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
+          "valueString" : "UNKNOWN"
+        }
+      ]
+    }
+  ],
+  "purpose" : "(Clinical Focus: ),(Data Element Scope: ),(Inclusion Criteria: ),(Exclusion Criteria: )",
+  "compose" : {
+    "include" : [
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "concept": [
+        "system" : "http://loinc.org",
+        "concept" : [
           {
-            "code": "72514-3",
-            "display": "Pain severity - 0-10 verbal numeric rating [Score] - Reported"
+            "code" : "72514-3",
+            "display" : "Pain severity - 0-10 verbal numeric rating [Score] - Reported"
           }
         ]
       }
     ]
   },
-  "expansion": {
-    "identifier": "urn:uuid:336d5219-6a39-492b-a624-c16992dad85d",
-    "timestamp": "2022-09-27T23:46:40-04:00",
-    "total": 1,
-    "offset": 0,
-    "parameter": [
+  "expansion" : {
+    "identifier" : "urn:uuid:09feba88-96a1-4b88-9c11-7e7c037d29aa",
+    "timestamp" : "2023-06-29T19:09:09-04:00",
+    "total" : 1,
+    "offset" : 0,
+    "parameter" : [
       {
-        "name": "count",
-        "valueInteger": 1000
+        "name" : "count",
+        "valueInteger" : 1000
       },
       {
-        "name": "offset",
-        "valueInteger": 0
+        "name" : "offset",
+        "valueInteger" : 0
       }
     ],
-    "contains": [
+    "contains" : [
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "72514-3",
-        "display": "Pain severity - 0-10 verbal numeric rating [Score] - Reported"
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "72514-3",
+        "display" : "Pain severity - 0-10 verbal numeric rating [Score] - Reported"
       }
     ]
   }

@@ -1,203 +1,232 @@
 {
-  "resourceType": "ValueSet",
-  "id": "2.16.840.1.113762.1.4.1222.1229",
-  "meta": {
-    "versionId": "5",
-    "lastUpdated": "2021-09-28T01:01:03.000-04:00"
+  "resourceType" : "ValueSet",
+  "id" : "2.16.840.1.113762.1.4.1222.1229",
+  "meta" : {
+    "versionId" : "15",
+    "lastUpdated" : "2022-11-02T01:02:34.000-04:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "url": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1222.1229",
-  "version": "20210928",
-  "name": "Education Level",
-  "status": "active",
-  "date": "2021-09-28T01:01:03-04:00",
-  "publisher": "HL7 Patient Care WG Steward",
-  "compose": {
-    "include": [
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "MCC eCare Plan Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-keyWord",
+      "valueString" : "MCC_IG"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2022-12-15"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2022-11-02"
+    }
+  ],
+  "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1222.1229",
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113762.1.4.1222.1229"
+    }
+  ],
+  "version" : "20221102",
+  "name" : "EducationLevelSCT",
+  "title" : "Education Level SCT",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2022-11-02T01:02:34-04:00",
+  "publisher" : "HL7 Patient Care WG Steward",
+  "description" : "This value set may undergo changes until the HL7 Multiple Chronic Care FHIR IG is formally published in 2024.",
+  "jurisdiction" : [
+    {
+      "extension" : [
+        {
+          "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
+          "valueString" : "UNKNOWN"
+        }
+      ]
+    }
+  ],
+  "purpose" : "(Clinical Focus: This set of values addresses terms representing Education Level.),(Data Element Scope: The intent of this set of values is to identify the highest level of education achieved by the patient.),(Inclusion Criteria: Includes SNOMEDCT codes for Education Level.),(Exclusion Criteria: Terms not representative of observable encoded terms that may have values indicating Education Level.)",
+  "compose" : {
+    "include" : [
       {
-        "system": "http://snomed.info/sct",
-        "version": "http://snomed.info/sct/731000124108/version/20220301",
-        "filter": [
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20230301",
+        "filter" : [
           {
-            "property": "concept",
-            "op": "is-a",
-            "value": "365460000"
-          }
-        ]
-      }
-    ],
-    "exclude": [
-      {
-        "system": "http://snomed.info/sct",
-        "version": "http://snomed.info/sct/731000124108/version/20220301",
-        "filter": [
-          {
-            "property": "concept",
-            "op": "\u003d",
-            "value": "440345007"
+            "property" : "concept",
+            "op" : "descendent-of",
+            "value" : "365460000"
           }
         ]
       }
     ]
   },
-  "expansion": {
-    "identifier": "urn:uuid:97497b86-55bf-48d1-aa8c-a2af70e8c014",
-    "timestamp": "2022-09-27T20:25:49-04:00",
-    "total": 24,
-    "offset": 0,
-    "parameter": [
+  "expansion" : {
+    "identifier" : "urn:uuid:2fad92a8-77bc-4327-be6c-1c75ff3095f8",
+    "timestamp" : "2023-06-29T17:11:32-04:00",
+    "total" : 24,
+    "offset" : 0,
+    "parameter" : [
       {
-        "name": "count",
-        "valueInteger": 1000
+        "name" : "count",
+        "valueInteger" : 1000
       },
       {
-        "name": "offset",
-        "valueInteger": 0
+        "name" : "offset",
+        "valueInteger" : 0
       }
     ],
-    "contains": [
+    "contains" : [
       {
-        "system": "http://snomed.info/sct",
-        "version": "http://snomed.info/sct/731000124108/version/20220301",
-        "code": "224294005",
-        "display": "No formal education (finding)"
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20230301",
+        "code" : "224294005",
+        "display" : "No formal education (finding)"
       },
       {
-        "system": "http://snomed.info/sct",
-        "version": "http://snomed.info/sct/731000124108/version/20220301",
-        "code": "224295006",
-        "display": "Only received primary school education (finding)"
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20230301",
+        "code" : "224295006",
+        "display" : "Only received primary school education (finding)"
       },
       {
-        "system": "http://snomed.info/sct",
-        "version": "http://snomed.info/sct/731000124108/version/20220301",
-        "code": "224296007",
-        "display": "Educated to junior school level (finding)"
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20230301",
+        "code" : "224296007",
+        "display" : "Educated to junior school level (finding)"
       },
       {
-        "system": "http://snomed.info/sct",
-        "version": "http://snomed.info/sct/731000124108/version/20220301",
-        "code": "224297003",
-        "display": "Educated to secondary school level (finding)"
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20230301",
+        "code" : "224297003",
+        "display" : "Educated to secondary school level (finding)"
       },
       {
-        "system": "http://snomed.info/sct",
-        "version": "http://snomed.info/sct/731000124108/version/20220301",
-        "code": "224298008",
-        "display": "Continued education to sixth form (finding)"
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20230301",
+        "code" : "224298008",
+        "display" : "Continued education to sixth form (finding)"
       },
       {
-        "system": "http://snomed.info/sct",
-        "version": "http://snomed.info/sct/731000124108/version/20220301",
-        "code": "224299000",
-        "display": "Received higher education (finding)"
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20230301",
+        "code" : "224299000",
+        "display" : "Received higher education (finding)"
       },
       {
-        "system": "http://snomed.info/sct",
-        "version": "http://snomed.info/sct/731000124108/version/20220301",
-        "code": "224300008",
-        "display": "Received university education (finding)"
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20230301",
+        "code" : "224300008",
+        "display" : "Received university education (finding)"
       },
       {
-        "system": "http://snomed.info/sct",
-        "version": "http://snomed.info/sct/731000124108/version/20220301",
-        "code": "224301007",
-        "display": "Received polytechnic education (finding)"
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20230301",
+        "code" : "224301007",
+        "display" : "Received polytechnic education (finding)"
       },
       {
-        "system": "http://snomed.info/sct",
-        "version": "http://snomed.info/sct/731000124108/version/20220301",
-        "code": "224302000",
-        "display": "Received higher education college education (finding)"
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20230301",
+        "code" : "224302000",
+        "display" : "Received higher education college education (finding)"
       },
       {
-        "system": "http://snomed.info/sct",
-        "version": "http://snomed.info/sct/731000124108/version/20220301",
-        "code": "302140004",
-        "display": "Received further education (finding)"
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20230301",
+        "code" : "302140004",
+        "display" : "Received further education (finding)"
       },
       {
-        "system": "http://snomed.info/sct",
-        "version": "http://snomed.info/sct/731000124108/version/20220301",
-        "code": "365460000",
-        "display": "Finding of education received in the past (finding)"
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20230301",
+        "code" : "424587006",
+        "display" : "Received childhood special education (finding)"
       },
       {
-        "system": "http://snomed.info/sct",
-        "version": "http://snomed.info/sct/731000124108/version/20220301",
-        "code": "424587006",
-        "display": "Received childhood special education (finding)"
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20230301",
+        "code" : "426769009",
+        "display" : "Received graduate education (finding)"
       },
       {
-        "system": "http://snomed.info/sct",
-        "version": "http://snomed.info/sct/731000124108/version/20220301",
-        "code": "426769009",
-        "display": "Received graduate education (finding)"
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20230301",
+        "code" : "440344006",
+        "display" : "Received postgraduate education (finding)"
       },
       {
-        "system": "http://snomed.info/sct",
-        "version": "http://snomed.info/sct/731000124108/version/20220301",
-        "code": "440344006",
-        "display": "Received postgraduate education (finding)"
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20230301",
+        "code" : "440345007",
+        "display" : "Received doctorate degree (finding)"
       },
       {
-        "system": "http://snomed.info/sct",
-        "version": "http://snomed.info/sct/731000124108/version/20220301",
-        "code": "440586004",
-        "display": "Received vocational training (finding)"
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20230301",
+        "code" : "440586004",
+        "display" : "Received vocational training (finding)"
       },
       {
-        "system": "http://snomed.info/sct",
-        "version": "http://snomed.info/sct/731000124108/version/20220301",
-        "code": "440632003",
-        "display": "Received postdoctorate education (finding)"
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20230301",
+        "code" : "440632003",
+        "display" : "Received postdoctorate education (finding)"
       },
       {
-        "system": "http://snomed.info/sct",
-        "version": "http://snomed.info/sct/731000124108/version/20220301",
-        "code": "473461003",
-        "display": "Educated to high school level (finding)"
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20230301",
+        "code" : "473461003",
+        "display" : "Educated to high school level (finding)"
       },
       {
-        "system": "http://snomed.info/sct",
-        "version": "http://snomed.info/sct/731000124108/version/20220301",
-        "code": "473462005",
-        "display": "Received early childhood education (finding)"
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20230301",
+        "code" : "473462005",
+        "display" : "Received early childhood education (finding)"
       },
       {
-        "system": "http://snomed.info/sct",
-        "version": "http://snomed.info/sct/731000124108/version/20220301",
-        "code": "473463000",
-        "display": "Received elementary school education (finding)"
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20230301",
+        "code" : "473463000",
+        "display" : "Received elementary school education (finding)"
       },
       {
-        "system": "http://snomed.info/sct",
-        "version": "http://snomed.info/sct/731000124108/version/20220301",
-        "code": "5251000175109",
-        "display": "Received certificate of high school equivalency (finding)"
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20230301",
+        "code" : "5251000175109",
+        "display" : "Received certificate of high school equivalency (finding)"
       },
       {
-        "system": "http://snomed.info/sct",
-        "version": "http://snomed.info/sct/731000124108/version/20220301",
-        "code": "603434003",
-        "display": "Educated to senior high school level (finding)"
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20230301",
+        "code" : "603434003",
+        "display" : "Educated to senior high school level (finding)"
       },
       {
-        "system": "http://snomed.info/sct",
-        "version": "http://snomed.info/sct/731000124108/version/20220301",
-        "code": "603435002",
-        "display": "Educated to junior high school level (finding)"
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20230301",
+        "code" : "603435002",
+        "display" : "Educated to junior high school level (finding)"
       },
       {
-        "system": "http://snomed.info/sct",
-        "version": "http://snomed.info/sct/731000124108/version/20220301",
-        "code": "722465008",
-        "display": "Received education at technical college (finding)"
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20230301",
+        "code" : "722465008",
+        "display" : "Received education at technical college (finding)"
       },
       {
-        "system": "http://snomed.info/sct",
-        "version": "http://snomed.info/sct/731000124108/version/20220301",
-        "code": "741725004",
-        "display": "Primary school started but not finished (finding)"
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20230301",
+        "code" : "741725004",
+        "display" : "Primary school started but not finished (finding)"
       }
     ]
   }

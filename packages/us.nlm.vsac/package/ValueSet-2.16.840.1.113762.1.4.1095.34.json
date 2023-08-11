@@ -1,61 +1,86 @@
 {
-  "resourceType": "ValueSet",
-  "id": "2.16.840.1.113762.1.4.1095.34",
-  "meta": {
-    "versionId": "4",
-    "lastUpdated": "2015-11-12T01:00:01.000-05:00"
+  "resourceType" : "ValueSet",
+  "id" : "2.16.840.1.113762.1.4.1095.34",
+  "meta" : {
+    "versionId" : "9",
+    "lastUpdated" : "2023-02-11T01:02:55.000-05:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "url": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1095.34",
-  "version": "20151112",
-  "name": "Malnutrition Screening Not At Risk",
-  "status": "active",
-  "date": "2015-11-12T01:00:01-05:00",
-  "publisher": "AND Steward",
-  "compose": {
-    "include": [
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "AND Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2023-02-11"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2023-02-11"
+    }
+  ],
+  "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1095.34",
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113762.1.4.1095.34"
+    }
+  ],
+  "version" : "20230211",
+  "name" : "MalnutritionScreeningNotAtRiskResult",
+  "title" : "Malnutrition Screening Not At Risk Result",
+  "status" : "active",
+  "date" : "2023-02-11T01:02:55-05:00",
+  "publisher" : "AND Steward",
+  "jurisdiction" : [
+    {
+      "extension" : [
+        {
+          "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
+          "valueString" : "UNKNOWN"
+        }
+      ]
+    }
+  ],
+  "purpose" : "(Clinical Focus: This set of values indicates that a patient was found not to be at risk for malnutrition after completing a malnutrition screening done by the health care professional.),(Data Element Scope: The intent of this data element is to document individuals not at risk for malnutrition.),(Inclusion Criteria: Malnutrition screening which indicates an individual is at risk as indicated by SNOMED-CT.),(Exclusion Criteria: Any malnutrition related term which indicates a patient is at risk for malnutrition from other terminology sets than SNOMED-CT.)",
+  "compose" : {
+    "include" : [
       {
-        "system": "http://snomed.info/sct",
-        "version": "http://snomed.info/sct/731000124108/version/20220301",
-        "concept": [
+        "system" : "http://snomed.info/sct",
+        "concept" : [
           {
-            "code": "190603003",
-            "display": "Mild protein-calorie malnutrition (weight for age 75-89% of standard) (disorder)"
-          },
-          {
-            "code": "77702009",
-            "display": "Malnutrition of mild degree (Gomez: 75% to less than 90% of standard weight) (disorder)"
+            "code" : "36823005",
+            "display" : "Normal diet (finding)"
           }
         ]
       }
     ]
   },
-  "expansion": {
-    "identifier": "urn:uuid:3678db2d-1d30-4d86-8134-26dd210af9f6",
-    "timestamp": "2022-09-27T22:34:04-04:00",
-    "total": 2,
-    "offset": 0,
-    "parameter": [
+  "expansion" : {
+    "identifier" : "urn:uuid:c7822dd1-c867-4885-b5ab-42d6f727464d",
+    "timestamp" : "2023-06-29T18:29:15-04:00",
+    "total" : 1,
+    "offset" : 0,
+    "parameter" : [
       {
-        "name": "count",
-        "valueInteger": 1000
+        "name" : "count",
+        "valueInteger" : 1000
       },
       {
-        "name": "offset",
-        "valueInteger": 0
+        "name" : "offset",
+        "valueInteger" : 0
       }
     ],
-    "contains": [
+    "contains" : [
       {
-        "system": "http://snomed.info/sct",
-        "version": "http://snomed.info/sct/731000124108/version/20220301",
-        "code": "190603003",
-        "display": "Mild protein-calorie malnutrition (weight for age 75-89 percent of standard) (disorder)"
-      },
-      {
-        "system": "http://snomed.info/sct",
-        "version": "http://snomed.info/sct/731000124108/version/20220301",
-        "code": "77702009",
-        "display": "Malnutrition of mild degree (Gomez: 75 percent to less than 90 percent of standard weight) (disorder)"
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20230301",
+        "code" : "36823005",
+        "display" : "Normal diet (finding)"
       }
     ]
   }

@@ -1,51 +1,87 @@
 {
-  "resourceType": "ValueSet",
-  "id": "2.16.840.1.113762.1.4.1111.12",
-  "meta": {
-    "versionId": "5",
-    "lastUpdated": "2016-02-18T16:33:37.000-05:00"
+  "resourceType" : "ValueSet",
+  "id" : "2.16.840.1.113762.1.4.1111.12",
+  "meta" : {
+    "versionId" : "3",
+    "lastUpdated" : "2016-02-18T16:33:37.000-05:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "url": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1111.12",
-  "version": "Draft",
-  "name": "Primary Procedure",
-  "status": "draft",
-  "date": "2016-02-18T16:33:37-05:00",
-  "publisher": "Lantana EH Steward",
-  "compose": {
-    "include": [
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "Lantana EH Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2022-12-15"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2015-04-30"
+    }
+  ],
+  "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1111.12",
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113762.1.4.1111.12"
+    }
+  ],
+  "version" : "20150430",
+  "name" : "PrimaryProcedure",
+  "title" : "Primary Procedure",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2015-04-30T01:00:08-04:00",
+  "publisher" : "Lantana EH Steward",
+  "jurisdiction" : [
+    {
+      "extension" : [
+        {
+          "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
+          "valueString" : "UNKNOWN"
+        }
+      ]
+    }
+  ],
+  "purpose" : "(Clinical Focus: This set of values contains a qualifier for a procedure.),(Data Element Scope: The intent of this data element is to identify a primary procedure.  Using the Quality Data Model, this particular element would map to the \"Attribute\" category.),(Inclusion Criteria: Include SNOMED CT codes that identify primary procedures.),(Exclusion Criteria: None.)",
+  "compose" : {
+    "include" : [
       {
-        "system": "http://snomed.info/sct",
-        "version": "http://snomed.info/sct/731000124108/version/20220301",
-        "concept": [
+        "system" : "http://snomed.info/sct",
+        "concept" : [
           {
-            "code": "399455000",
-            "display": "Primary procedure (qualifier value)"
+            "code" : "399455000",
+            "display" : "Primary procedure (qualifier value)"
           }
         ]
       }
     ]
   },
-  "expansion": {
-    "identifier": "urn:uuid:71f3c5fc-c25b-4f82-afe0-3ea128b42a88",
-    "timestamp": "2022-09-28T00:25:36-04:00",
-    "total": 1,
-    "offset": 0,
-    "parameter": [
+  "expansion" : {
+    "identifier" : "urn:uuid:4acf340f-c847-4f77-b759-983fe6ba6adb",
+    "timestamp" : "2023-06-29T19:28:18-04:00",
+    "total" : 1,
+    "offset" : 0,
+    "parameter" : [
       {
-        "name": "count",
-        "valueInteger": 1000
+        "name" : "count",
+        "valueInteger" : 1000
       },
       {
-        "name": "offset",
-        "valueInteger": 0
+        "name" : "offset",
+        "valueInteger" : 0
       }
     ],
-    "contains": [
+    "contains" : [
       {
-        "system": "http://snomed.info/sct",
-        "version": "http://snomed.info/sct/731000124108/version/20220301",
-        "code": "399455000",
-        "display": "Primary procedure (qualifier value)"
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20230301",
+        "code" : "399455000",
+        "display" : "Primary procedure (qualifier value)"
       }
     ]
   }

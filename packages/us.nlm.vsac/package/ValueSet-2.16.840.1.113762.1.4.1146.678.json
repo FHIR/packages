@@ -1,61 +1,110 @@
 {
-  "resourceType": "ValueSet",
-  "id": "2.16.840.1.113762.1.4.1146.678",
-  "meta": {
-    "versionId": "7",
-    "lastUpdated": "2018-10-31T01:13:47.000-04:00"
+  "resourceType" : "ValueSet",
+  "id" : "2.16.840.1.113762.1.4.1146.678",
+  "meta" : {
+    "versionId" : "11",
+    "lastUpdated" : "2023-01-25T01:08:07.000-05:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "url": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1146.678",
-  "version": "20181031",
-  "name": "Postpartum (ICD10CM)",
-  "status": "active",
-  "date": "2018-10-31T01:00:09-04:00",
-  "publisher": "CSTE Steward",
-  "compose": {
-    "include": [
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "CSTE Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-keyWord",
+      "valueString" : "G_Common"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2023-01-25"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2023-01-25"
+    }
+  ],
+  "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1146.678",
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113762.1.4.1146.678"
+    }
+  ],
+  "version" : "20230125",
+  "name" : "PostpartumICD10CM",
+  "title" : "Postpartum (ICD10CM)",
+  "status" : "active",
+  "date" : "2023-01-25T01:08:07-05:00",
+  "publisher" : "CSTE Steward",
+  "jurisdiction" : [
+    {
+      "extension" : [
+        {
+          "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
+          "valueString" : "UNKNOWN"
+        }
+      ]
+    }
+  ],
+  "purpose" : "(Clinical Focus: This value set contains diagnoses or problems that represent that the patient is Postpartum regardless of the clinical presentation of the condition),(Data Element Scope: Diagnoses or problems documented in a clinical record.),(Inclusion Criteria: The code representing that a patient is Postpartum),(Exclusion Criteria: None)",
+  "compose" : {
+    "include" : [
       {
-        "system": "http://hl7.org/fhir/sid/icd-10-cm",
-        "version": "2023",
-        "concept": [
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "concept" : [
           {
-            "code": "Z39",
-            "display": "Encounter for maternal postpartum care and examination"
+            "code" : "Z39.0",
+            "display" : "Encounter for care and examination of mother immediately after delivery"
           },
           {
-            "code": "Z39.2",
-            "display": "Encounter for routine postpartum follow-up"
+            "code" : "Z39.1",
+            "display" : "Encounter for care and examination of lactating mother"
+          },
+          {
+            "code" : "Z39.2",
+            "display" : "Encounter for routine postpartum follow-up"
           }
         ]
       }
     ]
   },
-  "expansion": {
-    "identifier": "urn:uuid:e7e966a3-46dc-44d5-9bfa-a2c3991cdead",
-    "timestamp": "2022-09-28T00:12:42-04:00",
-    "total": 2,
-    "offset": 0,
-    "parameter": [
+  "expansion" : {
+    "identifier" : "urn:uuid:80606d11-ebae-446b-afd6-4c51f818f9ae",
+    "timestamp" : "2023-06-29T19:21:45-04:00",
+    "total" : 3,
+    "offset" : 0,
+    "parameter" : [
       {
-        "name": "count",
-        "valueInteger": 1000
+        "name" : "count",
+        "valueInteger" : 1000
       },
       {
-        "name": "offset",
-        "valueInteger": 0
+        "name" : "offset",
+        "valueInteger" : 0
       }
     ],
-    "contains": [
+    "contains" : [
       {
-        "system": "http://hl7.org/fhir/sid/icd-10-cm",
-        "version": "2023",
-        "code": "Z39",
-        "display": "Encounter for maternal postpartum care and examination"
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2023",
+        "code" : "Z39.0",
+        "display" : "Encounter for care and examination of mother immediately after delivery"
       },
       {
-        "system": "http://hl7.org/fhir/sid/icd-10-cm",
-        "version": "2023",
-        "code": "Z39.2",
-        "display": "Encounter for routine postpartum follow-up"
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2023",
+        "code" : "Z39.1",
+        "display" : "Encounter for care and examination of lactating mother"
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2023",
+        "code" : "Z39.2",
+        "display" : "Encounter for routine postpartum follow-up"
       }
     ]
   }

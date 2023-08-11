@@ -1,153 +1,185 @@
 {
-  "resourceType": "ValueSet",
-  "id": "2.16.840.1.113762.1.4.1181.35",
-  "meta": {
-    "versionId": "13",
-    "lastUpdated": "2021-01-20T15:36:22.000-05:00"
+  "resourceType" : "ValueSet",
+  "id" : "2.16.840.1.113762.1.4.1181.35",
+  "meta" : {
+    "versionId" : "10",
+    "lastUpdated" : "2021-01-20T15:36:22.000-05:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "url": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1181.35",
-  "version": "Draft",
-  "name": "Body temperature measurement method and device reference set",
-  "status": "draft",
-  "date": "2021-01-20T15:36:22-05:00",
-  "publisher": "HSPC Steward",
-  "compose": {
-    "include": [
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "HSPC Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2022-12-15"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2020-04-04"
+    }
+  ],
+  "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1181.35",
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113762.1.4.1181.35"
+    }
+  ],
+  "version" : "20200404",
+  "name" : "BodyTemperatureMeasurementMethodAndDeviceReferenceSet",
+  "title" : "Body temperature measurement method and device reference set",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2020-04-04T01:00:20-04:00",
+  "publisher" : "HSPC Steward",
+  "jurisdiction" : [
+    {
+      "extension" : [
+        {
+          "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
+          "valueString" : "UNKNOWN"
+        }
+      ]
+    }
+  ],
+  "purpose" : "(Clinical Focus: Body temperature measurement method and device value set as defined by the Clinical Information Modeling Initiative.),(Data Element Scope: Body temperature is taken and the user records measurement method or instrument used to evaluate the temperature. It combines method and device values because they often overlap in EHR documentation systems, resulting the SNOMED CT concept: Body temperature measurement method and device reference set (foundation metadata concept)\n23911000205102),(Inclusion Criteria: This value set is missing 3 concepts from the HSPC extension namespace: Digital thermometer (physical object) 1461000205102;  Non-contact infrared thermometer (physical object) 2331000205106; \nThermoluminescent diode thermometer (physical object) 24031000205108;),(Exclusion Criteria: )",
+  "compose" : {
+    "include" : [
       {
-        "system": "http://snomed.info/sct",
-        "version": "http://snomed.info/sct/731000124108/version/20220301",
-        "concept": [
+        "system" : "http://snomed.info/sct",
+        "concept" : [
           {
-            "code": "118376009",
-            "display": "Thermocouple device (physical object)"
+            "code" : "118376009",
+            "display" : "Thermocouple device (physical object)"
           },
           {
-            "code": "448349000",
-            "display": "Tympanic thermometer (physical object)"
+            "code" : "255582007",
+            "display" : "Rectal (qualifier value)"
           },
           {
-            "code": "448735006",
-            "display": "Forehead thermometer (physical object)"
+            "code" : "260548002",
+            "display" : "Oral (qualifier value)"
           },
           {
-            "code": "462983001",
-            "display": "Liquid-crystal patient thermometer (physical object)"
+            "code" : "448349000",
+            "display" : "Tympanic thermometer (physical object)"
           },
           {
-            "code": "464210001",
-            "display": "Thermographic camera (physical object)"
+            "code" : "448735006",
+            "display" : "Forehead thermometer (physical object)"
           },
           {
-            "code": "467862000",
-            "display": "Capillary patient thermometer, mercury (physical object)"
+            "code" : "462983001",
+            "display" : "Liquid-crystal patient thermometer (physical object)"
           },
           {
-            "code": "700643004",
-            "display": "Infrared patient thermometer, ear (physical object)"
+            "code" : "464210001",
+            "display" : "Thermographic camera (physical object)"
           },
           {
-            "code": "700644005",
-            "display": "Infrared patient thermometer, skin (physical object)"
+            "code" : "467862000",
+            "display" : "Capillary patient thermometer, mercury (physical object)"
           },
           {
-            "code": "706158001",
-            "display": "Electronic patient thermometer (physical object)"
+            "code" : "700643004",
+            "display" : "Infrared patient thermometer, ear (physical object)"
           },
           {
-            "code": "781472002",
-            "display": "Infrared thermometer for ear and skin (physical object)"
+            "code" : "700644005",
+            "display" : "Infrared patient thermometer, skin (physical object)"
+          },
+          {
+            "code" : "706158001",
+            "display" : "Electronic patient thermometer (physical object)"
+          },
+          {
+            "code" : "781472002",
+            "display" : "Infrared thermometer for ear and skin (physical object)"
           }
         ]
       }
     ]
   },
-  "expansion": {
-    "identifier": "urn:uuid:e920a739-57c4-4786-87a1-04760d5ce846",
-    "timestamp": "2022-09-27T18:30:14-04:00",
-    "total": 12,
-    "offset": 0,
-    "parameter": [
+  "expansion" : {
+    "identifier" : "urn:uuid:25adaec3-2a84-469f-8e5f-a6649f9574e9",
+    "timestamp" : "2023-06-29T16:00:41-04:00",
+    "total" : 10,
+    "offset" : 0,
+    "parameter" : [
       {
-        "name": "count",
-        "valueInteger": 1000
+        "name" : "count",
+        "valueInteger" : 1000
       },
       {
-        "name": "offset",
-        "valueInteger": 0
+        "name" : "offset",
+        "valueInteger" : 0
       }
     ],
-    "contains": [
+    "contains" : [
       {
-        "system": "http://snomed.info/sct",
-        "version": "http://snomed.info/sct/731000124108/version/20220301",
-        "code": "118376009",
-        "display": "Thermocouple device (physical object)"
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20230301",
+        "code" : "118376009",
+        "display" : "Thermocouple device (physical object)"
       },
       {
-        "system": "http://snomed.info/sct",
-        "version": "http://snomed.info/sct/731000124108/version/20220301",
-        "code": "255582007",
-        "display": "Rectal (qualifier value)"
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20230301",
+        "code" : "448349000",
+        "display" : "Tympanic thermometer (physical object)"
       },
       {
-        "system": "http://snomed.info/sct",
-        "version": "http://snomed.info/sct/731000124108/version/20220301",
-        "code": "260548002",
-        "display": "Oral (qualifier value)"
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20230301",
+        "code" : "448735006",
+        "display" : "Forehead thermometer (physical object)"
       },
       {
-        "system": "http://snomed.info/sct",
-        "version": "http://snomed.info/sct/731000124108/version/20220301",
-        "code": "448349000",
-        "display": "Tympanic thermometer (physical object)"
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20230301",
+        "code" : "462983001",
+        "display" : "Liquid-crystal patient thermometer (physical object)"
       },
       {
-        "system": "http://snomed.info/sct",
-        "version": "http://snomed.info/sct/731000124108/version/20220301",
-        "code": "448735006",
-        "display": "Forehead thermometer (physical object)"
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20230301",
+        "code" : "464210001",
+        "display" : "Thermographic camera (physical object)"
       },
       {
-        "system": "http://snomed.info/sct",
-        "version": "http://snomed.info/sct/731000124108/version/20220301",
-        "code": "462983001",
-        "display": "Liquid-crystal patient thermometer (physical object)"
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20230301",
+        "code" : "467862000",
+        "display" : "Capillary patient thermometer, mercury (physical object)"
       },
       {
-        "system": "http://snomed.info/sct",
-        "version": "http://snomed.info/sct/731000124108/version/20220301",
-        "code": "464210001",
-        "display": "Thermographic camera (physical object)"
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20230301",
+        "code" : "700643004",
+        "display" : "Infrared patient thermometer, ear (physical object)"
       },
       {
-        "system": "http://snomed.info/sct",
-        "version": "http://snomed.info/sct/731000124108/version/20220301",
-        "code": "467862000",
-        "display": "Capillary patient thermometer, mercury (physical object)"
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20230301",
+        "code" : "700644005",
+        "display" : "Infrared patient thermometer, skin (physical object)"
       },
       {
-        "system": "http://snomed.info/sct",
-        "version": "http://snomed.info/sct/731000124108/version/20220301",
-        "code": "700643004",
-        "display": "Infrared patient thermometer, ear (physical object)"
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20230301",
+        "code" : "706158001",
+        "display" : "Electronic patient thermometer (physical object)"
       },
       {
-        "system": "http://snomed.info/sct",
-        "version": "http://snomed.info/sct/731000124108/version/20220301",
-        "code": "700644005",
-        "display": "Infrared patient thermometer, skin (physical object)"
-      },
-      {
-        "system": "http://snomed.info/sct",
-        "version": "http://snomed.info/sct/731000124108/version/20220301",
-        "code": "706158001",
-        "display": "Electronic patient thermometer (physical object)"
-      },
-      {
-        "system": "http://snomed.info/sct",
-        "version": "http://snomed.info/sct/731000124108/version/20220301",
-        "code": "781472002",
-        "display": "Infrared thermometer for ear and skin (physical object)"
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20230301",
+        "code" : "781472002",
+        "display" : "Infrared thermometer for ear and skin (physical object)"
       }
     ]
   }

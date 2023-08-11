@@ -1,61 +1,97 @@
 {
-  "resourceType": "ValueSet",
-  "id": "2.16.840.1.113762.1.4.1131.21",
-  "meta": {
-    "versionId": "5",
-    "lastUpdated": "2020-11-11T01:00:26.000-05:00"
+  "resourceType" : "ValueSet",
+  "id" : "2.16.840.1.113762.1.4.1131.21",
+  "meta" : {
+    "versionId" : "5",
+    "lastUpdated" : "2020-11-11T01:00:26.000-05:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "url": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1131.21",
-  "version": "20201111",
-  "name": "Results Pending",
-  "status": "active",
-  "date": "2020-11-11T01:00:26-05:00",
-  "publisher": "CAP Steward",
-  "compose": {
-    "include": [
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "CAP Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2022-12-15"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2020-11-11"
+    }
+  ],
+  "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1131.21",
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113762.1.4.1131.21"
+    }
+  ],
+  "version" : "20201111",
+  "name" : "ResultsPending",
+  "title" : "Results Pending",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2020-11-11T01:00:26-05:00",
+  "publisher" : "CAP Steward",
+  "jurisdiction" : [
+    {
+      "extension" : [
+        {
+          "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
+          "valueString" : "UNKNOWN"
+        }
+      ]
+    }
+  ],
+  "purpose" : "(Clinical Focus: Used to indicate test performed but results have not been sent to pathologist yet),(Data Element Scope: Test performed, pathologist is waiting for results),(Inclusion Criteria: Results in process, underway, pending from lab/reference lab to primary pathologist),(Exclusion Criteria: Do not include codes that indicate pathologist has results but has not communicated them to ordering clinician)",
+  "compose" : {
+    "include" : [
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "concept": [
+        "system" : "http://loinc.org",
+        "concept" : [
           {
-            "code": "LA29912-5",
-            "display": "Specimen in lab; results pending"
+            "code" : "LA29912-5",
+            "display" : "Specimen in lab; results pending"
           },
           {
-            "code": "LA6631-1",
-            "display": "Results pending"
+            "code" : "LA6631-1",
+            "display" : "Results pending"
           }
         ]
       }
     ]
   },
-  "expansion": {
-    "identifier": "urn:uuid:191427f0-fb7c-4266-babb-3601e78c2740",
-    "timestamp": "2022-09-28T00:55:16-04:00",
-    "total": 2,
-    "offset": 0,
-    "parameter": [
+  "expansion" : {
+    "identifier" : "urn:uuid:415c8787-fb3e-45e1-af50-c09c6d58748a",
+    "timestamp" : "2023-06-29T19:42:20-04:00",
+    "total" : 2,
+    "offset" : 0,
+    "parameter" : [
       {
-        "name": "count",
-        "valueInteger": 1000
+        "name" : "count",
+        "valueInteger" : 1000
       },
       {
-        "name": "offset",
-        "valueInteger": 0
+        "name" : "offset",
+        "valueInteger" : 0
       }
     ],
-    "contains": [
+    "contains" : [
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "LA29912-5",
-        "display": "Specimen in lab; results pending"
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "LA29912-5",
+        "display" : "Specimen in lab; results pending"
       },
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "LA6631-1",
-        "display": "Results pending"
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "LA6631-1",
+        "display" : "Results pending"
       }
     ]
   }

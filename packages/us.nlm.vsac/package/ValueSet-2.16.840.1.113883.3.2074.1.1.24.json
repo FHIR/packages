@@ -1,321 +1,358 @@
 {
-  "resourceType": "ValueSet",
-  "id": "2.16.840.1.113883.3.2074.1.1.24",
-  "meta": {
-    "versionId": "13",
-    "lastUpdated": "2017-12-07T01:00:04.000-05:00"
+  "resourceType" : "ValueSet",
+  "id" : "2.16.840.1.113883.3.2074.1.1.24",
+  "meta" : {
+    "versionId" : "13",
+    "lastUpdated" : "2017-12-07T01:00:04.000-05:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "url": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.2074.1.1.24",
-  "version": "20171207",
-  "name": "Anatomical Site Modifier",
-  "status": "active",
-  "date": "2017-12-07T01:00:04-05:00",
-  "publisher": "FHIMS Steward",
-  "compose": {
-    "include": [
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "FHIMS Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2022-12-15"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2017-12-07"
+    }
+  ],
+  "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.2074.1.1.24",
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113883.3.2074.1.1.24"
+    }
+  ],
+  "version" : "20171207",
+  "name" : "AnatomicalSiteModifier",
+  "title" : "Anatomical Site Modifier",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2017-12-07T01:00:04-05:00",
+  "publisher" : "FHIMS Steward",
+  "description" : "Note: including laterality values for near term use, but preferring to use pre-coordinated values for entire organs (e.g., site = left kidney) and aspect for aspects (e.g., site = left kidney, modifier = medial aspect) when terminology is mature enough to support this\nNote: requesting INNER, OUTER, ROSTRAL, VENTRAL\nNote: these concepts are mirrored in NCI CDISC SDTM Directionality Terminology and CDISC SDTM Laterality Terminology",
+  "jurisdiction" : [
+    {
+      "extension" : [
+        {
+          "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
+          "valueString" : "UNKNOWN"
+        }
+      ]
+    }
+  ],
+  "purpose" : "(Clinical Focus: A spatial refinement to an anatomical site concept),(Data Element Scope: Refinements to anatomical site on a patient's body for specimen collection, procedure, or observation\n\nFHIM: SpecimenCollectionEvent.sourceSiteModifier),(Inclusion Criteria: Spatial concepts relative to antecedent site concepts; children of SCT 106233006 Topographical modifier),(Exclusion Criteria: Specific sites; any concept not meeting inclusion criteria; synonyms for clinical terms (e.g., \"behind\"))",
+  "compose" : {
+    "include" : [
       {
-        "system": "http://snomed.info/sct",
-        "version": "http://snomed.info/sct/731000124108/version/20220301",
-        "concept": [
+        "system" : "http://snomed.info/sct",
+        "concept" : [
           {
-            "code": "11896004",
-            "display": "Intermediate (qualifier value)"
+            "code" : "11896004",
+            "display" : "Intermediate (qualifier value)"
           },
           {
-            "code": "14414005",
-            "display": "Peripheral (qualifier value)"
+            "code" : "14414005",
+            "display" : "Peripheral (qualifier value)"
           },
           {
-            "code": "24028007",
-            "display": "Right (qualifier value)"
+            "code" : "24028007",
+            "display" : "Right (qualifier value)"
           },
           {
-            "code": "255549009",
-            "display": "Anterior (qualifier value)"
+            "code" : "255549009",
+            "display" : "Anterior (qualifier value)"
           },
           {
-            "code": "255551008",
-            "display": "Posterior (qualifier value)"
+            "code" : "255551008",
+            "display" : "Posterior (qualifier value)"
           },
           {
-            "code": "255554000",
-            "display": "Dorsal (qualifier value)"
+            "code" : "255554000",
+            "display" : "Dorsal (qualifier value)"
           },
           {
-            "code": "255561001",
-            "display": "Medial (qualifier value)"
+            "code" : "255561001",
+            "display" : "Medial (qualifier value)"
           },
           {
-            "code": "260521003",
-            "display": "Internal (qualifier value)"
+            "code" : "260521003",
+            "display" : "Internal (qualifier value)"
           },
           {
-            "code": "261074009",
-            "display": "External (qualifier value)"
+            "code" : "261074009",
+            "display" : "External (qualifier value)"
           },
           {
-            "code": "261089000",
-            "display": "Inferior (qualifier value)"
+            "code" : "261089000",
+            "display" : "Inferior (qualifier value)"
           },
           {
-            "code": "261122009",
-            "display": "Lower (qualifier value)"
+            "code" : "261122009",
+            "display" : "Lower (qualifier value)"
           },
           {
-            "code": "261183002",
-            "display": "Upper (qualifier value)"
+            "code" : "261183002",
+            "display" : "Upper (qualifier value)"
           },
           {
-            "code": "26216008",
-            "display": "Central (qualifier value)"
+            "code" : "26216008",
+            "display" : "Central (qualifier value)"
           },
           {
-            "code": "26283006",
-            "display": "Superficial (qualifier value)"
+            "code" : "26283006",
+            "display" : "Superficial (qualifier value)"
           },
           {
-            "code": "264217000",
-            "display": "Superior (qualifier value)"
+            "code" : "264217000",
+            "display" : "Superior (qualifier value)"
           },
           {
-            "code": "3583002",
-            "display": "Caudal (qualifier value)"
+            "code" : "3583002",
+            "display" : "Caudal (qualifier value)"
           },
           {
-            "code": "40415009",
-            "display": "Proximal (qualifier value)"
+            "code" : "40415009",
+            "display" : "Proximal (qualifier value)"
           },
           {
-            "code": "410679008",
-            "display": "Surface (qualifier value)"
+            "code" : "410679008",
+            "display" : "Surface (qualifier value)"
           },
           {
-            "code": "43674008",
-            "display": "Apical (qualifier value)"
+            "code" : "43674008",
+            "display" : "Apical (qualifier value)"
           },
           {
-            "code": "46053002",
-            "display": "Distal (qualifier value)"
+            "code" : "46053002",
+            "display" : "Distal (qualifier value)"
           },
           {
-            "code": "49370004",
-            "display": "Lateral (qualifier value)"
+            "code" : "49370004",
+            "display" : "Lateral (qualifier value)"
           },
           {
-            "code": "51440002",
-            "display": "Right and left (qualifier value)"
+            "code" : "51440002",
+            "display" : "Right and left (qualifier value)"
           },
           {
-            "code": "57195005",
-            "display": "Basal (qualifier value)"
+            "code" : "57195005",
+            "display" : "Basal (qualifier value)"
           },
           {
-            "code": "66787007",
-            "display": "Cephalic (qualifier value)"
+            "code" : "66787007",
+            "display" : "Cephalic (qualifier value)"
           },
           {
-            "code": "761000124104",
-            "display": "Dorsolateral (qualifier value)"
+            "code" : "761000124104",
+            "display" : "Dorsolateral (qualifier value)"
           },
           {
-            "code": "771000124106",
-            "display": "Ventrolateral (qualifier value)"
+            "code" : "771000124106",
+            "display" : "Ventrolateral (qualifier value)"
           },
           {
-            "code": "7771000",
-            "display": "Left (qualifier value)"
+            "code" : "7771000",
+            "display" : "Left (qualifier value)"
           },
           {
-            "code": "795002",
-            "display": "Deep (qualifier value)"
+            "code" : "795002",
+            "display" : "Deep (qualifier value)"
           }
         ]
       }
     ]
   },
-  "expansion": {
-    "identifier": "urn:uuid:08baaa32-4f64-4eb5-966e-2a5427f7e21d",
-    "timestamp": "2022-09-27T17:46:00-04:00",
-    "total": 28,
-    "offset": 0,
-    "parameter": [
+  "expansion" : {
+    "identifier" : "urn:uuid:74948092-78da-451e-ad1b-251cb5a91933",
+    "timestamp" : "2023-06-29T15:40:00-04:00",
+    "total" : 28,
+    "offset" : 0,
+    "parameter" : [
       {
-        "name": "count",
-        "valueInteger": 1000
+        "name" : "count",
+        "valueInteger" : 1000
       },
       {
-        "name": "offset",
-        "valueInteger": 0
+        "name" : "offset",
+        "valueInteger" : 0
       }
     ],
-    "contains": [
+    "contains" : [
       {
-        "system": "http://snomed.info/sct",
-        "version": "http://snomed.info/sct/731000124108/version/20220301",
-        "code": "11896004",
-        "display": "Intermediate (qualifier value)"
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20230301",
+        "code" : "11896004",
+        "display" : "Intermediate (qualifier value)"
       },
       {
-        "system": "http://snomed.info/sct",
-        "version": "http://snomed.info/sct/731000124108/version/20220301",
-        "code": "14414005",
-        "display": "Peripheral (qualifier value)"
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20230301",
+        "code" : "14414005",
+        "display" : "Peripheral (qualifier value)"
       },
       {
-        "system": "http://snomed.info/sct",
-        "version": "http://snomed.info/sct/731000124108/version/20220301",
-        "code": "24028007",
-        "display": "Right (qualifier value)"
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20230301",
+        "code" : "24028007",
+        "display" : "Right (qualifier value)"
       },
       {
-        "system": "http://snomed.info/sct",
-        "version": "http://snomed.info/sct/731000124108/version/20220301",
-        "code": "255549009",
-        "display": "Anterior (qualifier value)"
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20230301",
+        "code" : "255549009",
+        "display" : "Anterior (qualifier value)"
       },
       {
-        "system": "http://snomed.info/sct",
-        "version": "http://snomed.info/sct/731000124108/version/20220301",
-        "code": "255551008",
-        "display": "Posterior (qualifier value)"
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20230301",
+        "code" : "255551008",
+        "display" : "Posterior (qualifier value)"
       },
       {
-        "system": "http://snomed.info/sct",
-        "version": "http://snomed.info/sct/731000124108/version/20220301",
-        "code": "255554000",
-        "display": "Dorsal (qualifier value)"
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20230301",
+        "code" : "255554000",
+        "display" : "Dorsal (qualifier value)"
       },
       {
-        "system": "http://snomed.info/sct",
-        "version": "http://snomed.info/sct/731000124108/version/20220301",
-        "code": "255561001",
-        "display": "Medial (qualifier value)"
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20230301",
+        "code" : "255561001",
+        "display" : "Medial (qualifier value)"
       },
       {
-        "system": "http://snomed.info/sct",
-        "version": "http://snomed.info/sct/731000124108/version/20220301",
-        "code": "260521003",
-        "display": "Internal (qualifier value)"
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20230301",
+        "code" : "260521003",
+        "display" : "Internal (qualifier value)"
       },
       {
-        "system": "http://snomed.info/sct",
-        "version": "http://snomed.info/sct/731000124108/version/20220301",
-        "code": "261074009",
-        "display": "External (qualifier value)"
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20230301",
+        "code" : "261074009",
+        "display" : "External (qualifier value)"
       },
       {
-        "system": "http://snomed.info/sct",
-        "version": "http://snomed.info/sct/731000124108/version/20220301",
-        "code": "261089000",
-        "display": "Inferior (qualifier value)"
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20230301",
+        "code" : "261089000",
+        "display" : "Inferior (qualifier value)"
       },
       {
-        "system": "http://snomed.info/sct",
-        "version": "http://snomed.info/sct/731000124108/version/20220301",
-        "code": "261122009",
-        "display": "Lower (qualifier value)"
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20230301",
+        "code" : "261122009",
+        "display" : "Lower (qualifier value)"
       },
       {
-        "system": "http://snomed.info/sct",
-        "version": "http://snomed.info/sct/731000124108/version/20220301",
-        "code": "261183002",
-        "display": "Upper (qualifier value)"
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20230301",
+        "code" : "261183002",
+        "display" : "Upper (qualifier value)"
       },
       {
-        "system": "http://snomed.info/sct",
-        "version": "http://snomed.info/sct/731000124108/version/20220301",
-        "code": "26216008",
-        "display": "Central (qualifier value)"
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20230301",
+        "code" : "26216008",
+        "display" : "Central (qualifier value)"
       },
       {
-        "system": "http://snomed.info/sct",
-        "version": "http://snomed.info/sct/731000124108/version/20220301",
-        "code": "26283006",
-        "display": "Superficial (qualifier value)"
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20230301",
+        "code" : "26283006",
+        "display" : "Superficial (qualifier value)"
       },
       {
-        "system": "http://snomed.info/sct",
-        "version": "http://snomed.info/sct/731000124108/version/20220301",
-        "code": "264217000",
-        "display": "Superior (qualifier value)"
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20230301",
+        "code" : "264217000",
+        "display" : "Superior (qualifier value)"
       },
       {
-        "system": "http://snomed.info/sct",
-        "version": "http://snomed.info/sct/731000124108/version/20220301",
-        "code": "3583002",
-        "display": "Caudal (qualifier value)"
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20230301",
+        "code" : "3583002",
+        "display" : "Caudal (qualifier value)"
       },
       {
-        "system": "http://snomed.info/sct",
-        "version": "http://snomed.info/sct/731000124108/version/20220301",
-        "code": "40415009",
-        "display": "Proximal (qualifier value)"
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20230301",
+        "code" : "40415009",
+        "display" : "Proximal (qualifier value)"
       },
       {
-        "system": "http://snomed.info/sct",
-        "version": "http://snomed.info/sct/731000124108/version/20220301",
-        "code": "410679008",
-        "display": "Surface (qualifier value)"
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20230301",
+        "code" : "410679008",
+        "display" : "Surface (qualifier value)"
       },
       {
-        "system": "http://snomed.info/sct",
-        "version": "http://snomed.info/sct/731000124108/version/20220301",
-        "code": "43674008",
-        "display": "Apical (qualifier value)"
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20230301",
+        "code" : "43674008",
+        "display" : "Apical (qualifier value)"
       },
       {
-        "system": "http://snomed.info/sct",
-        "version": "http://snomed.info/sct/731000124108/version/20220301",
-        "code": "46053002",
-        "display": "Distal (qualifier value)"
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20230301",
+        "code" : "46053002",
+        "display" : "Distal (qualifier value)"
       },
       {
-        "system": "http://snomed.info/sct",
-        "version": "http://snomed.info/sct/731000124108/version/20220301",
-        "code": "49370004",
-        "display": "Lateral (qualifier value)"
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20230301",
+        "code" : "49370004",
+        "display" : "Lateral (qualifier value)"
       },
       {
-        "system": "http://snomed.info/sct",
-        "version": "http://snomed.info/sct/731000124108/version/20220301",
-        "code": "51440002",
-        "display": "Right and left (qualifier value)"
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20230301",
+        "code" : "51440002",
+        "display" : "Right and left (qualifier value)"
       },
       {
-        "system": "http://snomed.info/sct",
-        "version": "http://snomed.info/sct/731000124108/version/20220301",
-        "code": "57195005",
-        "display": "Basal (qualifier value)"
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20230301",
+        "code" : "57195005",
+        "display" : "Basal (qualifier value)"
       },
       {
-        "system": "http://snomed.info/sct",
-        "version": "http://snomed.info/sct/731000124108/version/20220301",
-        "code": "66787007",
-        "display": "Cephalic (qualifier value)"
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20230301",
+        "code" : "66787007",
+        "display" : "Cephalic (qualifier value)"
       },
       {
-        "system": "http://snomed.info/sct",
-        "version": "http://snomed.info/sct/731000124108/version/20220301",
-        "code": "761000124104",
-        "display": "Dorsolateral (qualifier value)"
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20230301",
+        "code" : "761000124104",
+        "display" : "Dorsolateral (qualifier value)"
       },
       {
-        "system": "http://snomed.info/sct",
-        "version": "http://snomed.info/sct/731000124108/version/20220301",
-        "code": "771000124106",
-        "display": "Ventrolateral (qualifier value)"
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20230301",
+        "code" : "771000124106",
+        "display" : "Ventrolateral (qualifier value)"
       },
       {
-        "system": "http://snomed.info/sct",
-        "version": "http://snomed.info/sct/731000124108/version/20220301",
-        "code": "7771000",
-        "display": "Left (qualifier value)"
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20230301",
+        "code" : "7771000",
+        "display" : "Left (qualifier value)"
       },
       {
-        "system": "http://snomed.info/sct",
-        "version": "http://snomed.info/sct/731000124108/version/20220301",
-        "code": "795002",
-        "display": "Deep (qualifier value)"
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20230301",
+        "code" : "795002",
+        "display" : "Deep (qualifier value)"
       }
     ]
   }

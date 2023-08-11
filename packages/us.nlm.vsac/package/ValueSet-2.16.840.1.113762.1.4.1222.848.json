@@ -1,69 +1,107 @@
 {
-  "resourceType": "ValueSet",
-  "id": "2.16.840.1.113762.1.4.1222.848",
-  "meta": {
-    "versionId": "5",
-    "lastUpdated": "2021-09-20T01:00:45.000-04:00"
+  "resourceType" : "ValueSet",
+  "id" : "2.16.840.1.113762.1.4.1222.848",
+  "meta" : {
+    "versionId" : "5",
+    "lastUpdated" : "2021-09-20T01:00:45.000-04:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "url": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1222.848",
-  "version": "20210920",
-  "name": "Dry Weight",
-  "status": "active",
-  "date": "2021-09-20T01:00:45-04:00",
-  "publisher": "HL7 Patient Care WG Steward",
-  "compose": {
-    "include": [
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "MCC eCare Plan Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2022-12-15"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2021-09-20"
+    }
+  ],
+  "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1222.848",
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113762.1.4.1222.848"
+    }
+  ],
+  "version" : "20210920",
+  "name" : "DryWeight",
+  "title" : "Dry Weight",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2021-09-20T01:00:45-04:00",
+  "publisher" : "HL7 Patient Care WG Steward",
+  "description" : "The person's dry weight, or weight in absence of excess fluid. (Business ID: Entry 1024740)",
+  "jurisdiction" : [
+    {
+      "extension" : [
+        {
+          "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
+          "valueString" : "UNKNOWN"
+        }
+      ]
+    }
+  ],
+  "purpose" : "(Clinical Focus: This set of values addresses terms representing Dry Weight.),(Data Element Scope: The intent of this set of values is to identify patients who have a/an the person's dry weight, or weight in absence of excess fluid..),(Inclusion Criteria: Includes LOINC codes for Dry Weight.),(Exclusion Criteria: Terms not representative of observable encoded terms that may have values indicating Dry Weight.)",
+  "compose" : {
+    "include" : [
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "filter": [
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "filter" : [
           {
-            "property": "concept",
-            "op": "\u003d",
-            "value": "8340-2"
+            "property" : "concept",
+            "op" : "=",
+            "value" : "8340-2"
           }
         ]
       },
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "filter": [
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "filter" : [
           {
-            "property": "concept",
-            "op": "\u003d",
-            "value": "8341-0"
+            "property" : "concept",
+            "op" : "=",
+            "value" : "8341-0"
           }
         ]
       }
     ]
   },
-  "expansion": {
-    "identifier": "urn:uuid:3d9686fd-80db-4f54-a298-4d970e758c81",
-    "timestamp": "2022-09-27T20:22:28-04:00",
-    "total": 2,
-    "offset": 0,
-    "parameter": [
+  "expansion" : {
+    "identifier" : "urn:uuid:9c62e4d0-9a38-41fc-8a9f-b2ef9783387f",
+    "timestamp" : "2023-06-29T17:08:39-04:00",
+    "total" : 2,
+    "offset" : 0,
+    "parameter" : [
       {
-        "name": "count",
-        "valueInteger": 1000
+        "name" : "count",
+        "valueInteger" : 1000
       },
       {
-        "name": "offset",
-        "valueInteger": 0
+        "name" : "offset",
+        "valueInteger" : 0
       }
     ],
-    "contains": [
+    "contains" : [
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "8340-2",
-        "display": "Dry body weight Estimated"
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "8340-2",
+        "display" : "Dry body weight Estimated"
       },
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "8341-0",
-        "display": "Dry body weight Measured"
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "8341-0",
+        "display" : "Dry body weight Measured"
       }
     ]
   }

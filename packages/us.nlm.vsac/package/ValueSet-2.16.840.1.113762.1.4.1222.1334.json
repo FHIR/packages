@@ -1,52 +1,90 @@
 {
-  "resourceType": "ValueSet",
-  "id": "2.16.840.1.113762.1.4.1222.1334",
-  "meta": {
-    "versionId": "5",
-    "lastUpdated": "2021-09-28T01:00:52.000-04:00"
+  "resourceType" : "ValueSet",
+  "id" : "2.16.840.1.113762.1.4.1222.1334",
+  "meta" : {
+    "versionId" : "5",
+    "lastUpdated" : "2021-09-28T01:00:52.000-04:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "url": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1222.1334",
-  "version": "20210928",
-  "name": "Ability to pay for health care",
-  "status": "active",
-  "date": "2021-09-28T01:00:52-04:00",
-  "publisher": "HL7 Patient Care WG Steward",
-  "compose": {
-    "include": [
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "MCC eCare Plan Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2022-12-15"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2021-09-28"
+    }
+  ],
+  "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1222.1334",
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113762.1.4.1222.1334"
+    }
+  ],
+  "version" : "20210928",
+  "name" : "AbilityToPayForHealthCare",
+  "title" : "Ability to pay for health care",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2021-09-28T01:00:52-04:00",
+  "publisher" : "HL7 Patient Care WG Steward",
+  "description" : "Assessment of the person's ability to pay for healthcare, including medical, dental, vision, etc.  (Business ID: Entry 55982)",
+  "jurisdiction" : [
+    {
+      "extension" : [
+        {
+          "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
+          "valueString" : "UNKNOWN"
+        }
+      ]
+    }
+  ],
+  "purpose" : "(Clinical Focus: This set of values addresses terms representing .),(Data Element Scope: The intent of this set of values is to identify patients who have a/an assessment of the person's ability to pay for healthcare, including medical, dental, vision, etc. .),(Inclusion Criteria: Includes ICD10CM codes for .),(Exclusion Criteria: Terms not representative of observable encoded terms that may have values indicating .)",
+  "compose" : {
+    "include" : [
       {
-        "system": "http://hl7.org/fhir/sid/icd-10-cm",
-        "version": "2023",
-        "filter": [
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2023",
+        "filter" : [
           {
-            "property": "concept",
-            "op": "\u003d",
-            "value": "Z91.120"
+            "property" : "concept",
+            "op" : "=",
+            "value" : "Z91.120"
           }
         ]
       }
     ]
   },
-  "expansion": {
-    "identifier": "urn:uuid:310e70c3-ecf2-4ca7-a419-7b642c437eca",
-    "timestamp": "2022-09-27T16:51:08-04:00",
-    "total": 1,
-    "offset": 0,
-    "parameter": [
+  "expansion" : {
+    "identifier" : "urn:uuid:dbe48c36-0dda-41af-a6cb-eb95af4acf2d",
+    "timestamp" : "2023-06-29T15:26:08-04:00",
+    "total" : 1,
+    "offset" : 0,
+    "parameter" : [
       {
-        "name": "count",
-        "valueInteger": 1000
+        "name" : "count",
+        "valueInteger" : 1000
       },
       {
-        "name": "offset",
-        "valueInteger": 0
+        "name" : "offset",
+        "valueInteger" : 0
       }
     ],
-    "contains": [
+    "contains" : [
       {
-        "system": "http://hl7.org/fhir/sid/icd-10-cm",
-        "version": "2023",
-        "code": "Z91.120",
-        "display": "Patient\u0027s intentional underdosing of medication regimen due to financial hardship"
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2023",
+        "code" : "Z91.120",
+        "display" : "Patient's intentional underdosing of medication regimen due to financial hardship"
       }
     ]
   }

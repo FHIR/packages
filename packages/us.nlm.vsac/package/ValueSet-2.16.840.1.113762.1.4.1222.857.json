@@ -1,52 +1,90 @@
 {
-  "resourceType": "ValueSet",
-  "id": "2.16.840.1.113762.1.4.1222.857",
-  "meta": {
-    "versionId": "5",
-    "lastUpdated": "2021-09-20T01:00:54.000-04:00"
+  "resourceType" : "ValueSet",
+  "id" : "2.16.840.1.113762.1.4.1222.857",
+  "meta" : {
+    "versionId" : "5",
+    "lastUpdated" : "2021-09-20T01:00:54.000-04:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "url": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1222.857",
-  "version": "20210920",
-  "name": "Cardio Ankle Vascular Index",
-  "status": "active",
-  "date": "2021-09-20T01:00:54-04:00",
-  "publisher": "HL7 Patient Care WG Steward",
-  "compose": {
-    "include": [
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "MCC eCare Plan Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2022-12-15"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2021-09-20"
+    }
+  ],
+  "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1222.857",
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113762.1.4.1222.857"
+    }
+  ],
+  "version" : "20210920",
+  "name" : "CardioAnkleVascularIndex",
+  "title" : "Cardio Ankle Vascular Index",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2021-09-20T01:00:54-04:00",
+  "publisher" : "HL7 Patient Care WG Steward",
+  "description" : "The calculated cardio-ankle vascular index (Business ID: Entry 3423286)",
+  "jurisdiction" : [
+    {
+      "extension" : [
+        {
+          "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
+          "valueString" : "UNKNOWN"
+        }
+      ]
+    }
+  ],
+  "purpose" : "(Clinical Focus: This set of values addresses terms representing Cardio Ankle Vascular Index.),(Data Element Scope: The intent of this set of values is to identify patients who have a/an the calculated cardio-ankle vascular index.),(Inclusion Criteria: Includes LOINC codes for Cardio Ankle Vascular Index.),(Exclusion Criteria: Terms not representative of observable encoded terms that may have values indicating Cardio Ankle Vascular Index.)",
+  "compose" : {
+    "include" : [
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "filter": [
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "filter" : [
           {
-            "property": "concept",
-            "op": "\u003d",
-            "value": "77195-6"
+            "property" : "concept",
+            "op" : "=",
+            "value" : "77195-6"
           }
         ]
       }
     ]
   },
-  "expansion": {
-    "identifier": "urn:uuid:5b7d2bc4-58b8-4fc9-b89e-a4d327a3fbd7",
-    "timestamp": "2022-09-27T18:45:38-04:00",
-    "total": 1,
-    "offset": 0,
-    "parameter": [
+  "expansion" : {
+    "identifier" : "urn:uuid:3774b1ab-8718-4bcc-83e4-4edcd0a721eb",
+    "timestamp" : "2023-06-29T16:12:33-04:00",
+    "total" : 1,
+    "offset" : 0,
+    "parameter" : [
       {
-        "name": "count",
-        "valueInteger": 1000
+        "name" : "count",
+        "valueInteger" : 1000
       },
       {
-        "name": "offset",
-        "valueInteger": 0
+        "name" : "offset",
+        "valueInteger" : 0
       }
     ],
-    "contains": [
+    "contains" : [
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "77195-6",
-        "display": "Cardio-ankle vascular index Calculated"
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "77195-6",
+        "display" : "Cardio-ankle vascular index Calculated"
       }
     ]
   }

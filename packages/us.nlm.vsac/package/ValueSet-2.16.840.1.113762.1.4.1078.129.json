@@ -1,0 +1,215 @@
+{
+  "resourceType" : "ValueSet",
+  "id" : "2.16.840.1.113762.1.4.1078.129",
+  "meta" : {
+    "versionId" : "6",
+    "lastUpdated" : "2023-06-01T01:01:19.000-04:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
+  },
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "Optum Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2023-06-01"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2023-06-01"
+    }
+  ],
+  "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1078.129",
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113762.1.4.1078.129"
+    }
+  ],
+  "version" : "20230601",
+  "name" : "GiantCellTumorOfBone",
+  "title" : "Giant cell tumor of bone",
+  "status" : "active",
+  "date" : "2023-06-01T01:01:19-04:00",
+  "publisher" : "Optum Steward",
+  "description" : "There is no specific ICD-10-CM code for giant cell tumor of bone, so using nonspecific codes for benign tumor of bone and for neoplasm of uncertain behavior of bone.",
+  "jurisdiction" : [
+    {
+      "extension" : [
+        {
+          "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
+          "valueString" : "UNKNOWN"
+        }
+      ]
+    }
+  ],
+  "purpose" : "(Clinical Focus: Codes that are used for giant cell tumor of bone),(Data Element Scope: CONDITION: SPECIFIC: condition name),(Inclusion Criteria: ICD-10-CM codes for bone neoplasms that are benign or of uncertain character),(Exclusion Criteria: Non-billable ICD-10-CM codes)",
+  "compose" : {
+    "include" : [
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2023",
+        "filter" : [
+          {
+            "modifierExtension" : [
+              {
+                "url" : "vsacOpModifier",
+                "valueString" : "leafOf"
+              }
+            ],
+            "property" : "concept",
+            "op" : "is-a",
+            "value" : "D16"
+          }
+        ]
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2023",
+        "filter" : [
+          {
+            "property" : "concept",
+            "op" : "=",
+            "value" : "D48.0"
+          }
+        ]
+      }
+    ]
+  },
+  "expansion" : {
+    "identifier" : "urn:uuid:46efbc8a-17ef-4235-a567-5bc693cebe2a",
+    "timestamp" : "2023-06-29T17:33:00-04:00",
+    "total" : 19,
+    "offset" : 0,
+    "parameter" : [
+      {
+        "name" : "count",
+        "valueInteger" : 1000
+      },
+      {
+        "name" : "offset",
+        "valueInteger" : 0
+      }
+    ],
+    "contains" : [
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2023",
+        "code" : "D16.00",
+        "display" : "Benign neoplasm of scapula and long bones of unspecified upper limb"
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2023",
+        "code" : "D16.01",
+        "display" : "Benign neoplasm of scapula and long bones of right upper limb"
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2023",
+        "code" : "D16.02",
+        "display" : "Benign neoplasm of scapula and long bones of left upper limb"
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2023",
+        "code" : "D16.10",
+        "display" : "Benign neoplasm of short bones of unspecified upper limb"
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2023",
+        "code" : "D16.11",
+        "display" : "Benign neoplasm of short bones of right upper limb"
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2023",
+        "code" : "D16.12",
+        "display" : "Benign neoplasm of short bones of left upper limb"
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2023",
+        "code" : "D16.20",
+        "display" : "Benign neoplasm of long bones of unspecified lower limb"
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2023",
+        "code" : "D16.21",
+        "display" : "Benign neoplasm of long bones of right lower limb"
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2023",
+        "code" : "D16.22",
+        "display" : "Benign neoplasm of long bones of left lower limb"
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2023",
+        "code" : "D16.30",
+        "display" : "Benign neoplasm of short bones of unspecified lower limb"
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2023",
+        "code" : "D16.31",
+        "display" : "Benign neoplasm of short bones of right lower limb"
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2023",
+        "code" : "D16.32",
+        "display" : "Benign neoplasm of short bones of left lower limb"
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2023",
+        "code" : "D16.4",
+        "display" : "Benign neoplasm of bones of skull and face"
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2023",
+        "code" : "D16.5",
+        "display" : "Benign neoplasm of lower jaw bone"
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2023",
+        "code" : "D16.6",
+        "display" : "Benign neoplasm of vertebral column"
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2023",
+        "code" : "D16.7",
+        "display" : "Benign neoplasm of ribs, sternum and clavicle"
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2023",
+        "code" : "D16.8",
+        "display" : "Benign neoplasm of pelvic bones, sacrum and coccyx"
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2023",
+        "code" : "D16.9",
+        "display" : "Benign neoplasm of bone and articular cartilage, unspecified"
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2023",
+        "code" : "D48.0",
+        "display" : "Neoplasm of uncertain behavior of bone and articular cartilage"
+      }
+    ]
+  }
+}

@@ -1,61 +1,97 @@
 {
-  "resourceType": "ValueSet",
-  "id": "2.16.840.1.113883.3.666.5.1941",
-  "meta": {
-    "versionId": "14",
-    "lastUpdated": "2016-03-31T01:00:12.000-04:00"
+  "resourceType" : "ValueSet",
+  "id" : "2.16.840.1.113883.3.666.5.1941",
+  "meta" : {
+    "versionId" : "14",
+    "lastUpdated" : "2016-03-31T01:00:12.000-04:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "url": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.666.5.1941",
-  "version": "20160331",
-  "name": "Phototherapy Procedure I10",
-  "status": "active",
-  "date": "2016-03-31T01:00:12-04:00",
-  "publisher": "Lantana EH Steward",
-  "compose": {
-    "include": [
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "Lantana EH Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2022-12-15"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2016-03-31"
+    }
+  ],
+  "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.666.5.1941",
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113883.3.666.5.1941"
+    }
+  ],
+  "version" : "20160331",
+  "name" : "PhototherapyProcedureI10",
+  "title" : "Phototherapy Procedure I10",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2016-03-31T01:00:12-04:00",
+  "publisher" : "Lantana EH Steward",
+  "jurisdiction" : [
+    {
+      "extension" : [
+        {
+          "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
+          "valueString" : "UNKNOWN"
+        }
+      ]
+    }
+  ],
+  "purpose" : "(Clinical Focus: This set of values contains procedures for phototherapy most commonly used for patients.),(Data Element Scope: The intent of this data element is to identify patients who have a procedure performed for phototherapy. Using the Quality Data Model, this particular element will map to the  \"Procedure\" category.),(Inclusion Criteria: Codes representing the ICD-10 code system for the procedure of phototherapy.),(Exclusion Criteria: None.)",
+  "compose" : {
+    "include" : [
       {
-        "system": "http://www.icd10data.com/icd10pcs",
-        "version": "2023",
-        "concept": [
+        "system" : "http://www.cms.gov/Medicare/Coding/ICD10",
+        "concept" : [
           {
-            "code": "6A650ZZ",
-            "display": "Phototherapy, Circulatory, Single"
+            "code" : "6A650ZZ",
+            "display" : "Phototherapy, Circulatory, Single"
           },
           {
-            "code": "6A651ZZ",
-            "display": "Phototherapy, Circulatory, Multiple"
+            "code" : "6A651ZZ",
+            "display" : "Phototherapy, Circulatory, Multiple"
           }
         ]
       }
     ]
   },
-  "expansion": {
-    "identifier": "urn:uuid:a6470d7a-3931-4f94-bc93-c75a190d46d7",
-    "timestamp": "2022-09-28T00:06:28-04:00",
-    "total": 2,
-    "offset": 0,
-    "parameter": [
+  "expansion" : {
+    "identifier" : "urn:uuid:54ee001b-9441-4891-8966-f13948f0d469",
+    "timestamp" : "2023-06-29T19:17:36-04:00",
+    "total" : 2,
+    "offset" : 0,
+    "parameter" : [
       {
-        "name": "count",
-        "valueInteger": 1000
+        "name" : "count",
+        "valueInteger" : 1000
       },
       {
-        "name": "offset",
-        "valueInteger": 0
+        "name" : "offset",
+        "valueInteger" : 0
       }
     ],
-    "contains": [
+    "contains" : [
       {
-        "system": "http://www.icd10data.com/icd10pcs",
-        "version": "2023",
-        "code": "6A650ZZ",
-        "display": "Phototherapy, Circulatory, Single"
+        "system" : "http://www.cms.gov/Medicare/Coding/ICD10",
+        "version" : "2023",
+        "code" : "6A650ZZ",
+        "display" : "Phototherapy, Circulatory, Single"
       },
       {
-        "system": "http://www.icd10data.com/icd10pcs",
-        "version": "2023",
-        "code": "6A651ZZ",
-        "display": "Phototherapy, Circulatory, Multiple"
+        "system" : "http://www.cms.gov/Medicare/Coding/ICD10",
+        "version" : "2023",
+        "code" : "6A651ZZ",
+        "display" : "Phototherapy, Circulatory, Multiple"
       }
     ]
   }

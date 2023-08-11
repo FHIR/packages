@@ -1,68 +1,105 @@
 {
-  "resourceType": "ValueSet",
-  "id": "2.16.840.1.113883.3.666.5.1586",
-  "meta": {
-    "versionId": "15",
-    "lastUpdated": "2022-03-02T18:02:48.000-05:00"
+  "resourceType" : "ValueSet",
+  "id" : "2.16.840.1.113883.3.666.5.1586",
+  "meta" : {
+    "versionId" : "15",
+    "lastUpdated" : "2022-03-02T18:02:48.000-05:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "url": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.666.5.1586",
-  "version": "20160331",
-  "name": "Cardiopulmonary Resuscitation Group",
-  "status": "active",
-  "date": "2022-03-03T18:46:01-05:00",
-  "publisher": "Lantana EH Steward",
-  "compose": {
-    "include": [
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "Lantana EH Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2022-12-15"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2016-03-31"
+    }
+  ],
+  "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.666.5.1586",
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113883.3.666.5.1586"
+    }
+  ],
+  "version" : "20160331",
+  "name" : "CardiopulmonaryResuscitationGroup",
+  "title" : "Cardiopulmonary Resuscitation Group",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2022-03-03T18:46:01-05:00",
+  "publisher" : "Lantana EH Steward",
+  "jurisdiction" : [
+    {
+      "extension" : [
+        {
+          "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
+          "valueString" : "UNKNOWN"
+        }
+      ]
+    }
+  ],
+  "purpose" : "(Clinical Focus: This grouping value set contains procedures for cardiopulmonary resuscitation most commonly used for patients.),(Data Element Scope: The intent of this data element is to identify patients who have a procedure performed for cardiopulmonary resuscitation. Using the Quality Data Model, this particular element will map to the  \"Procedure\" category.),(Inclusion Criteria: Codes representing a grouping of ICD-9, ICD-10, and SNOMED-CT code systems for the procedure of cardiopulmonary resuscitation.),(Exclusion Criteria: None.)",
+  "compose" : {
+    "include" : [
       {
-        "valueSet": [
+        "valueSet" : [
           "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.666.5.1933"
         ]
       },
       {
-        "valueSet": [
+        "valueSet" : [
           "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.666.5.1934"
         ]
       },
       {
-        "valueSet": [
+        "valueSet" : [
           "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.666.5.1767"
         ]
       }
     ]
   },
-  "expansion": {
-    "identifier": "urn:uuid:b71e845c-0e80-4773-8c86-bbc8d1525935",
-    "timestamp": "2022-09-27T18:46:00-04:00",
-    "total": 3,
-    "offset": 0,
-    "parameter": [
+  "expansion" : {
+    "identifier" : "urn:uuid:907ad4ca-975d-4cc3-b9ff-0eb87d666b99",
+    "timestamp" : "2023-06-29T16:12:48-04:00",
+    "total" : 3,
+    "offset" : 0,
+    "parameter" : [
       {
-        "name": "count",
-        "valueInteger": 1000
+        "name" : "count",
+        "valueInteger" : 1000
       },
       {
-        "name": "offset",
-        "valueInteger": 0
+        "name" : "offset",
+        "valueInteger" : 0
       }
     ],
-    "contains": [
+    "contains" : [
       {
-        "system": "http://www.icd10data.com/icd10pcs",
-        "version": "2023",
-        "code": "5A12012",
-        "display": "Performance of Cardiac Output, Single, Manual"
+        "system" : "http://www.cms.gov/Medicare/Coding/ICD10",
+        "version" : "2023",
+        "code" : "5A12012",
+        "display" : "Performance of Cardiac Output, Single, Manual"
       },
       {
-        "system": "http://snomed.info/sct",
-        "version": "http://snomed.info/sct/731000124108/version/20220301",
-        "code": "89666000",
-        "display": "Cardiopulmonary resuscitation (procedure)"
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20230301",
+        "code" : "89666000",
+        "display" : "Cardiopulmonary resuscitation (procedure)"
       },
       {
-        "system": "http://hl7.org/fhir/sid/icd-9-cm",
-        "version": "2013",
-        "code": "99.60",
-        "display": "Cardiopulmonary resuscitation, not otherwise specified"
+        "system" : "http://hl7.org/fhir/sid/icd-9-cm",
+        "version" : "2013",
+        "code" : "99.60",
+        "display" : "Cardiopulmonary resuscitation, not otherwise specified"
       }
     ]
   }

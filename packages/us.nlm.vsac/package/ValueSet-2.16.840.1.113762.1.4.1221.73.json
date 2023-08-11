@@ -1,52 +1,89 @@
 {
-  "resourceType": "ValueSet",
-  "id": "2.16.840.1.113762.1.4.1221.73",
-  "meta": {
-    "versionId": "5",
-    "lastUpdated": "2020-06-12T01:00:48.000-04:00"
+  "resourceType" : "ValueSet",
+  "id" : "2.16.840.1.113762.1.4.1221.73",
+  "meta" : {
+    "versionId" : "5",
+    "lastUpdated" : "2020-06-12T01:00:48.000-04:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "url": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1221.73",
-  "version": "20200612",
-  "name": "Metabolic Syndrome",
-  "status": "active",
-  "date": "2020-06-12T01:00:48-04:00",
-  "publisher": "NACHC Steward",
-  "compose": {
-    "include": [
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "NACHC Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2022-12-15"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2020-06-12"
+    }
+  ],
+  "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1221.73",
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113762.1.4.1221.73"
+    }
+  ],
+  "version" : "20200612",
+  "name" : "MetabolicSyndrome",
+  "title" : "Metabolic Syndrome",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2020-06-12T01:00:48-04:00",
+  "publisher" : "NACHC Steward",
+  "jurisdiction" : [
+    {
+      "extension" : [
+        {
+          "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
+          "valueString" : "UNKNOWN"
+        }
+      ]
+    }
+  ],
+  "purpose" : "(Clinical Focus: This set of values contains concepts related to the diagnosis of Metabolic Syndrome / Dysmetabolic Syndrome / Syndrome X.),(Data Element Scope: The intent of this data element is to identify patients with Metabolic Syndrome / Dysmetabolic Syndrome / Syndrome X..),(Inclusion Criteria: Concepts related to Metabolic Syndrome / Dysmetabolic Syndrome / Syndrome X.),(Exclusion Criteria: There is no exclusion criteria listed for this value set.)",
+  "compose" : {
+    "include" : [
       {
-        "system": "http://hl7.org/fhir/sid/icd-10-cm",
-        "version": "2023",
-        "filter": [
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2023",
+        "filter" : [
           {
-            "property": "concept",
-            "op": "is-a",
-            "value": "E88.81"
+            "property" : "concept",
+            "op" : "is-a",
+            "value" : "E88.81"
           }
         ]
       }
     ]
   },
-  "expansion": {
-    "identifier": "urn:uuid:1b038a92-67bd-42fa-9559-0cb267ffd161",
-    "timestamp": "2022-09-27T22:48:00-04:00",
-    "total": 1,
-    "offset": 0,
-    "parameter": [
+  "expansion" : {
+    "identifier" : "urn:uuid:bf49241a-94aa-406f-a90a-6c09e4902115",
+    "timestamp" : "2023-06-29T18:37:27-04:00",
+    "total" : 1,
+    "offset" : 0,
+    "parameter" : [
       {
-        "name": "count",
-        "valueInteger": 1000
+        "name" : "count",
+        "valueInteger" : 1000
       },
       {
-        "name": "offset",
-        "valueInteger": 0
+        "name" : "offset",
+        "valueInteger" : 0
       }
     ],
-    "contains": [
+    "contains" : [
       {
-        "system": "http://hl7.org/fhir/sid/icd-10-cm",
-        "version": "2023",
-        "code": "E88.81",
-        "display": "Metabolic syndrome"
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2023",
+        "code" : "E88.81",
+        "display" : "Metabolic syndrome"
       }
     ]
   }

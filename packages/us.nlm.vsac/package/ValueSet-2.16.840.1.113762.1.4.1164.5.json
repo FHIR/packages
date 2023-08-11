@@ -1,68 +1,105 @@
 {
-  "resourceType": "ValueSet",
-  "id": "2.16.840.1.113762.1.4.1164.5",
-  "meta": {
-    "versionId": "8",
-    "lastUpdated": "2022-03-02T18:02:37.000-05:00"
+  "resourceType" : "ValueSet",
+  "id" : "2.16.840.1.113762.1.4.1164.5",
+  "meta" : {
+    "versionId" : "8",
+    "lastUpdated" : "2022-03-02T18:02:37.000-05:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "url": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1164.5",
-  "version": "20170621",
-  "name": "Vitamin D, 25 Hydroxy, Total",
-  "status": "active",
-  "date": "2022-03-03T18:46:01-05:00",
-  "publisher": "LUGPA Steward",
-  "compose": {
-    "include": [
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "LUGPA Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2022-12-15"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2017-06-21"
+    }
+  ],
+  "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1164.5",
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113762.1.4.1164.5"
+    }
+  ],
+  "version" : "20170621",
+  "name" : "VitaminD25HydroxyTotal",
+  "title" : "Vitamin D, 25 Hydroxy, Total",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2022-03-03T18:46:01-05:00",
+  "publisher" : "LUGPA Steward",
+  "jurisdiction" : [
+    {
+      "extension" : [
+        {
+          "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
+          "valueString" : "UNKNOWN"
+        }
+      ]
+    }
+  ],
+  "purpose" : "(Clinical Focus: This grouped value set contains CPT, LOINC and SNOMED codes for the laboratory test ordered to determine Vitamin D, 25 Hydroxy, Total for patients receiving urology care.),(Data Element Scope: The intent of this data element is to identify appropriate laboratory codes for Vitamin D, 25 Hydroxy, Total for patients receiving urology care.),(Inclusion Criteria: Laboratory test for Vitamin D, 25 Hydroxy, Total),(Exclusion Criteria: Other Vitamin D lab tests)",
+  "compose" : {
+    "include" : [
       {
-        "valueSet": [
+        "valueSet" : [
           "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1164.14"
         ]
       },
       {
-        "valueSet": [
+        "valueSet" : [
           "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1164.12"
         ]
       },
       {
-        "valueSet": [
+        "valueSet" : [
           "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1164.13"
         ]
       }
     ]
   },
-  "expansion": {
-    "identifier": "urn:uuid:eacbc68f-6062-46ea-be50-2ba06c785816",
-    "timestamp": "2022-09-28T03:25:10-04:00",
-    "total": 3,
-    "offset": 0,
-    "parameter": [
+  "expansion" : {
+    "identifier" : "urn:uuid:8bd47204-8482-43d8-8b80-efada87051ce",
+    "timestamp" : "2023-06-29T20:35:01-04:00",
+    "total" : 3,
+    "offset" : 0,
+    "parameter" : [
       {
-        "name": "count",
-        "valueInteger": 1000
+        "name" : "count",
+        "valueInteger" : 1000
       },
       {
-        "name": "offset",
-        "valueInteger": 0
+        "name" : "offset",
+        "valueInteger" : 0
       }
     ],
-    "contains": [
+    "contains" : [
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "1989-3",
-        "display": "25-hydroxyvitamin D3 [Mass/volume] in Serum or Plasma"
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "1989-3",
+        "display" : "25-hydroxyvitamin D3 [Mass/volume] in Serum or Plasma"
       },
       {
-        "system": "http://snomed.info/sct",
-        "version": "http://snomed.info/sct/731000124108/version/20220301",
-        "code": "447680002",
-        "display": "Measurement of 25-hydroxyergocalciferol in serum specimen (procedure)"
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20230301",
+        "code" : "447680002",
+        "display" : "Measurement of 25-hydroxyergocalciferol in serum specimen (procedure)"
       },
       {
-        "system": "http://www.ama-assn.org/go/cpt",
-        "version": "2022",
-        "code": "82306",
-        "display": "Vitamin D; 25 hydroxy, includes fraction(s), if performed"
+        "system" : "http://www.ama-assn.org/go/cpt",
+        "version" : "2023",
+        "code" : "82306",
+        "display" : "Vitamin D; 25 hydroxy, includes fraction(s), if performed"
       }
     ]
   }

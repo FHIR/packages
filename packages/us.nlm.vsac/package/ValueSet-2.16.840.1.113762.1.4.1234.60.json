@@ -1,57 +1,94 @@
 {
-  "resourceType": "ValueSet",
-  "id": "2.16.840.1.113762.1.4.1234.60",
-  "meta": {
-    "versionId": "8",
-    "lastUpdated": "2021-11-23T01:01:53.000-05:00"
+  "resourceType" : "ValueSet",
+  "id" : "2.16.840.1.113762.1.4.1234.60",
+  "meta" : {
+    "versionId" : "8",
+    "lastUpdated" : "2021-11-23T01:01:53.000-05:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "url": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1234.60",
-  "version": "20211123",
-  "name": "Guillain Barre Syndrome, diagnosis codes for AE reporting",
-  "status": "active",
-  "date": "2021-11-23T01:01:53-05:00",
-  "publisher": "BEST System Steward",
-  "compose": {
-    "include": [
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "BEST System Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2022-12-15"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2021-11-23"
+    }
+  ],
+  "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1234.60",
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113762.1.4.1234.60"
+    }
+  ],
+  "version" : "20211123",
+  "name" : "GuillainBarreSyndromeDiagnosisCodesForAEReporting",
+  "title" : "Guillain Barre Syndrome, diagnosis codes for AE reporting",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2021-11-23T01:01:53-05:00",
+  "publisher" : "BEST System Steward",
+  "jurisdiction" : [
+    {
+      "extension" : [
+        {
+          "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
+          "valueString" : "UNKNOWN"
+        }
+      ]
+    }
+  ],
+  "purpose" : "(Clinical Focus: Guillain Barre Syndrome definition of diagnosis codes, for identification of potential biologics-related adverse events.),(Data Element Scope: This value set may use a model element in the QDM category of Condition/Diagnosis.),(Inclusion Criteria: Guillain Barre Syndrome ICD10CM and equivalent SNOMED diagnosis codes.),(Exclusion Criteria: Sequelae and chronic codes may be excluded.)",
+  "compose" : {
+    "include" : [
       {
-        "valueSet": [
+        "valueSet" : [
           "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1234.20"
         ]
       },
       {
-        "valueSet": [
+        "valueSet" : [
           "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1234.21"
         ]
       }
     ]
   },
-  "expansion": {
-    "identifier": "urn:uuid:51e51aa3-399f-4939-a104-0b4e261f60fd",
-    "timestamp": "2022-09-27T21:06:15-04:00",
-    "total": 2,
-    "offset": 0,
-    "parameter": [
+  "expansion" : {
+    "identifier" : "urn:uuid:9d97c332-0a52-4390-86ae-bddc3b1b0363",
+    "timestamp" : "2023-06-29T17:35:52-04:00",
+    "total" : 2,
+    "offset" : 0,
+    "parameter" : [
       {
-        "name": "count",
-        "valueInteger": 1000
+        "name" : "count",
+        "valueInteger" : 1000
       },
       {
-        "name": "offset",
-        "valueInteger": 0
+        "name" : "offset",
+        "valueInteger" : 0
       }
     ],
-    "contains": [
+    "contains" : [
       {
-        "system": "http://snomed.info/sct",
-        "version": "http://snomed.info/sct/731000124108/version/20220301",
-        "code": "40956001",
-        "display": "Guillain-Barré syndrome (disorder)"
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20230301",
+        "code" : "40956001",
+        "display" : "Guillain-Barré syndrome (disorder)"
       },
       {
-        "system": "http://hl7.org/fhir/sid/icd-10-cm",
-        "version": "2023",
-        "code": "G61.0",
-        "display": "Guillain-Barre syndrome"
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2023",
+        "code" : "G61.0",
+        "display" : "Guillain-Barre syndrome"
       }
     ]
   }

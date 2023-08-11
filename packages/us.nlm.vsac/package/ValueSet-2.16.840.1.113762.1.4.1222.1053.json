@@ -1,112 +1,154 @@
 {
-  "resourceType": "ValueSet",
-  "id": "2.16.840.1.113762.1.4.1222.1053",
-  "meta": {
-    "versionId": "5",
-    "lastUpdated": "2021-09-24T01:11:48.000-04:00"
+  "resourceType" : "ValueSet",
+  "id" : "2.16.840.1.113762.1.4.1222.1053",
+  "meta" : {
+    "versionId" : "5",
+    "lastUpdated" : "2023-04-25T11:36:13.000-04:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "url": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1222.1053",
-  "version": "20210924",
-  "name": "Income",
-  "status": "active",
-  "date": "2021-09-24T01:11:48-04:00",
-  "publisher": "HL7 Patient Care WG Steward",
-  "compose": {
-    "include": [
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "MCC eCare Plan Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-keyWord",
+      "valueString" : "MCC_IG,MCC_Useful"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2022-12-15"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2021-09-24"
+    }
+  ],
+  "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1222.1053",
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113762.1.4.1222.1053"
+    }
+  ],
+  "version" : "20210924",
+  "name" : "IncomeLevel",
+  "title" : "Income Level",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2021-09-24T01:11:48-04:00",
+  "publisher" : "HL7 Patient Care WG Steward",
+  "description" : "This value set may undergo changes until the HL7 Multiple Chronic Care FHIR IG is formally published in 2024.",
+  "jurisdiction" : [
+    {
+      "extension" : [
+        {
+          "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
+          "valueString" : "UNKNOWN"
+        }
+      ]
+    }
+  ],
+  "purpose" : "(Clinical Focus: This set of values addresses terms representing an observation of an individual or household income level.),(Data Element Scope: The intent of this set of values is to identify patients who have a/an documentation of the patient's most recent household income level or income level category.),(Inclusion Criteria: Includes LOINC codes for Income.),(Exclusion Criteria: Terms not representative of observable encoded terms that may have values indicating Income.)",
+  "compose" : {
+    "include" : [
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "filter": [
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "filter" : [
           {
-            "property": "concept",
-            "op": "in",
-            "value": "77244-2,63058-2,89566-4,63510-2,63586-2,63509-4,63506-0,63507-8,91570-2,74185-0,63508-6"
+            "property" : "concept",
+            "op" : "in",
+            "value" : "77244-2,63058-2,89566-4,63510-2,63586-2,63509-4,63506-0,63507-8,91570-2,74185-0,63508-6"
           }
         ]
       }
     ]
   },
-  "expansion": {
-    "identifier": "urn:uuid:278cd331-a568-4800-847a-706bcab0cdeb",
-    "timestamp": "2022-09-27T21:44:51-04:00",
-    "total": 11,
-    "offset": 0,
-    "parameter": [
+  "expansion" : {
+    "identifier" : "urn:uuid:5224bb93-2a30-47c9-856a-6f86fd3eaebf",
+    "timestamp" : "2023-06-29T17:59:25-04:00",
+    "total" : 11,
+    "offset" : 0,
+    "parameter" : [
       {
-        "name": "count",
-        "valueInteger": 1000
+        "name" : "count",
+        "valueInteger" : 1000
       },
       {
-        "name": "offset",
-        "valueInteger": 0
+        "name" : "offset",
+        "valueInteger" : 0
       }
     ],
-    "contains": [
+    "contains" : [
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "63058-2",
-        "display": "PhenX - annual family income protocol 011101"
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "63058-2",
+        "display" : "PhenX - annual family income protocol 011101"
       },
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "63506-0",
-        "display": "Was your total family income from all sources less than 50,000 dollars or 50,000 dollars or more [PhenX]"
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "63506-0",
+        "display" : "Was your total family income from all sources less than 50,000 dollars or 50,000 dollars or more [PhenX]"
       },
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "63507-8",
-        "display": "Was your total family income from all sources less than 35,000 dollars or 35,000 dollars or more [PhenX]"
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "63507-8",
+        "display" : "Was your total family income from all sources less than 35,000 dollars or 35,000 dollars or more [PhenX]"
       },
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "63508-6",
-        "display": "Was your total family income from all sources less than poverty threshold or more [PhenX]"
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "63508-6",
+        "display" : "Was your total family income from all sources less than poverty threshold or more [PhenX]"
       },
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "63509-4",
-        "display": "Was your total family income from all sources less than 100,000 dollars or 100,000 dollars or more [PhenX]"
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "63509-4",
+        "display" : "Was your total family income from all sources less than 100,000 dollars or 100,000 dollars or more [PhenX]"
       },
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "63510-2",
-        "display": "Was your total family income from all sources less than 75,000 dollars or 75,000 dollars or more [PhenX]"
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "63510-2",
+        "display" : "Was your total family income from all sources less than 75,000 dollars or 75,000 dollars or more [PhenX]"
       },
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "63586-2",
-        "display": "What was your best estimate of the total income of all family members from all sources, before taxes, in last year [PhenX]"
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "63586-2",
+        "display" : "What was your best estimate of the total income of all family members from all sources, before taxes, in last year [PhenX]"
       },
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "74185-0",
-        "display": "Percent of U.S. Federal Poverty Level"
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "74185-0",
+        "display" : "Percent of U.S. Federal Poverty Level"
       },
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "77244-2",
-        "display": "Total combined household income range in last year"
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "77244-2",
+        "display" : "Total combined household income range in last year"
       },
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "89566-4",
-        "display": "Income status [CUBS]"
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "89566-4",
+        "display" : "Income status [CUBS]"
       },
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "91570-2",
-        "display": "Employment net income in past 30 days"
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "91570-2",
+        "display" : "Employment net income in past 30 days"
       }
     ]
   }

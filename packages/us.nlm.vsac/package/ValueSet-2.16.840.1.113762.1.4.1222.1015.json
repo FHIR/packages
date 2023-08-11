@@ -1,550 +1,592 @@
 {
-  "resourceType": "ValueSet",
-  "id": "2.16.840.1.113762.1.4.1222.1015",
-  "meta": {
-    "versionId": "5",
-    "lastUpdated": "2021-09-22T01:00:45.000-04:00"
+  "resourceType" : "ValueSet",
+  "id" : "2.16.840.1.113762.1.4.1222.1015",
+  "meta" : {
+    "versionId" : "5",
+    "lastUpdated" : "2023-04-25T11:53:49.000-04:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "url": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1222.1015",
-  "version": "20210922",
-  "name": "Substance Use",
-  "status": "active",
-  "date": "2021-09-22T01:00:45-04:00",
-  "publisher": "HL7 Patient Care WG Steward",
-  "compose": {
-    "include": [
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "MCC eCare Plan Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-keyWord",
+      "valueString" : "MCC_IG,MCC_Useful"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2022-12-15"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2021-09-22"
+    }
+  ],
+  "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1222.1015",
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113762.1.4.1222.1015"
+    }
+  ],
+  "version" : "20210922",
+  "name" : "SubstanceUse",
+  "title" : "Substance Use",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2021-09-22T01:00:45-04:00",
+  "publisher" : "HL7 Patient Care WG Steward",
+  "description" : "This value set may undergo changes until the HL7 Multiple Chronic Care FHIR IG is formally published in 2024.",
+  "jurisdiction" : [
+    {
+      "extension" : [
+        {
+          "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
+          "valueString" : "UNKNOWN"
+        }
+      ]
+    }
+  ],
+  "purpose" : "(Clinical Focus: This set of values addresses terms representing an observation of reported substance use.),(Data Element Scope: The intent of this set of values is to identify patients who have a/an documentation of the person's substance use patterns.),(Inclusion Criteria: Includes LOINC codes for Substance Use.),(Exclusion Criteria: Terms not representative of observable encoded terms that may have values indicating Substance Use.)",
+  "compose" : {
+    "include" : [
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "filter": [
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "filter" : [
           {
-            "property": "concept",
-            "op": "in",
-            "value": "72110-0,88031-0,76921-6,76934-9,76932-3,76923-2,76911-7,88029-4,97739-7,76917-4,76918-2,28355-6,75624-7,64572-1,76931-5,96844-6,76928-1,76930-7,68519-8,76901-8,97737-1,77848-0,76933-1,96843-8,76905-9,76902-6,8663-7,76914-1,76936-4,72109-2,67741-9,88030-2,76900-0,63646-4,72166-2,76906-7,97734-8,76916-6,96101-1,76919-0,68518-0,97740-5,76929-9,76920-8,75626-2,76904-2,76908-3,76937-2,28353-1,88037-7,77795-3,76913-3,76912-5,76924-0,68520-6,76927-3,96841-2,97735-5,96858-6,76903-4,76925-7,76915-8,76909-1,96842-0,76910-9,91569-4,76907-5,74010-0,77003-2,97738-9,76899-4,96848-7,45434-8,46098-0,97736-3,76926-5,45438-9,76935-6,95529-4,96847-9,76922-4,96850-3,75889-6,96851-1"
+            "property" : "concept",
+            "op" : "in",
+            "value" : "72110-0,88031-0,76921-6,76934-9,76932-3,76923-2,76911-7,88029-4,97739-7,76917-4,76918-2,28355-6,75624-7,64572-1,76931-5,96844-6,76928-1,76930-7,68519-8,76901-8,97737-1,77848-0,76933-1,96843-8,76905-9,76902-6,8663-7,76914-1,76936-4,72109-2,67741-9,88030-2,76900-0,63646-4,72166-2,76906-7,97734-8,76916-6,96101-1,76919-0,68518-0,97740-5,76929-9,76920-8,75626-2,76904-2,76908-3,76937-2,28353-1,88037-7,77795-3,76913-3,76912-5,76924-0,68520-6,76927-3,96841-2,97735-5,96858-6,76903-4,76925-7,76915-8,76909-1,96842-0,76910-9,91569-4,76907-5,74010-0,77003-2,97738-9,76899-4,96848-7,45434-8,46098-0,97736-3,76926-5,45438-9,76935-6,95529-4,96847-9,76922-4,96850-3,75889-6,96851-1"
           }
         ]
       }
     ]
   },
-  "expansion": {
-    "identifier": "urn:uuid:7219034c-7d25-4a26-882b-a431462df22d",
-    "timestamp": "2022-09-28T01:57:14-04:00",
-    "total": 84,
-    "offset": 0,
-    "parameter": [
+  "expansion" : {
+    "identifier" : "urn:uuid:b59341af-92d6-4b1e-b4f7-117fea46eba4",
+    "timestamp" : "2023-06-29T20:05:50-04:00",
+    "total" : 84,
+    "offset" : 0,
+    "parameter" : [
       {
-        "name": "count",
-        "valueInteger": 1000
+        "name" : "count",
+        "valueInteger" : 1000
       },
       {
-        "name": "offset",
-        "valueInteger": 0
+        "name" : "offset",
+        "valueInteger" : 0
       }
     ],
-    "contains": [
+    "contains" : [
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "28353-1",
-        "display": "Substance Use Behavior [OMAHA]"
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "28353-1",
+        "display" : "Substance Use Behavior [OMAHA]"
       },
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "28355-6",
-        "display": "Substance Use Status [OMAHA]"
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "28355-6",
+        "display" : "Substance Use Status [OMAHA]"
       },
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "45434-8",
-        "display": "Use of tobacco products at least daily [Minimum Data Set]"
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "45434-8",
+        "display" : "Use of tobacco products at least daily [Minimum Data Set]"
       },
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "45438-9",
-        "display": "Use of alcohol at least weekly [Minimum Data Set]"
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "45438-9",
+        "display" : "Use of alcohol at least weekly [Minimum Data Set]"
       },
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "46098-0",
-        "display": "Sex"
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "46098-0",
+        "display" : "Sex"
       },
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "63646-4",
-        "display": "During the past 30 days, on how many days did you use drugs [PhenX]"
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "63646-4",
+        "display" : "During the past 30 days, on how many days did you use drugs [PhenX]"
       },
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "64572-1",
-        "display": "How often does your child use cigarettes, smokeless tobacco, snuff, or other tobacco products [PhenX]"
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "64572-1",
+        "display" : "How often does your child use cigarettes, smokeless tobacco, snuff, or other tobacco products [PhenX]"
       },
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "67741-9",
-        "display": "Smoking tobacco use duration"
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "67741-9",
+        "display" : "Smoking tobacco use duration"
       },
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "68518-0",
-        "display": "How often do you have a drink containing alcohol"
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "68518-0",
+        "display" : "How often do you have a drink containing alcohol"
       },
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "68519-8",
-        "display": "How many standard drinks containing alcohol do you have on a typical day"
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "68519-8",
+        "display" : "How many standard drinks containing alcohol do you have on a typical day"
       },
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "68520-6",
-        "display": "How often do you have 6 or more drinks on 1 occasion"
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "68520-6",
+        "display" : "How often do you have 6 or more drinks on 1 occasion"
       },
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "72109-2",
-        "display": "Alcohol Use Disorder Identification Test - Consumption [AUDIT-C]"
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "72109-2",
+        "display" : "Alcohol Use Disorder Identification Test - Consumption [AUDIT-C]"
       },
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "72110-0",
-        "display": "Alcohol Use Disorder Identification Test [AUDIT]"
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "72110-0",
+        "display" : "Alcohol Use Disorder Identification Test [AUDIT]"
       },
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "72166-2",
-        "display": "Tobacco smoking status"
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "72166-2",
+        "display" : "Tobacco smoking status"
       },
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "74010-0",
-        "display": "Date quit tobacco smoking"
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "74010-0",
+        "display" : "Date quit tobacco smoking"
       },
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "75624-7",
-        "display": "Total score [AUDIT]"
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "75624-7",
+        "display" : "Total score [AUDIT]"
       },
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "75626-2",
-        "display": "Total score [AUDIT-C]"
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "75626-2",
+        "display" : "Total score [AUDIT-C]"
       },
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "75889-6",
-        "display": "How often have you had four or more drinks in one day during the past year [Reported]"
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "75889-6",
+        "display" : "How often have you had four or more drinks in one day during the past year [Reported]"
       },
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "76899-4",
-        "display": "PROMIS item bank - alcohol - alcohol use - version 1.0"
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "76899-4",
+        "display" : "PROMIS item bank - alcohol - alcohol use - version 1.0"
       },
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "76900-0",
-        "display": "Did you drink any type of alcoholic beverage in past 30D [PROMIS]"
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "76900-0",
+        "display" : "Did you drink any type of alcoholic beverage in past 30D [PROMIS]"
       },
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "76901-8",
-        "display": "I spent too much time drinking in past 30D [PROMIS]"
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "76901-8",
+        "display" : "I spent too much time drinking in past 30D [PROMIS]"
       },
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "76902-6",
-        "display": "I finished several drinks fast to get a quick effect in past 30D [PROMIS]"
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "76902-6",
+        "display" : "I finished several drinks fast to get a quick effect in past 30D [PROMIS]"
       },
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "76903-4",
-        "display": "I became drunk or intoxicated in past 30D [PROMIS]"
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "76903-4",
+        "display" : "I became drunk or intoxicated in past 30D [PROMIS]"
       },
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "76904-2",
-        "display": "On a typical day when I drank alcohol, I had... [PROMIS]"
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "76904-2",
+        "display" : "On a typical day when I drank alcohol, I had... [PROMIS]"
       },
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "76905-9",
-        "display": "I spent a whole weekend drinking in past 30D [PROMIS]"
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "76905-9",
+        "display" : "I spent a whole weekend drinking in past 30D [PROMIS]"
       },
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "76906-7",
-        "display": "I drank heavily at a single sitting in past 30D [PROMIS]"
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "76906-7",
+        "display" : "I drank heavily at a single sitting in past 30D [PROMIS]"
       },
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "76907-5",
-        "display": "I drank too much in past 30D [PROMIS]"
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "76907-5",
+        "display" : "I drank too much in past 30D [PROMIS]"
       },
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "76908-3",
-        "display": "I drank throughout the day in past 30D [PROMIS]"
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "76908-3",
+        "display" : "I drank throughout the day in past 30D [PROMIS]"
       },
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "76909-1",
-        "display": "The largest number of drinks that I had in a single day in past 30D was... [PROMIS]"
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "76909-1",
+        "display" : "The largest number of drinks that I had in a single day in past 30D was... [PROMIS]"
       },
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "76910-9",
-        "display": "I used alcohol and other drugs together to get high in past 30D [PROMIS]"
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "76910-9",
+        "display" : "I used alcohol and other drugs together to get high in past 30D [PROMIS]"
       },
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "76911-7",
-        "display": "In a typical week in past 30D, I drank... [PROMIS]"
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "76911-7",
+        "display" : "In a typical week in past 30D, I drank... [PROMIS]"
       },
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "76912-5",
-        "display": "I drank more than planned in past 30D [PROMIS]"
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "76912-5",
+        "display" : "I drank more than planned in past 30D [PROMIS]"
       },
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "76913-3",
-        "display": "I had an urge to continue drinking once I started in past 30D [PROMIS]"
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "76913-3",
+        "display" : "I had an urge to continue drinking once I started in past 30D [PROMIS]"
       },
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "76914-1",
-        "display": "I felt that I should cut down on my drinking in past 30D [PROMIS]"
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "76914-1",
+        "display" : "I felt that I should cut down on my drinking in past 30D [PROMIS]"
       },
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "76915-8",
-        "display": "I had trouble controlling my drinking in past 30D [PROMIS]"
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "76915-8",
+        "display" : "I had trouble controlling my drinking in past 30D [PROMIS]"
       },
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "76916-6",
-        "display": "It was difficult for me to stop drinking after one or two drinks in past 30D [PROMIS]"
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "76916-6",
+        "display" : "It was difficult for me to stop drinking after one or two drinks in past 30D [PROMIS]"
       },
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "76917-4",
-        "display": "I had urges to drink in past 30D [PROMIS]"
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "76917-4",
+        "display" : "I had urges to drink in past 30D [PROMIS]"
       },
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "76918-2",
-        "display": "I had cravings for alcohol in past 30D [PROMIS]"
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "76918-2",
+        "display" : "I had cravings for alcohol in past 30D [PROMIS]"
       },
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "76919-0",
-        "display": "I felt I needed help for my drinking in past 30D [PROMIS]"
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "76919-0",
+        "display" : "I felt I needed help for my drinking in past 30D [PROMIS]"
       },
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "76920-8",
-        "display": "I had trouble stopping drinking when I wanted to in past 30D [PROMIS]"
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "76920-8",
+        "display" : "I had trouble stopping drinking when I wanted to in past 30D [PROMIS]"
       },
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "76921-6",
-        "display": "It was difficult to get the thought of drinking out of my mind in past 30D [PROMIS]"
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "76921-6",
+        "display" : "It was difficult to get the thought of drinking out of my mind in past 30D [PROMIS]"
       },
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "76922-4",
-        "display": "I drank when I was alone in past 30D [PROMIS]"
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "76922-4",
+        "display" : "I drank when I was alone in past 30D [PROMIS]"
       },
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "76923-2",
-        "display": "I drank because I had nothing to do in past 30D [PROMIS]"
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "76923-2",
+        "display" : "I drank because I had nothing to do in past 30D [PROMIS]"
       },
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "76924-0",
-        "display": "I drank when I arrived at home in past 30D [PROMIS]"
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "76924-0",
+        "display" : "I drank when I arrived at home in past 30D [PROMIS]"
       },
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "76925-7",
-        "display": "I drank because I was angry with myself in past 30D [PROMIS]"
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "76925-7",
+        "display" : "I drank because I was angry with myself in past 30D [PROMIS]"
       },
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "76926-5",
-        "display": "I drank because someone made me angry in past 30D [PROMIS]"
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "76926-5",
+        "display" : "I drank because someone made me angry in past 30D [PROMIS]"
       },
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "76927-3",
-        "display": "I drank because I was irritable in past 30D [PROMIS]"
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "76927-3",
+        "display" : "I drank because I was irritable in past 30D [PROMIS]"
       },
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "76928-1",
-        "display": "I drank because I deserved it in past 30D [PROMIS]"
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "76928-1",
+        "display" : "I drank because I deserved it in past 30D [PROMIS]"
       },
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "76929-9",
-        "display": "I drank because I was annoyed in past 30D [PROMIS]"
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "76929-9",
+        "display" : "I drank because I was annoyed in past 30D [PROMIS]"
       },
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "76930-7",
-        "display": "I drank because I felt tense in past 30D [PROMIS]"
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "76930-7",
+        "display" : "I drank because I felt tense in past 30D [PROMIS]"
       },
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "76931-5",
-        "display": "I drank at the end of a busy day in past 30D [PROMIS]"
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "76931-5",
+        "display" : "I drank at the end of a busy day in past 30D [PROMIS]"
       },
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "76932-3",
-        "display": "I drank because I was nervous in past 30D [PROMIS]"
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "76932-3",
+        "display" : "I drank because I was nervous in past 30D [PROMIS]"
       },
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "76933-1",
-        "display": "I drank because I was sad in past 30D [PROMIS]"
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "76933-1",
+        "display" : "I drank because I was sad in past 30D [PROMIS]"
       },
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "76934-9",
-        "display": "I drank because I was lonely in past 30D [PROMIS]"
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "76934-9",
+        "display" : "I drank because I was lonely in past 30D [PROMIS]"
       },
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "76935-6",
-        "display": "I drank because I was depressed in past 30D [PROMIS]"
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "76935-6",
+        "display" : "I drank because I was depressed in past 30D [PROMIS]"
       },
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "76936-4",
-        "display": "I drank because I had physical pain in past 30D [PROMIS]"
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "76936-4",
+        "display" : "I drank because I had physical pain in past 30D [PROMIS]"
       },
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "76937-2",
-        "display": "I drank because I was bored in past 30D [PROMIS]"
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "76937-2",
+        "display" : "I drank because I was bored in past 30D [PROMIS]"
       },
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "77003-2",
-        "display": "PROMIS short form - alcohol - alcohol use 7a - version 1.0"
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "77003-2",
+        "display" : "PROMIS short form - alcohol - alcohol use 7a - version 1.0"
       },
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "77795-3",
-        "display": "PROMIS short form - alcohol - alcohol use 7a - version 1.0 raw score"
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "77795-3",
+        "display" : "PROMIS short form - alcohol - alcohol use 7a - version 1.0 raw score"
       },
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "77848-0",
-        "display": "PROMIS alcohol - alcohol use - version 1.0 Tscore"
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "77848-0",
+        "display" : "PROMIS alcohol - alcohol use - version 1.0 Tscore"
       },
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "8663-7",
-        "display": "Cigarettes smoked current (pack per day) - Reported"
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "8663-7",
+        "display" : "Cigarettes smoked current (pack per day) - Reported"
       },
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "88029-4",
-        "display": "Tobacco use duration"
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "88029-4",
+        "display" : "Tobacco use duration"
       },
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "88030-2",
-        "display": "Date quit smokeless tobacco"
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "88030-2",
+        "display" : "Date quit smokeless tobacco"
       },
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "88031-0",
-        "display": "Smokeless tobacco status"
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "88031-0",
+        "display" : "Smokeless tobacco status"
       },
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "88037-7",
-        "display": "How often have you had five or more drinks in one day during the past year [Reported]"
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "88037-7",
+        "display" : "How often have you had five or more drinks in one day during the past year [Reported]"
       },
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "91569-4",
-        "display": "Frequency of medicine or drug injection with needle during time period with highest use 12 months"
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "91569-4",
+        "display" : "Frequency of medicine or drug injection with needle during time period with highest use 12 months"
       },
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "95529-4",
-        "display": "Tobacco use in the past year"
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "95529-4",
+        "display" : "Tobacco use in the past year"
       },
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "96101-1",
-        "display": "Tobacco use frequency"
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "96101-1",
+        "display" : "Tobacco use frequency"
       },
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "96841-2",
-        "display": "Tobacco, Alcohol, Prescription medications, and other Substance use screen [TAPS]"
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "96841-2",
+        "display" : "Tobacco, Alcohol, Prescription medications, and other Substance use screen [TAPS]"
       },
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "96842-0",
-        "display": "How often have you used any tobacco product in past 12 months"
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "96842-0",
+        "display" : "How often have you used any tobacco product in past 12 months"
       },
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "96843-8",
-        "display": "How often have you used illegal or recreational drugs in past 12 months"
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "96843-8",
+        "display" : "How often have you used illegal or recreational drugs in past 12 months"
       },
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "96844-6",
-        "display": "How often have you used any prescription medications just for the feeling, more than prescribed or that were not prescribed for you in past 12 months [TAPS]"
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "96844-6",
+        "display" : "How often have you used any prescription medications just for the feeling, more than prescribed or that were not prescribed for you in past 12 months [TAPS]"
       },
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "96847-9",
-        "display": "Smoked more than 10 cigarettes per day in past 3 months"
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "96847-9",
+        "display" : "Smoked more than 10 cigarettes per day in past 3 months"
       },
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "96848-7",
-        "display": "Smoked cigarette within 30M after waking in past 3 months"
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "96848-7",
+        "display" : "Smoked cigarette within 30M after waking in past 3 months"
       },
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "96850-3",
-        "display": "Four or more drinks in one day in the past 3 months"
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "96850-3",
+        "display" : "Four or more drinks in one day in the past 3 months"
       },
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "96851-1",
-        "display": "Five or more drinks in one day in the past 3 months"
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "96851-1",
+        "display" : "Five or more drinks in one day in the past 3 months"
       },
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "96858-6",
-        "display": "Used cocaine, crack, or methamphetamine at least once a week in past 3 months"
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "96858-6",
+        "display" : "Used cocaine, crack, or methamphetamine at least once a week in past 3 months"
       },
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "97734-8",
-        "display": "Inability to stop drinking once started"
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "97734-8",
+        "display" : "Inability to stop drinking once started"
       },
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "97735-5",
-        "display": "Failed expectations due to drinking"
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "97735-5",
+        "display" : "Failed expectations due to drinking"
       },
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "97736-3",
-        "display": "Drink needed in morning to begin activities after drinking session"
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "97736-3",
+        "display" : "Drink needed in morning to begin activities after drinking session"
       },
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "97737-1",
-        "display": "Guilt or remorse after drinking"
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "97737-1",
+        "display" : "Guilt or remorse after drinking"
       },
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "97738-9",
-        "display": "Inability to recall events from night before due to drinking"
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "97738-9",
+        "display" : "Inability to recall events from night before due to drinking"
       },
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "97739-7",
-        "display": "Injury to you or someone else resulting from drinking"
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "97739-7",
+        "display" : "Injury to you or someone else resulting from drinking"
       },
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "97740-5",
-        "display": "Has anyone expressed concern about your drinking or suggested you cut down"
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "97740-5",
+        "display" : "Has anyone expressed concern about your drinking or suggested you cut down"
       }
     ]
   }

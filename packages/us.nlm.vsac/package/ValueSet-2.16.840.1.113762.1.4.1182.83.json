@@ -1,51 +1,88 @@
 {
-  "resourceType": "ValueSet",
-  "id": "2.16.840.1.113762.1.4.1182.83",
-  "meta": {
-    "versionId": "5",
-    "lastUpdated": "2018-08-02T01:10:09.000-04:00"
+  "resourceType" : "ValueSet",
+  "id" : "2.16.840.1.113762.1.4.1182.83",
+  "meta" : {
+    "versionId" : "5",
+    "lastUpdated" : "2018-08-02T01:10:09.000-04:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "url": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1182.83",
-  "version": "20180802",
-  "name": "Systolic Blood Pressure Greater Than Equal To 140",
-  "status": "active",
-  "date": "2018-08-02T01:00:04-04:00",
-  "publisher": "Change Healthcare Steward",
-  "compose": {
-    "include": [
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "Change Healthcare Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2022-12-15"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2018-08-02"
+    }
+  ],
+  "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1182.83",
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113762.1.4.1182.83"
+    }
+  ],
+  "version" : "20180802",
+  "name" : "SystolicBloodPressureGreaterThanEqualTo140",
+  "title" : "Systolic Blood Pressure Greater Than Equal To 140",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2018-08-02T01:00:04-04:00",
+  "publisher" : "Change Healthcare Steward",
+  "description" : "Representative systolic blood pressure greater than or equal to 140.  Including inactive codes to account for historical data.",
+  "jurisdiction" : [
+    {
+      "extension" : [
+        {
+          "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
+          "valueString" : "UNKNOWN"
+        }
+      ]
+    }
+  ],
+  "purpose" : "(Clinical Focus: Most recent systolic blood pressure >= 140),(Data Element Scope: Representative systolic blood pressure >= 140.  Likely Procedure or Observation.),(Inclusion Criteria: CPT Level II codes that represent only a systolic blood pressure >= 140),(Exclusion Criteria: Diastolic blood pressure codes, codes that represent both a systolic and diastolic reading)",
+  "compose" : {
+    "include" : [
       {
-        "system": "http://www.ama-assn.org/go/cpt",
-        "version": "2022",
-        "concept": [
+        "system" : "http://www.ama-assn.org/go/cpt",
+        "concept" : [
           {
-            "code": "3077F",
-            "display": "Most recent systolic blood pressure greater than or equal to 140 mm Hg (HTN, CKD, CAD) (DM)"
+            "code" : "3077F",
+            "display" : "Most recent systolic blood pressure greater than or equal to 140 mm Hg (HTN, CKD, CAD) (DM)"
           }
         ]
       }
     ]
   },
-  "expansion": {
-    "identifier": "urn:uuid:2bbe157f-5587-469a-8feb-f9bf6f03d24f",
-    "timestamp": "2022-09-28T02:08:38-04:00",
-    "total": 1,
-    "offset": 0,
-    "parameter": [
+  "expansion" : {
+    "identifier" : "urn:uuid:dcc85ebb-5b1d-4b91-8f15-0973e44f26c7",
+    "timestamp" : "2023-06-29T20:09:42-04:00",
+    "total" : 1,
+    "offset" : 0,
+    "parameter" : [
       {
-        "name": "count",
-        "valueInteger": 1000
+        "name" : "count",
+        "valueInteger" : 1000
       },
       {
-        "name": "offset",
-        "valueInteger": 0
+        "name" : "offset",
+        "valueInteger" : 0
       }
     ],
-    "contains": [
+    "contains" : [
       {
-        "system": "http://www.ama-assn.org/go/cpt",
-        "version": "2022",
-        "code": "3077F",
-        "display": "Most recent systolic blood pressure greater than or equal to 140 mm Hg (HTN, CKD, CAD) (DM)"
+        "system" : "http://www.ama-assn.org/go/cpt",
+        "version" : "2023",
+        "code" : "3077F",
+        "display" : "Most recent systolic blood pressure greater than or equal to 140 mm Hg (HTN, CKD, CAD) (DM)"
       }
     ]
   }

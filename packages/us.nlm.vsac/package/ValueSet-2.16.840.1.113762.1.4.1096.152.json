@@ -1,71 +1,111 @@
 {
-  "resourceType": "ValueSet",
-  "id": "2.16.840.1.113762.1.4.1096.152",
-  "meta": {
-    "versionId": "8",
-    "lastUpdated": "2019-03-28T19:37:56.000-04:00"
+  "resourceType" : "ValueSet",
+  "id" : "2.16.840.1.113762.1.4.1096.152",
+  "meta" : {
+    "versionId" : "8",
+    "lastUpdated" : "2019-03-28T19:37:56.000-04:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "url": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1096.152",
-  "version": "20170801",
-  "name": "Encounter Class",
-  "status": "active",
-  "date": "2017-08-01T01:00:05-04:00",
-  "publisher": "PharmacyHIT",
-  "compose": {
-    "include": [
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "PharmacyHIT Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-keyWord",
+      "valueString" : "Active,PhCP"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2022-12-27"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2017-08-01"
+    }
+  ],
+  "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1096.152",
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113762.1.4.1096.152"
+    }
+  ],
+  "version" : "20170801",
+  "name" : "EncounterClass",
+  "title" : "Encounter Class",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2017-08-01T01:00:05-04:00",
+  "publisher" : "PharmacyHIT",
+  "jurisdiction" : [
+    {
+      "extension" : [
+        {
+          "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
+          "valueString" : "UNKNOWN"
+        }
+      ]
+    }
+  ],
+  "purpose" : "(Clinical Focus: This value set contains codes representing the communication device or lack thereof used during an encounter.),(Data Element Scope: Datatype is Procedure. The intent of this data element is to document the method in which the encounter was carried out, specific to the communication device or lack thereof.),(Inclusion Criteria: Any codes that represent methods of conducting an encounter with a patient. i.e. telephone, email, in person.),(Exclusion Criteria: Any codes that do not represent methods of conducting an encounter with a patient.)",
+  "compose" : {
+    "include" : [
       {
-        "system": "http://snomed.info/sct",
-        "version": "http://snomed.info/sct/731000124108/version/20220301",
-        "concept": [
+        "system" : "http://snomed.info/sct",
+        "concept" : [
           {
-            "code": "185317003",
-            "display": "Telephone encounter (procedure)"
+            "code" : "185317003",
+            "display" : "Telephone encounter (procedure)"
           },
           {
-            "code": "445450000",
-            "display": "Encounter by short message service text messaging (procedure)"
+            "code" : "445450000",
+            "display" : "Encounter by short message service text messaging (procedure)"
           },
           {
-            "code": "453701000124103",
-            "display": "In-person encounter (procedure)"
+            "code" : "453701000124103",
+            "display" : "In-person encounter (procedure)"
           }
         ]
       }
     ]
   },
-  "expansion": {
-    "identifier": "urn:uuid:2a36070b-7f25-4c9e-9b18-e36326d4ea18",
-    "timestamp": "2022-09-27T20:31:12-04:00",
-    "total": 3,
-    "offset": 0,
-    "parameter": [
+  "expansion" : {
+    "identifier" : "urn:uuid:3ab48ebd-a2a9-4be3-a60c-65c4347cad55",
+    "timestamp" : "2023-06-29T17:14:25-04:00",
+    "total" : 3,
+    "offset" : 0,
+    "parameter" : [
       {
-        "name": "count",
-        "valueInteger": 1000
+        "name" : "count",
+        "valueInteger" : 1000
       },
       {
-        "name": "offset",
-        "valueInteger": 0
+        "name" : "offset",
+        "valueInteger" : 0
       }
     ],
-    "contains": [
+    "contains" : [
       {
-        "system": "http://snomed.info/sct",
-        "version": "http://snomed.info/sct/731000124108/version/20220301",
-        "code": "185317003",
-        "display": "Telephone encounter (procedure)"
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20230301",
+        "code" : "185317003",
+        "display" : "Telephone encounter (procedure)"
       },
       {
-        "system": "http://snomed.info/sct",
-        "version": "http://snomed.info/sct/731000124108/version/20220301",
-        "code": "445450000",
-        "display": "Encounter by short message service text messaging (procedure)"
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20230301",
+        "code" : "445450000",
+        "display" : "Encounter by short message service text messaging (procedure)"
       },
       {
-        "system": "http://snomed.info/sct",
-        "version": "http://snomed.info/sct/731000124108/version/20220301",
-        "code": "453701000124103",
-        "display": "In-person encounter (procedure)"
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20230301",
+        "code" : "453701000124103",
+        "display" : "In-person encounter (procedure)"
       }
     ]
   }

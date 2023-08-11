@@ -1,154 +1,94 @@
 {
-  "resourceType": "ValueSet",
-  "id": "2.16.840.1.113762.1.4.1222.965",
-  "meta": {
-    "versionId": "5",
-    "lastUpdated": "2021-09-27T15:14:24.000-04:00"
+  "resourceType" : "ValueSet",
+  "id" : "2.16.840.1.113762.1.4.1222.965",
+  "meta" : {
+    "versionId" : "16",
+    "lastUpdated" : "2022-10-28T01:03:05.000-04:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "url": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1222.965",
-  "version": "20210922",
-  "name": "Polysomnogram (PSG) Results",
-  "status": "active",
-  "date": "2021-09-22T01:00:54-04:00",
-  "publisher": "HL7 Patient Care WG Steward",
-  "compose": {
-    "include": [
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "MCC eCare Plan Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-keyWord",
+      "valueString" : "MCC"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2022-12-15"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2022-10-28"
+    }
+  ],
+  "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1222.965",
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113762.1.4.1222.965"
+    }
+  ],
+  "version" : "20221028",
+  "name" : "Polysomnogram",
+  "title" : "Polysomnogram",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2022-10-28T01:03:05-04:00",
+  "publisher" : "HL7 Patient Care WG Steward",
+  "description" : "Note - \"This value set may undergo changes until the HL7 Multiple Chronic Care FHIR IG is formally published in 2024.\"",
+  "jurisdiction" : [
+    {
+      "extension" : [
+        {
+          "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
+          "valueString" : "UNKNOWN"
+        }
+      ]
+    }
+  ],
+  "purpose" : "(Clinical Focus: This set of values represent Polysomnogram test concepts. These terms may be used when reporting a result associated with Polysomnogram test or may be used to represent the procedure.),(Data Element Scope: The intent of this set of values is to identify patients who have a/an record of brain waves, blood oxygen level, heart rate, breathing, and eye and leg movements during sleep.),(Inclusion Criteria: Includes LOINC codes for Polysomnogram test.),(Exclusion Criteria: Terms not representative of observable encoded terms that may have values indicating Polysomnogram test.)",
+  "compose" : {
+    "include" : [
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "filter": [
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "filter" : [
           {
-            "property": "concept",
-            "op": "in",
-            "value": "28633-6,90559-6,90567-9,90565-3,90564-6,90554-7,90557-0,90560-4,90552-1,90563-8,90558-8,90556-2,90566-1,90561-2,90568-7,90555-4,90553-9,90562-0"
+            "property" : "concept",
+            "op" : "=",
+            "value" : "28633-6"
           }
         ]
       }
     ]
   },
-  "expansion": {
-    "identifier": "urn:uuid:e913963d-0b8c-4bb2-8fa0-89e46a50fb60",
-    "timestamp": "2022-09-28T00:10:59-04:00",
-    "total": 18,
-    "offset": 0,
-    "parameter": [
+  "expansion" : {
+    "identifier" : "urn:uuid:26aa2d4c-146a-4a4e-a14d-8d8ebaaa1aec",
+    "timestamp" : "2023-06-29T19:20:32-04:00",
+    "total" : 1,
+    "offset" : 0,
+    "parameter" : [
       {
-        "name": "count",
-        "valueInteger": 1000
+        "name" : "count",
+        "valueInteger" : 1000
       },
       {
-        "name": "offset",
-        "valueInteger": 0
+        "name" : "offset",
+        "valueInteger" : 0
       }
     ],
-    "contains": [
+    "contains" : [
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "28633-6",
-        "display": "Polysomnography (sleep) study"
-      },
-      {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "90552-1",
-        "display": "Mixed apnea [#]"
-      },
-      {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "90553-9",
-        "display": "Central apnea [#]"
-      },
-      {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "90554-7",
-        "display": "Oxygen desaturation [#]"
-      },
-      {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "90555-4",
-        "display": "Hypopnea [#]"
-      },
-      {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "90556-2",
-        "display": "Obstructive hypopnea [#]"
-      },
-      {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "90557-0",
-        "display": "Respiratory effort-related arousal [#]"
-      },
-      {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "90558-8",
-        "display": "Central hypopnea [#]"
-      },
-      {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "90559-6",
-        "display": "Apnea + hypopnea [#]"
-      },
-      {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "90560-4",
-        "display": "Obstructive apnea [#]"
-      },
-      {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "90561-2",
-        "display": "Hypopnea index"
-      },
-      {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "90562-0",
-        "display": "Apnea index"
-      },
-      {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "90563-8",
-        "display": "Obstructive apnea hypopnea index"
-      },
-      {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "90564-6",
-        "display": "Central apnea hypopnea index"
-      },
-      {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "90565-3",
-        "display": "Respiratory effort-related arousal index"
-      },
-      {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "90566-1",
-        "display": "Respiratory disturbance index"
-      },
-      {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "90567-9",
-        "display": "Oxygen desaturation index"
-      },
-      {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "90568-7",
-        "display": "Polysomnography panel"
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "28633-6",
+        "display" : "Polysomnography (sleep) study"
       }
     ]
   }

@@ -1,58 +1,95 @@
 {
-  "resourceType": "ValueSet",
-  "id": "2.16.840.1.113762.1.4.1111.75",
-  "meta": {
-    "versionId": "3",
-    "lastUpdated": "2016-03-02T01:00:04.000-05:00"
+  "resourceType" : "ValueSet",
+  "id" : "2.16.840.1.113762.1.4.1111.75",
+  "meta" : {
+    "versionId" : "3",
+    "lastUpdated" : "2016-03-02T01:00:04.000-05:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "url": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1111.75",
-  "version": "20160302",
-  "name": "Hospital Inpatient Admission and or Provider Visit",
-  "status": "active",
-  "date": "2016-03-02T01:00:04-05:00",
-  "publisher": "American Academy of Neurology Steward",
-  "compose": {
-    "include": [
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "American Academy of Neurology Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2022-12-15"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2016-03-02"
+    }
+  ],
+  "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1111.75",
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113762.1.4.1111.75"
+    }
+  ],
+  "version" : "20160302",
+  "name" : "HospitalInpatientAdmissionAndOrProviderVisit",
+  "title" : "Hospital Inpatient Admission and or Provider Visit",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2016-03-02T01:00:04-05:00",
+  "publisher" : "American Academy of Neurology Steward",
+  "jurisdiction" : [
+    {
+      "extension" : [
+        {
+          "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
+          "valueString" : "UNKNOWN"
+        }
+      ]
+    }
+  ],
+  "purpose" : "(Clinical Focus: ),(Data Element Scope: ),(Inclusion Criteria: ),(Exclusion Criteria: )",
+  "compose" : {
+    "include" : [
       {
-        "valueSet": [
+        "valueSet" : [
           "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.101.11.1020"
         ]
       }
     ]
   },
-  "expansion": {
-    "identifier": "urn:uuid:8fb73cbd-0f06-4f99-a3a6-27d3bda796ac",
-    "timestamp": "2022-09-27T21:33:08-04:00",
-    "total": 3,
-    "offset": 0,
-    "parameter": [
+  "expansion" : {
+    "identifier" : "urn:uuid:82efed8d-fa42-49d0-aa08-bb19ab3d599d",
+    "timestamp" : "2023-06-29T17:49:49-04:00",
+    "total" : 3,
+    "offset" : 0,
+    "parameter" : [
       {
-        "name": "count",
-        "valueInteger": 1000
+        "name" : "count",
+        "valueInteger" : 1000
       },
       {
-        "name": "offset",
-        "valueInteger": 0
+        "name" : "offset",
+        "valueInteger" : 0
       }
     ],
-    "contains": [
+    "contains" : [
       {
-        "system": "http://www.ama-assn.org/go/cpt",
-        "version": "2022",
-        "code": "99221",
-        "display": "Initial hospital care, per day, for the evaluation and management of a patient, which requires these 3 key components: A detailed or comprehensive history; A detailed or comprehensive examination; and Medical decision making that is straightforward or of low complexity. Counseling and/or coordination of care with other physicians, other qualified health care professionals, or agencies are provided consistent with the nature of the problem(s) and the patient\u0027s and/or family\u0027s needs. Usually, the problem(s) requiring admission are of low severity. Typically, 30 minutes are spent at the bedside and on the patient\u0027s hospital floor or unit."
+        "system" : "http://www.ama-assn.org/go/cpt",
+        "version" : "2023",
+        "code" : "99221",
+        "display" : "Initial hospital inpatient or observation care, per day, for the evaluation and management of a patient, which requires a medically appropriate history and/or examination and straightforward or low level medical decision making. When using total time on the date of the encounter for code selection, 40 minutes must be met or exceeded."
       },
       {
-        "system": "http://www.ama-assn.org/go/cpt",
-        "version": "2022",
-        "code": "99222",
-        "display": "Initial hospital care, per day, for the evaluation and management of a patient, which requires these 3 key components: A comprehensive history; A comprehensive examination; and Medical decision making of moderate complexity. Counseling and/or coordination of care with other physicians, other qualified health care professionals, or agencies are provided consistent with the nature of the problem(s) and the patient\u0027s and/or family\u0027s needs. Usually, the problem(s) requiring admission are of moderate severity. Typically, 50 minutes are spent at the bedside and on the patient\u0027s hospital floor or unit."
+        "system" : "http://www.ama-assn.org/go/cpt",
+        "version" : "2023",
+        "code" : "99222",
+        "display" : "Initial hospital inpatient or observation care, per day, for the evaluation and management of a patient, which requires a medically appropriate history and/or examination and moderate level of medical decision making. When using total time on the date of the encounter for code selection, 55 minutes must be met or exceeded."
       },
       {
-        "system": "http://www.ama-assn.org/go/cpt",
-        "version": "2022",
-        "code": "99223",
-        "display": "Initial hospital care, per day, for the evaluation and management of a patient, which requires these 3 key components: A comprehensive history; A comprehensive examination; and Medical decision making of high complexity. Counseling and/or coordination of care with other physicians, other qualified health care professionals, or agencies are provided consistent with the nature of the problem(s) and the patient\u0027s and/or family\u0027s needs. Usually, the problem(s) requiring admission are of high severity. Typically, 70 minutes are spent at the bedside and on the patient\u0027s hospital floor or unit."
+        "system" : "http://www.ama-assn.org/go/cpt",
+        "version" : "2023",
+        "code" : "99223",
+        "display" : "Initial hospital inpatient or observation care, per day, for the evaluation and management of a patient, which requires a medically appropriate history and/or examination and high level of medical decision making. When using total time on the date of the encounter for code selection, 75 minutes must be met or exceeded."
       }
     ]
   }

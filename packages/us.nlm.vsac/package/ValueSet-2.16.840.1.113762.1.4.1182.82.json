@@ -1,61 +1,98 @@
 {
-  "resourceType": "ValueSet",
-  "id": "2.16.840.1.113762.1.4.1182.82",
-  "meta": {
-    "versionId": "6",
-    "lastUpdated": "2018-08-02T01:10:09.000-04:00"
+  "resourceType" : "ValueSet",
+  "id" : "2.16.840.1.113762.1.4.1182.82",
+  "meta" : {
+    "versionId" : "6",
+    "lastUpdated" : "2018-08-02T01:10:09.000-04:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "url": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1182.82",
-  "version": "20180802",
-  "name": "Systolic Blood Pressure Less Than 140",
-  "status": "active",
-  "date": "2018-08-02T01:00:04-04:00",
-  "publisher": "Change Healthcare Steward",
-  "compose": {
-    "include": [
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "Change Healthcare Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2022-12-15"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2018-08-02"
+    }
+  ],
+  "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1182.82",
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113762.1.4.1182.82"
+    }
+  ],
+  "version" : "20180802",
+  "name" : "SystolicBloodPressureLessThan140",
+  "title" : "Systolic Blood Pressure Less Than 140",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2018-08-02T01:00:04-04:00",
+  "publisher" : "Change Healthcare Steward",
+  "description" : "Value set includes CPT Level II.  Can also includes codes that represent systolic blood pressure < 130 or 130-139.",
+  "jurisdiction" : [
+    {
+      "extension" : [
+        {
+          "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
+          "valueString" : "UNKNOWN"
+        }
+      ]
+    }
+  ],
+  "purpose" : "(Clinical Focus: Most recent systolic blood pressure < 140),(Data Element Scope: Representative systolic blood pressure < 140),(Inclusion Criteria: CPT Level II codes that represent only a systolic blood pressure < 140),(Exclusion Criteria: Diastolic blood pressure codes, codes that represent both a systolic and diastolic reading)",
+  "compose" : {
+    "include" : [
       {
-        "system": "http://www.ama-assn.org/go/cpt",
-        "version": "2022",
-        "concept": [
+        "system" : "http://www.ama-assn.org/go/cpt",
+        "concept" : [
           {
-            "code": "3074F",
-            "display": "Most recent systolic blood pressure less than 130 mm Hg (DM), (HTN, CKD, CAD)"
+            "code" : "3074F",
+            "display" : "Most recent systolic blood pressure less than 130 mm Hg (DM), (HTN, CKD, CAD)"
           },
           {
-            "code": "3075F",
-            "display": "Most recent systolic blood pressure 130-139 mm Hg (DM),(HTN, CKD, CAD)"
+            "code" : "3075F",
+            "display" : "Most recent systolic blood pressure 130-139 mm Hg (DM),(HTN, CKD, CAD)"
           }
         ]
       }
     ]
   },
-  "expansion": {
-    "identifier": "urn:uuid:5cbf8a9e-d349-4b47-9aeb-82ef91814c2c",
-    "timestamp": "2022-09-28T02:08:43-04:00",
-    "total": 2,
-    "offset": 0,
-    "parameter": [
+  "expansion" : {
+    "identifier" : "urn:uuid:45343f0c-3df2-4eab-b56f-f152260057ed",
+    "timestamp" : "2023-06-29T20:09:45-04:00",
+    "total" : 2,
+    "offset" : 0,
+    "parameter" : [
       {
-        "name": "count",
-        "valueInteger": 1000
+        "name" : "count",
+        "valueInteger" : 1000
       },
       {
-        "name": "offset",
-        "valueInteger": 0
+        "name" : "offset",
+        "valueInteger" : 0
       }
     ],
-    "contains": [
+    "contains" : [
       {
-        "system": "http://www.ama-assn.org/go/cpt",
-        "version": "2022",
-        "code": "3074F",
-        "display": "Most recent systolic blood pressure less than 130 mm Hg (DM) (HTN, CKD, CAD)"
+        "system" : "http://www.ama-assn.org/go/cpt",
+        "version" : "2023",
+        "code" : "3074F",
+        "display" : "Most recent systolic blood pressure less than 130 mm Hg (DM) (HTN, CKD, CAD)"
       },
       {
-        "system": "http://www.ama-assn.org/go/cpt",
-        "version": "2022",
-        "code": "3075F",
-        "display": "Most recent systolic blood pressure 130-139 mm Hg (DM) (HTN, CKD, CAD)"
+        "system" : "http://www.ama-assn.org/go/cpt",
+        "version" : "2023",
+        "code" : "3075F",
+        "display" : "Most recent systolic blood pressure 130-139 mm Hg (DM) (HTN, CKD, CAD)"
       }
     ]
   }

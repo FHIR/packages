@@ -1,51 +1,88 @@
 {
-  "resourceType": "ValueSet",
-  "id": "2.16.840.1.113762.1.4.1235.107",
-  "meta": {
-    "versionId": "7",
-    "lastUpdated": "2022-08-25T01:03:06.000-04:00"
+  "resourceType" : "ValueSet",
+  "id" : "2.16.840.1.113762.1.4.1235.107",
+  "meta" : {
+    "versionId" : "7",
+    "lastUpdated" : "2022-08-25T01:03:06.000-04:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "url": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1235.107",
-  "version": "20220825",
-  "name": "Bilateral Mastectomy_HD_ICD10PCS",
-  "status": "active",
-  "date": "2022-08-25T01:03:06-04:00",
-  "publisher": "B.well Connected Health Steward",
-  "compose": {
-    "include": [
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "B.well Connected Health Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2022-12-15"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2022-08-25"
+    }
+  ],
+  "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1235.107",
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113762.1.4.1235.107"
+    }
+  ],
+  "version" : "20220825",
+  "name" : "BilateralMastectomy_HD_ICD10PCS",
+  "title" : "Bilateral Mastectomy_HD_ICD10PCS",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2022-08-25T01:03:06-04:00",
+  "publisher" : "B.well Connected Health Steward",
+  "description" : "b.well created value set by Sr. Clinical Business Analyst for Breast Cancer Screening.",
+  "jurisdiction" : [
+    {
+      "extension" : [
+        {
+          "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
+          "valueString" : "UNKNOWN"
+        }
+      ]
+    }
+  ],
+  "purpose" : "(Clinical Focus: The intent of this value set is for the purpose of defining the clinical codes that constitute Breast Cancer Screening for inclusion and utilization in patients/users connected heath.),(Data Element Scope: Breast Cancer Screening care need for b.well.),(Inclusion Criteria: Breast Cancer Screening ICD10PCS Codes that constitute the Bilateral Mastectomy For BCS care need for b.well.),(Exclusion Criteria: N/A)",
+  "compose" : {
+    "include" : [
       {
-        "system": "http://www.icd10data.com/icd10pcs",
-        "version": "2023",
-        "concept": [
+        "system" : "http://www.cms.gov/Medicare/Coding/ICD10",
+        "concept" : [
           {
-            "code": "0HTV0ZZ",
-            "display": "Resection of Bilateral Breast, Open Approach"
+            "code" : "0HTV0ZZ",
+            "display" : "Resection of Bilateral Breast, Open Approach"
           }
         ]
       }
     ]
   },
-  "expansion": {
-    "identifier": "urn:uuid:3e5fcfaf-087e-453c-a9e2-eabaacb85611",
-    "timestamp": "2022-09-28T05:21:13-04:00",
-    "total": 1,
-    "offset": 0,
-    "parameter": [
+  "expansion" : {
+    "identifier" : "urn:uuid:297db85b-7337-4784-b47f-1fec054cebf6",
+    "timestamp" : "2023-06-29T15:56:41-04:00",
+    "total" : 1,
+    "offset" : 0,
+    "parameter" : [
       {
-        "name": "count",
-        "valueInteger": 1000
+        "name" : "count",
+        "valueInteger" : 1000
       },
       {
-        "name": "offset",
-        "valueInteger": 0
+        "name" : "offset",
+        "valueInteger" : 0
       }
     ],
-    "contains": [
+    "contains" : [
       {
-        "system": "http://www.icd10data.com/icd10pcs",
-        "version": "2023",
-        "code": "0HTV0ZZ",
-        "display": "Resection of Bilateral Breast, Open Approach"
+        "system" : "http://www.cms.gov/Medicare/Coding/ICD10",
+        "version" : "2023",
+        "code" : "0HTV0ZZ",
+        "display" : "Resection of Bilateral Breast, Open Approach"
       }
     ]
   }

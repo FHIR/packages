@@ -1,0 +1,123 @@
+{
+  "resourceType" : "ValueSet",
+  "id" : "2.16.840.1.113762.1.4.1078.290",
+  "meta" : {
+    "versionId" : "9",
+    "lastUpdated" : "2023-03-21T01:03:39.000-04:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
+  },
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "Optum Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2023-03-21"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2023-03-21"
+    }
+  ],
+  "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1078.290",
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113762.1.4.1078.290"
+    }
+  ],
+  "version" : "20230321",
+  "name" : "FootAbsentBilateral",
+  "title" : "Foot absent Bilateral",
+  "status" : "active",
+  "date" : "2023-03-21T01:03:39-04:00",
+  "publisher" : "Optum Steward",
+  "jurisdiction" : [
+    {
+      "extension" : [
+        {
+          "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
+          "valueString" : "UNKNOWN"
+        }
+      ]
+    }
+  ],
+  "purpose" : "(Clinical Focus: ICD-10-CM diagnoses indicating absence of both feet),(Data Element Scope: CONDITION: CLINICAL_DRIVER:),(Inclusion Criteria: ICD-10-CM codes that are both billable and non-billable, for congenital causes),(Exclusion Criteria: None)",
+  "compose" : {
+    "include" : [
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2023",
+        "filter" : [
+          {
+            "property" : "concept",
+            "op" : "is-a",
+            "value" : "Q72.03"
+          }
+        ]
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2023",
+        "filter" : [
+          {
+            "property" : "concept",
+            "op" : "is-a",
+            "value" : "Q72.23"
+          }
+        ]
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2023",
+        "filter" : [
+          {
+            "property" : "concept",
+            "op" : "is-a",
+            "value" : "Q72.33"
+          }
+        ]
+      }
+    ]
+  },
+  "expansion" : {
+    "identifier" : "urn:uuid:86a6da51-45c3-4cb4-8a70-876dfd2990c1",
+    "timestamp" : "2023-06-29T17:27:29-04:00",
+    "total" : 3,
+    "offset" : 0,
+    "parameter" : [
+      {
+        "name" : "count",
+        "valueInteger" : 1000
+      },
+      {
+        "name" : "offset",
+        "valueInteger" : 0
+      }
+    ],
+    "contains" : [
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2023",
+        "code" : "Q72.03",
+        "display" : "Congenital complete absence of lower limb, bilateral"
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2023",
+        "code" : "Q72.23",
+        "display" : "Congenital absence of both lower leg and foot, bilateral"
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2023",
+        "code" : "Q72.33",
+        "display" : "Congenital absence of foot and toe(s), bilateral"
+      }
+    ]
+  }
+}

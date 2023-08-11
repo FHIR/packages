@@ -1,51 +1,88 @@
 {
-  "resourceType": "ValueSet",
-  "id": "2.16.840.1.113883.3.3157.4065",
-  "meta": {
-    "versionId": "6",
-    "lastUpdated": "2022-05-12T01:02:28.000-04:00"
+  "resourceType" : "ValueSet",
+  "id" : "2.16.840.1.113883.3.3157.4065",
+  "meta" : {
+    "versionId" : "6",
+    "lastUpdated" : "2022-05-12T01:02:28.000-04:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "url": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.3157.4065",
-  "version": "20220512",
-  "name": "Diagnostic DBT Study",
-  "status": "active",
-  "date": "2022-05-12T01:02:29-04:00",
-  "publisher": "Lewin EH Steward",
-  "compose": {
-    "include": [
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "Lewin EH Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2022-12-15"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2022-05-12"
+    }
+  ],
+  "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.3157.4065",
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113883.3.3157.4065"
+    }
+  ],
+  "version" : "20220512",
+  "name" : "DiagnosticDBTStudy",
+  "title" : "Diagnostic DBT Study",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2022-05-12T01:02:29-04:00",
+  "publisher" : "Lewin EH Steward",
+  "description" : "This value set is associated with the \"Breast Cancer Screening Recall Rates\" measure used in the Centers for Medicare & Medicaid Services (CMS) Hospital Outpatient Quality Reporting (OQR) Program. It is also referred to as \"OP-39.\"",
+  "jurisdiction" : [
+    {
+      "extension" : [
+        {
+          "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
+          "valueString" : "UNKNOWN"
+        }
+      ]
+    }
+  ],
+  "purpose" : "(Clinical Focus: This set of values contains HCPCS codes associated with screening studies used to identify breast cancer in men and women.),(Data Element Scope: The intent of this data element is to identify patients who underwent a diagnostic digital breast tomosynthesis (DBT).),(Inclusion Criteria: HCPCS codes that identify breast diagnostic imaging studies performed using DBT are captured in this value set.),(Exclusion Criteria: Codes not associated with breast diagnostic are excluded from this value set. Similarly, codes from alternative terminologies other than HCPCS are excluded from this value set.)",
+  "compose" : {
+    "include" : [
       {
-        "system": "http://www.nlm.nih.gov/research/umls/hcpcs",
-        "version": "2022",
-        "concept": [
+        "system" : "http://www.nlm.nih.gov/research/umls/hcpcs",
+        "concept" : [
           {
-            "code": "G0279",
-            "display": "Diagnostic digital breast tomosynthesis, unilateral or bilateral (list separately in addition to 77065 or 77066)"
+            "code" : "G0279",
+            "display" : "Diagnostic digital breast tomosynthesis, unilateral or bilateral (list separately in addition to 77065 or 77066)"
           }
         ]
       }
     ]
   },
-  "expansion": {
-    "identifier": "urn:uuid:adb98f41-a40f-476b-ba3b-27a753c94a46",
-    "timestamp": "2022-09-27T20:10:55-04:00",
-    "total": 1,
-    "offset": 0,
-    "parameter": [
+  "expansion" : {
+    "identifier" : "urn:uuid:a2e8e30e-0f32-4242-9ba4-b0dd5ee3a5ae",
+    "timestamp" : "2023-06-29T17:02:31-04:00",
+    "total" : 1,
+    "offset" : 0,
+    "parameter" : [
       {
-        "name": "count",
-        "valueInteger": 1000
+        "name" : "count",
+        "valueInteger" : 1000
       },
       {
-        "name": "offset",
-        "valueInteger": 0
+        "name" : "offset",
+        "valueInteger" : 0
       }
     ],
-    "contains": [
+    "contains" : [
       {
-        "system": "http://www.nlm.nih.gov/research/umls/hcpcs",
-        "version": "2022",
-        "code": "G0279",
-        "display": "Diagnostic digital breast tomosynthesis, unilateral or bilateral (list separately in addition to 77065 or 77066)"
+        "system" : "http://www.nlm.nih.gov/research/umls/hcpcs",
+        "version" : "2023",
+        "code" : "G0279",
+        "display" : "Diagnostic digital breast tomosynthesis, unilateral or bilateral (list separately in addition to 77065 or 77066)"
       }
     ]
   }

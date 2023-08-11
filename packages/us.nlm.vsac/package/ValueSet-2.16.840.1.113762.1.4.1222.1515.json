@@ -1,52 +1,94 @@
 {
-  "resourceType": "ValueSet",
-  "id": "2.16.840.1.113762.1.4.1222.1515",
-  "meta": {
-    "versionId": "5",
-    "lastUpdated": "2022-06-06T17:43:35.000-04:00"
+  "resourceType" : "ValueSet",
+  "id" : "2.16.840.1.113762.1.4.1222.1515",
+  "meta" : {
+    "versionId" : "5",
+    "lastUpdated" : "2022-06-06T17:43:35.000-04:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "url": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1222.1515",
-  "version": "20220603",
-  "name": "Small Fiber Neuropathy Diagnosis ICD10",
-  "status": "active",
-  "date": "2022-06-03T01:06:35-04:00",
-  "publisher": "HL7 Patient Care WG Steward",
-  "compose": {
-    "include": [
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "MCC eCare Plan Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-keyWord",
+      "valueString" : "MCC"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2022-12-15"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2022-06-03"
+    }
+  ],
+  "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1222.1515",
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113762.1.4.1222.1515"
+    }
+  ],
+  "version" : "20220603",
+  "name" : "SmallFiberNeuropathyDiagnosisICD10",
+  "title" : "Small Fiber Neuropathy Diagnosis ICD10",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2022-06-03T01:06:35-04:00",
+  "publisher" : "HL7 Patient Care WG Steward",
+  "description" : "\"This value set may undergo changes until the HL7 Multiple Chronic Care FHIR IG is formally published in 2024.\"",
+  "jurisdiction" : [
+    {
+      "extension" : [
+        {
+          "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
+          "valueString" : "UNKNOWN"
+        }
+      ]
+    }
+  ],
+  "purpose" : "(Clinical Focus: This set of values contains ICD-10-CM diagnosis terms representing Small Fiber Neuropathy.),(Data Element Scope: The intent of this set of values is to identify patients who have a diagnosis of Small Fiber Neuropathy.),(Inclusion Criteria: Includes ICD-10-CM Small Fiber Neuropathy diagnosis concepts. The set is defined intentionally so if children codes are developed they will be included.),(Exclusion Criteria: None.)",
+  "compose" : {
+    "include" : [
       {
-        "system": "http://hl7.org/fhir/sid/icd-10-cm",
-        "version": "2023",
-        "filter": [
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2023",
+        "filter" : [
           {
-            "property": "concept",
-            "op": "is-a",
-            "value": "G62.89"
+            "property" : "concept",
+            "op" : "is-a",
+            "value" : "G62.89"
           }
         ]
       }
     ]
   },
-  "expansion": {
-    "identifier": "urn:uuid:9c6940a0-ad6e-4641-81d7-116f6f88136d",
-    "timestamp": "2022-09-28T05:52:21-04:00",
-    "total": 1,
-    "offset": 0,
-    "parameter": [
+  "expansion" : {
+    "identifier" : "urn:uuid:03625db1-d13f-4e23-bef5-6c2fde55b443",
+    "timestamp" : "2023-06-29T19:57:10-04:00",
+    "total" : 1,
+    "offset" : 0,
+    "parameter" : [
       {
-        "name": "count",
-        "valueInteger": 1000
+        "name" : "count",
+        "valueInteger" : 1000
       },
       {
-        "name": "offset",
-        "valueInteger": 0
+        "name" : "offset",
+        "valueInteger" : 0
       }
     ],
-    "contains": [
+    "contains" : [
       {
-        "system": "http://hl7.org/fhir/sid/icd-10-cm",
-        "version": "2023",
-        "code": "G62.89",
-        "display": "Other specified polyneuropathies"
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2023",
+        "code" : "G62.89",
+        "display" : "Other specified polyneuropathies"
       }
     ]
   }

@@ -1,76 +1,114 @@
 {
-  "resourceType": "ValueSet",
-  "id": "2.16.840.1.113762.1.4.1032.243",
-  "meta": {
-    "versionId": "6",
-    "lastUpdated": "2021-08-03T01:00:43.000-04:00"
+  "resourceType" : "ValueSet",
+  "id" : "2.16.840.1.113762.1.4.1032.243",
+  "meta" : {
+    "versionId" : "6",
+    "lastUpdated" : "2021-08-03T01:00:43.000-04:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "url": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1032.243",
-  "version": "20210803",
-  "name": "Cervical Cancer",
-  "status": "active",
-  "date": "2021-08-03T01:00:43-04:00",
-  "publisher": "MITRE Steward",
-  "compose": {
-    "include": [
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "MITRE Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2022-12-15"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2021-08-03"
+    }
+  ],
+  "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1032.243",
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113762.1.4.1032.243"
+    }
+  ],
+  "version" : "20210803",
+  "name" : "CervicalCancer",
+  "title" : "Cervical Cancer",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2021-08-03T01:00:43-04:00",
+  "publisher" : "MITRE Steward",
+  "description" : "This value set has not been tested in a clinical environment. Please use with caution.",
+  "jurisdiction" : [
+    {
+      "extension" : [
+        {
+          "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
+          "valueString" : "UNKNOWN"
+        }
+      ]
+    }
+  ],
+  "purpose" : "(Clinical Focus: Cervical cancer disorders),(Data Element Scope: ICD9CM cervical cancer disorder codes),(Inclusion Criteria: Cervical cancer disorders (as a primary, secondary, or metastatic cancer), malignant tumors, neoplasms, and carcinomas),(Exclusion Criteria: Stage 0 carcinomas, carcinoma in situ, benign cancers, benign tumors, cancer of other genitourinary body parts if cervical cancer is not mentioned in the code description (e.g., malignant neoplasm of uterus).)",
+  "compose" : {
+    "include" : [
       {
-        "system": "http://hl7.org/fhir/sid/icd-9-cm",
-        "version": "2013",
-        "filter": [
+        "system" : "http://hl7.org/fhir/sid/icd-9-cm",
+        "version" : "2013",
+        "filter" : [
           {
-            "property": "concept",
-            "op": "is-a",
-            "value": "180"
+            "property" : "concept",
+            "op" : "is-a",
+            "value" : "180"
           }
         ]
       }
     ]
   },
-  "expansion": {
-    "identifier": "urn:uuid:0d61c53e-f222-4af6-b51d-8e6e6138e96c",
-    "timestamp": "2022-09-27T18:51:12-04:00",
-    "total": 5,
-    "offset": 0,
-    "parameter": [
+  "expansion" : {
+    "identifier" : "urn:uuid:11ca662d-72b2-4eea-b0cd-4e82874ef51a",
+    "timestamp" : "2023-06-29T16:16:54-04:00",
+    "total" : 5,
+    "offset" : 0,
+    "parameter" : [
       {
-        "name": "count",
-        "valueInteger": 1000
+        "name" : "count",
+        "valueInteger" : 1000
       },
       {
-        "name": "offset",
-        "valueInteger": 0
+        "name" : "offset",
+        "valueInteger" : 0
       }
     ],
-    "contains": [
+    "contains" : [
       {
-        "system": "http://hl7.org/fhir/sid/icd-9-cm",
-        "version": "2013",
-        "code": "180",
-        "display": "Malignant neoplasm of cervix uteri"
+        "system" : "http://hl7.org/fhir/sid/icd-9-cm",
+        "version" : "2013",
+        "code" : "180",
+        "display" : "Malignant neoplasm of cervix uteri"
       },
       {
-        "system": "http://hl7.org/fhir/sid/icd-9-cm",
-        "version": "2013",
-        "code": "180.0",
-        "display": "Malignant neoplasm of endocervix"
+        "system" : "http://hl7.org/fhir/sid/icd-9-cm",
+        "version" : "2013",
+        "code" : "180.0",
+        "display" : "Malignant neoplasm of endocervix"
       },
       {
-        "system": "http://hl7.org/fhir/sid/icd-9-cm",
-        "version": "2013",
-        "code": "180.1",
-        "display": "Malignant neoplasm of exocervix"
+        "system" : "http://hl7.org/fhir/sid/icd-9-cm",
+        "version" : "2013",
+        "code" : "180.1",
+        "display" : "Malignant neoplasm of exocervix"
       },
       {
-        "system": "http://hl7.org/fhir/sid/icd-9-cm",
-        "version": "2013",
-        "code": "180.8",
-        "display": "Malignant neoplasm of other specified sites of cervix"
+        "system" : "http://hl7.org/fhir/sid/icd-9-cm",
+        "version" : "2013",
+        "code" : "180.8",
+        "display" : "Malignant neoplasm of other specified sites of cervix"
       },
       {
-        "system": "http://hl7.org/fhir/sid/icd-9-cm",
-        "version": "2013",
-        "code": "180.9",
-        "display": "Malignant neoplasm of cervix uteri, unspecified site"
+        "system" : "http://hl7.org/fhir/sid/icd-9-cm",
+        "version" : "2013",
+        "code" : "180.9",
+        "display" : "Malignant neoplasm of cervix uteri, unspecified site"
       }
     ]
   }

@@ -1,52 +1,90 @@
 {
-  "resourceType": "ValueSet",
-  "id": "2.16.840.1.113762.1.4.1222.842",
-  "meta": {
-    "versionId": "5",
-    "lastUpdated": "2021-09-19T01:01:03.000-04:00"
+  "resourceType" : "ValueSet",
+  "id" : "2.16.840.1.113762.1.4.1222.842",
+  "meta" : {
+    "versionId" : "5",
+    "lastUpdated" : "2021-09-19T01:01:03.000-04:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "url": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1222.842",
-  "version": "20210919",
-  "name": "Alcohol Use (Revised 2021)",
-  "status": "active",
-  "date": "2021-09-19T01:01:03-04:00",
-  "publisher": "HL7 Patient Care WG Steward",
-  "compose": {
-    "include": [
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "MCC eCare Plan Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2022-12-15"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2021-09-19"
+    }
+  ],
+  "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1222.842",
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113762.1.4.1222.842"
+    }
+  ],
+  "version" : "20210919",
+  "name" : "AlcoholUseRevised2021",
+  "title" : "Alcohol Use (Revised 2021)",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2021-09-19T01:01:03-04:00",
+  "publisher" : "HL7 Patient Care WG Steward",
+  "description" : "Determination of the patient's alcohol use frequency and/or quantity. (Business ID: Entry 3954568)",
+  "jurisdiction" : [
+    {
+      "extension" : [
+        {
+          "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
+          "valueString" : "UNKNOWN"
+        }
+      ]
+    }
+  ],
+  "purpose" : "(Clinical Focus: This set of values addresses terms representing Alcohol Use (Revised 2021).),(Data Element Scope: The intent of this set of values is to identify patients who have a/an determination of the patient's alcohol use frequency and/or quantity..),(Inclusion Criteria: Includes ICD10CM codes for Alcohol Use (Revised 2021).),(Exclusion Criteria: Terms not representative of observable encoded terms that may have values indicating Alcohol Use (Revised 2021).)",
+  "compose" : {
+    "include" : [
       {
-        "system": "http://hl7.org/fhir/sid/icd-10-cm",
-        "version": "2023",
-        "filter": [
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2023",
+        "filter" : [
           {
-            "property": "concept",
-            "op": "\u003d",
-            "value": "F10.9"
+            "property" : "concept",
+            "op" : "=",
+            "value" : "F10.9"
           }
         ]
       }
     ]
   },
-  "expansion": {
-    "identifier": "urn:uuid:40b18a86-c909-40ab-9681-550f22952866",
-    "timestamp": "2022-09-27T17:29:22-04:00",
-    "total": 1,
-    "offset": 0,
-    "parameter": [
+  "expansion" : {
+    "identifier" : "urn:uuid:e52ba624-a17c-431c-8b68-abb9d4388c47",
+    "timestamp" : "2023-06-29T15:35:05-04:00",
+    "total" : 1,
+    "offset" : 0,
+    "parameter" : [
       {
-        "name": "count",
-        "valueInteger": 1000
+        "name" : "count",
+        "valueInteger" : 1000
       },
       {
-        "name": "offset",
-        "valueInteger": 0
+        "name" : "offset",
+        "valueInteger" : 0
       }
     ],
-    "contains": [
+    "contains" : [
       {
-        "system": "http://hl7.org/fhir/sid/icd-10-cm",
-        "version": "2023",
-        "code": "F10.9",
-        "display": "Alcohol use, unspecified"
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2023",
+        "code" : "F10.9",
+        "display" : "Alcohol use, unspecified"
       }
     ]
   }

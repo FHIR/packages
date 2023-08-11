@@ -1,63 +1,101 @@
 {
-  "resourceType": "ValueSet",
-  "id": "2.16.840.1.113762.1.4.1222.1313",
-  "meta": {
-    "versionId": "5",
-    "lastUpdated": "2021-09-28T01:00:52.000-04:00"
+  "resourceType" : "ValueSet",
+  "id" : "2.16.840.1.113762.1.4.1222.1313",
+  "meta" : {
+    "versionId" : "5",
+    "lastUpdated" : "2021-09-28T01:00:52.000-04:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "url": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1222.1313",
-  "version": "20210928",
-  "name": "Caregiver Burden",
-  "status": "active",
-  "date": "2021-09-28T01:00:52-04:00",
-  "publisher": "HL7 Patient Care WG Steward",
-  "compose": {
-    "include": [
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "MCC eCare Plan Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2022-12-15"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2021-09-28"
+    }
+  ],
+  "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1222.1313",
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113762.1.4.1222.1313"
+    }
+  ],
+  "version" : "20210928",
+  "name" : "CaregiverBurden",
+  "title" : "Caregiver Burden",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2021-09-28T01:00:52-04:00",
+  "publisher" : "HL7 Patient Care WG Steward",
+  "description" : "Assessment of whether / the amount of burden the person experiences as a result of managing the healthcare of children, parents, other family members or friends (Business ID: Entry 2200728)",
+  "jurisdiction" : [
+    {
+      "extension" : [
+        {
+          "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
+          "valueString" : "UNKNOWN"
+        }
+      ]
+    }
+  ],
+  "purpose" : "(Clinical Focus: This set of values addresses terms representing Caregiver Burden.),(Data Element Scope: The intent of this set of values is to identify patients who have a/an assessment of whether / the amount of burden the person experiences as a result of managing the healthcare of children, parents, other family members or friends.),(Inclusion Criteria: Includes GROUP codes for Caregiver Burden.),(Exclusion Criteria: Terms not representative of observable encoded terms that may have values indicating Caregiver Burden.)",
+  "compose" : {
+    "include" : [
       {
-        "valueSet": [
+        "valueSet" : [
           "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1222.1245"
         ]
       },
       {
-        "valueSet": [
+        "valueSet" : [
           "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1222.1067"
         ]
       }
     ]
   },
-  "expansion": {
-    "identifier": "urn:uuid:8eb1f300-ee3e-4950-aa41-9fe7a2b4a048",
-    "timestamp": "2022-09-27T18:46:51-04:00",
-    "total": 3,
-    "offset": 0,
-    "parameter": [
+  "expansion" : {
+    "identifier" : "urn:uuid:df4c7bf3-d22d-4e60-b440-2c471a642e4e",
+    "timestamp" : "2023-06-29T16:13:27-04:00",
+    "total" : 3,
+    "offset" : 0,
+    "parameter" : [
       {
-        "name": "count",
-        "valueInteger": 1000
+        "name" : "count",
+        "valueInteger" : 1000
       },
       {
-        "name": "offset",
-        "valueInteger": 0
+        "name" : "offset",
+        "valueInteger" : 0
       }
     ],
-    "contains": [
+    "contains" : [
       {
-        "system": "http://snomed.info/sct",
-        "version": "http://snomed.info/sct/731000124108/version/20220301",
-        "code": "129700008",
-        "display": "At risk for caregiver role strain (finding)"
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20230301",
+        "code" : "129700008",
+        "display" : "At risk for caregiver role strain (finding)"
       },
       {
-        "system": "http://snomed.info/sct",
-        "version": "http://snomed.info/sct/731000124108/version/20220301",
-        "code": "129891007",
-        "display": "Caregiver role strain (finding)"
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20230301",
+        "code" : "129891007",
+        "display" : "Caregiver role strain (finding)"
       },
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "42821-9",
-        "display": "Caregiver role strain Caregiver [CCC]"
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "42821-9",
+        "display" : "Caregiver role strain Caregiver [CCC]"
       }
     ]
   }

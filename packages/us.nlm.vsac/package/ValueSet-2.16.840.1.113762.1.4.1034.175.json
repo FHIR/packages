@@ -1,52 +1,90 @@
 {
-  "resourceType": "ValueSet",
-  "id": "2.16.840.1.113762.1.4.1034.175",
-  "meta": {
-    "versionId": "8",
-    "lastUpdated": "2020-10-17T01:00:26.000-04:00"
+  "resourceType" : "ValueSet",
+  "id" : "2.16.840.1.113762.1.4.1034.175",
+  "meta" : {
+    "versionId" : "8",
+    "lastUpdated" : "2020-10-17T01:00:26.000-04:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "url": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1034.175",
-  "version": "20201017",
-  "name": "Parkinson\u0027s Disease (ICD10CM)",
-  "status": "active",
-  "date": "2020-10-17T01:00:26-04:00",
-  "publisher": "American Academy of Neurology Steward",
-  "compose": {
-    "include": [
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "American Academy of Neurology Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2022-12-15"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2020-10-17"
+    }
+  ],
+  "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1034.175",
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113762.1.4.1034.175"
+    }
+  ],
+  "version" : "20201017",
+  "name" : "ParkinsonSDiseaseICD10CM",
+  "title" : "Parkinson's Disease (ICD10CM)",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2020-10-17T01:00:26-04:00",
+  "publisher" : "American Academy of Neurology Steward",
+  "description" : "This set of values includes ICD10CM codes for Parkinson's Disease.",
+  "jurisdiction" : [
+    {
+      "extension" : [
+        {
+          "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
+          "valueString" : "UNKNOWN"
+        }
+      ]
+    }
+  ],
+  "purpose" : "(Clinical Focus: This set of values includes ICD10CM codes for Parkinson's Disease),(Data Element Scope: The intent of this data element is to identify patients diagnosed with Parkinson's Disease. This element may map to the \"Diagnosis\" Category of the Quality Data Model.),(Inclusion Criteria: Parkinson's Disease),(Exclusion Criteria: Excludes Parkinsonism and related syndromes)",
+  "compose" : {
+    "include" : [
       {
-        "system": "http://hl7.org/fhir/sid/icd-10-cm",
-        "version": "2023",
-        "filter": [
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2023",
+        "filter" : [
           {
-            "property": "concept",
-            "op": "is-a",
-            "value": "G20"
+            "property" : "concept",
+            "op" : "is-a",
+            "value" : "G20"
           }
         ]
       }
     ]
   },
-  "expansion": {
-    "identifier": "urn:uuid:b0688f42-e4b2-422b-aa6e-027eccb94635",
-    "timestamp": "2022-09-27T23:49:48-04:00",
-    "total": 1,
-    "offset": 0,
-    "parameter": [
+  "expansion" : {
+    "identifier" : "urn:uuid:bb9391d1-5234-4f53-a807-1d9920ca66a7",
+    "timestamp" : "2023-06-29T19:10:51-04:00",
+    "total" : 1,
+    "offset" : 0,
+    "parameter" : [
       {
-        "name": "count",
-        "valueInteger": 1000
+        "name" : "count",
+        "valueInteger" : 1000
       },
       {
-        "name": "offset",
-        "valueInteger": 0
+        "name" : "offset",
+        "valueInteger" : 0
       }
     ],
-    "contains": [
+    "contains" : [
       {
-        "system": "http://hl7.org/fhir/sid/icd-10-cm",
-        "version": "2023",
-        "code": "G20",
-        "display": "Parkinson\u0027s disease"
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2023",
+        "code" : "G20",
+        "display" : "Parkinson's disease"
       }
     ]
   }

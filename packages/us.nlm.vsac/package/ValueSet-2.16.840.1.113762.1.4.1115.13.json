@@ -1,61 +1,98 @@
 {
-  "resourceType": "ValueSet",
-  "id": "2.16.840.1.113762.1.4.1115.13",
-  "meta": {
-    "versionId": "5",
-    "lastUpdated": "2022-08-13T01:02:40.000-04:00"
+  "resourceType" : "ValueSet",
+  "id" : "2.16.840.1.113762.1.4.1115.13",
+  "meta" : {
+    "versionId" : "5",
+    "lastUpdated" : "2022-08-13T01:02:40.000-04:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "url": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1115.13",
-  "version": "20220813",
-  "name": "Healthcare Agent Powers or Limitations Indicator",
-  "status": "active",
-  "date": "2022-08-13T01:02:40-04:00",
-  "publisher": "ADVault",
-  "compose": {
-    "include": [
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "ADVault Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2022-12-15"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2022-08-13"
+    }
+  ],
+  "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1115.13",
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113762.1.4.1115.13"
+    }
+  ],
+  "version" : "20220813",
+  "name" : "HealthcareAgentPowersOrLimitationsIndicator",
+  "title" : "Healthcare Agent Powers or Limitations Indicator",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2022-08-13T01:02:40-04:00",
+  "publisher" : "ADVault",
+  "description" : "This value set is closely related to a value set defined by the FHIR ADI IG with a title of Healthcare Agent Powers or Limitations Indicator and the name PADIParticipantConsentTypeVS  http://hl7.org/fhir/us/pacio-adi/ValueSet/PADIParticipantConsentTypeVS",
+  "jurisdiction" : [
+    {
+      "extension" : [
+        {
+          "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
+          "valueString" : "UNKNOWN"
+        }
+      ]
+    }
+  ],
+  "purpose" : "(Clinical Focus: Codes indicating if the information represents powers or limitations of a healthcare agent.),(Data Element Scope: The code is used in the code element of an Observation in CDA, or a scope element within a FHIR Consent resource.),(Inclusion Criteria: Include only the concepts for powers granted to healthcare agent and limitations placed on healthcare agent.),(Exclusion Criteria: Do not include concepts for the role of Patient Healthcare agent or the role of Healthcare agent advisor.)",
+  "compose" : {
+    "include" : [
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "concept": [
+        "system" : "http://loinc.org",
+        "concept" : [
           {
-            "code": "75786-4",
-            "display": "Powers granted to healthcare agent [Reported]"
+            "code" : "75786-4",
+            "display" : "Powers granted to healthcare agent [Reported]"
           },
           {
-            "code": "81346-9",
-            "display": "Limitations placed on healthcare agent [Reported]"
+            "code" : "81346-9",
+            "display" : "Limitations placed on healthcare agent [Reported]"
           }
         ]
       }
     ]
   },
-  "expansion": {
-    "identifier": "urn:uuid:e41fcd15-d355-4af7-be48-fc6d2aa6873e",
-    "timestamp": "2022-09-28T05:34:02-04:00",
-    "total": 2,
-    "offset": 0,
-    "parameter": [
+  "expansion" : {
+    "identifier" : "urn:uuid:9a59517a-9aa9-47b0-8ac0-0d301ec182c5",
+    "timestamp" : "2023-06-29T17:38:38-04:00",
+    "total" : 2,
+    "offset" : 0,
+    "parameter" : [
       {
-        "name": "count",
-        "valueInteger": 1000
+        "name" : "count",
+        "valueInteger" : 1000
       },
       {
-        "name": "offset",
-        "valueInteger": 0
+        "name" : "offset",
+        "valueInteger" : 0
       }
     ],
-    "contains": [
+    "contains" : [
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "75786-4",
-        "display": "Powers granted to healthcare agent [Reported]"
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "75786-4",
+        "display" : "Powers granted to healthcare agent [Reported]"
       },
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "81346-9",
-        "display": "Limitations placed on healthcare agent [Reported]"
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "81346-9",
+        "display" : "Limitations placed on healthcare agent [Reported]"
       }
     ]
   }

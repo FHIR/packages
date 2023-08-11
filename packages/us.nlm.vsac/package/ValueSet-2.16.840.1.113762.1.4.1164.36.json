@@ -1,57 +1,88 @@
 {
-  "resourceType": "ValueSet",
-  "id": "2.16.840.1.113762.1.4.1164.36",
-  "meta": {
-    "versionId": "7",
-    "lastUpdated": "2017-06-22T01:00:03.000-04:00"
+  "resourceType" : "ValueSet",
+  "id" : "2.16.840.1.113762.1.4.1164.36",
+  "meta" : {
+    "versionId" : "7",
+    "lastUpdated" : "2017-06-22T01:00:03.000-04:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "url": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1164.36",
-  "version": "20170622",
-  "name": "Neoplasm of prostate with secondary metastasis to bone",
-  "status": "active",
-  "date": "2017-06-22T01:00:03-04:00",
-  "publisher": "LUGPA Steward",
-  "compose": {
-    "include": [
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "LUGPA Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2022-12-15"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2017-06-22"
+    }
+  ],
+  "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1164.36",
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113762.1.4.1164.36"
+    }
+  ],
+  "version" : "20170622",
+  "name" : "NeoplasmOfProstateWithSecondaryMetastasisToBone",
+  "title" : "Neoplasm of prostate with secondary metastasis to bone",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2017-06-22T01:00:03-04:00",
+  "publisher" : "LUGPA Steward",
+  "jurisdiction" : [
+    {
+      "extension" : [
+        {
+          "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
+          "valueString" : "UNKNOWN"
+        }
+      ]
+    }
+  ],
+  "purpose" : "(Clinical Focus: This set of values focuses on prostate cancer which is primary and has secondarily. metastasized to bone.),(Data Element Scope: The intent of this data element is to identify prostate cancer with secondary metastasis to bone (M1b).),(Inclusion Criteria: Prostate cancer with metastasis to bone),(Exclusion Criteria: M0)",
+  "compose" : {
+    "include" : [
       {
-        "valueSet": [
+        "valueSet" : [
           "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1164.16"
         ]
       },
       {
-        "valueSet": [
+        "valueSet" : [
           "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1164.17"
         ]
       }
     ]
   },
-  "expansion": {
-    "identifier": "urn:uuid:aff45148-baac-4d5a-9463-e444d67a6a59",
-    "timestamp": "2022-09-27T23:03:42-04:00",
-    "total": 2,
-    "offset": 0,
-    "parameter": [
+  "expansion" : {
+    "identifier" : "urn:uuid:032c2aee-ab32-4aad-85a9-78d587ca4483",
+    "timestamp" : "2023-06-29T18:48:33-04:00",
+    "total" : 1,
+    "offset" : 0,
+    "parameter" : [
       {
-        "name": "count",
-        "valueInteger": 1000
+        "name" : "count",
+        "valueInteger" : 1000
       },
       {
-        "name": "offset",
-        "valueInteger": 0
+        "name" : "offset",
+        "valueInteger" : 0
       }
     ],
-    "contains": [
+    "contains" : [
       {
-        "system": "http://snomed.info/sct",
-        "version": "http://snomed.info/sct/731000124108/version/20220301",
-        "code": "436431000124106",
-        "display": "Neoplasm of prostate distant metastasis staging category M1b: Metastasis to bone (finding)"
-      },
-      {
-        "system": "http://hl7.org/fhir/sid/icd-10-cm",
-        "version": "2023",
-        "code": "C79.51",
-        "display": "Secondary malignant neoplasm of bone"
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2023",
+        "code" : "C79.51",
+        "display" : "Secondary malignant neoplasm of bone"
       }
     ]
   }

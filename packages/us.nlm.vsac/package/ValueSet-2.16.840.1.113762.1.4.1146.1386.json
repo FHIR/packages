@@ -1,51 +1,101 @@
 {
-  "resourceType": "ValueSet",
-  "id": "2.16.840.1.113762.1.4.1146.1386",
-  "meta": {
-    "versionId": "6",
-    "lastUpdated": "2021-05-26T01:03:41.000-04:00"
+  "resourceType" : "ValueSet",
+  "id" : "2.16.840.1.113762.1.4.1146.1386",
+  "meta" : {
+    "versionId" : "18",
+    "lastUpdated" : "2023-01-19T22:18:01.000-05:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "url": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1146.1386",
-  "version": "20210526",
-  "name": "Monkeypox (Organism or Substance in Lab Results)",
-  "status": "active",
-  "date": "2021-05-26T01:03:41-04:00",
-  "publisher": "CSTE Steward",
-  "compose": {
-    "include": [
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "CSTE Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-keyWord",
+      "valueString" : "Mpox,Orthopox,Trigger"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2022-12-15"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2022-10-22"
+    }
+  ],
+  "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1146.1386",
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113762.1.4.1146.1386"
+    }
+  ],
+  "version" : "20221022",
+  "name" : "MpoxOrganismOrSubstanceInLabResults",
+  "title" : "Mpox (Organism or Substance in Lab Results)",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2022-10-22T01:02:55-04:00",
+  "publisher" : "CSTE Steward",
+  "jurisdiction" : [
+    {
+      "extension" : [
+        {
+          "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
+          "valueString" : "UNKNOWN"
+        }
+      ]
+    }
+  ],
+  "purpose" : "(Clinical Focus: This set of values contains organisms or substances relevant for reporting Mpox virus.),(Data Element Scope: Organisms or substances reported in laboratory results),(Inclusion Criteria: Mpox),(Exclusion Criteria: none)",
+  "compose" : {
+    "include" : [
       {
-        "system": "http://snomed.info/sct",
-        "version": "http://snomed.info/sct/731000124108/version/20220301",
-        "concept": [
+        "system" : "http://snomed.info/sct",
+        "concept" : [
           {
-            "code": "59774002",
-            "display": "Monkeypox virus (organism)"
+            "code" : "1290571000000108",
+            "display" : "Deoxyribonucleic acid of monkeypox virus (substance)"
+          },
+          {
+            "code" : "59774002",
+            "display" : "Monkeypox virus (organism)"
           }
         ]
       }
     ]
   },
-  "expansion": {
-    "identifier": "urn:uuid:2179d05b-a41f-42bb-bbcc-496c6da5092b",
-    "timestamp": "2022-09-27T22:54:00-04:00",
-    "total": 1,
-    "offset": 0,
-    "parameter": [
+  "expansion" : {
+    "identifier" : "urn:uuid:9688d153-bb18-4043-91d0-23284c151060",
+    "timestamp" : "2023-06-29T18:42:40-04:00",
+    "total" : 2,
+    "offset" : 0,
+    "parameter" : [
       {
-        "name": "count",
-        "valueInteger": 1000
+        "name" : "count",
+        "valueInteger" : 1000
       },
       {
-        "name": "offset",
-        "valueInteger": 0
+        "name" : "offset",
+        "valueInteger" : 0
       }
     ],
-    "contains": [
+    "contains" : [
       {
-        "system": "http://snomed.info/sct",
-        "version": "http://snomed.info/sct/731000124108/version/20220301",
-        "code": "59774002",
-        "display": "Monkeypox virus (organism)"
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20230301",
+        "code" : "1290571000000108",
+        "display" : "Deoxyribonucleic acid of monkeypox virus (substance)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20230301",
+        "code" : "59774002",
+        "display" : "Monkeypox virus (organism)"
       }
     ]
   }

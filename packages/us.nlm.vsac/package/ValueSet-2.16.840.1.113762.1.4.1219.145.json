@@ -1,87 +1,124 @@
 {
-  "resourceType": "ValueSet",
-  "id": "2.16.840.1.113762.1.4.1219.145",
-  "meta": {
-    "versionId": "5",
-    "lastUpdated": "2022-03-15T01:02:32.000-04:00"
+  "resourceType" : "ValueSet",
+  "id" : "2.16.840.1.113762.1.4.1219.145",
+  "meta" : {
+    "versionId" : "5",
+    "lastUpdated" : "2022-03-15T01:02:32.000-04:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "url": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1219.145",
-  "version": "20220315",
-  "name": "Transfer from Bed Impairment",
-  "status": "active",
-  "date": "2022-03-15T01:02:32-04:00",
-  "publisher": "CMS DRLS Steward",
-  "compose": {
-    "include": [
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "CMS DRLS Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2022-12-15"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2022-03-15"
+    }
+  ],
+  "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1219.145",
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113762.1.4.1219.145"
+    }
+  ],
+  "version" : "20220315",
+  "name" : "TransferFromBedImpairment",
+  "title" : "Transfer from Bed Impairment",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2022-03-15T01:02:32-04:00",
+  "publisher" : "CMS DRLS Steward",
+  "jurisdiction" : [
+    {
+      "extension" : [
+        {
+          "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
+          "valueString" : "UNKNOWN"
+        }
+      ]
+    }
+  ],
+  "purpose" : "(Clinical Focus: Bed-ridden, bed confinement, and inability to transfer from bed to a chair or wheelchair.),(Data Element Scope: Conditions related to ability to self-transfer from bed to another location that may qualify a patient for non-emergency transport as defined by U.S. Centers for Mediare and Medicaid.),(Inclusion Criteria: Bed-ridden, bed confinement, and inability to transfer from bed to a chair or wheelchair.),(Exclusion Criteria: No exclusions)",
+  "compose" : {
+    "include" : [
       {
-        "valueSet": [
+        "valueSet" : [
           "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1219.143"
         ]
       },
       {
-        "valueSet": [
+        "valueSet" : [
           "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1219.144"
         ]
       }
     ]
   },
-  "expansion": {
-    "identifier": "urn:uuid:506996b7-a7c7-4b46-9016-44eff4039859",
-    "timestamp": "2022-09-28T02:29:53-04:00",
-    "total": 7,
-    "offset": 0,
-    "parameter": [
+  "expansion" : {
+    "identifier" : "urn:uuid:c1e9e871-c048-45b2-b55d-b6209143f17d",
+    "timestamp" : "2023-06-29T20:18:09-04:00",
+    "total" : 7,
+    "offset" : 0,
+    "parameter" : [
       {
-        "name": "count",
-        "valueInteger": 1000
+        "name" : "count",
+        "valueInteger" : 1000
       },
       {
-        "name": "offset",
-        "valueInteger": 0
+        "name" : "offset",
+        "valueInteger" : 0
       }
     ],
-    "contains": [
+    "contains" : [
       {
-        "system": "http://snomed.info/sct",
-        "version": "http://snomed.info/sct/731000124108/version/20220301",
-        "code": "160685001",
-        "display": "Bed-ridden (finding)"
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20230301",
+        "code" : "160685001",
+        "display" : "Bed-ridden (finding)"
       },
       {
-        "system": "http://snomed.info/sct",
-        "version": "http://snomed.info/sct/731000124108/version/20220301",
-        "code": "715089000",
-        "display": "Dependent transfer from bed to chair (finding)"
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20230301",
+        "code" : "715089000",
+        "display" : "Dependent transfer from bed to chair (finding)"
       },
       {
-        "system": "http://snomed.info/sct",
-        "version": "http://snomed.info/sct/731000124108/version/20220301",
-        "code": "715101003",
-        "display": "Does not transfer from bed to chair (finding)"
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20230301",
+        "code" : "715101003",
+        "display" : "Does not transfer from bed to chair (finding)"
       },
       {
-        "system": "http://snomed.info/sct",
-        "version": "http://snomed.info/sct/731000124108/version/20220301",
-        "code": "715102005",
-        "display": "Does not transfer from bed to wheelchair (finding)"
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20230301",
+        "code" : "715102005",
+        "display" : "Does not transfer from bed to wheelchair (finding)"
       },
       {
-        "system": "http://snomed.info/sct",
-        "version": "http://snomed.info/sct/731000124108/version/20220301",
-        "code": "715128008",
-        "display": "Unable to transfer from bed to chair (finding)"
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20230301",
+        "code" : "715128008",
+        "display" : "Unable to transfer from bed to chair (finding)"
       },
       {
-        "system": "http://snomed.info/sct",
-        "version": "http://snomed.info/sct/731000124108/version/20220301",
-        "code": "715129000",
-        "display": "Unable to transfer from bed to wheelchair (finding)"
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20230301",
+        "code" : "715129000",
+        "display" : "Unable to transfer from bed to wheelchair (finding)"
       },
       {
-        "system": "http://hl7.org/fhir/sid/icd-10-cm",
-        "version": "2023",
-        "code": "Z74.01",
-        "display": "Bed confinement status"
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2023",
+        "code" : "Z74.01",
+        "display" : "Bed confinement status"
       }
     ]
   }

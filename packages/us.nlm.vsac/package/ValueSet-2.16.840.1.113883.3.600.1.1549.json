@@ -1,51 +1,96 @@
 {
-  "resourceType": "ValueSet",
-  "id": "2.16.840.1.113883.3.600.1.1549",
-  "meta": {
-    "versionId": "17",
-    "lastUpdated": "2021-03-16T15:44:02.000-04:00"
+  "resourceType" : "ValueSet",
+  "id" : "2.16.840.1.113883.3.600.1.1549",
+  "meta" : {
+    "versionId" : "28",
+    "lastUpdated" : "2023-02-16T01:03:04.000-05:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "url": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.600.1.1549",
-  "version": "20170504",
-  "name": "Follow Up for Below Normal BMI",
-  "status": "active",
-  "date": "2017-05-04T01:00:13-04:00",
-  "publisher": "Mathematica",
-  "compose": {
-    "include": [
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "Mathematica EP"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2023-02-16"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2023-02-16"
+    }
+  ],
+  "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.600.1.1549",
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113883.3.600.1.1549"
+    }
+  ],
+  "version" : "20230216",
+  "name" : "FollowUpForBelowNormalBMI",
+  "title" : "Follow Up for Below Normal BMI",
+  "status" : "active",
+  "date" : "2023-02-16T01:03:04-05:00",
+  "publisher" : "Mathematica",
+  "jurisdiction" : [
+    {
+      "extension" : [
+        {
+          "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
+          "valueString" : "UNKNOWN"
+        }
+      ]
+    }
+  ],
+  "purpose" : "(Clinical Focus: The purpose of this value set is to represent concepts for follow-up with a body mass index (BMI) below normal measurement.),(Data Element Scope: This value set may use a model element related to Intervention or Procedure.),(Inclusion Criteria: Includes concepts that represent a follow-up for below normal body mass index (BMI).),(Exclusion Criteria: No exclusions.)",
+  "compose" : {
+    "include" : [
       {
-        "system": "http://hl7.org/fhir/sid/icd-10-cm",
-        "version": "2023",
-        "concept": [
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "concept" : [
           {
-            "code": "Z71.3",
-            "display": "Dietary counseling and surveillance"
+            "code" : "Z71.3",
+            "display" : "Dietary counseling and surveillance"
+          },
+          {
+            "code" : "Z71.82",
+            "display" : "Exercise counseling"
           }
         ]
       }
     ]
   },
-  "expansion": {
-    "identifier": "urn:uuid:eaf963ee-10e0-47d5-ade6-add5c14ea459",
-    "timestamp": "2022-09-27T20:51:47-04:00",
-    "total": 1,
-    "offset": 0,
-    "parameter": [
+  "expansion" : {
+    "identifier" : "urn:uuid:fde1c2d8-e790-44ef-b01a-ae18754e0500",
+    "timestamp" : "2023-06-29T17:26:42-04:00",
+    "total" : 2,
+    "offset" : 0,
+    "parameter" : [
       {
-        "name": "count",
-        "valueInteger": 1000
+        "name" : "count",
+        "valueInteger" : 1000
       },
       {
-        "name": "offset",
-        "valueInteger": 0
+        "name" : "offset",
+        "valueInteger" : 0
       }
     ],
-    "contains": [
+    "contains" : [
       {
-        "system": "http://hl7.org/fhir/sid/icd-10-cm",
-        "version": "2023",
-        "code": "Z71.3",
-        "display": "Dietary counseling and surveillance"
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2023",
+        "code" : "Z71.3",
+        "display" : "Dietary counseling and surveillance"
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2023",
+        "code" : "Z71.82",
+        "display" : "Exercise counseling"
       }
     ]
   }

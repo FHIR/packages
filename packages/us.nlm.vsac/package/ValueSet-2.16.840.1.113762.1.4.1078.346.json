@@ -1,0 +1,211 @@
+{
+  "resourceType" : "ValueSet",
+  "id" : "2.16.840.1.113762.1.4.1078.346",
+  "meta" : {
+    "versionId" : "8",
+    "lastUpdated" : "2023-03-21T01:03:39.000-04:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
+  },
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "Optum Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2023-03-21"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2023-03-21"
+    }
+  ],
+  "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1078.346",
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113762.1.4.1078.346"
+    }
+  ],
+  "version" : "20230321",
+  "name" : "HeartFailureUnspecifiedAsHFrEFOrHFpEFI10",
+  "title" : "Heart failure unspecified as HFrEF or HFpEF I10",
+  "status" : "active",
+  "date" : "2023-03-21T01:03:39-04:00",
+  "publisher" : "Optum Steward",
+  "jurisdiction" : [
+    {
+      "extension" : [
+        {
+          "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
+          "valueString" : "UNKNOWN"
+        }
+      ]
+    }
+  ],
+  "purpose" : "(Clinical Focus: \"Unspecified\" heart failure),(Data Element Scope: CONDITION: CLINICAL_DRIVER:),(Inclusion Criteria: ICD-10-CM codes for heart failure that are not specific to HFrEF (systolic heart failure) or HFpEF (diastolic heart failure)),(Exclusion Criteria: None)",
+  "compose" : {
+    "include" : [
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2023",
+        "filter" : [
+          {
+            "property" : "concept",
+            "op" : "=",
+            "value" : "I50.1"
+          }
+        ]
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2023",
+        "filter" : [
+          {
+            "modifierExtension" : [
+              {
+                "url" : "vsacOpModifier",
+                "valueString" : "leafOf"
+              }
+            ],
+            "property" : "concept",
+            "op" : "is-a",
+            "value" : "I50.8"
+          }
+        ]
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2023",
+        "filter" : [
+          {
+            "property" : "concept",
+            "op" : "=",
+            "value" : "I50.9"
+          }
+        ]
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2023",
+        "filter" : [
+          {
+            "property" : "concept",
+            "op" : "=",
+            "value" : "I11.0"
+          }
+        ]
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2023",
+        "filter" : [
+          {
+            "property" : "concept",
+            "op" : "=",
+            "value" : "I13.2"
+          }
+        ]
+      }
+    ]
+  },
+  "expansion" : {
+    "identifier" : "urn:uuid:dba221df-f837-4f5a-9d1e-d3b958a979bb",
+    "timestamp" : "2023-06-29T17:39:42-04:00",
+    "total" : 13,
+    "offset" : 0,
+    "parameter" : [
+      {
+        "name" : "count",
+        "valueInteger" : 1000
+      },
+      {
+        "name" : "offset",
+        "valueInteger" : 0
+      }
+    ],
+    "contains" : [
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2023",
+        "code" : "I11.0",
+        "display" : "Hypertensive heart disease with heart failure"
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2023",
+        "code" : "I13.2",
+        "display" : "Hypertensive heart and chronic kidney disease with heart failure and with stage 5 chronic kidney disease, or end stage renal disease"
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2023",
+        "code" : "I50.1",
+        "display" : "Left ventricular failure, unspecified"
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2023",
+        "code" : "I50.810",
+        "display" : "Right heart failure, unspecified"
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2023",
+        "code" : "I50.811",
+        "display" : "Acute right heart failure"
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2023",
+        "code" : "I50.812",
+        "display" : "Chronic right heart failure"
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2023",
+        "code" : "I50.813",
+        "display" : "Acute on chronic right heart failure"
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2023",
+        "code" : "I50.814",
+        "display" : "Right heart failure due to left heart failure"
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2023",
+        "code" : "I50.82",
+        "display" : "Biventricular heart failure"
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2023",
+        "code" : "I50.83",
+        "display" : "High output heart failure"
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2023",
+        "code" : "I50.84",
+        "display" : "End stage heart failure"
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2023",
+        "code" : "I50.89",
+        "display" : "Other heart failure"
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2023",
+        "code" : "I50.9",
+        "display" : "Heart failure, unspecified"
+      }
+    ]
+  }
+}

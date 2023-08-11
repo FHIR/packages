@@ -1,80 +1,118 @@
 {
-  "resourceType": "ValueSet",
-  "id": "2.16.840.1.113883.3.666.5.499",
-  "meta": {
-    "versionId": "11",
-    "lastUpdated": "2022-03-02T18:03:50.000-05:00"
+  "resourceType" : "ValueSet",
+  "id" : "2.16.840.1.113883.3.666.5.499",
+  "meta" : {
+    "versionId" : "11",
+    "lastUpdated" : "2022-03-02T18:03:50.000-05:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "url": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.666.5.499",
-  "version": "20140630",
-  "name": "Influenza Vaccination Administration",
-  "status": "active",
-  "date": "2022-03-03T18:46:01-05:00",
-  "publisher": "Lantana",
-  "compose": {
-    "include": [
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "Lantana Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2022-12-15"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2014-06-30"
+    }
+  ],
+  "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.666.5.499",
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113883.3.666.5.499"
+    }
+  ],
+  "version" : "20140630",
+  "name" : "InfluenzaVaccinationAdministration",
+  "title" : "Influenza Vaccination Administration",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2022-03-03T18:46:01-05:00",
+  "publisher" : "Lantana",
+  "description" : "Developed by OFMQ for Immunization measures",
+  "jurisdiction" : [
+    {
+      "extension" : [
+        {
+          "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
+          "valueString" : "UNKNOWN"
+        }
+      ]
+    }
+  ],
+  "purpose" : "(Clinical Focus: This grouping of value sets identifies patients who are administered the influenza vaccine.),(Data Element Scope: The intent of this data element is to represent the procedure of administering the influenza vaccine.  Using the Quality Data Model, this data element maps to the Procedure category.),(Inclusion Criteria: Only include codes  which represent the procedure of administering a vaccine.  This is a grouping of ICD9, ICD10 and SNOMED codes and concepts.),(Exclusion Criteria: Exclude codes that do not meet the inclusion criteria.)",
+  "compose" : {
+    "include" : [
       {
-        "valueSet": [
+        "valueSet" : [
           "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.666.5.497"
         ]
       },
       {
-        "valueSet": [
+        "valueSet" : [
           "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.666.5.498"
         ]
       },
       {
-        "valueSet": [
+        "valueSet" : [
           "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.666.5.2460"
         ]
       }
     ]
   },
-  "expansion": {
-    "identifier": "urn:uuid:f64a0ab8-483e-4475-98a5-58dabc69dc3b",
-    "timestamp": "2022-09-27T21:49:37-04:00",
-    "total": 5,
-    "offset": 0,
-    "parameter": [
+  "expansion" : {
+    "identifier" : "urn:uuid:b15826b2-2b8e-44ca-97d4-cbc703b19868",
+    "timestamp" : "2023-06-29T18:02:17-04:00",
+    "total" : 5,
+    "offset" : 0,
+    "parameter" : [
       {
-        "name": "count",
-        "valueInteger": 1000
+        "name" : "count",
+        "valueInteger" : 1000
       },
       {
-        "name": "offset",
-        "valueInteger": 0
+        "name" : "offset",
+        "valueInteger" : 0
       }
     ],
-    "contains": [
+    "contains" : [
       {
-        "system": "http://snomed.info/sct",
-        "version": "http://snomed.info/sct/731000124108/version/20220301",
-        "code": "33879002",
-        "display": "Administration of vaccine to produce active immunity (procedure)"
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20230301",
+        "code" : "33879002",
+        "display" : "Administration of vaccine to produce active immunity (procedure)"
       },
       {
-        "system": "http://www.icd10data.com/icd10pcs",
-        "version": "2023",
-        "code": "3E0134Z",
-        "display": "Introduction of Serum, Toxoid and Vaccine into Subcutaneous Tissue, Percutaneous Approach"
+        "system" : "http://www.cms.gov/Medicare/Coding/ICD10",
+        "version" : "2023",
+        "code" : "3E0134Z",
+        "display" : "Introduction of Serum, Toxoid and Vaccine into Subcutaneous Tissue, Percutaneous Approach"
       },
       {
-        "system": "http://www.icd10data.com/icd10pcs",
-        "version": "2023",
-        "code": "3E0234Z",
-        "display": "Introduction of Serum, Toxoid and Vaccine into Muscle, Percutaneous Approach"
+        "system" : "http://www.cms.gov/Medicare/Coding/ICD10",
+        "version" : "2023",
+        "code" : "3E0234Z",
+        "display" : "Introduction of Serum, Toxoid and Vaccine into Muscle, Percutaneous Approach"
       },
       {
-        "system": "http://snomed.info/sct",
-        "version": "http://snomed.info/sct/731000124108/version/20220301",
-        "code": "86198006",
-        "display": "Administration of vaccine product containing only Influenza virus antigen (procedure)"
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20230301",
+        "code" : "86198006",
+        "display" : "Administration of vaccine product containing only Influenza virus antigen (procedure)"
       },
       {
-        "system": "http://hl7.org/fhir/sid/icd-9-cm",
-        "version": "2013",
-        "code": "99.52",
-        "display": "Prophylactic vaccination against influenza"
+        "system" : "http://hl7.org/fhir/sid/icd-9-cm",
+        "version" : "2013",
+        "code" : "99.52",
+        "display" : "Prophylactic vaccination against influenza"
       }
     ]
   }

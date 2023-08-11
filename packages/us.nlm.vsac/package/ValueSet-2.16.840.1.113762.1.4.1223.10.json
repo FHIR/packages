@@ -1,51 +1,88 @@
 {
-  "resourceType": "ValueSet",
-  "id": "2.16.840.1.113762.1.4.1223.10",
-  "meta": {
-    "versionId": "5",
-    "lastUpdated": "2020-04-07T01:00:20.000-04:00"
+  "resourceType" : "ValueSet",
+  "id" : "2.16.840.1.113762.1.4.1223.10",
+  "meta" : {
+    "versionId" : "5",
+    "lastUpdated" : "2020-04-07T01:00:20.000-04:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "url": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1223.10",
-  "version": "20200407",
-  "name": "COVID19 Encounters (CPT4)",
-  "status": "active",
-  "date": "2020-04-07T01:00:20-04:00",
-  "publisher": "CareEvolution Steward",
-  "compose": {
-    "include": [
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "CareEvolution Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2022-12-15"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2020-04-07"
+    }
+  ],
+  "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1223.10",
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113762.1.4.1223.10"
+    }
+  ],
+  "version" : "20200407",
+  "name" : "COVID19EncountersCPT4",
+  "title" : "COVID19 Encounters (CPT4)",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2020-04-07T01:00:20-04:00",
+  "publisher" : "CareEvolution Steward",
+  "description" : "Given the variability in coding of encounters, this value set will be most useful with robust mapping of source data to the reference terms.",
+  "jurisdiction" : [
+    {
+      "extension" : [
+        {
+          "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
+          "valueString" : "UNKNOWN"
+        }
+      ]
+    }
+  ],
+  "purpose" : "(Clinical Focus: Intended to support surveillance and monitoring of COVID19 health system interactions),(Data Element Scope: Compilation of CPT codes related to encounters for COVID19 infection),(Inclusion Criteria: Includes encounters related to Suspected or Confirmed Infection, Potential Signs and Symptoms, Potential or Known Exposure, and Concern),(Exclusion Criteria: None)",
+  "compose" : {
+    "include" : [
       {
-        "system": "http://www.ama-assn.org/go/cpt",
-        "version": "2022",
-        "concept": [
+        "system" : "http://www.ama-assn.org/go/cpt",
+        "concept" : [
           {
-            "code": "87635",
-            "display": "Infectious agent detection by nucleic acid (DNA or RNA); severe acute respiratory syndrome coronavirus 2 (SARS-CoV-2) (Coronavirus disease [COVID-19]), amplified probe technique"
+            "code" : "87635",
+            "display" : "Infectious agent detection by nucleic acid (DNA or RNA); severe acute respiratory syndrome coronavirus 2 (SARS-CoV-2) (Coronavirus disease [COVID-19]), amplified probe technique"
           }
         ]
       }
     ]
   },
-  "expansion": {
-    "identifier": "urn:uuid:4193ce76-e575-42d0-8b16-efc20dc39146",
-    "timestamp": "2022-09-27T19:22:22-04:00",
-    "total": 1,
-    "offset": 0,
-    "parameter": [
+  "expansion" : {
+    "identifier" : "urn:uuid:e33b95ce-47ef-4fca-857f-7f2a376a93e3",
+    "timestamp" : "2023-06-29T16:37:44-04:00",
+    "total" : 1,
+    "offset" : 0,
+    "parameter" : [
       {
-        "name": "count",
-        "valueInteger": 1000
+        "name" : "count",
+        "valueInteger" : 1000
       },
       {
-        "name": "offset",
-        "valueInteger": 0
+        "name" : "offset",
+        "valueInteger" : 0
       }
     ],
-    "contains": [
+    "contains" : [
       {
-        "system": "http://www.ama-assn.org/go/cpt",
-        "version": "2022",
-        "code": "87635",
-        "display": "Infectious agent detection by nucleic acid (DNA or RNA); severe acute respiratory syndrome coronavirus 2 (SARS-CoV-2) (coronavirus disease [COVID-19]), amplified probe technique"
+        "system" : "http://www.ama-assn.org/go/cpt",
+        "version" : "2023",
+        "code" : "87635",
+        "display" : "Infectious agent detection by nucleic acid (DNA or RNA); severe acute respiratory syndrome coronavirus 2 (SARS-CoV-2) (coronavirus disease [COVID-19]), amplified probe technique"
       }
     ]
   }

@@ -1,61 +1,126 @@
 {
-  "resourceType": "ValueSet",
-  "id": "2.16.840.1.113762.1.4.1045.130",
-  "meta": {
-    "versionId": "17",
-    "lastUpdated": "2022-02-18T01:02:46.000-05:00"
+  "resourceType" : "ValueSet",
+  "id" : "2.16.840.1.113762.1.4.1045.130",
+  "meta" : {
+    "versionId" : "21",
+    "lastUpdated" : "2023-02-14T01:02:31.000-05:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "url": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1045.130",
-  "version": "20220218",
-  "name": "Respiratory Rate",
-  "status": "active",
-  "date": "2022-02-18T01:02:46-05:00",
-  "publisher": "Yale",
-  "compose": {
-    "include": [
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "Mathematica-CCDE"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2023-02-14"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2023-02-14"
+    }
+  ],
+  "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1045.130",
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113762.1.4.1045.130"
+    }
+  ],
+  "version" : "20230214",
+  "name" : "RespiratoryRate",
+  "title" : "Respiratory Rate",
+  "status" : "active",
+  "date" : "2023-02-14T01:02:32-05:00",
+  "publisher" : "Yale",
+  "jurisdiction" : [
+    {
+      "extension" : [
+        {
+          "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
+          "valueString" : "UNKNOWN"
+        }
+      ]
+    }
+  ],
+  "purpose" : "(Clinical Focus: The purpose of this value set is to represent concepts for a physical exam with an observation or measurement of respiratory rate.),(Data Element Scope: This value set may use a model element related to Physical Exam.),(Inclusion Criteria: Includes concepts that represent a physical exam during which observation or measurement of a person's respiratory rate occurred.),(Exclusion Criteria: No exclusions.)",
+  "compose" : {
+    "include" : [
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "concept": [
+        "system" : "http://loinc.org",
+        "concept" : [
           {
-            "code": "11291-2",
-            "display": "Respiratory rate at First encounter"
+            "code" : "11291-2",
+            "display" : "Respiratory rate at First encounter"
           },
           {
-            "code": "9279-1",
-            "display": "Respiratory rate"
+            "code" : "33438-3",
+            "display" : "Breath rate mechanical --on ventilator"
+          },
+          {
+            "code" : "76174-2",
+            "display" : "Respiratory rate by Pulse oximetry.plethysmograph"
+          },
+          {
+            "code" : "76528-9",
+            "display" : "Breath rate spontaneous"
+          },
+          {
+            "code" : "9279-1",
+            "display" : "Respiratory rate"
           }
         ]
       }
     ]
   },
-  "expansion": {
-    "identifier": "urn:uuid:31e147da-f3af-4ec6-ac75-36bc9cce3850",
-    "timestamp": "2022-06-10T11:38:32-04:00",
-    "total": 2,
-    "offset": 0,
-    "parameter": [
+  "expansion" : {
+    "identifier" : "urn:uuid:04a2796a-cb12-406b-8fd2-7ad2fe4f2548",
+    "timestamp" : "2023-06-29T19:41:55-04:00",
+    "total" : 5,
+    "offset" : 0,
+    "parameter" : [
       {
-        "name": "count",
-        "valueInteger": 1000
+        "name" : "count",
+        "valueInteger" : 1000
       },
       {
-        "name": "offset",
-        "valueInteger": 0
+        "name" : "offset",
+        "valueInteger" : 0
       }
     ],
-    "contains": [
+    "contains" : [
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "11291-2",
-        "display": "Respiratory rate at First encounter"
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "11291-2",
+        "display" : "Respiratory rate at First encounter"
       },
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "9279-1",
-        "display": "Respiratory rate"
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "33438-3",
+        "display" : "Breath rate mechanical --on ventilator"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "76174-2",
+        "display" : "Respiratory rate by Pulse oximetry.plethysmograph"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "76528-9",
+        "display" : "Breath rate spontaneous"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "9279-1",
+        "display" : "Respiratory rate"
       }
     ]
   }

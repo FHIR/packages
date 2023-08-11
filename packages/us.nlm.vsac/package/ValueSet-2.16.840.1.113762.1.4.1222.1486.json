@@ -1,52 +1,100 @@
 {
-  "resourceType": "ValueSet",
-  "id": "2.16.840.1.113762.1.4.1222.1486",
-  "meta": {
-    "versionId": "6",
-    "lastUpdated": "2022-06-08T01:03:01.000-04:00"
+  "resourceType" : "ValueSet",
+  "id" : "2.16.840.1.113762.1.4.1222.1486",
+  "meta" : {
+    "versionId" : "6",
+    "lastUpdated" : "2022-06-08T01:03:01.000-04:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "url": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1222.1486",
-  "version": "20220608",
-  "name": "Postural tachycardia syndrome (POTS) Diagnosis SCT",
-  "status": "active",
-  "date": "2022-06-08T01:03:01-04:00",
-  "publisher": "HL7 Patient Care WG Steward",
-  "compose": {
-    "include": [
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "MCC eCare Plan Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-keyWord",
+      "valueString" : "MCC"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2022-12-15"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2022-06-08"
+    }
+  ],
+  "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1222.1486",
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113762.1.4.1222.1486"
+    }
+  ],
+  "version" : "20220608",
+  "name" : "PosturalTachycardiaSyndromePOTSDiagnosisSCT",
+  "title" : "Postural tachycardia syndrome (POTS) Diagnosis SCT",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2022-06-08T01:03:01-04:00",
+  "publisher" : "HL7 Patient Care WG Steward",
+  "description" : "\"This value set may undergo changes until the HL7 Multiple Chronic Care FHIR IG is formally published in 2024.\"",
+  "jurisdiction" : [
+    {
+      "extension" : [
+        {
+          "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
+          "valueString" : "UNKNOWN"
+        }
+      ]
+    }
+  ],
+  "purpose" : "(Clinical Focus: This set of values contains SNOMED CT diagnosis terms representing Postural tachycardia syndrome (POTS).),(Data Element Scope: The intent of this set of values is to identify patients who have a diagnosis of Postural tachycardia syndrome (POTS).),(Inclusion Criteria: Includes the SNOMED CT Postural tachycardia syndrome (POTS) diagnosis concept.),(Exclusion Criteria: None)",
+  "compose" : {
+    "include" : [
       {
-        "system": "http://snomed.info/sct",
-        "version": "http://snomed.info/sct/731000124108/version/20220301",
-        "filter": [
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20230301",
+        "filter" : [
           {
-            "property": "concept",
-            "op": "is-a",
-            "value": "371073003"
+            "property" : "concept",
+            "op" : "is-a",
+            "value" : "371073003"
           }
         ]
       }
     ]
   },
-  "expansion": {
-    "identifier": "urn:uuid:35a01720-71f6-4cc0-bf4c-c8014dc7e802",
-    "timestamp": "2022-09-28T05:49:27-04:00",
-    "total": 1,
-    "offset": 0,
-    "parameter": [
+  "expansion" : {
+    "identifier" : "urn:uuid:89f941fe-89d7-4957-b9d6-b4da412dc07b",
+    "timestamp" : "2023-06-29T19:22:01-04:00",
+    "total" : 2,
+    "offset" : 0,
+    "parameter" : [
       {
-        "name": "count",
-        "valueInteger": 1000
+        "name" : "count",
+        "valueInteger" : 1000
       },
       {
-        "name": "offset",
-        "valueInteger": 0
+        "name" : "offset",
+        "valueInteger" : 0
       }
     ],
-    "contains": [
+    "contains" : [
       {
-        "system": "http://snomed.info/sct",
-        "version": "http://snomed.info/sct/731000124108/version/20220301",
-        "code": "371073003",
-        "display": "Postural orthostatic tachycardia syndrome (disorder)"
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20230301",
+        "code" : "1217211002",
+        "display" : "Postural orthostatic tachycardia syndrome due to norepinephrine transporter deficiency (disorder)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20230301",
+        "code" : "371073003",
+        "display" : "Postural orthostatic tachycardia syndrome (disorder)"
       }
     ]
   }

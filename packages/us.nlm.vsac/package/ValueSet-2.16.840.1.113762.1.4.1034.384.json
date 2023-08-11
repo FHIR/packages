@@ -1,76 +1,114 @@
 {
-  "resourceType": "ValueSet",
-  "id": "2.16.840.1.113762.1.4.1034.384",
-  "meta": {
-    "versionId": "5",
-    "lastUpdated": "2020-12-05T01:00:32.000-05:00"
+  "resourceType" : "ValueSet",
+  "id" : "2.16.840.1.113762.1.4.1034.384",
+  "meta" : {
+    "versionId" : "5",
+    "lastUpdated" : "2020-12-05T01:00:32.000-05:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "url": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1034.384",
-  "version": "20201205",
-  "name": "Obsessive Compulsive Disorder (OCD) (ICD10CM)",
-  "status": "active",
-  "date": "2020-12-05T01:00:32-05:00",
-  "publisher": "American Academy of Neurology Steward",
-  "compose": {
-    "include": [
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "American Academy of Neurology Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2022-12-15"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2020-12-05"
+    }
+  ],
+  "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1034.384",
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113762.1.4.1034.384"
+    }
+  ],
+  "version" : "20201205",
+  "name" : "ObsessiveCompulsiveDisorderOCDICD10CM",
+  "title" : "Obsessive Compulsive Disorder (OCD) (ICD10CM)",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2020-12-05T01:00:32-05:00",
+  "publisher" : "American Academy of Neurology Steward",
+  "description" : "This value set contains ICD10CM concepts for obsessive compulsive disorders",
+  "jurisdiction" : [
+    {
+      "extension" : [
+        {
+          "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
+          "valueString" : "UNKNOWN"
+        }
+      ]
+    }
+  ],
+  "purpose" : "(Clinical Focus: This value set contains ICD10CM concepts for obsessive compulsive disorders),(Data Element Scope: The intent of this data element is to identify people diagnosed with an obsessive compulsive disorder. This element may map to \"Diagnosis\" Category of the Quality Data Model.),(Inclusion Criteria: Includes concept classified in the ICD10CM system as having both obsessive (i.e., repetitive thoughts) and compulsive (i.e., repetitive behaviors) components.),(Exclusion Criteria: Excludes compulsive behaviors defined primarily in terms of behavior but without associated obsessions (thoughts). Excludes antisocial and impulse control behaviors such as sexual addictions, gambling disorder, pyromania, etc.)",
+  "compose" : {
+    "include" : [
       {
-        "system": "http://hl7.org/fhir/sid/icd-10-cm",
-        "version": "2023",
-        "filter": [
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2023",
+        "filter" : [
           {
-            "property": "concept",
-            "op": "descendent-of",
-            "value": "F42"
+            "property" : "concept",
+            "op" : "descendent-of",
+            "value" : "F42"
           }
         ]
       }
     ]
   },
-  "expansion": {
-    "identifier": "urn:uuid:27ab1ff2-91de-4305-9512-11b0a07c0901",
-    "timestamp": "2022-09-27T23:30:11-04:00",
-    "total": 5,
-    "offset": 0,
-    "parameter": [
+  "expansion" : {
+    "identifier" : "urn:uuid:4c852bad-884d-466f-9f9f-26bd0de6c159",
+    "timestamp" : "2023-06-29T18:59:28-04:00",
+    "total" : 5,
+    "offset" : 0,
+    "parameter" : [
       {
-        "name": "count",
-        "valueInteger": 1000
+        "name" : "count",
+        "valueInteger" : 1000
       },
       {
-        "name": "offset",
-        "valueInteger": 0
+        "name" : "offset",
+        "valueInteger" : 0
       }
     ],
-    "contains": [
+    "contains" : [
       {
-        "system": "http://hl7.org/fhir/sid/icd-10-cm",
-        "version": "2023",
-        "code": "F42.2",
-        "display": "Mixed obsessional thoughts and acts"
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2023",
+        "code" : "F42.2",
+        "display" : "Mixed obsessional thoughts and acts"
       },
       {
-        "system": "http://hl7.org/fhir/sid/icd-10-cm",
-        "version": "2023",
-        "code": "F42.3",
-        "display": "Hoarding disorder"
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2023",
+        "code" : "F42.3",
+        "display" : "Hoarding disorder"
       },
       {
-        "system": "http://hl7.org/fhir/sid/icd-10-cm",
-        "version": "2023",
-        "code": "F42.4",
-        "display": "Excoriation (skin-picking) disorder"
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2023",
+        "code" : "F42.4",
+        "display" : "Excoriation (skin-picking) disorder"
       },
       {
-        "system": "http://hl7.org/fhir/sid/icd-10-cm",
-        "version": "2023",
-        "code": "F42.8",
-        "display": "Other obsessive-compulsive disorder"
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2023",
+        "code" : "F42.8",
+        "display" : "Other obsessive-compulsive disorder"
       },
       {
-        "system": "http://hl7.org/fhir/sid/icd-10-cm",
-        "version": "2023",
-        "code": "F42.9",
-        "display": "Obsessive-compulsive disorder, unspecified"
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2023",
+        "code" : "F42.9",
+        "display" : "Obsessive-compulsive disorder, unspecified"
       }
     ]
   }

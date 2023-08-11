@@ -1,58 +1,100 @@
 {
-  "resourceType": "ValueSet",
-  "id": "2.16.840.1.113762.1.4.1222.1065",
-  "meta": {
-    "versionId": "5",
-    "lastUpdated": "2021-09-24T01:17:37.000-04:00"
+  "resourceType" : "ValueSet",
+  "id" : "2.16.840.1.113762.1.4.1222.1065",
+  "meta" : {
+    "versionId" : "5",
+    "lastUpdated" : "2022-11-12T21:04:59.000-05:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "url": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1222.1065",
-  "version": "20210924",
-  "name": "Dependents in Home",
-  "status": "active",
-  "date": "2021-09-24T01:17:37-04:00",
-  "publisher": "HL7 Patient Care WG Steward",
-  "compose": {
-    "include": [
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "MCC eCare Plan Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-keyWord",
+      "valueString" : "MCC_IG"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2022-12-15"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2021-09-24"
+    }
+  ],
+  "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1222.1065",
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113762.1.4.1222.1065"
+    }
+  ],
+  "version" : "20210924",
+  "name" : "DependentsInHome",
+  "title" : "Dependents in Home",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2021-09-24T01:17:37-04:00",
+  "publisher" : "HL7 Patient Care WG Steward",
+  "description" : "This value set may undergo changes until the HL7 Multiple Chronic Care FHIR IG is formally published in 2024.",
+  "jurisdiction" : [
+    {
+      "extension" : [
+        {
+          "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
+          "valueString" : "UNKNOWN"
+        }
+      ]
+    }
+  ],
+  "purpose" : "(Clinical Focus: This set of values addresses terms representing an observation of the number of dependents in home.),(Data Element Scope: The intent of this set of values is to identify patients who have a/an the type and number of adult or child dependents the person has living at home.),(Inclusion Criteria: Includes LOINC codes for Dependents in Home.),(Exclusion Criteria: Terms not representative of observable encoded terms that may have values indicating Dependents in Home.)",
+  "compose" : {
+    "include" : [
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "filter": [
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "filter" : [
           {
-            "property": "concept",
-            "op": "in",
-            "value": "85722-7,68508-1"
+            "property" : "concept",
+            "op" : "in",
+            "value" : "85722-7,68508-1"
           }
         ]
       }
     ]
   },
-  "expansion": {
-    "identifier": "urn:uuid:9cdbcc52-56a8-4c19-ae32-f2dea983ad45",
-    "timestamp": "2022-09-27T20:04:00-04:00",
-    "total": 2,
-    "offset": 0,
-    "parameter": [
+  "expansion" : {
+    "identifier" : "urn:uuid:e36f79de-1903-42d5-b738-796b8ae218d0",
+    "timestamp" : "2023-06-29T16:57:18-04:00",
+    "total" : 2,
+    "offset" : 0,
+    "parameter" : [
       {
-        "name": "count",
-        "valueInteger": 1000
+        "name" : "count",
+        "valueInteger" : 1000
       },
       {
-        "name": "offset",
-        "valueInteger": 0
+        "name" : "offset",
+        "valueInteger" : 0
       }
     ],
-    "contains": [
+    "contains" : [
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "68508-1",
-        "display": "How many children under the age of 18 live in your household # [SAMHSA]"
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "68508-1",
+        "display" : "How many children under the age of 18 live in your household # [SAMHSA]"
       },
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "85722-7",
-        "display": "Number of children under the age of 18 living in mother\u0027s household during the pregnancy"
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "85722-7",
+        "display" : "Number of children under the age of 18 living in mother's household during the pregnancy"
       }
     ]
   }

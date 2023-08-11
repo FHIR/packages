@@ -1,111 +1,187 @@
 {
-  "resourceType": "ValueSet",
-  "id": "2.16.840.1.113762.1.4.1104.10",
-  "meta": {
-    "versionId": "18",
-    "lastUpdated": "2021-02-13T01:00:26.000-05:00"
+  "resourceType" : "ValueSet",
+  "id" : "2.16.840.1.113762.1.4.1104.10",
+  "meta" : {
+    "versionId" : "23",
+    "lastUpdated" : "2023-02-14T01:02:31.000-05:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "url": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1104.10",
-  "version": "20210213",
-  "name": "Medicare payer",
-  "status": "active",
-  "date": "2021-02-13T01:00:26-05:00",
-  "publisher": "Yale",
-  "compose": {
-    "include": [
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "Mathematica-CCDE"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2023-02-14"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2023-02-14"
+    }
+  ],
+  "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1104.10",
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113762.1.4.1104.10"
+    }
+  ],
+  "version" : "20230214",
+  "name" : "MedicareFFSPayer",
+  "title" : "Medicare FFS payer",
+  "status" : "active",
+  "date" : "2023-02-14T01:02:32-05:00",
+  "publisher" : "Yale",
+  "description" : "CCDE",
+  "jurisdiction" : [
+    {
+      "extension" : [
+        {
+          "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
+          "valueString" : "UNKNOWN"
+        }
+      ]
+    }
+  ],
+  "purpose" : "(Clinical Focus: The purpose of this value set is to identify concepts for Medicare Fee-For-Service payer types.),(Data Element Scope: This value set may use a model element related to Patient Characteristic.),(Inclusion Criteria: Includes concepts that identify a patient with Medicare Fee-For-Service as a payer source.),(Exclusion Criteria: Excludes concepts that represent non-Medicare Fee-For-Service as a payer source.)",
+  "compose" : {
+    "include" : [
       {
-        "system": "https://nahdo.org/sopt",
-        "version": "9.2",
-        "concept": [
+        "system" : "https://nahdo.org/sopt",
+        "concept" : [
           {
-            "code": "1",
-            "display": "MEDICARE"
+            "code" : "1",
+            "display" : "MEDICARE"
           },
           {
-            "code": "12",
-            "display": "Medicare (Non-managed Care)"
+            "code" : "12",
+            "display" : "Medicare (Non-managed Care)"
           },
           {
-            "code": "121",
-            "display": "Medicare FFS"
+            "code" : "121",
+            "display" : "Medicare FFS"
           },
           {
-            "code": "122",
-            "display": "Medicare Drug Benefit"
+            "code" : "122",
+            "display" : "Medicare Drug Benefit"
           },
           {
-            "code": "123",
-            "display": "Medicare Medical Savings Account (MSA)"
+            "code" : "129",
+            "display" : "Medicare Non-managed Care Other"
           },
           {
-            "code": "129",
-            "display": "Medicare Non-managed Care Other"
+            "code" : "13",
+            "display" : "Medicare Hospice"
           },
           {
-            "code": "14",
-            "display": "Dual Eligibility Medicare/Medicaid Organization"
+            "code" : "14",
+            "display" : "Dual Eligibility Medicare/Medicaid Organization"
+          },
+          {
+            "code" : "141",
+            "display" : "Dual Eligible Special Needs Plan (D-SNP)"
+          },
+          {
+            "code" : "142",
+            "display" : "Fully Integrated Dual Eligible Special Needs Plan (FIDE-SNP)"
+          },
+          {
+            "code" : "19",
+            "display" : "Medicare Other"
+          },
+          {
+            "code" : "191",
+            "display" : "Medicare Pharmacy Benefit Manager"
           }
         ]
       }
     ]
   },
-  "expansion": {
-    "identifier": "urn:uuid:5318f1ca-1de6-4748-bc5b-e6be8d141ecc",
-    "timestamp": "2022-09-27T22:39:43-04:00",
-    "total": 7,
-    "offset": 0,
-    "parameter": [
+  "expansion" : {
+    "identifier" : "urn:uuid:37109646-eab0-4ca5-9db2-f22e9ae22ff2",
+    "timestamp" : "2023-06-29T18:32:55-04:00",
+    "total" : 11,
+    "offset" : 0,
+    "parameter" : [
       {
-        "name": "count",
-        "valueInteger": 1000
+        "name" : "count",
+        "valueInteger" : 1000
       },
       {
-        "name": "offset",
-        "valueInteger": 0
+        "name" : "offset",
+        "valueInteger" : 0
       }
     ],
-    "contains": [
+    "contains" : [
       {
-        "system": "https://nahdo.org/sopt",
-        "version": "9.2",
-        "code": "1",
-        "display": "MEDICARE"
+        "system" : "https://nahdo.org/sopt",
+        "version" : "9.2",
+        "code" : "1",
+        "display" : "MEDICARE"
       },
       {
-        "system": "https://nahdo.org/sopt",
-        "version": "9.2",
-        "code": "12",
-        "display": "Medicare (Non-managed Care)"
+        "system" : "https://nahdo.org/sopt",
+        "version" : "9.2",
+        "code" : "12",
+        "display" : "Medicare (Non-managed Care)"
       },
       {
-        "system": "https://nahdo.org/sopt",
-        "version": "9.2",
-        "code": "121",
-        "display": "Medicare FFS"
+        "system" : "https://nahdo.org/sopt",
+        "version" : "9.2",
+        "code" : "121",
+        "display" : "Medicare FFS"
       },
       {
-        "system": "https://nahdo.org/sopt",
-        "version": "9.2",
-        "code": "122",
-        "display": "Medicare Drug Benefit"
+        "system" : "https://nahdo.org/sopt",
+        "version" : "9.2",
+        "code" : "122",
+        "display" : "Medicare Drug Benefit"
       },
       {
-        "system": "https://nahdo.org/sopt",
-        "version": "9.2",
-        "code": "123",
-        "display": "Medicare Medical Savings Account (MSA)"
+        "system" : "https://nahdo.org/sopt",
+        "version" : "9.2",
+        "code" : "129",
+        "display" : "Medicare Non-managed Care Other"
       },
       {
-        "system": "https://nahdo.org/sopt",
-        "version": "9.2",
-        "code": "129",
-        "display": "Medicare Non-managed Care Other"
+        "system" : "https://nahdo.org/sopt",
+        "version" : "9.2",
+        "code" : "13",
+        "display" : "Medicare Hospice"
       },
       {
-        "system": "https://nahdo.org/sopt",
-        "version": "9.2",
-        "code": "14",
-        "display": "Dual Eligibility Medicare/Medicaid Organization"
+        "system" : "https://nahdo.org/sopt",
+        "version" : "9.2",
+        "code" : "14",
+        "display" : "Dual Eligibility Medicare/Medicaid Organization"
+      },
+      {
+        "system" : "https://nahdo.org/sopt",
+        "version" : "9.2",
+        "code" : "141",
+        "display" : "Dual Eligible Special Needs Plan (D-SNP)"
+      },
+      {
+        "system" : "https://nahdo.org/sopt",
+        "version" : "9.2",
+        "code" : "142",
+        "display" : "Fully Integrated Dual Eligible Special Needs Plan (FIDE-SNP)"
+      },
+      {
+        "system" : "https://nahdo.org/sopt",
+        "version" : "9.2",
+        "code" : "19",
+        "display" : "Medicare Other"
+      },
+      {
+        "system" : "https://nahdo.org/sopt",
+        "version" : "9.2",
+        "code" : "191",
+        "display" : "Medicare Pharmacy Benefit Manager"
       }
     ]
   }

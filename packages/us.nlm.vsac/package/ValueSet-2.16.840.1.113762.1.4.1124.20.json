@@ -1,59 +1,87 @@
 {
-  "resourceType": "ValueSet",
-  "id": "2.16.840.1.113762.1.4.1124.20",
-  "meta": {
-    "versionId": "7",
-    "lastUpdated": "2017-09-26T16:05:38.000-04:00"
+  "resourceType" : "ValueSet",
+  "id" : "2.16.840.1.113762.1.4.1124.20",
+  "meta" : {
+    "versionId" : "4",
+    "lastUpdated" : "2017-09-26T16:05:38.000-04:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "url": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1124.20",
-  "version": "Draft",
-  "name": "falls without injury",
-  "status": "draft",
-  "date": "2016-05-06T15:03:38-04:00",
-  "publisher": "CMS",
-  "compose": {
-    "include": [
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "Econometrica Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2022-12-15"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2015-07-21"
+    }
+  ],
+  "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1124.20",
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113762.1.4.1124.20"
+    }
+  ],
+  "version" : "20150721",
+  "name" : "FallsWithoutInjury",
+  "title" : "falls without injury",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2015-07-21T01:00:02-04:00",
+  "publisher" : "CMS",
+  "jurisdiction" : [
+    {
+      "extension" : [
+        {
+          "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
+          "valueString" : "UNKNOWN"
+        }
+      ]
+    }
+  ],
+  "purpose" : "(Clinical Focus: tbd),(Data Element Scope: to be used with QDM category/datatype risk/category assessment),(Inclusion Criteria: falls without injury),(Exclusion Criteria: falls with injury)",
+  "compose" : {
+    "include" : [
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "concept": [
+        "system" : "http://loinc.org",
+        "concept" : [
           {
-            "code": "42553-8",
-            "display": "Event description fall MERSTH"
-          },
-          {
-            "code": "52552-7",
-            "display": "History of falls in the past year [CARE]"
-          },
-          {
-            "code": "54855-2",
-            "display": "Number of falls since admission or prior assessment - no injury [MDSv3]"
+            "code" : "LA17766-9",
+            "display" : "Symptomatic"
           }
         ]
       }
     ]
   },
-  "expansion": {
-    "identifier": "urn:uuid:39e1e5dc-c4ae-42fd-b21d-c77963190266",
-    "timestamp": "2022-09-27T20:44:17-04:00",
-    "total": 1,
-    "offset": 0,
-    "parameter": [
+  "expansion" : {
+    "identifier" : "urn:uuid:8816f761-ff62-422c-8064-eaed01e71054",
+    "timestamp" : "2023-06-29T17:22:02-04:00",
+    "total" : 1,
+    "offset" : 0,
+    "parameter" : [
       {
-        "name": "count",
-        "valueInteger": 1000
+        "name" : "count",
+        "valueInteger" : 1000
       },
       {
-        "name": "offset",
-        "valueInteger": 0
+        "name" : "offset",
+        "valueInteger" : 0
       }
     ],
-    "contains": [
+    "contains" : [
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "LA17766-9",
-        "display": "Symptomatic"
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "LA17766-9",
+        "display" : "Symptomatic"
       }
     ]
   }

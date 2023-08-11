@@ -1,52 +1,90 @@
 {
-  "resourceType": "ValueSet",
-  "id": "2.16.840.1.113762.1.4.1222.789",
-  "meta": {
-    "versionId": "5",
-    "lastUpdated": "2021-09-16T01:00:31.000-04:00"
+  "resourceType" : "ValueSet",
+  "id" : "2.16.840.1.113762.1.4.1222.789",
+  "meta" : {
+    "versionId" : "5",
+    "lastUpdated" : "2021-09-16T01:00:31.000-04:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "url": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1222.789",
-  "version": "20210916",
-  "name": "The Person Who Conducted the Test or survey/assessment",
-  "status": "active",
-  "date": "2021-09-16T01:00:31-04:00",
-  "publisher": "HL7 Patient Care WG Steward",
-  "compose": {
-    "include": [
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "MCC eCare Plan Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2022-12-15"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2021-09-16"
+    }
+  ],
+  "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1222.789",
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113762.1.4.1222.789"
+    }
+  ],
+  "version" : "20210916",
+  "name" : "ThePersonWhoConductedTheTestOrSurveyAssessment",
+  "title" : "The Person Who Conducted the Test or survey/assessment",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2021-09-16T01:00:31-04:00",
+  "publisher" : "HL7 Patient Care WG Steward",
+  "description" : "Observation Resource (Business ID: Entry 2789047)",
+  "jurisdiction" : [
+    {
+      "extension" : [
+        {
+          "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
+          "valueString" : "UNKNOWN"
+        }
+      ]
+    }
+  ],
+  "purpose" : "(Clinical Focus: This set of values addresses terms representing The Person Who Conducted the Test or survey/assessment.),(Data Element Scope: The intent of this set of values is to identify patients who have a/an observation resource.),(Inclusion Criteria: Includes LOINC codes for The Person Who Conducted the Test or survey/assessment.),(Exclusion Criteria: Terms not representative of observable encoded terms that may have values indicating The Person Who Conducted the Test or survey/assessment.)",
+  "compose" : {
+    "include" : [
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "filter": [
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "filter" : [
           {
-            "property": "concept",
-            "op": "\u003d",
-            "value": "65843-5"
+            "property" : "concept",
+            "op" : "=",
+            "value" : "65843-5"
           }
         ]
       }
     ]
   },
-  "expansion": {
-    "identifier": "urn:uuid:ccd90c18-6c18-44b7-9ec2-ca501f39f0e5",
-    "timestamp": "2022-09-28T02:15:35-04:00",
-    "total": 1,
-    "offset": 0,
-    "parameter": [
+  "expansion" : {
+    "identifier" : "urn:uuid:e6154eb3-6a55-472b-a26e-af84fa58d9ea",
+    "timestamp" : "2023-06-29T20:12:41-04:00",
+    "total" : 1,
+    "offset" : 0,
+    "parameter" : [
       {
-        "name": "count",
-        "valueInteger": 1000
+        "name" : "count",
+        "valueInteger" : 1000
       },
       {
-        "name": "offset",
-        "valueInteger": 0
+        "name" : "offset",
+        "valueInteger" : 0
       }
     ],
-    "contains": [
+    "contains" : [
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "65843-5",
-        "display": "Responsible observer"
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "65843-5",
+        "display" : "Responsible observer"
       }
     ]
   }

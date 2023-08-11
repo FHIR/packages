@@ -1,76 +1,178 @@
 {
-  "resourceType": "ValueSet",
-  "id": "2.16.840.1.113762.1.4.1222.962",
-  "meta": {
-    "versionId": "5",
-    "lastUpdated": "2021-09-29T14:42:15.000-04:00"
+  "resourceType" : "ValueSet",
+  "id" : "2.16.840.1.113762.1.4.1222.962",
+  "meta" : {
+    "versionId" : "11",
+    "lastUpdated" : "2022-11-15T01:03:33.000-05:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "url": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1222.962",
-  "version": "20210922",
-  "name": "Bed Mobility (ADL or IADL)",
-  "status": "active",
-  "date": "2021-09-22T01:00:54-04:00",
-  "publisher": "HL7 Patient Care WG Steward",
-  "compose": {
-    "include": [
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "MCC eCare Plan Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-keyWord",
+      "valueString" : "MCC_IG"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2022-12-15"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2022-11-15"
+    }
+  ],
+  "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1222.962",
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113762.1.4.1222.962"
+    }
+  ],
+  "version" : "20221115",
+  "name" : "BedMobilityADLOrIADL",
+  "title" : "Bed Mobility (ADL or IADL)",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2022-11-15T01:03:33-05:00",
+  "publisher" : "HL7 Patient Care WG Steward",
+  "description" : "This value set may undergo changes until the HL7 Multiple Chronic Care FHIR IG is formally published in 2024.",
+  "jurisdiction" : [
+    {
+      "extension" : [
+        {
+          "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
+          "valueString" : "UNKNOWN"
+        }
+      ]
+    }
+  ],
+  "purpose" : "(Clinical Focus: This set of values addresses terms representing Bed Mobility (ADL or IADL).),(Data Element Scope: The intent of this set of values is to identify patients who have a/an assessment of the person's ability to move in the bed as an adl/iadl.),(Inclusion Criteria: Includes LOINC codes for Bed Mobility (ADL or IADL).),(Exclusion Criteria: Terms not representative of observable encoded terms that may have values indicating Bed Mobility (ADL or IADL).)",
+  "compose" : {
+    "include" : [
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "filter": [
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "filter" : [
           {
-            "property": "concept",
-            "op": "in",
-            "value": "88818-0,82321-1,45589-9,77697-1,45588-1"
+            "property" : "concept",
+            "op" : "in",
+            "value" : "77697-1,83213-9,45588-1,85927-2,79004-8,88818-0,85926-4,95009-7,67944-9,45589-9,82321-1,83214-7,79003-0,52648-3,94942-0"
           }
         ]
       }
     ]
   },
-  "expansion": {
-    "identifier": "urn:uuid:b90b8e40-dc41-4a95-8b86-278058ad474f",
-    "timestamp": "2022-09-27T18:22:22-04:00",
-    "total": 5,
-    "offset": 0,
-    "parameter": [
+  "expansion" : {
+    "identifier" : "urn:uuid:f2a2f44e-92e3-4ae1-b5c0-aa80a4fe9826",
+    "timestamp" : "2023-06-29T15:54:19-04:00",
+    "total" : 15,
+    "offset" : 0,
+    "parameter" : [
       {
-        "name": "count",
-        "valueInteger": 1000
+        "name" : "count",
+        "valueInteger" : 1000
       },
       {
-        "name": "offset",
-        "valueInteger": 0
+        "name" : "offset",
+        "valueInteger" : 0
       }
     ],
-    "contains": [
+    "contains" : [
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "45588-1",
-        "display": "Bed mobility - self-performance during assessment period [CMS Assessment]"
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "45588-1",
+        "display" : "Bed mobility - self-performance during assessment period [CMS Assessment]"
       },
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "45589-9",
-        "display": "Bed mobility - support provided during assessment period [CMS Assessment]"
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "45589-9",
+        "display" : "Bed mobility - support provided during assessment period [CMS Assessment]"
       },
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "77697-1",
-        "display": "Turning in bed and adjusting bed clothes scale [UPDRS]"
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "52648-3",
+        "display" : "Lying to sitting on side of bed during 2 day assessment period [CARE]"
       },
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "82321-1",
-        "display": "Degree of difficulty experienced due to your hip while lying in bed (turning over, maintaining hip position) in the last week [HOOS]"
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "67944-9",
+        "display" : "How much difficulty do you currently have moving from sitting at the side of the bed to lying down on your back [NeuroQol]"
       },
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "88818-0",
-        "display": "Degree of difficulty experienced due to your knee while lying in bed (turning over, maintaining hip position) in the last week [KOOS]"
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "77697-1",
+        "display" : "Turning in bed and adjusting bed clothes scale [UPDRS]"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "79003-0",
+        "display" : "Are you able to roll onto your stomach while lying in bed [PROMIS]"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "79004-8",
+        "display" : "Are you able to pull up covers while lying in bed [PROMIS]"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "82321-1",
+        "display" : "Degree of difficulty experienced due to your hip while lying in bed (turning over, maintaining hip position) in the last week [HOOS]"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "83213-9",
+        "display" : "Lying to sitting on side of bed - functional goal during 3 day assessment period [CMS Assessment]"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "83214-7",
+        "display" : "Lying to sitting on side of bed - functional ability during 3 day assessment period [CMS Assessment]"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "85926-4",
+        "display" : "Lying to sitting on side of bed - functional ability [CMS Assessment]"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "85927-2",
+        "display" : "Lying to sitting on side of bed - functional goal [CMS Assessment]"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "88818-0",
+        "display" : "Degree of difficulty experienced due to your knee while lying in bed (turning over, maintaining hip position) in the last week [KOOS]"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "94942-0",
+        "display" : "Lying to sitting on side of bed - most dependent performance during the past month [CMS Assessment]"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "95009-7",
+        "display" : "Lying to sitting on side of bed - usual functional ability during assessment period [CMS Assessment]"
       }
     ]
   }

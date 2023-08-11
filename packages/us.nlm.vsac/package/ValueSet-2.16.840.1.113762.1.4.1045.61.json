@@ -1,61 +1,97 @@
 {
-  "resourceType": "ValueSet",
-  "id": "2.16.840.1.113762.1.4.1045.61",
-  "meta": {
-    "versionId": "7",
-    "lastUpdated": "2014-06-30T01:00:02.000-04:00"
+  "resourceType" : "ValueSet",
+  "id" : "2.16.840.1.113762.1.4.1045.61",
+  "meta" : {
+    "versionId" : "7",
+    "lastUpdated" : "2014-06-30T01:00:02.000-04:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "url": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1045.61",
-  "version": "20140630",
-  "name": "Rehabilitation Assessment",
-  "status": "active",
-  "date": "2014-06-30T01:00:02-04:00",
-  "publisher": "Joint Commission",
-  "compose": {
-    "include": [
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "OFMQ-CMS-Abt"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2022-12-15"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2014-06-30"
+    }
+  ],
+  "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1045.61",
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113762.1.4.1045.61"
+    }
+  ],
+  "version" : "20140630",
+  "name" : "RehabilitationAssessment",
+  "title" : "Rehabilitation Assessment",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2014-06-30T01:00:02-04:00",
+  "publisher" : "Joint Commission",
+  "jurisdiction" : [
+    {
+      "extension" : [
+        {
+          "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
+          "valueString" : "UNKNOWN"
+        }
+      ]
+    }
+  ],
+  "purpose" : "(Clinical Focus: This set of  values contains procedures that represent rehabilitation assessment of patients post stroke.),(Data Element Scope: The intent of this data element is to identify assessments for rehabilitation assessment  following a stroke. Using the Quality Data Model, this particular element will map to the \"Procedure\" category.),(Inclusion Criteria: Include ICD 9 CM codes that identify a rehabilitation assessment procedures post stroke.),(Exclusion Criteria: Exclude codes that do not meet the inclusion criteria.)",
+  "compose" : {
+    "include" : [
       {
-        "system": "http://hl7.org/fhir/sid/icd-9-cm",
-        "version": "2013",
-        "concept": [
+        "system" : "http://hl7.org/fhir/sid/icd-9-cm",
+        "concept" : [
           {
-            "code": "93.01",
-            "display": "Functional evaluation"
+            "code" : "93.01",
+            "display" : "Functional evaluation"
           },
           {
-            "code": "93.02",
-            "display": "Orthotic evaluation"
+            "code" : "93.02",
+            "display" : "Orthotic evaluation"
           }
         ]
       }
     ]
   },
-  "expansion": {
-    "identifier": "urn:uuid:e53178a7-a6a6-4ba1-8835-338758f94b9c",
-    "timestamp": "2022-09-28T00:47:53-04:00",
-    "total": 2,
-    "offset": 0,
-    "parameter": [
+  "expansion" : {
+    "identifier" : "urn:uuid:e65a6ed7-4e8f-4589-80f2-6ffede899bdb",
+    "timestamp" : "2023-06-29T19:38:47-04:00",
+    "total" : 2,
+    "offset" : 0,
+    "parameter" : [
       {
-        "name": "count",
-        "valueInteger": 1000
+        "name" : "count",
+        "valueInteger" : 1000
       },
       {
-        "name": "offset",
-        "valueInteger": 0
+        "name" : "offset",
+        "valueInteger" : 0
       }
     ],
-    "contains": [
+    "contains" : [
       {
-        "system": "http://hl7.org/fhir/sid/icd-9-cm",
-        "version": "2013",
-        "code": "93.01",
-        "display": "Functional evaluation"
+        "system" : "http://hl7.org/fhir/sid/icd-9-cm",
+        "version" : "2013",
+        "code" : "93.01",
+        "display" : "Functional evaluation"
       },
       {
-        "system": "http://hl7.org/fhir/sid/icd-9-cm",
-        "version": "2013",
-        "code": "93.02",
-        "display": "Orthotic evaluation"
+        "system" : "http://hl7.org/fhir/sid/icd-9-cm",
+        "version" : "2013",
+        "code" : "93.02",
+        "display" : "Orthotic evaluation"
       }
     ]
   }

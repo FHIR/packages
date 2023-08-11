@@ -1,58 +1,100 @@
 {
-  "resourceType": "ValueSet",
-  "id": "2.16.840.1.113762.1.4.1222.1028",
-  "meta": {
-    "versionId": "5",
-    "lastUpdated": "2021-09-22T01:00:48.000-04:00"
+  "resourceType" : "ValueSet",
+  "id" : "2.16.840.1.113762.1.4.1222.1028",
+  "meta" : {
+    "versionId" : "5",
+    "lastUpdated" : "2022-11-12T20:43:40.000-05:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "url": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1222.1028",
-  "version": "20210922",
-  "name": "Vegetable Intake",
-  "status": "active",
-  "date": "2021-09-22T01:00:48-04:00",
-  "publisher": "HL7 Patient Care WG Steward",
-  "compose": {
-    "include": [
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "MCC eCare Plan Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-keyWord",
+      "valueString" : "MCC_IG"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2022-12-15"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2021-09-22"
+    }
+  ],
+  "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1222.1028",
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113762.1.4.1222.1028"
+    }
+  ],
+  "version" : "20210922",
+  "name" : "VegetableIntake",
+  "title" : "Vegetable Intake",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2021-09-22T01:00:48-04:00",
+  "publisher" : "HL7 Patient Care WG Steward",
+  "description" : "This value set may undergo changes until the HL7 Multiple Chronic Care FHIR IG is formally published in 2024.",
+  "jurisdiction" : [
+    {
+      "extension" : [
+        {
+          "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
+          "valueString" : "UNKNOWN"
+        }
+      ]
+    }
+  ],
+  "purpose" : "(Clinical Focus: This set of values addresses terms representing an observation of vegetable intake.),(Data Element Scope: The intent of this set of values is to identify patients who have a/an documentation of the amount of vegetables the person consumes.),(Inclusion Criteria: Includes LOINC codes for Vegetable Intake.),(Exclusion Criteria: Terms not representative of observable encoded terms that may have values indicating Vegetable Intake.)",
+  "compose" : {
+    "include" : [
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "filter": [
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "filter" : [
           {
-            "property": "concept",
-            "op": "in",
-            "value": "80460-9,80459-1"
+            "property" : "concept",
+            "op" : "in",
+            "value" : "80460-9,80459-1"
           }
         ]
       }
     ]
   },
-  "expansion": {
-    "identifier": "urn:uuid:e0fa7311-a4a5-4034-b44f-cb557b109785",
-    "timestamp": "2022-09-28T03:22:10-04:00",
-    "total": 2,
-    "offset": 0,
-    "parameter": [
+  "expansion" : {
+    "identifier" : "urn:uuid:18a0cd9c-cb88-42ed-b0c9-69144a6150f9",
+    "timestamp" : "2023-06-29T20:32:05-04:00",
+    "total" : 2,
+    "offset" : 0,
+    "parameter" : [
       {
-        "name": "count",
-        "valueInteger": 1000
+        "name" : "count",
+        "valueInteger" : 1000
       },
       {
-        "name": "offset",
-        "valueInteger": 0
+        "name" : "offset",
+        "valueInteger" : 0
       }
     ],
-    "contains": [
+    "contains" : [
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "80459-1",
-        "display": "Vegetable servings 24 hour Estimated"
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "80459-1",
+        "display" : "Vegetable servings 24 hour Estimated"
       },
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "80460-9",
-        "display": "Vegetable servings 24 hour Measured"
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "80460-9",
+        "display" : "Vegetable servings 24 hour Measured"
       }
     ]
   }

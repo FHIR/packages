@@ -1,61 +1,101 @@
 {
-  "resourceType": "ValueSet",
-  "id": "2.16.840.1.113762.1.4.1110.63",
-  "meta": {
-    "versionId": "20",
-    "lastUpdated": "2022-01-27T01:02:26.000-05:00"
+  "resourceType" : "ValueSet",
+  "id" : "2.16.840.1.113762.1.4.1110.63",
+  "meta" : {
+    "versionId" : "20",
+    "lastUpdated" : "2022-11-28T07:52:34.000-05:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "url": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1110.63",
-  "version": "20220127",
-  "name": "Present On Admission \u003d Yes or Exempt",
-  "status": "active",
-  "date": "2022-01-27T01:02:26-05:00",
-  "publisher": "Joint Commission",
-  "compose": {
-    "include": [
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "TJC EH Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-keyWord",
+      "valueString" : "PC-07"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2023-02-10"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2022-01-27"
+    }
+  ],
+  "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1110.63",
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113762.1.4.1110.63"
+    }
+  ],
+  "version" : "20220127",
+  "name" : "PresentOnAdmissionIsYesOrExempt",
+  "title" : "Present On Admission is Yes or Exempt",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2022-01-27T01:02:26-05:00",
+  "publisher" : "Joint Commission",
+  "jurisdiction" : [
+    {
+      "extension" : [
+        {
+          "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
+          "valueString" : "UNKNOWN"
+        }
+      ]
+    }
+  ],
+  "purpose" : "(Clinical Focus: The purpose of this value set is to identify that diagnosis is present on admission or exempt from POA status.),(Data Element Scope: This value set may use a model element related to encounter diagnosis.),(Inclusion Criteria: Includes concepts that identify a diagnosis indicator of being present on admission or exempt from POA status.),(Exclusion Criteria: Excludes concepts that represent a diagnosis indicator of not being present on admission or unable to determine.)",
+  "compose" : {
+    "include" : [
       {
-        "system": "https://www.cms.gov/Medicare/Medicare-Fee-for-Service-Payment/HospitalAcqCond/Coding",
-        "version": "2021",
-        "concept": [
+        "system" : "https://www.cms.gov/Medicare/Medicare-Fee-for-Service-Payment/HospitalAcqCond/Coding",
+        "concept" : [
           {
-            "code": "1",
-            "display": "Unreported/Not used. Exempt from POA reporting"
+            "code" : "1",
+            "display" : "Unreported/Not used. Exempt from POA reporting"
           },
           {
-            "code": "Y",
-            "display": "Diagnosis was present at time of inpatient admission"
+            "code" : "Y",
+            "display" : "Diagnosis was present at time of inpatient admission"
           }
         ]
       }
     ]
   },
-  "expansion": {
-    "identifier": "urn:uuid:202f96c0-a575-4e96-95cc-5d7275d40ca1",
-    "timestamp": "2022-09-28T00:23:20-04:00",
-    "total": 2,
-    "offset": 0,
-    "parameter": [
+  "expansion" : {
+    "identifier" : "urn:uuid:c6eb7da4-9e12-41f2-a494-938582d82abf",
+    "timestamp" : "2023-06-29T19:26:39-04:00",
+    "total" : 2,
+    "offset" : 0,
+    "parameter" : [
       {
-        "name": "count",
-        "valueInteger": 1000
+        "name" : "count",
+        "valueInteger" : 1000
       },
       {
-        "name": "offset",
-        "valueInteger": 0
+        "name" : "offset",
+        "valueInteger" : 0
       }
     ],
-    "contains": [
+    "contains" : [
       {
-        "system": "https://www.cms.gov/Medicare/Medicare-Fee-for-Service-Payment/HospitalAcqCond/Coding",
-        "version": "2021",
-        "code": "1",
-        "display": "Unreported/Not used. Exempt from POA reporting"
+        "system" : "https://www.cms.gov/Medicare/Medicare-Fee-for-Service-Payment/HospitalAcqCond/Coding",
+        "version" : "2021",
+        "code" : "1",
+        "display" : "Unreported/Not used. Exempt from POA reporting"
       },
       {
-        "system": "https://www.cms.gov/Medicare/Medicare-Fee-for-Service-Payment/HospitalAcqCond/Coding",
-        "version": "2021",
-        "code": "Y",
-        "display": "Diagnosis was present at time of inpatient admission"
+        "system" : "https://www.cms.gov/Medicare/Medicare-Fee-for-Service-Payment/HospitalAcqCond/Coding",
+        "version" : "2021",
+        "code" : "Y",
+        "display" : "Diagnosis was present at time of inpatient admission"
       }
     ]
   }

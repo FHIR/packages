@@ -1,52 +1,90 @@
 {
-  "resourceType": "ValueSet",
-  "id": "2.16.840.1.113762.1.4.1222.574",
-  "meta": {
-    "versionId": "5",
-    "lastUpdated": "2021-09-12T01:00:58.000-04:00"
+  "resourceType" : "ValueSet",
+  "id" : "2.16.840.1.113762.1.4.1222.574",
+  "meta" : {
+    "versionId" : "5",
+    "lastUpdated" : "2021-09-12T01:00:58.000-04:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "url": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1222.574",
-  "version": "20210912",
-  "name": "Coronary Revascularization History",
-  "status": "active",
-  "date": "2021-09-12T01:00:58-04:00",
-  "publisher": "HL7 Patient Care WG Steward",
-  "compose": {
-    "include": [
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "MCC eCare Plan Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2022-12-15"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2021-09-12"
+    }
+  ],
+  "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1222.574",
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113762.1.4.1222.574"
+    }
+  ],
+  "version" : "20210912",
+  "name" : "CoronaryRevascularizationHistory",
+  "title" : "Coronary Revascularization History",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2021-09-12T01:00:58-04:00",
+  "publisher" : "HL7 Patient Care WG Steward",
+  "description" : "History of a coronary revascularization procedure (e.g., PCI, CABG) (Business ID: Entry 3932931)",
+  "jurisdiction" : [
+    {
+      "extension" : [
+        {
+          "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
+          "valueString" : "UNKNOWN"
+        }
+      ]
+    }
+  ],
+  "purpose" : "(Clinical Focus: This set of values addresses terms representing Coronary Revascularization History.),(Data Element Scope: The intent of this set of values is to identify patients who have a/an history of a coronary revascularization procedure (e.g., pci, cabg).),(Inclusion Criteria: Includes LOINC codes for Coronary Revascularization History.),(Exclusion Criteria: Terms not representative of observable encoded terms that may have values indicating Coronary Revascularization History.)",
+  "compose" : {
+    "include" : [
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "filter": [
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "filter" : [
           {
-            "property": "concept",
-            "op": "\u003d",
-            "value": "88654-9"
+            "property" : "concept",
+            "op" : "=",
+            "value" : "88654-9"
           }
         ]
       }
     ]
   },
-  "expansion": {
-    "identifier": "urn:uuid:c300359b-cf80-42df-bc46-2558b4f9c780",
-    "timestamp": "2022-09-27T19:21:04-04:00",
-    "total": 1,
-    "offset": 0,
-    "parameter": [
+  "expansion" : {
+    "identifier" : "urn:uuid:f2b9efc3-458c-42a7-b605-4ce82c9cbb61",
+    "timestamp" : "2023-06-29T16:36:38-04:00",
+    "total" : 1,
+    "offset" : 0,
+    "parameter" : [
       {
-        "name": "count",
-        "valueInteger": 1000
+        "name" : "count",
+        "valueInteger" : 1000
       },
       {
-        "name": "offset",
-        "valueInteger": 0
+        "name" : "offset",
+        "valueInteger" : 0
       }
     ],
-    "contains": [
+    "contains" : [
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "88654-9",
-        "display": "History of Coronary artery bypass graft surgery"
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "88654-9",
+        "display" : "History of Coronary artery bypass graft surgery"
       }
     ]
   }

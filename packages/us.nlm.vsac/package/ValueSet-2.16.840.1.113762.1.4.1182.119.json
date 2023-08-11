@@ -1,49 +1,88 @@
 {
-  "resourceType": "ValueSet",
-  "id": "2.16.840.1.113762.1.4.1182.119",
-  "meta": {
-    "versionId": "11",
-    "lastUpdated": "2019-10-24T01:00:18.000-04:00"
+  "resourceType" : "ValueSet",
+  "id" : "2.16.840.1.113762.1.4.1182.119",
+  "meta" : {
+    "versionId" : "11",
+    "lastUpdated" : "2019-10-24T01:00:18.000-04:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "url": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1182.119",
-  "version": "20191024",
-  "name": "Acute Inpatient",
-  "status": "active",
-  "date": "2019-10-24T01:00:18-04:00",
-  "publisher": "Change Healthcare Steward",
-  "compose": {
-    "include": [
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "Change Healthcare Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2022-12-15"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2019-10-24"
+    }
+  ],
+  "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1182.119",
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113762.1.4.1182.119"
+    }
+  ],
+  "version" : "20191024",
+  "name" : "AcuteInpatient",
+  "title" : "Acute Inpatient",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2019-10-24T01:00:18-04:00",
+  "publisher" : "Change Healthcare Steward",
+  "description" : "**Using UMLS code system as proxy for UBREV codes.\n**\nThis value set created for the purpose of identifying an acute inpatient stay for use in MSSP ACO readmission or preventable admission measures.\n\nPlease note that use of this value set is not limited to MSSP ACO measures.",
+  "jurisdiction" : [
+    {
+      "extension" : [
+        {
+          "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
+          "valueString" : "UNKNOWN"
+        }
+      ]
+    }
+  ],
+  "purpose" : "(Clinical Focus: This value set created for the purpose of identifying an acute inpatient stay for use in MSSP ACO readmission or preventable admission measures.),(Data Element Scope: ClaimProcedure, ClaimItem.service, ClaimItem.revenue, Encounter.hospitalization, Procedure),(Inclusion Criteria: Acute inpatient stay via procedure or revenue billing codes),(Exclusion Criteria: Non-acute inpatient stay)",
+  "compose" : {
+    "include" : [
       {
-        "system": "http://www.nlm.nih.gov/research/umls",
-        "concept": [
+        "system" : "http://www.nlm.nih.gov/research/umls",
+        "concept" : [
           {
-            "code": "C0683846",
-            "display": "room and board"
+            "code" : "C0683846",
+            "display" : "room and board"
           }
         ]
       }
     ]
   },
-  "expansion": {
-    "identifier": "urn:uuid:cc7ebc64-2792-448e-acc3-717444e05ce4",
-    "timestamp": "2022-09-27T17:01:08-04:00",
-    "total": 1,
-    "offset": 0,
-    "parameter": [
+  "expansion" : {
+    "identifier" : "urn:uuid:b55866e4-7f51-4419-aff9-e739f340634c",
+    "timestamp" : "2023-06-29T15:29:46-04:00",
+    "total" : 1,
+    "offset" : 0,
+    "parameter" : [
       {
-        "name": "count",
-        "valueInteger": 1000
+        "name" : "count",
+        "valueInteger" : 1000
       },
       {
-        "name": "offset",
-        "valueInteger": 0
+        "name" : "offset",
+        "valueInteger" : 0
       }
     ],
-    "contains": [
+    "contains" : [
       {
-        "system": "http://www.nlm.nih.gov/research/umls",
-        "code": "C0683846",
-        "display": "room and board"
+        "system" : "http://www.nlm.nih.gov/research/umls",
+        "version" : "2022AB",
+        "code" : "C0683846",
+        "display" : "room and board"
       }
     ]
   }

@@ -1,52 +1,90 @@
 {
-  "resourceType": "ValueSet",
-  "id": "2.16.840.1.113762.1.4.1222.1362",
-  "meta": {
-    "versionId": "5",
-    "lastUpdated": "2021-09-28T01:00:41.000-04:00"
+  "resourceType" : "ValueSet",
+  "id" : "2.16.840.1.113762.1.4.1222.1362",
+  "meta" : {
+    "versionId" : "5",
+    "lastUpdated" : "2021-09-28T01:00:41.000-04:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "url": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1222.1362",
-  "version": "20210928",
-  "name": "Anger",
-  "status": "active",
-  "date": "2021-09-28T01:00:41-04:00",
-  "publisher": "HL7 Patient Care WG Steward",
-  "compose": {
-    "include": [
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "MCC eCare Plan Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2022-12-15"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2021-09-28"
+    }
+  ],
+  "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1222.1362",
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113762.1.4.1222.1362"
+    }
+  ],
+  "version" : "20210928",
+  "name" : "Anger",
+  "title" : "Anger",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2021-09-28T01:00:41-04:00",
+  "publisher" : "HL7 Patient Care WG Steward",
+  "description" : "Assessment of the person's level of anger (Business ID: Entry 124328)",
+  "jurisdiction" : [
+    {
+      "extension" : [
+        {
+          "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
+          "valueString" : "UNKNOWN"
+        }
+      ]
+    }
+  ],
+  "purpose" : "(Clinical Focus: This set of values addresses terms representing Anger.),(Data Element Scope: The intent of this set of values is to identify patients who have a/an assessment of the person's level of anger.),(Inclusion Criteria: Includes ICD10CM codes for Anger.),(Exclusion Criteria: Terms not representative of observable encoded terms that may have values indicating Anger.)",
+  "compose" : {
+    "include" : [
       {
-        "system": "http://hl7.org/fhir/sid/icd-10-cm",
-        "version": "2023",
-        "filter": [
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2023",
+        "filter" : [
           {
-            "property": "concept",
-            "op": "is-a",
-            "value": "R45.4"
+            "property" : "concept",
+            "op" : "is-a",
+            "value" : "R45.4"
           }
         ]
       }
     ]
   },
-  "expansion": {
-    "identifier": "urn:uuid:77fcca1b-f76e-41b9-a312-f0bd8aebfa9d",
-    "timestamp": "2022-09-27T17:46:53-04:00",
-    "total": 1,
-    "offset": 0,
-    "parameter": [
+  "expansion" : {
+    "identifier" : "urn:uuid:a1a1c699-c4aa-4a1a-8a4a-c58ab8bd2ead",
+    "timestamp" : "2023-06-29T15:40:35-04:00",
+    "total" : 1,
+    "offset" : 0,
+    "parameter" : [
       {
-        "name": "count",
-        "valueInteger": 1000
+        "name" : "count",
+        "valueInteger" : 1000
       },
       {
-        "name": "offset",
-        "valueInteger": 0
+        "name" : "offset",
+        "valueInteger" : 0
       }
     ],
-    "contains": [
+    "contains" : [
       {
-        "system": "http://hl7.org/fhir/sid/icd-10-cm",
-        "version": "2023",
-        "code": "R45.4",
-        "display": "Irritability and anger"
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2023",
+        "code" : "R45.4",
+        "display" : "Irritability and anger"
       }
     ]
   }

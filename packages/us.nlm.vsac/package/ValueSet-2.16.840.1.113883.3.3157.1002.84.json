@@ -1,61 +1,97 @@
 {
-  "resourceType": "ValueSet",
-  "id": "2.16.840.1.113883.3.3157.1002.84",
-  "meta": {
-    "versionId": "3",
-    "lastUpdated": "2015-10-13T01:00:01.000-04:00"
+  "resourceType" : "ValueSet",
+  "id" : "2.16.840.1.113883.3.3157.1002.84",
+  "meta" : {
+    "versionId" : "3",
+    "lastUpdated" : "2015-10-13T01:00:01.000-04:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "url": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.3157.1002.84",
-  "version": "20151013",
-  "name": "Transfer to Hospice Care",
-  "status": "active",
-  "date": "2015-10-13T01:00:01-04:00",
-  "publisher": "Lewin EH Steward",
-  "compose": {
-    "include": [
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "Lewin EH Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2022-12-15"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2015-10-13"
+    }
+  ],
+  "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.3157.1002.84",
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113883.3.3157.1002.84"
+    }
+  ],
+  "version" : "20151013",
+  "name" : "TransferToHospiceCare",
+  "title" : "Transfer to Hospice Care",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2015-10-13T01:00:01-04:00",
+  "publisher" : "Lewin EH Steward",
+  "jurisdiction" : [
+    {
+      "extension" : [
+        {
+          "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
+          "valueString" : "UNKNOWN"
+        }
+      ]
+    }
+  ],
+  "purpose" : "(Clinical Focus: This set of values contains SNOMEDCT codes associated with discharge to hospice care.),(Data Element Scope: The intent of this data element is to identify patients who are discharged from the hospital to hospice care. Using the Quality Data Model, this particular element would map to the \"Transfer To\" element.),(Inclusion Criteria: This value set includes SNOMEDCT codes associated with patient discharge to hospice care.),(Exclusion Criteria: Discharge to non-hospice care settings is not captured by this value set.)",
+  "compose" : {
+    "include" : [
       {
-        "system": "http://snomed.info/sct",
-        "version": "http://snomed.info/sct/731000124108/version/20220301",
-        "concept": [
+        "system" : "http://snomed.info/sct",
+        "concept" : [
           {
-            "code": "428361000124107",
-            "display": "Discharge to home for hospice care (procedure)"
+            "code" : "428361000124107",
+            "display" : "Discharge to home for hospice care (procedure)"
           },
           {
-            "code": "428371000124100",
-            "display": "Discharge to healthcare facility for hospice care (procedure)"
+            "code" : "428371000124100",
+            "display" : "Discharge to healthcare facility for hospice care (procedure)"
           }
         ]
       }
     ]
   },
-  "expansion": {
-    "identifier": "urn:uuid:170ddbce-399f-4841-bf6b-b2d414c16690",
-    "timestamp": "2022-09-28T02:30:21-04:00",
-    "total": 2,
-    "offset": 0,
-    "parameter": [
+  "expansion" : {
+    "identifier" : "urn:uuid:590e8a26-0a02-4d0e-af63-e7b9a61535f1",
+    "timestamp" : "2023-06-29T20:18:21-04:00",
+    "total" : 2,
+    "offset" : 0,
+    "parameter" : [
       {
-        "name": "count",
-        "valueInteger": 1000
+        "name" : "count",
+        "valueInteger" : 1000
       },
       {
-        "name": "offset",
-        "valueInteger": 0
+        "name" : "offset",
+        "valueInteger" : 0
       }
     ],
-    "contains": [
+    "contains" : [
       {
-        "system": "http://snomed.info/sct",
-        "version": "http://snomed.info/sct/731000124108/version/20220301",
-        "code": "428361000124107",
-        "display": "Discharge to home for hospice care (procedure)"
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20230301",
+        "code" : "428361000124107",
+        "display" : "Discharge to home for hospice care (procedure)"
       },
       {
-        "system": "http://snomed.info/sct",
-        "version": "http://snomed.info/sct/731000124108/version/20220301",
-        "code": "428371000124100",
-        "display": "Discharge to healthcare facility for hospice care (procedure)"
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20230301",
+        "code" : "428371000124100",
+        "display" : "Discharge to healthcare facility for hospice care (procedure)"
       }
     ]
   }

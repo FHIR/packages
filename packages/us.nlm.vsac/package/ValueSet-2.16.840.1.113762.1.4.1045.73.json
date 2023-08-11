@@ -1,61 +1,97 @@
 {
-  "resourceType": "ValueSet",
-  "id": "2.16.840.1.113762.1.4.1045.73",
-  "meta": {
-    "versionId": "18",
-    "lastUpdated": "2015-04-30T01:00:08.000-04:00"
+  "resourceType" : "ValueSet",
+  "id" : "2.16.840.1.113762.1.4.1045.73",
+  "meta" : {
+    "versionId" : "18",
+    "lastUpdated" : "2015-04-30T01:00:08.000-04:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "url": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1045.73",
-  "version": "20150430",
-  "name": "Urethral catheter placement",
-  "status": "active",
-  "date": "2015-04-30T01:00:08-04:00",
-  "publisher": "Lantana EH Steward",
-  "compose": {
-    "include": [
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "Lantana EH Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2022-12-15"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2015-04-30"
+    }
+  ],
+  "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1045.73",
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113762.1.4.1045.73"
+    }
+  ],
+  "version" : "20150430",
+  "name" : "UrethralCatheterPlacement",
+  "title" : "Urethral catheter placement",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2015-04-30T01:00:08-04:00",
+  "publisher" : "Lantana EH Steward",
+  "jurisdiction" : [
+    {
+      "extension" : [
+        {
+          "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
+          "valueString" : "UNKNOWN"
+        }
+      ]
+    }
+  ],
+  "purpose" : "(Clinical Focus: This set of values contains urethral catheter procedures.),(Data Element Scope: The intent of this data element is to identify patients with an urethral catheter placed. Using the Quality Data Model, this particular element will map to the Procedure category.),(Inclusion Criteria: Include ICD 10 PCS codes that identify procedures related to the catheterization of the urinary bladder.),(Exclusion Criteria: Exclude codes that do not meet the inclusion criteria.)",
+  "compose" : {
+    "include" : [
       {
-        "system": "http://www.icd10data.com/icd10pcs",
-        "version": "2023",
-        "concept": [
+        "system" : "http://www.cms.gov/Medicare/Coding/ICD10",
+        "concept" : [
           {
-            "code": "0T9B70Z",
-            "display": "Drainage of Bladder with Drainage Device, Via Natural or Artificial Opening"
+            "code" : "0T9B70Z",
+            "display" : "Drainage of Bladder with Drainage Device, Via Natural or Artificial Opening"
           },
           {
-            "code": "0T9B80Z",
-            "display": "Drainage of Bladder with Drainage Device, Via Natural or Artificial Opening Endoscopic"
+            "code" : "0T9B80Z",
+            "display" : "Drainage of Bladder with Drainage Device, Via Natural or Artificial Opening Endoscopic"
           }
         ]
       }
     ]
   },
-  "expansion": {
-    "identifier": "urn:uuid:4fb68f6f-57ba-4fbd-a553-a357181e5467",
-    "timestamp": "2022-09-28T03:02:59-04:00",
-    "total": 2,
-    "offset": 0,
-    "parameter": [
+  "expansion" : {
+    "identifier" : "urn:uuid:17fcae56-b422-4a70-8e28-d2edf74a326f",
+    "timestamp" : "2023-06-29T20:28:31-04:00",
+    "total" : 2,
+    "offset" : 0,
+    "parameter" : [
       {
-        "name": "count",
-        "valueInteger": 1000
+        "name" : "count",
+        "valueInteger" : 1000
       },
       {
-        "name": "offset",
-        "valueInteger": 0
+        "name" : "offset",
+        "valueInteger" : 0
       }
     ],
-    "contains": [
+    "contains" : [
       {
-        "system": "http://www.icd10data.com/icd10pcs",
-        "version": "2023",
-        "code": "0T9B70Z",
-        "display": "Drainage of Bladder with Drainage Device, Via Natural or Artificial Opening"
+        "system" : "http://www.cms.gov/Medicare/Coding/ICD10",
+        "version" : "2023",
+        "code" : "0T9B70Z",
+        "display" : "Drainage of Bladder with Drainage Device, Via Natural or Artificial Opening"
       },
       {
-        "system": "http://www.icd10data.com/icd10pcs",
-        "version": "2023",
-        "code": "0T9B80Z",
-        "display": "Drainage of Bladder with Drainage Device, Via Natural or Artificial Opening Endoscopic"
+        "system" : "http://www.cms.gov/Medicare/Coding/ICD10",
+        "version" : "2023",
+        "code" : "0T9B80Z",
+        "display" : "Drainage of Bladder with Drainage Device, Via Natural or Artificial Opening Endoscopic"
       }
     ]
   }

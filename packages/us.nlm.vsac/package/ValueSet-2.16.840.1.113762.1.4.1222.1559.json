@@ -1,52 +1,94 @@
 {
-  "resourceType": "ValueSet",
-  "id": "2.16.840.1.113762.1.4.1222.1559",
-  "meta": {
-    "versionId": "9",
-    "lastUpdated": "2022-08-19T01:02:57.000-04:00"
+  "resourceType" : "ValueSet",
+  "id" : "2.16.840.1.113762.1.4.1222.1559",
+  "meta" : {
+    "versionId" : "9",
+    "lastUpdated" : "2022-08-19T01:02:57.000-04:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "url": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1222.1559",
-  "version": "20220819",
-  "name": "Metabolic Syndrome Diagnosis SCT",
-  "status": "active",
-  "date": "2022-08-19T01:02:57-04:00",
-  "publisher": "HL7 Patient Care WG Steward",
-  "compose": {
-    "include": [
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "MCC eCare Plan Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-keyWord",
+      "valueString" : "MCC"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2022-12-15"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2022-08-19"
+    }
+  ],
+  "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1222.1559",
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113762.1.4.1222.1559"
+    }
+  ],
+  "version" : "20220819",
+  "name" : "MetabolicSyndromeDiagnosisSCT",
+  "title" : "Metabolic Syndrome Diagnosis SCT",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2022-08-19T01:02:57-04:00",
+  "publisher" : "HL7 Patient Care WG Steward",
+  "description" : "This value set may undergo changes until the HL7 Multiple Chronic Care FHIR IG is formally published in 2024.",
+  "jurisdiction" : [
+    {
+      "extension" : [
+        {
+          "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
+          "valueString" : "UNKNOWN"
+        }
+      ]
+    }
+  ],
+  "purpose" : "(Clinical Focus: Metabolic syndrome may be diagnosed if a patient has three or more of the following conditions:\n\nA large waistline,\nHigh blood pressure,\nHigh blood sugar levels,\nHigh blood triglycerides, or\nLow HDL cholesterol.\nMetabolic syndrome is common in the United States. About 1 in 3 adults have metabolic syndrome.),(Data Element Scope: The intent of this set of values is to identify patients who have a diagnosis of metabolic syndrome.),(Inclusion Criteria: Includes the SNOMED CT metabolic syndrome diagnosis concepts.),(Exclusion Criteria: None)",
+  "compose" : {
+    "include" : [
       {
-        "system": "http://snomed.info/sct",
-        "version": "http://snomed.info/sct/731000124108/version/20220301",
-        "filter": [
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20230301",
+        "filter" : [
           {
-            "property": "concept",
-            "op": "is-a",
-            "value": "237602007"
+            "property" : "concept",
+            "op" : "is-a",
+            "value" : "237602007"
           }
         ]
       }
     ]
   },
-  "expansion": {
-    "identifier": "urn:uuid:1c130c8e-930c-4deb-b54c-71580efee702",
-    "timestamp": "2022-09-28T05:44:46-04:00",
-    "total": 1,
-    "offset": 0,
-    "parameter": [
+  "expansion" : {
+    "identifier" : "urn:uuid:2ffa158c-1efc-42fc-b57f-2de7267793ca",
+    "timestamp" : "2023-06-29T18:37:32-04:00",
+    "total" : 1,
+    "offset" : 0,
+    "parameter" : [
       {
-        "name": "count",
-        "valueInteger": 1000
+        "name" : "count",
+        "valueInteger" : 1000
       },
       {
-        "name": "offset",
-        "valueInteger": 0
+        "name" : "offset",
+        "valueInteger" : 0
       }
     ],
-    "contains": [
+    "contains" : [
       {
-        "system": "http://snomed.info/sct",
-        "version": "http://snomed.info/sct/731000124108/version/20220301",
-        "code": "237602007",
-        "display": "Metabolic syndrome X (disorder)"
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20230301",
+        "code" : "237602007",
+        "display" : "Metabolic syndrome X (disorder)"
       }
     ]
   }

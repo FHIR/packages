@@ -1,68 +1,106 @@
 {
-  "resourceType": "ValueSet",
-  "id": "2.16.840.1.113762.1.4.1029.41",
-  "meta": {
-    "versionId": "8",
-    "lastUpdated": "2016-05-12T01:52:58.000-04:00"
+  "resourceType" : "ValueSet",
+  "id" : "2.16.840.1.113762.1.4.1029.41",
+  "meta" : {
+    "versionId" : "8",
+    "lastUpdated" : "2016-05-12T01:52:58.000-04:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "url": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1029.41",
-  "version": "20160512",
-  "name": "Cardiogenic Shock",
-  "status": "active",
-  "date": "2016-05-12T01:52:58-04:00",
-  "publisher": "Joint Commission",
-  "compose": {
-    "include": [
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "Joint Commission Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2022-12-15"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2016-05-12"
+    }
+  ],
+  "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1029.41",
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113762.1.4.1029.41"
+    }
+  ],
+  "version" : "20160512",
+  "name" : "CardiogenicShock",
+  "title" : "Cardiogenic Shock",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2016-05-12T01:52:58-04:00",
+  "publisher" : "Joint Commission",
+  "description" : "for use with MTM project (2016)",
+  "jurisdiction" : [
+    {
+      "extension" : [
+        {
+          "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
+          "valueString" : "UNKNOWN"
+        }
+      ]
+    }
+  ],
+  "purpose" : "(Clinical Focus: This grouping value set contains diagnoses for cardiogenic shock.),(Data Element Scope: The intent of this data element is to identify patients in cardiogenic shock. Using the Quality Data Model, this particular element will map to the \"Diagnosis\" category.),(Inclusion Criteria: Codes representing a grouping of ICD-9, ICD-10, and SNOMED-CT for the diagnosis of cardiogenic shock.),(Exclusion Criteria: Exclude codes for septic, hypovolemic, and anaphylactic shock.)",
+  "compose" : {
+    "include" : [
       {
-        "valueSet": [
+        "valueSet" : [
           "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1029.42"
         ]
       },
       {
-        "valueSet": [
+        "valueSet" : [
           "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1029.43"
         ]
       },
       {
-        "valueSet": [
+        "valueSet" : [
           "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1029.44"
         ]
       }
     ]
   },
-  "expansion": {
-    "identifier": "urn:uuid:d432cdb3-6baa-457b-b3c7-f67a8a1c0d5c",
-    "timestamp": "2022-09-27T18:45:40-04:00",
-    "total": 3,
-    "offset": 0,
-    "parameter": [
+  "expansion" : {
+    "identifier" : "urn:uuid:59a5ccda-3026-4944-b94f-779c99937b80",
+    "timestamp" : "2023-06-29T16:12:34-04:00",
+    "total" : 3,
+    "offset" : 0,
+    "parameter" : [
       {
-        "name": "count",
-        "valueInteger": 1000
+        "name" : "count",
+        "valueInteger" : 1000
       },
       {
-        "name": "offset",
-        "valueInteger": 0
+        "name" : "offset",
+        "valueInteger" : 0
       }
     ],
-    "contains": [
+    "contains" : [
       {
-        "system": "http://hl7.org/fhir/sid/icd-9-cm",
-        "version": "2013",
-        "code": "785.51",
-        "display": "Cardiogenic shock"
+        "system" : "http://hl7.org/fhir/sid/icd-9-cm",
+        "version" : "2013",
+        "code" : "785.51",
+        "display" : "Cardiogenic shock"
       },
       {
-        "system": "http://snomed.info/sct",
-        "version": "http://snomed.info/sct/731000124108/version/20220301",
-        "code": "89138009",
-        "display": "Cardiogenic shock (disorder)"
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20230301",
+        "code" : "89138009",
+        "display" : "Cardiogenic shock (disorder)"
       },
       {
-        "system": "http://hl7.org/fhir/sid/icd-10-cm",
-        "version": "2023",
-        "code": "R57.0",
-        "display": "Cardiogenic shock"
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2023",
+        "code" : "R57.0",
+        "display" : "Cardiogenic shock"
       }
     ]
   }

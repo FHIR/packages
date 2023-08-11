@@ -1,52 +1,89 @@
 {
-  "resourceType": "ValueSet",
-  "id": "2.16.840.1.113762.1.4.1221.64",
-  "meta": {
-    "versionId": "5",
-    "lastUpdated": "2020-06-03T01:01:22.000-04:00"
+  "resourceType" : "ValueSet",
+  "id" : "2.16.840.1.113762.1.4.1221.64",
+  "meta" : {
+    "versionId" : "5",
+    "lastUpdated" : "2020-06-03T01:01:22.000-04:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "url": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1221.64",
-  "version": "20200603",
-  "name": "Sterilization",
-  "status": "active",
-  "date": "2020-06-03T01:01:22-04:00",
-  "publisher": "NACHC Steward",
-  "compose": {
-    "include": [
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "NACHC Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2022-12-15"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2020-06-03"
+    }
+  ],
+  "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1221.64",
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113762.1.4.1221.64"
+    }
+  ],
+  "version" : "20200603",
+  "name" : "Sterilization",
+  "title" : "Sterilization",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2020-06-03T01:01:22-04:00",
+  "publisher" : "NACHC Steward",
+  "jurisdiction" : [
+    {
+      "extension" : [
+        {
+          "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
+          "valueString" : "UNKNOWN"
+        }
+      ]
+    }
+  ],
+  "purpose" : "(Clinical Focus: This set of values contains the use of sterilization methods for contraception.),(Data Element Scope: The intent of this data element is to identify patients who have had any encounter related to sterilization for contraception.),(Inclusion Criteria: Contraception concepts related to sterilization.),(Exclusion Criteria: There are no exclusion criteria listed for this value set.)",
+  "compose" : {
+    "include" : [
       {
-        "system": "http://www.nlm.nih.gov/research/umls/hcpcs",
-        "version": "2022",
-        "filter": [
+        "system" : "http://www.nlm.nih.gov/research/umls/hcpcs",
+        "version" : "2023",
+        "filter" : [
           {
-            "property": "concept",
-            "op": "in",
-            "value": "A4264"
+            "property" : "concept",
+            "op" : "in",
+            "value" : "A4264"
           }
         ]
       }
     ]
   },
-  "expansion": {
-    "identifier": "urn:uuid:3c2407b2-7eb1-4925-b65e-04dd2ab0ffd8",
-    "timestamp": "2022-09-28T01:53:47-04:00",
-    "total": 1,
-    "offset": 0,
-    "parameter": [
+  "expansion" : {
+    "identifier" : "urn:uuid:133e82a6-8049-44c8-90e3-18785f79d830",
+    "timestamp" : "2023-06-29T20:04:03-04:00",
+    "total" : 1,
+    "offset" : 0,
+    "parameter" : [
       {
-        "name": "count",
-        "valueInteger": 1000
+        "name" : "count",
+        "valueInteger" : 1000
       },
       {
-        "name": "offset",
-        "valueInteger": 0
+        "name" : "offset",
+        "valueInteger" : 0
       }
     ],
-    "contains": [
+    "contains" : [
       {
-        "system": "http://www.nlm.nih.gov/research/umls/hcpcs",
-        "version": "2022",
-        "code": "A4264",
-        "display": "Permanent implantable contraceptive intratubal occlusion device(s) and delivery system"
+        "system" : "http://www.nlm.nih.gov/research/umls/hcpcs",
+        "version" : "2023",
+        "code" : "A4264",
+        "display" : "Permanent implantable contraceptive intratubal occlusion device(s) and delivery system"
       }
     ]
   }

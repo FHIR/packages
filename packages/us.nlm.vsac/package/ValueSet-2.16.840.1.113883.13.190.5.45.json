@@ -1,51 +1,88 @@
 {
-  "resourceType": "ValueSet",
-  "id": "2.16.840.1.113883.13.190.5.45",
-  "meta": {
-    "versionId": "8",
-    "lastUpdated": "2014-06-30T01:00:02.000-04:00"
+  "resourceType" : "ValueSet",
+  "id" : "2.16.840.1.113883.13.190.5.45",
+  "meta" : {
+    "versionId" : "8",
+    "lastUpdated" : "2014-06-30T01:00:02.000-04:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "url": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.13.190.5.45",
-  "version": "20140630",
-  "name": "Transfer From Non Acute Hospital",
-  "status": "active",
-  "date": "2014-06-30T01:00:02-04:00",
-  "publisher": "Yale",
-  "compose": {
-    "include": [
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "OFMQ-CMS-Abt"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2022-12-15"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2014-06-30"
+    }
+  ],
+  "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.13.190.5.45",
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113883.13.190.5.45"
+    }
+  ],
+  "version" : "20140630",
+  "name" : "TransferFromNonAcuteHospital",
+  "title" : "Transfer From Non Acute Hospital",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2014-06-30T01:00:02-04:00",
+  "publisher" : "Yale",
+  "description" : "Yale Measure",
+  "jurisdiction" : [
+    {
+      "extension" : [
+        {
+          "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
+          "valueString" : "UNKNOWN"
+        }
+      ]
+    }
+  ],
+  "purpose" : "(Clinical Focus: This value set contains environment/locations used to identify patients transferred to/from a Non-Acute Care Hospital prior to admission to current hospital.),(Data Element Scope: The intent of the value set is to identify a transfer to/from a non-acute care hospital. The QDM Category linked to this value set: Transfer of Care),(Inclusion Criteria: Include SNOMED CT codes indicating a non-acute care hospital environment or geographic location.),(Exclusion Criteria: Exclude codes that do not meet the inclusion criteria.)",
+  "compose" : {
+    "include" : [
       {
-        "system": "http://snomed.info/sct",
-        "version": "http://snomed.info/sct/731000124108/version/20220301",
-        "concept": [
+        "system" : "http://snomed.info/sct",
+        "concept" : [
           {
-            "code": "443750004",
-            "display": "Nonacute hospital (environment)"
+            "code" : "443750004",
+            "display" : "Nonacute hospital (environment)"
           }
         ]
       }
     ]
   },
-  "expansion": {
-    "identifier": "urn:uuid:33c7cf7d-7868-4d71-86aa-446e81e45504",
-    "timestamp": "2022-09-28T02:30:17-04:00",
-    "total": 1,
-    "offset": 0,
-    "parameter": [
+  "expansion" : {
+    "identifier" : "urn:uuid:e43d20da-880b-41c2-8124-1d087a6333fe",
+    "timestamp" : "2023-06-29T20:18:18-04:00",
+    "total" : 1,
+    "offset" : 0,
+    "parameter" : [
       {
-        "name": "count",
-        "valueInteger": 1000
+        "name" : "count",
+        "valueInteger" : 1000
       },
       {
-        "name": "offset",
-        "valueInteger": 0
+        "name" : "offset",
+        "valueInteger" : 0
       }
     ],
-    "contains": [
+    "contains" : [
       {
-        "system": "http://snomed.info/sct",
-        "version": "http://snomed.info/sct/731000124108/version/20220301",
-        "code": "443750004",
-        "display": "Nonacute hospital (environment)"
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20230301",
+        "code" : "443750004",
+        "display" : "Nonacute hospital (environment)"
       }
     ]
   }

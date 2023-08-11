@@ -1,46 +1,75 @@
 {
-  "resourceType": "ValueSet",
-  "id": "2.16.840.1.113883.3.464.1003.101.12.1039",
-  "meta": {
-    "versionId": "17",
-    "lastUpdated": "2021-09-13T14:50:17.000-04:00"
+  "resourceType" : "ValueSet",
+  "id" : "2.16.840.1.113883.3.464.1003.101.12.1039",
+  "meta" : {
+    "versionId" : "17",
+    "lastUpdated" : "2021-09-13T14:50:17.000-04:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "url": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.101.12.1039",
-  "version": "20170504",
-  "name": "Discharge Services Observation Care",
-  "status": "active",
-  "date": "2017-05-04T01:00:13-04:00",
-  "publisher": "NCQA PHEMUR",
-  "compose": {
-    "include": [
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "NCQA PHEMUR Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2022-12-15"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2017-05-04"
+    }
+  ],
+  "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.101.12.1039",
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113883.3.464.1003.101.12.1039"
+    }
+  ],
+  "version" : "20170504",
+  "name" : "DischargeServicesObservationCare",
+  "title" : "Discharge Services Observation Care",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2017-05-04T01:00:13-04:00",
+  "publisher" : "NCQA PHEMUR",
+  "jurisdiction" : [
+    {
+      "extension" : [
+        {
+          "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
+          "valueString" : "UNKNOWN"
+        }
+      ]
+    }
+  ],
+  "purpose" : "(Clinical Focus: The purpose of this value set is to represent concepts for encounters for observation stays.),(Data Element Scope: This value set may use the Quality Data Model (QDM) datatype related to Encounter, Performed.),(Inclusion Criteria: Includes only relevant concepts associated with services provided to a patient on discharge from outpatient hospital observation status if the discharge is on other than the initial date of observation status.),(Exclusion Criteria: No exclusions.)",
+  "compose" : {
+    "include" : [
       {
-        "valueSet": [
+        "valueSet" : [
           "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.101.11.1195"
         ]
       }
     ]
   },
-  "expansion": {
-    "identifier": "urn:uuid:e13cc948-68a3-4c4c-87b1-5af754571f27",
-    "timestamp": "2022-09-27T20:15:11-04:00",
-    "total": 1,
-    "offset": 0,
-    "parameter": [
+  "expansion" : {
+    "identifier" : "urn:uuid:8c608b04-51ef-4ac4-9d44-c6189063955b",
+    "timestamp" : "2023-06-29T17:05:20-04:00",
+    "total" : 0,
+    "offset" : 0,
+    "parameter" : [
       {
-        "name": "count",
-        "valueInteger": 1000
+        "name" : "count",
+        "valueInteger" : 1000
       },
       {
-        "name": "offset",
-        "valueInteger": 0
-      }
-    ],
-    "contains": [
-      {
-        "system": "http://www.ama-assn.org/go/cpt",
-        "version": "2022",
-        "code": "99217",
-        "display": "Observation care discharge day management (This code is to be utilized to report all services provided to a patient on discharge from outpatient hospital \"observation status\" if the discharge is on other than the initial date of \"observation status.\" To report services to a patient designated as \"observation status\" or \"inpatient status\" and discharged on the same date, use the codes for Observation or Inpatient Care Services [including Admission and Discharge Services, 99234-99236 as appropriate.])"
+        "name" : "offset",
+        "valueInteger" : 0
       }
     ]
   }

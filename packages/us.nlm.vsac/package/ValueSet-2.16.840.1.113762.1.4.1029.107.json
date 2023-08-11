@@ -1,51 +1,88 @@
 {
-  "resourceType": "ValueSet",
-  "id": "2.16.840.1.113762.1.4.1029.107",
-  "meta": {
-    "versionId": "11",
-    "lastUpdated": "2018-05-12T01:07:35.000-04:00"
+  "resourceType" : "ValueSet",
+  "id" : "2.16.840.1.113762.1.4.1029.107",
+  "meta" : {
+    "versionId" : "11",
+    "lastUpdated" : "2018-05-12T01:07:35.000-04:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "url": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1029.107",
-  "version": "20180512",
-  "name": "Post Anesthesia Care Unit",
-  "status": "active",
-  "date": "2018-05-12T01:00:04-04:00",
-  "publisher": "Joint Commission",
-  "compose": {
-    "include": [
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "Joint Commission Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2022-12-15"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2018-05-12"
+    }
+  ],
+  "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1029.107",
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113762.1.4.1029.107"
+    }
+  ],
+  "version" : "20180512",
+  "name" : "PostAnesthesiaCareUnit",
+  "title" : "Post Anesthesia Care Unit",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2018-05-12T01:00:04-04:00",
+  "publisher" : "Joint Commission",
+  "description" : "NOTE:  VALUE SET UNDER DEVELOPMENT AS MEASURE TESTING IS ONGOING.",
+  "jurisdiction" : [
+    {
+      "extension" : [
+        {
+          "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
+          "valueString" : "UNKNOWN"
+        }
+      ]
+    }
+  ],
+  "purpose" : "(Clinical Focus: This set of values contains codes representing the Post Anesthesia Care Unit (PACU).),(Data Element Scope: The intent of this data element is to identify patients in PACU. Using the Quality Data Model, this particular element will map to Facility Location attribute of \"Encounter, Performed\" Data Type.),(Inclusion Criteria: Include SNOMED CT codes that identify the time the patient is discharged from the PACU.),(Exclusion Criteria: None)",
+  "compose" : {
+    "include" : [
       {
-        "system": "http://snomed.info/sct",
-        "version": "http://snomed.info/sct/731000124108/version/20220301",
-        "concept": [
+        "system" : "http://snomed.info/sct",
+        "concept" : [
           {
-            "code": "398161000",
-            "display": "Postoperative anesthesia care unit (environment)"
+            "code" : "398161000",
+            "display" : "Postoperative anesthesia care unit (environment)"
           }
         ]
       }
     ]
   },
-  "expansion": {
-    "identifier": "urn:uuid:badc7a78-5428-4325-802c-51ff533490ae",
-    "timestamp": "2022-09-28T00:11:59-04:00",
-    "total": 1,
-    "offset": 0,
-    "parameter": [
+  "expansion" : {
+    "identifier" : "urn:uuid:ed927270-260c-41b4-89f7-60568dabafd0",
+    "timestamp" : "2023-06-29T19:21:12-04:00",
+    "total" : 1,
+    "offset" : 0,
+    "parameter" : [
       {
-        "name": "count",
-        "valueInteger": 1000
+        "name" : "count",
+        "valueInteger" : 1000
       },
       {
-        "name": "offset",
-        "valueInteger": 0
+        "name" : "offset",
+        "valueInteger" : 0
       }
     ],
-    "contains": [
+    "contains" : [
       {
-        "system": "http://snomed.info/sct",
-        "version": "http://snomed.info/sct/731000124108/version/20220301",
-        "code": "398161000",
-        "display": "Postoperative anesthesia care unit (environment)"
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20230301",
+        "code" : "398161000",
+        "display" : "Postoperative anesthesia care unit (environment)"
       }
     ]
   }

@@ -1,69 +1,130 @@
 {
-  "resourceType": "ValueSet",
-  "id": "2.16.840.1.113762.1.4.1247.18",
-  "meta": {
-    "versionId": "6",
-    "lastUpdated": "2021-11-13T01:06:55.000-05:00"
+  "resourceType" : "ValueSet",
+  "id" : "2.16.840.1.113762.1.4.1247.18",
+  "meta" : {
+    "versionId" : "6",
+    "lastUpdated" : "2021-11-13T01:06:55.000-05:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "url": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1247.18",
-  "version": "20211113",
-  "name": "Homelessness Diagnoses",
-  "status": "active",
-  "date": "2021-11-13T01:06:55-05:00",
-  "publisher": "The Gravity Project Steward",
-  "compose": {
-    "include": [
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "The Gravity Project Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2022-12-15"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2021-11-13"
+    }
+  ],
+  "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1247.18",
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113762.1.4.1247.18"
+    }
+  ],
+  "version" : "20211113",
+  "name" : "HomelessnessDiagnoses",
+  "title" : "Homelessness Diagnoses",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2021-11-13T01:06:55-05:00",
+  "publisher" : "The Gravity Project Steward",
+  "jurisdiction" : [
+    {
+      "extension" : [
+        {
+          "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
+          "valueString" : "UNKNOWN"
+        }
+      ]
+    }
+  ],
+  "purpose" : "(Clinical Focus: <insert metadata> This value sets in this group represent the diagnoses associated with homelessness as identified by the Gravity Project),(Data Element Scope: Supports the Gravity SDOH Clinical Care FHIR Implementation guide for the exchange of condition,code.),(Inclusion Criteria: Includes SNOMED CT and ICD 10 CM diagnoses that have been identified through the Gravity Project community consensus voting process),(Exclusion Criteria: N/A)",
+  "compose" : {
+    "include" : [
       {
-        "valueSet": [
+        "valueSet" : [
           "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1247.14"
         ]
       },
       {
-        "valueSet": [
+        "valueSet" : [
           "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1247.13"
         ]
       }
     ]
   },
-  "expansion": {
-    "identifier": "urn:uuid:664b3f59-8bdd-4652-9093-a9e4867a6930",
-    "timestamp": "2022-09-27T21:29:51-04:00",
-    "total": 4,
-    "offset": 0,
-    "parameter": [
+  "expansion" : {
+    "identifier" : "urn:uuid:1508c2a2-e9a4-4d3a-88cd-71c618d2f0df",
+    "timestamp" : "2023-06-29T17:48:51-04:00",
+    "total" : 8,
+    "offset" : 0,
+    "parameter" : [
       {
-        "name": "count",
-        "valueInteger": 1000
+        "name" : "count",
+        "valueInteger" : 1000
       },
       {
-        "name": "offset",
-        "valueInteger": 0
+        "name" : "offset",
+        "valueInteger" : 0
       }
     ],
-    "contains": [
+    "contains" : [
       {
-        "system": "http://snomed.info/sct",
-        "version": "http://snomed.info/sct/731000124108/version/20220301",
-        "code": "32911000",
-        "display": "Homeless (finding)"
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20230301",
+        "code" : "32911000",
+        "display" : "Homeless (finding)"
       },
       {
-        "system": "http://hl7.org/fhir/sid/icd-10-cm",
-        "version": "2023",
-        "code": "Z59.00",
-        "display": "Homelessness unspecified"
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20230301",
+        "code" : "611131000124100",
+        "display" : "Sheltered homelessness (finding)"
       },
       {
-        "system": "http://hl7.org/fhir/sid/icd-10-cm",
-        "version": "2023",
-        "code": "Z59.01",
-        "display": "Sheltered homelessness"
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20230301",
+        "code" : "611141000124105",
+        "display" : "Unsheltered homelessness (finding)"
       },
       {
-        "system": "http://hl7.org/fhir/sid/icd-10-cm",
-        "version": "2023",
-        "code": "Z59.02",
-        "display": "Unsheltered homelessness"
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20230301",
+        "code" : "611551000124102",
+        "display" : "Homelessness, living in a shared accommodation (finding)"
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2023",
+        "code" : "Z59.00",
+        "display" : "Homelessness unspecified"
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2023",
+        "code" : "Z59.01",
+        "display" : "Sheltered homelessness"
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2023",
+        "code" : "Z59.02",
+        "display" : "Unsheltered homelessness"
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2023",
+        "code" : "Z71.88",
+        "display" : "Encounter for counseling for socioeconomic factors"
       }
     ]
   }

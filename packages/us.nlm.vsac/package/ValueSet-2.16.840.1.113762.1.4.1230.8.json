@@ -1,61 +1,97 @@
 {
-  "resourceType": "ValueSet",
-  "id": "2.16.840.1.113762.1.4.1230.8",
-  "meta": {
-    "versionId": "6",
-    "lastUpdated": "2020-09-18T01:01:50.000-04:00"
+  "resourceType" : "ValueSet",
+  "id" : "2.16.840.1.113762.1.4.1230.8",
+  "meta" : {
+    "versionId" : "6",
+    "lastUpdated" : "2020-09-18T01:01:50.000-04:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "url": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1230.8",
-  "version": "20200918",
-  "name": "Anaphylaxis Post Vaccine",
-  "status": "active",
-  "date": "2020-09-18T01:01:50-04:00",
-  "publisher": "Georgia Tech Research Institute",
-  "compose": {
-    "include": [
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "Georgia Tech Research Institute"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2022-12-15"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2020-09-18"
+    }
+  ],
+  "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1230.8",
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113762.1.4.1230.8"
+    }
+  ],
+  "version" : "20200918",
+  "name" : "AnaphylaxisPostVaccine",
+  "title" : "Anaphylaxis Post Vaccine",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2020-09-18T01:01:50-04:00",
+  "publisher" : "Georgia Tech Research Institute",
+  "jurisdiction" : [
+    {
+      "extension" : [
+        {
+          "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
+          "valueString" : "UNKNOWN"
+        }
+      ]
+    }
+  ],
+  "purpose" : "(Clinical Focus: Anaphylaxis in the context of recent vaccine),(Data Element Scope: ICD10 codes only),(Inclusion Criteria: Explicit codes, include medicament),(Exclusion Criteria: None)",
+  "compose" : {
+    "include" : [
       {
-        "system": "http://hl7.org/fhir/sid/icd-10-cm",
-        "version": "2023",
-        "concept": [
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "concept" : [
           {
-            "code": "T80.52XA",
-            "display": "Anaphylactic reaction due to vaccination, initial encounter"
+            "code" : "T80.52XA",
+            "display" : "Anaphylactic reaction due to vaccination, initial encounter"
           },
           {
-            "code": "T88.6XXA",
-            "display": "Anaphylactic reaction due to adverse effect of correct drug or medicament properly administered, initial encounter"
+            "code" : "T88.6XXA",
+            "display" : "Anaphylactic reaction due to adverse effect of correct drug or medicament properly administered, initial encounter"
           }
         ]
       }
     ]
   },
-  "expansion": {
-    "identifier": "urn:uuid:418cfc63-db8d-49e3-bf2b-0d127221a4c2",
-    "timestamp": "2022-09-27T17:44:13-04:00",
-    "total": 2,
-    "offset": 0,
-    "parameter": [
+  "expansion" : {
+    "identifier" : "urn:uuid:5a7d5db7-2806-4cf6-a5e1-161d9f807b63",
+    "timestamp" : "2023-06-29T15:39:33-04:00",
+    "total" : 2,
+    "offset" : 0,
+    "parameter" : [
       {
-        "name": "count",
-        "valueInteger": 1000
+        "name" : "count",
+        "valueInteger" : 1000
       },
       {
-        "name": "offset",
-        "valueInteger": 0
+        "name" : "offset",
+        "valueInteger" : 0
       }
     ],
-    "contains": [
+    "contains" : [
       {
-        "system": "http://hl7.org/fhir/sid/icd-10-cm",
-        "version": "2023",
-        "code": "T80.52XA",
-        "display": "Anaphylactic reaction due to vaccination, initial encounter"
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2023",
+        "code" : "T80.52XA",
+        "display" : "Anaphylactic reaction due to vaccination, initial encounter"
       },
       {
-        "system": "http://hl7.org/fhir/sid/icd-10-cm",
-        "version": "2023",
-        "code": "T88.6XXA",
-        "display": "Anaphylactic reaction due to adverse effect of correct drug or medicament properly administered, initial encounter"
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2023",
+        "code" : "T88.6XXA",
+        "display" : "Anaphylactic reaction due to adverse effect of correct drug or medicament properly administered, initial encounter"
       }
     ]
   }

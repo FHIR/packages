@@ -1,52 +1,90 @@
 {
-  "resourceType": "ValueSet",
-  "id": "2.16.840.1.113762.1.4.1222.737",
-  "meta": {
-    "versionId": "5",
-    "lastUpdated": "2021-09-15T01:01:30.000-04:00"
+  "resourceType" : "ValueSet",
+  "id" : "2.16.840.1.113762.1.4.1222.737",
+  "meta" : {
+    "versionId" : "5",
+    "lastUpdated" : "2021-09-15T01:01:30.000-04:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "url": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1222.737",
-  "version": "20210915",
-  "name": "Recurrent Urinary Tract Infections",
-  "status": "active",
-  "date": "2021-09-15T01:01:30-04:00",
-  "publisher": "HL7 Patient Care WG Steward",
-  "compose": {
-    "include": [
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "MCC eCare Plan Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2022-12-15"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2021-09-15"
+    }
+  ],
+  "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1222.737",
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113762.1.4.1222.737"
+    }
+  ],
+  "version" : "20210915",
+  "name" : "RecurrentUrinaryTractInfections",
+  "title" : "Recurrent Urinary Tract Infections",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2021-09-15T01:01:30-04:00",
+  "publisher" : "HL7 Patient Care WG Steward",
+  "description" : "Indication that the person experiences recurrent UTIs (Business ID: Entry 4089703)",
+  "jurisdiction" : [
+    {
+      "extension" : [
+        {
+          "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
+          "valueString" : "UNKNOWN"
+        }
+      ]
+    }
+  ],
+  "purpose" : "(Clinical Focus: This set of values addresses terms representing Recurrent Urinary Tract Infections.),(Data Element Scope: The intent of this set of values is to identify patients who have a/an indication that the person experiences recurrent utis.),(Inclusion Criteria: Includes ICD10CM codes for Recurrent Urinary Tract Infections.),(Exclusion Criteria: Terms not representative of observable encoded terms that may have values indicating Recurrent Urinary Tract Infections.)",
+  "compose" : {
+    "include" : [
       {
-        "system": "http://hl7.org/fhir/sid/icd-10-cm",
-        "version": "2023",
-        "filter": [
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2023",
+        "filter" : [
           {
-            "property": "concept",
-            "op": "is-a",
-            "value": "Z87.440"
+            "property" : "concept",
+            "op" : "is-a",
+            "value" : "Z87.440"
           }
         ]
       }
     ]
   },
-  "expansion": {
-    "identifier": "urn:uuid:eb88fd74-6185-41ed-8251-2409f35b8ae5",
-    "timestamp": "2022-09-28T00:44:35-04:00",
-    "total": 1,
-    "offset": 0,
-    "parameter": [
+  "expansion" : {
+    "identifier" : "urn:uuid:0bd48680-38a7-4ec6-ac11-34fb0a3c7a53",
+    "timestamp" : "2023-06-29T19:37:26-04:00",
+    "total" : 1,
+    "offset" : 0,
+    "parameter" : [
       {
-        "name": "count",
-        "valueInteger": 1000
+        "name" : "count",
+        "valueInteger" : 1000
       },
       {
-        "name": "offset",
-        "valueInteger": 0
+        "name" : "offset",
+        "valueInteger" : 0
       }
     ],
-    "contains": [
+    "contains" : [
       {
-        "system": "http://hl7.org/fhir/sid/icd-10-cm",
-        "version": "2023",
-        "code": "Z87.440",
-        "display": "Personal history of urinary (tract) infections"
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2023",
+        "code" : "Z87.440",
+        "display" : "Personal history of urinary (tract) infections"
       }
     ]
   }

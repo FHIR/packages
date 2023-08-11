@@ -1,69 +1,106 @@
 {
-  "resourceType": "ValueSet",
-  "id": "2.16.840.1.113762.1.4.1221.52",
-  "meta": {
-    "versionId": "10",
-    "lastUpdated": "2021-04-06T01:00:33.000-04:00"
+  "resourceType" : "ValueSet",
+  "id" : "2.16.840.1.113762.1.4.1221.52",
+  "meta" : {
+    "versionId" : "10",
+    "lastUpdated" : "2021-04-06T01:00:33.000-04:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "url": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1221.52",
-  "version": "20210406",
-  "name": "Intrauterine Devices (IUD), Non specific",
-  "status": "active",
-  "date": "2021-04-06T01:00:33-04:00",
-  "publisher": "NACHC Steward",
-  "compose": {
-    "include": [
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "NACHC Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2022-12-15"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2021-04-06"
+    }
+  ],
+  "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1221.52",
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113762.1.4.1221.52"
+    }
+  ],
+  "version" : "20210406",
+  "name" : "IntrauterineDevicesIUDNonSpecific",
+  "title" : "Intrauterine Devices (IUD), Non specific",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2021-04-06T01:00:33-04:00",
+  "publisher" : "NACHC Steward",
+  "jurisdiction" : [
+    {
+      "extension" : [
+        {
+          "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
+          "valueString" : "UNKNOWN"
+        }
+      ]
+    }
+  ],
+  "purpose" : "(Clinical Focus: This set of values contains the use of intrauterine devices for contraception, non-specific to copper and hormonal progestin-based IUDs.),(Data Element Scope: The intent of this data element is to identify patients who have expressed the use of intrauterine devices for contraception, non-specific to copper and hormonal progestin-based IUDs. Using the Quality Data Model, this particular element would map to the \"Individual Characteristic\" category, with Datatype: \"Patient Characteristic\".),(Inclusion Criteria: Contraception use that indicates use of intrauterine devices for contraception, non-specific to copper and hormonal progestin-based IUDs.),(Exclusion Criteria: Codes specific to copper or hormonal progestogen or progestin IUDs are excluded in this value set.)",
+  "compose" : {
+    "include" : [
       {
-        "system": "http://www.ama-assn.org/go/cpt",
-        "version": "2022",
-        "filter": [
+        "system" : "http://www.ama-assn.org/go/cpt",
+        "version" : "2023",
+        "filter" : [
           {
-            "property": "concept",
-            "op": "is-a",
-            "value": "58300"
+            "property" : "concept",
+            "op" : "is-a",
+            "value" : "58300"
           }
         ]
       },
       {
-        "system": "http://www.ama-assn.org/go/cpt",
-        "version": "2022",
-        "filter": [
+        "system" : "http://www.ama-assn.org/go/cpt",
+        "version" : "2023",
+        "filter" : [
           {
-            "property": "concept",
-            "op": "is-a",
-            "value": "58301"
+            "property" : "concept",
+            "op" : "is-a",
+            "value" : "58301"
           }
         ]
       }
     ]
   },
-  "expansion": {
-    "identifier": "urn:uuid:ea8a8c97-82c1-4c51-a30e-e87bc63e5a93",
-    "timestamp": "2022-09-27T21:55:58-04:00",
-    "total": 2,
-    "offset": 0,
-    "parameter": [
+  "expansion" : {
+    "identifier" : "urn:uuid:f83cf04e-6198-4c6e-99c0-5827751da1ec",
+    "timestamp" : "2023-06-29T18:07:40-04:00",
+    "total" : 2,
+    "offset" : 0,
+    "parameter" : [
       {
-        "name": "count",
-        "valueInteger": 1000
+        "name" : "count",
+        "valueInteger" : 1000
       },
       {
-        "name": "offset",
-        "valueInteger": 0
+        "name" : "offset",
+        "valueInteger" : 0
       }
     ],
-    "contains": [
+    "contains" : [
       {
-        "system": "http://www.ama-assn.org/go/cpt",
-        "version": "2022",
-        "code": "58300",
-        "display": "Insertion of intrauterine device (IUD)"
+        "system" : "http://www.ama-assn.org/go/cpt",
+        "version" : "2023",
+        "code" : "58300",
+        "display" : "Insertion of intrauterine device (IUD)"
       },
       {
-        "system": "http://www.ama-assn.org/go/cpt",
-        "version": "2022",
-        "code": "58301",
-        "display": "Removal of intrauterine device (IUD)"
+        "system" : "http://www.ama-assn.org/go/cpt",
+        "version" : "2023",
+        "code" : "58301",
+        "display" : "Removal of intrauterine device (IUD)"
       }
     ]
   }

@@ -1,51 +1,87 @@
 {
-  "resourceType": "ValueSet",
-  "id": "2.16.840.1.113762.1.4.1182.9",
-  "meta": {
-    "versionId": "5",
-    "lastUpdated": "2018-05-03T01:00:04.000-04:00"
+  "resourceType" : "ValueSet",
+  "id" : "2.16.840.1.113762.1.4.1182.9",
+  "meta" : {
+    "versionId" : "5",
+    "lastUpdated" : "2018-05-03T01:00:04.000-04:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "url": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1182.9",
-  "version": "20180503",
-  "name": "Tobacco User Did Not Receive Cessation Intervention, Reason Not Given",
-  "status": "active",
-  "date": "2018-05-03T01:00:04-04:00",
-  "publisher": "Change Healthcare Steward",
-  "compose": {
-    "include": [
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "Change Healthcare Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2022-12-15"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2018-05-03"
+    }
+  ],
+  "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1182.9",
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113762.1.4.1182.9"
+    }
+  ],
+  "version" : "20180503",
+  "name" : "TobaccoUserDidNotReceiveCessationInterventionReasonNotGiven",
+  "title" : "Tobacco User Did Not Receive Cessation Intervention, Reason Not Given",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2018-05-03T01:00:04-04:00",
+  "publisher" : "Change Healthcare Steward",
+  "jurisdiction" : [
+    {
+      "extension" : [
+        {
+          "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
+          "valueString" : "UNKNOWN"
+        }
+      ]
+    }
+  ],
+  "purpose" : "(Clinical Focus: Preventive Care and Screening),(Data Element Scope: Exclusion criteria),(Inclusion Criteria: n/a),(Exclusion Criteria: n/a)",
+  "compose" : {
+    "include" : [
       {
-        "system": "http://www.nlm.nih.gov/research/umls/hcpcs",
-        "version": "2022",
-        "concept": [
+        "system" : "http://www.nlm.nih.gov/research/umls/hcpcs",
+        "concept" : [
           {
-            "code": "G9908",
-            "display": "Patient identified as tobacco user did not receive tobacco cessation intervention (counseling and/or pharmacotherapy), reason not given"
+            "code" : "G9908",
+            "display" : "Patient identified as tobacco user did not receive tobacco cessation intervention (counseling and/or pharmacotherapy), reason not given"
           }
         ]
       }
     ]
   },
-  "expansion": {
-    "identifier": "urn:uuid:b6b6af9d-4c0f-44a4-96bc-24fb3a2fadee",
-    "timestamp": "2022-09-28T02:24:09-04:00",
-    "total": 1,
-    "offset": 0,
-    "parameter": [
+  "expansion" : {
+    "identifier" : "urn:uuid:2a60013f-c0e1-4912-a3f4-b480ab16e182",
+    "timestamp" : "2023-06-29T20:15:31-04:00",
+    "total" : 1,
+    "offset" : 0,
+    "parameter" : [
       {
-        "name": "count",
-        "valueInteger": 1000
+        "name" : "count",
+        "valueInteger" : 1000
       },
       {
-        "name": "offset",
-        "valueInteger": 0
+        "name" : "offset",
+        "valueInteger" : 0
       }
     ],
-    "contains": [
+    "contains" : [
       {
-        "system": "http://www.nlm.nih.gov/research/umls/hcpcs",
-        "version": "2022",
-        "code": "G9908",
-        "display": "Patient identified as tobacco user did not receive tobacco cessation intervention on the date of the encounter or within the previous 12 months (counseling and/or pharmacotherapy), reason not given"
+        "system" : "http://www.nlm.nih.gov/research/umls/hcpcs",
+        "version" : "2023",
+        "code" : "G9908",
+        "display" : "Patient identified as tobacco user did not receive tobacco cessation intervention during the measurement period or in the six months prior to the measurement period (counseling and/or pharmacotherapy)"
       }
     ]
   }

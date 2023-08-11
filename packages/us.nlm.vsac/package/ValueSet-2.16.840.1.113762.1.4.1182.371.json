@@ -1,61 +1,98 @@
 {
-  "resourceType": "ValueSet",
-  "id": "2.16.840.1.113762.1.4.1182.371",
-  "meta": {
-    "versionId": "5",
-    "lastUpdated": "2020-01-25T01:00:18.000-05:00"
+  "resourceType" : "ValueSet",
+  "id" : "2.16.840.1.113762.1.4.1182.371",
+  "meta" : {
+    "versionId" : "5",
+    "lastUpdated" : "2020-01-25T01:00:18.000-05:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "url": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1182.371",
-  "version": "20200125",
-  "name": "Registered Nurse",
-  "status": "active",
-  "date": "2020-01-25T01:00:18-05:00",
-  "publisher": "Change Healthcare Steward",
-  "compose": {
-    "include": [
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "Change Healthcare Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2022-12-15"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2020-01-25"
+    }
+  ],
+  "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1182.371",
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113762.1.4.1182.371"
+    }
+  ],
+  "version" : "20200125",
+  "name" : "RegisteredNurse",
+  "title" : "Registered Nurse",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2020-01-25T01:00:18-05:00",
+  "publisher" : "Change Healthcare Steward",
+  "description" : "This value set is created to determine when the servicing provider is a Registered Nurse.",
+  "jurisdiction" : [
+    {
+      "extension" : [
+        {
+          "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
+          "valueString" : "UNKNOWN"
+        }
+      ]
+    }
+  ],
+  "purpose" : "(Clinical Focus: Provider specialty / qualification / role),(Data Element Scope: Encounter servicing provider, Practitioner),(Inclusion Criteria: Codes that represent a Registered Nurse.),(Exclusion Criteria: n/a)",
+  "compose" : {
+    "include" : [
       {
-        "system": "http://snomed.info/sct",
-        "version": "http://snomed.info/sct/731000124108/version/20220301",
-        "concept": [
+        "system" : "http://snomed.info/sct",
+        "concept" : [
           {
-            "code": "224535009",
-            "display": "Registered nurse (occupation)"
+            "code" : "224535009",
+            "display" : "Registered nurse (occupation)"
           },
           {
-            "code": "405278004",
-            "display": "Certified registered nurse anesthetist (occupation)"
+            "code" : "405278004",
+            "display" : "Certified registered nurse anesthetist (occupation)"
           }
         ]
       }
     ]
   },
-  "expansion": {
-    "identifier": "urn:uuid:b2d487f2-1546-4be8-b174-b2ac48fb3e5a",
-    "timestamp": "2022-09-28T00:47:44-04:00",
-    "total": 2,
-    "offset": 0,
-    "parameter": [
+  "expansion" : {
+    "identifier" : "urn:uuid:7ba28c4d-4b42-4b1d-9b25-2eef0cf97a39",
+    "timestamp" : "2023-06-29T19:38:41-04:00",
+    "total" : 2,
+    "offset" : 0,
+    "parameter" : [
       {
-        "name": "count",
-        "valueInteger": 1000
+        "name" : "count",
+        "valueInteger" : 1000
       },
       {
-        "name": "offset",
-        "valueInteger": 0
+        "name" : "offset",
+        "valueInteger" : 0
       }
     ],
-    "contains": [
+    "contains" : [
       {
-        "system": "http://snomed.info/sct",
-        "version": "http://snomed.info/sct/731000124108/version/20220301",
-        "code": "224535009",
-        "display": "Registered nurse (occupation)"
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20230301",
+        "code" : "224535009",
+        "display" : "Registered nurse (occupation)"
       },
       {
-        "system": "http://snomed.info/sct",
-        "version": "http://snomed.info/sct/731000124108/version/20220301",
-        "code": "405278004",
-        "display": "Certified registered nurse anesthetist (occupation)"
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20230301",
+        "code" : "405278004",
+        "display" : "Certified registered nurse anesthetist (occupation)"
       }
     ]
   }

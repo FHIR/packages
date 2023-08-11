@@ -1,838 +1,880 @@
 {
-  "resourceType": "ValueSet",
-  "id": "2.16.840.1.113883.11.20.4.1",
-  "meta": {
-    "versionId": "29",
-    "lastUpdated": "2022-06-30T01:02:38.000-04:00"
+  "resourceType" : "ValueSet",
+  "id" : "2.16.840.1.113883.11.20.4.1",
+  "meta" : {
+    "versionId" : "29",
+    "lastUpdated" : "2022-06-30T01:02:38.000-04:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "url": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.11.20.4.1",
-  "version": "20220630",
-  "name": "DischargeSummaryDocumentTypeCode",
-  "status": "active",
-  "date": "2022-06-30T01:02:38-04:00",
-  "publisher": "HL7 Terminology",
-  "compose": {
-    "include": [
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "HL7 Structured Documents WG"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-keyWord",
+      "valueString" : "C-CDA,CCDAr1_1,CCDAr21"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2022-12-15"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2022-06-30"
+    }
+  ],
+  "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.11.20.4.1",
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113883.11.20.4.1"
+    }
+  ],
+  "version" : "20220630",
+  "name" : "DischargeSummaryDocumentTypeCode",
+  "title" : "DischargeSummaryDocumentTypeCode",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2022-06-30T01:02:38-04:00",
+  "publisher" : "HL7 Terminology",
+  "description" : "Search.loinc query: Component:(Discharge Summary note) Class:Doc.Ontology",
+  "jurisdiction" : [
+    {
+      "extension" : [
+        {
+          "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
+          "valueString" : "UNKNOWN"
+        }
+      ]
+    }
+  ],
+  "purpose" : "(Clinical Focus: Kind of discharge summary document classified by author role),(Data Element Scope: ),(Inclusion Criteria: A list of LOINC terms, intended to identify Discharge Summary Notes where component contains \"Discharge Summary Note\", Timing = \"Patient\", Property = Find\" , scale = \"Doc\"),(Exclusion Criteria: )",
+  "compose" : {
+    "include" : [
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "filter": [
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "filter" : [
           {
-            "property": "concept",
-            "op": "in",
-            "value": "88693-7,83961-3,83968-8,97700-9,68815-0,68779-8,84248-4,94526-1,97719-9,84132-0,84262-5,78585-7,94519-6,34105-7,99483-0,85875-3,84040-5,68626-1,84139-5,84367-2,68768-1,85878-7,94520-4,85520-5,97663-9,84254-2,68823-4,94529-5,84328-4,94522-0,94465-2,97714-0,89214-1,59258-4,83956-3,85176-6,84017-3,94525-3,84179-1,77417-4,85442-2,68831-7,94524-6,94464-5,68558-6,88645-7,84278-1,68642-8,87256-4,85243-4,85433-1,68572-7,68805-1,84013-2,94515-4,97690-2,97701-7,78264-9,84018-1,97703-3,99488-9,97702-5,84321-9,84393-8,85240-0,68674-1,94530-3,28655-9,68663-4,68795-4,83523-1,85434-9,96378-5,85200-4,68709-5,94527-9,83993-6,68591-7,68841-6,85440-6,85223-6,68697-2,85514-8,34106-5,89218-2,68749-1,85192-3,94516-2,80811-3,83810-2,94523-8,68733-5,99490-5,88641-6,83898-7,84310-2,78421-5,68856-4,99489-7,97704-1,87235-8,34745-0,83712-0,93903-3,78263-1,68612-1,83932-4,29761-4,84331-8,68738-4,84024-9,68653-5,68719-4,83921-7,11490-0,84257-5,83551-2,77409-1,68688-1,68773-1,85154-3,59259-2,95133-5,94521-2,18842-5,94517-0,85849-8,78420-7,78418-1,97725-6,78419-9,68578-4"
+            "property" : "concept",
+            "op" : "in",
+            "value" : "88693-7,83961-3,83968-8,97700-9,68815-0,68779-8,84248-4,94526-1,97719-9,84132-0,84262-5,78585-7,94519-6,34105-7,99483-0,85875-3,84040-5,68626-1,84139-5,84367-2,68768-1,85878-7,94520-4,85520-5,97663-9,84254-2,68823-4,94529-5,84328-4,94522-0,94465-2,97714-0,89214-1,59258-4,83956-3,85176-6,84017-3,94525-3,84179-1,77417-4,85442-2,68831-7,94524-6,94464-5,68558-6,88645-7,84278-1,68642-8,87256-4,85243-4,85433-1,68572-7,68805-1,84013-2,94515-4,97690-2,97701-7,78264-9,84018-1,97703-3,99488-9,97702-5,84321-9,84393-8,85240-0,68674-1,94530-3,28655-9,68663-4,68795-4,83523-1,85434-9,96378-5,85200-4,68709-5,94527-9,83993-6,68591-7,68841-6,85440-6,85223-6,68697-2,85514-8,34106-5,89218-2,68749-1,85192-3,94516-2,80811-3,83810-2,94523-8,68733-5,99490-5,88641-6,83898-7,84310-2,78421-5,68856-4,99489-7,97704-1,87235-8,34745-0,83712-0,93903-3,78263-1,68612-1,83932-4,29761-4,84331-8,68738-4,84024-9,68653-5,68719-4,83921-7,11490-0,84257-5,83551-2,77409-1,68688-1,68773-1,85154-3,59259-2,95133-5,94521-2,18842-5,94517-0,85849-8,78420-7,78418-1,97725-6,78419-9,68578-4"
           }
         ]
       }
     ]
   },
-  "expansion": {
-    "identifier": "urn:uuid:103222fe-bd53-4257-bb31-6002795d0495",
-    "timestamp": "2022-09-27T20:15:41-04:00",
-    "total": 132,
-    "offset": 0,
-    "parameter": [
+  "expansion" : {
+    "identifier" : "urn:uuid:713fde0d-3379-407c-8dbf-7fb5967b6560",
+    "timestamp" : "2023-06-29T17:05:38-04:00",
+    "total" : 132,
+    "offset" : 0,
+    "parameter" : [
       {
-        "name": "count",
-        "valueInteger": 1000
+        "name" : "count",
+        "valueInteger" : 1000
       },
       {
-        "name": "offset",
-        "valueInteger": 0
+        "name" : "offset",
+        "valueInteger" : 0
       }
     ],
-    "contains": [
+    "contains" : [
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "11490-0",
-        "display": "Physician Discharge summary"
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "11490-0",
+        "display" : "Physician Discharge summary"
       },
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "18842-5",
-        "display": "Discharge summary"
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "18842-5",
+        "display" : "Discharge summary"
       },
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "28655-9",
-        "display": "Attending Discharge summary"
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "28655-9",
+        "display" : "Attending Discharge summary"
       },
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "29761-4",
-        "display": "Dentistry Discharge summary"
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "29761-4",
+        "display" : "Dentistry Discharge summary"
       },
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "34105-7",
-        "display": "Hospital Discharge summary"
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "34105-7",
+        "display" : "Hospital Discharge summary"
       },
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "34106-5",
-        "display": "Physician Hospital Discharge summary"
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "34106-5",
+        "display" : "Physician Hospital Discharge summary"
       },
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "34745-0",
-        "display": "Nurse Discharge summary"
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "34745-0",
+        "display" : "Nurse Discharge summary"
       },
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "59258-4",
-        "display": "Emergency department Discharge summary"
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "59258-4",
+        "display" : "Emergency department Discharge summary"
       },
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "59259-2",
-        "display": "Psychiatry Discharge summary"
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "59259-2",
+        "display" : "Psychiatry Discharge summary"
       },
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "68558-6",
-        "display": "Obstetrics and Gynecology Discharge summary"
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "68558-6",
+        "display" : "Obstetrics and Gynecology Discharge summary"
       },
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "68572-7",
-        "display": "Ophthalmology Discharge summary"
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "68572-7",
+        "display" : "Ophthalmology Discharge summary"
       },
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "68578-4",
-        "display": "Orthopaedic surgery Discharge summary"
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "68578-4",
+        "display" : "Orthopaedic surgery Discharge summary"
       },
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "68591-7",
-        "display": "Plastic surgery Discharge summary"
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "68591-7",
+        "display" : "Plastic surgery Discharge summary"
       },
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "68612-1",
-        "display": "Adolescent medicine Discharge summary"
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "68612-1",
+        "display" : "Adolescent medicine Discharge summary"
       },
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "68626-1",
-        "display": "Allergy and Immunology Discharge summary"
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "68626-1",
+        "display" : "Allergy and Immunology Discharge summary"
       },
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "68642-8",
-        "display": "Child and adolescent psychiatry Discharge summary"
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "68642-8",
+        "display" : "Child and adolescent psychiatry Discharge summary"
       },
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "68653-5",
-        "display": "Clinical genetics Discharge summary"
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "68653-5",
+        "display" : "Clinical genetics Discharge summary"
       },
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "68663-4",
-        "display": "Developmental-behavioral pediatrics Discharge summary"
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "68663-4",
+        "display" : "Developmental-behavioral pediatrics Discharge summary"
       },
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "68674-1",
-        "display": "Multi-specialty program Discharge summary"
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "68674-1",
+        "display" : "Multi-specialty program Discharge summary"
       },
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "68688-1",
-        "display": "Neurological surgery Discharge summary"
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "68688-1",
+        "display" : "Neurological surgery Discharge summary"
       },
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "68697-2",
-        "display": "Neurology with special qualifications in child neurology Discharge summary"
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "68697-2",
+        "display" : "Neurology with special qualifications in child neurology Discharge summary"
       },
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "68709-5",
-        "display": "Pain medicine Discharge summary"
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "68709-5",
+        "display" : "Pain medicine Discharge summary"
       },
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "68719-4",
-        "display": "Pediatric cardiology Discharge summary"
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "68719-4",
+        "display" : "Pediatric cardiology Discharge summary"
       },
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "68733-5",
-        "display": "Pediatric endocrinology Discharge summary"
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "68733-5",
+        "display" : "Pediatric endocrinology Discharge summary"
       },
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "68738-4",
-        "display": "Pediatric gastroenterology Discharge summary"
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "68738-4",
+        "display" : "Pediatric gastroenterology Discharge summary"
       },
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "68749-1",
-        "display": "Pediatric hematology-oncology Discharge summary"
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "68749-1",
+        "display" : "Pediatric hematology-oncology Discharge summary"
       },
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "68768-1",
-        "display": "Pediatric nephrology Discharge summary"
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "68768-1",
+        "display" : "Pediatric nephrology Discharge summary"
       },
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "68773-1",
-        "display": "Pediatric otolaryngology Discharge summary"
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "68773-1",
+        "display" : "Pediatric otolaryngology Discharge summary"
       },
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "68779-8",
-        "display": "Pediatric pulmonology Discharge summary"
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "68779-8",
+        "display" : "Pediatric pulmonology Discharge summary"
       },
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "68795-4",
-        "display": "Pediatric surgery Discharge summary"
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "68795-4",
+        "display" : "Pediatric surgery Discharge summary"
       },
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "68805-1",
-        "display": "Pediatric urology Discharge summary"
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "68805-1",
+        "display" : "Pediatric urology Discharge summary"
       },
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "68815-0",
-        "display": "Pediatrics Discharge summary"
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "68815-0",
+        "display" : "Pediatrics Discharge summary"
       },
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "68823-4",
-        "display": "Pediatrics Hospital Discharge summary"
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "68823-4",
+        "display" : "Pediatrics Hospital Discharge summary"
       },
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "68831-7",
-        "display": "Primary care Discharge summary"
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "68831-7",
+        "display" : "Primary care Discharge summary"
       },
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "68841-6",
-        "display": "Speech-language pathology Discharge summary"
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "68841-6",
+        "display" : "Speech-language pathology Discharge summary"
       },
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "68856-4",
-        "display": "Pediatric transplant hepatology Discharge summary"
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "68856-4",
+        "display" : "Pediatric transplant hepatology Discharge summary"
       },
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "77409-1",
-        "display": "Cardiology Discharge summary"
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "77409-1",
+        "display" : "Cardiology Discharge summary"
       },
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "77417-4",
-        "display": "Critical care medicine Discharge summary"
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "77417-4",
+        "display" : "Critical care medicine Discharge summary"
       },
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "78263-1",
-        "display": "Mental health Discharge summary"
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "78263-1",
+        "display" : "Mental health Discharge summary"
       },
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "78264-9",
-        "display": "General medicine Discharge summary"
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "78264-9",
+        "display" : "General medicine Discharge summary"
       },
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "78418-1",
-        "display": "Neonatal perinatal medicine Discharge summary"
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "78418-1",
+        "display" : "Neonatal perinatal medicine Discharge summary"
       },
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "78419-9",
-        "display": "Nephrology Discharge summary"
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "78419-9",
+        "display" : "Nephrology Discharge summary"
       },
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "78420-7",
-        "display": "Neurology Discharge summary"
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "78420-7",
+        "display" : "Neurology Discharge summary"
       },
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "78421-5",
-        "display": "Oncology Discharge summary"
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "78421-5",
+        "display" : "Oncology Discharge summary"
       },
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "78585-7",
-        "display": "Palliative care Discharge summary"
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "78585-7",
+        "display" : "Palliative care Discharge summary"
       },
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "80811-3",
-        "display": "Geriatric medicine Discharge summary"
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "80811-3",
+        "display" : "Geriatric medicine Discharge summary"
       },
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "83523-1",
-        "display": "Cardiology Intensive care unit Discharge summary"
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "83523-1",
+        "display" : "Cardiology Intensive care unit Discharge summary"
       },
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "83551-2",
-        "display": "Nurse practitioner Discharge summary"
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "83551-2",
+        "display" : "Nurse practitioner Discharge summary"
       },
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "83712-0",
-        "display": "Physical medicine and rehab Discharge summary"
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "83712-0",
+        "display" : "Physical medicine and rehab Discharge summary"
       },
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "83810-2",
-        "display": "Physician assistant Discharge summary"
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "83810-2",
+        "display" : "Physician assistant Discharge summary"
       },
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "83898-7",
-        "display": "Psychology Discharge summary"
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "83898-7",
+        "display" : "Psychology Discharge summary"
       },
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "83921-7",
-        "display": "Recreational therapy Discharge summary"
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "83921-7",
+        "display" : "Recreational therapy Discharge summary"
       },
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "83932-4",
-        "display": "Research Discharge summary"
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "83932-4",
+        "display" : "Research Discharge summary"
       },
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "83956-3",
-        "display": "Social worker Discharge summary"
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "83956-3",
+        "display" : "Social worker Discharge summary"
       },
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "83961-3",
-        "display": "Social worker Patient\u0027s home Discharge summary"
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "83961-3",
+        "display" : "Social worker Patient's home Discharge summary"
       },
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "83968-8",
-        "display": "Social worker Long term care facility Discharge summary"
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "83968-8",
+        "display" : "Social worker Long term care facility Discharge summary"
       },
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "83993-6",
-        "display": "Spinal cord injury medicine Discharge summary"
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "83993-6",
+        "display" : "Spinal cord injury medicine Discharge summary"
       },
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "84013-2",
-        "display": "Surgery Intensive care unit Discharge summary"
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "84013-2",
+        "display" : "Surgery Intensive care unit Discharge summary"
       },
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "84017-3",
-        "display": "Surgery Discharge summary"
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "84017-3",
+        "display" : "Surgery Discharge summary"
       },
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "84018-1",
-        "display": "Surgery Outpatient Discharge summary"
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "84018-1",
+        "display" : "Surgery Outpatient Discharge summary"
       },
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "84024-9",
-        "display": "Team Discharge summary"
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "84024-9",
+        "display" : "Team Discharge summary"
       },
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "84040-5",
-        "display": "Urology Discharge summary"
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "84040-5",
+        "display" : "Urology Discharge summary"
       },
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "84132-0",
-        "display": "Primary care Patient\u0027s home Discharge summary"
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "84132-0",
+        "display" : "Primary care Patient's home Discharge summary"
       },
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "84139-5",
-        "display": "Hematology+Medical oncology Discharge summary"
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "84139-5",
+        "display" : "Hematology+Medical oncology Discharge summary"
       },
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "84179-1",
-        "display": "Kinesiotherapy Discharge summary"
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "84179-1",
+        "display" : "Kinesiotherapy Discharge summary"
       },
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "84248-4",
-        "display": "Nurse Emergency department Discharge summary"
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "84248-4",
+        "display" : "Nurse Emergency department Discharge summary"
       },
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "84254-2",
-        "display": "Nurse Hospital Discharge summary"
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "84254-2",
+        "display" : "Nurse Hospital Discharge summary"
       },
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "84257-5",
-        "display": "Nurse Long term care facility Discharge summary"
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "84257-5",
+        "display" : "Nurse Long term care facility Discharge summary"
       },
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "84262-5",
-        "display": "Nurse Observation unit Discharge summary"
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "84262-5",
+        "display" : "Nurse Observation unit Discharge summary"
       },
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "84278-1",
-        "display": "Nutrition and dietetics Discharge summary"
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "84278-1",
+        "display" : "Nutrition and dietetics Discharge summary"
       },
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "84310-2",
-        "display": "Vocational rehabilitation Discharge summary"
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "84310-2",
+        "display" : "Vocational rehabilitation Discharge summary"
       },
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "84321-9",
-        "display": "Physical therapy Outpatient Discharge summary"
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "84321-9",
+        "display" : "Physical therapy Outpatient Discharge summary"
       },
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "84328-4",
-        "display": "Physical therapy Hospital Discharge summary"
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "84328-4",
+        "display" : "Physical therapy Hospital Discharge summary"
       },
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "84331-8",
-        "display": "Physical therapy Discharge summary"
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "84331-8",
+        "display" : "Physical therapy Discharge summary"
       },
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "84367-2",
-        "display": "Otolaryngology Discharge summary"
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "84367-2",
+        "display" : "Otolaryngology Discharge summary"
       },
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "84393-8",
-        "display": "Occupational therapy Discharge summary"
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "84393-8",
+        "display" : "Occupational therapy Discharge summary"
       },
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "85154-3",
-        "display": "Pharmacology Discharge summary"
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "85154-3",
+        "display" : "Pharmacology Discharge summary"
       },
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "85176-6",
-        "display": "Custodial care facility Discharge summary"
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "85176-6",
+        "display" : "Custodial care facility Discharge summary"
       },
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "85192-3",
-        "display": "Long term care facility Discharge summary"
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "85192-3",
+        "display" : "Long term care facility Discharge summary"
       },
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "85200-4",
-        "display": "Observation unit Discharge summary"
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "85200-4",
+        "display" : "Observation unit Discharge summary"
       },
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "85223-6",
-        "display": "Case manager Discharge summary"
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "85223-6",
+        "display" : "Case manager Discharge summary"
       },
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "85240-0",
-        "display": "Internal medicine Intensive care unit Discharge summary"
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "85240-0",
+        "display" : "Internal medicine Intensive care unit Discharge summary"
       },
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "85243-4",
-        "display": "Internal medicine Discharge summary"
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "85243-4",
+        "display" : "Internal medicine Discharge summary"
       },
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "85433-1",
-        "display": "Respiratory therapy Discharge summary"
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "85433-1",
+        "display" : "Respiratory therapy Discharge summary"
       },
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "85434-9",
-        "display": "Rheumatology Discharge summary"
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "85434-9",
+        "display" : "Rheumatology Discharge summary"
       },
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "85440-6",
-        "display": "Vascular surgery Discharge summary"
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "85440-6",
+        "display" : "Vascular surgery Discharge summary"
       },
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "85442-2",
-        "display": "Hematology Discharge summary"
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "85442-2",
+        "display" : "Hematology Discharge summary"
       },
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "85514-8",
-        "display": "Bariatric surgery Discharge summary"
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "85514-8",
+        "display" : "Bariatric surgery Discharge summary"
       },
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "85520-5",
-        "display": "Child and adolescent psychology Discharge summary"
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "85520-5",
+        "display" : "Child and adolescent psychology Discharge summary"
       },
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "85849-8",
-        "display": "Anesthesiology Recovery room Discharge summary"
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "85849-8",
+        "display" : "Anesthesiology Recovery room Discharge summary"
       },
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "85875-3",
-        "display": "Nurse Recovery room Discharge summary"
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "85875-3",
+        "display" : "Nurse Recovery room Discharge summary"
       },
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "85878-7",
-        "display": "Neuropsychology Discharge summary"
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "85878-7",
+        "display" : "Neuropsychology Discharge summary"
       },
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "87235-8",
-        "display": "Dialysis Discharge summary"
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "87235-8",
+        "display" : "Dialysis Discharge summary"
       },
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "87256-4",
-        "display": "Addiction medicine Discharge summary"
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "87256-4",
+        "display" : "Addiction medicine Discharge summary"
       },
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "88641-6",
-        "display": "Community health care Adult day care center Discharge summary"
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "88641-6",
+        "display" : "Community health care Adult day care center Discharge summary"
       },
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "88645-7",
-        "display": "Outpatient hospital Discharge summary"
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "88645-7",
+        "display" : "Outpatient hospital Discharge summary"
       },
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "88693-7",
-        "display": "Patient\u0027s home Discharge summary"
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "88693-7",
+        "display" : "Patient's home Discharge summary"
       },
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "89214-1",
-        "display": "Obstetrics Discharge summary"
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "89214-1",
+        "display" : "Obstetrics Discharge summary"
       },
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "89218-2",
-        "display": "Gynecology Discharge summary"
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "89218-2",
+        "display" : "Gynecology Discharge summary"
       },
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "93903-3",
-        "display": "Healthcare navigator Discharge summary"
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "93903-3",
+        "display" : "Healthcare navigator Discharge summary"
       },
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "94464-5",
-        "display": "Solid Organ Transplant Discharge summary"
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "94464-5",
+        "display" : "Solid Organ Transplant Discharge summary"
       },
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "94465-2",
-        "display": "Bone Marrow Transplant Discharge summary"
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "94465-2",
+        "display" : "Bone Marrow Transplant Discharge summary"
       },
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "94515-4",
-        "display": "Anesthesiology Discharge summary"
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "94515-4",
+        "display" : "Anesthesiology Discharge summary"
       },
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "94516-2",
-        "display": "Audiology Discharge summary"
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "94516-2",
+        "display" : "Audiology Discharge summary"
       },
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "94517-0",
-        "display": "Clinical cardiac electrophysiology Discharge summary"
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "94517-0",
+        "display" : "Clinical cardiac electrophysiology Discharge summary"
       },
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "94519-6",
-        "display": "Dermatology Discharge summary"
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "94519-6",
+        "display" : "Dermatology Discharge summary"
       },
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "94520-4",
-        "display": "Gastroenterology Discharge summary"
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "94520-4",
+        "display" : "Gastroenterology Discharge summary"
       },
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "94521-2",
-        "display": "Endocrinology Discharge summary"
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "94521-2",
+        "display" : "Endocrinology Discharge summary"
       },
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "94522-0",
-        "display": "Immunology Discharge summary"
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "94522-0",
+        "display" : "Immunology Discharge summary"
       },
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "94523-8",
-        "display": "Orthotics prosthetics Discharge summary"
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "94523-8",
+        "display" : "Orthotics prosthetics Discharge summary"
       },
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "94524-6",
-        "display": "Interventional radiology Discharge summary"
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "94524-6",
+        "display" : "Interventional radiology Discharge summary"
       },
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "94525-3",
-        "display": "Infectious disease Discharge summary"
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "94525-3",
+        "display" : "Infectious disease Discharge summary"
       },
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "94526-1",
-        "display": "Pulmonary Discharge summary"
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "94526-1",
+        "display" : "Pulmonary Discharge summary"
       },
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "94527-9",
-        "display": "Trauma Discharge summary"
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "94527-9",
+        "display" : "Trauma Discharge summary"
       },
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "94529-5",
-        "display": "Wound, Ostomy, and Continence Care Discharge summary"
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "94529-5",
+        "display" : "Wound, Ostomy, and Continence Care Discharge summary"
       },
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "94530-3",
-        "display": "Thromboembolism Discharge summary"
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "94530-3",
+        "display" : "Thromboembolism Discharge summary"
       },
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "95133-5",
-        "display": "Dialysis and Therapeutic apheresis Discharge summary"
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "95133-5",
+        "display" : "Dialysis and Therapeutic apheresis Discharge summary"
       },
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "96378-5",
-        "display": "Wound care management Discharge summary"
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "96378-5",
+        "display" : "Wound care management Discharge summary"
       },
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "97663-9",
-        "display": "Emergency medicine Emergency department Discharge summary"
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "97663-9",
+        "display" : "Emergency medicine Emergency department Discharge summary"
       },
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "97690-2",
-        "display": "Interventional cardiology Discharge summary"
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "97690-2",
+        "display" : "Interventional cardiology Discharge summary"
       },
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "97700-9",
-        "display": "Burn management Discharge summary"
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "97700-9",
+        "display" : "Burn management Discharge summary"
       },
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "97701-7",
-        "display": "Gynecologic oncology Discharge summary"
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "97701-7",
+        "display" : "Gynecologic oncology Discharge summary"
       },
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "97702-5",
-        "display": "Maternal and fetal medicine Discharge summary"
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "97702-5",
+        "display" : "Maternal and fetal medicine Discharge summary"
       },
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "97703-3",
-        "display": "Oral and Maxillofacial Surgery Discharge summary"
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "97703-3",
+        "display" : "Oral and Maxillofacial Surgery Discharge summary"
       },
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "97704-1",
-        "display": "Radiation oncology Discharge summary"
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "97704-1",
+        "display" : "Radiation oncology Discharge summary"
       },
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "97714-0",
-        "display": "Surgery of the hand Discharge summary"
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "97714-0",
+        "display" : "Surgery of the hand Discharge summary"
       },
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "97719-9",
-        "display": "Hepatology Discharge summary"
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "97719-9",
+        "display" : "Hepatology Discharge summary"
       },
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "97725-6",
-        "display": "Sleep medicine Discharge summary"
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "97725-6",
+        "display" : "Sleep medicine Discharge summary"
       },
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "99483-0",
-        "display": "Obstetrics Midwife Discharge summary"
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "99483-0",
+        "display" : "Obstetrics Midwife Discharge summary"
       },
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "99488-9",
-        "display": "Colon and rectal surgery Discharge summary"
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "99488-9",
+        "display" : "Colon and rectal surgery Discharge summary"
       },
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "99489-7",
-        "display": "Cardiothoracic surgery Discharge summary"
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "99489-7",
+        "display" : "Cardiothoracic surgery Discharge summary"
       },
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "99490-5",
-        "display": "Family medicine Discharge summary"
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "99490-5",
+        "display" : "Family medicine Discharge summary"
       }
     ]
   }

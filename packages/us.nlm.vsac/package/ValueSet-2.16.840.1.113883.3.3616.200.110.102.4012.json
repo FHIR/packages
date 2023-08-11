@@ -1,61 +1,97 @@
 {
-  "resourceType": "ValueSet",
-  "id": "2.16.840.1.113883.3.3616.200.110.102.4012",
-  "meta": {
-    "versionId": "5",
-    "lastUpdated": "2020-08-18T10:21:27.000-04:00"
+  "resourceType" : "ValueSet",
+  "id" : "2.16.840.1.113883.3.3616.200.110.102.4012",
+  "meta" : {
+    "versionId" : "5",
+    "lastUpdated" : "2020-08-18T10:21:27.000-04:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "url": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.3616.200.110.102.4012",
-  "version": "20200722",
-  "name": "COVID19 ICD10PCS Value Set for Splenectomy",
-  "status": "active",
-  "date": "2020-07-22T01:00:28-04:00",
-  "publisher": "Clinical Architecture",
-  "compose": {
-    "include": [
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "Clinical Architecture"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2023-06-21"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2020-07-22"
+    }
+  ],
+  "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.3616.200.110.102.4012",
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113883.3.3616.200.110.102.4012"
+    }
+  ],
+  "version" : "20200722",
+  "name" : "COVID19ICD10PCSValueSetForSplenectomy",
+  "title" : "COVID19 ICD10PCS Value Set for Splenectomy",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2023-06-21T18:16:37-04:00",
+  "publisher" : "Clinical Architecture",
+  "jurisdiction" : [
+    {
+      "extension" : [
+        {
+          "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
+          "valueString" : "UNKNOWN"
+        }
+      ]
+    }
+  ],
+  "purpose" : "(Clinical Focus: This set of values contains terms related to splenectomy and is listed as a blood disorder/hemoglobinopathy on the CDC SARS-CoV-2 hospitalization surveillance case report form.),(Data Element Scope: ),(Inclusion Criteria: Includes splenectomy. It includes partial and total splenectomy and combination procedures (e.g., pancreatectomy with splenectomy).),(Exclusion Criteria: Excludes history of splenecomy, excision of accessory spleen and excision of lesions of the spleen.)",
+  "compose" : {
+    "include" : [
       {
-        "system": "http://www.icd10data.com/icd10pcs",
-        "version": "2023",
-        "concept": [
+        "system" : "http://www.cms.gov/Medicare/Coding/ICD10",
+        "concept" : [
           {
-            "code": "07TP0ZZ",
-            "display": "Resection of Spleen, Open Approach"
+            "code" : "07TP0ZZ",
+            "display" : "Resection of Spleen, Open Approach"
           },
           {
-            "code": "07TP4ZZ",
-            "display": "Resection of Spleen, Percutaneous Endoscopic Approach"
+            "code" : "07TP4ZZ",
+            "display" : "Resection of Spleen, Percutaneous Endoscopic Approach"
           }
         ]
       }
     ]
   },
-  "expansion": {
-    "identifier": "urn:uuid:ea11be15-4882-4ad4-b83b-6a77e1a51327",
-    "timestamp": "2022-09-27T19:29:32-04:00",
-    "total": 2,
-    "offset": 0,
-    "parameter": [
+  "expansion" : {
+    "identifier" : "urn:uuid:5258cc2e-07a6-4ff3-af6f-a67b506bda0a",
+    "timestamp" : "2023-06-29T16:42:03-04:00",
+    "total" : 2,
+    "offset" : 0,
+    "parameter" : [
       {
-        "name": "count",
-        "valueInteger": 1000
+        "name" : "count",
+        "valueInteger" : 1000
       },
       {
-        "name": "offset",
-        "valueInteger": 0
+        "name" : "offset",
+        "valueInteger" : 0
       }
     ],
-    "contains": [
+    "contains" : [
       {
-        "system": "http://www.icd10data.com/icd10pcs",
-        "version": "2023",
-        "code": "07TP0ZZ",
-        "display": "Resection of Spleen, Open Approach"
+        "system" : "http://www.cms.gov/Medicare/Coding/ICD10",
+        "version" : "2023",
+        "code" : "07TP0ZZ",
+        "display" : "Resection of Spleen, Open Approach"
       },
       {
-        "system": "http://www.icd10data.com/icd10pcs",
-        "version": "2023",
-        "code": "07TP4ZZ",
-        "display": "Resection of Spleen, Percutaneous Endoscopic Approach"
+        "system" : "http://www.cms.gov/Medicare/Coding/ICD10",
+        "version" : "2023",
+        "code" : "07TP4ZZ",
+        "display" : "Resection of Spleen, Percutaneous Endoscopic Approach"
       }
     ]
   }

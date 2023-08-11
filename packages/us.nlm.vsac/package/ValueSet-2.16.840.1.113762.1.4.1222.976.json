@@ -1,70 +1,112 @@
 {
-  "resourceType": "ValueSet",
-  "id": "2.16.840.1.113762.1.4.1222.976",
-  "meta": {
-    "versionId": "5",
-    "lastUpdated": "2021-09-27T15:26:57.000-04:00"
+  "resourceType" : "ValueSet",
+  "id" : "2.16.840.1.113762.1.4.1222.976",
+  "meta" : {
+    "versionId" : "5",
+    "lastUpdated" : "2022-11-12T20:26:23.000-05:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "url": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1222.976",
-  "version": "20210922",
-  "name": "Sleep Duration, Device",
-  "status": "active",
-  "date": "2021-09-22T01:00:56-04:00",
-  "publisher": "HL7 Patient Care WG Steward",
-  "compose": {
-    "include": [
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "MCC eCare Plan Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-keyWord",
+      "valueString" : "MCC_IG"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2022-12-15"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2021-09-22"
+    }
+  ],
+  "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1222.976",
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113762.1.4.1222.976"
+    }
+  ],
+  "version" : "20210922",
+  "name" : "SleepDurationDevice",
+  "title" : "Sleep Duration, Device",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2021-09-22T01:00:56-04:00",
+  "publisher" : "HL7 Patient Care WG Steward",
+  "description" : "This value set may undergo changes until the HL7 Multiple Chronic Care FHIR IG is formally published in 2024.",
+  "jurisdiction" : [
+    {
+      "extension" : [
+        {
+          "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
+          "valueString" : "UNKNOWN"
+        }
+      ]
+    }
+  ],
+  "purpose" : "(Clinical Focus: This set of values addresses terms representing an observation of sleep duration measured by a device.),(Data Element Scope: The intent of this set of values is to identify  the number of hours the person sleeps per night identified by a device (e.g., apple watch, CPAP, etc).),(Inclusion Criteria: Includes LOINC codes for Sleep Duration  as measured by a Device.),(Exclusion Criteria: Terms not representative of observable encoded terms that may have values indicating Sleep Duration  as measured by a Device.)",
+  "compose" : {
+    "include" : [
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "filter": [
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "filter" : [
           {
-            "property": "concept",
-            "op": "in",
-            "value": "93829-0,93832-4,93830-8,93831-6"
+            "property" : "concept",
+            "op" : "in",
+            "value" : "93829-0,93832-4,93830-8,93831-6"
           }
         ]
       }
     ]
   },
-  "expansion": {
-    "identifier": "urn:uuid:092c45a0-e955-498f-b6b3-6a687bd46db0",
-    "timestamp": "2022-09-28T01:32:59-04:00",
-    "total": 4,
-    "offset": 0,
-    "parameter": [
+  "expansion" : {
+    "identifier" : "urn:uuid:8ca97aa2-e8e8-4710-b055-11a5d9273590",
+    "timestamp" : "2023-06-29T19:57:00-04:00",
+    "total" : 4,
+    "offset" : 0,
+    "parameter" : [
       {
-        "name": "count",
-        "valueInteger": 1000
+        "name" : "count",
+        "valueInteger" : 1000
       },
       {
-        "name": "offset",
-        "valueInteger": 0
+        "name" : "offset",
+        "valueInteger" : 0
       }
     ],
-    "contains": [
+    "contains" : [
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "93829-0",
-        "display": "REM sleep duration"
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "93829-0",
+        "display" : "REM sleep duration"
       },
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "93830-8",
-        "display": "Light sleep duration"
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "93830-8",
+        "display" : "Light sleep duration"
       },
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "93831-6",
-        "display": "Deep sleep duration"
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "93831-6",
+        "display" : "Deep sleep duration"
       },
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "93832-4",
-        "display": "Sleep duration"
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "93832-4",
+        "display" : "Sleep duration"
       }
     ]
   }

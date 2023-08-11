@@ -1,61 +1,97 @@
 {
-  "resourceType": "ValueSet",
-  "id": "2.16.840.1.113883.3.526.2.1058",
-  "meta": {
-    "versionId": "17",
-    "lastUpdated": "2021-11-15T15:59:50.000-05:00"
+  "resourceType" : "ValueSet",
+  "id" : "2.16.840.1.113883.3.526.2.1058",
+  "meta" : {
+    "versionId" : "17",
+    "lastUpdated" : "2021-11-15T15:59:50.000-05:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "url": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.526.2.1058",
-  "version": "20170504",
-  "name": "Psych Visit for Family Psychotherapy",
-  "status": "active",
-  "date": "2017-05-04T01:00:13-04:00",
-  "publisher": "Mathematica",
-  "compose": {
-    "include": [
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "Mathematica EP"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2023-01-30"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2017-05-04"
+    }
+  ],
+  "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.526.2.1058",
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113883.3.526.2.1058"
+    }
+  ],
+  "version" : "20170504",
+  "name" : "PsychVisitForFamilyPsychotherapy",
+  "title" : "Psych Visit for Family Psychotherapy",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2017-05-04T01:00:13-04:00",
+  "publisher" : "Mathematica",
+  "jurisdiction" : [
+    {
+      "extension" : [
+        {
+          "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
+          "valueString" : "UNKNOWN"
+        }
+      ]
+    }
+  ],
+  "purpose" : "(Clinical Focus: The purpose of this value set is to represent concepts for family psychotherapy.),(Data Element Scope: This value set may use a model element related to Encounter.),(Inclusion Criteria: Includes concepts that represent family psychotherapy.),(Exclusion Criteria: Excludes concepts for group psychotherapy or individual psychotherapy.)",
+  "compose" : {
+    "include" : [
       {
-        "system": "http://www.ama-assn.org/go/cpt",
-        "version": "2022",
-        "concept": [
+        "system" : "http://www.ama-assn.org/go/cpt",
+        "concept" : [
           {
-            "code": "90846",
-            "display": "Family psychotherapy (without the patient present)"
+            "code" : "90846",
+            "display" : "Family psychotherapy (without the patient present)"
           },
           {
-            "code": "90847",
-            "display": "Family psychotherapy (conjoint psychotherapy) (with patient present)"
+            "code" : "90847",
+            "display" : "Family psychotherapy (conjoint psychotherapy) (with patient present)"
           }
         ]
       }
     ]
   },
-  "expansion": {
-    "identifier": "urn:uuid:0e9f8ccb-4a77-4e38-b25d-b858cfa42292",
-    "timestamp": "2022-09-28T00:33:44-04:00",
-    "total": 2,
-    "offset": 0,
-    "parameter": [
+  "expansion" : {
+    "identifier" : "urn:uuid:0f931b3f-bb97-4f78-a6fb-620fd1a7bef4",
+    "timestamp" : "2023-06-29T19:32:28-04:00",
+    "total" : 2,
+    "offset" : 0,
+    "parameter" : [
       {
-        "name": "count",
-        "valueInteger": 1000
+        "name" : "count",
+        "valueInteger" : 1000
       },
       {
-        "name": "offset",
-        "valueInteger": 0
+        "name" : "offset",
+        "valueInteger" : 0
       }
     ],
-    "contains": [
+    "contains" : [
       {
-        "system": "http://www.ama-assn.org/go/cpt",
-        "version": "2022",
-        "code": "90846",
-        "display": "Family psychotherapy (without the patient present), 50 minutes"
+        "system" : "http://www.ama-assn.org/go/cpt",
+        "version" : "2023",
+        "code" : "90846",
+        "display" : "Family psychotherapy (without the patient present), 50 minutes"
       },
       {
-        "system": "http://www.ama-assn.org/go/cpt",
-        "version": "2022",
-        "code": "90847",
-        "display": "Family psychotherapy (conjoint psychotherapy) (with patient present), 50 minutes"
+        "system" : "http://www.ama-assn.org/go/cpt",
+        "version" : "2023",
+        "code" : "90847",
+        "display" : "Family psychotherapy (conjoint psychotherapy) (with patient present), 50 minutes"
       }
     ]
   }

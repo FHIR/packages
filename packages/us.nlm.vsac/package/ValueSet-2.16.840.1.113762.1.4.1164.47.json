@@ -1,63 +1,100 @@
 {
-  "resourceType": "ValueSet",
-  "id": "2.16.840.1.113762.1.4.1164.47",
-  "meta": {
-    "versionId": "5",
-    "lastUpdated": "2022-03-02T18:04:32.000-05:00"
+  "resourceType" : "ValueSet",
+  "id" : "2.16.840.1.113762.1.4.1164.47",
+  "meta" : {
+    "versionId" : "5",
+    "lastUpdated" : "2022-03-02T18:04:32.000-05:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "url": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1164.47",
-  "version": "20170623",
-  "name": "Urology symptom score",
-  "status": "active",
-  "date": "2022-03-03T18:46:01-05:00",
-  "publisher": "LUGPA Steward",
-  "compose": {
-    "include": [
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "LUGPA Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2022-12-15"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2017-06-23"
+    }
+  ],
+  "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1164.47",
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113762.1.4.1164.47"
+    }
+  ],
+  "version" : "20170623",
+  "name" : "UrologySymptomScore",
+  "title" : "Urology symptom score",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2022-03-03T18:46:01-05:00",
+  "publisher" : "LUGPA Steward",
+  "jurisdiction" : [
+    {
+      "extension" : [
+        {
+          "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
+          "valueString" : "UNKNOWN"
+        }
+      ]
+    }
+  ],
+  "purpose" : "(Clinical Focus: This set of values focuses on urology symptom scores which are used for patient reported symptoms during urology care.),(Data Element Scope: The intent of this data element is to identify urology symptom scores used for patient reported symptoms during urology care.),(Inclusion Criteria: International Prostate Symptom Score, Quality of Life (bother) score, American Urological Association symptom score),(Exclusion Criteria: None)",
+  "compose" : {
+    "include" : [
       {
-        "valueSet": [
+        "valueSet" : [
           "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1164.44"
         ]
       },
       {
-        "valueSet": [
+        "valueSet" : [
           "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1164.43"
         ]
       }
     ]
   },
-  "expansion": {
-    "identifier": "urn:uuid:0f62b1fb-5fb0-46e6-a224-02121ac86e04",
-    "timestamp": "2022-09-28T03:18:32-04:00",
-    "total": 3,
-    "offset": 0,
-    "parameter": [
+  "expansion" : {
+    "identifier" : "urn:uuid:d1b8539c-157a-451f-ae7f-98eda2352899",
+    "timestamp" : "2023-06-29T20:30:03-04:00",
+    "total" : 3,
+    "offset" : 0,
+    "parameter" : [
       {
-        "name": "count",
-        "valueInteger": 1000
+        "name" : "count",
+        "valueInteger" : 1000
       },
       {
-        "name": "offset",
-        "valueInteger": 0
+        "name" : "offset",
+        "valueInteger" : 0
       }
     ],
-    "contains": [
+    "contains" : [
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "80976-4",
-        "display": "International Prostate Symptom Score [IPSS]"
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "80976-4",
+        "display" : "International Prostate Symptom Score [IPSS]"
       },
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "81090-3",
-        "display": "If you were to spend the rest of your life with your urinary condition just the way it is now, how would you feel about that [IPSS]"
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "81090-3",
+        "display" : "If you were to spend the rest of your life with your urinary condition just the way it is now, how would you feel about that [IPSS]"
       },
       {
-        "system": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
-        "version": "2022-04",
-        "code": "C113436",
-        "display": "American Urological Association Symptom Score"
+        "system" : "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+        "version" : "2023-03",
+        "code" : "C113436",
+        "display" : "American Urological Association Symptom Score"
       }
     ]
   }

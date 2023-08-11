@@ -1,58 +1,101 @@
 {
-  "resourceType": "ValueSet",
-  "id": "2.16.840.1.113883.3.526.3.1582",
-  "meta": {
-    "versionId": "9",
-    "lastUpdated": "2022-03-02T18:05:58.000-05:00"
+  "resourceType" : "ValueSet",
+  "id" : "2.16.840.1.113883.3.526.3.1582",
+  "meta" : {
+    "versionId" : "9",
+    "lastUpdated" : "2022-03-02T18:05:58.000-05:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "url": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.526.3.1582",
-  "version": "20200307",
-  "name": "Patient Declined",
-  "status": "active",
-  "date": "2022-03-03T18:46:01-05:00",
-  "publisher": "Mathematica",
-  "compose": {
-    "include": [
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "Mathematica EP"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2023-02-15"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2020-03-07"
+    }
+  ],
+  "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.526.3.1582",
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113883.3.526.3.1582"
+    }
+  ],
+  "version" : "20200307",
+  "name" : "PatientDeclined",
+  "title" : "Patient Declined",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2022-03-03T18:46:01-05:00",
+  "publisher" : "Mathematica",
+  "jurisdiction" : [
+    {
+      "extension" : [
+        {
+          "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
+          "valueString" : "UNKNOWN"
+        }
+      ]
+    }
+  ],
+  "purpose" : "(Clinical Focus: The purpose of this value set is to represent concepts indicating a reason for patient refusal.),(Data Element Scope: This value set may use a model element related to Negation Rationale.),(Inclusion Criteria: Includes concepts that identify a reason for refusing treatment.),(Exclusion Criteria: No exclusions.)",
+  "compose" : {
+    "include" : [
       {
-        "valueSet": [
+        "valueSet" : [
           "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.600.791"
         ]
       }
     ]
   },
-  "expansion": {
-    "identifier": "urn:uuid:94cfb921-f957-4909-aaf1-82f99f0fb3a6",
-    "timestamp": "2022-09-27T23:51:29-04:00",
-    "total": 3,
-    "offset": 0,
-    "parameter": [
+  "expansion" : {
+    "identifier" : "urn:uuid:37e35c39-2b6b-4a98-a746-858776000632",
+    "timestamp" : "2023-06-29T19:11:50-04:00",
+    "total" : 4,
+    "offset" : 0,
+    "parameter" : [
       {
-        "name": "count",
-        "valueInteger": 1000
+        "name" : "count",
+        "valueInteger" : 1000
       },
       {
-        "name": "offset",
-        "valueInteger": 0
+        "name" : "offset",
+        "valueInteger" : 0
       }
     ],
-    "contains": [
+    "contains" : [
       {
-        "system": "http://snomed.info/sct",
-        "version": "http://snomed.info/sct/731000124108/version/20220301",
-        "code": "105480006",
-        "display": "Procedure declined by patient (situation)"
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20230301",
+        "code" : "105480006",
+        "display" : "Procedure declined by patient (situation)"
       },
       {
-        "system": "http://snomed.info/sct",
-        "version": "http://snomed.info/sct/731000124108/version/20220301",
-        "code": "183945002",
-        "display": "Procedure declined for religious reason (situation)"
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20230301",
+        "code" : "183945002",
+        "display" : "Procedure declined for religious reason (situation)"
       },
       {
-        "system": "http://snomed.info/sct",
-        "version": "http://snomed.info/sct/731000124108/version/20220301",
-        "code": "413311005",
-        "display": "Patient non-compliant - declined intervention / support (situation)"
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20230301",
+        "code" : "413311005",
+        "display" : "Patient non-compliant - declined intervention / support (situation)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20230301",
+        "code" : "895451009",
+        "display" : "Referral to service declined by subject (situation)"
       }
     ]
   }

@@ -1,58 +1,96 @@
 {
-  "resourceType": "ValueSet",
-  "id": "2.16.840.1.113762.1.4.1106.74",
-  "meta": {
-    "versionId": "10",
-    "lastUpdated": "2022-03-02T18:04:34.000-05:00"
+  "resourceType" : "ValueSet",
+  "id" : "2.16.840.1.113762.1.4.1106.74",
+  "meta" : {
+    "versionId" : "10",
+    "lastUpdated" : "2022-03-02T18:04:34.000-05:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "url": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1106.74",
-  "version": "20201230",
-  "name": "Unstable Vitals",
-  "status": "active",
-  "date": "2022-03-03T18:46:01-05:00",
-  "publisher": "ACEP/AMA-PCPI Steward",
-  "compose": {
-    "include": [
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "ACEP/AMA-PCPI Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2022-12-15"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2020-12-30"
+    }
+  ],
+  "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1106.74",
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113762.1.4.1106.74"
+    }
+  ],
+  "version" : "20201230",
+  "name" : "UnstableVitals",
+  "title" : "Unstable Vitals",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2022-03-03T18:46:01-05:00",
+  "publisher" : "ACEP/AMA-PCPI Steward",
+  "description" : "Unstable Vitals in Hypovolemic shock.\nSystolic BP < 90 mm Hg\nPulse Rate > 100 bpm\nRespiratory Rate > 35per minute",
+  "jurisdiction" : [
+    {
+      "extension" : [
+        {
+          "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
+          "valueString" : "UNKNOWN"
+        }
+      ]
+    }
+  ],
+  "purpose" : "(Clinical Focus: ),(Data Element Scope: ),(Inclusion Criteria: ),(Exclusion Criteria: )",
+  "compose" : {
+    "include" : [
       {
-        "valueSet": [
+        "valueSet" : [
           "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1200.24"
         ]
       }
     ]
   },
-  "expansion": {
-    "identifier": "urn:uuid:f2703f5f-f6fd-44cb-a407-df7e8eb781c8",
-    "timestamp": "2022-09-28T02:59:51-04:00",
-    "total": 3,
-    "offset": 0,
-    "parameter": [
+  "expansion" : {
+    "identifier" : "urn:uuid:6054bf06-fe1f-4ebf-97a4-16e13c9aa3bf",
+    "timestamp" : "2023-06-29T20:28:01-04:00",
+    "total" : 3,
+    "offset" : 0,
+    "parameter" : [
       {
-        "name": "count",
-        "valueInteger": 1000
+        "name" : "count",
+        "valueInteger" : 1000
       },
       {
-        "name": "offset",
-        "valueInteger": 0
+        "name" : "offset",
+        "valueInteger" : 0
       }
     ],
-    "contains": [
+    "contains" : [
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "8480-6",
-        "display": "Systolic blood pressure"
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "8480-6",
+        "display" : "Systolic blood pressure"
       },
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "8867-4",
-        "display": "Heart rate"
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "8867-4",
+        "display" : "Heart rate"
       },
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "9279-1",
-        "display": "Respiratory rate"
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "9279-1",
+        "display" : "Respiratory rate"
       }
     ]
   }

@@ -1,81 +1,118 @@
 {
-  "resourceType": "ValueSet",
-  "id": "1.1.1",
-  "meta": {
-    "versionId": "7",
-    "lastUpdated": "2020-10-19T01:00:27.000-04:00"
+  "resourceType" : "ValueSet",
+  "id" : "1.1.1",
+  "meta" : {
+    "versionId" : "7",
+    "lastUpdated" : "2020-10-19T01:00:27.000-04:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "url": "http://cts.nlm.nih.gov/fhir/ValueSet/1.1.1",
-  "version": "20201019",
-  "name": "GCS Compute score",
-  "status": "active",
-  "date": "2020-10-19T01:00:27-04:00",
-  "publisher": "Cliniwiz Steward",
-  "compose": {
-    "include": [
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "Cliniwiz Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2022-12-15"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2020-10-19"
+    }
+  ],
+  "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/1.1.1",
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:1.1.1"
+    }
+  ],
+  "version" : "20201019",
+  "name" : "GCSComputeScore",
+  "title" : "GCS Compute score",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2020-10-19T01:00:27-04:00",
+  "publisher" : "Cliniwiz Steward",
+  "description" : "R40.24\tGlasgow coma scale, total score\t\nIf score < 15, GCS < 15;\nR40.21\tCOMA SCALE, EYES OPEN\t\nIf value < 4, GCS < 15;\nR40.22\tComa scale, best verbal response\t\nIf value < 5, GCS < 15;\nR40.23\tComa scale, best motor response\t\nIf value < 6, GCS < 15;",
+  "jurisdiction" : [
+    {
+      "extension" : [
+        {
+          "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
+          "valueString" : "UNKNOWN"
+        }
+      ]
+    }
+  ],
+  "purpose" : "(Clinical Focus: ),(Data Element Scope: ),(Inclusion Criteria: ),(Exclusion Criteria: )",
+  "compose" : {
+    "include" : [
       {
-        "system": "http://hl7.org/fhir/sid/icd-10-cm",
-        "version": "2023",
-        "concept": [
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "concept" : [
           {
-            "code": "R40.21",
-            "display": "Coma scale, eyes open"
+            "code" : "R40.21",
+            "display" : "Coma scale, eyes open"
           },
           {
-            "code": "R40.22",
-            "display": "Coma scale, best verbal response"
+            "code" : "R40.22",
+            "display" : "Coma scale, best verbal response"
           },
           {
-            "code": "R40.23",
-            "display": "Coma scale, best motor response"
+            "code" : "R40.23",
+            "display" : "Coma scale, best motor response"
           },
           {
-            "code": "R40.24",
-            "display": "Glasgow coma scale, total score"
+            "code" : "R40.24",
+            "display" : "Glasgow coma scale, total score"
           }
         ]
       }
     ]
   },
-  "expansion": {
-    "identifier": "urn:uuid:32aeaec7-f562-4787-ab25-d8171a5c804b",
-    "timestamp": "2022-09-27T20:57:00-04:00",
-    "total": 4,
-    "offset": 0,
-    "parameter": [
+  "expansion" : {
+    "identifier" : "urn:uuid:476a4d8e-500a-4ef4-8699-fb8b8f207d5b",
+    "timestamp" : "2023-06-29T17:31:10-04:00",
+    "total" : 4,
+    "offset" : 0,
+    "parameter" : [
       {
-        "name": "count",
-        "valueInteger": 1000
+        "name" : "count",
+        "valueInteger" : 1000
       },
       {
-        "name": "offset",
-        "valueInteger": 0
+        "name" : "offset",
+        "valueInteger" : 0
       }
     ],
-    "contains": [
+    "contains" : [
       {
-        "system": "http://hl7.org/fhir/sid/icd-10-cm",
-        "version": "2023",
-        "code": "R40.21",
-        "display": "Coma scale, eyes open"
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2023",
+        "code" : "R40.21",
+        "display" : "Coma scale, eyes open"
       },
       {
-        "system": "http://hl7.org/fhir/sid/icd-10-cm",
-        "version": "2023",
-        "code": "R40.22",
-        "display": "Coma scale, best verbal response"
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2023",
+        "code" : "R40.22",
+        "display" : "Coma scale, best verbal response"
       },
       {
-        "system": "http://hl7.org/fhir/sid/icd-10-cm",
-        "version": "2023",
-        "code": "R40.23",
-        "display": "Coma scale, best motor response"
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2023",
+        "code" : "R40.23",
+        "display" : "Coma scale, best motor response"
       },
       {
-        "system": "http://hl7.org/fhir/sid/icd-10-cm",
-        "version": "2023",
-        "code": "R40.24",
-        "display": "Glasgow coma scale, total score"
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2023",
+        "code" : "R40.24",
+        "display" : "Glasgow coma scale, total score"
       }
     ]
   }

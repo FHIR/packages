@@ -1,46 +1,84 @@
 {
-  "resourceType": "ValueSet",
-  "id": "2.16.840.1.113883.3.526.3.1500",
-  "meta": {
-    "versionId": "5",
-    "lastUpdated": "2022-03-02T18:03:50.000-05:00"
+  "resourceType" : "ValueSet",
+  "id" : "2.16.840.1.113883.3.526.3.1500",
+  "meta" : {
+    "versionId" : "5",
+    "lastUpdated" : "2022-03-02T18:03:50.000-05:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "url": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.526.3.1500",
-  "version": "20171018",
-  "name": "AUDIT C Alcohol Screening",
-  "status": "active",
-  "date": "2022-03-03T18:46:01-05:00",
-  "publisher": "AMA-PCPI",
-  "compose": {
-    "include": [
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "BAH-NIDA"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2022-12-15"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2017-10-18"
+    }
+  ],
+  "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.526.3.1500",
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113883.3.526.3.1500"
+    }
+  ],
+  "version" : "20171018",
+  "name" : "AUDITCAlcoholScreening",
+  "title" : "AUDIT C Alcohol Screening",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2022-03-03T18:46:01-05:00",
+  "publisher" : "AMA-PCPI",
+  "description" : "\"AUDIT-C Alcohol Screening\" LOINC value set",
+  "jurisdiction" : [
+    {
+      "extension" : [
+        {
+          "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
+          "valueString" : "UNKNOWN"
+        }
+      ]
+    }
+  ],
+  "purpose" : "(Clinical Focus: This is intended to capture the total score (result) of an AUDIT-C screening.),(Data Element Scope: ),(Inclusion Criteria: ),(Exclusion Criteria: )",
+  "compose" : {
+    "include" : [
       {
-        "valueSet": [
+        "valueSet" : [
           "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.526.2.1929"
         ]
       }
     ]
   },
-  "expansion": {
-    "identifier": "urn:uuid:78d7dca9-6ad4-4400-856f-be28d61bb447",
-    "timestamp": "2022-09-27T18:19:38-04:00",
-    "total": 1,
-    "offset": 0,
-    "parameter": [
+  "expansion" : {
+    "identifier" : "urn:uuid:623be2b9-08b2-47b4-9ff0-b36fc2ca24ec",
+    "timestamp" : "2023-06-29T15:51:48-04:00",
+    "total" : 1,
+    "offset" : 0,
+    "parameter" : [
       {
-        "name": "count",
-        "valueInteger": 1000
+        "name" : "count",
+        "valueInteger" : 1000
       },
       {
-        "name": "offset",
-        "valueInteger": 0
+        "name" : "offset",
+        "valueInteger" : 0
       }
     ],
-    "contains": [
+    "contains" : [
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "75626-2",
-        "display": "Total score [AUDIT-C]"
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "75626-2",
+        "display" : "Total score [AUDIT-C]"
       }
     ]
   }

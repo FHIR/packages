@@ -1,75 +1,112 @@
 {
-  "resourceType": "ValueSet",
-  "id": "2.16.840.1.113762.1.4.1222.89",
-  "meta": {
-    "versionId": "6",
-    "lastUpdated": "2020-04-07T01:01:26.000-04:00"
+  "resourceType" : "ValueSet",
+  "id" : "2.16.840.1.113762.1.4.1222.89",
+  "meta" : {
+    "versionId" : "6",
+    "lastUpdated" : "2020-04-07T01:01:26.000-04:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "url": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1222.89",
-  "version": "20200407",
-  "name": "Vitamin D Deficiency Conditions ICD10",
-  "status": "active",
-  "date": "2020-04-07T01:01:26-04:00",
-  "publisher": "HL7 Patient Care WG Steward",
-  "compose": {
-    "include": [
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "MCC eCare Plan Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2022-12-15"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2020-04-07"
+    }
+  ],
+  "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1222.89",
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113762.1.4.1222.89"
+    }
+  ],
+  "version" : "20200407",
+  "name" : "VitaminDDeficiencyConditionsICD10",
+  "title" : "Vitamin D Deficiency Conditions ICD10",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2020-04-07T01:01:26-04:00",
+  "publisher" : "HL7 Patient Care WG Steward",
+  "jurisdiction" : [
+    {
+      "extension" : [
+        {
+          "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
+          "valueString" : "UNKNOWN"
+        }
+      ]
+    }
+  ],
+  "purpose" : "(Clinical Focus: This set of values contains diagnosis terms representing Vitamin D Deficiency conditions),(Data Element Scope: The intent of this set of values is to identify patients who have a diagnosis of  Vitamin D Deficiency),(Inclusion Criteria: Includes Vitamin D Deficiency disorder ICD10 encoded terms that represent Vitamin D Deficiency conditions),(Exclusion Criteria: Laboratory observable encoded terms that may have values indicating a Vitamin D Deficiency condition. Conditions caused by vitamin D deficiency.)",
+  "compose" : {
+    "include" : [
       {
-        "system": "http://hl7.org/fhir/sid/icd-10-cm",
-        "version": "2023",
-        "filter": [
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2023",
+        "filter" : [
           {
-            "property": "concept",
-            "op": "is-a",
-            "value": "E55.9"
+            "property" : "concept",
+            "op" : "is-a",
+            "value" : "E55.9"
           }
         ]
       },
       {
-        "system": "http://hl7.org/fhir/sid/icd-10-cm",
-        "version": "2023",
-        "filter": [
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2023",
+        "filter" : [
           {
-            "property": "concept",
-            "op": "is-a",
-            "value": "E55"
+            "property" : "concept",
+            "op" : "is-a",
+            "value" : "E55"
           }
         ]
       }
     ]
   },
-  "expansion": {
-    "identifier": "urn:uuid:1a35966f-61fe-4f67-802f-c2966c4a23f8",
-    "timestamp": "2022-09-28T03:25:03-04:00",
-    "total": 3,
-    "offset": 0,
-    "parameter": [
+  "expansion" : {
+    "identifier" : "urn:uuid:9b4178b5-383e-4724-a816-53dec1796a90",
+    "timestamp" : "2023-06-29T20:34:54-04:00",
+    "total" : 3,
+    "offset" : 0,
+    "parameter" : [
       {
-        "name": "count",
-        "valueInteger": 1000
+        "name" : "count",
+        "valueInteger" : 1000
       },
       {
-        "name": "offset",
-        "valueInteger": 0
+        "name" : "offset",
+        "valueInteger" : 0
       }
     ],
-    "contains": [
+    "contains" : [
       {
-        "system": "http://hl7.org/fhir/sid/icd-10-cm",
-        "version": "2023",
-        "code": "E55",
-        "display": "Vitamin D deficiency"
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2023",
+        "code" : "E55",
+        "display" : "Vitamin D deficiency"
       },
       {
-        "system": "http://hl7.org/fhir/sid/icd-10-cm",
-        "version": "2023",
-        "code": "E55.0",
-        "display": "Rickets, active"
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2023",
+        "code" : "E55.0",
+        "display" : "Rickets, active"
       },
       {
-        "system": "http://hl7.org/fhir/sid/icd-10-cm",
-        "version": "2023",
-        "code": "E55.9",
-        "display": "Vitamin D deficiency, unspecified"
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2023",
+        "code" : "E55.9",
+        "display" : "Vitamin D deficiency, unspecified"
       }
     ]
   }

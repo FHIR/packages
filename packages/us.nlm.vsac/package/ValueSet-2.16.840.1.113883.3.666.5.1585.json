@@ -1,74 +1,111 @@
 {
-  "resourceType": "ValueSet",
-  "id": "2.16.840.1.113883.3.666.5.1585",
-  "meta": {
-    "versionId": "15",
-    "lastUpdated": "2022-03-02T18:02:37.000-05:00"
+  "resourceType" : "ValueSet",
+  "id" : "2.16.840.1.113883.3.666.5.1585",
+  "meta" : {
+    "versionId" : "15",
+    "lastUpdated" : "2022-03-02T18:02:37.000-05:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "url": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.666.5.1585",
-  "version": "20160331",
-  "name": "Gavage Feeding Group",
-  "status": "active",
-  "date": "2022-03-03T18:46:01-05:00",
-  "publisher": "Lantana EH Steward",
-  "compose": {
-    "include": [
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "Lantana EH Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2022-12-15"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2016-03-31"
+    }
+  ],
+  "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.666.5.1585",
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113883.3.666.5.1585"
+    }
+  ],
+  "version" : "20160331",
+  "name" : "GavageFeedingGroup",
+  "title" : "Gavage Feeding Group",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2022-03-03T18:46:01-05:00",
+  "publisher" : "Lantana EH Steward",
+  "jurisdiction" : [
+    {
+      "extension" : [
+        {
+          "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
+          "valueString" : "UNKNOWN"
+        }
+      ]
+    }
+  ],
+  "purpose" : "(Clinical Focus: This grouping value set contains procedures for gavage feeding  most commonly used for patients.),(Data Element Scope: The intent of this data element is to identify patients who have a procedure performed for  gavage feeding. Using the Quality Data Model, this particular element will map to the  \"Procedure\" category.),(Inclusion Criteria: Codes representing a grouping of ICD-9, ICD-10, and SNOMED-CT for the procedure of a gavage feeding.),(Exclusion Criteria: None.)",
+  "compose" : {
+    "include" : [
       {
-        "valueSet": [
+        "valueSet" : [
           "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.666.5.2308"
         ]
       },
       {
-        "valueSet": [
+        "valueSet" : [
           "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.666.5.1766"
         ]
       },
       {
-        "valueSet": [
+        "valueSet" : [
           "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.666.5.1936"
         ]
       }
     ]
   },
-  "expansion": {
-    "identifier": "urn:uuid:0e68a41d-909b-411e-8f4a-660dea59a4df",
-    "timestamp": "2022-09-27T20:56:55-04:00",
-    "total": 4,
-    "offset": 0,
-    "parameter": [
+  "expansion" : {
+    "identifier" : "urn:uuid:fd0ccf27-a6df-4906-955f-d9407ac1e809",
+    "timestamp" : "2023-06-29T17:31:05-04:00",
+    "total" : 4,
+    "offset" : 0,
+    "parameter" : [
       {
-        "name": "count",
-        "valueInteger": 1000
+        "name" : "count",
+        "valueInteger" : 1000
       },
       {
-        "name": "offset",
-        "valueInteger": 0
+        "name" : "offset",
+        "valueInteger" : 0
       }
     ],
-    "contains": [
+    "contains" : [
       {
-        "system": "http://snomed.info/sct",
-        "version": "http://snomed.info/sct/731000124108/version/20220301",
-        "code": "229912004",
-        "display": "Enteral feeding (regime/therapy)"
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20230301",
+        "code" : "229912004",
+        "display" : "Enteral feeding (regime/therapy)"
       },
       {
-        "system": "http://www.icd10data.com/icd10pcs",
-        "version": "2023",
-        "code": "3E0G76Z",
-        "display": "Introduction of Nutritional Substance into Upper GI, Via Natural or Artificial Opening"
+        "system" : "http://www.cms.gov/Medicare/Coding/ICD10",
+        "version" : "2023",
+        "code" : "3E0G76Z",
+        "display" : "Introduction of Nutritional Substance into Upper GI, Via Natural or Artificial Opening"
       },
       {
-        "system": "http://www.icd10data.com/icd10pcs",
-        "version": "2023",
-        "code": "3E0G86Z",
-        "display": "Introduction of Nutritional Substance into Upper GI, Via Natural or Artificial Opening Endoscopic"
+        "system" : "http://www.cms.gov/Medicare/Coding/ICD10",
+        "version" : "2023",
+        "code" : "3E0G86Z",
+        "display" : "Introduction of Nutritional Substance into Upper GI, Via Natural or Artificial Opening Endoscopic"
       },
       {
-        "system": "http://hl7.org/fhir/sid/icd-9-cm",
-        "version": "2013",
-        "code": "96.35",
-        "display": "Gastric gavage"
+        "system" : "http://hl7.org/fhir/sid/icd-9-cm",
+        "version" : "2013",
+        "code" : "96.35",
+        "display" : "Gastric gavage"
       }
     ]
   }

@@ -1,57 +1,95 @@
 {
-  "resourceType": "ValueSet",
-  "id": "2.16.840.1.113883.3.666.5.2572",
-  "meta": {
-    "versionId": "7",
-    "lastUpdated": "2022-03-02T18:05:48.000-05:00"
+  "resourceType" : "ValueSet",
+  "id" : "2.16.840.1.113883.3.666.5.2572",
+  "meta" : {
+    "versionId" : "7",
+    "lastUpdated" : "2022-03-02T18:05:48.000-05:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "url": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.666.5.2572",
-  "version": "20140630",
-  "name": "Transfer from ED",
-  "status": "active",
-  "date": "2022-03-03T18:46:01-05:00",
-  "publisher": "Yale",
-  "compose": {
-    "include": [
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "OFMQ-CMS-Abt"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2022-12-15"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2014-06-30"
+    }
+  ],
+  "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.666.5.2572",
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113883.3.666.5.2572"
+    }
+  ],
+  "version" : "20140630",
+  "name" : "TransferFromED",
+  "title" : "Transfer from ED",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2022-03-03T18:46:01-05:00",
+  "publisher" : "Yale",
+  "description" : "Transfer From Group ED Yale AMI",
+  "jurisdiction" : [
+    {
+      "extension" : [
+        {
+          "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
+          "valueString" : "UNKNOWN"
+        }
+      ]
+    }
+  ],
+  "purpose" : "(Clinical Focus: This grouping contains value sets used to identify an ED transfer.),(Data Element Scope: The intent of the value set is to identify a transfer to/from an ED setting. The QDM Category linked to this value set: Transfer of Care),(Inclusion Criteria: Include SNOMED CT codes to indicate an ED transfer as a location transfer or procedure to transfer.),(Exclusion Criteria: Exclude codes that do not meet the inclusion criteria.)",
+  "compose" : {
+    "include" : [
       {
-        "valueSet": [
+        "valueSet" : [
           "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.13.190.5.42"
         ]
       },
       {
-        "valueSet": [
+        "valueSet" : [
           "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.666.5.2573"
         ]
       }
     ]
   },
-  "expansion": {
-    "identifier": "urn:uuid:1c28fb11-7d53-46ee-811f-3e035768d6de",
-    "timestamp": "2022-09-28T02:30:07-04:00",
-    "total": 2,
-    "offset": 0,
-    "parameter": [
+  "expansion" : {
+    "identifier" : "urn:uuid:73d43192-aba3-4f0a-bce5-2d46311d48be",
+    "timestamp" : "2023-06-29T20:18:11-04:00",
+    "total" : 2,
+    "offset" : 0,
+    "parameter" : [
       {
-        "name": "count",
-        "valueInteger": 1000
+        "name" : "count",
+        "valueInteger" : 1000
       },
       {
-        "name": "offset",
-        "valueInteger": 0
+        "name" : "offset",
+        "valueInteger" : 0
       }
     ],
-    "contains": [
+    "contains" : [
       {
-        "system": "http://snomed.info/sct",
-        "version": "http://snomed.info/sct/731000124108/version/20220301",
-        "code": "225728007",
-        "display": "Accident and Emergency department (environment)"
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20230301",
+        "code" : "225728007",
+        "display" : "Accident and Emergency department (environment)"
       },
       {
-        "system": "http://snomed.info/sct",
-        "version": "http://snomed.info/sct/731000124108/version/20220301",
-        "code": "50849002",
-        "display": "Emergency room admission (procedure)"
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20230301",
+        "code" : "50849002",
+        "display" : "Emergency room admission (procedure)"
       }
     ]
   }

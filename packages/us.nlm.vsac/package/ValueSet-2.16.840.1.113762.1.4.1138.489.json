@@ -1,51 +1,88 @@
 {
-  "resourceType": "ValueSet",
-  "id": "2.16.840.1.113762.1.4.1138.489",
-  "meta": {
-    "versionId": "7",
-    "lastUpdated": "2018-08-03T01:09:26.000-04:00"
+  "resourceType" : "ValueSet",
+  "id" : "2.16.840.1.113762.1.4.1138.489",
+  "meta" : {
+    "versionId" : "7",
+    "lastUpdated" : "2018-08-03T01:09:26.000-04:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "url": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1138.489",
-  "version": "20180803",
-  "name": "Kidney Transplant Recipient",
-  "status": "active",
-  "date": "2018-08-03T01:00:02-04:00",
-  "publisher": "Change Healthcare Steward",
-  "compose": {
-    "include": [
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "Change Healthcare Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2022-12-15"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2018-08-03"
+    }
+  ],
+  "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1138.489",
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113762.1.4.1138.489"
+    }
+  ],
+  "version" : "20180803",
+  "name" : "KidneyTransplantRecipient",
+  "title" : "Kidney Transplant Recipient",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2018-08-03T01:00:02-04:00",
+  "publisher" : "Change Healthcare Steward",
+  "description" : "Equivalent codes to identify persons who have had a kidney transplant. Augments the procedure value set \"Kidney Transplant\": '2.16.840.1.113883.3.464.1003.109.12.1012'",
+  "jurisdiction" : [
+    {
+      "extension" : [
+        {
+          "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
+          "valueString" : "UNKNOWN"
+        }
+      ]
+    }
+  ],
+  "purpose" : "(Clinical Focus: Status post kidney transplant recipient),(Data Element Scope: Status post kidney transplant recipient),(Inclusion Criteria: Status post kidney transplant recipient),(Exclusion Criteria: Kidney donor codes)",
+  "compose" : {
+    "include" : [
       {
-        "system": "http://hl7.org/fhir/sid/icd-9-cm",
-        "version": "2013",
-        "concept": [
+        "system" : "http://hl7.org/fhir/sid/icd-9-cm",
+        "concept" : [
           {
-            "code": "V42.0",
-            "display": "Kidney replaced by transplant"
+            "code" : "V42.0",
+            "display" : "Kidney replaced by transplant"
           }
         ]
       }
     ]
   },
-  "expansion": {
-    "identifier": "urn:uuid:a6ad8f0d-4db5-44c4-87d6-90092d893e46",
-    "timestamp": "2022-09-27T22:05:23-04:00",
-    "total": 1,
-    "offset": 0,
-    "parameter": [
+  "expansion" : {
+    "identifier" : "urn:uuid:e0c9bdd8-604a-4974-a863-f751bb42188c",
+    "timestamp" : "2023-06-29T18:12:57-04:00",
+    "total" : 1,
+    "offset" : 0,
+    "parameter" : [
       {
-        "name": "count",
-        "valueInteger": 1000
+        "name" : "count",
+        "valueInteger" : 1000
       },
       {
-        "name": "offset",
-        "valueInteger": 0
+        "name" : "offset",
+        "valueInteger" : 0
       }
     ],
-    "contains": [
+    "contains" : [
       {
-        "system": "http://hl7.org/fhir/sid/icd-9-cm",
-        "version": "2013",
-        "code": "V42.0",
-        "display": "Kidney replaced by transplant"
+        "system" : "http://hl7.org/fhir/sid/icd-9-cm",
+        "version" : "2013",
+        "code" : "V42.0",
+        "display" : "Kidney replaced by transplant"
       }
     ]
   }

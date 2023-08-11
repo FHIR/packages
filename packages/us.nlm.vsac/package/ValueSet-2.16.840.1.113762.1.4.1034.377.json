@@ -1,51 +1,88 @@
 {
-  "resourceType": "ValueSet",
-  "id": "2.16.840.1.113762.1.4.1034.377",
-  "meta": {
-    "versionId": "5",
-    "lastUpdated": "2022-03-24T01:02:10.000-04:00"
+  "resourceType" : "ValueSet",
+  "id" : "2.16.840.1.113762.1.4.1034.377",
+  "meta" : {
+    "versionId" : "5",
+    "lastUpdated" : "2022-03-24T01:02:10.000-04:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "url": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1034.377",
-  "version": "20220324",
-  "name": "Patient Unable to Communicate (SNOMED)",
-  "status": "active",
-  "date": "2022-03-24T01:02:10-04:00",
-  "publisher": "American Academy of Neurology Steward",
-  "compose": {
-    "include": [
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "American Academy of Neurology Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2022-12-15"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2022-03-24"
+    }
+  ],
+  "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1034.377",
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113762.1.4.1034.377"
+    }
+  ],
+  "version" : "20220324",
+  "name" : "PatientUnableToCommunicateSNOMED",
+  "title" : "Patient Unable to Communicate (SNOMED)",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2022-03-24T01:02:10-04:00",
+  "publisher" : "American Academy of Neurology Steward",
+  "description" : "This value set contains SNOMED concepts for patient inability to communicate",
+  "jurisdiction" : [
+    {
+      "extension" : [
+        {
+          "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
+          "valueString" : "UNKNOWN"
+        }
+      ]
+    }
+  ],
+  "purpose" : "(Clinical Focus: This value set contains SNOMED concepts for patient inability to communicate),(Data Element Scope: The intent of this data element is to identify people who unable to communicate. This element may map to \"Symptom\" Category of the Quality Data Model.),(Inclusion Criteria: Includes concepts for inability to communicate using any means.),(Exclusion Criteria: Excludes concepts for specific communication challenges (e.g., unable to communicate verbally).)",
+  "compose" : {
+    "include" : [
       {
-        "system": "http://snomed.info/sct",
-        "version": "http://snomed.info/sct/731000124108/version/20220301",
-        "concept": [
+        "system" : "http://snomed.info/sct",
+        "concept" : [
           {
-            "code": "288576002",
-            "display": "Unable to communicate (finding)"
+            "code" : "288576002",
+            "display" : "Unable to communicate (finding)"
           }
         ]
       }
     ]
   },
-  "expansion": {
-    "identifier": "urn:uuid:71964df5-a207-4753-a851-9d1f8cc6ece6",
-    "timestamp": "2022-09-27T23:54:23-04:00",
-    "total": 1,
-    "offset": 0,
-    "parameter": [
+  "expansion" : {
+    "identifier" : "urn:uuid:f53419eb-919e-44cf-9f78-facd066668fa",
+    "timestamp" : "2023-06-29T19:13:23-04:00",
+    "total" : 1,
+    "offset" : 0,
+    "parameter" : [
       {
-        "name": "count",
-        "valueInteger": 1000
+        "name" : "count",
+        "valueInteger" : 1000
       },
       {
-        "name": "offset",
-        "valueInteger": 0
+        "name" : "offset",
+        "valueInteger" : 0
       }
     ],
-    "contains": [
+    "contains" : [
       {
-        "system": "http://snomed.info/sct",
-        "version": "http://snomed.info/sct/731000124108/version/20220301",
-        "code": "288576002",
-        "display": "Unable to communicate (finding)"
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20230301",
+        "code" : "288576002",
+        "display" : "Unable to communicate (finding)"
       }
     ]
   }

@@ -1,100 +1,215 @@
 {
-  "resourceType": "ValueSet",
-  "id": "2.16.840.1.113762.1.4.1219.173",
-  "meta": {
-    "versionId": "9",
-    "lastUpdated": "2022-03-15T01:04:14.000-04:00"
+  "resourceType" : "ValueSet",
+  "id" : "2.16.840.1.113762.1.4.1219.173",
+  "meta" : {
+    "versionId" : "9",
+    "lastUpdated" : "2022-03-15T01:04:14.000-04:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "url": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1219.173",
-  "version": "20220315",
-  "name": "Grade 2, 3 or 4 Decubitus Ulcer on Buttock Disorder SNOMED CT",
-  "status": "active",
-  "date": "2022-03-15T01:04:14-04:00",
-  "publisher": "CMS DRLS Steward",
-  "compose": {
-    "include": [
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "CMS DRLS Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2022-12-15"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2022-03-15"
+    }
+  ],
+  "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1219.173",
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113762.1.4.1219.173"
+    }
+  ],
+  "version" : "20220315",
+  "name" : "Grade23Or4DecubitusUlcerOnButtockDisorderSNOMEDCT",
+  "title" : "Grade 2, 3 or 4 Decubitus Ulcer on Buttock Disorder SNOMED CT",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2022-03-15T01:04:14-04:00",
+  "publisher" : "CMS DRLS Steward",
+  "jurisdiction" : [
+    {
+      "extension" : [
+        {
+          "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
+          "valueString" : "UNKNOWN"
+        }
+      ]
+    }
+  ],
+  "purpose" : "(Clinical Focus: Grade 2, 3, and 4 decubitus ulcer on buttock.),(Data Element Scope: Grade 2, 3, and 4 decubitus ulcer on buttock that may impair mobility and qualify a patient for non-emergency transport as defined by U.S. Centers for Medicare and Medicaid.),(Inclusion Criteria: Grade 2, 3, and 4 decubitus ulcer on buttock.),(Exclusion Criteria: Grade 1 decubitus ulcer on buttock.)",
+  "compose" : {
+    "include" : [
       {
-        "system": "http://snomed.info/sct",
-        "version": "http://snomed.info/sct/731000124108/version/20220301",
-        "filter": [
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20230301",
+        "filter" : [
           {
-            "property": "concept",
-            "op": "descendent-of",
-            "value": "225563000"
+            "property" : "concept",
+            "op" : "descendent-of",
+            "value" : "225563000"
           }
         ]
       }
     ],
-    "exclude": [
+    "exclude" : [
       {
-        "system": "http://snomed.info/sct",
-        "version": "http://snomed.info/sct/731000124108/version/20220301",
-        "filter": [
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20230301",
+        "filter" : [
           {
-            "property": "concept",
-            "op": "is-a",
-            "value": "10637031000119106"
+            "property" : "concept",
+            "op" : "is-a",
+            "value" : "10637031000119106"
           }
         ]
       },
       {
-        "system": "http://snomed.info/sct",
-        "version": "http://snomed.info/sct/731000124108/version/20220301",
-        "filter": [
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20230301",
+        "filter" : [
           {
-            "property": "concept",
-            "op": "\u003d",
-            "value": "8960001000004106"
+            "property" : "concept",
+            "op" : "=",
+            "value" : "8960001000004106"
           }
         ]
       }
     ]
   },
-  "expansion": {
-    "identifier": "urn:uuid:6498e49a-cf26-429d-aa80-93b1759aafa4",
-    "timestamp": "2022-09-27T21:05:24-04:00",
-    "total": 5,
-    "offset": 0,
-    "parameter": [
+  "expansion" : {
+    "identifier" : "urn:uuid:62d222c0-ff6e-4920-98dd-51cc6ca5a241",
+    "timestamp" : "2023-06-29T17:35:07-04:00",
+    "total" : 18,
+    "offset" : 0,
+    "parameter" : [
       {
-        "name": "count",
-        "valueInteger": 1000
+        "name" : "count",
+        "valueInteger" : 1000
       },
       {
-        "name": "offset",
-        "valueInteger": 0
+        "name" : "offset",
+        "valueInteger" : 0
       }
     ],
-    "contains": [
+    "contains" : [
       {
-        "system": "http://snomed.info/sct",
-        "version": "http://snomed.info/sct/731000124108/version/20220301",
-        "code": "10637071000119109",
-        "display": "Pressure injury of buttock stage II (disorder)"
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20230301",
+        "code" : "10637071000119109",
+        "display" : "Pressure injury of buttock stage II (disorder)"
       },
       {
-        "system": "http://snomed.info/sct",
-        "version": "http://snomed.info/sct/731000124108/version/20220301",
-        "code": "10637111000119102",
-        "display": "Pressure injury of buttock stage III (disorder)"
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20230301",
+        "code" : "10637111000119102",
+        "display" : "Pressure injury of buttock stage III (disorder)"
       },
       {
-        "system": "http://snomed.info/sct",
-        "version": "http://snomed.info/sct/731000124108/version/20220301",
-        "code": "10637151000119101",
-        "display": "Pressure injury of buttock stage IV (disorder)"
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20230301",
+        "code" : "10637151000119101",
+        "display" : "Pressure injury of buttock stage IV (disorder)"
       },
       {
-        "system": "http://snomed.info/sct",
-        "version": "http://snomed.info/sct/731000124108/version/20220301",
-        "code": "282236291000119109",
-        "display": "Pressure injury of deep tissue of right buttock (disorder)"
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20230301",
+        "code" : "10637591000119100",
+        "display" : "Unstageable pressure injury of buttock (disorder)"
       },
       {
-        "system": "http://snomed.info/sct",
-        "version": "http://snomed.info/sct/731000124108/version/20220301",
-        "code": "959201281000119107",
-        "display": "Pressure injury of deep tissue of left buttock (disorder)"
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20230301",
+        "code" : "10637631000119100",
+        "display" : "Unstageable pressure injury of left buttock (disorder)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20230301",
+        "code" : "10637671000119102",
+        "display" : "Unstageable pressure injury of right buttock (disorder)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20230301",
+        "code" : "1217297002",
+        "display" : "Pressure injury of ischial tuberosity region of buttock (disorder)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20230301",
+        "code" : "1217300007",
+        "display" : "Pressure injury of ischial tuberosity region of left buttock (disorder)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20230301",
+        "code" : "282236291000119109",
+        "display" : "Pressure injury of deep tissue of right buttock (disorder)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20230301",
+        "code" : "29201000175101",
+        "display" : "Pressure injury of right buttock (disorder)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20230301",
+        "code" : "29231000175105",
+        "display" : "Pressure injury of right buttock stage II (disorder)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20230301",
+        "code" : "29241000175104",
+        "display" : "Pressure injury of right buttock stage III (disorder)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20230301",
+        "code" : "29251000175102",
+        "display" : "Pressure injury of right buttock stage IV (disorder)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20230301",
+        "code" : "29261000175100",
+        "display" : "Pressure injury of left buttock (disorder)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20230301",
+        "code" : "29291000175109",
+        "display" : "Pressure injury of left buttock stage II (disorder)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20230301",
+        "code" : "29301000175105",
+        "display" : "Pressure injury of left buttock stage III (disorder)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20230301",
+        "code" : "29311000175108",
+        "display" : "Pressure injury of left buttock stage IV (disorder)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20230301",
+        "code" : "959201281000119107",
+        "display" : "Pressure injury of deep tissue of left buttock (disorder)"
       }
     ]
   }

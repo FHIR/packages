@@ -1,115 +1,152 @@
 {
-  "resourceType": "ValueSet",
-  "id": "2.16.840.1.113762.1.4.1029.113",
-  "meta": {
-    "versionId": "8",
-    "lastUpdated": "2018-03-02T01:00:06.000-05:00"
+  "resourceType" : "ValueSet",
+  "id" : "2.16.840.1.113762.1.4.1029.113",
+  "meta" : {
+    "versionId" : "8",
+    "lastUpdated" : "2018-03-02T01:00:06.000-05:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "url": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1029.113",
-  "version": "20180302",
-  "name": "Medical Reason Excluding Clinical Trial",
-  "status": "active",
-  "date": "2018-03-02T01:00:06-05:00",
-  "publisher": "Joint Commission",
-  "compose": {
-    "include": [
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "Joint Commission Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2022-12-15"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2018-03-02"
+    }
+  ],
+  "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1029.113",
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113762.1.4.1029.113"
+    }
+  ],
+  "version" : "20180302",
+  "name" : "MedicalReasonExcludingClinicalTrial",
+  "title" : "Medical Reason Excluding Clinical Trial",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2018-03-02T01:00:06-05:00",
+  "publisher" : "Joint Commission",
+  "description" : "This value set was developed for a total hip and total knee replacement measure set.  Feasibility testing revealed that a large percentage of this patient population do participate in clinical trials.  The field asked that clinical trial participants remain in the measure set as the typical trials do not have an impact on what is being measured.  Therefore, this \"medical reason for not\" value set does not include clinical trials.\n\nNOTE:  VALUE SET UNDER DEVELOPMENT AS MEASURE TESTING IS ONGOING.",
+  "jurisdiction" : [
+    {
+      "extension" : [
+        {
+          "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
+          "valueString" : "UNKNOWN"
+        }
+      ]
+    }
+  ],
+  "purpose" : "(Clinical Focus: This set of values contains situations that represent  medical reasons for not providing treatment.  Clinical trial is excluded from this value set.),(Data Element Scope: The intent of this data element is to identify medical reasons for not providing treatment. Using the Quality Data Model, this particular element will map to the \"Reason\" attribute.),(Inclusion Criteria: Only SNOMED CT codes representing  medical reasons for not providing treatment should be included.),(Exclusion Criteria: Clinical trial participant.)",
+  "compose" : {
+    "include" : [
       {
-        "system": "http://snomed.info/sct",
-        "version": "http://snomed.info/sct/731000124108/version/20220301",
-        "concept": [
+        "system" : "http://snomed.info/sct",
+        "concept" : [
           {
-            "code": "31438003",
-            "display": "Drug resistance (disorder)"
+            "code" : "31438003",
+            "display" : "Drug resistance (disorder)"
           },
           {
-            "code": "35688006",
-            "display": "Complication of medical care (disorder)"
+            "code" : "35688006",
+            "display" : "Complication of medical care (disorder)"
           },
           {
-            "code": "397745006",
-            "display": "Medical contraindication (finding)"
+            "code" : "397745006",
+            "display" : "Medical contraindication (finding)"
           },
           {
-            "code": "416098002",
-            "display": "Drug allergy (disorder)"
+            "code" : "416098002",
+            "display" : "Drug allergy (disorder)"
           },
           {
-            "code": "419511003",
-            "display": "Propensity to adverse reactions to drug (disorder)"
+            "code" : "419511003",
+            "display" : "Propensity to adverse reactions to drug (disorder)"
           },
           {
-            "code": "59037007",
-            "display": "Drug intolerance (disorder)"
+            "code" : "59037007",
+            "display" : "Drug intolerance (disorder)"
           },
           {
-            "code": "62014003",
-            "display": "Adverse reaction caused by drug (disorder)"
+            "code" : "62014003",
+            "display" : "Adverse reaction caused by drug (disorder)"
           },
           {
-            "code": "79899007",
-            "display": "Drug interaction (finding)"
+            "code" : "79899007",
+            "display" : "Drug interaction (finding)"
           }
         ]
       }
     ]
   },
-  "expansion": {
-    "identifier": "urn:uuid:e68b4fb6-9373-4f44-b215-82095fd98f6c",
-    "timestamp": "2022-09-27T22:39:15-04:00",
-    "total": 7,
-    "offset": 0,
-    "parameter": [
+  "expansion" : {
+    "identifier" : "urn:uuid:a3e60069-f4e2-4eb7-ae29-10e59b9f631f",
+    "timestamp" : "2023-06-29T18:32:35-04:00",
+    "total" : 7,
+    "offset" : 0,
+    "parameter" : [
       {
-        "name": "count",
-        "valueInteger": 1000
+        "name" : "count",
+        "valueInteger" : 1000
       },
       {
-        "name": "offset",
-        "valueInteger": 0
+        "name" : "offset",
+        "valueInteger" : 0
       }
     ],
-    "contains": [
+    "contains" : [
       {
-        "system": "http://snomed.info/sct",
-        "version": "http://snomed.info/sct/731000124108/version/20220301",
-        "code": "31438003",
-        "display": "Drug resistance (disorder)"
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20230301",
+        "code" : "31438003",
+        "display" : "Drug resistance (disorder)"
       },
       {
-        "system": "http://snomed.info/sct",
-        "version": "http://snomed.info/sct/731000124108/version/20220301",
-        "code": "35688006",
-        "display": "Complication of medical care (disorder)"
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20230301",
+        "code" : "35688006",
+        "display" : "Complication of medical care (disorder)"
       },
       {
-        "system": "http://snomed.info/sct",
-        "version": "http://snomed.info/sct/731000124108/version/20220301",
-        "code": "416098002",
-        "display": "Allergy to drug (finding)"
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20230301",
+        "code" : "416098002",
+        "display" : "Allergy to drug (finding)"
       },
       {
-        "system": "http://snomed.info/sct",
-        "version": "http://snomed.info/sct/731000124108/version/20220301",
-        "code": "419511003",
-        "display": "Propensity to adverse reactions to drug (finding)"
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20230301",
+        "code" : "419511003",
+        "display" : "Propensity to adverse reactions to drug (finding)"
       },
       {
-        "system": "http://snomed.info/sct",
-        "version": "http://snomed.info/sct/731000124108/version/20220301",
-        "code": "59037007",
-        "display": "Intolerance to drug (finding)"
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20230301",
+        "code" : "59037007",
+        "display" : "Intolerance to drug (finding)"
       },
       {
-        "system": "http://snomed.info/sct",
-        "version": "http://snomed.info/sct/731000124108/version/20220301",
-        "code": "62014003",
-        "display": "Adverse reaction caused by drug (disorder)"
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20230301",
+        "code" : "62014003",
+        "display" : "Adverse reaction caused by drug (disorder)"
       },
       {
-        "system": "http://snomed.info/sct",
-        "version": "http://snomed.info/sct/731000124108/version/20220301",
-        "code": "79899007",
-        "display": "Drug interaction (finding)"
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20230301",
+        "code" : "79899007",
+        "display" : "Drug interaction (finding)"
       }
     ]
   }

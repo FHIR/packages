@@ -1,61 +1,98 @@
 {
-  "resourceType": "ValueSet",
-  "id": "2.16.840.1.113883.3.2066.2061",
-  "meta": {
-    "versionId": "29",
-    "lastUpdated": "2016-05-10T01:00:00.000-04:00"
+  "resourceType" : "ValueSet",
+  "id" : "2.16.840.1.113883.3.2066.2061",
+  "meta" : {
+    "versionId" : "29",
+    "lastUpdated" : "2016-05-10T01:00:00.000-04:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "url": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.2066.2061",
-  "version": "20160510",
-  "name": "Inpatient Well Newborn NDNQI",
-  "status": "active",
-  "date": "2016-05-10T01:00:00-04:00",
-  "publisher": "American Nurses Association Steward",
-  "compose": {
-    "include": [
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "NDNQI Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2022-12-15"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2016-05-10"
+    }
+  ],
+  "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.2066.2061",
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113883.3.2066.2061"
+    }
+  ],
+  "version" : "20160510",
+  "name" : "InpatientWellNewbornNDNQI",
+  "title" : "Inpatient Well Newborn NDNQI",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2016-05-10T01:00:00-04:00",
+  "publisher" : "American Nurses Association Steward",
+  "description" : "Inpatient Encounter Well Newborn care, SNOMED CT, Created for NDNQI pressure ulcer and risk measures.",
+  "jurisdiction" : [
+    {
+      "extension" : [
+        {
+          "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
+          "valueString" : "UNKNOWN"
+        }
+      ]
+    }
+  ],
+  "purpose" : "(Clinical Focus: The clinical focus of this measure is the inpatient well newborn.),(Data Element Scope: Using the Quality Data Model, this data element will map to \"Encounter.\"),(Inclusion Criteria: The newborn whose inpatient care was in the normal newborn nursery.),(Exclusion Criteria: Outpatient care before and after birth such as prenatal education, well child visits and home visits. Also excluded are Inpatient Neonatal Intensive Care Nursery Level II, III and IV.)",
+  "compose" : {
+    "include" : [
       {
-        "system": "http://snomed.info/sct",
-        "version": "http://snomed.info/sct/731000124108/version/20220301",
-        "concept": [
+        "system" : "http://snomed.info/sct",
+        "concept" : [
           {
-            "code": "427695007",
-            "display": "Newborn nursery unit (environment)"
+            "code" : "427695007",
+            "display" : "Newborn nursery unit (environment)"
           },
           {
-            "code": "60059000",
-            "display": "Hospital admission, infant, for observation, delivered outside of hospital (procedure)"
+            "code" : "60059000",
+            "display" : "Hospital admission, infant, for observation, delivered outside of hospital (procedure)"
           }
         ]
       }
     ]
   },
-  "expansion": {
-    "identifier": "urn:uuid:ff87d155-05ff-4ee0-b1ee-1819afb989eb",
-    "timestamp": "2022-09-27T21:51:53-04:00",
-    "total": 2,
-    "offset": 0,
-    "parameter": [
+  "expansion" : {
+    "identifier" : "urn:uuid:f73133e9-2a4a-4b67-83af-e076c1576ab9",
+    "timestamp" : "2023-06-29T18:04:02-04:00",
+    "total" : 2,
+    "offset" : 0,
+    "parameter" : [
       {
-        "name": "count",
-        "valueInteger": 1000
+        "name" : "count",
+        "valueInteger" : 1000
       },
       {
-        "name": "offset",
-        "valueInteger": 0
+        "name" : "offset",
+        "valueInteger" : 0
       }
     ],
-    "contains": [
+    "contains" : [
       {
-        "system": "http://snomed.info/sct",
-        "version": "http://snomed.info/sct/731000124108/version/20220301",
-        "code": "427695007",
-        "display": "Newborn nursery unit (environment)"
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20230301",
+        "code" : "427695007",
+        "display" : "Newborn nursery unit (environment)"
       },
       {
-        "system": "http://snomed.info/sct",
-        "version": "http://snomed.info/sct/731000124108/version/20220301",
-        "code": "60059000",
-        "display": "Hospital admission, infant, for observation, delivered outside of hospital (procedure)"
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20230301",
+        "code" : "60059000",
+        "display" : "Hospital admission, infant, for observation, delivered outside of hospital (procedure)"
       }
     ]
   }

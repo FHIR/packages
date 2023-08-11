@@ -1,71 +1,108 @@
 {
-  "resourceType": "ValueSet",
-  "id": "2.16.840.1.113883.3.3157.1805",
-  "meta": {
-    "versionId": "12",
-    "lastUpdated": "2020-07-17T01:00:32.000-04:00"
+  "resourceType" : "ValueSet",
+  "id" : "2.16.840.1.113883.3.3157.1805",
+  "meta" : {
+    "versionId" : "12",
+    "lastUpdated" : "2020-07-17T01:00:32.000-04:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "url": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.3157.1805",
-  "version": "20200717",
-  "name": "MRI Lumbar Spine Procedures",
-  "status": "active",
-  "date": "2020-07-17T01:00:32-04:00",
-  "publisher": "Lewin EH Steward",
-  "compose": {
-    "include": [
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "Lewin EH Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2022-12-15"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2020-07-17"
+    }
+  ],
+  "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.3157.1805",
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113883.3.3157.1805"
+    }
+  ],
+  "version" : "20200717",
+  "name" : "MRILumbarSpineProcedures",
+  "title" : "MRI Lumbar Spine Procedures",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2020-07-17T01:00:32-04:00",
+  "publisher" : "Lewin EH Steward",
+  "description" : "This value set is used to calculate OP-8 (MRI Lumbar Spine for Low Back Pain), a claims-based measure used in the Centers for Medicare & Medicaid Services' Hospital Outpatient Quality Reporting (HOQR) Program.",
+  "jurisdiction" : [
+    {
+      "extension" : [
+        {
+          "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
+          "valueString" : "UNKNOWN"
+        }
+      ]
+    }
+  ],
+  "purpose" : "(Clinical Focus: This set of values contains CPT codes for with MRI lumbar spine procedures.),(Data Element Scope: The intent of this data element is to identify patients who have undergone an MRI lumbar spine procedure.),(Inclusion Criteria: CPT codes for MRI lumbar spine procedures are included in this value set.),(Exclusion Criteria: Codes not associated with MRI lumbar spine procedures are excluded from this value set. Terminologies other than CPT are also excluded from this value set.)",
+  "compose" : {
+    "include" : [
       {
-        "system": "http://www.ama-assn.org/go/cpt",
-        "version": "2022",
-        "concept": [
+        "system" : "http://www.ama-assn.org/go/cpt",
+        "concept" : [
           {
-            "code": "72148",
-            "display": "Magnetic resonance (eg, proton) imaging, spinal canal and contents, lumbar; without contrast material"
+            "code" : "72148",
+            "display" : "Magnetic resonance (eg, proton) imaging, spinal canal and contents, lumbar; without contrast material"
           },
           {
-            "code": "72149",
-            "display": "Magnetic resonance (eg, proton) imaging, spinal canal and contents, lumbar; with contrast material(s)"
+            "code" : "72149",
+            "display" : "Magnetic resonance (eg, proton) imaging, spinal canal and contents, lumbar; with contrast material(s)"
           },
           {
-            "code": "72158",
-            "display": "Magnetic resonance (eg, proton) imaging, spinal canal and contents, without contrast material, followed by contrast material(s) and further sequences; lumbar"
+            "code" : "72158",
+            "display" : "Magnetic resonance (eg, proton) imaging, spinal canal and contents, without contrast material, followed by contrast material(s) and further sequences; lumbar"
           }
         ]
       }
     ]
   },
-  "expansion": {
-    "identifier": "urn:uuid:d5dcfd0d-9410-470d-b8a9-30c4016f09d3",
-    "timestamp": "2022-09-27T22:55:39-04:00",
-    "total": 3,
-    "offset": 0,
-    "parameter": [
+  "expansion" : {
+    "identifier" : "urn:uuid:3991bb0e-d4d9-4732-8694-726558d42a24",
+    "timestamp" : "2023-06-29T18:43:14-04:00",
+    "total" : 3,
+    "offset" : 0,
+    "parameter" : [
       {
-        "name": "count",
-        "valueInteger": 1000
+        "name" : "count",
+        "valueInteger" : 1000
       },
       {
-        "name": "offset",
-        "valueInteger": 0
+        "name" : "offset",
+        "valueInteger" : 0
       }
     ],
-    "contains": [
+    "contains" : [
       {
-        "system": "http://www.ama-assn.org/go/cpt",
-        "version": "2022",
-        "code": "72148",
-        "display": "Magnetic resonance (eg, proton) imaging, spinal canal and contents, lumbar; without contrast material"
+        "system" : "http://www.ama-assn.org/go/cpt",
+        "version" : "2023",
+        "code" : "72148",
+        "display" : "Magnetic resonance (eg, proton) imaging, spinal canal and contents, lumbar; without contrast material"
       },
       {
-        "system": "http://www.ama-assn.org/go/cpt",
-        "version": "2022",
-        "code": "72149",
-        "display": "Magnetic resonance (eg, proton) imaging, spinal canal and contents, lumbar; with contrast material(s)"
+        "system" : "http://www.ama-assn.org/go/cpt",
+        "version" : "2023",
+        "code" : "72149",
+        "display" : "Magnetic resonance (eg, proton) imaging, spinal canal and contents, lumbar; with contrast material(s)"
       },
       {
-        "system": "http://www.ama-assn.org/go/cpt",
-        "version": "2022",
-        "code": "72158",
-        "display": "Magnetic resonance (eg, proton) imaging, spinal canal and contents, without contrast material, followed by contrast material(s) and further sequences; lumbar"
+        "system" : "http://www.ama-assn.org/go/cpt",
+        "version" : "2023",
+        "code" : "72158",
+        "display" : "Magnetic resonance (eg, proton) imaging, spinal canal and contents, without contrast material, followed by contrast material(s) and further sequences; lumbar"
       }
     ]
   }

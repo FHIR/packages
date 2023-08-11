@@ -1,59 +1,96 @@
 {
-  "resourceType": "ValueSet",
-  "id": "2.16.840.1.113762.1.4.1048.13",
-  "meta": {
-    "versionId": "3",
-    "lastUpdated": "2016-02-05T01:00:03.000-05:00"
+  "resourceType" : "ValueSet",
+  "id" : "2.16.840.1.113762.1.4.1048.13",
+  "meta" : {
+    "versionId" : "3",
+    "lastUpdated" : "2016-02-05T01:00:03.000-05:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "url": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1048.13",
-  "version": "20160205",
-  "name": "IMM2 Intolerance to Influenza Vaccine",
-  "status": "active",
-  "date": "2016-02-05T01:00:03-05:00",
-  "publisher": "Telligen",
-  "compose": {
-    "include": [
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "Telligen Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2022-12-15"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2016-02-05"
+    }
+  ],
+  "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1048.13",
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113762.1.4.1048.13"
+    }
+  ],
+  "version" : "20160205",
+  "name" : "IMM2IntoleranceToInfluenzaVaccine",
+  "title" : "IMM2 Intolerance to Influenza Vaccine",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2016-02-05T01:00:03-05:00",
+  "publisher" : "Telligen",
+  "description" : "Using AMA's Intolerance to Influenza Vaccine with removal of SNOMED code 390796006",
+  "jurisdiction" : [
+    {
+      "extension" : [
+        {
+          "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
+          "valueString" : "UNKNOWN"
+        }
+      ]
+    }
+  ],
+  "purpose" : "(Clinical Focus: Under Development),(Data Element Scope: Under Development),(Inclusion Criteria: Under Development),(Exclusion Criteria: Under Development)",
+  "compose" : {
+    "include" : [
       {
-        "system": "http://snomed.info/sct",
-        "version": "http://snomed.info/sct/731000124108/version/20220301",
-        "concept": [
+        "system" : "http://snomed.info/sct",
+        "concept" : [
           {
-            "code": "293112000",
-            "display": "Influenza split virion vaccine adverse reaction (disorder)"
+            "code" : "293112000",
+            "display" : "Influenza split virion vaccine adverse reaction (disorder)"
           },
           {
-            "code": "293113005",
-            "display": "Influenza surface antigen vaccine adverse reaction (disorder)"
+            "code" : "293113005",
+            "display" : "Influenza surface antigen vaccine adverse reaction (disorder)"
           },
           {
-            "code": "420113004",
-            "display": "Influenza virus vaccine adverse reaction (disorder)"
+            "code" : "420113004",
+            "display" : "Influenza virus vaccine adverse reaction (disorder)"
           }
         ]
       }
     ]
   },
-  "expansion": {
-    "identifier": "urn:uuid:55bcc959-95fc-496d-a0b1-5542ebb5c17e",
-    "timestamp": "2022-09-27T21:42:32-04:00",
-    "total": 1,
-    "offset": 0,
-    "parameter": [
+  "expansion" : {
+    "identifier" : "urn:uuid:290cd705-908a-4ba0-9b6f-8d7e8490b709",
+    "timestamp" : "2023-06-29T17:57:14-04:00",
+    "total" : 1,
+    "offset" : 0,
+    "parameter" : [
       {
-        "name": "count",
-        "valueInteger": 1000
+        "name" : "count",
+        "valueInteger" : 1000
       },
       {
-        "name": "offset",
-        "valueInteger": 0
+        "name" : "offset",
+        "valueInteger" : 0
       }
     ],
-    "contains": [
+    "contains" : [
       {
-        "system": "http://snomed.info/sct",
-        "version": "http://snomed.info/sct/731000124108/version/20220301",
-        "code": "420113004",
-        "display": "Adverse reaction to component of vaccine product containing Influenza virus antigen (disorder)"
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20230301",
+        "code" : "420113004",
+        "display" : "Adverse reaction to component of vaccine product containing Influenza virus antigen (disorder)"
       }
     ]
   }

@@ -1,69 +1,107 @@
 {
-  "resourceType": "ValueSet",
-  "id": "2.16.840.1.113762.1.4.1219.147",
-  "meta": {
-    "versionId": "5",
-    "lastUpdated": "2022-03-15T01:04:14.000-04:00"
+  "resourceType" : "ValueSet",
+  "id" : "2.16.840.1.113762.1.4.1219.147",
+  "meta" : {
+    "versionId" : "5",
+    "lastUpdated" : "2022-03-15T01:04:14.000-04:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "url": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1219.147",
-  "version": "20220315",
-  "name": "Mobility Impairment or Fall From Chair  ICD10CM",
-  "status": "active",
-  "date": "2022-03-15T01:04:14-04:00",
-  "publisher": "CMS DRLS Steward",
-  "compose": {
-    "include": [
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "CMS DRLS Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2022-12-15"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2022-03-15"
+    }
+  ],
+  "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1219.147",
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113762.1.4.1219.147"
+    }
+  ],
+  "version" : "20220315",
+  "name" : "MobilityImpairmentOrFallFromChairICD10CM",
+  "title" : "Mobility Impairment or Fall From Chair  ICD10CM",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2022-03-15T01:04:14-04:00",
+  "publisher" : "CMS DRLS Steward",
+  "description" : "This value set is a member of a grouping value set to represent the inability of a patient to sit or sit unsupported in a chair or wheelchair, as well as history of falling from a chair. ICD10CM does not have concepts to represent an inability to sit in a chair.",
+  "jurisdiction" : [
+    {
+      "extension" : [
+        {
+          "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
+          "valueString" : "UNKNOWN"
+        }
+      ]
+    }
+  ],
+  "purpose" : "(Clinical Focus: Reduced mobility and fall from chair.),(Data Element Scope: Conditions related to reduced mobility and fall from chair that  may qualify a patient for non-emergency transport as defined by U.S. Centers for Medicare and Medicaid.),(Inclusion Criteria: Reduced mobility and fall from chair.),(Exclusion Criteria: No exclusions.)",
+  "compose" : {
+    "include" : [
       {
-        "system": "http://hl7.org/fhir/sid/icd-10-cm",
-        "version": "2023",
-        "filter": [
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2023",
+        "filter" : [
           {
-            "property": "concept",
-            "op": "\u003d",
-            "value": "Z74.09"
+            "property" : "concept",
+            "op" : "=",
+            "value" : "Z74.09"
           }
         ]
       },
       {
-        "system": "http://hl7.org/fhir/sid/icd-10-cm",
-        "version": "2023",
-        "filter": [
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2023",
+        "filter" : [
           {
-            "property": "concept",
-            "op": "\u003d",
-            "value": "W07"
+            "property" : "concept",
+            "op" : "=",
+            "value" : "W07"
           }
         ]
       }
     ]
   },
-  "expansion": {
-    "identifier": "urn:uuid:4deb04d8-a144-48ab-a67e-ede6245a3f8d",
-    "timestamp": "2022-09-27T22:51:59-04:00",
-    "total": 2,
-    "offset": 0,
-    "parameter": [
+  "expansion" : {
+    "identifier" : "urn:uuid:bbcfc7e6-b869-420e-993f-5827a364dc3b",
+    "timestamp" : "2023-06-29T18:40:20-04:00",
+    "total" : 2,
+    "offset" : 0,
+    "parameter" : [
       {
-        "name": "count",
-        "valueInteger": 1000
+        "name" : "count",
+        "valueInteger" : 1000
       },
       {
-        "name": "offset",
-        "valueInteger": 0
+        "name" : "offset",
+        "valueInteger" : 0
       }
     ],
-    "contains": [
+    "contains" : [
       {
-        "system": "http://hl7.org/fhir/sid/icd-10-cm",
-        "version": "2023",
-        "code": "W07",
-        "display": "Fall from chair"
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2023",
+        "code" : "W07",
+        "display" : "Fall from chair"
       },
       {
-        "system": "http://hl7.org/fhir/sid/icd-10-cm",
-        "version": "2023",
-        "code": "Z74.09",
-        "display": "Other reduced mobility"
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2023",
+        "code" : "Z74.09",
+        "display" : "Other reduced mobility"
       }
     ]
   }

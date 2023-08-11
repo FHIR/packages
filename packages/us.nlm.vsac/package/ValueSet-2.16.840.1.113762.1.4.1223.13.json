@@ -1,61 +1,98 @@
 {
-  "resourceType": "ValueSet",
-  "id": "2.16.840.1.113762.1.4.1223.13",
-  "meta": {
-    "versionId": "7",
-    "lastUpdated": "2020-04-07T01:00:20.000-04:00"
+  "resourceType" : "ValueSet",
+  "id" : "2.16.840.1.113762.1.4.1223.13",
+  "meta" : {
+    "versionId" : "7",
+    "lastUpdated" : "2020-04-07T01:00:20.000-04:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "url": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1223.13",
-  "version": "20200407",
-  "name": "COVID19 Lab Tests (HCPCS)",
-  "status": "active",
-  "date": "2020-04-07T01:00:20-04:00",
-  "publisher": "CareEvolution Steward",
-  "compose": {
-    "include": [
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "CareEvolution Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2022-12-15"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2020-04-07"
+    }
+  ],
+  "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1223.13",
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113762.1.4.1223.13"
+    }
+  ],
+  "version" : "20200407",
+  "name" : "COVID19LabTestsHCPCS",
+  "title" : "COVID19 Lab Tests (HCPCS)",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2020-04-07T01:00:20-04:00",
+  "publisher" : "CareEvolution Steward",
+  "description" : "Source https://www.cms.gov/newsroom/press-releases/cms-develops-additional-code-coronavirus-lab-tests\nGiven the variability in laboratory coding of tests, this value set will be most useful with robust mapping of source data to the HCPCS reference terms.  Source data may commonly contain codes from LabCorp (https://www.labcorp.com/coronavirusdiseasecovid19/providerinformation), Quest (https://www.questdiagnostics.com/home/Covid19/), and Bioreference (https://www.bioreference.com/coronavirus/).",
+  "jurisdiction" : [
+    {
+      "extension" : [
+        {
+          "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
+          "valueString" : "UNKNOWN"
+        }
+      ]
+    }
+  ],
+  "purpose" : "(Clinical Focus: Intended to support surveillance and monitoring of testing rates and testing results),(Data Element Scope: Compilation of HCPCS codes for lab tests of COVID19 virus and antibodies),(Inclusion Criteria: HCPCS codes for COVID19 related lab tests, reference laboratory, point of care, and homebased tests),(Exclusion Criteria: None)",
+  "compose" : {
+    "include" : [
       {
-        "system": "http://www.nlm.nih.gov/research/umls/hcpcs",
-        "version": "2022",
-        "concept": [
+        "system" : "http://www.nlm.nih.gov/research/umls/hcpcs",
+        "concept" : [
           {
-            "code": "U0001",
-            "display": "Cdc 2019 novel coronavirus (2019-ncov) real-time rt-pcr diagnostic panel"
+            "code" : "U0001",
+            "display" : "Cdc 2019 novel coronavirus (2019-ncov) real-time rt-pcr diagnostic panel"
           },
           {
-            "code": "U0002",
-            "display": "2019-ncov coronavirus, sars-cov-2/2019-ncov (covid-19), any technique, multiple types or subtypes (includes all targets), non-cdc"
+            "code" : "U0002",
+            "display" : "2019-ncov coronavirus, sars-cov-2/2019-ncov (covid-19), any technique, multiple types or subtypes (includes all targets), non-cdc"
           }
         ]
       }
     ]
   },
-  "expansion": {
-    "identifier": "urn:uuid:35f79902-c8c4-4260-9a02-0ec5590046db",
-    "timestamp": "2022-09-27T19:29:43-04:00",
-    "total": 2,
-    "offset": 0,
-    "parameter": [
+  "expansion" : {
+    "identifier" : "urn:uuid:fa5357fe-c265-4f88-b2cf-09fc46efe7f7",
+    "timestamp" : "2023-06-29T16:42:11-04:00",
+    "total" : 2,
+    "offset" : 0,
+    "parameter" : [
       {
-        "name": "count",
-        "valueInteger": 1000
+        "name" : "count",
+        "valueInteger" : 1000
       },
       {
-        "name": "offset",
-        "valueInteger": 0
+        "name" : "offset",
+        "valueInteger" : 0
       }
     ],
-    "contains": [
+    "contains" : [
       {
-        "system": "http://www.nlm.nih.gov/research/umls/hcpcs",
-        "version": "2022",
-        "code": "U0001",
-        "display": "Cdc 2019 novel coronavirus (2019-ncov) real-time rt-pcr diagnostic panel"
+        "system" : "http://www.nlm.nih.gov/research/umls/hcpcs",
+        "version" : "2023",
+        "code" : "U0001",
+        "display" : "Cdc 2019 novel coronavirus (2019-ncov) real-time rt-pcr diagnostic panel"
       },
       {
-        "system": "http://www.nlm.nih.gov/research/umls/hcpcs",
-        "version": "2022",
-        "code": "U0002",
-        "display": "2019-ncov coronavirus, sars-cov-2/2019-ncov (covid-19), any technique, multiple types or subtypes (includes all targets), non-cdc"
+        "system" : "http://www.nlm.nih.gov/research/umls/hcpcs",
+        "version" : "2023",
+        "code" : "U0002",
+        "display" : "2019-ncov coronavirus, sars-cov-2/2019-ncov (covid-19), any technique, multiple types or subtypes (includes all targets), non-cdc"
       }
     ]
   }

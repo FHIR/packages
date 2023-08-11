@@ -1,52 +1,89 @@
 {
-  "resourceType": "ValueSet",
-  "id": "2.16.840.1.113762.1.4.1222.86",
-  "meta": {
-    "versionId": "6",
-    "lastUpdated": "2020-04-07T01:02:56.000-04:00"
+  "resourceType" : "ValueSet",
+  "id" : "2.16.840.1.113762.1.4.1222.86",
+  "meta" : {
+    "versionId" : "6",
+    "lastUpdated" : "2020-04-07T01:02:56.000-04:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "url": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1222.86",
-  "version": "20200407",
-  "name": "Hyperuricemia Conditions ICD10",
-  "status": "active",
-  "date": "2020-04-07T01:02:56-04:00",
-  "publisher": "HL7 Patient Care WG Steward",
-  "compose": {
-    "include": [
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "MCC eCare Plan Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2022-12-15"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2020-04-07"
+    }
+  ],
+  "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1222.86",
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113762.1.4.1222.86"
+    }
+  ],
+  "version" : "20200407",
+  "name" : "HyperuricemiaConditionsICD10",
+  "title" : "Hyperuricemia Conditions ICD10",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2020-04-07T01:02:56-04:00",
+  "publisher" : "HL7 Patient Care WG Steward",
+  "jurisdiction" : [
+    {
+      "extension" : [
+        {
+          "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
+          "valueString" : "UNKNOWN"
+        }
+      ]
+    }
+  ],
+  "purpose" : "(Clinical Focus: This set of values contains diagnosis terms representing Hyperuricemia conditions),(Data Element Scope: The intent of this set of values is to identify patients who have a diagnosis of Hyperuricemia),(Inclusion Criteria: Includes Hyperuricemia disorder ICD10 encoded terms that represent Hyperuricemia conditions),(Exclusion Criteria: Laboratory observable encoded terms that do not have values indicating a Hyperuricemia condition)",
+  "compose" : {
+    "include" : [
       {
-        "system": "http://hl7.org/fhir/sid/icd-10-cm",
-        "version": "2023",
-        "filter": [
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2023",
+        "filter" : [
           {
-            "property": "concept",
-            "op": "is-a",
-            "value": "E79.0"
+            "property" : "concept",
+            "op" : "is-a",
+            "value" : "E79.0"
           }
         ]
       }
     ]
   },
-  "expansion": {
-    "identifier": "urn:uuid:336fd439-2208-41c4-84a7-ba1120000c9b",
-    "timestamp": "2022-09-27T21:39:36-04:00",
-    "total": 1,
-    "offset": 0,
-    "parameter": [
+  "expansion" : {
+    "identifier" : "urn:uuid:49f9a405-9b8f-4e45-bb34-e079d397e43f",
+    "timestamp" : "2023-06-29T17:54:59-04:00",
+    "total" : 1,
+    "offset" : 0,
+    "parameter" : [
       {
-        "name": "count",
-        "valueInteger": 1000
+        "name" : "count",
+        "valueInteger" : 1000
       },
       {
-        "name": "offset",
-        "valueInteger": 0
+        "name" : "offset",
+        "valueInteger" : 0
       }
     ],
-    "contains": [
+    "contains" : [
       {
-        "system": "http://hl7.org/fhir/sid/icd-10-cm",
-        "version": "2023",
-        "code": "E79.0",
-        "display": "Hyperuricemia without signs of inflammatory arthritis and tophaceous disease"
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2023",
+        "code" : "E79.0",
+        "display" : "Hyperuricemia without signs of inflammatory arthritis and tophaceous disease"
       }
     ]
   }

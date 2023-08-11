@@ -1,71 +1,88 @@
 {
-  "resourceType": "ValueSet",
-  "id": "2.16.840.1.113883.3.7643.2.1010",
-  "meta": {
-    "versionId": "9",
-    "lastUpdated": "2019-01-10T17:15:08.000-05:00"
+  "resourceType" : "ValueSet",
+  "id" : "2.16.840.1.113883.3.7643.2.1010",
+  "meta" : {
+    "versionId" : "7",
+    "lastUpdated" : "2019-01-10T17:15:08.000-05:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "url": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.7643.2.1010",
-  "version": "Draft",
-  "name": "ECOG Performance Status Results",
-  "status": "draft",
-  "date": "2019-01-10T17:15:08-05:00",
-  "publisher": "Oncology Nursing Society Steward",
-  "compose": {
-    "include": [
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "Oncology Nursing Society Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2022-12-15"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2019-01-08"
+    }
+  ],
+  "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.7643.2.1010",
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113883.3.7643.2.1010"
+    }
+  ],
+  "version" : "20190108",
+  "name" : "ECOGPerformanceStatusResults",
+  "title" : "ECOG Performance Status Results",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2019-01-08T01:00:08-05:00",
+  "publisher" : "Oncology Nursing Society Steward",
+  "description" : "As of 3/15/2018, value set entry date, other LOINC Normative Answers were not available in the VSAC, but were indicated to be applicable for LOINC 42800-3. These include: LA9622-7, LA9623-5, LA9624-3, LA9625-0, LA9626-8. Recommend continuing to see if these are added to the VSAC during value set maintenance.",
+  "jurisdiction" : [
+    {
+      "extension" : [
+        {
+          "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
+          "valueString" : "UNKNOWN"
+        }
+      ]
+    }
+  ],
+  "purpose" : "(Clinical Focus: This value set contains concepts related to ECOG Performance Status results.),(Data Element Scope: This data element would be modeled using the 'Assessment' QDM category, and this value set used as an attribute.),(Inclusion Criteria: This value set contains LOINC Normative Answers.),(Exclusion Criteria: Other types of results of the ECOG Performance Status.)",
+  "compose" : {
+    "include" : [
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "concept": [
+        "system" : "http://loinc.org",
+        "concept" : [
           {
-            "code": "LA9622-7",
-            "display": "Fully active, able to carry on all pre-disease performance without restriction"
-          },
-          {
-            "code": "LA9623-5",
-            "display": "Restricted in physically strenuous activity but ambulatory and able to carry out work of a light or sedentary nature, e.g., light house work, office work"
-          },
-          {
-            "code": "LA9624-3",
-            "display": "Ambulatory and capable of all selfcare but unable to carry out any work activities. Up and about more than 50% of waking hours"
-          },
-          {
-            "code": "LA9625-0",
-            "display": "Capable of only limited selfcare, confined to bed or chair more than 50% of waking hours"
-          },
-          {
-            "code": "LA9626-8",
-            "display": "Completely disabled. Cannot carry on any selfcare. Totally confined to bed or chair"
-          },
-          {
-            "code": "LA9627-6",
-            "display": "Dead"
+            "code" : "LA9627-6",
+            "display" : "Dead"
           }
         ]
       }
     ]
   },
-  "expansion": {
-    "identifier": "urn:uuid:1ef6348f-3b56-49ba-a7dc-8f9fa8459c1f",
-    "timestamp": "2022-09-27T20:25:12-04:00",
-    "total": 1,
-    "offset": 0,
-    "parameter": [
+  "expansion" : {
+    "identifier" : "urn:uuid:cd0f5b3e-bc7b-4701-ad4e-0b1959e5fdbb",
+    "timestamp" : "2023-06-29T17:10:31-04:00",
+    "total" : 1,
+    "offset" : 0,
+    "parameter" : [
       {
-        "name": "count",
-        "valueInteger": 1000
+        "name" : "count",
+        "valueInteger" : 1000
       },
       {
-        "name": "offset",
-        "valueInteger": 0
+        "name" : "offset",
+        "valueInteger" : 0
       }
     ],
-    "contains": [
+    "contains" : [
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "LA9627-6",
-        "display": "Dead"
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "LA9627-6",
+        "display" : "Dead"
       }
     ]
   }

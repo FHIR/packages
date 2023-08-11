@@ -1,51 +1,87 @@
 {
-  "resourceType": "ValueSet",
-  "id": "2.16.840.1.113762.1.4.1195.59",
-  "meta": {
-    "versionId": "5",
-    "lastUpdated": "2019-01-18T01:00:10.000-05:00"
+  "resourceType" : "ValueSet",
+  "id" : "2.16.840.1.113762.1.4.1195.59",
+  "meta" : {
+    "versionId" : "5",
+    "lastUpdated" : "2019-01-18T01:00:10.000-05:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "url": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1195.59",
-  "version": "20190118",
-  "name": "Medication List CPT",
-  "status": "active",
-  "date": "2019-01-18T01:00:10-05:00",
-  "publisher": "NJII Steward",
-  "compose": {
-    "include": [
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "NJII Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2022-12-15"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2019-01-18"
+    }
+  ],
+  "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1195.59",
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113762.1.4.1195.59"
+    }
+  ],
+  "version" : "20190118",
+  "name" : "MedicationListCPT",
+  "title" : "Medication List CPT",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2019-01-18T01:00:10-05:00",
+  "publisher" : "NJII Steward",
+  "jurisdiction" : [
+    {
+      "extension" : [
+        {
+          "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
+          "valueString" : "UNKNOWN"
+        }
+      ]
+    }
+  ],
+  "purpose" : "(Clinical Focus: Describes numerator criteria for STARSC09-HEDISCOAMR Care For Older Adults - Medication Review.),(Data Element Scope: CPT codes for Medication List.),(Inclusion Criteria: As defined by STARSC09-HEDISCOAMR.),(Exclusion Criteria: As defined by STARSC09-HEDISCOAMR.)",
+  "compose" : {
+    "include" : [
       {
-        "system": "http://www.ama-assn.org/go/cpt",
-        "version": "2022",
-        "concept": [
+        "system" : "http://www.ama-assn.org/go/cpt",
+        "concept" : [
           {
-            "code": "1159F",
-            "display": "Medication list documented in medical record (COA)"
+            "code" : "1159F",
+            "display" : "Medication list documented in medical record (COA)"
           }
         ]
       }
     ]
   },
-  "expansion": {
-    "identifier": "urn:uuid:ad0c3986-386d-467e-b79c-9a771016c69d",
-    "timestamp": "2022-09-27T22:40:57-04:00",
-    "total": 1,
-    "offset": 0,
-    "parameter": [
+  "expansion" : {
+    "identifier" : "urn:uuid:8ea65e28-a803-402e-8d97-c3f5e8c3e015",
+    "timestamp" : "2023-06-29T18:33:50-04:00",
+    "total" : 1,
+    "offset" : 0,
+    "parameter" : [
       {
-        "name": "count",
-        "valueInteger": 1000
+        "name" : "count",
+        "valueInteger" : 1000
       },
       {
-        "name": "offset",
-        "valueInteger": 0
+        "name" : "offset",
+        "valueInteger" : 0
       }
     ],
-    "contains": [
+    "contains" : [
       {
-        "system": "http://www.ama-assn.org/go/cpt",
-        "version": "2022",
-        "code": "1159F",
-        "display": "Medication list documented in medical record (COA)"
+        "system" : "http://www.ama-assn.org/go/cpt",
+        "version" : "2023",
+        "code" : "1159F",
+        "display" : "Medication list documented in medical record (COA)"
       }
     ]
   }

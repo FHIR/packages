@@ -1,61 +1,97 @@
 {
-  "resourceType": "ValueSet",
-  "id": "2.16.840.1.113883.3.666.5.2194",
-  "meta": {
-    "versionId": "15",
-    "lastUpdated": "2015-04-30T01:00:08.000-04:00"
+  "resourceType" : "ValueSet",
+  "id" : "2.16.840.1.113883.3.666.5.2194",
+  "meta" : {
+    "versionId" : "15",
+    "lastUpdated" : "2015-04-30T01:00:08.000-04:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "url": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.666.5.2194",
-  "version": "20150430",
-  "name": "Wound Care I9",
-  "status": "active",
-  "date": "2015-04-30T01:00:08-04:00",
-  "publisher": "Lantana EH Steward",
-  "compose": {
-    "include": [
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "Lantana EH Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2022-12-15"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2015-04-30"
+    }
+  ],
+  "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.666.5.2194",
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113883.3.666.5.2194"
+    }
+  ],
+  "version" : "20150430",
+  "name" : "WoundCareI9",
+  "title" : "Wound Care I9",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2015-04-30T01:00:08-04:00",
+  "publisher" : "Lantana EH Steward",
+  "jurisdiction" : [
+    {
+      "extension" : [
+        {
+          "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
+          "valueString" : "UNKNOWN"
+        }
+      ]
+    }
+  ],
+  "purpose" : "(Clinical Focus: This set of values contains procedures used for wound care.),(Data Element Scope: The intent of this data element is to identify patients who have had a procedure performed for wound care.  Using the Quality Data Model, this particular element will map to the Procedure category.),(Inclusion Criteria: IInclude codes representing therapy related to  wound care using the  ICD9 code system.),(Exclusion Criteria: Codes that do not meet the inclusion criteria should be excluded.)",
+  "compose" : {
+    "include" : [
       {
-        "system": "http://hl7.org/fhir/sid/icd-9-cm",
-        "version": "2013",
-        "concept": [
+        "system" : "http://hl7.org/fhir/sid/icd-9-cm",
+        "concept" : [
           {
-            "code": "V58.30",
-            "display": "Encounter for change or removal of nonsurgical wound dressing"
+            "code" : "V58.30",
+            "display" : "Encounter for change or removal of nonsurgical wound dressing"
           },
           {
-            "code": "V58.31",
-            "display": "Encounter for change or removal of surgical wound dressing"
+            "code" : "V58.31",
+            "display" : "Encounter for change or removal of surgical wound dressing"
           }
         ]
       }
     ]
   },
-  "expansion": {
-    "identifier": "urn:uuid:178f3092-3bc1-425e-b392-79732e1d278b",
-    "timestamp": "2022-09-28T03:28:59-04:00",
-    "total": 2,
-    "offset": 0,
-    "parameter": [
+  "expansion" : {
+    "identifier" : "urn:uuid:b2930766-cbf8-4a0a-a16b-417020c6fb9a",
+    "timestamp" : "2023-06-29T20:37:34-04:00",
+    "total" : 2,
+    "offset" : 0,
+    "parameter" : [
       {
-        "name": "count",
-        "valueInteger": 1000
+        "name" : "count",
+        "valueInteger" : 1000
       },
       {
-        "name": "offset",
-        "valueInteger": 0
+        "name" : "offset",
+        "valueInteger" : 0
       }
     ],
-    "contains": [
+    "contains" : [
       {
-        "system": "http://hl7.org/fhir/sid/icd-9-cm",
-        "version": "2013",
-        "code": "V58.30",
-        "display": "Encounter for change or removal of nonsurgical wound dressing"
+        "system" : "http://hl7.org/fhir/sid/icd-9-cm",
+        "version" : "2013",
+        "code" : "V58.30",
+        "display" : "Encounter for change or removal of nonsurgical wound dressing"
       },
       {
-        "system": "http://hl7.org/fhir/sid/icd-9-cm",
-        "version": "2013",
-        "code": "V58.31",
-        "display": "Encounter for change or removal of surgical wound dressing"
+        "system" : "http://hl7.org/fhir/sid/icd-9-cm",
+        "version" : "2013",
+        "code" : "V58.31",
+        "display" : "Encounter for change or removal of surgical wound dressing"
       }
     ]
   }

@@ -1,51 +1,88 @@
 {
-  "resourceType": "ValueSet",
-  "id": "2.16.840.1.113883.3.666.5.2481",
-  "meta": {
-    "versionId": "7",
-    "lastUpdated": "2014-06-30T01:00:02.000-04:00"
+  "resourceType" : "ValueSet",
+  "id" : "2.16.840.1.113883.3.666.5.2481",
+  "meta" : {
+    "versionId" : "7",
+    "lastUpdated" : "2014-06-30T01:00:02.000-04:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "url": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.666.5.2481",
-  "version": "20140630",
-  "name": "Discharge to Acute Care Facility",
-  "status": "active",
-  "date": "2014-06-30T01:00:02-04:00",
-  "publisher": "Lantana",
-  "compose": {
-    "include": [
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "Lantana Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2022-12-15"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2014-06-30"
+    }
+  ],
+  "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.666.5.2481",
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113883.3.666.5.2481"
+    }
+  ],
+  "version" : "20140630",
+  "name" : "DischargeToAcuteCareFacility",
+  "title" : "Discharge to Acute Care Facility",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2014-06-30T01:00:02-04:00",
+  "publisher" : "Lantana",
+  "description" : "Developed for OFMQ immunization measures",
+  "jurisdiction" : [
+    {
+      "extension" : [
+        {
+          "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
+          "valueString" : "UNKNOWN"
+        }
+      ]
+    }
+  ],
+  "purpose" : "(Clinical Focus: This set of values represents the discharge of a patient to an acute care facility.),(Data Element Scope: The intent of this data element is to identify the discharge status as an attribute of the inpatient encounter.  Using the Quality Data Model, this particular value set is used with the Attribute of Discharge status used with the category of Encounter.),(Inclusion Criteria: Only acute care facilities should be included. Codes used are to be SNOMED codes only.),(Exclusion Criteria: Facilities that are not specifically for acute patient care should be excluded.)",
+  "compose" : {
+    "include" : [
       {
-        "system": "http://snomed.info/sct",
-        "version": "http://snomed.info/sct/731000124108/version/20220301",
-        "concept": [
+        "system" : "http://snomed.info/sct",
+        "concept" : [
           {
-            "code": "434781000124105",
-            "display": "Discharge to acute care hospital (procedure)"
+            "code" : "434781000124105",
+            "display" : "Discharge to acute care hospital (procedure)"
           }
         ]
       }
     ]
   },
-  "expansion": {
-    "identifier": "urn:uuid:8e628657-9d4e-4139-970c-9d05351af7df",
-    "timestamp": "2022-09-27T20:15:23-04:00",
-    "total": 1,
-    "offset": 0,
-    "parameter": [
+  "expansion" : {
+    "identifier" : "urn:uuid:7559b034-2ac8-4e22-97f8-069b1673f606",
+    "timestamp" : "2023-06-29T17:05:22-04:00",
+    "total" : 1,
+    "offset" : 0,
+    "parameter" : [
       {
-        "name": "count",
-        "valueInteger": 1000
+        "name" : "count",
+        "valueInteger" : 1000
       },
       {
-        "name": "offset",
-        "valueInteger": 0
+        "name" : "offset",
+        "valueInteger" : 0
       }
     ],
-    "contains": [
+    "contains" : [
       {
-        "system": "http://snomed.info/sct",
-        "version": "http://snomed.info/sct/731000124108/version/20220301",
-        "code": "434781000124105",
-        "display": "Discharge to acute care hospital (procedure)"
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20230301",
+        "code" : "434781000124105",
+        "display" : "Discharge to acute care hospital (procedure)"
       }
     ]
   }

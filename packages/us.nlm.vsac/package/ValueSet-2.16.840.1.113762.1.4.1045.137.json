@@ -1,51 +1,88 @@
 {
-  "resourceType": "ValueSet",
-  "id": "2.16.840.1.113762.1.4.1045.137",
-  "meta": {
-    "versionId": "9",
-    "lastUpdated": "2015-01-28T01:00:02.000-05:00"
+  "resourceType" : "ValueSet",
+  "id" : "2.16.840.1.113762.1.4.1045.137",
+  "meta" : {
+    "versionId" : "9",
+    "lastUpdated" : "2015-01-28T01:00:02.000-05:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "url": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1045.137",
-  "version": "20150128",
-  "name": "Glucose Lab Test Capillary Moles per Volume",
-  "status": "active",
-  "date": "2015-01-28T01:00:02-05:00",
-  "publisher": "Yale",
-  "compose": {
-    "include": [
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "Mathematica-CCDE"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2022-12-15"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2015-01-28"
+    }
+  ],
+  "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1045.137",
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113762.1.4.1045.137"
+    }
+  ],
+  "version" : "20150128",
+  "name" : "GlucoseLabTestCapillaryMolesPerVolume",
+  "title" : "Glucose Lab Test Capillary Moles per Volume",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2015-01-28T01:00:02-05:00",
+  "publisher" : "Yale",
+  "description" : "CCDE",
+  "jurisdiction" : [
+    {
+      "extension" : [
+        {
+          "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
+          "valueString" : "UNKNOWN"
+        }
+      ]
+    }
+  ],
+  "purpose" : "(Clinical Focus: This set of values contains lab tests commonly used for a blood glucose test.),(Data Element Scope: The intent of this data element is to identify patients who had a lab test on a source of capillary blood glucose. Using the Quality Data Model, this particular element would map to 'Laboratory Test, Result' or 'Laboratory Test, Order' datatype.),(Inclusion Criteria: Glucose lab test using the source of capillary blood based on a measurement scale of Moles/volume.),(Exclusion Criteria: Glucose lab test using the source of blood/serum/plasma blood or any other source of blood)",
+  "compose" : {
+    "include" : [
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "concept": [
+        "system" : "http://loinc.org",
+        "concept" : [
           {
-            "code": "51596-5",
-            "display": "Glucose [Moles/volume] in Capillary blood"
+            "code" : "51596-5",
+            "display" : "Glucose [Moles/volume] in Capillary blood"
           }
         ]
       }
     ]
   },
-  "expansion": {
-    "identifier": "urn:uuid:5c0f8944-eb88-4311-a4e8-443994d5031f",
-    "timestamp": "2022-09-27T21:02:57-04:00",
-    "total": 1,
-    "offset": 0,
-    "parameter": [
+  "expansion" : {
+    "identifier" : "urn:uuid:11de74aa-e586-4d5e-8ded-bbca79797ece",
+    "timestamp" : "2023-06-29T17:34:11-04:00",
+    "total" : 1,
+    "offset" : 0,
+    "parameter" : [
       {
-        "name": "count",
-        "valueInteger": 1000
+        "name" : "count",
+        "valueInteger" : 1000
       },
       {
-        "name": "offset",
-        "valueInteger": 0
+        "name" : "offset",
+        "valueInteger" : 0
       }
     ],
-    "contains": [
+    "contains" : [
       {
-        "system": "http://loinc.org",
-        "version": "2.72",
-        "code": "51596-5",
-        "display": "Glucose [Moles/volume] in Capillary blood"
+        "system" : "http://loinc.org",
+        "version" : "2.74",
+        "code" : "51596-5",
+        "display" : "Glucose [Moles/volume] in Capillary blood"
       }
     ]
   }
