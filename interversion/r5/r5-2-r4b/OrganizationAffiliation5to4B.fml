@@ -1,0 +1,24 @@
+﻿/// url = 'http://hl7.org/fhir/StructureMap/OrganizationAffiliation5to4B'
+/// name = 'OrganizationAffiliation5to4B'
+/// title = 'FML Conversion for OrganizationAffiliation: R5 to R4B'
+
+uses "http://hl7.org/fhir/StructureDefinition/OrganizationAffiliation" alias OrganizationAffiliationR5 as source
+uses "http://hl7.org/fhir/4.3/StructureDefinition/OrganizationAffiliation" alias OrganizationAffiliationR4B as target
+
+imports "http://hl7.org/fhir/StructureMap/*5to4B"
+
+group OrganizationAffiliation(source src : OrganizationAffiliationR5, target tgt : OrganizationAffiliationR4B) extends DomainResource <<type+>> {
+  src.identifier -> tgt.identifier;
+  src.active -> tgt.active;
+  src.period -> tgt.period;
+  src.organization -> tgt.organization;
+  src.participatingOrganization -> tgt.participatingOrganization;
+  src.network -> tgt.network;
+  src.code -> tgt.code;
+  src.specialty -> tgt.specialty;
+  src.location -> tgt.location;
+  src.healthcareService -> tgt.healthcareService;
+  src.contact -> tgt.contact;
+  src.endpoint -> tgt.endpoint;
+}
+

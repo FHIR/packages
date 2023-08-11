@@ -1,0 +1,18 @@
+﻿/// url = 'http://hl7.org/fhir/StructureMap/Population5to4'
+/// name = 'Population5to4'
+/// title = 'FML Conversion for Population: R5 to R4'
+
+uses "http://hl7.org/fhir/StructureDefinition/Population" alias PopulationR5 as source
+uses "http://hl7.org/fhir/4.0/StructureDefinition/Population" alias PopulationR4 as target
+
+imports "http://hl7.org/fhir/StructureMap/*5to4"
+
+group Population(source src : PopulationR5, target tgt : PopulationR4) extends Element <<type+>> {
+  src.modifierExtension -> tgt.modifierExtension;
+  src.age : Range -> tgt.age;
+  src.age : CodeableConcept -> tgt.age;
+  src.gender -> tgt.gender;
+  src.race -> tgt.race;
+  src.physiologicalCondition -> tgt.physiologicalCondition;
+}
+

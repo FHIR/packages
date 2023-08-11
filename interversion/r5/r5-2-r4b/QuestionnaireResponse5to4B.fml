@@ -1,0 +1,56 @@
+﻿/// url = 'http://hl7.org/fhir/StructureMap/QuestionnaireResponse5to4B'
+/// name = 'QuestionnaireResponse5to4B'
+/// title = 'FML Conversion for QuestionnaireResponse: R5 to R4B'
+
+conceptmap "QuestionnaireResponseStatus" {
+  prefix s = "http://hl7.org/fhir/questionnaire-answers-status"
+  prefix t = "http://hl7.org/fhir/4.3/questionnaire-answers-status"
+
+  s:"in-progress" - t:"in-progress"
+  s:"completed" - t:"completed"
+  s:"amended" - t:"amended"
+  s:"entered-in-error" - t:"entered-in-error"
+  s:"stopped" - t:"stopped"
+}
+
+uses "http://hl7.org/fhir/StructureDefinition/QuestionnaireResponse" alias QuestionnaireResponseR5 as source
+uses "http://hl7.org/fhir/4.3/StructureDefinition/QuestionnaireResponse" alias QuestionnaireResponseR4B as target
+
+imports "http://hl7.org/fhir/StructureMap/*5to4B"
+
+group QuestionnaireResponse(source src : QuestionnaireResponseR5, target tgt : QuestionnaireResponseR4B) extends DomainResource <<type+>> {
+  src.identifier -> tgt.identifier;
+  src.basedOn -> tgt.basedOn;
+  src.partOf -> tgt.partOf;
+  src.questionnaire -> tgt.questionnaire;
+  src.status as v -> tgt.status = translate(v, '#QuestionnaireResponseStatus', 'code');
+  src.subject -> tgt.subject;
+  src.encounter -> tgt.encounter;
+  src.authored -> tgt.authored;
+  src.author -> tgt.author;
+  src.source -> tgt.source;
+  src.item as s -> tgt.item as t then QuestionnaireResponseItem(s,t);
+}
+
+group QuestionnaireResponseItem(source src, target tgt) extends BackboneElement {
+  src.linkId -> tgt.linkId;
+  src.definition -> tgt.definition;
+  src.text -> tgt.text;
+  src.answer as s -> tgt.answer as t then QuestionnaireResponseItemAnswer(s,t);
+}
+
+group QuestionnaireResponseItemAnswer(source src, target tgt) extends BackboneElement {
+  src.value : boolean -> tgt.value;
+  src.value : decimal -> tgt.value;
+  src.value : integer -> tgt.value;
+  src.value : date -> tgt.value;
+  src.value : dateTime -> tgt.value;
+  src.value : time -> tgt.value;
+  src.value : string -> tgt.value;
+  src.value : uri -> tgt.value;
+  src.value : Attachment -> tgt.value;
+  src.value : Coding -> tgt.value;
+  src.value : Quantity -> tgt.value;
+  src.value : Reference -> tgt.value;
+}
+

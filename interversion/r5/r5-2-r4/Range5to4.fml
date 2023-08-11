@@ -1,0 +1,16 @@
+﻿/// url = 'http://hl7.org/fhir/StructureMap/Range5to4'
+/// name = 'Range5to4'
+/// title = 'FML Conversion for Range: R5 to R4'
+
+// GG 7-Mar 2023: All OK
+
+uses "http://hl7.org/fhir/StructureDefinition/Range" alias RangeR5 as source
+uses "http://hl7.org/fhir/4.0/StructureDefinition/Range" alias RangeR4 as target
+
+imports "http://hl7.org/fhir/StructureMap/*5to4"
+
+group Range(source src : RangeR5, target tgt : RangeR4) extends Element <<type+>> {
+  src.low -> tgt.low;
+  src.high -> tgt.high;
+}
+

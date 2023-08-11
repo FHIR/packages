@@ -1,0 +1,139 @@
+﻿/// url = 'http://hl7.org/fhir/StructureMap/ValueSet5to4'
+/// name = 'ValueSet5to4'
+/// title = 'FML Conversion for ValueSet: R5 to R4'
+
+// GG 7-Mar 2023: All OK
+
+conceptmap "FilterOperator" {
+  prefix s = "http://hl7.org/fhir/filter-operator"
+  prefix t = "http://hl7.org/fhir/4.0/filter-operator"
+
+  s:"=" - t:"="
+  s:"is-a" - t:"is-a"
+  s:"descendent-of" - t:"descendent-of"
+  s:"is-not-a" - t:"is-not-a"
+  s:"regex" - t:"regex"
+  s:"in" - t:"in"
+  s:"not-in" - t:"not-in"
+  s:"generalizes" - t:"generalizes"
+//  s:"child-of" - t:"child-of"
+//  s:"descendent-leaf" - t:"descendent-leaf"
+  s:"exists" - t:"exists"
+}
+
+conceptmap "PublicationStatus" {
+  prefix s = "http://hl7.org/fhir/publication-status"
+  prefix t = "http://hl7.org/fhir/4.0/publication-status"
+
+  s:"draft" - t:"draft"
+  s:"active" - t:"active"
+  s:"retired" - t:"retired"
+  s:"unknown" - t:"unknown"
+}
+
+uses "http://hl7.org/fhir/StructureDefinition/ValueSet" alias ValueSetR5 as source
+uses "http://hl7.org/fhir/4.0/StructureDefinition/ValueSet" alias ValueSetR4 as target
+
+imports "http://hl7.org/fhir/StructureMap/*5to4"
+
+group ValueSet(source src : ValueSetR5, target tgt : ValueSetR4) extends DomainResource <<type+>> {
+  src.url -> tgt.url;
+  src.identifier -> tgt.identifier;
+  src.version -> tgt.version;
+//  src.versionAlgorithm : string -> tgt.versionAlgorithm;
+//  src.versionAlgorithm : Coding -> tgt.versionAlgorithm;
+  src.name -> tgt.name;
+  src.title -> tgt.title;
+  src.status as v -> tgt.status = translate(v, '#PublicationStatus', 'code');
+  src.experimental -> tgt.experimental;
+  src.date -> tgt.date;
+  src.publisher -> tgt.publisher;
+  src.contact -> tgt.contact;
+  src.description -> tgt.description;
+  src.useContext -> tgt.useContext;
+  src.jurisdiction -> tgt.jurisdiction;
+  src.immutable -> tgt.immutable;
+  src.purpose -> tgt.purpose;
+  src.copyright -> tgt.copyright;
+//  src.copyrightLabel -> tgt.copyrightLabel;
+//  src.approvalDate -> tgt.approvalDate;
+//  src.lastReviewDate -> tgt.lastReviewDate;
+//  src.effectivePeriod -> tgt.effectivePeriod;
+//  src.topic -> tgt.topic;
+//  src.author -> tgt.author;
+//  src.editor -> tgt.editor;
+//  src.reviewer -> tgt.reviewer;
+//  src.endorser -> tgt.endorser;
+//  src.relatedArtifact -> tgt.relatedArtifact;
+  src.compose as s -> tgt.compose as t then ValueSetCompose(s,t);
+  src.expansion as s -> tgt.expansion as t then ValueSetExpansion(s,t);
+//  src.scope as s -> tgt.scope as t then ValueSetScope(s,t);
+}
+
+group ValueSetCompose(source src, target tgt) extends BackboneElement {
+  src.lockedDate -> tgt.lockedDate;
+  src.inactive -> tgt.inactive;
+  src.include as s -> tgt.include as t then ValueSetComposeInclude(s,t);
+//  src.property -> tgt.property;
+}
+
+group ValueSetComposeInclude(source src, target tgt) extends BackboneElement {
+  src.system -> tgt.system;
+  src.version -> tgt.version;
+  src.concept as s -> tgt.concept as t then ValueSetComposeIncludeConcept(s,t);
+  src.filter as s -> tgt.filter as t then ValueSetComposeIncludeFilter(s,t);
+  src.valueSet -> tgt.valueSet;
+//  src.copyright -> tgt.copyright;
+}
+
+group ValueSetComposeIncludeConcept(source src, target tgt) extends BackboneElement {
+  src.code -> tgt.code;
+  src.display -> tgt.display;
+  src.designation as s -> tgt.designation as t then ValueSetComposeIncludeConceptDesignation(s,t);
+}
+
+group ValueSetComposeIncludeConceptDesignation(source src, target tgt) extends BackboneElement {
+  src.language -> tgt.language;
+  src.use -> tgt.use;
+//  src.additionalUse -> tgt.additionalUse;
+  src.value -> tgt.value;
+}
+
+group ValueSetComposeIncludeFilter(source src, target tgt) extends BackboneElement {
+  src.property -> tgt.property;
+  src.op as v -> tgt.op = translate(v, '#FilterOperator', 'code');
+  src.value -> tgt.value;
+}
+
+group ValueSetExpansion(source src, target tgt) extends BackboneElement {
+  src.identifier -> tgt.identifier;
+//  src.next -> tgt.next;
+  src.timestamp -> tgt.timestamp;
+  src.total -> tgt.total;
+  src.offset -> tgt.offset;
+  src.parameter as s -> tgt.parameter as t then ValueSetExpansionParameter(s,t);
+//  src.property as s -> tgt.property as t then ValueSetExpansionProperty(s,t);
+  src.contains as s -> tgt.contains as t then ValueSetExpansionContains(s,t);
+}
+
+group ValueSetExpansionParameter(source src, target tgt) extends BackboneElement {
+  src.name -> tgt.name;
+  src.value : string -> tgt.value;
+  src.value : boolean -> tgt.value;
+  src.value : integer -> tgt.value;
+  src.value : decimal -> tgt.value;
+  src.value : uri -> tgt.value;
+  src.value : code -> tgt.value;
+  src.value : dateTime -> tgt.value;
+}
+
+group ValueSetExpansionContains(source src, target tgt) extends BackboneElement {
+  src.system -> tgt.system;
+  src.abstract -> tgt.abstract;
+  src.inactive -> tgt.inactive;
+  src.version -> tgt.version;
+  src.code -> tgt.code;
+  src.display -> tgt.display;
+//  src.property as s -> tgt.property as t then ValueSetExpansionContainsProperty(s,t);
+  src.contains as s -> tgt.contains as t then ValueSetExpansionContains(s,t);
+}

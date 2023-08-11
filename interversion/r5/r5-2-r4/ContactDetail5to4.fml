@@ -1,0 +1,16 @@
+﻿/// url = 'http://hl7.org/fhir/StructureMap/ContactDetail5to4'
+/// name = 'ContactDetail5to4'
+/// title = 'FML Conversion for ContactDetail: R5 to R4'
+
+// GG 7-Mar 2023: All OK
+
+uses "http://hl7.org/fhir/StructureDefinition/ContactDetail" alias ContactDetailR5 as source
+uses "http://hl7.org/fhir/4.0/StructureDefinition/ContactDetail" alias ContactDetailR4 as target
+
+imports "http://hl7.org/fhir/StructureMap/*5to4"
+
+group ContactDetail(source src : ContactDetailR5, target tgt : ContactDetailR4) extends Element <<type+>> {
+  src.name -> tgt.name;
+  src.telecom -> tgt.telecom;
+}
+

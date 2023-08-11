@@ -1,0 +1,94 @@
+﻿/// url = 'http://hl7.org/fhir/StructureMap/Bundle4Bto5'
+/// name = 'Bundle4Bto5'
+/// title = 'FML Conversion for Bundle: R4B to R5'
+
+// GG 8-Mar 2023: All OK
+
+conceptmap "BundleType" {
+  prefix s = "http://hl7.org/fhir/4.3/bundle-type"
+  prefix t = "http://hl7.org/fhir/bundle-type"
+
+  s:"document" - t:"document"
+  s:"message" - t:"message"
+  s:"transaction" - t:"transaction"
+  s:"transaction-response" - t:"transaction-response"
+  s:"batch" - t:"batch"
+  s:"batch-response" - t:"batch-response"
+  s:"history" - t:"history"
+  s:"searchset" - t:"searchset"
+  s:"collection" - t:"collection"
+//  s:"subscription-notification" - t:"subscription-notification"
+}
+
+conceptmap "HTTPVerb" {
+  prefix s = "http://hl7.org/fhir/4.3/http-verb"
+  prefix t = "http://hl7.org/fhir/http-verb"
+
+  s:"GET" - t:"GET"
+  s:"HEAD" - t:"HEAD"
+  s:"POST" - t:"POST"
+  s:"PUT" - t:"PUT"
+  s:"DELETE" - t:"DELETE"
+  s:"PATCH" - t:"PATCH"
+}
+
+conceptmap "SearchEntryMode" {
+  prefix s = "http://hl7.org/fhir/4.3/search-entry-mode"
+  prefix t = "http://hl7.org/fhir/search-entry-mode"
+
+  s:"match" - t:"match"
+  s:"include" - t:"include"
+  s:"outcome" - t:"outcome"
+}
+
+uses "http://hl7.org/fhir/4.3/StructureDefinition/Bundle" alias BundleR4B as source
+uses "http://hl7.org/fhir/StructureDefinition/Bundle" alias BundleR5 as target
+
+imports "http://hl7.org/fhir/StructureMap/*4Bto5"
+
+group Bundle(source src : BundleR4B, target tgt : BundleR5) extends Resource <<type+>> {
+  src.identifier -> tgt.identifier;
+  src.type as v -> tgt.type = translate(v, '#BundleType', 'code');
+  src.timestamp -> tgt.timestamp;
+  src.total -> tgt.total;
+  src.link as s -> tgt.link as t then BundleLink(s,t);
+  src.entry as s -> tgt.entry as t then BundleEntry(s,t);
+  src.signature -> tgt.signature;
+//  src.issues -> tgt.issues;
+}
+
+group BundleLink(source src, target tgt) extends BackboneElement {
+  src.relation -> tgt.relation;
+  src.url -> tgt.url;
+}
+
+group BundleEntry(source src, target tgt) extends BackboneElement {
+  src.fullUrl -> tgt.fullUrl;
+  src.resource -> tgt.resource;
+  src.search as s -> tgt.search as t then BundleEntrySearch(s,t);
+  src.request as s -> tgt.request as t then BundleEntryRequest(s,t);
+  src.response as s -> tgt.response as t then BundleEntryResponse(s,t);
+}
+
+group BundleEntrySearch(source src, target tgt) extends BackboneElement {
+  src.mode as v -> tgt.mode = translate(v, '#SearchEntryMode', 'code');
+  src.score -> tgt.score;
+}
+
+group BundleEntryRequest(source src, target tgt) extends BackboneElement {
+  src.method as v -> tgt.method = translate(v, '#HTTPVerb', 'code');
+  src.url -> tgt.url;
+  src.ifNoneMatch -> tgt.ifNoneMatch;
+  src.ifModifiedSince -> tgt.ifModifiedSince;
+  src.ifMatch -> tgt.ifMatch;
+  src.ifNoneExist -> tgt.ifNoneExist;
+}
+
+group BundleEntryResponse(source src, target tgt) extends BackboneElement {
+  src.status -> tgt.status;
+  src.location -> tgt.location;
+  src.etag -> tgt.etag;
+  src.lastModified -> tgt.lastModified;
+  src.outcome -> tgt.outcome;
+}
+

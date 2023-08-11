@@ -1,0 +1,134 @@
+﻿/// url = 'http://hl7.org/fhir/StructureMap/SubstanceDefinition4to5'
+/// name = 'SubstanceDefinition4to5'
+/// title = 'FML Conversion for SubstanceDefinition: R4 to R5'
+
+uses "http://hl7.org/fhir/4.0/StructureDefinition/SubstanceDefinition" alias SubstanceDefinitionR4 as source
+uses "http://hl7.org/fhir/StructureDefinition/SubstanceDefinition" alias SubstanceDefinitionR5 as target
+
+imports "http://hl7.org/fhir/StructureMap/*4to5"
+
+group SubstanceDefinition(source src : SubstanceDefinitionR4, target tgt : SubstanceDefinitionR5) extends DomainResource <<type+>> {
+  src.identifier -> tgt.identifier;
+  src.version -> tgt.version;
+  src.status -> tgt.status;
+  src.classification -> tgt.classification;
+  src.domain -> tgt.domain;
+  src.grade -> tgt.grade;
+  src.description -> tgt.description;
+  src.informationSource -> tgt.informationSource;
+  src.note -> tgt.note;
+  src.manufacturer -> tgt.manufacturer;
+  src.supplier -> tgt.supplier;
+  src.moiety as s -> tgt.moiety as t then SubstanceDefinitionMoiety(s,t);
+  src.characterization as s -> tgt.characterization as t then SubstanceDefinitionCharacterization(s,t);
+  src.property as s -> tgt.property as t then SubstanceDefinitionProperty(s,t);
+  src.referenceInformation -> tgt.referenceInformation;
+  src.molecularWeight as s -> tgt.molecularWeight as t then SubstanceDefinitionMolecularWeight(s,t);
+  src.structure as s -> tgt.structure as t then SubstanceDefinitionStructure(s,t);
+  src.code as s -> tgt.code as t then SubstanceDefinitionCode(s,t);
+  src.name as s -> tgt.name as t then SubstanceDefinitionName(s,t);
+  src.relationship as s -> tgt.relationship as t then SubstanceDefinitionRelationship(s,t);
+  src.nucleicAcid -> tgt.nucleicAcid;
+  src.polymer -> tgt.polymer;
+  src.protein -> tgt.protein;
+  src.sourceMaterial as s -> tgt.sourceMaterial as t then SubstanceDefinitionSourceMaterial(s,t);
+}
+
+group SubstanceDefinitionMoiety(source src, target tgt) extends BackboneElement {
+  src.role -> tgt.role;
+  src.identifier -> tgt.identifier;
+  src.name -> tgt.name;
+  src.stereochemistry -> tgt.stereochemistry;
+  src.opticalActivity -> tgt.opticalActivity;
+  src.molecularFormula -> tgt.molecularFormula;
+  src.amount : Quantity -> tgt.amount;
+  src.amount : string -> tgt.amount;
+  src.measurementType -> tgt.measurementType;
+}
+
+group SubstanceDefinitionCharacterization(source src, target tgt) extends BackboneElement {
+  src.technique -> tgt.technique;
+  src.form -> tgt.form;
+  src.description -> tgt.description;
+  src.file -> tgt.file;
+}
+
+group SubstanceDefinitionProperty(source src, target tgt) extends BackboneElement {
+  src.type -> tgt.type;
+  src.value : CodeableConcept -> tgt.value;
+  src.value : Quantity -> tgt.value;
+  src.value : date -> tgt.value;
+  src.value : boolean -> tgt.value;
+  src.value : Attachment -> tgt.value;
+}
+
+group SubstanceDefinitionMolecularWeight(source src, target tgt) extends BackboneElement {
+  src.method -> tgt.method;
+  src.type -> tgt.type;
+  src.amount -> tgt.amount;
+}
+
+group SubstanceDefinitionStructure(source src, target tgt) extends BackboneElement {
+  src.stereochemistry -> tgt.stereochemistry;
+  src.opticalActivity -> tgt.opticalActivity;
+  src.molecularFormula -> tgt.molecularFormula;
+  src.molecularFormulaByMoiety -> tgt.molecularFormulaByMoiety;
+  src.technique -> tgt.technique;
+  src.sourceDocument -> tgt.sourceDocument;
+  src.representation as s -> tgt.representation as t then SubstanceDefinitionStructureRepresentation(s,t);
+}
+
+group SubstanceDefinitionStructureRepresentation(source src, target tgt) extends BackboneElement {
+  src.type -> tgt.type;
+  src.representation -> tgt.representation;
+  src.format -> tgt.format;
+  src.document -> tgt.document;
+}
+
+group SubstanceDefinitionCode(source src, target tgt) extends BackboneElement {
+  src.code -> tgt.code;
+  src.status -> tgt.status;
+  src.statusDate -> tgt.statusDate;
+  src.note -> tgt.note;
+  src.source -> tgt.source;
+}
+
+group SubstanceDefinitionName(source src, target tgt) extends BackboneElement {
+  src.name -> tgt.name;
+  src.type -> tgt.type;
+  src.status -> tgt.status;
+  src.preferred -> tgt.preferred;
+  src.language -> tgt.language;
+  src.domain -> tgt.domain;
+  src.jurisdiction -> tgt.jurisdiction;
+  src.official as s -> tgt.official as t then SubstanceDefinitionNameOfficial(s,t);
+  src.source -> tgt.source;
+}
+
+group SubstanceDefinitionNameOfficial(source src, target tgt) extends BackboneElement {
+  src.authority -> tgt.authority;
+  src.status -> tgt.status;
+  src.date -> tgt.date;
+}
+
+group SubstanceDefinitionRelationship(source src, target tgt) extends BackboneElement {
+  src.substanceDefinition : Reference -> tgt.substanceDefinition;
+  src.substanceDefinition : CodeableConcept -> tgt.substanceDefinition;
+  src.type -> tgt.type;
+  src.isDefining -> tgt.isDefining;
+  src.amount : Quantity -> tgt.amount;
+  src.amount : Ratio -> tgt.amount;
+  src.amount : string -> tgt.amount;
+  src.ratioHighLimitAmount -> tgt.ratioHighLimitAmount;
+  src.comparator -> tgt.comparator;
+  src.source -> tgt.source;
+}
+
+group SubstanceDefinitionSourceMaterial(source src, target tgt) extends BackboneElement {
+  src.type -> tgt.type;
+  src.genus -> tgt.genus;
+  src.species -> tgt.species;
+  src.part -> tgt.part;
+  src.countryOfOrigin -> tgt.countryOfOrigin;
+}
+

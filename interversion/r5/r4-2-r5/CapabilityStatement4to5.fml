@@ -1,0 +1,236 @@
+﻿/// url = 'http://hl7.org/fhir/StructureMap/CapabilityStatement4to5'
+/// name = 'CapabilityStatement4to5'
+/// title = 'FML Conversion for CapabilityStatement: R4 to R5'
+
+// GG 7-Mar 2023: All OK
+
+conceptmap "CapabilityStatementKind" {
+  prefix s = "http://hl7.org/fhir/4.0/capability-statement-kind"
+  prefix t = "http://hl7.org/fhir/capability-statement-kind"
+
+  s:"instance" - t:"instance"
+  s:"capability" - t:"capability"
+  s:"requirements" - t:"requirements"
+}
+
+conceptmap "ConditionalDeleteStatus" {
+  prefix s = "http://hl7.org/fhir/4.0/conditional-delete-status"
+  prefix t = "http://hl7.org/fhir/conditional-delete-status"
+
+  s:"not-supported" - t:"not-supported"
+  s:"single" - t:"single"
+  s:"multiple" - t:"multiple"
+}
+
+conceptmap "ConditionalReadStatus" {
+  prefix s = "http://hl7.org/fhir/4.0/conditional-read-status"
+  prefix t = "http://hl7.org/fhir/conditional-read-status"
+
+  s:"not-supported" - t:"not-supported"
+  s:"modified-since" - t:"modified-since"
+  s:"not-match" - t:"not-match"
+  s:"full-support" - t:"full-support"
+}
+
+conceptmap "DocumentMode" {
+  prefix s = "http://hl7.org/fhir/4.0/document-mode"
+  prefix t = "http://hl7.org/fhir/document-mode"
+
+  s:"producer" - t:"producer"
+  s:"consumer" - t:"consumer"
+}
+
+conceptmap "EventCapabilityMode" {
+  prefix s = "http://hl7.org/fhir/4.0/event-capability-mode"
+  prefix t = "http://hl7.org/fhir/event-capability-mode"
+
+  s:"sender" - t:"sender"
+  s:"receiver" - t:"receiver"
+}
+
+conceptmap "PublicationStatus" {
+  prefix s = "http://hl7.org/fhir/4.0/publication-status"
+  prefix t = "http://hl7.org/fhir/publication-status"
+
+  s:"draft" - t:"draft"
+  s:"active" - t:"active"
+  s:"retired" - t:"retired"
+  s:"unknown" - t:"unknown"
+}
+
+conceptmap "ReferenceHandlingPolicy" {
+  prefix s = "http://hl7.org/fhir/4.0/reference-handling-policy"
+  prefix t = "http://hl7.org/fhir/reference-handling-policy"
+
+  s:"literal" - t:"literal"
+  s:"logical" - t:"logical"
+  s:"resolves" - t:"resolves"
+  s:"enforced" - t:"enforced"
+  s:"local" - t:"local"
+}
+
+conceptmap "ResourceVersionPolicy" {
+  prefix s = "http://hl7.org/fhir/4.0/versioning-policy"
+  prefix t = "http://hl7.org/fhir/versioning-policy"
+
+  s:"no-version" - t:"no-version"
+  s:"versioned" - t:"versioned"
+  s:"versioned-update" - t:"versioned-update"
+}
+
+conceptmap "RestfulCapabilityMode" {
+  prefix s = "http://hl7.org/fhir/4.0/restful-capability-mode"
+  prefix t = "http://hl7.org/fhir/restful-capability-mode"
+
+  s:"client" - t:"client"
+  s:"server" - t:"server"
+}
+
+conceptmap "SearchParamType" {
+  prefix s = "http://hl7.org/fhir/4.0/search-param-type"
+  prefix t = "http://hl7.org/fhir/search-param-type"
+
+  s:"number" - t:"number"
+  s:"date" - t:"date"
+  s:"string" - t:"string"
+  s:"token" - t:"token"
+  s:"reference" - t:"reference"
+  s:"composite" - t:"composite"
+  s:"quantity" - t:"quantity"
+  s:"uri" - t:"uri"
+  s:"special" - t:"special"
+}
+
+uses "http://hl7.org/fhir/4.0/StructureDefinition/CapabilityStatement" alias CapabilityStatementR4 as source
+uses "http://hl7.org/fhir/StructureDefinition/CapabilityStatement" alias CapabilityStatementR5 as target
+
+imports "http://hl7.org/fhir/StructureMap/*4to5"
+
+group CapabilityStatement(source src : CapabilityStatementR4, target tgt : CapabilityStatementR5) extends DomainResource <<type+>> {
+  src.url -> tgt.url;
+//  src.identifier -> tgt.identifier;
+  src.version -> tgt.version;
+//  src.versionAlgorithm : string -> tgt.versionAlgorithm;
+//  src.versionAlgorithm : Coding -> tgt.versionAlgorithm;
+  src.name -> tgt.name;
+  src.title -> tgt.title;
+  src.status as v -> tgt.status = translate(v, '#PublicationStatus', 'code');
+  src.experimental -> tgt.experimental;
+  src.date -> tgt.date;
+  src.publisher -> tgt.publisher;
+  src.contact -> tgt.contact;
+  src.description -> tgt.description;
+  src.useContext -> tgt.useContext;
+  src.jurisdiction -> tgt.jurisdiction;
+  src.purpose -> tgt.purpose;
+  src.copyright -> tgt.copyright;
+//  src.copyrightLabel -> tgt.copyrightLabel;
+  src.kind as v -> tgt.kind = translate(v, '#CapabilityStatementKind', 'code');
+  src.instantiates -> tgt.instantiates;
+  src.imports -> tgt.imports;
+  src.software as s -> tgt.software as t then CapabilityStatementSoftware(s,t);
+  src.implementation as s -> tgt.implementation as t then CapabilityStatementImplementation(s,t);
+  src.fhirVersion -> tgt.fhirVersion;
+  src.format -> tgt.format;
+  src.patchFormat -> tgt.patchFormat;
+//  src.acceptLanguage -> tgt.acceptLanguage;
+  src.implementationGuide -> tgt.implementationGuide;
+  src.rest as s -> tgt.rest as t then CapabilityStatementRest(s,t);
+  src.messaging as s -> tgt.messaging as t then CapabilityStatementMessaging(s,t);
+  src.document as s -> tgt.document as t then CapabilityStatementDocument(s,t);
+}
+
+group CapabilityStatementSoftware(source src, target tgt) extends BackboneElement {
+  src.name -> tgt.name;
+  src.version -> tgt.version;
+  src.releaseDate -> tgt.releaseDate;
+}
+
+group CapabilityStatementImplementation(source src, target tgt) extends BackboneElement {
+  src.description -> tgt.description;
+  src.url -> tgt.url;
+  src.custodian -> tgt.custodian;
+}
+
+group CapabilityStatementRest(source src, target tgt) extends BackboneElement {
+  src.mode as v -> tgt.mode = translate(v, '#RestfulCapabilityMode', 'code');
+  src.documentation -> tgt.documentation;
+  src.security as s -> tgt.security as t then CapabilityStatementRestSecurity(s,t);
+  src.resource as s -> tgt.resource as t then CapabilityStatementRestResource(s,t);
+  src.interaction as s -> tgt.interaction as t then CapabilityStatementRestInteraction(s,t);
+  src.compartment -> tgt.compartment;
+}
+
+group CapabilityStatementRestSecurity(source src, target tgt) extends BackboneElement {
+  src.cors -> tgt.cors;
+  src.service -> tgt.service;
+  src.description -> tgt.description;
+}
+
+group CapabilityStatementRestResource(source src, target tgt) extends BackboneElement {
+  src.type as v -> tgt.type = translate(v, 'http://hl7.org/fhir/interversion/types4to5', 'code');
+  src.profile -> tgt.profile;
+  src.supportedProfile -> tgt.supportedProfile;
+  src.documentation -> tgt.documentation;
+  src.interaction as s -> tgt.interaction as t then CapabilityStatementRestResourceInteraction(s,t);
+  src.versioning as v -> tgt.versioning = translate(v, '#ResourceVersionPolicy', 'code');
+  src.readHistory -> tgt.readHistory;
+  src.updateCreate -> tgt.updateCreate;
+  src.conditionalCreate -> tgt.conditionalCreate;
+  src.conditionalRead as v -> tgt.conditionalRead = translate(v, '#ConditionalReadStatus', 'code');
+  src.conditionalUpdate -> tgt.conditionalUpdate;
+//  src.conditionalPatch -> tgt.conditionalPatch;
+  src.conditionalDelete as v -> tgt.conditionalDelete = translate(v, '#ConditionalDeleteStatus', 'code');
+  src.referencePolicy as v -> tgt.referencePolicy = translate(v, '#ReferenceHandlingPolicy', 'code');
+  src.searchInclude -> tgt.searchInclude;
+  src.searchRevInclude -> tgt.searchRevInclude;
+  src.searchParam as s -> tgt.searchParam as t then CapabilityStatementRestResourceSearchParam(s,t);
+  src.operation as s -> tgt.operation as t then CapabilityStatementRestResourceOperation(s,t);
+}
+
+group CapabilityStatementRestResourceInteraction(source src, target tgt) extends BackboneElement {
+  src.code -> tgt.code;
+  src.documentation -> tgt.documentation;
+}
+
+group CapabilityStatementRestResourceSearchParam(source src, target tgt) extends BackboneElement {
+  src.name -> tgt.name;
+  src.definition -> tgt.definition;
+  src.type as v -> tgt.type = translate(v, '#SearchParamType', 'code');
+  src.documentation -> tgt.documentation;
+}
+
+group CapabilityStatementRestResourceOperation(source src, target tgt) extends BackboneElement {
+  src.name -> tgt.name;
+  src.definition -> tgt.definition;
+  src.documentation -> tgt.documentation;
+}
+
+group CapabilityStatementRestInteraction(source src, target tgt) extends BackboneElement {
+  src.code -> tgt.code;
+  src.documentation -> tgt.documentation;
+}
+
+group CapabilityStatementMessaging(source src, target tgt) extends BackboneElement {
+  src.endpoint as s -> tgt.endpoint as t then CapabilityStatementMessagingEndpoint(s,t);
+  src.reliableCache -> tgt.reliableCache;
+  src.documentation -> tgt.documentation;
+  src.supportedMessage as s -> tgt.supportedMessage as t then CapabilityStatementMessagingSupportedMessage(s,t);
+}
+
+group CapabilityStatementMessagingEndpoint(source src, target tgt) extends BackboneElement {
+  src.protocol -> tgt.protocol;
+  src.address -> tgt.address;
+}
+
+group CapabilityStatementMessagingSupportedMessage(source src, target tgt) extends BackboneElement {
+  src.mode as v -> tgt.mode = translate(v, '#EventCapabilityMode', 'code');
+  src.definition -> tgt.definition;
+}
+
+group CapabilityStatementDocument(source src, target tgt) extends BackboneElement {
+  src.mode as v -> tgt.mode = translate(v, '#DocumentMode', 'code');
+  src.documentation -> tgt.documentation;
+  src.profile -> tgt.profile;
+}
+

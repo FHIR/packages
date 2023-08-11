@@ -1,0 +1,89 @@
+﻿/// url = 'http://hl7.org/fhir/StructureMap/Permission5to4B'
+/// name = 'Permission5to4B'
+/// title = 'FML Conversion for Permission: R5 to R4B'
+
+conceptmap "ConsentDataMeaning" {
+  prefix s = "http://hl7.org/fhir/consent-data-meaning"
+  prefix t = "http://hl7.org/fhir/4.3/consent-data-meaning"
+
+  s:"instance" - t:"instance"
+  s:"related" - t:"related"
+  s:"dependents" - t:"dependents"
+  s:"authoredby" - t:"authoredby"
+}
+
+conceptmap "PermissionCombining" {
+  prefix s = "http://hl7.org/fhir/permission-rule-combining"
+  prefix t = "http://hl7.org/fhir/4.3/permission-rule-combining"
+
+  s:"deny-overrides" - t:"deny-overrides"
+  s:"permit-overrides" - t:"permit-overrides"
+  s:"ordered-deny-overrides" - t:"ordered-deny-overrides"
+  s:"ordered-permit-overrides" - t:"ordered-permit-overrides"
+  s:"deny-unless-permit" - t:"deny-unless-permit"
+  s:"permit-unless-deny" - t:"permit-unless-deny"
+}
+
+conceptmap "PermissionProvisionType" {
+  prefix s = "http://hl7.org/fhir/consent-provision-type"
+  prefix t = "http://hl7.org/fhir/4.3/consent-provision-type"
+
+  s:"deny" - t:"deny"
+  s:"permit" - t:"permit"
+}
+
+conceptmap "PermissionStatus" {
+  prefix s = "http://hl7.org/fhir/permission-status"
+  prefix t = "http://hl7.org/fhir/4.3/permission-status"
+
+  s:"active" - t:"active"
+  s:"entered-in-error" - t:"entered-in-error"
+  s:"draft" - t:"draft"
+  s:"rejected" - t:"rejected"
+}
+
+uses "http://hl7.org/fhir/StructureDefinition/Permission" alias PermissionR5 as source
+uses "http://hl7.org/fhir/4.3/StructureDefinition/Permission" alias PermissionR4B as target
+
+imports "http://hl7.org/fhir/StructureMap/*5to4B"
+
+group Permission(source src : PermissionR5, target tgt : PermissionR4B) extends DomainResource <<type+>> {
+  src.status as v -> tgt.status = translate(v, '#PermissionStatus', 'code');
+  src.asserter -> tgt.asserter;
+  src.date -> tgt.date;
+  src.validity -> tgt.validity;
+  src.justification as s -> tgt.justification as t then PermissionJustification(s,t);
+  src.combining as v -> tgt.combining = translate(v, '#PermissionCombining', 'code');
+  src.rule as s -> tgt.rule as t then PermissionRule(s,t);
+}
+
+group PermissionJustification(source src, target tgt) extends BackboneElement {
+  src.basis -> tgt.basis;
+  src.evidence -> tgt.evidence;
+}
+
+group PermissionRule(source src, target tgt) extends BackboneElement {
+  src.type as v -> tgt.type = translate(v, '#PermissionProvisionType', 'code');
+  src.data as s -> tgt.data as t then PermissionRuleData(s,t);
+  src.activity as s -> tgt.activity as t then PermissionRuleActivity(s,t);
+  src.limit -> tgt.limit;
+}
+
+group PermissionRuleData(source src, target tgt) extends BackboneElement {
+  src.resource as s -> tgt.resource as t then PermissionRuleDataResource(s,t);
+  src.security -> tgt.security;
+  src.period -> tgt.period;
+  src.expression -> tgt.expression;
+}
+
+group PermissionRuleDataResource(source src, target tgt) extends BackboneElement {
+  src.meaning as v -> tgt.meaning = translate(v, '#ConsentDataMeaning', 'code');
+  src.reference -> tgt.reference;
+}
+
+group PermissionRuleActivity(source src, target tgt) extends BackboneElement {
+  src.actor -> tgt.actor;
+  src.action -> tgt.action;
+  src.purpose -> tgt.purpose;
+}
+

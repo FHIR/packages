@@ -1,0 +1,61 @@
+﻿/// url = 'http://hl7.org/fhir/StructureMap/CompartmentDefinition4Bto5'
+/// name = 'CompartmentDefinition4Bto5'
+/// title = 'FML Conversion for CompartmentDefinition: R4B to R5'
+
+// GG 8-Mar 2023: All OK
+
+conceptmap "CompartmentType" {
+  prefix s = "http://hl7.org/fhir/4.3/compartment-type"
+  prefix t = "http://hl7.org/fhir/compartment-type"
+
+  s:"Patient" - t:"Patient"
+  s:"Encounter" - t:"Encounter"
+  s:"RelatedPerson" - t:"RelatedPerson"
+  s:"Practitioner" - t:"Practitioner"
+  s:"Device" - t:"Device"
+//  s:"EpisodeOfCare" - t:"EpisodeOfCare"
+}
+
+conceptmap "PublicationStatus" {
+  prefix s = "http://hl7.org/fhir/4.3/publication-status"
+  prefix t = "http://hl7.org/fhir/publication-status"
+
+  s:"draft" - t:"draft"
+  s:"active" - t:"active"
+  s:"retired" - t:"retired"
+  s:"unknown" - t:"unknown"
+}
+
+uses "http://hl7.org/fhir/4.3/StructureDefinition/CompartmentDefinition" alias CompartmentDefinitionR4B as source
+uses "http://hl7.org/fhir/StructureDefinition/CompartmentDefinition" alias CompartmentDefinitionR5 as target
+
+imports "http://hl7.org/fhir/StructureMap/*4Bto5"
+
+group CompartmentDefinition(source src : CompartmentDefinitionR4B, target tgt : CompartmentDefinitionR5) extends DomainResource <<type+>> {
+  src.url -> tgt.url;
+  src.version -> tgt.version;
+//  src.versionAlgorithm : string -> tgt.versionAlgorithm;
+//  src.versionAlgorithm : Coding -> tgt.versionAlgorithm;
+  src.name -> tgt.name;
+//  src.title -> tgt.title;
+  src.status as v -> tgt.status = translate(v, '#PublicationStatus', 'code');
+  src.experimental -> tgt.experimental;
+  src.date -> tgt.date;
+  src.publisher -> tgt.publisher;
+  src.contact -> tgt.contact;
+  src.description -> tgt.description;
+  src.useContext -> tgt.useContext;
+  src.purpose -> tgt.purpose;
+  src.code as v -> tgt.code = translate(v, '#CompartmentType', 'code');
+  src.search -> tgt.search;
+  src.resource as s -> tgt.resource as t then CompartmentDefinitionResource(s,t);
+}
+
+group CompartmentDefinitionResource(source src, target tgt) extends BackboneElement {
+  src.code -> tgt.code;
+  src.param -> tgt.param;
+  src.documentation -> tgt.documentation;
+//  src.startParam -> tgt.startParam;
+//  src.endParam -> tgt.endParam;
+}
+

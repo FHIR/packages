@@ -1,0 +1,24 @@
+﻿/// url = 'http://hl7.org/fhir/StructureMap/AppointmentResponse4to5'
+/// name = 'AppointmentResponse4to5'
+/// title = 'FML Conversion for AppointmentResponse: R4 to R5'
+
+uses "http://hl7.org/fhir/4.0/StructureDefinition/AppointmentResponse" alias AppointmentResponseR4 as source
+uses "http://hl7.org/fhir/StructureDefinition/AppointmentResponse" alias AppointmentResponseR5 as target
+
+imports "http://hl7.org/fhir/StructureMap/*4to5"
+
+group AppointmentResponse(source src : AppointmentResponseR4, target tgt : AppointmentResponseR5) extends DomainResource <<type+>> {
+  src.identifier -> tgt.identifier;
+  src.appointment -> tgt.appointment;
+  src.proposedNewTime -> tgt.proposedNewTime;
+  src.start -> tgt.start;
+  src.end -> tgt.end;
+  src.participantType -> tgt.participantType;
+  src.actor -> tgt.actor;
+  src.participantStatus -> tgt.participantStatus;
+  src.comment -> tgt.comment;
+  src.recurring -> tgt.recurring;
+  src.occurrenceDate -> tgt.occurrenceDate;
+  src.recurrenceId -> tgt.recurrenceId;
+}
+

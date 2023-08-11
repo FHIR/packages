@@ -1,0 +1,35 @@
+﻿/// url = 'http://hl7.org/fhir/StructureMap/CodeableConcept5to4B'
+/// name = 'CodeableConcept5to4B'
+/// title = 'FML Conversion for CodeableConcept: R5 to R4B'
+
+// GG 7-Mar 2023: All OK
+
+uses "http://hl7.org/fhir/StructureDefinition/CodeableConcept" alias CodeableConceptR5 as source
+uses "http://hl7.org/fhir/StructureDefinition/CodeableReference" alias CodeableReferenceR5 as source
+uses "http://hl7.org/fhir/4.3/StructureDefinition/CodeableConcept" alias CodeableConceptR4B as target
+uses "http://hl7.org/fhir/4.3/StructureDefinition/string" alias stringR4B as target
+
+imports "http://hl7.org/fhir/StructureMap/*5to4B"
+
+group CodeableConcept(source src : CodeableConceptR5, target tgt : CodeableConceptR4B) extends Element <<type+>> {
+  src.coding -> tgt.coding;
+  src.text -> tgt.text;
+}
+
+group CodeableReference2CodeableConcept(source src : CodeableReferenceR5, target tgt : CodeableConceptR4B) extends Element <<type+>> {
+  src.concept as s -> tgt.value as t then CodeableReferenceConcept2CodeableConcept(s,t);
+}
+
+group CodeableReferenceConcept2CodeableConcept(source src : CodeableConceptR5, target tgt : CodeableConceptR4B) extends Element <<type+>> {
+  src.coding -> tgt.coding;
+  src.text -> tgt.text;
+}
+
+group CodeableConcept2string(source src : CodeableConceptR5, target tgt : stringR4B) extends Element <<types>> {
+  src.text as v -> tgt.value = v "CodeableConcept2string";
+}
+
+group CodeableReference2string(source src : CodeableReferenceR5, target tgt : stringR4B) extends Element <<types>> {
+  src.text as v -> tgt.value = v "CodeableReference2string";
+}
+

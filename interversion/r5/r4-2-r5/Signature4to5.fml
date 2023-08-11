@@ -1,0 +1,21 @@
+﻿/// url = 'http://hl7.org/fhir/StructureMap/Signature4to5'
+/// name = 'Signature4to5'
+/// title = 'FML Conversion for Signature: R4 to R5'
+
+// GG 7-Mar 2023: All OK
+
+uses "http://hl7.org/fhir/4.0/StructureDefinition/Signature" alias SignatureR4 as source
+uses "http://hl7.org/fhir/StructureDefinition/Signature" alias SignatureR5 as target
+
+imports "http://hl7.org/fhir/StructureMap/*4to5"
+
+group Signature(source src : SignatureR4, target tgt : SignatureR5) extends Element <<type+>> {
+  src.type -> tgt.type;
+  src.when -> tgt.when;
+  src.who -> tgt.who;
+  src.onBehalfOf -> tgt.onBehalfOf;
+  src.targetFormat -> tgt.targetFormat;
+  src.sigFormat -> tgt.sigFormat;
+  src.data -> tgt.data;
+}
+

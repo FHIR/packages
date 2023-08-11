@@ -1,0 +1,488 @@
+﻿/// url = 'http://hl7.org/fhir/StructureMap/ImplementationGuide4Bto5'
+/// name = 'ImplementationGuide4Bto5'
+/// title = 'FML Conversion for ImplementationGuide: R4B to R5'
+
+// GG 7-Mar 2023: All OK
+
+
+conceptmap "GuidePageGeneration" {
+  prefix s = "http://hl7.org/fhir/4.3/guide-page-generation"
+  prefix t = "http://hl7.org/fhir/guide-page-generation"
+
+  s:"html" - t:"html"
+  s:"markdown" - t:"markdown"
+  s:"xml" - t:"xml"
+  s:"generated" - t:"generated"
+}
+
+conceptmap "PublicationStatus" {
+  prefix s = "http://hl7.org/fhir/4.3/publication-status"
+  prefix t = "http://hl7.org/fhir/publication-status"
+
+  s:"draft" - t:"draft"
+  s:"active" - t:"active"
+  s:"retired" - t:"retired"
+  s:"unknown" - t:"unknown"
+}
+
+conceptmap "SPDXLicense" {
+  prefix s = "http://hl7.org/fhir/4.3/spdx-license"
+  prefix t = "http://hl7.org/fhir/spdx-license"
+
+  s:"not-open-source" - t:"not-open-source"
+  s:"0BSD" - t:"0BSD"
+  s:"AAL" - t:"AAL"
+  s:"Abstyles" - t:"Abstyles"
+  s:"Adobe-2006" - t:"Adobe-2006"
+  s:"Adobe-Glyph" - t:"Adobe-Glyph"
+  s:"ADSL" - t:"ADSL"
+  s:"AFL-1.1" - t:"AFL-1.1"
+  s:"AFL-1.2" - t:"AFL-1.2"
+  s:"AFL-2.0" - t:"AFL-2.0"
+  s:"AFL-2.1" - t:"AFL-2.1"
+  s:"AFL-3.0" - t:"AFL-3.0"
+  s:"Afmparse" - t:"Afmparse"
+  s:"AGPL-1.0-only" - t:"AGPL-1.0-only"
+  s:"AGPL-1.0-or-later" - t:"AGPL-1.0-or-later"
+  s:"AGPL-3.0-only" - t:"AGPL-3.0-only"
+  s:"AGPL-3.0-or-later" - t:"AGPL-3.0-or-later"
+  s:"Aladdin" - t:"Aladdin"
+  s:"AMDPLPA" - t:"AMDPLPA"
+  s:"AML" - t:"AML"
+  s:"AMPAS" - t:"AMPAS"
+  s:"ANTLR-PD" - t:"ANTLR-PD"
+  s:"Apache-1.0" - t:"Apache-1.0"
+  s:"Apache-1.1" - t:"Apache-1.1"
+  s:"Apache-2.0" - t:"Apache-2.0"
+  s:"APAFML" - t:"APAFML"
+  s:"APL-1.0" - t:"APL-1.0"
+  s:"APSL-1.0" - t:"APSL-1.0"
+  s:"APSL-1.1" - t:"APSL-1.1"
+  s:"APSL-1.2" - t:"APSL-1.2"
+  s:"APSL-2.0" - t:"APSL-2.0"
+  s:"Artistic-1.0-cl8" - t:"Artistic-1.0-cl8"
+  s:"Artistic-1.0-Perl" - t:"Artistic-1.0-Perl"
+  s:"Artistic-1.0" - t:"Artistic-1.0"
+  s:"Artistic-2.0" - t:"Artistic-2.0"
+  s:"Bahyph" - t:"Bahyph"
+  s:"Barr" - t:"Barr"
+  s:"Beerware" - t:"Beerware"
+  s:"BitTorrent-1.0" - t:"BitTorrent-1.0"
+  s:"BitTorrent-1.1" - t:"BitTorrent-1.1"
+  s:"Borceux" - t:"Borceux"
+  s:"BSD-1-Clause" - t:"BSD-1-Clause"
+  s:"BSD-2-Clause-FreeBSD" - t:"BSD-2-Clause-FreeBSD"
+  s:"BSD-2-Clause-NetBSD" - t:"BSD-2-Clause-NetBSD"
+  s:"BSD-2-Clause-Patent" - t:"BSD-2-Clause-Patent"
+  s:"BSD-2-Clause" - t:"BSD-2-Clause"
+  s:"BSD-3-Clause-Attribution" - t:"BSD-3-Clause-Attribution"
+  s:"BSD-3-Clause-Clear" - t:"BSD-3-Clause-Clear"
+  s:"BSD-3-Clause-LBNL" - t:"BSD-3-Clause-LBNL"
+  s:"BSD-3-Clause-No-Nuclear-License-2014" - t:"BSD-3-Clause-No-Nuclear-License-2014"
+  s:"BSD-3-Clause-No-Nuclear-License" - t:"BSD-3-Clause-No-Nuclear-License"
+  s:"BSD-3-Clause-No-Nuclear-Warranty" - t:"BSD-3-Clause-No-Nuclear-Warranty"
+  s:"BSD-3-Clause" - t:"BSD-3-Clause"
+  s:"BSD-4-Clause-UC" - t:"BSD-4-Clause-UC"
+  s:"BSD-4-Clause" - t:"BSD-4-Clause"
+  s:"BSD-Protection" - t:"BSD-Protection"
+  s:"BSD-Source-Code" - t:"BSD-Source-Code"
+  s:"BSL-1.0" - t:"BSL-1.0"
+  s:"bzip2-1.0.5" - t:"bzip2-1.0.5"
+  s:"bzip2-1.0.6" - t:"bzip2-1.0.6"
+  s:"Caldera" - t:"Caldera"
+  s:"CATOSL-1.1" - t:"CATOSL-1.1"
+  s:"CC-BY-1.0" - t:"CC-BY-1.0"
+  s:"CC-BY-2.0" - t:"CC-BY-2.0"
+  s:"CC-BY-2.5" - t:"CC-BY-2.5"
+  s:"CC-BY-3.0" - t:"CC-BY-3.0"
+  s:"CC-BY-4.0" - t:"CC-BY-4.0"
+  s:"CC-BY-NC-1.0" - t:"CC-BY-NC-1.0"
+  s:"CC-BY-NC-2.0" - t:"CC-BY-NC-2.0"
+  s:"CC-BY-NC-2.5" - t:"CC-BY-NC-2.5"
+  s:"CC-BY-NC-3.0" - t:"CC-BY-NC-3.0"
+  s:"CC-BY-NC-4.0" - t:"CC-BY-NC-4.0"
+  s:"CC-BY-NC-ND-1.0" - t:"CC-BY-NC-ND-1.0"
+  s:"CC-BY-NC-ND-2.0" - t:"CC-BY-NC-ND-2.0"
+  s:"CC-BY-NC-ND-2.5" - t:"CC-BY-NC-ND-2.5"
+  s:"CC-BY-NC-ND-3.0" - t:"CC-BY-NC-ND-3.0"
+  s:"CC-BY-NC-ND-4.0" - t:"CC-BY-NC-ND-4.0"
+  s:"CC-BY-NC-SA-1.0" - t:"CC-BY-NC-SA-1.0"
+  s:"CC-BY-NC-SA-2.0" - t:"CC-BY-NC-SA-2.0"
+  s:"CC-BY-NC-SA-2.5" - t:"CC-BY-NC-SA-2.5"
+  s:"CC-BY-NC-SA-3.0" - t:"CC-BY-NC-SA-3.0"
+  s:"CC-BY-NC-SA-4.0" - t:"CC-BY-NC-SA-4.0"
+  s:"CC-BY-ND-1.0" - t:"CC-BY-ND-1.0"
+  s:"CC-BY-ND-2.0" - t:"CC-BY-ND-2.0"
+  s:"CC-BY-ND-2.5" - t:"CC-BY-ND-2.5"
+  s:"CC-BY-ND-3.0" - t:"CC-BY-ND-3.0"
+  s:"CC-BY-ND-4.0" - t:"CC-BY-ND-4.0"
+  s:"CC-BY-SA-1.0" - t:"CC-BY-SA-1.0"
+  s:"CC-BY-SA-2.0" - t:"CC-BY-SA-2.0"
+  s:"CC-BY-SA-2.5" - t:"CC-BY-SA-2.5"
+  s:"CC-BY-SA-3.0" - t:"CC-BY-SA-3.0"
+  s:"CC-BY-SA-4.0" - t:"CC-BY-SA-4.0"
+  s:"CC0-1.0" - t:"CC0-1.0"
+  s:"CDDL-1.0" - t:"CDDL-1.0"
+  s:"CDDL-1.1" - t:"CDDL-1.1"
+  s:"CDLA-Permissive-1.0" - t:"CDLA-Permissive-1.0"
+  s:"CDLA-Sharing-1.0" - t:"CDLA-Sharing-1.0"
+  s:"CECILL-1.0" - t:"CECILL-1.0"
+  s:"CECILL-1.1" - t:"CECILL-1.1"
+  s:"CECILL-2.0" - t:"CECILL-2.0"
+  s:"CECILL-2.1" - t:"CECILL-2.1"
+  s:"CECILL-B" - t:"CECILL-B"
+  s:"CECILL-C" - t:"CECILL-C"
+  s:"ClArtistic" - t:"ClArtistic"
+  s:"CNRI-Jython" - t:"CNRI-Jython"
+  s:"CNRI-Python-GPL-Compatible" - t:"CNRI-Python-GPL-Compatible"
+  s:"CNRI-Python" - t:"CNRI-Python"
+  s:"Condor-1.1" - t:"Condor-1.1"
+  s:"CPAL-1.0" - t:"CPAL-1.0"
+  s:"CPL-1.0" - t:"CPL-1.0"
+  s:"CPOL-1.02" - t:"CPOL-1.02"
+  s:"Crossword" - t:"Crossword"
+  s:"CrystalStacker" - t:"CrystalStacker"
+  s:"CUA-OPL-1.0" - t:"CUA-OPL-1.0"
+  s:"Cube" - t:"Cube"
+  s:"curl" - t:"curl"
+  s:"D-FSL-1.0" - t:"D-FSL-1.0"
+  s:"diffmark" - t:"diffmark"
+  s:"DOC" - t:"DOC"
+  s:"Dotseqn" - t:"Dotseqn"
+  s:"DSDP" - t:"DSDP"
+  s:"dvipdfm" - t:"dvipdfm"
+  s:"ECL-1.0" - t:"ECL-1.0"
+  s:"ECL-2.0" - t:"ECL-2.0"
+  s:"EFL-1.0" - t:"EFL-1.0"
+  s:"EFL-2.0" - t:"EFL-2.0"
+  s:"eGenix" - t:"eGenix"
+  s:"Entessa" - t:"Entessa"
+  s:"EPL-1.0" - t:"EPL-1.0"
+  s:"EPL-2.0" - t:"EPL-2.0"
+  s:"ErlPL-1.1" - t:"ErlPL-1.1"
+  s:"EUDatagrid" - t:"EUDatagrid"
+  s:"EUPL-1.0" - t:"EUPL-1.0"
+  s:"EUPL-1.1" - t:"EUPL-1.1"
+  s:"EUPL-1.2" - t:"EUPL-1.2"
+  s:"Eurosym" - t:"Eurosym"
+  s:"Fair" - t:"Fair"
+  s:"Frameworx-1.0" - t:"Frameworx-1.0"
+  s:"FreeImage" - t:"FreeImage"
+  s:"FSFAP" - t:"FSFAP"
+  s:"FSFUL" - t:"FSFUL"
+  s:"FSFULLR" - t:"FSFULLR"
+  s:"FTL" - t:"FTL"
+  s:"GFDL-1.1-only" - t:"GFDL-1.1-only"
+  s:"GFDL-1.1-or-later" - t:"GFDL-1.1-or-later"
+  s:"GFDL-1.2-only" - t:"GFDL-1.2-only"
+  s:"GFDL-1.2-or-later" - t:"GFDL-1.2-or-later"
+  s:"GFDL-1.3-only" - t:"GFDL-1.3-only"
+  s:"GFDL-1.3-or-later" - t:"GFDL-1.3-or-later"
+  s:"Giftware" - t:"Giftware"
+  s:"GL2PS" - t:"GL2PS"
+  s:"Glide" - t:"Glide"
+  s:"Glulxe" - t:"Glulxe"
+  s:"gnuplot" - t:"gnuplot"
+  s:"GPL-1.0-only" - t:"GPL-1.0-only"
+  s:"GPL-1.0-or-later" - t:"GPL-1.0-or-later"
+  s:"GPL-2.0-only" - t:"GPL-2.0-only"
+  s:"GPL-2.0-or-later" - t:"GPL-2.0-or-later"
+  s:"GPL-3.0-only" - t:"GPL-3.0-only"
+  s:"GPL-3.0-or-later" - t:"GPL-3.0-or-later"
+  s:"gSOAP-1.3b" - t:"gSOAP-1.3b"
+  s:"HaskellReport" - t:"HaskellReport"
+  s:"HPND" - t:"HPND"
+  s:"IBM-pibs" - t:"IBM-pibs"
+  s:"ICU" - t:"ICU"
+  s:"IJG" - t:"IJG"
+  s:"ImageMagick" - t:"ImageMagick"
+  s:"iMatix" - t:"iMatix"
+  s:"Imlib2" - t:"Imlib2"
+  s:"Info-ZIP" - t:"Info-ZIP"
+  s:"Intel-ACPI" - t:"Intel-ACPI"
+  s:"Intel" - t:"Intel"
+  s:"Interbase-1.0" - t:"Interbase-1.0"
+  s:"IPA" - t:"IPA"
+  s:"IPL-1.0" - t:"IPL-1.0"
+  s:"ISC" - t:"ISC"
+  s:"JasPer-2.0" - t:"JasPer-2.0"
+  s:"JSON" - t:"JSON"
+  s:"LAL-1.2" - t:"LAL-1.2"
+  s:"LAL-1.3" - t:"LAL-1.3"
+  s:"Latex2e" - t:"Latex2e"
+  s:"Leptonica" - t:"Leptonica"
+  s:"LGPL-2.0-only" - t:"LGPL-2.0-only"
+  s:"LGPL-2.0-or-later" - t:"LGPL-2.0-or-later"
+  s:"LGPL-2.1-only" - t:"LGPL-2.1-only"
+  s:"LGPL-2.1-or-later" - t:"LGPL-2.1-or-later"
+  s:"LGPL-3.0-only" - t:"LGPL-3.0-only"
+  s:"LGPL-3.0-or-later" - t:"LGPL-3.0-or-later"
+  s:"LGPLLR" - t:"LGPLLR"
+  s:"Libpng" - t:"Libpng"
+  s:"libtiff" - t:"libtiff"
+  s:"LiLiQ-P-1.1" - t:"LiLiQ-P-1.1"
+  s:"LiLiQ-R-1.1" - t:"LiLiQ-R-1.1"
+  s:"LiLiQ-Rplus-1.1" - t:"LiLiQ-Rplus-1.1"
+  s:"Linux-OpenIB" - t:"Linux-OpenIB"
+  s:"LPL-1.0" - t:"LPL-1.0"
+  s:"LPL-1.02" - t:"LPL-1.02"
+  s:"LPPL-1.0" - t:"LPPL-1.0"
+  s:"LPPL-1.1" - t:"LPPL-1.1"
+  s:"LPPL-1.2" - t:"LPPL-1.2"
+  s:"LPPL-1.3a" - t:"LPPL-1.3a"
+  s:"LPPL-1.3c" - t:"LPPL-1.3c"
+  s:"MakeIndex" - t:"MakeIndex"
+  s:"MirOS" - t:"MirOS"
+  s:"MIT-0" - t:"MIT-0"
+  s:"MIT-advertising" - t:"MIT-advertising"
+  s:"MIT-CMU" - t:"MIT-CMU"
+  s:"MIT-enna" - t:"MIT-enna"
+  s:"MIT-feh" - t:"MIT-feh"
+  s:"MIT" - t:"MIT"
+  s:"MITNFA" - t:"MITNFA"
+  s:"Motosoto" - t:"Motosoto"
+  s:"mpich2" - t:"mpich2"
+  s:"MPL-1.0" - t:"MPL-1.0"
+  s:"MPL-1.1" - t:"MPL-1.1"
+  s:"MPL-2.0-no-copyleft-exception" - t:"MPL-2.0-no-copyleft-exception"
+  s:"MPL-2.0" - t:"MPL-2.0"
+  s:"MS-PL" - t:"MS-PL"
+  s:"MS-RL" - t:"MS-RL"
+  s:"MTLL" - t:"MTLL"
+  s:"Multics" - t:"Multics"
+  s:"Mup" - t:"Mup"
+  s:"NASA-1.3" - t:"NASA-1.3"
+  s:"Naumen" - t:"Naumen"
+  s:"NBPL-1.0" - t:"NBPL-1.0"
+  s:"NCSA" - t:"NCSA"
+  s:"Net-SNMP" - t:"Net-SNMP"
+  s:"NetCDF" - t:"NetCDF"
+  s:"Newsletr" - t:"Newsletr"
+  s:"NGPL" - t:"NGPL"
+  s:"NLOD-1.0" - t:"NLOD-1.0"
+  s:"NLPL" - t:"NLPL"
+  s:"Nokia" - t:"Nokia"
+  s:"NOSL" - t:"NOSL"
+  s:"Noweb" - t:"Noweb"
+  s:"NPL-1.0" - t:"NPL-1.0"
+  s:"NPL-1.1" - t:"NPL-1.1"
+  s:"NPOSL-3.0" - t:"NPOSL-3.0"
+  s:"NRL" - t:"NRL"
+  s:"NTP" - t:"NTP"
+  s:"OCCT-PL" - t:"OCCT-PL"
+  s:"OCLC-2.0" - t:"OCLC-2.0"
+  s:"ODbL-1.0" - t:"ODbL-1.0"
+  s:"OFL-1.0" - t:"OFL-1.0"
+  s:"OFL-1.1" - t:"OFL-1.1"
+  s:"OGTSL" - t:"OGTSL"
+  s:"OLDAP-1.1" - t:"OLDAP-1.1"
+  s:"OLDAP-1.2" - t:"OLDAP-1.2"
+  s:"OLDAP-1.3" - t:"OLDAP-1.3"
+  s:"OLDAP-1.4" - t:"OLDAP-1.4"
+  s:"OLDAP-2.0.1" - t:"OLDAP-2.0.1"
+  s:"OLDAP-2.0" - t:"OLDAP-2.0"
+  s:"OLDAP-2.1" - t:"OLDAP-2.1"
+  s:"OLDAP-2.2.1" - t:"OLDAP-2.2.1"
+  s:"OLDAP-2.2.2" - t:"OLDAP-2.2.2"
+  s:"OLDAP-2.2" - t:"OLDAP-2.2"
+  s:"OLDAP-2.3" - t:"OLDAP-2.3"
+  s:"OLDAP-2.4" - t:"OLDAP-2.4"
+  s:"OLDAP-2.5" - t:"OLDAP-2.5"
+  s:"OLDAP-2.6" - t:"OLDAP-2.6"
+  s:"OLDAP-2.7" - t:"OLDAP-2.7"
+  s:"OLDAP-2.8" - t:"OLDAP-2.8"
+  s:"OML" - t:"OML"
+  s:"OpenSSL" - t:"OpenSSL"
+  s:"OPL-1.0" - t:"OPL-1.0"
+  s:"OSET-PL-2.1" - t:"OSET-PL-2.1"
+  s:"OSL-1.0" - t:"OSL-1.0"
+  s:"OSL-1.1" - t:"OSL-1.1"
+  s:"OSL-2.0" - t:"OSL-2.0"
+  s:"OSL-2.1" - t:"OSL-2.1"
+  s:"OSL-3.0" - t:"OSL-3.0"
+  s:"PDDL-1.0" - t:"PDDL-1.0"
+  s:"PHP-3.0" - t:"PHP-3.0"
+  s:"PHP-3.01" - t:"PHP-3.01"
+  s:"Plexus" - t:"Plexus"
+  s:"PostgreSQL" - t:"PostgreSQL"
+  s:"psfrag" - t:"psfrag"
+  s:"psutils" - t:"psutils"
+  s:"Python-2.0" - t:"Python-2.0"
+  s:"Qhull" - t:"Qhull"
+  s:"QPL-1.0" - t:"QPL-1.0"
+  s:"Rdisc" - t:"Rdisc"
+  s:"RHeCos-1.1" - t:"RHeCos-1.1"
+  s:"RPL-1.1" - t:"RPL-1.1"
+  s:"RPL-1.5" - t:"RPL-1.5"
+  s:"RPSL-1.0" - t:"RPSL-1.0"
+  s:"RSA-MD" - t:"RSA-MD"
+  s:"RSCPL" - t:"RSCPL"
+  s:"Ruby" - t:"Ruby"
+  s:"SAX-PD" - t:"SAX-PD"
+  s:"Saxpath" - t:"Saxpath"
+  s:"SCEA" - t:"SCEA"
+  s:"Sendmail" - t:"Sendmail"
+  s:"SGI-B-1.0" - t:"SGI-B-1.0"
+  s:"SGI-B-1.1" - t:"SGI-B-1.1"
+  s:"SGI-B-2.0" - t:"SGI-B-2.0"
+  s:"SimPL-2.0" - t:"SimPL-2.0"
+  s:"SISSL-1.2" - t:"SISSL-1.2"
+  s:"SISSL" - t:"SISSL"
+  s:"Sleepycat" - t:"Sleepycat"
+  s:"SMLNJ" - t:"SMLNJ"
+  s:"SMPPL" - t:"SMPPL"
+  s:"SNIA" - t:"SNIA"
+  s:"Spencer-86" - t:"Spencer-86"
+  s:"Spencer-94" - t:"Spencer-94"
+  s:"Spencer-99" - t:"Spencer-99"
+  s:"SPL-1.0" - t:"SPL-1.0"
+  s:"SugarCRM-1.1.3" - t:"SugarCRM-1.1.3"
+  s:"SWL" - t:"SWL"
+  s:"TCL" - t:"TCL"
+  s:"TCP-wrappers" - t:"TCP-wrappers"
+  s:"TMate" - t:"TMate"
+  s:"TORQUE-1.1" - t:"TORQUE-1.1"
+  s:"TOSL" - t:"TOSL"
+  s:"Unicode-DFS-2015" - t:"Unicode-DFS-2015"
+  s:"Unicode-DFS-2016" - t:"Unicode-DFS-2016"
+  s:"Unicode-TOU" - t:"Unicode-TOU"
+  s:"Unlicense" - t:"Unlicense"
+  s:"UPL-1.0" - t:"UPL-1.0"
+  s:"Vim" - t:"Vim"
+  s:"VOSTROM" - t:"VOSTROM"
+  s:"VSL-1.0" - t:"VSL-1.0"
+  s:"W3C-19980720" - t:"W3C-19980720"
+  s:"W3C-20150513" - t:"W3C-20150513"
+  s:"W3C" - t:"W3C"
+  s:"Watcom-1.0" - t:"Watcom-1.0"
+  s:"Wsuipa" - t:"Wsuipa"
+  s:"WTFPL" - t:"WTFPL"
+  s:"X11" - t:"X11"
+  s:"Xerox" - t:"Xerox"
+  s:"XFree86-1.1" - t:"XFree86-1.1"
+  s:"xinetd" - t:"xinetd"
+  s:"Xnet" - t:"Xnet"
+  s:"xpp" - t:"xpp"
+  s:"XSkat" - t:"XSkat"
+  s:"YPL-1.0" - t:"YPL-1.0"
+  s:"YPL-1.1" - t:"YPL-1.1"
+  s:"Zed" - t:"Zed"
+  s:"Zend-2.0" - t:"Zend-2.0"
+  s:"Zimbra-1.3" - t:"Zimbra-1.3"
+  s:"Zimbra-1.4" - t:"Zimbra-1.4"
+  s:"zlib-acknowledgement" - t:"zlib-acknowledgement"
+  s:"Zlib" - t:"Zlib"
+  s:"ZPL-1.1" - t:"ZPL-1.1"
+  s:"ZPL-2.0" - t:"ZPL-2.0"
+  s:"ZPL-2.1" - t:"ZPL-2.1"
+}
+
+uses "http://hl7.org/fhir/4.3/StructureDefinition/ImplementationGuide" alias ImplementationGuideR4B as source
+uses "http://hl7.org/fhir/StructureDefinition/ImplementationGuide" alias ImplementationGuideR5 as target
+
+imports "http://hl7.org/fhir/StructureMap/*4Bto5"
+
+group ImplementationGuide(source src : ImplementationGuideR4B, target tgt : ImplementationGuideR5) extends DomainResource <<type+>> {
+  src.url -> tgt.url;
+//  src.identifier -> tgt.identifier;
+  src.version -> tgt.version;
+//  src.versionAlgorithm : string -> tgt.versionAlgorithm;
+//  src.versionAlgorithm : Coding -> tgt.versionAlgorithm;
+  src.name -> tgt.name;
+  src.title -> tgt.title;
+  src.status as v -> tgt.status = translate(v, '#PublicationStatus', 'code');
+  src.experimental -> tgt.experimental;
+  src.date -> tgt.date;
+  src.publisher -> tgt.publisher;
+  src.contact -> tgt.contact;
+  src.description -> tgt.description;
+  src.useContext -> tgt.useContext;
+  src.jurisdiction -> tgt.jurisdiction;
+//  src.purpose -> tgt.purpose;
+  src.copyright -> tgt.copyright;
+//  src.copyrightLabel -> tgt.copyrightLabel;
+  src.packageId -> tgt.packageId;
+  src.license as v -> tgt.license = translate(v, '#SPDXLicense', 'code');
+  src.fhirVersion -> tgt.fhirVersion;
+  src.dependsOn as s -> tgt.dependsOn as t then ImplementationGuideDependsOn(s,t);
+  src.global as s -> tgt.global as t then ImplementationGuideGlobal(s,t);
+  src.definition as s -> tgt.definition as t then ImplementationGuideDefinition(s,t);
+  src.manifest as s -> tgt.manifest as t then ImplementationGuideManifest(s,t);
+}
+
+group ImplementationGuideDependsOn(source src, target tgt) extends BackboneElement {
+  src.uri -> tgt.uri;
+  src.packageId -> tgt.packageId;
+  src.version -> tgt.version;
+//  src.reason -> tgt.reason;
+}
+
+group ImplementationGuideGlobal(source src, target tgt) extends BackboneElement {
+  src.type -> tgt.type;
+  src.profile -> tgt.profile;
+}
+
+group ImplementationGuideDefinition(source src, target tgt) extends BackboneElement {
+  src.grouping as s -> tgt.grouping as t then ImplementationGuideDefinitionGrouping(s,t);
+  src.resource as s -> tgt.resource as t then ImplementationGuideDefinitionResource(s,t);
+  src.page as s -> tgt.page as t then ImplementationGuideDefinitionPage(s,t);
+  src.parameter as s -> tgt.parameter as t then ImplementationGuideDefinitionParameter(s,t);
+  src.template as s -> tgt.template as t then ImplementationGuideDefinitionTemplate(s,t);
+}
+
+group ImplementationGuideDefinitionGrouping(source src, target tgt) extends BackboneElement {
+  src.name -> tgt.name;
+  src.description -> tgt.description;
+}
+
+group ImplementationGuideDefinitionResource(source src, target tgt) extends BackboneElement {
+  src.reference -> tgt.reference;
+  src.fhirVersion as v -> tgt.fhirVersion = translate(v, '#FHIRVersion', 'code');
+  src.name -> tgt.name;
+  src.description -> tgt.description;
+  src.example : boolean -> tgt.isExample;
+  src.example : canonical -> tgt.profile;
+  src.groupingId -> tgt.groupingId;
+}
+
+group ImplementationGuideDefinitionPage(source src, target tgt) extends BackboneElement {
+  src.name : url -> tgt.source;
+//   src.name : Reference -> tgt.source; - this wasn't used?
+  src.name : url -> tgt.name;
+  src.title -> tgt.title;
+  src.generation as v -> tgt.generation = translate(v, '#GuidePageGeneration', 'code');
+  src.page as s -> tgt.page as t then ImplementationGuideDefinitionPage(s,t);
+}
+
+group ImplementationGuideDefinitionParameter(source src, target tgt) extends BackboneElement {
+  src.code as s -> tgt.code as t, t.system = "http://hl7.org/fhir/guide-parameter-code", t.code = s;
+  src.value -> tgt.value;
+}
+
+group ImplementationGuideDefinitionTemplate(source src, target tgt) extends BackboneElement {
+  src.code -> tgt.code;
+  src.source -> tgt.source;
+  src.scope -> tgt.scope;
+}
+
+group ImplementationGuideManifest(source src, target tgt) extends BackboneElement {
+  src.rendering -> tgt.rendering;
+  src.resource as s -> tgt.resource as t then ImplementationGuideManifestResource(s,t);
+  src.page as s -> tgt.page as t then ImplementationGuideManifestPage(s,t);
+  src.image -> tgt.image;
+  src.other -> tgt.other;
+}
+
+group ImplementationGuideManifestResource(source src, target tgt) extends BackboneElement {
+  src.reference -> tgt.reference;
+  src.example : boolean -> tgt.isExample;
+  src.example : canonical -> tgt.profile;
+  src.relativePath -> tgt.relativePath;
+}
+
+group ImplementationGuideManifestPage(source src, target tgt) extends BackboneElement {
+  src.name -> tgt.name;
+  src.title -> tgt.title;
+  src.anchor -> tgt.anchor;
+}
+

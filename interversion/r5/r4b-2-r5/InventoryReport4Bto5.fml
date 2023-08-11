@@ -1,0 +1,53 @@
+﻿/// url = 'http://hl7.org/fhir/StructureMap/InventoryReport4Bto5'
+/// name = 'InventoryReport4Bto5'
+/// title = 'FML Conversion for InventoryReport: R4B to R5'
+
+conceptmap "InventoryCountType" {
+  prefix s = "http://hl7.org/fhir/4.3/inventoryreport-counttype"
+  prefix t = "http://hl7.org/fhir/inventoryreport-counttype"
+
+  s:"snapshot" - t:"snapshot"
+  s:"difference" - t:"difference"
+}
+
+conceptmap "InventoryReportStatus" {
+  prefix s = "http://hl7.org/fhir/4.3/inventoryreport-status"
+  prefix t = "http://hl7.org/fhir/inventoryreport-status"
+
+  s:"draft" - t:"draft"
+  s:"requested" - t:"requested"
+  s:"active" - t:"active"
+  s:"entered-in-error" - t:"entered-in-error"
+}
+
+uses "http://hl7.org/fhir/4.3/StructureDefinition/InventoryReport" alias InventoryReportR4B as source
+uses "http://hl7.org/fhir/StructureDefinition/InventoryReport" alias InventoryReportR5 as target
+
+imports "http://hl7.org/fhir/StructureMap/*4Bto5"
+
+group InventoryReport(source src : InventoryReportR4B, target tgt : InventoryReportR5) extends DomainResource <<type+>> {
+  src.identifier -> tgt.identifier;
+  src.status as v -> tgt.status = translate(v, '#InventoryReportStatus', 'code');
+  src.countType as v -> tgt.countType = translate(v, '#InventoryCountType', 'code');
+  src.operationType -> tgt.operationType;
+  src.operationTypeReason -> tgt.operationTypeReason;
+  src.reportedDateTime -> tgt.reportedDateTime;
+  src.reporter -> tgt.reporter;
+  src.reportingPeriod -> tgt.reportingPeriod;
+  src.inventoryListing as s -> tgt.inventoryListing as t then InventoryReportInventoryListing(s,t);
+  src.note -> tgt.note;
+}
+
+group InventoryReportInventoryListing(source src, target tgt) extends BackboneElement {
+  src.location -> tgt.location;
+  src.itemStatus -> tgt.itemStatus;
+  src.countingDateTime -> tgt.countingDateTime;
+  src.item as s -> tgt.item as t then InventoryReportInventoryListingItem(s,t);
+}
+
+group InventoryReportInventoryListingItem(source src, target tgt) extends BackboneElement {
+  src.category -> tgt.category;
+  src.quantity -> tgt.quantity;
+  src.item -> tgt.item;
+}
+

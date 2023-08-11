@@ -1,0 +1,79 @@
+﻿/// url = 'http://hl7.org/fhir/StructureMap/Specimen4Bto5'
+/// name = 'Specimen4Bto5'
+/// title = 'FML Conversion for Specimen: R4B to R5'
+
+conceptmap "PublicationStatus" {
+  prefix s = "http://hl7.org/fhir/4.3/specimen-combined"
+  prefix t = "http://hl7.org/fhir/specimen-combined"
+
+  s:"grouped" - t:"grouped"
+  s:"pooled" - t:"pooled"
+}
+
+conceptmap "SpecimenStatus" {
+  prefix s = "http://hl7.org/fhir/4.3/specimen-status"
+  prefix t = "http://hl7.org/fhir/specimen-status"
+
+  s:"available" - t:"available"
+  s:"unavailable" - t:"unavailable"
+  s:"unsatisfactory" - t:"unsatisfactory"
+  s:"entered-in-error" - t:"entered-in-error"
+}
+
+uses "http://hl7.org/fhir/4.3/StructureDefinition/Specimen" alias SpecimenR4B as source
+uses "http://hl7.org/fhir/StructureDefinition/Specimen" alias SpecimenR5 as target
+
+imports "http://hl7.org/fhir/StructureMap/*4Bto5"
+
+group Specimen(source src : SpecimenR4B, target tgt : SpecimenR5) extends DomainResource <<type+>> {
+  src.identifier -> tgt.identifier;
+  src.accessionIdentifier -> tgt.accessionIdentifier;
+  src.status as v -> tgt.status = translate(v, '#SpecimenStatus', 'code');
+  src.type -> tgt.type;
+  src.subject -> tgt.subject;
+  src.receivedTime -> tgt.receivedTime;
+  src.parent -> tgt.parent;
+  src.request -> tgt.request;
+  src.combined as v -> tgt.combined = translate(v, '#PublicationStatus', 'code');
+  src.role -> tgt.role;
+  src.feature as s -> tgt.feature as t then SpecimenFeature(s,t);
+  src.collection as s -> tgt.collection as t then SpecimenCollection(s,t);
+  src.processing as s -> tgt.processing as t then SpecimenProcessing(s,t);
+  src.container as s -> tgt.container as t then SpecimenContainer(s,t);
+  src.condition -> tgt.condition;
+  src.note -> tgt.note;
+}
+
+group SpecimenFeature(source src, target tgt) extends BackboneElement {
+  src.type -> tgt.type;
+  src.description -> tgt.description;
+}
+
+group SpecimenCollection(source src, target tgt) extends BackboneElement {
+  src.collector -> tgt.collector;
+  src.collected : dateTime -> tgt.collected;
+  src.collected : Period -> tgt.collected;
+  src.duration -> tgt.duration;
+  src.quantity -> tgt.quantity;
+  src.method -> tgt.method;
+  src.device -> tgt.device;
+  src.procedure -> tgt.procedure;
+  src.bodySite -> tgt.bodySite;
+  src.fastingStatus : CodeableConcept -> tgt.fastingStatus;
+  src.fastingStatus : Duration -> tgt.fastingStatus;
+}
+
+group SpecimenProcessing(source src, target tgt) extends BackboneElement {
+  src.description -> tgt.description;
+  src.method -> tgt.method;
+  src.additive -> tgt.additive;
+  src.time : dateTime -> tgt.time;
+  src.time : Period -> tgt.time;
+}
+
+group SpecimenContainer(source src, target tgt) extends BackboneElement {
+  src.device -> tgt.device;
+  src.location -> tgt.location;
+  src.specimenQuantity -> tgt.specimenQuantity;
+}
+

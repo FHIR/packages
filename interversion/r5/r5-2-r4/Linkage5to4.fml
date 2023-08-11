@@ -1,0 +1,31 @@
+﻿/// url = 'http://hl7.org/fhir/StructureMap/Linkage5to4'
+/// name = 'Linkage5to4'
+/// title = 'FML Conversion for Linkage: R5 to R4'
+
+// GG 8-Mar 2023: All OK
+
+conceptmap "LinkageType" {
+  prefix s = "http://hl7.org/fhir/linkage-type"
+  prefix t = "http://hl7.org/fhir/4.0/linkage-type"
+
+  s:"source" - t:"source"
+  s:"alternate" - t:"alternate"
+  s:"historical" - t:"historical"
+}
+
+uses "http://hl7.org/fhir/StructureDefinition/Linkage" alias LinkageR5 as source
+uses "http://hl7.org/fhir/4.0/StructureDefinition/Linkage" alias LinkageR4 as target
+
+imports "http://hl7.org/fhir/StructureMap/*5to4"
+
+group Linkage(source src : LinkageR5, target tgt : LinkageR4) extends DomainResource <<type+>> {
+  src.active -> tgt.active;
+  src.author -> tgt.author;
+  src.item as s -> tgt.item as t then LinkageItem(s,t);
+}
+
+group LinkageItem(source src, target tgt) extends BackboneElement {
+  src.type as v -> tgt.type = translate(v, '#LinkageType', 'code');
+  src.resource -> tgt.resource;
+}
+

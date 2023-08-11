@@ -1,0 +1,17 @@
+﻿/// url = 'http://hl7.org/fhir/StructureMap/ProductShelfLife4Bto5'
+/// name = 'ProductShelfLife4Bto5'
+/// title = 'FML Conversion for ProductShelfLife: R4B to R5'
+
+uses "http://hl7.org/fhir/4.3/StructureDefinition/ProductShelfLife" alias ProductShelfLifeR4B as source
+uses "http://hl7.org/fhir/StructureDefinition/ProductShelfLife" alias ProductShelfLifeR5 as target
+
+imports "http://hl7.org/fhir/StructureMap/*4Bto5"
+
+group ProductShelfLife(source src : ProductShelfLifeR4B, target tgt : ProductShelfLifeR5) extends Element <<type+>> {
+  src.modifierExtension -> tgt.modifierExtension;
+  src.type -> tgt.type;
+  src.period : Duration -> tgt.period;
+  src.period : string -> tgt.period;
+  src.specialPrecautionsForStorage -> tgt.specialPrecautionsForStorage;
+}
+

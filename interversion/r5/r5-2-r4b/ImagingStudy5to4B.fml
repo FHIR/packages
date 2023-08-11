@@ -1,0 +1,68 @@
+﻿/// url = 'http://hl7.org/fhir/StructureMap/ImagingStudy5to4B'
+/// name = 'ImagingStudy5to4B'
+/// title = 'FML Conversion for ImagingStudy: R5 to R4B'
+
+conceptmap "ImagingStudyStatus" {
+  prefix s = "http://hl7.org/fhir/imagingstudy-status"
+  prefix t = "http://hl7.org/fhir/4.3/imagingstudy-status"
+
+  s:"registered" - t:"registered"
+  s:"available" - t:"available"
+  s:"cancelled" - t:"cancelled"
+  s:"entered-in-error" - t:"entered-in-error"
+  s:"unknown" - t:"unknown"
+}
+
+uses "http://hl7.org/fhir/StructureDefinition/ImagingStudy" alias ImagingStudyR5 as source
+uses "http://hl7.org/fhir/4.3/StructureDefinition/ImagingStudy" alias ImagingStudyR4B as target
+
+imports "http://hl7.org/fhir/StructureMap/*5to4B"
+
+group ImagingStudy(source src : ImagingStudyR5, target tgt : ImagingStudyR4B) extends DomainResource <<type+>> {
+  src.identifier -> tgt.identifier;
+  src.status as v -> tgt.status = translate(v, '#ImagingStudyStatus', 'code');
+  src.modality -> tgt.modality;
+  src.subject -> tgt.subject;
+  src.encounter -> tgt.encounter;
+  src.started -> tgt.started;
+  src.basedOn -> tgt.basedOn;
+  src.partOf -> tgt.partOf;
+  src.referrer -> tgt.referrer;
+  src.endpoint -> tgt.endpoint;
+  src.numberOfSeries -> tgt.numberOfSeries;
+  src.numberOfInstances -> tgt.numberOfInstances;
+  src.procedure -> tgt.procedure;
+  src.location -> tgt.location;
+  src.reason -> tgt.reason;
+  src.note -> tgt.note;
+  src.description -> tgt.description;
+  src.series as s -> tgt.series as t then ImagingStudySeries(s,t);
+}
+
+group ImagingStudySeries(source src, target tgt) extends BackboneElement {
+  src.uid -> tgt.uid;
+  src.number -> tgt.number;
+  src.modality -> tgt.modality;
+  src.description -> tgt.description;
+  src.numberOfInstances -> tgt.numberOfInstances;
+  src.endpoint -> tgt.endpoint;
+  src.bodySite -> tgt.bodySite;
+  src.laterality -> tgt.laterality;
+  src.specimen -> tgt.specimen;
+  src.started -> tgt.started;
+  src.performer as s -> tgt.performer as t then ImagingStudySeriesPerformer(s,t);
+  src.instance as s -> tgt.instance as t then ImagingStudySeriesInstance(s,t);
+}
+
+group ImagingStudySeriesPerformer(source src, target tgt) extends BackboneElement {
+  src.function -> tgt.function;
+  src.actor -> tgt.actor;
+}
+
+group ImagingStudySeriesInstance(source src, target tgt) extends BackboneElement {
+  src.uid -> tgt.uid;
+  src.sopClass -> tgt.sopClass;
+  src.number -> tgt.number;
+  src.title -> tgt.title;
+}
+

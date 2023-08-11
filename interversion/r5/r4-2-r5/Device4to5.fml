@@ -1,0 +1,114 @@
+﻿/// url = 'http://hl7.org/fhir/StructureMap/Device4to5'
+/// name = 'Device4to5'
+/// title = 'FML Conversion for Device: R4 to R5'
+
+conceptmap "DeviceNameType" {
+  prefix s = "http://hl7.org/fhir/4.0/device-nametype"
+  prefix t = "http://hl7.org/fhir/device-nametype"
+
+  s:"registered-name" - t:"registered-name"
+  s:"user-friendly-name" - t:"user-friendly-name"
+  s:"patient-reported-name" - t:"patient-reported-name"
+}
+
+conceptmap "FHIRDeviceStatus" {
+  prefix s = "http://hl7.org/fhir/4.0/device-status"
+  prefix t = "http://hl7.org/fhir/device-status"
+
+  s:"active" - t:"active"
+  s:"inactive" - t:"inactive"
+  s:"entered-in-error" - t:"entered-in-error"
+}
+
+conceptmap "UDIEntryType" {
+  prefix s = "http://hl7.org/fhir/4.0/udi-entry-type"
+  prefix t = "http://hl7.org/fhir/udi-entry-type"
+
+  s:"barcode" - t:"barcode"
+  s:"rfid" - t:"rfid"
+  s:"manual" - t:"manual"
+  s:"card" - t:"card"
+  s:"self-reported" - t:"self-reported"
+  s:"electronic-transmission" - t:"electronic-transmission"
+  s:"unknown" - t:"unknown"
+}
+
+uses "http://hl7.org/fhir/4.0/StructureDefinition/Device" alias DeviceR4 as source
+uses "http://hl7.org/fhir/StructureDefinition/Device" alias DeviceR5 as target
+
+imports "http://hl7.org/fhir/StructureMap/*4to5"
+
+group Device(source src : DeviceR4, target tgt : DeviceR5) extends DomainResource <<type+>> {
+  src.identifier -> tgt.identifier;
+  src.displayName -> tgt.displayName;
+  src.definition -> tgt.definition;
+  src.udiCarrier as s -> tgt.udiCarrier as t then DeviceUdiCarrier(s,t);
+  src.status as v -> tgt.status = translate(v, '#FHIRDeviceStatus', 'code');
+  src.availabilityStatus -> tgt.availabilityStatus;
+  src.biologicalSourceEvent -> tgt.biologicalSourceEvent;
+  src.manufacturer -> tgt.manufacturer;
+  src.manufactureDate -> tgt.manufactureDate;
+  src.expirationDate -> tgt.expirationDate;
+  src.lotNumber -> tgt.lotNumber;
+  src.serialNumber -> tgt.serialNumber;
+  src.name as s -> tgt.name as t then DeviceName(s,t);
+  src.modelNumber -> tgt.modelNumber;
+  src.partNumber -> tgt.partNumber;
+  src.category -> tgt.category;
+  src.type -> tgt.type;
+  src.version as s -> tgt.version as t then DeviceVersion(s,t);
+  src.conformsTo as s -> tgt.conformsTo as t then DeviceConformsTo(s,t);
+  src.property as s -> tgt.property as t then DeviceProperty(s,t);
+  src.mode -> tgt.mode;
+  src.cycle -> tgt.cycle;
+  src.duration -> tgt.duration;
+  src.owner -> tgt.owner;
+  src.contact -> tgt.contact;
+  src.location -> tgt.location;
+  src.url -> tgt.url;
+  src.endpoint -> tgt.endpoint;
+  src.gateway -> tgt.gateway;
+  src.note -> tgt.note;
+  src.safety -> tgt.safety;
+  src.parent -> tgt.parent;
+}
+
+group DeviceUdiCarrier(source src, target tgt) extends BackboneElement {
+  src.deviceIdentifier -> tgt.deviceIdentifier;
+  src.issuer -> tgt.issuer;
+  src.jurisdiction -> tgt.jurisdiction;
+  src.carrierAIDC -> tgt.carrierAIDC;
+  src.carrierHRF -> tgt.carrierHRF;
+  src.entryType as v -> tgt.entryType = translate(v, '#UDIEntryType', 'code');
+}
+
+group DeviceName(source src, target tgt) extends BackboneElement {
+  src.value -> tgt.value;
+  src.type as v -> tgt.type = translate(v, '#DeviceNameType', 'code');
+  src.display -> tgt.display;
+}
+
+group DeviceVersion(source src, target tgt) extends BackboneElement {
+  src.type -> tgt.type;
+  src.component -> tgt.component;
+  src.installDate -> tgt.installDate;
+  src.value -> tgt.value;
+}
+
+group DeviceConformsTo(source src, target tgt) extends BackboneElement {
+  src.category -> tgt.category;
+  src.specification -> tgt.specification;
+  src.version -> tgt.version;
+}
+
+group DeviceProperty(source src, target tgt) extends BackboneElement {
+  src.type -> tgt.type;
+  src.value : Quantity -> tgt.value;
+  src.value : CodeableConcept -> tgt.value;
+  src.value : string -> tgt.value;
+  src.value : boolean -> tgt.value;
+  src.value : integer -> tgt.value;
+  src.value : Range -> tgt.value;
+  src.value : Attachment -> tgt.value;
+}
+

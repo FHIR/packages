@@ -1,0 +1,63 @@
+﻿/// url = 'http://hl7.org/fhir/StructureMap/MedicationAdministration5to4B'
+/// name = 'MedicationAdministration5to4B'
+/// title = 'FML Conversion for MedicationAdministration: R5 to R4B'
+
+conceptmap "MedicationAdministrationStatus" {
+  prefix s = "http://hl7.org/fhir/CodeSystem/medication-admin-status"
+  prefix t = "http://hl7.org/fhir/4.3/CodeSystem/medication-admin-status"
+
+  s:"in-progress" - t:"in-progress"
+  s:"not-done" - t:"not-done"
+  s:"on-hold" - t:"on-hold"
+  s:"completed" - t:"completed"
+  s:"entered-in-error" - t:"entered-in-error"
+  s:"stopped" - t:"stopped"
+  s:"unknown" - t:"unknown"
+}
+
+uses "http://hl7.org/fhir/StructureDefinition/MedicationAdministration" alias MedicationAdministrationR5 as source
+uses "http://hl7.org/fhir/4.3/StructureDefinition/MedicationAdministration" alias MedicationAdministrationR4B as target
+
+imports "http://hl7.org/fhir/StructureMap/*5to4B"
+
+group MedicationAdministration(source src : MedicationAdministrationR5, target tgt : MedicationAdministrationR4B) extends DomainResource <<type+>> {
+  src.identifier -> tgt.identifier;
+  src.basedOn -> tgt.basedOn;
+  src.partOf -> tgt.partOf;
+  src.status as v -> tgt.status = translate(v, '#MedicationAdministrationStatus', 'code');
+  src.statusReason -> tgt.statusReason;
+  src.category -> tgt.category;
+  src.medication -> tgt.medication;
+  src.subject -> tgt.subject;
+  src.encounter -> tgt.encounter;
+  src.supportingInformation -> tgt.supportingInformation;
+  src.occurence : dateTime -> tgt.occurence;
+  src.occurence : Period -> tgt.occurence;
+  src.occurence : Timing -> tgt.occurence;
+  src.recorded -> tgt.recorded;
+  src.isSubPotent -> tgt.isSubPotent;
+  src.subPotentReason -> tgt.subPotentReason;
+  src.performer as s -> tgt.performer as t then MedicationAdministrationPerformer(s,t);
+  src.reason -> tgt.reason;
+  src.request -> tgt.request;
+  src.device -> tgt.device;
+  src.note -> tgt.note;
+  src.dosage as s -> tgt.dosage as t then MedicationAdministrationDosage(s,t);
+  src.eventHistory -> tgt.eventHistory;
+}
+
+group MedicationAdministrationPerformer(source src, target tgt) extends BackboneElement {
+  src.function -> tgt.function;
+  src.actor -> tgt.actor;
+}
+
+group MedicationAdministrationDosage(source src, target tgt) extends BackboneElement {
+  src.text -> tgt.text;
+  src.site -> tgt.site;
+  src.route -> tgt.route;
+  src.method -> tgt.method;
+  src.dose -> tgt.dose;
+  src.rate : Ratio -> tgt.rate;
+  src.rate : Quantity -> tgt.rate;
+}
+

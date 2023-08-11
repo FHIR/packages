@@ -1,0 +1,86 @@
+﻿/// url = 'http://hl7.org/fhir/StructureMap/InsurancePlan4to5'
+/// name = 'InsurancePlan4to5'
+/// title = 'FML Conversion for InsurancePlan: R4 to R5'
+
+conceptmap "PublicationStatus" {
+  prefix s = "http://hl7.org/fhir/4.0/publication-status"
+  prefix t = "http://hl7.org/fhir/publication-status"
+
+  s:"draft" - t:"draft"
+  s:"active" - t:"active"
+  s:"retired" - t:"retired"
+  s:"unknown" - t:"unknown"
+}
+
+uses "http://hl7.org/fhir/4.0/StructureDefinition/InsurancePlan" alias InsurancePlanR4 as source
+uses "http://hl7.org/fhir/StructureDefinition/InsurancePlan" alias InsurancePlanR5 as target
+
+imports "http://hl7.org/fhir/StructureMap/*4to5"
+
+group InsurancePlan(source src : InsurancePlanR4, target tgt : InsurancePlanR5) extends DomainResource <<type+>> {
+  src.identifier -> tgt.identifier;
+  src.status as v -> tgt.status = translate(v, '#PublicationStatus', 'code');
+  src.type -> tgt.type;
+  src.name -> tgt.name;
+  src.alias -> tgt.alias;
+  src.period -> tgt.period;
+  src.ownedBy -> tgt.ownedBy;
+  src.administeredBy -> tgt.administeredBy;
+  src.coverageArea -> tgt.coverageArea;
+  src.contact -> tgt.contact;
+  src.endpoint -> tgt.endpoint;
+  src.network -> tgt.network;
+  src.coverage as s -> tgt.coverage as t then InsurancePlanCoverage(s,t);
+  src.plan as s -> tgt.plan as t then InsurancePlanPlan(s,t);
+}
+
+group InsurancePlanCoverage(source src, target tgt) extends BackboneElement {
+  src.type -> tgt.type;
+  src.network -> tgt.network;
+  src.benefit as s -> tgt.benefit as t then InsurancePlanCoverageBenefit(s,t);
+}
+
+group InsurancePlanCoverageBenefit(source src, target tgt) extends BackboneElement {
+  src.type -> tgt.type;
+  src.requirement -> tgt.requirement;
+  src.limit as s -> tgt.limit as t then InsurancePlanCoverageBenefitLimit(s,t);
+}
+
+group InsurancePlanCoverageBenefitLimit(source src, target tgt) extends BackboneElement {
+  src.value -> tgt.value;
+  src.code -> tgt.code;
+}
+
+group InsurancePlanPlan(source src, target tgt) extends BackboneElement {
+  src.identifier -> tgt.identifier;
+  src.type -> tgt.type;
+  src.coverageArea -> tgt.coverageArea;
+  src.network -> tgt.network;
+  src.generalCost as s -> tgt.generalCost as t then InsurancePlanPlanGeneralCost(s,t);
+  src.specificCost as s -> tgt.specificCost as t then InsurancePlanPlanSpecificCost(s,t);
+}
+
+group InsurancePlanPlanGeneralCost(source src, target tgt) extends BackboneElement {
+  src.type -> tgt.type;
+  src.groupSize -> tgt.groupSize;
+  src.cost -> tgt.cost;
+  src.comment -> tgt.comment;
+}
+
+group InsurancePlanPlanSpecificCost(source src, target tgt) extends BackboneElement {
+  src.category -> tgt.category;
+  src.benefit as s -> tgt.benefit as t then InsurancePlanPlanSpecificCostBenefit(s,t);
+}
+
+group InsurancePlanPlanSpecificCostBenefit(source src, target tgt) extends BackboneElement {
+  src.type -> tgt.type;
+  src.cost as s -> tgt.cost as t then InsurancePlanPlanSpecificCostBenefitCost(s,t);
+}
+
+group InsurancePlanPlanSpecificCostBenefitCost(source src, target tgt) extends BackboneElement {
+  src.type -> tgt.type;
+  src.applicability -> tgt.applicability;
+  src.qualifiers -> tgt.qualifiers;
+  src.value -> tgt.value;
+}
+

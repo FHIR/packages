@@ -1,0 +1,16 @@
+﻿/// url = 'http://hl7.org/fhir/StructureMap/DomainResource4Bto5'
+/// name = 'DomainResource4Bto5'
+/// title = 'FML Conversion for DomainResource: R4B to R5'
+
+uses "http://hl7.org/fhir/4.3/StructureDefinition/DomainResource" alias DomainResourceR4B as source
+uses "http://hl7.org/fhir/StructureDefinition/DomainResource" alias DomainResourceR5 as target
+
+imports "http://hl7.org/fhir/StructureMap/*4Bto5"
+
+group DomainResource(source src : DomainResourceR4B, target tgt : DomainResourceR5) extends Resource <<type+>> {
+  src.text -> tgt.text;
+  src.contained -> tgt.contained;
+  src.extension -> tgt.extension;
+  src.modifierExtension -> tgt.modifierExtension;
+}
+

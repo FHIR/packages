@@ -1,0 +1,30 @@
+﻿/// url = 'http://hl7.org/fhir/StructureMap/MonetaryComponent4to5'
+/// name = 'MonetaryComponent4to5'
+/// title = 'FML Conversion for MonetaryComponent: R4 to R5'
+
+// to be deleted once it's inlined into ChargeItem, ChargeItemDefinition and Invoice
+
+conceptmap "PriceComponentType" {
+  prefix s = "http://hl7.org/fhir/4.0/price-component-type"
+  prefix t = "http://hl7.org/fhir/price-component-type"
+
+  s:"base" - t:"base"
+  s:"surcharge" - t:"surcharge"
+  s:"deduction" - t:"deduction"
+  s:"discount" - t:"discount"
+  s:"tax" - t:"tax"
+  s:"informational" - t:"informational"
+}
+
+uses "http://hl7.org/fhir/4.0/StructureDefinition/MonetaryComponent" alias MonetaryComponentR4 as source
+uses "http://hl7.org/fhir/StructureDefinition/MonetaryComponent" alias MonetaryComponentR5 as target
+
+imports "http://hl7.org/fhir/StructureMap/*4to5"
+
+group MonetaryComponent(source src : MonetaryComponentR4, target tgt : MonetaryComponentR5) extends Element <<type+>> {
+  src.type as v -> tgt.type = translate(v, '#PriceComponentType', 'code');
+  src.code -> tgt.code;
+  src.factor -> tgt.factor;
+  src.amount -> tgt.amount;
+}
+

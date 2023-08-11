@@ -1,0 +1,35 @@
+﻿/// url = 'http://hl7.org/fhir/StructureMap/RegulatedAuthorization4Bto5'
+/// name = 'RegulatedAuthorization4Bto5'
+/// title = 'FML Conversion for RegulatedAuthorization: R4B to R5'
+
+uses "http://hl7.org/fhir/4.3/StructureDefinition/RegulatedAuthorization" alias RegulatedAuthorizationR4B as source
+uses "http://hl7.org/fhir/StructureDefinition/RegulatedAuthorization" alias RegulatedAuthorizationR5 as target
+
+imports "http://hl7.org/fhir/StructureMap/*4Bto5"
+
+group RegulatedAuthorization(source src : RegulatedAuthorizationR4B, target tgt : RegulatedAuthorizationR5) extends DomainResource <<type+>> {
+  src.identifier -> tgt.identifier;
+  src.subject -> tgt.subject;
+  src.type -> tgt.type;
+  src.description -> tgt.description;
+  src.region -> tgt.region;
+  src.status -> tgt.status;
+  src.statusDate -> tgt.statusDate;
+  src.validityPeriod -> tgt.validityPeriod;
+  src.indication -> tgt.indication;
+  src.intendedUse -> tgt.intendedUse;
+  src.basis -> tgt.basis;
+  src.holder -> tgt.holder;
+  src.regulator -> tgt.regulator;
+  src.attachedDocument -> tgt.attachedDocument;
+  src.case as s -> tgt.case as t then RegulatedAuthorizationCase(s,t);
+}
+
+group RegulatedAuthorizationCase(source src, target tgt) extends BackboneElement {
+  src.identifier -> tgt.identifier;
+  src.type -> tgt.type;
+  src.status -> tgt.status;
+  src.date : Period -> tgt.date;
+  src.date : dateTime -> tgt.date;
+}
+

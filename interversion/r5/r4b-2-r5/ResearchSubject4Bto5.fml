@@ -1,0 +1,40 @@
+﻿/// url = 'http://hl7.org/fhir/StructureMap/ResearchSubject4Bto5'
+/// name = 'ResearchSubject4Bto5'
+/// title = 'FML Conversion for ResearchSubject: R4B to R5'
+
+conceptmap "PublicationStatus" {
+  prefix s = "http://hl7.org/fhir/4.3/publication-status"
+  prefix t = "http://hl7.org/fhir/publication-status"
+
+  s:"draft" - t:"draft"
+  s:"active" - t:"active"
+  s:"retired" - t:"retired"
+  s:"unknown" - t:"unknown"
+}
+
+uses "http://hl7.org/fhir/4.3/StructureDefinition/ResearchSubject" alias ResearchSubjectR4B as source
+uses "http://hl7.org/fhir/StructureDefinition/ResearchSubject" alias ResearchSubjectR5 as target
+
+imports "http://hl7.org/fhir/StructureMap/*4Bto5"
+
+group ResearchSubject(source src : ResearchSubjectR4B, target tgt : ResearchSubjectR5) extends DomainResource <<type+>> {
+  src.identifier -> tgt.identifier;
+  src.status as v -> tgt.status = translate(v, '#PublicationStatus', 'code');
+  src.progress as s -> tgt.progress as t then ResearchSubjectProgress(s,t);
+  src.period -> tgt.period;
+  src.study -> tgt.study;
+  src.subject -> tgt.subject;
+  src.assignedComparisonGroup -> tgt.assignedComparisonGroup;
+  src.actualComparisonGroup -> tgt.actualComparisonGroup;
+  src.consent -> tgt.consent;
+}
+
+group ResearchSubjectProgress(source src, target tgt) extends BackboneElement {
+  src.type -> tgt.type;
+  src.subjectState -> tgt.subjectState;
+  src.milestone -> tgt.milestone;
+  src.reason -> tgt.reason;
+  src.startDate -> tgt.startDate;
+  src.endDate -> tgt.endDate;
+}
+

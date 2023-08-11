@@ -1,0 +1,30 @@
+﻿/// url = 'http://hl7.org/fhir/StructureMap/ParameterDefinition5to4B'
+/// name = 'ParameterDefinition5to4B'
+/// title = 'FML Conversion for ParameterDefinition: R5 to R4B'
+
+// GG 7-Mar 2023: All OK
+
+
+conceptmap "ParameterUse" {
+  prefix s = "http://hl7.org/fhir/operation-parameter-use"
+  prefix t = "http://hl7.org/fhir/4.3/operation-parameter-use"
+
+  s:"in" - t:"in"
+  s:"out" - t:"out"
+}
+
+uses "http://hl7.org/fhir/StructureDefinition/ParameterDefinition" alias ParameterDefinitionR5 as source
+uses "http://hl7.org/fhir/4.3/StructureDefinition/ParameterDefinition" alias ParameterDefinitionR4B as target
+
+imports "http://hl7.org/fhir/StructureMap/*5to4B"
+
+group ParameterDefinition(source src : ParameterDefinitionR5, target tgt : ParameterDefinitionR4B) extends Element <<type+>> {
+  src.name -> tgt.name;
+  src.use as v -> tgt.use = translate(v, '#ParameterUse', 'code');
+  src.min -> tgt.min;
+  src.max -> tgt.max;
+  src.documentation -> tgt.documentation;
+  src.type as v -> tgt.type = translate(v, 'http://hl7.org/fhir/interversion/types5to4B', 'code');
+  src.profile -> tgt.profile;
+}
+

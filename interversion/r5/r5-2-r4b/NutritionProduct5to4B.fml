@@ -1,0 +1,61 @@
+﻿/// url = 'http://hl7.org/fhir/StructureMap/NutritionProduct5to4B'
+/// name = 'NutritionProduct5to4B'
+/// title = 'FML Conversion for NutritionProduct: R5 to R4B'
+
+conceptmap "NutritionProductStatus" {
+  prefix s = "http://hl7.org/fhir/nutritionproduct-status"
+  prefix t = "http://hl7.org/fhir/4.3/nutritionproduct-status"
+
+  s:"active" - t:"active"
+  s:"inactive" - t:"inactive"
+  s:"entered-in-error" - t:"entered-in-error"
+}
+
+uses "http://hl7.org/fhir/StructureDefinition/NutritionProduct" alias NutritionProductR5 as source
+uses "http://hl7.org/fhir/4.3/StructureDefinition/NutritionProduct" alias NutritionProductR4B as target
+
+imports "http://hl7.org/fhir/StructureMap/*5to4B"
+
+group NutritionProduct(source src : NutritionProductR5, target tgt : NutritionProductR4B) extends DomainResource <<type+>> {
+  src.code -> tgt.code;
+  src.status as v -> tgt.status = translate(v, '#NutritionProductStatus', 'code');
+  src.category -> tgt.category;
+  src.manufacturer -> tgt.manufacturer;
+  src.nutrient as s -> tgt.nutrient as t then NutritionProductNutrient(s,t);
+  src.ingredient as s -> tgt.ingredient as t then NutritionProductIngredient(s,t);
+  src.knownAllergen -> tgt.knownAllergen;
+  src.characteristic as s -> tgt.characteristic as t then NutritionProductCharacteristic(s,t);
+  src.instance as s -> tgt.instance as t then NutritionProductInstance(s,t);
+  src.note -> tgt.note;
+}
+
+group NutritionProductNutrient(source src, target tgt) extends BackboneElement {
+  src.item -> tgt.item;
+  src.amount -> tgt.amount;
+}
+
+group NutritionProductIngredient(source src, target tgt) extends BackboneElement {
+  src.item -> tgt.item;
+  src.amount -> tgt.amount;
+}
+
+group NutritionProductCharacteristic(source src, target tgt) extends BackboneElement {
+  src.type -> tgt.type;
+  src.value : CodeableConcept -> tgt.value;
+  src.value : string -> tgt.value;
+  src.value : Quantity -> tgt.value;
+  src.value : base64Binary -> tgt.value;
+  src.value : Attachment -> tgt.value;
+  src.value : boolean -> tgt.value;
+}
+
+group NutritionProductInstance(source src, target tgt) extends BackboneElement {
+  src.quantity -> tgt.quantity;
+  src.identifier -> tgt.identifier;
+  src.name -> tgt.name;
+  src.lotNumber -> tgt.lotNumber;
+  src.expiry -> tgt.expiry;
+  src.useBy -> tgt.useBy;
+  src.biologicalSourceEvent -> tgt.biologicalSourceEvent;
+}
+

@@ -1,0 +1,73 @@
+﻿/// url = 'http://hl7.org/fhir/StructureMap/OperationOutcome4to5'
+/// name = 'OperationOutcome4to5'
+/// title = 'FML Conversion for OperationOutcome: R4 to R5'
+
+// GG 8-Mar 2023: All OK
+
+conceptmap "IssueSeverity" {
+  prefix s = "http://hl7.org/fhir/4.0/issue-severity"
+  prefix t = "http://hl7.org/fhir/issue-severity"
+
+  s:"fatal" - t:"fatal"
+  s:"error" - t:"error"
+  s:"warning" - t:"warning"
+  s:"information" - t:"information"
+//  s:"success" - t:"success"
+}
+
+conceptmap "IssueType" {
+  prefix s = "http://hl7.org/fhir/4.0/issue-type"
+  prefix t = "http://hl7.org/fhir/issue-type"
+
+  s:"invalid" - t:"invalid"
+  s:"structure" - t:"structure"
+  s:"required" - t:"required"
+  s:"value" - t:"value"
+  s:"invariant" - t:"invariant"
+  s:"security" - t:"security"
+  s:"login" - t:"login"
+  s:"unknown" - t:"unknown"
+  s:"expired" - t:"expired"
+  s:"forbidden" - t:"forbidden"
+  s:"suppressed" - t:"suppressed"
+  s:"processing" - t:"processing"
+  s:"not-supported" - t:"not-supported"
+  s:"duplicate" - t:"duplicate"
+  s:"multiple-matches" - t:"multiple-matches"
+  s:"not-found" - t:"not-found"
+  s:"deleted" - t:"deleted"
+  s:"too-long" - t:"too-long"
+  s:"code-invalid" - t:"code-invalid"
+  s:"extension" - t:"extension"
+  s:"too-costly" - t:"too-costly"
+  s:"business-rule" - t:"business-rule"
+  s:"conflict" - t:"conflict"
+  s:"transient" - t:"transient"
+  s:"lock-error" - t:"lock-error"
+  s:"no-store" - t:"no-store"
+  s:"exception" - t:"exception"
+  s:"timeout" - t:"timeout"
+  s:"incomplete" - t:"incomplete"
+  s:"throttled" - t:"throttled"
+  s:"informational" - t:"informational"
+//  s:"success" - t:"success"
+}
+
+uses "http://hl7.org/fhir/4.0/StructureDefinition/OperationOutcome" alias OperationOutcomeR4 as source
+uses "http://hl7.org/fhir/StructureDefinition/OperationOutcome" alias OperationOutcomeR5 as target
+
+imports "http://hl7.org/fhir/StructureMap/*4to5"
+
+group OperationOutcome(source src : OperationOutcomeR4, target tgt : OperationOutcomeR5) extends DomainResource <<type+>> {
+  src.issue as s -> tgt.issue as t then OperationOutcomeIssue(s,t);
+}
+
+group OperationOutcomeIssue(source src, target tgt) extends BackboneElement {
+  src.severity as v -> tgt.severity = translate(v, '#IssueSeverity', 'code');
+  src.code as v -> tgt.code = translate(v, '#IssueType', 'code');
+  src.details -> tgt.details;
+  src.diagnostics -> tgt.diagnostics;
+  src.location -> tgt.location;
+  src.expression -> tgt.expression;
+}
+

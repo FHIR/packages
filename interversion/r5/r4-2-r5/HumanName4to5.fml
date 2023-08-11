@@ -1,0 +1,34 @@
+﻿/// url = 'http://hl7.org/fhir/StructureMap/HumanName4to5'
+/// name = 'HumanName4to5'
+/// title = 'FML Conversion for HumanName: R4 to R5'
+
+// GG 7-Mar 2023: All OK
+
+conceptmap "NameUse" {
+  prefix s = "http://hl7.org/fhir/4.0/name-use"
+  prefix t = "http://hl7.org/fhir/name-use"
+
+  s:"usual" - t:"usual"
+  s:"official" - t:"official"
+  s:"temp" - t:"temp"
+  s:"nickname" - t:"nickname"
+  s:"anonymous" - t:"anonymous"
+  s:"old" - t:"old"
+  s:"maiden" - t:"maiden"
+}
+
+uses "http://hl7.org/fhir/4.0/StructureDefinition/HumanName" alias HumanNameR4 as source
+uses "http://hl7.org/fhir/StructureDefinition/HumanName" alias HumanNameR5 as target
+
+imports "http://hl7.org/fhir/StructureMap/*4to5"
+
+group HumanName(source src : HumanNameR4, target tgt : HumanNameR5) extends Element <<type+>> {
+  src.use as v -> tgt.use = translate(v, '#NameUse', 'code');
+  src.text -> tgt.text;
+  src.family -> tgt.family;
+  src.given -> tgt.given;
+  src.prefix -> tgt.prefix;
+  src.suffix -> tgt.suffix;
+  src.period -> tgt.period;
+}
+

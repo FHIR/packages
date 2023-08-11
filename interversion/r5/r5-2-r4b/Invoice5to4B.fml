@@ -1,0 +1,56 @@
+﻿/// url = 'http://hl7.org/fhir/StructureMap/Invoice5to4B'
+/// name = 'Invoice5to4B'
+/// title = 'FML Conversion for Invoice: R5 to R4B'
+
+conceptmap "InvoiceStatus" {
+  prefix s = "http://hl7.org/fhir/invoice-status"
+  prefix t = "http://hl7.org/fhir/4.3/invoice-status"
+
+  s:"draft" - t:"draft"
+  s:"issued" - t:"issued"
+  s:"balanced" - t:"balanced"
+  s:"cancelled" - t:"cancelled"
+  s:"entered-in-error" - t:"entered-in-error"
+}
+
+uses "http://hl7.org/fhir/StructureDefinition/Invoice" alias InvoiceR5 as source
+uses "http://hl7.org/fhir/4.3/StructureDefinition/Invoice" alias InvoiceR4B as target
+
+imports "http://hl7.org/fhir/StructureMap/*5to4B"
+
+group Invoice(source src : InvoiceR5, target tgt : InvoiceR4B) extends DomainResource <<type+>> {
+  src.identifier -> tgt.identifier;
+  src.status as v -> tgt.status = translate(v, '#InvoiceStatus', 'code');
+  src.cancelledReason -> tgt.cancelledReason;
+  src.type -> tgt.type;
+  src.subject -> tgt.subject;
+  src.recipient -> tgt.recipient;
+  src.date -> tgt.date;
+  src.creation -> tgt.creation;
+  src.period : date -> tgt.period;
+  src.period : Period -> tgt.period;
+  src.participant as s -> tgt.participant as t then InvoiceParticipant(s,t);
+  src.issuer -> tgt.issuer;
+  src.account -> tgt.account;
+  src.lineItem as s -> tgt.lineItem as t then InvoiceLineItem(s,t);
+  src.totalPriceComponent -> tgt.totalPriceComponent;
+  src.totalNet -> tgt.totalNet;
+  src.totalGross -> tgt.totalGross;
+  src.paymentTerms -> tgt.paymentTerms;
+  src.note -> tgt.note;
+}
+
+group InvoiceParticipant(source src, target tgt) extends BackboneElement {
+  src.role -> tgt.role;
+  src.actor -> tgt.actor;
+}
+
+group InvoiceLineItem(source src, target tgt) extends BackboneElement {
+  src.sequence -> tgt.sequence;
+  src.serviced : date -> tgt.serviced;
+  src.serviced : Period -> tgt.serviced;
+  src.chargeItem : Reference -> tgt.chargeItem;
+  src.chargeItem : CodeableConcept -> tgt.chargeItem;
+  src.priceComponent -> tgt.priceComponent;
+}
+

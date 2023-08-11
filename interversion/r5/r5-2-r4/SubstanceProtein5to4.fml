@@ -1,0 +1,27 @@
+﻿/// url = 'http://hl7.org/fhir/StructureMap/SubstanceProtein5to4'
+/// name = 'SubstanceProtein5to4'
+/// title = 'FML Conversion for SubstanceProtein: R5 to R4'
+
+uses "http://hl7.org/fhir/StructureDefinition/SubstanceProtein" alias SubstanceProteinR5 as source
+uses "http://hl7.org/fhir/4.0/StructureDefinition/SubstanceProtein" alias SubstanceProteinR4 as target
+
+imports "http://hl7.org/fhir/StructureMap/*5to4"
+
+group SubstanceProtein(source src : SubstanceProteinR5, target tgt : SubstanceProteinR4) extends DomainResource <<type+>> {
+  src.sequenceType -> tgt.sequenceType;
+  src.numberOfSubunits -> tgt.numberOfSubunits;
+  src.disulfideLinkage -> tgt.disulfideLinkage;
+  src.subunit as s -> tgt.subunit as t then SubstanceProteinSubunit(s,t);
+}
+
+group SubstanceProteinSubunit(source src, target tgt) extends BackboneElement {
+  src.subunit -> tgt.subunit;
+  src.sequence -> tgt.sequence;
+  src.length -> tgt.length;
+  src.sequenceAttachment -> tgt.sequenceAttachment;
+  src.nTerminalModificationId -> tgt.nTerminalModificationId;
+  src.nTerminalModification -> tgt.nTerminalModification;
+  src.cTerminalModificationId -> tgt.cTerminalModificationId;
+  src.cTerminalModification -> tgt.cTerminalModification;
+}
+

@@ -1,0 +1,83 @@
+﻿/// url = 'http://hl7.org/fhir/StructureMap/InventoryItem5to4'
+/// name = 'InventoryItem5to4'
+/// title = 'FML Conversion for InventoryItem: R5 to R4'
+
+conceptmap "InventoryItemStatus" {
+  prefix s = "http://hl7.org/fhir/inventoryitem-status"
+  prefix t = "http://hl7.org/fhir/4.0/inventoryitem-status"
+
+  s:"active" - t:"active"
+  s:"inactive" - t:"inactive"
+  s:"entered-in-error" - t:"entered-in-error"
+  s:"unknown" - t:"unknown"
+}
+
+uses "http://hl7.org/fhir/StructureDefinition/InventoryItem" alias InventoryItemR5 as source
+uses "http://hl7.org/fhir/4.0/StructureDefinition/InventoryItem" alias InventoryItemR4 as target
+
+imports "http://hl7.org/fhir/StructureMap/*5to4"
+
+group InventoryItem(source src : InventoryItemR5, target tgt : InventoryItemR4) extends DomainResource <<type+>> {
+  src.identifier -> tgt.identifier;
+  src.status as v -> tgt.status = translate(v, '#InventoryItemStatus', 'code');
+  src.category -> tgt.category;
+  src.code -> tgt.code;
+  src.name as s -> tgt.name as t then InventoryItemName(s,t);
+  src.responsibleOrganization as s -> tgt.responsibleOrganization as t then InventoryItemResponsibleOrganization(s,t);
+  src.description as s -> tgt.description as t then InventoryItemDescription(s,t);
+  src.inventoryStatus -> tgt.inventoryStatus;
+  src.baseUnit -> tgt.baseUnit;
+  src.netContent -> tgt.netContent;
+  src.association as s -> tgt.association as t then InventoryItemAssociation(s,t);
+  src.characteristic as s -> tgt.characteristic as t then InventoryItemCharacteristic(s,t);
+  src.instance as s -> tgt.instance as t then InventoryItemInstance(s,t);
+  src.productReference -> tgt.productReference;
+}
+
+group InventoryItemName(source src, target tgt) extends BackboneElement {
+  src.nameType -> tgt.nameType;
+  src.language -> tgt.language;
+  src.name -> tgt.name;
+}
+
+group InventoryItemResponsibleOrganization(source src, target tgt) extends BackboneElement {
+  src.role -> tgt.role;
+  src.organization -> tgt.organization;
+}
+
+group InventoryItemDescription(source src, target tgt) extends BackboneElement {
+  src.language -> tgt.language;
+  src.description -> tgt.description;
+}
+
+group InventoryItemAssociation(source src, target tgt) extends BackboneElement {
+  src.associationType -> tgt.associationType;
+  src.relatedItem -> tgt.relatedItem;
+  src.quantity -> tgt.quantity;
+}
+
+group InventoryItemCharacteristic(source src, target tgt) extends BackboneElement {
+  src.characteristicType -> tgt.characteristicType;
+  src.value : string -> tgt.value;
+  src.value : integer -> tgt.value;
+  src.value : decimal -> tgt.value;
+  src.value : boolean -> tgt.value;
+  src.value : url -> tgt.value;
+  src.value : dateTime -> tgt.value;
+  src.value : Quantity -> tgt.value;
+  src.value : Range -> tgt.value;
+  src.value : Ratio -> tgt.value;
+  src.value : Annotation -> tgt.value;
+  src.value : Address -> tgt.value;
+  src.value : Duration -> tgt.value;
+  src.value : CodeableConcept -> tgt.value;
+}
+
+group InventoryItemInstance(source src, target tgt) extends BackboneElement {
+  src.identifier -> tgt.identifier;
+  src.lotNumber -> tgt.lotNumber;
+  src.expiry -> tgt.expiry;
+  src.subject -> tgt.subject;
+  src.location -> tgt.location;
+}
+

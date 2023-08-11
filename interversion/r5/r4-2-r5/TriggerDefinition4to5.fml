@@ -1,0 +1,39 @@
+﻿/// url = 'http://hl7.org/fhir/StructureMap/TriggerDefinition4to5'
+/// name = 'TriggerDefinition4to5'
+/// title = 'FML Conversion for TriggerDefinition: R4 to R5'
+
+// GG 7-Mar 2023: All OK
+
+conceptmap "TriggerType" {
+  prefix s = "http://hl7.org/fhir/4.0/trigger-type"
+  prefix t = "http://hl7.org/fhir/trigger-type"
+
+  s:"named-event" - t:"named-event"
+  s:"periodic" - t:"periodic"
+  s:"data-changed" - t:"data-changed"
+  s:"data-added" - t:"data-added"
+  s:"data-modified" - t:"data-modified"
+  s:"data-removed" - t:"data-removed"
+  s:"data-accessed" - t:"data-accessed"
+  s:"data-access-ended" - t:"data-access-ended"
+}
+
+uses "http://hl7.org/fhir/4.0/StructureDefinition/TriggerDefinition" alias TriggerDefinitionR4 as source
+uses "http://hl7.org/fhir/StructureDefinition/TriggerDefinition" alias TriggerDefinitionR5 as target
+
+imports "http://hl7.org/fhir/StructureMap/*4to5"
+
+group TriggerDefinition(source src : TriggerDefinitionR4, target tgt : TriggerDefinitionR5) extends Element <<type+>> {
+  src.type as v -> tgt.type = translate(v, '#TriggerType', 'code');
+  src.name -> tgt.name;
+// introduced in R5  
+//  src.code -> tgt.code;
+//  src.subscriptionTopic -> tgt.subscriptionTopic;
+  src.timing : Timing -> tgt.timing;
+  src.timing : Reference -> tgt.timing;
+  src.timing : date -> tgt.timing;
+  src.timing : dateTime -> tgt.timing;
+  src.data -> tgt.data;
+  src.condition -> tgt.condition;
+}
+

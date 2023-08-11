@@ -1,0 +1,53 @@
+﻿/// url = 'http://hl7.org/fhir/StructureMap/DeviceDispense4to5'
+/// name = 'DeviceDispense4to5'
+/// title = 'FML Conversion for DeviceDispense: R4 to R5'
+
+conceptmap "DeviceDispenseStatus" {
+  prefix s = "http://hl7.org/fhir/4.0/devicedispense-status"
+  prefix t = "http://hl7.org/fhir/devicedispense-status"
+
+  s:"preparation" - t:"preparation"
+  s:"in-progress" - t:"in-progress"
+  s:"cancelled" - t:"cancelled"
+  s:"on-hold" - t:"on-hold"
+  s:"completed" - t:"completed"
+  s:"entered-in-error" - t:"entered-in-error"
+  s:"stopped" - t:"stopped"
+  s:"declined" - t:"declined"
+  s:"unknown" - t:"unknown"
+}
+
+uses "http://hl7.org/fhir/4.0/StructureDefinition/DeviceDispense" alias DeviceDispenseR4 as source
+uses "http://hl7.org/fhir/StructureDefinition/DeviceDispense" alias DeviceDispenseR5 as target
+
+imports "http://hl7.org/fhir/StructureMap/*4to5"
+
+group DeviceDispense(source src : DeviceDispenseR4, target tgt : DeviceDispenseR5) extends DomainResource <<type+>> {
+  src.identifier -> tgt.identifier;
+  src.basedOn -> tgt.basedOn;
+  src.partOf -> tgt.partOf;
+  src.status as v -> tgt.status = translate(v, '#DeviceDispenseStatus', 'code');
+  src.statusReason -> tgt.statusReason;
+  src.category -> tgt.category;
+  src.device -> tgt.device;
+  src.subject -> tgt.subject;
+  src.receiver -> tgt.receiver;
+  src.encounter -> tgt.encounter;
+  src.supportingInformation -> tgt.supportingInformation;
+  src.performer as s -> tgt.performer as t then DeviceDispensePerformer(s,t);
+  src.location -> tgt.location;
+  src.type -> tgt.type;
+  src.quantity -> tgt.quantity;
+  src.preparedDate -> tgt.preparedDate;
+  src.whenHandedOver -> tgt.whenHandedOver;
+  src.destination -> tgt.destination;
+  src.note -> tgt.note;
+  src.usageInstruction -> tgt.usageInstruction;
+  src.eventHistory -> tgt.eventHistory;
+}
+
+group DeviceDispensePerformer(source src, target tgt) extends BackboneElement {
+  src.function -> tgt.function;
+  src.actor -> tgt.actor;
+}
+

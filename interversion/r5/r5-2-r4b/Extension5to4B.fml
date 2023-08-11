@@ -1,0 +1,69 @@
+﻿/// url = 'http://hl7.org/fhir/StructureMap/Extension5to4B'
+/// name = 'Extension5to4B'
+/// title = 'FML Conversion for Extension: R5 to R4B'
+
+// GG 7-Mar 2023: All OK
+
+uses "http://hl7.org/fhir/StructureDefinition/Extension" alias ExtensionR5 as source
+uses "http://hl7.org/fhir/4.3/StructureDefinition/Extension" alias ExtensionR4B as target
+
+imports "http://hl7.org/fhir/StructureMap/*5to4B"
+
+group Extension(source src : ExtensionR5, target tgt : ExtensionR4B) extends Element <<type+>> {
+  src.url -> tgt.url;
+  src.value : base64Binary -> tgt.value;
+  src.value : boolean -> tgt.value;
+  src.value : canonical -> tgt.value;
+  src.value : code -> tgt.value;
+  src.value : date -> tgt.value;
+  src.value : dateTime -> tgt.value;
+  src.value : decimal -> tgt.value;
+  src.value : id -> tgt.value;
+  src.value : instant -> tgt.value;
+  src.value : integer -> tgt.value;
+  src.value : integer64 -> tgt.value;
+  src.value : markdown -> tgt.value;
+  src.value : oid -> tgt.value;
+  src.value : positiveInt -> tgt.value;
+  src.value : string -> tgt.value;
+  src.value : time -> tgt.value;
+  src.value : unsignedInt -> tgt.value;
+  src.value : uri -> tgt.value;
+  src.value : url -> tgt.value;
+  src.value : uuid -> tgt.value;
+  src.value : Address -> tgt.value;
+  src.value : Age -> tgt.value;
+  src.value : Annotation -> tgt.value;
+  src.value : Attachment -> tgt.value;
+  src.value : CodeableConcept -> tgt.value;
+  src.value : CodeableReference -> tgt.value;
+  src.value : Coding -> tgt.value;
+  src.value : ContactPoint -> tgt.value;
+  src.value : Count -> tgt.value;
+  src.value : Distance -> tgt.value;
+  src.value : Duration -> tgt.value;
+  src.value : HumanName -> tgt.value;
+  src.value : Identifier -> tgt.value;
+  src.value : Money -> tgt.value;
+  src.value : Period -> tgt.value;
+  src.value : Quantity -> tgt.value;
+  src.value : Range -> tgt.value;
+  src.value : Ratio -> tgt.value;
+  src.value : RatioRange -> tgt.value;
+  src.value : Reference -> tgt.value;
+  src.value : SampledData -> tgt.value;
+  src.value : Signature -> tgt.value;
+  src.value : Timing -> tgt.value;
+  src.value : ContactDetail -> tgt.value;
+  src.value : DataRequirement -> tgt.value;
+  src.value : Expression -> tgt.value;
+  src.value : ParameterDefinition -> tgt.value;
+  src.value : RelatedArtifact -> tgt.value;
+  src.value : TriggerDefinition -> tgt.value;
+  src.value : UsageContext -> tgt.value;
+//  src.value : Availability -> tgt.value;
+//  src.value : ExtendedContactDetail -> tgt.value;
+  src.value : Dosage -> tgt.value;
+  src.value : Meta -> tgt.value;
+}
+

@@ -1,0 +1,51 @@
+﻿/// url = 'http://hl7.org/fhir/StructureMap/ClinicalImpression4to5'
+/// name = 'ClinicalImpression4to5'
+/// title = 'FML Conversion for ClinicalImpression: R4 to R5'
+
+conceptmap "ClinicalImpressionStatus" {
+  prefix s = "http://hl7.org/fhir/4.0/event-status"
+  prefix t = "http://hl7.org/fhir/event-status"
+
+  s:"preparation" - t:"preparation"
+  s:"in-progress" - t:"in-progress"
+  s:"not-done" - t:"not-done"
+  s:"on-hold" - t:"on-hold"
+  s:"stopped" - t:"stopped"
+  s:"completed" - t:"completed"
+  s:"entered-in-error" - t:"entered-in-error"
+  s:"unknown" - t:"unknown"
+}
+
+uses "http://hl7.org/fhir/4.0/StructureDefinition/ClinicalImpression" alias ClinicalImpressionR4 as source
+uses "http://hl7.org/fhir/StructureDefinition/ClinicalImpression" alias ClinicalImpressionR5 as target
+
+imports "http://hl7.org/fhir/StructureMap/*4to5"
+
+group ClinicalImpression(source src : ClinicalImpressionR4, target tgt : ClinicalImpressionR5) extends DomainResource <<type+>> {
+  src.identifier -> tgt.identifier;
+  src.status as v -> tgt.status = translate(v, '#ClinicalImpressionStatus', 'code');
+  src.statusReason -> tgt.statusReason;
+  src.description -> tgt.description;
+  src.subject -> tgt.subject;
+  src.encounter -> tgt.encounter;
+  src.effective : dateTime -> tgt.effective;
+  src.effective : Period -> tgt.effective;
+  src.date -> tgt.date;
+  src.performer -> tgt.performer;
+  src.previous -> tgt.previous;
+  src.problem -> tgt.problem;
+  src.changePattern -> tgt.changePattern;
+  src.protocol -> tgt.protocol;
+  src.summary -> tgt.summary;
+  src.finding as s -> tgt.finding as t then ClinicalImpressionFinding(s,t);
+  src.prognosisCodeableConcept -> tgt.prognosisCodeableConcept;
+  src.prognosisReference -> tgt.prognosisReference;
+  src.supportingInfo -> tgt.supportingInfo;
+  src.note -> tgt.note;
+}
+
+group ClinicalImpressionFinding(source src, target tgt) extends BackboneElement {
+  src.item -> tgt.item;
+  src.basis -> tgt.basis;
+}
+

@@ -1,0 +1,38 @@
+﻿/// url = 'http://hl7.org/fhir/StructureMap/Dosage5to4B'
+/// name = 'Dosage5to4B'
+/// title = 'FML Conversion for Dosage: R5 to R4B'
+
+// GG 7-Mar 2023: All OK
+
+uses "http://hl7.org/fhir/StructureDefinition/Dosage" alias DosageR5 as source
+uses "http://hl7.org/fhir/4.3/StructureDefinition/Dosage" alias DosageR4B as target
+
+imports "http://hl7.org/fhir/StructureMap/*5to4B"
+
+group Dosage(source src : DosageR5, target tgt : DosageR4B) extends Element <<type+>> {
+  src.modifierExtension -> tgt.modifierExtension;
+  src.sequence -> tgt.sequence;
+  src.text -> tgt.text;
+  src.additionalInstruction -> tgt.additionalInstruction;
+  src.patientInstruction -> tgt.patientInstruction;
+  src.timing -> tgt.timing;
+  src.asNeeded -> tgt.asNeeded;
+  src.asNeededFor -> tgt.asNeeded;
+  src.site -> tgt.site;
+  src.route -> tgt.route;
+  src.method -> tgt.method;
+  src.doseAndRate as s -> tgt.doseAndRate as t then DosageDoseAndRate(s,t);
+  src.maxDosePerPeriod -> tgt.maxDosePerPeriod;
+  src.maxDosePerAdministration -> tgt.maxDosePerAdministration;
+  src.maxDosePerLifetime -> tgt.maxDosePerLifetime;
+}
+
+group DosageDoseAndRate(source src, target tgt) extends Element {
+  src.type -> tgt.type;
+  src.dose : Range -> tgt.dose;
+  src.dose : Quantity -> tgt.dose;
+  src.rate : Ratio -> tgt.rate;
+  src.rate : Range -> tgt.rate;
+  src.rate : Quantity -> tgt.rate;
+}
+

@@ -1,0 +1,84 @@
+﻿/// url = 'http://hl7.org/fhir/StructureMap/ClinicalUseDefinition4to5'
+/// name = 'ClinicalUseDefinition4to5'
+/// title = 'FML Conversion for ClinicalUseDefinition: R4 to R5'
+
+conceptmap "ClinicalUseDefinitionType" {
+  prefix s = "http://hl7.org/fhir/4.0/clinical-use-definition-type"
+  prefix t = "http://hl7.org/fhir/clinical-use-definition-type"
+
+  s:"indication" - t:"indication"
+  s:"contraindication" - t:"contraindication"
+  s:"interaction" - t:"interaction"
+  s:"undesirable-effect" - t:"undesirable-effect"
+  s:"warning" - t:"warning"
+}
+
+uses "http://hl7.org/fhir/4.0/StructureDefinition/ClinicalUseDefinition" alias ClinicalUseDefinitionR4 as source
+uses "http://hl7.org/fhir/StructureDefinition/ClinicalUseDefinition" alias ClinicalUseDefinitionR5 as target
+
+imports "http://hl7.org/fhir/StructureMap/*4to5"
+
+group ClinicalUseDefinition(source src : ClinicalUseDefinitionR4, target tgt : ClinicalUseDefinitionR5) extends DomainResource <<type+>> {
+  src.identifier -> tgt.identifier;
+  src.type as v -> tgt.type = translate(v, '#ClinicalUseDefinitionType', 'code');
+  src.category -> tgt.category;
+  src.subject -> tgt.subject;
+  src.status -> tgt.status;
+  src.contraindication as s -> tgt.contraindication as t then ClinicalUseDefinitionContraindication(s,t);
+  src.indication as s -> tgt.indication as t then ClinicalUseDefinitionIndication(s,t);
+  src.interaction as s -> tgt.interaction as t then ClinicalUseDefinitionInteraction(s,t);
+  src.population -> tgt.population;
+  src.library -> tgt.library;
+  src.undesirableEffect as s -> tgt.undesirableEffect as t then ClinicalUseDefinitionUndesirableEffect(s,t);
+  src.warning as s -> tgt.warning as t then ClinicalUseDefinitionWarning(s,t);
+}
+
+group ClinicalUseDefinitionContraindication(source src, target tgt) extends BackboneElement {
+  src.diseaseSymptomProcedure -> tgt.diseaseSymptomProcedure;
+  src.diseaseStatus -> tgt.diseaseStatus;
+  src.comorbidity -> tgt.comorbidity;
+  src.indication -> tgt.indication;
+  src.applicability -> tgt.applicability;
+  src.otherTherapy as s -> tgt.otherTherapy as t then ClinicalUseDefinitionContraindicationOtherTherapy(s,t);
+}
+
+group ClinicalUseDefinitionContraindicationOtherTherapy(source src, target tgt) extends BackboneElement {
+  src.relationshipType -> tgt.relationshipType;
+  src.treatment -> tgt.treatment;
+}
+
+group ClinicalUseDefinitionIndication(source src, target tgt) extends BackboneElement {
+  src.diseaseSymptomProcedure -> tgt.diseaseSymptomProcedure;
+  src.diseaseStatus -> tgt.diseaseStatus;
+  src.comorbidity -> tgt.comorbidity;
+  src.intendedEffect -> tgt.intendedEffect;
+  src.duration : Range -> tgt.duration;
+  src.duration : string -> tgt.duration;
+  src.undesirableEffect -> tgt.undesirableEffect;
+  src.applicability -> tgt.applicability;
+}
+
+group ClinicalUseDefinitionInteraction(source src, target tgt) extends BackboneElement {
+  src.interactant as s -> tgt.interactant as t then ClinicalUseDefinitionInteractionInteractant(s,t);
+  src.type -> tgt.type;
+  src.effect -> tgt.effect;
+  src.incidence -> tgt.incidence;
+  src.management -> tgt.management;
+}
+
+group ClinicalUseDefinitionInteractionInteractant(source src, target tgt) extends BackboneElement {
+  src.item : Reference -> tgt.item;
+  src.item : CodeableConcept -> tgt.item;
+}
+
+group ClinicalUseDefinitionUndesirableEffect(source src, target tgt) extends BackboneElement {
+  src.symptomConditionEffect -> tgt.symptomConditionEffect;
+  src.classification -> tgt.classification;
+  src.frequencyOfOccurrence -> tgt.frequencyOfOccurrence;
+}
+
+group ClinicalUseDefinitionWarning(source src, target tgt) extends BackboneElement {
+  src.description -> tgt.description;
+  src.code -> tgt.code;
+}
+

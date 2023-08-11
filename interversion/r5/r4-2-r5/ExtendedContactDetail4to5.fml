@@ -1,0 +1,21 @@
+﻿/// url = 'http://hl7.org/fhir/StructureMap/ExtendedContactDetail4to5'
+/// name = 'ExtendedContactDetail4to5'
+/// title = 'FML Conversion for ExtendedContactDetail: R4 to R5'
+
+// todo: this needs to be deleted after it's been inlined to VirtualServiceDetail, HealthcareService, InsurancePlan, Location, Organization, OrganizationAffiliation and PractitionerRole
+
+
+uses "http://hl7.org/fhir/4.0/StructureDefinition/ExtendedContactDetail" alias ExtendedContactDetailR4 as source
+uses "http://hl7.org/fhir/StructureDefinition/ExtendedContactDetail" alias ExtendedContactDetailR5 as target
+
+imports "http://hl7.org/fhir/StructureMap/*4to5"
+
+group ExtendedContactDetail(source src : ExtendedContactDetailR4, target tgt : ExtendedContactDetailR5) extends Element <<type+>> {
+  src.purpose -> tgt.purpose;
+  src.name -> tgt.name;
+  src.telecom -> tgt.telecom;
+  src.address -> tgt.address;
+  src.organization -> tgt.organization;
+  src.period -> tgt.period;
+}
+

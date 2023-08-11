@@ -1,0 +1,18 @@
+﻿/// url = 'http://hl7.org/fhir/StructureMap/MarketingStatus5to4B'
+/// name = 'MarketingStatus5to4B'
+/// title = 'FML Conversion for MarketingStatus: R5 to R4B'
+
+uses "http://hl7.org/fhir/StructureDefinition/MarketingStatus" alias MarketingStatusR5 as source
+uses "http://hl7.org/fhir/4.3/StructureDefinition/MarketingStatus" alias MarketingStatusR4B as target
+
+imports "http://hl7.org/fhir/StructureMap/*5to4B"
+
+group MarketingStatus(source src : MarketingStatusR5, target tgt : MarketingStatusR4B) extends Element <<type+>> {
+  src.modifierExtension -> tgt.modifierExtension;
+  src.country -> tgt.country;
+  src.jurisdiction -> tgt.jurisdiction;
+  src.status -> tgt.status;
+  src.dateRange -> tgt.dateRange;
+  src.restoreDate -> tgt.restoreDate;
+}
+

@@ -1,0 +1,48 @@
+﻿/// url = 'http://hl7.org/fhir/StructureMap/Subscription5to4'
+/// name = 'Subscription5to4'
+/// title = 'FML Conversion for Subscription: R5 to R4'
+
+// GG 8-Mar 2023: All OK
+
+conceptmap "SubscriptionStatusCodes" {
+  prefix s = "http://hl7.org/fhir/subscription-status"
+  prefix t = "http://hl7.org/fhir/4.0/subscription-status"
+
+  s:"requested" - t:"requested"
+  s:"active" - t:"active"
+  s:"error" - t:"error"
+  s:"off" - t:"off"
+//  s:"entered-in-error" - t:"entered-in-error"
+}
+
+uses "http://hl7.org/fhir/StructureDefinition/Subscription" alias SubscriptionR5 as source
+uses "http://hl7.org/fhir/4.0/StructureDefinition/Subscription" alias SubscriptionR4 as target
+
+imports "http://hl7.org/fhir/StructureMap/*5to4"
+
+group Subscription(source src : SubscriptionR5, target tgt : SubscriptionR4) extends DomainResource <<type+>> {
+//  src.identifier -> tgt.identifier;
+//  src.name -> tgt.name;
+  src.status as v -> tgt.status = translate(v, '#SubscriptionStatusCodes', 'code');
+//  src.topic -> tgt.topic;
+  src.contact -> tgt.contact;
+  src.end -> tgt.end;
+//  src.managingEntity -> tgt.managingEntity;
+  src.reason -> tgt.reason;
+// criteria replaced - see subscriptions backport IG
+//  src.filterBy as s -> tgt.filterBy as t then SubscriptionFilterBy(s,t);
+  src  -> tgt.channel as t then {
+    src.channelType as s -> tgt then {
+      s.code -> t.type;
+    } "type";
+    src.endpoint -> t.endpoint;
+    src.contentType -> t.payload;
+    src.parameter as p -> t.header = (%p.name+': '+%p.value) "parameter";
+  } "channel";
+//  src.heartbeatPeriod -> tgt.heartbeatPeriod;
+//  src.timeout -> tgt.timeout;
+//  src.content as v -> tgt.content = translate(v, '#SubscriptionPayloadContent', 'code');
+//  src.maxCount -> tgt.maxCount;
+}
+
+

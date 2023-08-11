@@ -1,0 +1,59 @@
+﻿/// url = 'http://hl7.org/fhir/StructureMap/ChargeItemDefinition4to5'
+/// name = 'ChargeItemDefinition4to5'
+/// title = 'FML Conversion for ChargeItemDefinition: R4 to R5'
+
+conceptmap "PublicationStatus" {
+  prefix s = "http://hl7.org/fhir/4.0/publication-status"
+  prefix t = "http://hl7.org/fhir/publication-status"
+
+  s:"draft" - t:"draft"
+  s:"active" - t:"active"
+  s:"retired" - t:"retired"
+  s:"unknown" - t:"unknown"
+}
+
+uses "http://hl7.org/fhir/4.0/StructureDefinition/ChargeItemDefinition" alias ChargeItemDefinitionR4 as source
+uses "http://hl7.org/fhir/StructureDefinition/ChargeItemDefinition" alias ChargeItemDefinitionR5 as target
+
+imports "http://hl7.org/fhir/StructureMap/*4to5"
+
+group ChargeItemDefinition(source src : ChargeItemDefinitionR4, target tgt : ChargeItemDefinitionR5) extends DomainResource <<type+>> {
+  src.url -> tgt.url;
+  src.identifier -> tgt.identifier;
+  src.version -> tgt.version;
+  src.versionAlgorithm : string -> tgt.versionAlgorithm;
+  src.versionAlgorithm : Coding -> tgt.versionAlgorithm;
+  src.name -> tgt.name;
+  src.title -> tgt.title;
+  src.derivedFromUri -> tgt.derivedFromUri;
+  src.partOf -> tgt.partOf;
+  src.replaces -> tgt.replaces;
+  src.status as v -> tgt.status = translate(v, '#PublicationStatus', 'code');
+  src.experimental -> tgt.experimental;
+  src.date -> tgt.date;
+  src.publisher -> tgt.publisher;
+  src.contact -> tgt.contact;
+  src.description -> tgt.description;
+  src.useContext -> tgt.useContext;
+  src.jurisdiction -> tgt.jurisdiction;
+  src.purpose -> tgt.purpose;
+  src.copyright -> tgt.copyright;
+  src.copyrightLabel -> tgt.copyrightLabel;
+  src.approvalDate -> tgt.approvalDate;
+  src.lastReviewDate -> tgt.lastReviewDate;
+  src.code -> tgt.code;
+  src.instance -> tgt.instance;
+  src.applicability as s -> tgt.applicability as t then ChargeItemDefinitionApplicability(s,t);
+  src.propertyGroup as s -> tgt.propertyGroup as t then ChargeItemDefinitionPropertyGroup(s,t);
+}
+
+group ChargeItemDefinitionApplicability(source src, target tgt) extends BackboneElement {
+  src.condition -> tgt.condition;
+  src.effectivePeriod -> tgt.effectivePeriod;
+  src.relatedArtifact -> tgt.relatedArtifact;
+}
+
+group ChargeItemDefinitionPropertyGroup(source src, target tgt) extends BackboneElement {
+  src.priceComponent -> tgt.priceComponent;
+}
+

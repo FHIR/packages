@@ -1,0 +1,133 @@
+﻿/// url = 'http://hl7.org/fhir/StructureMap/ActivityDefinition4to5'
+/// name = 'ActivityDefinition4to5'
+/// title = 'FML Conversion for ActivityDefinition: R4 to R5'
+
+conceptmap "ActivityParticipantType" {
+  prefix s = "http://hl7.org/fhir/4.0/action-participant-type"
+  prefix t = "http://hl7.org/fhir/action-participant-type"
+
+  s:"careteam" - t:"careteam"
+  s:"device" - t:"device"
+  s:"group" - t:"group"
+  s:"healthcareservice" - t:"healthcareservice"
+  s:"location" - t:"location"
+  s:"organization" - t:"organization"
+  s:"patient" - t:"patient"
+  s:"practitioner" - t:"practitioner"
+  s:"practitionerrole" - t:"practitionerrole"
+  s:"relatedperson" - t:"relatedperson"
+}
+
+conceptmap "PublicationStatus" {
+  prefix s = "http://hl7.org/fhir/4.0/publication-status"
+  prefix t = "http://hl7.org/fhir/publication-status"
+
+  s:"draft" - t:"draft"
+  s:"active" - t:"active"
+  s:"retired" - t:"retired"
+  s:"unknown" - t:"unknown"
+}
+
+conceptmap "RequestIntent" {
+  prefix s = "http://hl7.org/fhir/4.0/request-intent"
+  prefix t = "http://hl7.org/fhir/request-intent"
+
+  s:"proposal" - t:"proposal"
+  s:"plan" - t:"plan"
+  s:"directive" - t:"directive"
+  s:"order" - t:"order"
+  s:"original-order" - t:"original-order"
+  s:"reflex-order" - t:"reflex-order"
+  s:"filler-order" - t:"filler-order"
+  s:"instance-order" - t:"instance-order"
+  s:"option" - t:"option"
+}
+
+conceptmap "RequestPriority" {
+  prefix s = "http://hl7.org/fhir/4.0/request-priority"
+  prefix t = "http://hl7.org/fhir/request-priority"
+
+  s:"routine" - t:"routine"
+  s:"urgent" - t:"urgent"
+  s:"asap" - t:"asap"
+  s:"stat" - t:"stat"
+}
+
+uses "http://hl7.org/fhir/4.0/StructureDefinition/ActivityDefinition" alias ActivityDefinitionR4 as source
+uses "http://hl7.org/fhir/StructureDefinition/ActivityDefinition" alias ActivityDefinitionR5 as target
+
+imports "http://hl7.org/fhir/StructureMap/*4to5"
+
+group ActivityDefinition(source src : ActivityDefinitionR4, target tgt : ActivityDefinitionR5) extends DomainResource <<type+>> {
+  src.url -> tgt.url;
+  src.identifier -> tgt.identifier;
+  src.version -> tgt.version;
+  src.versionAlgorithm : string -> tgt.versionAlgorithm;
+  src.versionAlgorithm : Coding -> tgt.versionAlgorithm;
+  src.name -> tgt.name;
+  src.title -> tgt.title;
+  src.subtitle -> tgt.subtitle;
+  src.status as v -> tgt.status = translate(v, '#PublicationStatus', 'code');
+  src.experimental -> tgt.experimental;
+  src.subject : CodeableConcept -> tgt.subject;
+  src.subject : Reference -> tgt.subject;
+  src.subject : canonical -> tgt.subject;
+  src.date -> tgt.date;
+  src.publisher -> tgt.publisher;
+  src.contact -> tgt.contact;
+  src.description -> tgt.description;
+  src.useContext -> tgt.useContext;
+  src.jurisdiction -> tgt.jurisdiction;
+  src.purpose -> tgt.purpose;
+  src.usage -> tgt.usage;
+  src.copyright -> tgt.copyright;
+  src.copyrightLabel -> tgt.copyrightLabel;
+  src.approvalDate -> tgt.approvalDate;
+  src.lastReviewDate -> tgt.lastReviewDate;
+  src.effectivePeriod -> tgt.effectivePeriod;
+  src.topic -> tgt.topic;
+  src.author -> tgt.author;
+  src.editor -> tgt.editor;
+  src.reviewer -> tgt.reviewer;
+  src.endorser -> tgt.endorser;
+  src.relatedArtifact -> tgt.relatedArtifact;
+  src.library -> tgt.library;
+  src.kind -> tgt.kind;
+  src.profile -> tgt.profile;
+  src.code -> tgt.code;
+  src.intent as v -> tgt.intent = translate(v, '#RequestIntent', 'code');
+  src.priority as v -> tgt.priority = translate(v, '#RequestPriority', 'code');
+  src.doNotPerform -> tgt.doNotPerform;
+  src.timing : Timing -> tgt.timing;
+  src.timing : Age -> tgt.timing;
+  src.timing : Range -> tgt.timing;
+  src.timing : Duration -> tgt.timing;
+  src.asNeeded : boolean -> tgt.asNeeded;
+  src.asNeeded : CodeableConcept -> tgt.asNeeded;
+  src.location -> tgt.location;
+  src.participant as s -> tgt.participant as t then ActivityDefinitionParticipant(s,t);
+  src.product : Reference -> tgt.product;
+  src.product : CodeableConcept -> tgt.product;
+  src.quantity -> tgt.quantity;
+  src.dosage -> tgt.dosage;
+  src.bodySite -> tgt.bodySite;
+  src.specimenRequirement -> tgt.specimenRequirement;
+  src.observationRequirement -> tgt.observationRequirement;
+  src.observationResultRequirement -> tgt.observationResultRequirement;
+  src.transform -> tgt.transform;
+  src.dynamicValue as s -> tgt.dynamicValue as t then ActivityDefinitionDynamicValue(s,t);
+}
+
+group ActivityDefinitionParticipant(source src, target tgt) extends BackboneElement {
+  src.type as v -> tgt.type = translate(v, '#ActivityParticipantType', 'code');
+  src.typeCanonical -> tgt.typeCanonical;
+  src.typeReference -> tgt.typeReference;
+  src.role -> tgt.role;
+  src.function -> tgt.function;
+}
+
+group ActivityDefinitionDynamicValue(source src, target tgt) extends BackboneElement {
+  src.path -> tgt.path;
+  src.expression -> tgt.expression;
+}
+

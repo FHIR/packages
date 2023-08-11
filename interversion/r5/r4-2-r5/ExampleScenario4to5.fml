@@ -1,0 +1,114 @@
+﻿/// url = 'http://hl7.org/fhir/StructureMap/ExampleScenario4to5'
+/// name = 'ExampleScenario4to5'
+/// title = 'FML Conversion for ExampleScenario: R4 to R5'
+
+conceptmap "ExampleScenarioActorType" {
+  prefix s = "http://hl7.org/fhir/4.0/examplescenario-actor-type"
+  prefix t = "http://hl7.org/fhir/examplescenario-actor-type"
+
+  s:"person" - t:"person"
+  s:"system" - t:"system"
+}
+
+conceptmap "PublicationStatus" {
+  prefix s = "http://hl7.org/fhir/4.0/publication-status"
+  prefix t = "http://hl7.org/fhir/publication-status"
+
+  s:"draft" - t:"draft"
+  s:"active" - t:"active"
+  s:"retired" - t:"retired"
+  s:"unknown" - t:"unknown"
+}
+
+uses "http://hl7.org/fhir/4.0/StructureDefinition/ExampleScenario" alias ExampleScenarioR4 as source
+uses "http://hl7.org/fhir/StructureDefinition/ExampleScenario" alias ExampleScenarioR5 as target
+
+imports "http://hl7.org/fhir/StructureMap/*4to5"
+
+group ExampleScenario(source src : ExampleScenarioR4, target tgt : ExampleScenarioR5) extends DomainResource <<type+>> {
+  src.url -> tgt.url;
+  src.identifier -> tgt.identifier;
+  src.version -> tgt.version;
+  src.versionAlgorithm : string -> tgt.versionAlgorithm;
+  src.versionAlgorithm : Coding -> tgt.versionAlgorithm;
+  src.name -> tgt.name;
+  src.title -> tgt.title;
+  src.status as v -> tgt.status = translate(v, '#PublicationStatus', 'code');
+  src.experimental -> tgt.experimental;
+  src.date -> tgt.date;
+  src.publisher -> tgt.publisher;
+  src.contact -> tgt.contact;
+  src.description -> tgt.description;
+  src.useContext -> tgt.useContext;
+  src.jurisdiction -> tgt.jurisdiction;
+  src.purpose -> tgt.purpose;
+  src.copyright -> tgt.copyright;
+  src.copyrightLabel -> tgt.copyrightLabel;
+  src.actor as s -> tgt.actor as t then ExampleScenarioActor(s,t);
+  src.instance as s -> tgt.instance as t then ExampleScenarioInstance(s,t);
+  src.process as s -> tgt.process as t then ExampleScenarioProcess(s,t);
+}
+
+group ExampleScenarioActor(source src, target tgt) extends BackboneElement {
+  src.key -> tgt.key;
+  src.type as v -> tgt.type = translate(v, '#ExampleScenarioActorType', 'code');
+  src.title -> tgt.title;
+  src.description -> tgt.description;
+}
+
+group ExampleScenarioInstance(source src, target tgt) extends BackboneElement {
+  src.key -> tgt.key;
+  src.structureType -> tgt.structureType;
+  src.structureVersion -> tgt.structureVersion;
+  src.structureProfile : canonical -> tgt.structureProfile;
+  src.structureProfile : uri -> tgt.structureProfile;
+  src.title -> tgt.title;
+  src.description -> tgt.description;
+  src.content -> tgt.content;
+  src.version as s -> tgt.version as t then ExampleScenarioInstanceVersion(s,t);
+  src.containedInstance as s -> tgt.containedInstance as t then ExampleScenarioInstanceContainedInstance(s,t);
+}
+
+group ExampleScenarioInstanceVersion(source src, target tgt) extends BackboneElement {
+  src.key -> tgt.key;
+  src.title -> tgt.title;
+  src.description -> tgt.description;
+  src.content -> tgt.content;
+}
+
+group ExampleScenarioInstanceContainedInstance(source src, target tgt) extends BackboneElement {
+  src.instanceReference -> tgt.instanceReference;
+  src.versionReference -> tgt.versionReference;
+}
+
+group ExampleScenarioProcess(source src, target tgt) extends BackboneElement {
+  src.title -> tgt.title;
+  src.description -> tgt.description;
+  src.preConditions -> tgt.preConditions;
+  src.postConditions -> tgt.postConditions;
+  src.step as s -> tgt.step as t then ExampleScenarioProcessStep(s,t);
+}
+
+group ExampleScenarioProcessStep(source src, target tgt) extends BackboneElement {
+  src.number -> tgt.number;
+  src.workflow -> tgt.workflow;
+  src.operation as s -> tgt.operation as t then ExampleScenarioProcessStepOperation(s,t);
+  src.alternative as s -> tgt.alternative as t then ExampleScenarioProcessStepAlternative(s,t);
+  src.pause -> tgt.pause;
+}
+
+group ExampleScenarioProcessStepOperation(source src, target tgt) extends BackboneElement {
+  src.type -> tgt.type;
+  src.title -> tgt.title;
+  src.initiator -> tgt.initiator;
+  src.receiver -> tgt.receiver;
+  src.description -> tgt.description;
+  src.initiatorActive -> tgt.initiatorActive;
+  src.receiverActive -> tgt.receiverActive;
+}
+
+group ExampleScenarioProcessStepAlternative(source src, target tgt) extends BackboneElement {
+  src.title -> tgt.title;
+  src.description -> tgt.description;
+}
+

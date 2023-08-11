@@ -1,0 +1,19 @@
+﻿/// url = 'http://hl7.org/fhir/StructureMap/Coding5to4B'
+/// name = 'Coding5to4B'
+/// title = 'FML Conversion for Coding: R5 to R4B'
+
+// GG 7-Mar 2023: All OK
+
+uses "http://hl7.org/fhir/StructureDefinition/Coding" alias CodingR5 as source
+uses "http://hl7.org/fhir/4.3/StructureDefinition/Coding" alias CodingR4B as target
+
+imports "http://hl7.org/fhir/StructureMap/*5to4B"
+
+group Coding(source src : CodingR5, target tgt : CodingR4B) extends Element <<type+>> {
+  src.system -> tgt.system;
+  src.version -> tgt.version;
+  src.code -> tgt.code;
+  src.display -> tgt.display;
+  src.userSelected -> tgt.userSelected;
+}
+

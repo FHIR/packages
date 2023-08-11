@@ -1,0 +1,74 @@
+﻿/// url = 'http://hl7.org/fhir/StructureMap/MolecularSequence4Bto5'
+/// name = 'MolecularSequence4Bto5'
+/// title = 'FML Conversion for MolecularSequence: R4B to R5'
+
+conceptmap "orientationType" {
+  prefix s = "http://hl7.org/fhir/4.3/orientation-type"
+  prefix t = "http://hl7.org/fhir/orientation-type"
+
+  s:"sense" - t:"sense"
+  s:"antisense" - t:"antisense"
+}
+
+conceptmap "sequenceType" {
+  prefix s = "http://hl7.org/fhir/4.3/sequence-type"
+  prefix t = "http://hl7.org/fhir/sequence-type"
+
+  s:"aa" - t:"aa"
+  s:"dna" - t:"dna"
+  s:"rna" - t:"rna"
+}
+
+conceptmap "strandType" {
+  prefix s = "http://hl7.org/fhir/4.3/strand-type"
+  prefix t = "http://hl7.org/fhir/strand-type"
+
+  s:"watson" - t:"watson"
+  s:"crick" - t:"crick"
+}
+
+uses "http://hl7.org/fhir/4.3/StructureDefinition/MolecularSequence" alias MolecularSequenceR4B as source
+uses "http://hl7.org/fhir/StructureDefinition/MolecularSequence" alias MolecularSequenceR5 as target
+
+imports "http://hl7.org/fhir/StructureMap/*4Bto5"
+
+group MolecularSequence(source src : MolecularSequenceR4B, target tgt : MolecularSequenceR5) extends DomainResource <<type+>> {
+  src.identifier -> tgt.identifier;
+  src.type as v -> tgt.type = translate(v, '#sequenceType', 'code');
+  src.subject -> tgt.subject;
+  src.focus -> tgt.focus;
+  src.specimen -> tgt.specimen;
+  src.device -> tgt.device;
+  src.performer -> tgt.performer;
+  src.literal -> tgt.literal;
+  src.formatted -> tgt.formatted;
+  src.relative as s -> tgt.relative as t then MolecularSequenceRelative(s,t);
+}
+
+group MolecularSequenceRelative(source src, target tgt) extends BackboneElement {
+  src.coordinateSystem -> tgt.coordinateSystem;
+  src.ordinalPosition -> tgt.ordinalPosition;
+  src.sequenceRange -> tgt.sequenceRange;
+  src.startingSequence as s -> tgt.startingSequence as t then MolecularSequenceRelativeStartingSequence(s,t);
+  src.edit as s -> tgt.edit as t then MolecularSequenceRelativeEdit(s,t);
+}
+
+group MolecularSequenceRelativeStartingSequence(source src, target tgt) extends BackboneElement {
+  src.genomeAssembly -> tgt.genomeAssembly;
+  src.chromosome -> tgt.chromosome;
+  src.sequence : CodeableConcept -> tgt.sequence;
+  src.sequence : string -> tgt.sequence;
+  src.sequence : Reference -> tgt.sequence;
+  src.windowStart -> tgt.windowStart;
+  src.windowEnd -> tgt.windowEnd;
+  src.orientation as v -> tgt.orientation = translate(v, '#orientationType', 'code');
+  src.strand as v -> tgt.strand = translate(v, '#strandType', 'code');
+}
+
+group MolecularSequenceRelativeEdit(source src, target tgt) extends BackboneElement {
+  src.start -> tgt.start;
+  src.end -> tgt.end;
+  src.replacementSequence -> tgt.replacementSequence;
+  src.replacedSequence -> tgt.replacedSequence;
+}
+

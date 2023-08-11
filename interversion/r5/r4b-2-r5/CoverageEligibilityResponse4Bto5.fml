@@ -1,0 +1,104 @@
+﻿/// url = 'http://hl7.org/fhir/StructureMap/CoverageEligibilityResponse4Bto5'
+/// name = 'CoverageEligibilityResponse4Bto5'
+/// title = 'FML Conversion for CoverageEligibilityResponse: R4B to R5'
+
+conceptmap "EligibilityOutcome" {
+  prefix s = "http://hl7.org/fhir/4.3/eligibility-outcome"
+  prefix t = "http://hl7.org/fhir/eligibility-outcome"
+
+  s:"queued" - t:"queued"
+  s:"complete" - t:"complete"
+  s:"error" - t:"error"
+  s:"partial" - t:"partial"
+}
+
+conceptmap "EligibilityResponsePurpose" {
+  prefix s = "http://hl7.org/fhir/4.3/eligibilityresponse-purpose"
+  prefix t = "http://hl7.org/fhir/eligibilityresponse-purpose"
+
+  s:"auth-requirements" - t:"auth-requirements"
+  s:"benefits" - t:"benefits"
+  s:"discovery" - t:"discovery"
+  s:"validation" - t:"validation"
+}
+
+conceptmap "EligibilityResponseStatus" {
+  prefix s = "http://hl7.org/fhir/4.3/fm-status"
+  prefix t = "http://hl7.org/fhir/fm-status"
+
+  s:"active" - t:"active"
+  s:"cancelled" - t:"cancelled"
+  s:"draft" - t:"draft"
+  s:"entered-in-error" - t:"entered-in-error"
+}
+
+uses "http://hl7.org/fhir/4.3/StructureDefinition/CoverageEligibilityResponse" alias CoverageEligibilityResponseR4B as source
+uses "http://hl7.org/fhir/StructureDefinition/CoverageEligibilityResponse" alias CoverageEligibilityResponseR5 as target
+
+imports "http://hl7.org/fhir/StructureMap/*4Bto5"
+
+group CoverageEligibilityResponse(source src : CoverageEligibilityResponseR4B, target tgt : CoverageEligibilityResponseR5) extends DomainResource <<type+>> {
+  src.identifier -> tgt.identifier;
+  src.status as v -> tgt.status = translate(v, '#EligibilityResponseStatus', 'code');
+  src.purpose as v -> tgt.purpose = translate(v, '#EligibilityResponsePurpose', 'code');
+  src.patient -> tgt.patient;
+  src.event as s -> tgt.event as t then CoverageEligibilityResponseEvent(s,t);
+  src.serviced : date -> tgt.serviced;
+  src.serviced : Period -> tgt.serviced;
+  src.created -> tgt.created;
+  src.requestor -> tgt.requestor;
+  src.request -> tgt.request;
+  src.outcome as v -> tgt.outcome = translate(v, '#EligibilityOutcome', 'code');
+  src.disposition -> tgt.disposition;
+  src.insurer -> tgt.insurer;
+  src.insurance as s -> tgt.insurance as t then CoverageEligibilityResponseInsurance(s,t);
+  src.preAuthRef -> tgt.preAuthRef;
+  src.form -> tgt.form;
+  src.error as s -> tgt.error as t then CoverageEligibilityResponseError(s,t);
+}
+
+group CoverageEligibilityResponseEvent(source src, target tgt) extends BackboneElement {
+  src.type -> tgt.type;
+  src.when : dateTime -> tgt.when;
+  src.when : Period -> tgt.when;
+}
+
+group CoverageEligibilityResponseInsurance(source src, target tgt) extends BackboneElement {
+  src.coverage -> tgt.coverage;
+  src.inforce -> tgt.inforce;
+  src.benefitPeriod -> tgt.benefitPeriod;
+  src.item as s -> tgt.item as t then CoverageEligibilityResponseInsuranceItem(s,t);
+}
+
+group CoverageEligibilityResponseInsuranceItem(source src, target tgt) extends BackboneElement {
+  src.category -> tgt.category;
+  src.productOrService -> tgt.productOrService;
+  src.modifier -> tgt.modifier;
+  src.provider -> tgt.provider;
+  src.excluded -> tgt.excluded;
+  src.name -> tgt.name;
+  src.description -> tgt.description;
+  src.network -> tgt.network;
+  src.unit -> tgt.unit;
+  src.term -> tgt.term;
+  src.benefit as s -> tgt.benefit as t then CoverageEligibilityResponseInsuranceItemBenefit(s,t);
+  src.authorizationRequired -> tgt.authorizationRequired;
+  src.authorizationSupporting -> tgt.authorizationSupporting;
+  src.authorizationUrl -> tgt.authorizationUrl;
+}
+
+group CoverageEligibilityResponseInsuranceItemBenefit(source src, target tgt) extends BackboneElement {
+  src.type -> tgt.type;
+  src.allowed : unsignedInt -> tgt.allowed;
+  src.allowed : string -> tgt.allowed;
+  src.allowed : Money -> tgt.allowed;
+  src.used : unsignedInt -> tgt.used;
+  src.used : string -> tgt.used;
+  src.used : Money -> tgt.used;
+}
+
+group CoverageEligibilityResponseError(source src, target tgt) extends BackboneElement {
+  src.code -> tgt.code;
+  src.expression -> tgt.expression;
+}
+

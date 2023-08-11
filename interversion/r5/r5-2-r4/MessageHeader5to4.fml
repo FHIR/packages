@@ -1,0 +1,59 @@
+﻿/// url = 'http://hl7.org/fhir/StructureMap/MessageHeader5to4'
+/// name = 'MessageHeader5to4'
+/// title = 'FML Conversion for MessageHeader: R5 to R4'
+
+// GG 8-Mar 2023: All OK
+
+conceptmap "ResponseType" {
+  prefix s = "http://hl7.org/fhir/response-code"
+  prefix t = "http://hl7.org/fhir/4.0/response-code"
+
+  s:"ok" - t:"ok"
+  s:"transient-error" - t:"transient-error"
+  s:"fatal-error" - t:"fatal-error"
+}
+
+uses "http://hl7.org/fhir/StructureDefinition/MessageHeader" alias MessageHeaderR5 as source
+uses "http://hl7.org/fhir/4.0/StructureDefinition/MessageHeader" alias MessageHeaderR4 as target
+
+imports "http://hl7.org/fhir/StructureMap/*5to4"
+
+group MessageHeader(source src : MessageHeaderR5, target tgt : MessageHeaderR4) extends DomainResource <<type+>> {
+  src.event : Coding -> tgt.event;
+  src.event : canonical -> tgt.event;
+  src.destination as s -> tgt.destination as t then MessageHeaderDestination(s,t);
+  src.sender -> tgt.sender;
+  src.author -> tgt.author;
+  src.source as s -> tgt.source as t then MessageHeaderSource(s,t);
+  src.responsible -> tgt.responsible;
+  src.reason -> tgt.reason;
+  src.response as s -> tgt.response as t then MessageHeaderResponse(s,t);
+  src.focus -> tgt.focus;
+  src.definition -> tgt.definition;
+}
+
+group MessageHeaderDestination(source src, target tgt) extends BackboneElement {
+  src.endpoint : url -> tgt.endpoint;
+  src.endpoint : Reference -> tgt.endpoint;
+  src.name -> tgt.name;
+  src.target -> tgt.target;
+  src.receiver -> tgt.receiver;
+}
+
+group MessageHeaderSource(source src, target tgt) extends BackboneElement {
+  src.endpoint : url -> tgt.endpoint;
+  src.endpoint : Reference -> tgt.endpoint;
+  src.name -> tgt.name;
+  src.software -> tgt.software;
+  src.version -> tgt.version;
+  src.contact -> tgt.contact;
+}
+
+group MessageHeaderResponse(source src, target tgt) extends BackboneElement {
+  src.identifier as s -> tgt as t then {
+    s.value -> tgt.identifier;
+  };
+  src.code as v -> tgt.code = translate(v, '#ResponseType', 'code');
+  src.details -> tgt.details;
+}
+

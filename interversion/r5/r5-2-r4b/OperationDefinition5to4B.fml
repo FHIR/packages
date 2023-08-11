@@ -1,0 +1,126 @@
+﻿/// url = 'http://hl7.org/fhir/StructureMap/OperationDefinition5to4B'
+/// name = 'OperationDefinition5to4B'
+/// title = 'FML Conversion for OperationDefinition: R5 to R4B'
+
+// GG 8-Mar 2023: All OK
+
+conceptmap "BindingStrength" {
+  prefix s = "http://hl7.org/fhir/binding-strength"
+  prefix t = "http://hl7.org/fhir/4.3/binding-strength"
+
+  s:"required" - t:"required"
+  s:"extensible" - t:"extensible"
+  s:"preferred" - t:"preferred"
+  s:"example" - t:"example"
+}
+
+conceptmap "OperationKind" {
+  prefix s = "http://hl7.org/fhir/operation-kind"
+  prefix t = "http://hl7.org/fhir/4.3/operation-kind"
+
+  s:"operation" - t:"operation"
+  s:"query" - t:"query"
+}
+
+conceptmap "OperationParameterUse" {
+  prefix s = "http://hl7.org/fhir/operation-parameter-use"
+  prefix t = "http://hl7.org/fhir/4.3/operation-parameter-use"
+
+  s:"in" - t:"in"
+  s:"out" - t:"out"
+}
+
+conceptmap "PublicationStatus" {
+  prefix s = "http://hl7.org/fhir/publication-status"
+  prefix t = "http://hl7.org/fhir/4.3/publication-status"
+
+  s:"draft" - t:"draft"
+  s:"active" - t:"active"
+  s:"retired" - t:"retired"
+  s:"unknown" - t:"unknown"
+}
+
+conceptmap "SearchParamType" {
+  prefix s = "http://hl7.org/fhir/search-param-type"
+  prefix t = "http://hl7.org/fhir/4.3/search-param-type"
+
+  s:"number" - t:"number"
+  s:"date" - t:"date"
+  s:"string" - t:"string"
+  s:"token" - t:"token"
+  s:"reference" - t:"reference"
+  s:"composite" - t:"composite"
+  s:"quantity" - t:"quantity"
+  s:"uri" - t:"uri"
+  s:"special" - t:"special"
+}
+
+uses "http://hl7.org/fhir/StructureDefinition/OperationDefinition" alias OperationDefinitionR5 as source
+uses "http://hl7.org/fhir/4.3/StructureDefinition/OperationDefinition" alias OperationDefinitionR4B as target
+
+imports "http://hl7.org/fhir/StructureMap/*5to4B"
+
+group OperationDefinition(source src : OperationDefinitionR5, target tgt : OperationDefinitionR4B) extends DomainResource <<type+>> {
+  src.url -> tgt.url;
+//  src.identifier -> tgt.identifier;
+  src.version -> tgt.version;
+//  src.versionAlgorithm : string -> tgt.versionAlgorithm;
+//  src.versionAlgorithm : Coding -> tgt.versionAlgorithm;
+  src.name -> tgt.name;
+  src.title -> tgt.title;
+  src.status as v -> tgt.status = translate(v, '#PublicationStatus', 'code');
+  src.kind as v -> tgt.kind = translate(v, '#OperationKind', 'code');
+  src.experimental -> tgt.experimental;
+  src.date -> tgt.date;
+  src.publisher -> tgt.publisher;
+  src.contact -> tgt.contact;
+  src.description -> tgt.description;
+  src.useContext -> tgt.useContext;
+  src.jurisdiction -> tgt.jurisdiction;
+  src.purpose -> tgt.purpose;
+//  src.copyright -> tgt.copyright;
+//  src.copyrightLabel -> tgt.copyrightLabel;
+  src.affectsState -> tgt.affectsState;
+  src.code -> tgt.code;
+  src.comment -> tgt.comment;
+  src.base -> tgt.base;
+  src.resource -> tgt.resource;
+  src.system -> tgt.system;
+  src.type -> tgt.type;
+  src.instance -> tgt.instance;
+  src.inputProfile -> tgt.inputProfile;
+  src.outputProfile -> tgt.outputProfile;
+  src.parameter as s -> tgt.parameter as t then OperationDefinitionParameter(s,t);
+  src.overload as s -> tgt.overload as t then OperationDefinitionOverload(s,t);
+}
+
+group OperationDefinitionParameter(source src, target tgt) extends BackboneElement {
+  src.name -> tgt.name;
+  src.use as v -> tgt.use = translate(v, '#OperationParameterUse', 'code');
+//  src.scope as v -> tgt.scope = translate(v, '#OperationParameterScope', 'code');
+  src.min -> tgt.min;
+  src.max -> tgt.max;
+  src.documentation -> tgt.documentation;
+  src.type as v -> tgt.type = translate(v, 'http://hl7.org/fhir/interversion/types5to4b', 'code');
+//  src.allowedType as v -> tgt.allowedType = translate(v, 'http://hl7.org/fhir/interversion/types5to4b', 'code');
+  src.targetProfile -> tgt.targetProfile;
+  src.searchType as v -> tgt.searchType = translate(v, '#SearchParamType', 'code');
+  src.binding as s -> tgt.binding as t then OperationDefinitionParameterBinding(s,t);
+  src.referencedFrom as s -> tgt.referencedFrom as t then OperationDefinitionParameterReferencedFrom(s,t);
+}
+
+group OperationDefinitionParameterBinding(source src, target tgt) extends BackboneElement {
+  src.strength as v -> tgt.strength = translate(v, '#BindingStrength', 'code');
+  src.valueSet -> tgt.valueSet;
+}
+
+group OperationDefinitionParameterReferencedFrom(source src, target tgt) extends BackboneElement {
+  src.source -> tgt.source;
+  src.sourceId -> tgt.sourceId;
+}
+
+group OperationDefinitionOverload(source src, target tgt) extends BackboneElement {
+  src.parameterName -> tgt.parameterName;
+  src.comment -> tgt.comment;
+}
+

@@ -1,0 +1,23 @@
+﻿/// url = 'http://hl7.org/fhir/StructureMap/SampledData5to4B'
+/// name = 'SampledData5to4B'
+/// title = 'FML Conversion for SampledData: R5 to R4B'
+
+// GG 7-Mar 2023: All OK
+
+uses "http://hl7.org/fhir/StructureDefinition/SampledData" alias SampledDataR5 as source
+uses "http://hl7.org/fhir/4.3/StructureDefinition/SampledData" alias SampledDataR4B as target
+
+imports "http://hl7.org/fhir/StructureMap/*5to4B"
+
+group SampledData(source src : SampledDataR5, target tgt : SampledDataR4B) extends Element <<type+>> {
+  src.origin -> tgt.origin;
+  src.interval where src.intervalUnit = 'ms' -> tgt.period;
+  src.factor -> tgt.factor;
+  src.lowerLimit -> tgt.lowerLimit;
+  src.upperLimit -> tgt.upperLimit;
+  src.dimensions -> tgt.dimensions;
+//  src.codeMap -> tgt.codeMap; - doesn't exist in R4B
+//  src.offsets -> tgt.offsets; - doesn't exist in R4B
+  src.data -> tgt.data;
+}
+

@@ -1,0 +1,37 @@
+﻿/// url = 'http://hl7.org/fhir/StructureMap/ImmunizationRecommendation4to5'
+/// name = 'ImmunizationRecommendation4to5'
+/// title = 'FML Conversion for ImmunizationRecommendation: R4 to R5'
+
+uses "http://hl7.org/fhir/4.0/StructureDefinition/ImmunizationRecommendation" alias ImmunizationRecommendationR4 as source
+uses "http://hl7.org/fhir/StructureDefinition/ImmunizationRecommendation" alias ImmunizationRecommendationR5 as target
+
+imports "http://hl7.org/fhir/StructureMap/*4to5"
+
+group ImmunizationRecommendation(source src : ImmunizationRecommendationR4, target tgt : ImmunizationRecommendationR5) extends DomainResource <<type+>> {
+  src.identifier -> tgt.identifier;
+  src.patient -> tgt.patient;
+  src.date -> tgt.date;
+  src.authority -> tgt.authority;
+  src.recommendation as s -> tgt.recommendation as t then ImmunizationRecommendationRecommendation(s,t);
+}
+
+group ImmunizationRecommendationRecommendation(source src, target tgt) extends BackboneElement {
+  src.vaccineCode -> tgt.vaccineCode;
+  src.targetDisease -> tgt.targetDisease;
+  src.contraindicatedVaccineCode -> tgt.contraindicatedVaccineCode;
+  src.forecastStatus -> tgt.forecastStatus;
+  src.forecastReason -> tgt.forecastReason;
+  src.dateCriterion as s -> tgt.dateCriterion as t then ImmunizationRecommendationRecommendationDateCriterion(s,t);
+  src.description -> tgt.description;
+  src.series -> tgt.series;
+  src.doseNumber -> tgt.doseNumber;
+  src.seriesDoses -> tgt.seriesDoses;
+  src.supportingImmunization -> tgt.supportingImmunization;
+  src.supportingPatientInformation -> tgt.supportingPatientInformation;
+}
+
+group ImmunizationRecommendationRecommendationDateCriterion(source src, target tgt) extends BackboneElement {
+  src.code -> tgt.code;
+  src.value -> tgt.value;
+}
+

@@ -1,0 +1,27 @@
+﻿/// url = 'http://hl7.org/fhir/StructureMap/Contributor5to4B'
+/// name = 'Contributor5to4B'
+/// title = 'FML Conversion for Contributor: R5 to R4B'
+
+// GG 7-Mar 2023: All OK
+
+conceptmap "ContributorType" {
+  prefix s = "http://hl7.org/fhir/contributor-type"
+  prefix t = "http://hl7.org/fhir/4.3/contributor-type"
+
+  s:"author" - t:"author"
+  s:"editor" - t:"editor"
+  s:"reviewer" - t:"reviewer"
+  s:"endorser" - t:"endorser"
+}
+
+uses "http://hl7.org/fhir/StructureDefinition/Contributor" alias ContributorR5 as source
+uses "http://hl7.org/fhir/4.3/StructureDefinition/Contributor" alias ContributorR4B as target
+
+imports "http://hl7.org/fhir/StructureMap/*5to4B"
+
+group Contributor(source src : ContributorR5, target tgt : ContributorR4B) extends Element <<type+>> {
+  src.type as v -> tgt.type = translate(v, '#ContributorType', 'code');
+  src.name -> tgt.name;
+  src.contact -> tgt.contact;
+}
+

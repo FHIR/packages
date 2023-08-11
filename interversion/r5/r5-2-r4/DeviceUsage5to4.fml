@@ -1,0 +1,49 @@
+﻿/// url = 'http://hl7.org/fhir/StructureMap/DeviceUsage5to4'
+/// name = 'DeviceUsage5to4'
+/// title = 'FML Conversion for DeviceUsage: R5 to R4'
+
+conceptmap "DeviceUsageStatus" {
+  prefix s = "http://hl7.org/fhir/deviceusage-status"
+  prefix t = "http://hl7.org/fhir/4.0/deviceusage-status"
+
+  s:"active" - t:"active"
+  s:"completed" - t:"completed"
+  s:"not-done" - t:"not-done"
+  s:"entered-in-error" - t:"entered-in-error"
+  s:"intended" - t:"intended"
+  s:"stopped" - t:"stopped"
+  s:"on-hold" - t:"on-hold"
+}
+
+uses "http://hl7.org/fhir/StructureDefinition/DeviceUsage" alias DeviceUsageR5 as source
+uses "http://hl7.org/fhir/4.0/StructureDefinition/DeviceUsage" alias DeviceUsageR4 as target
+
+imports "http://hl7.org/fhir/StructureMap/*5to4"
+
+group DeviceUsage(source src : DeviceUsageR5, target tgt : DeviceUsageR4) extends DomainResource <<type+>> {
+  src.identifier -> tgt.identifier;
+  src.basedOn -> tgt.basedOn;
+  src.status as v -> tgt.status = translate(v, '#DeviceUsageStatus', 'code');
+  src.category -> tgt.category;
+  src.patient -> tgt.patient;
+  src.derivedFrom -> tgt.derivedFrom;
+  src.context -> tgt.context;
+  src.timing : Timing -> tgt.timing;
+  src.timing : Period -> tgt.timing;
+  src.timing : dateTime -> tgt.timing;
+  src.dateAsserted -> tgt.dateAsserted;
+  src.usageStatus as v -> tgt.usageStatus = translate(v, '#DeviceUsageStatus', 'code');
+  src.usageReason -> tgt.usageReason;
+  src.adherence as s -> tgt.adherence as t then DeviceUsageAdherence(s,t);
+  src.informationSource -> tgt.informationSource;
+  src.device -> tgt.device;
+  src.reason -> tgt.reason;
+  src.bodySite -> tgt.bodySite;
+  src.note -> tgt.note;
+}
+
+group DeviceUsageAdherence(source src, target tgt) extends BackboneElement {
+  src.code -> tgt.code;
+  src.reason -> tgt.reason;
+}
+

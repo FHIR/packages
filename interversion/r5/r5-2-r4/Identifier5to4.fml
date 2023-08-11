@@ -1,0 +1,31 @@
+﻿/// url = 'http://hl7.org/fhir/StructureMap/Identifier5to4'
+/// name = 'Identifier5to4'
+/// title = 'FML Conversion for Identifier: R5 to R4'
+
+// GG 7-Mar 2023: All OK
+
+conceptmap "IdentifierUse" {
+  prefix s = "http://hl7.org/fhir/identifier-use"
+  prefix t = "http://hl7.org/fhir/4.0/identifier-use"
+
+  s:"usual" - t:"usual"
+  s:"official" - t:"official"
+  s:"temp" - t:"temp"
+  s:"secondary" - t:"secondary"
+  s:"old" - t:"old"
+}
+
+uses "http://hl7.org/fhir/StructureDefinition/Identifier" alias IdentifierR5 as source
+uses "http://hl7.org/fhir/4.0/StructureDefinition/Identifier" alias IdentifierR4 as target
+
+imports "http://hl7.org/fhir/StructureMap/*5to4"
+
+group Identifier(source src : IdentifierR5, target tgt : IdentifierR4) extends Element <<type+>> {
+  src.use as v -> tgt.use = translate(v, '#IdentifierUse', 'code');
+  src.type -> tgt.type;
+  src.system -> tgt.system;
+  src.value -> tgt.value;
+  src.period -> tgt.period;
+  src.assigner -> tgt.assigner;
+}
+

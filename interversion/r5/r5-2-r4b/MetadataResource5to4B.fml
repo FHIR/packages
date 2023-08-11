@@ -1,0 +1,21 @@
+﻿/// url = 'http://hl7.org/fhir/StructureMap/MetadataResource5to4B'
+/// name = 'MetadataResource5to4B'
+/// title = 'FML Conversion for MetadataResource: R5 to R4B'
+
+uses "http://hl7.org/fhir/StructureDefinition/MetadataResource" alias MetadataResourceR5 as source
+uses "http://hl7.org/fhir/4.3/StructureDefinition/MetadataResource" alias MetadataResourceR4B as target
+
+imports "http://hl7.org/fhir/StructureMap/*5to4B"
+
+group MetadataResource(source src : MetadataResourceR5, target tgt : MetadataResourceR4B) extends DomainResource <<type+>> {
+  src.approvalDate -> tgt.approvalDate;
+  src.lastReviewDate -> tgt.lastReviewDate;
+  src.effectivePeriod -> tgt.effectivePeriod;
+  src.topic -> tgt.topic;
+  src.author -> tgt.author;
+  src.editor -> tgt.editor;
+  src.reviewer -> tgt.reviewer;
+  src.endorser -> tgt.endorser;
+  src.relatedArtifact -> tgt.relatedArtifact;
+}
+

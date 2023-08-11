@@ -1,0 +1,19 @@
+﻿/// url = 'http://hl7.org/fhir/StructureMap/Basic5to4'
+/// name = 'Basic5to4'
+/// title = 'FML Conversion for Basic: R5 to R4'
+
+// GG 8-Mar 2023: All OK
+
+uses "http://hl7.org/fhir/StructureDefinition/Basic" alias BasicR5 as source
+uses "http://hl7.org/fhir/4.0/StructureDefinition/Basic" alias BasicR4 as target
+
+imports "http://hl7.org/fhir/StructureMap/*5to4"
+
+group Basic(source src : BasicR5, target tgt : BasicR4) extends DomainResource <<type+>> {
+  src.identifier -> tgt.identifier;
+  src.code -> tgt.code;
+  src.subject -> tgt.subject;
+  src.created -> tgt.created;
+  src.author -> tgt.author;
+}
+

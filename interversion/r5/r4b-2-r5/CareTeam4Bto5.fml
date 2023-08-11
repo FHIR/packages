@@ -1,0 +1,42 @@
+﻿/// url = 'http://hl7.org/fhir/StructureMap/CareTeam4Bto5'
+/// name = 'CareTeam4Bto5'
+/// title = 'FML Conversion for CareTeam: R4B to R5'
+
+conceptmap "CareTeamStatus" {
+  prefix s = "http://hl7.org/fhir/4.3/care-team-status"
+  prefix t = "http://hl7.org/fhir/care-team-status"
+
+  s:"proposed" - t:"proposed"
+  s:"active" - t:"active"
+  s:"suspended" - t:"suspended"
+  s:"inactive" - t:"inactive"
+  s:"entered-in-error" - t:"entered-in-error"
+}
+
+uses "http://hl7.org/fhir/4.3/StructureDefinition/CareTeam" alias CareTeamR4B as source
+uses "http://hl7.org/fhir/StructureDefinition/CareTeam" alias CareTeamR5 as target
+
+imports "http://hl7.org/fhir/StructureMap/*4Bto5"
+
+group CareTeam(source src : CareTeamR4B, target tgt : CareTeamR5) extends DomainResource <<type+>> {
+  src.identifier -> tgt.identifier;
+  src.status as v -> tgt.status = translate(v, '#CareTeamStatus', 'code');
+  src.category -> tgt.category;
+  src.name -> tgt.name;
+  src.subject -> tgt.subject;
+  src.period -> tgt.period;
+  src.participant as s -> tgt.participant as t then CareTeamParticipant(s,t);
+  src.reason -> tgt.reason;
+  src.managingOrganization -> tgt.managingOrganization;
+  src.telecom -> tgt.telecom;
+  src.note -> tgt.note;
+}
+
+group CareTeamParticipant(source src, target tgt) extends BackboneElement {
+  src.role -> tgt.role;
+  src.member -> tgt.member;
+  src.onBehalfOf -> tgt.onBehalfOf;
+  src.coverage : Period -> tgt.coverage;
+  src.coverage : Timing -> tgt.coverage;
+}
+
