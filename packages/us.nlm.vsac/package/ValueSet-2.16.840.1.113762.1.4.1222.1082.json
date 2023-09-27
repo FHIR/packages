@@ -1,0 +1,76 @@
+{
+  "resourceType" : "ValueSet",
+  "id" : "2.16.840.1.113762.1.4.1222.1082",
+  "meta" : {
+    "versionId" : "27",
+    "lastUpdated" : "2023-07-21T01:01:06.000-04:00",
+    "profile" : ["http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+    "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"]
+  },
+  "extension" : [{
+    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+    "valueString" : "MCC eCare Plan Author"
+  },
+  {
+    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-keyWord",
+    "valueString" : "MCC_IG,MCC_Useful"
+  },
+  {
+    "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+    "valueDate" : "2023-07-21"
+  },
+  {
+    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+    "valueDate" : "2023-07-21"
+  }],
+  "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1222.1082",
+  "identifier" : [{
+    "system" : "urn:ietf:rfc:3986",
+    "value" : "urn:oid:2.16.840.1.113762.1.4.1222.1082"
+  }],
+  "version" : "20230721",
+  "name" : "CriminalJusticeInvolvementOrIncarceration",
+  "title" : "Criminal Justice Involvement or Incarceration",
+  "status" : "active",
+  "date" : "2023-07-21T01:01:07-04:00",
+  "publisher" : "HL7 Patient Care WG Steward",
+  "description" : "This value set may undergo changes until the HL7 Multiple Chronic Care FHIR IG is formally published in 2024.",
+  "jurisdiction" : [{
+    "extension" : [{
+      "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
+      "valueString" : "UNKNOWN"
+    }]
+  }],
+  "purpose" : "(Clinical Focus: This single member value set represents a question with an associated LOINC answer set about criminal justice involvement or incarceration.),(Data Element Scope: The intent of this single member value set is to identify patients who have answered a question about criminal justice involvement, including incarceration.),(Inclusion Criteria: Includes LOINC observation code/s for Criminal Justice Involvement or Incarceration.),(Exclusion Criteria: )",
+  "compose" : {
+    "include" : [{
+      "system" : "http://loinc.org",
+      "version" : "2.74",
+      "filter" : [{
+        "property" : "concept",
+        "op" : "=",
+        "value" : "89570-6"
+      }]
+    }]
+  },
+  "expansion" : {
+    "identifier" : "urn:uuid:b22d5ff1-4a7e-486b-9fe9-ddf6af8cf605",
+    "timestamp" : "2023-09-26T09:51:59-04:00",
+    "total" : 1,
+    "offset" : 0,
+    "parameter" : [{
+      "name" : "count",
+      "valueInteger" : 1000
+    },
+    {
+      "name" : "offset",
+      "valueInteger" : 0
+    }],
+    "contains" : [{
+      "system" : "http://loinc.org",
+      "version" : "2.74",
+      "code" : "89570-6",
+      "display" : "Involvement with criminal justice [CUBS]"
+    }]
+  }
+}

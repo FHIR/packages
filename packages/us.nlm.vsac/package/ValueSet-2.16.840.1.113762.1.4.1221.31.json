@@ -1,0 +1,111 @@
+{
+  "resourceType" : "ValueSet",
+  "id" : "2.16.840.1.113762.1.4.1221.31",
+  "meta" : {
+    "versionId" : "5",
+    "lastUpdated" : "2020-06-03T01:01:18.000-04:00",
+    "profile" : ["http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+    "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"]
+  },
+  "extension" : [{
+    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+    "valueString" : "NACHC Author"
+  },
+  {
+    "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+    "valueDate" : "2022-12-15"
+  },
+  {
+    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+    "valueDate" : "2020-06-03"
+  }],
+  "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1221.31",
+  "identifier" : [{
+    "system" : "urn:ietf:rfc:3986",
+    "value" : "urn:oid:2.16.840.1.113762.1.4.1221.31"
+  }],
+  "version" : "20200603",
+  "name" : "SpermicidesForContraception",
+  "title" : "Spermicides for Contraception",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2020-06-03T01:01:18-04:00",
+  "publisher" : "NACHC Steward",
+  "jurisdiction" : [{
+    "extension" : [{
+      "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
+      "valueString" : "UNKNOWN"
+    }]
+  }],
+  "purpose" : "(Clinical Focus: This set of values contains the use of both generic and brand name spermicides (gel, foam, film) for contraception.),(Data Element Scope: The intent of this data element is to identify patients who have expressed the use of both generic and brand name spermicides (gel, foam, film) for contraception. Using the Quality Data Model, this particular element would map to the \"Medication\" category, with Datatype: \"Medication, Active\".),(Inclusion Criteria: Contraception use that indicates active usage of both generic and brand name spermicides (gel, foam, film).),(Exclusion Criteria: There is no exclusion criteria listed for this value set.)",
+  "compose" : {
+    "include" : [{
+      "system" : "http://snomed.info/sct",
+      "version" : "http://snomed.info/sct/731000124108/version/20230301",
+      "filter" : [{
+        "property" : "concept",
+        "op" : "is-a",
+        "value" : "466945004"
+      }]
+    },
+    {
+      "system" : "http://snomed.info/sct",
+      "version" : "http://snomed.info/sct/731000124108/version/20230301",
+      "filter" : [{
+        "property" : "concept",
+        "op" : "is-a",
+        "value" : "274408004"
+      }]
+    },
+    {
+      "system" : "http://snomed.info/sct",
+      "version" : "http://snomed.info/sct/731000124108/version/20230301",
+      "filter" : [{
+        "property" : "concept",
+        "op" : "is-a",
+        "value" : "169506000"
+      }]
+    },
+    {
+      "system" : "http://snomed.info/sct",
+      "version" : "http://snomed.info/sct/731000124108/version/20230301",
+      "filter" : [{
+        "property" : "concept",
+        "op" : "is-a",
+        "value" : "169531004"
+      }]
+    }]
+  },
+  "expansion" : {
+    "identifier" : "urn:uuid:44c43914-a81d-4f2d-8b0a-328a7478e0fa",
+    "timestamp" : "2023-09-26T13:16:53-04:00",
+    "total" : 3,
+    "offset" : 0,
+    "parameter" : [{
+      "name" : "count",
+      "valueInteger" : 1000
+    },
+    {
+      "name" : "offset",
+      "valueInteger" : 0
+    }],
+    "contains" : [{
+      "system" : "http://snomed.info/sct",
+      "version" : "http://snomed.info/sct/731000124108/version/20230301",
+      "code" : "169506000",
+      "display" : "Uses contraceptive sheath with spermicide (finding)"
+    },
+    {
+      "system" : "http://snomed.info/sct",
+      "version" : "http://snomed.info/sct/731000124108/version/20230301",
+      "code" : "169531004",
+      "display" : "Uses contraceptive sponge and spermicide (finding)"
+    },
+    {
+      "system" : "http://snomed.info/sct",
+      "version" : "http://snomed.info/sct/731000124108/version/20230301",
+      "code" : "466945004",
+      "display" : "Spermicide (physical object)"
+    }]
+  }
+}

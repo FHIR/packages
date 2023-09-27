@@ -1,0 +1,76 @@
+{
+  "resourceType" : "ValueSet",
+  "id" : "2.16.840.1.113762.1.4.1223.9",
+  "meta" : {
+    "versionId" : "9",
+    "lastUpdated" : "2020-04-07T16:42:14.000-04:00",
+    "profile" : ["http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+    "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"]
+  },
+  "extension" : [{
+    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+    "valueString" : "CareEvolution Author"
+  },
+  {
+    "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+    "valueDate" : "2022-12-15"
+  },
+  {
+    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+    "valueDate" : "2020-04-07"
+  }],
+  "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1223.9",
+  "identifier" : [{
+    "system" : "urn:ietf:rfc:3986",
+    "value" : "urn:oid:2.16.840.1.113762.1.4.1223.9"
+  }],
+  "version" : "20200407",
+  "name" : "COVID19ConfirmedInfection",
+  "title" : "COVID19 Confirmed Infection",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2020-04-07T16:42:14-04:00",
+  "publisher" : "CareEvolution Steward",
+  "description" : "Given the variability in coding of diagnoses, this value set will be most useful with robust mapping of source data to the ICD10 and SNOMED reference terms.",
+  "jurisdiction" : [{
+    "extension" : [{
+      "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
+      "valueString" : "UNKNOWN"
+    }]
+  }],
+  "purpose" : "(Clinical Focus: Given the variability in coding of diagnoses, this value set will be most useful with robust mapping of source data to the ICD10 and SNOMED reference terms.),(Data Element Scope: Intended to support surveillance and monitoring of COVID19 infection),(Inclusion Criteria: Compilation of ICD10 and SNOMED codes for Confirmed COVID19 infection; Includes only the ICD10 codes identified by the WHO for this purpose),(Exclusion Criteria: Confirmed COVID19 infection.)",
+  "compose" : {
+    "include" : [{
+      "valueSet" : ["http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1223.7"]
+    },
+    {
+      "valueSet" : ["http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1223.8"]
+    }]
+  },
+  "expansion" : {
+    "identifier" : "urn:uuid:b1af7881-c1f3-4566-8922-58d5b72cfe80",
+    "timestamp" : "2023-09-26T09:38:49-04:00",
+    "total" : 2,
+    "offset" : 0,
+    "parameter" : [{
+      "name" : "count",
+      "valueInteger" : 1000
+    },
+    {
+      "name" : "offset",
+      "valueInteger" : 0
+    }],
+    "contains" : [{
+      "system" : "http://snomed.info/sct",
+      "version" : "http://snomed.info/sct/731000124108/version/20230301",
+      "code" : "840539006",
+      "display" : "Disease caused by severe acute respiratory syndrome coronavirus 2 (disorder)"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "U07.1",
+      "display" : "COVID-19"
+    }]
+  }
+}

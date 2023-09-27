@@ -1,0 +1,3222 @@
+{
+  "resourceType" : "ValueSet",
+  "id" : "2.16.840.1.113762.1.4.1078.193",
+  "meta" : {
+    "versionId" : "14",
+    "lastUpdated" : "2023-09-11T19:22:10.000-04:00",
+    "profile" : ["http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+    "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"]
+  },
+  "extension" : [{
+    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+    "valueString" : "Optum Author"
+  },
+  {
+    "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+    "valueDate" : "2023-03-22"
+  },
+  {
+    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+    "valueDate" : "2023-09-11"
+  }],
+  "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1078.193",
+  "identifier" : [{
+    "system" : "urn:ietf:rfc:3986",
+    "value" : "urn:oid:2.16.840.1.113762.1.4.1078.193"
+  }],
+  "version" : "20230322",
+  "name" : "Relatedconditions_COPDI10",
+  "title" : "relatedconditions_COPD I10",
+  "status" : "active",
+  "date" : "2023-03-22T01:03:14-04:00",
+  "publisher" : "Optum Steward",
+  "description" : "J15.6 becomes non-billable 2024; no change needed to definition",
+  "jurisdiction" : [{
+    "extension" : [{
+      "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
+      "valueString" : "UNKNOWN"
+    }]
+  }],
+  "purpose" : "(Clinical Focus: Conditions (problems and diagnoses) that are related to COPD. Used to distinguish problem list entries related to COPD from those which are not related to COPD.),(Data Element Scope: CONDITION: RELATED: COPD),(Inclusion Criteria: Billable ICD-10-CM codes in the chapter J40-J47 Chronic lower respiratory diseases),(Exclusion Criteria: Excludes J47 Bronchiectasis, as well as other cardiopulmonary diseases)",
+  "compose" : {
+    "include" : [{
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "filter" : [{
+        "property" : "concept",
+        "op" : "is-a",
+        "value" : "I50"
+      }]
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "filter" : [{
+        "property" : "concept",
+        "op" : "is-a",
+        "value" : "J00-J99"
+      }]
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "filter" : [{
+        "property" : "concept",
+        "op" : "is-a",
+        "value" : "I26-I28"
+      }]
+    }],
+    "exclude" : [{
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "filter" : [{
+        "property" : "concept",
+        "op" : "is-a",
+        "value" : "J44"
+      }]
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "filter" : [{
+        "property" : "concept",
+        "op" : "is-a",
+        "value" : "J43"
+      }]
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "filter" : [{
+        "property" : "concept",
+        "op" : "is-a",
+        "value" : "J42"
+      }]
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "filter" : [{
+        "property" : "concept",
+        "op" : "is-a",
+        "value" : "J41"
+      }]
+    }]
+  },
+  "expansion" : {
+    "identifier" : "urn:uuid:9ea063af-68db-4316-8def-b31feb7fed09",
+    "timestamp" : "2023-09-26T12:54:29-04:00",
+    "total" : 517,
+    "offset" : 0,
+    "parameter" : [{
+      "name" : "count",
+      "valueInteger" : 1000
+    },
+    {
+      "name" : "offset",
+      "valueInteger" : 0
+    }],
+    "contains" : [{
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "I26",
+      "display" : "Pulmonary embolism"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "I26-I28",
+      "display" : "Pulmonary heart disease and diseases of pulmonary circulation (I26-I28)"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "I26.0",
+      "display" : "Pulmonary embolism with acute cor pulmonale"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "I26.01",
+      "display" : "Septic pulmonary embolism with acute cor pulmonale"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "I26.02",
+      "display" : "Saddle embolus of pulmonary artery with acute cor pulmonale"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "I26.09",
+      "display" : "Other pulmonary embolism with acute cor pulmonale"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "I26.9",
+      "display" : "Pulmonary embolism without acute cor pulmonale"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "I26.90",
+      "display" : "Septic pulmonary embolism without acute cor pulmonale"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "I26.92",
+      "display" : "Saddle embolus of pulmonary artery without acute cor pulmonale"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "I26.93",
+      "display" : "Single subsegmental pulmonary embolism without acute cor pulmonale"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "I26.94",
+      "display" : "Multiple subsegmental pulmonary emboli without acute cor pulmonale"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "I26.99",
+      "display" : "Other pulmonary embolism without acute cor pulmonale"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "I27",
+      "display" : "Other pulmonary heart diseases"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "I27.0",
+      "display" : "Primary pulmonary hypertension"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "I27.1",
+      "display" : "Kyphoscoliotic heart disease"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "I27.2",
+      "display" : "Other secondary pulmonary hypertension"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "I27.20",
+      "display" : "Pulmonary hypertension, unspecified"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "I27.21",
+      "display" : "Secondary pulmonary arterial hypertension"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "I27.22",
+      "display" : "Pulmonary hypertension due to left heart disease"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "I27.23",
+      "display" : "Pulmonary hypertension due to lung diseases and hypoxia"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "I27.24",
+      "display" : "Chronic thromboembolic pulmonary hypertension"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "I27.29",
+      "display" : "Other secondary pulmonary hypertension"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "I27.8",
+      "display" : "Other specified pulmonary heart diseases"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "I27.81",
+      "display" : "Cor pulmonale (chronic)"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "I27.82",
+      "display" : "Chronic pulmonary embolism"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "I27.83",
+      "display" : "Eisenmenger's syndrome"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "I27.89",
+      "display" : "Other specified pulmonary heart diseases"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "I27.9",
+      "display" : "Pulmonary heart disease, unspecified"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "I28",
+      "display" : "Other diseases of pulmonary vessels"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "I28.0",
+      "display" : "Arteriovenous fistula of pulmonary vessels"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "I28.1",
+      "display" : "Aneurysm of pulmonary artery"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "I28.8",
+      "display" : "Other diseases of pulmonary vessels"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "I28.9",
+      "display" : "Disease of pulmonary vessels, unspecified"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "I50",
+      "display" : "Heart failure"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "I50.1",
+      "display" : "Left ventricular failure, unspecified"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "I50.2",
+      "display" : "Systolic (congestive) heart failure"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "I50.20",
+      "display" : "Unspecified systolic (congestive) heart failure"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "I50.21",
+      "display" : "Acute systolic (congestive) heart failure"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "I50.22",
+      "display" : "Chronic systolic (congestive) heart failure"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "I50.23",
+      "display" : "Acute on chronic systolic (congestive) heart failure"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "I50.3",
+      "display" : "Diastolic (congestive) heart failure"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "I50.30",
+      "display" : "Unspecified diastolic (congestive) heart failure"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "I50.31",
+      "display" : "Acute diastolic (congestive) heart failure"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "I50.32",
+      "display" : "Chronic diastolic (congestive) heart failure"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "I50.33",
+      "display" : "Acute on chronic diastolic (congestive) heart failure"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "I50.4",
+      "display" : "Combined systolic (congestive) and diastolic (congestive) heart failure"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "I50.40",
+      "display" : "Unspecified combined systolic (congestive) and diastolic (congestive) heart failure"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "I50.41",
+      "display" : "Acute combined systolic (congestive) and diastolic (congestive) heart failure"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "I50.42",
+      "display" : "Chronic combined systolic (congestive) and diastolic (congestive) heart failure"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "I50.43",
+      "display" : "Acute on chronic combined systolic (congestive) and diastolic (congestive) heart failure"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "I50.8",
+      "display" : "Other heart failure"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "I50.81",
+      "display" : "Right heart failure"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "I50.810",
+      "display" : "Right heart failure, unspecified"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "I50.811",
+      "display" : "Acute right heart failure"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "I50.812",
+      "display" : "Chronic right heart failure"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "I50.813",
+      "display" : "Acute on chronic right heart failure"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "I50.814",
+      "display" : "Right heart failure due to left heart failure"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "I50.82",
+      "display" : "Biventricular heart failure"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "I50.83",
+      "display" : "High output heart failure"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "I50.84",
+      "display" : "End stage heart failure"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "I50.89",
+      "display" : "Other heart failure"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "I50.9",
+      "display" : "Heart failure, unspecified"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J00",
+      "display" : "Acute nasopharyngitis [common cold]"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J00-J06",
+      "display" : "Acute upper respiratory infections (J00-J06)"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J00-J99",
+      "display" : "Diseases of the respiratory system (J00-J99)"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J01",
+      "display" : "Acute sinusitis"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J01.0",
+      "display" : "Acute maxillary sinusitis"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J01.00",
+      "display" : "Acute maxillary sinusitis, unspecified"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J01.01",
+      "display" : "Acute recurrent maxillary sinusitis"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J01.1",
+      "display" : "Acute frontal sinusitis"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J01.10",
+      "display" : "Acute frontal sinusitis, unspecified"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J01.11",
+      "display" : "Acute recurrent frontal sinusitis"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J01.2",
+      "display" : "Acute ethmoidal sinusitis"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J01.20",
+      "display" : "Acute ethmoidal sinusitis, unspecified"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J01.21",
+      "display" : "Acute recurrent ethmoidal sinusitis"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J01.3",
+      "display" : "Acute sphenoidal sinusitis"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J01.30",
+      "display" : "Acute sphenoidal sinusitis, unspecified"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J01.31",
+      "display" : "Acute recurrent sphenoidal sinusitis"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J01.4",
+      "display" : "Acute pansinusitis"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J01.40",
+      "display" : "Acute pansinusitis, unspecified"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J01.41",
+      "display" : "Acute recurrent pansinusitis"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J01.8",
+      "display" : "Other acute sinusitis"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J01.80",
+      "display" : "Other acute sinusitis"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J01.81",
+      "display" : "Other acute recurrent sinusitis"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J01.9",
+      "display" : "Acute sinusitis, unspecified"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J01.90",
+      "display" : "Acute sinusitis, unspecified"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J01.91",
+      "display" : "Acute recurrent sinusitis, unspecified"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J02",
+      "display" : "Acute pharyngitis"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J02.0",
+      "display" : "Streptococcal pharyngitis"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J02.8",
+      "display" : "Acute pharyngitis due to other specified organisms"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J02.9",
+      "display" : "Acute pharyngitis, unspecified"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J03",
+      "display" : "Acute tonsillitis"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J03.0",
+      "display" : "Streptococcal tonsillitis"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J03.00",
+      "display" : "Acute streptococcal tonsillitis, unspecified"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J03.01",
+      "display" : "Acute recurrent streptococcal tonsillitis"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J03.8",
+      "display" : "Acute tonsillitis due to other specified organisms"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J03.80",
+      "display" : "Acute tonsillitis due to other specified organisms"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J03.81",
+      "display" : "Acute recurrent tonsillitis due to other specified organisms"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J03.9",
+      "display" : "Acute tonsillitis, unspecified"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J03.90",
+      "display" : "Acute tonsillitis, unspecified"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J03.91",
+      "display" : "Acute recurrent tonsillitis, unspecified"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J04",
+      "display" : "Acute laryngitis and tracheitis"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J04.0",
+      "display" : "Acute laryngitis"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J04.1",
+      "display" : "Acute tracheitis"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J04.10",
+      "display" : "Acute tracheitis without obstruction"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J04.11",
+      "display" : "Acute tracheitis with obstruction"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J04.2",
+      "display" : "Acute laryngotracheitis"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J04.3",
+      "display" : "Supraglottitis, unspecified"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J04.30",
+      "display" : "Supraglottitis, unspecified, without obstruction"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J04.31",
+      "display" : "Supraglottitis, unspecified, with obstruction"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J05",
+      "display" : "Acute obstructive laryngitis [croup] and epiglottitis"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J05.0",
+      "display" : "Acute obstructive laryngitis [croup]"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J05.1",
+      "display" : "Acute epiglottitis"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J05.10",
+      "display" : "Acute epiglottitis without obstruction"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J05.11",
+      "display" : "Acute epiglottitis with obstruction"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J06",
+      "display" : "Acute upper respiratory infections of multiple and unspecified sites"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J06.0",
+      "display" : "Acute laryngopharyngitis"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J06.9",
+      "display" : "Acute upper respiratory infection, unspecified"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J09",
+      "display" : "Influenza due to certain identified influenza viruses"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J09-J18",
+      "display" : "Influenza and pneumonia (J09-J18)"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J09.X",
+      "display" : "Influenza due to identified novel influenza A virus"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J09.X1",
+      "display" : "Influenza due to identified novel influenza A virus with pneumonia"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J09.X2",
+      "display" : "Influenza due to identified novel influenza A virus with other respiratory manifestations"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J09.X3",
+      "display" : "Influenza due to identified novel influenza A virus with gastrointestinal manifestations"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J09.X9",
+      "display" : "Influenza due to identified novel influenza A virus with other manifestations"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J10",
+      "display" : "Influenza due to other identified influenza virus"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J10.0",
+      "display" : "Influenza due to other identified influenza virus with pneumonia"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J10.00",
+      "display" : "Influenza due to other identified influenza virus with unspecified type of pneumonia"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J10.01",
+      "display" : "Influenza due to other identified influenza virus with the same other identified influenza virus pneumonia"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J10.08",
+      "display" : "Influenza due to other identified influenza virus with other specified pneumonia"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J10.1",
+      "display" : "Influenza due to other identified influenza virus with other respiratory manifestations"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J10.2",
+      "display" : "Influenza due to other identified influenza virus with gastrointestinal manifestations"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J10.8",
+      "display" : "Influenza due to other identified influenza virus with other manifestations"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J10.81",
+      "display" : "Influenza due to other identified influenza virus with encephalopathy"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J10.82",
+      "display" : "Influenza due to other identified influenza virus with myocarditis"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J10.83",
+      "display" : "Influenza due to other identified influenza virus with otitis media"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J10.89",
+      "display" : "Influenza due to other identified influenza virus with other manifestations"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J11",
+      "display" : "Influenza due to unidentified influenza virus"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J11.0",
+      "display" : "Influenza due to unidentified influenza virus with pneumonia"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J11.00",
+      "display" : "Influenza due to unidentified influenza virus with unspecified type of pneumonia"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J11.08",
+      "display" : "Influenza due to unidentified influenza virus with specified pneumonia"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J11.1",
+      "display" : "Influenza due to unidentified influenza virus with other respiratory manifestations"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J11.2",
+      "display" : "Influenza due to unidentified influenza virus with gastrointestinal manifestations"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J11.8",
+      "display" : "Influenza due to unidentified influenza virus with other manifestations"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J11.81",
+      "display" : "Influenza due to unidentified influenza virus with encephalopathy"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J11.82",
+      "display" : "Influenza due to unidentified influenza virus with myocarditis"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J11.83",
+      "display" : "Influenza due to unidentified influenza virus with otitis media"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J11.89",
+      "display" : "Influenza due to unidentified influenza virus with other manifestations"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J12",
+      "display" : "Viral pneumonia, not elsewhere classified"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J12.0",
+      "display" : "Adenoviral pneumonia"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J12.1",
+      "display" : "Respiratory syncytial virus pneumonia"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J12.2",
+      "display" : "Parainfluenza virus pneumonia"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J12.3",
+      "display" : "Human metapneumovirus pneumonia"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J12.8",
+      "display" : "Other viral pneumonia"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J12.81",
+      "display" : "Pneumonia due to SARS-associated coronavirus"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J12.82",
+      "display" : "Pneumonia due to coronavirus disease 2019"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J12.89",
+      "display" : "Other viral pneumonia"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J12.9",
+      "display" : "Viral pneumonia, unspecified"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J13",
+      "display" : "Pneumonia due to Streptococcus pneumoniae"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J14",
+      "display" : "Pneumonia due to Hemophilus influenzae"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J15",
+      "display" : "Bacterial pneumonia, not elsewhere classified"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J15.0",
+      "display" : "Pneumonia due to Klebsiella pneumoniae"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J15.1",
+      "display" : "Pneumonia due to Pseudomonas"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J15.2",
+      "display" : "Pneumonia due to staphylococcus"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J15.20",
+      "display" : "Pneumonia due to staphylococcus, unspecified"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J15.21",
+      "display" : "Pneumonia due to staphylococcus aureus"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J15.211",
+      "display" : "Pneumonia due to Methicillin susceptible Staphylococcus aureus"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J15.212",
+      "display" : "Pneumonia due to Methicillin resistant Staphylococcus aureus"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J15.29",
+      "display" : "Pneumonia due to other staphylococcus"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J15.3",
+      "display" : "Pneumonia due to streptococcus, group B"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J15.4",
+      "display" : "Pneumonia due to other streptococci"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J15.5",
+      "display" : "Pneumonia due to Escherichia coli"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J15.6",
+      "display" : "Pneumonia due to other Gram-negative bacteria"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J15.61",
+      "display" : "Pneumonia due to Acinetobacter baumannii"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J15.69",
+      "display" : "Pneumonia due to other Gram-negative bacteria"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J15.7",
+      "display" : "Pneumonia due to Mycoplasma pneumoniae"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J15.8",
+      "display" : "Pneumonia due to other specified bacteria"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J15.9",
+      "display" : "Unspecified bacterial pneumonia"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J16",
+      "display" : "Pneumonia due to other infectious organisms, not elsewhere classified"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J16.0",
+      "display" : "Chlamydial pneumonia"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J16.8",
+      "display" : "Pneumonia due to other specified infectious organisms"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J17",
+      "display" : "Pneumonia in diseases classified elsewhere"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J18",
+      "display" : "Pneumonia, unspecified organism"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J18.0",
+      "display" : "Bronchopneumonia, unspecified organism"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J18.1",
+      "display" : "Lobar pneumonia, unspecified organism"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J18.2",
+      "display" : "Hypostatic pneumonia, unspecified organism"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J18.8",
+      "display" : "Other pneumonia, unspecified organism"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J18.9",
+      "display" : "Pneumonia, unspecified organism"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J20",
+      "display" : "Acute bronchitis"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J20-J22",
+      "display" : "Other acute lower respiratory infections (J20-J22)"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J20.0",
+      "display" : "Acute bronchitis due to Mycoplasma pneumoniae"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J20.1",
+      "display" : "Acute bronchitis due to Hemophilus influenzae"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J20.2",
+      "display" : "Acute bronchitis due to streptococcus"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J20.3",
+      "display" : "Acute bronchitis due to coxsackievirus"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J20.4",
+      "display" : "Acute bronchitis due to parainfluenza virus"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J20.5",
+      "display" : "Acute bronchitis due to respiratory syncytial virus"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J20.6",
+      "display" : "Acute bronchitis due to rhinovirus"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J20.7",
+      "display" : "Acute bronchitis due to echovirus"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J20.8",
+      "display" : "Acute bronchitis due to other specified organisms"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J20.9",
+      "display" : "Acute bronchitis, unspecified"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J21",
+      "display" : "Acute bronchiolitis"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J21.0",
+      "display" : "Acute bronchiolitis due to respiratory syncytial virus"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J21.1",
+      "display" : "Acute bronchiolitis due to human metapneumovirus"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J21.8",
+      "display" : "Acute bronchiolitis due to other specified organisms"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J21.9",
+      "display" : "Acute bronchiolitis, unspecified"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J22",
+      "display" : "Unspecified acute lower respiratory infection"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J30",
+      "display" : "Vasomotor and allergic rhinitis"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J30-J39",
+      "display" : "Other diseases of upper respiratory tract (J30-J39)"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J30.0",
+      "display" : "Vasomotor rhinitis"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J30.1",
+      "display" : "Allergic rhinitis due to pollen"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J30.2",
+      "display" : "Other seasonal allergic rhinitis"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J30.5",
+      "display" : "Allergic rhinitis due to food"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J30.8",
+      "display" : "Other allergic rhinitis"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J30.81",
+      "display" : "Allergic rhinitis due to animal (cat) (dog) hair and dander"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J30.89",
+      "display" : "Other allergic rhinitis"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J30.9",
+      "display" : "Allergic rhinitis, unspecified"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J31",
+      "display" : "Chronic rhinitis, nasopharyngitis and pharyngitis"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J31.0",
+      "display" : "Chronic rhinitis"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J31.1",
+      "display" : "Chronic nasopharyngitis"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J31.2",
+      "display" : "Chronic pharyngitis"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J32",
+      "display" : "Chronic sinusitis"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J32.0",
+      "display" : "Chronic maxillary sinusitis"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J32.1",
+      "display" : "Chronic frontal sinusitis"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J32.2",
+      "display" : "Chronic ethmoidal sinusitis"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J32.3",
+      "display" : "Chronic sphenoidal sinusitis"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J32.4",
+      "display" : "Chronic pansinusitis"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J32.8",
+      "display" : "Other chronic sinusitis"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J32.9",
+      "display" : "Chronic sinusitis, unspecified"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J33",
+      "display" : "Nasal polyp"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J33.0",
+      "display" : "Polyp of nasal cavity"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J33.1",
+      "display" : "Polypoid sinus degeneration"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J33.8",
+      "display" : "Other polyp of sinus"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J33.9",
+      "display" : "Nasal polyp, unspecified"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J34",
+      "display" : "Other and unspecified disorders of nose and nasal sinuses"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J34.0",
+      "display" : "Abscess, furuncle and carbuncle of nose"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J34.1",
+      "display" : "Cyst and mucocele of nose and nasal sinus"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J34.2",
+      "display" : "Deviated nasal septum"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J34.3",
+      "display" : "Hypertrophy of nasal turbinates"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J34.8",
+      "display" : "Other specified disorders of nose and nasal sinuses"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J34.81",
+      "display" : "Nasal mucositis (ulcerative)"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J34.89",
+      "display" : "Other specified disorders of nose and nasal sinuses"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J34.9",
+      "display" : "Unspecified disorder of nose and nasal sinuses"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J35",
+      "display" : "Chronic diseases of tonsils and adenoids"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J35.0",
+      "display" : "Chronic tonsillitis and adenoiditis"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J35.01",
+      "display" : "Chronic tonsillitis"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J35.02",
+      "display" : "Chronic adenoiditis"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J35.03",
+      "display" : "Chronic tonsillitis and adenoiditis"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J35.1",
+      "display" : "Hypertrophy of tonsils"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J35.2",
+      "display" : "Hypertrophy of adenoids"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J35.3",
+      "display" : "Hypertrophy of tonsils with hypertrophy of adenoids"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J35.8",
+      "display" : "Other chronic diseases of tonsils and adenoids"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J35.9",
+      "display" : "Chronic disease of tonsils and adenoids, unspecified"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J36",
+      "display" : "Peritonsillar abscess"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J37",
+      "display" : "Chronic laryngitis and laryngotracheitis"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J37.0",
+      "display" : "Chronic laryngitis"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J37.1",
+      "display" : "Chronic laryngotracheitis"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J38",
+      "display" : "Diseases of vocal cords and larynx, not elsewhere classified"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J38.0",
+      "display" : "Paralysis of vocal cords and larynx"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J38.00",
+      "display" : "Paralysis of vocal cords and larynx, unspecified"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J38.01",
+      "display" : "Paralysis of vocal cords and larynx, unilateral"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J38.02",
+      "display" : "Paralysis of vocal cords and larynx, bilateral"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J38.1",
+      "display" : "Polyp of vocal cord and larynx"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J38.2",
+      "display" : "Nodules of vocal cords"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J38.3",
+      "display" : "Other diseases of vocal cords"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J38.4",
+      "display" : "Edema of larynx"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J38.5",
+      "display" : "Laryngeal spasm"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J38.6",
+      "display" : "Stenosis of larynx"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J38.7",
+      "display" : "Other diseases of larynx"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J39",
+      "display" : "Other diseases of upper respiratory tract"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J39.0",
+      "display" : "Retropharyngeal and parapharyngeal abscess"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J39.1",
+      "display" : "Other abscess of pharynx"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J39.2",
+      "display" : "Other diseases of pharynx"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J39.3",
+      "display" : "Upper respiratory tract hypersensitivity reaction, site unspecified"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J39.8",
+      "display" : "Other specified diseases of upper respiratory tract"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J39.9",
+      "display" : "Disease of upper respiratory tract, unspecified"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J40",
+      "display" : "Bronchitis, not specified as acute or chronic"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J40-J4A",
+      "display" : "Chronic lower respiratory diseases (J40-J4A)"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J45",
+      "display" : "Asthma"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J45.2",
+      "display" : "Mild intermittent asthma"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J45.20",
+      "display" : "Mild intermittent asthma, uncomplicated"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J45.21",
+      "display" : "Mild intermittent asthma with (acute) exacerbation"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J45.22",
+      "display" : "Mild intermittent asthma with status asthmaticus"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J45.3",
+      "display" : "Mild persistent asthma"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J45.30",
+      "display" : "Mild persistent asthma, uncomplicated"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J45.31",
+      "display" : "Mild persistent asthma with (acute) exacerbation"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J45.32",
+      "display" : "Mild persistent asthma with status asthmaticus"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J45.4",
+      "display" : "Moderate persistent asthma"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J45.40",
+      "display" : "Moderate persistent asthma, uncomplicated"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J45.41",
+      "display" : "Moderate persistent asthma with (acute) exacerbation"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J45.42",
+      "display" : "Moderate persistent asthma with status asthmaticus"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J45.5",
+      "display" : "Severe persistent asthma"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J45.50",
+      "display" : "Severe persistent asthma, uncomplicated"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J45.51",
+      "display" : "Severe persistent asthma with (acute) exacerbation"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J45.52",
+      "display" : "Severe persistent asthma with status asthmaticus"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J45.9",
+      "display" : "Other and unspecified asthma"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J45.90",
+      "display" : "Unspecified asthma"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J45.901",
+      "display" : "Unspecified asthma with (acute) exacerbation"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J45.902",
+      "display" : "Unspecified asthma with status asthmaticus"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J45.909",
+      "display" : "Unspecified asthma, uncomplicated"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J45.99",
+      "display" : "Other asthma"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J45.990",
+      "display" : "Exercise induced bronchospasm"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J45.991",
+      "display" : "Cough variant asthma"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J45.998",
+      "display" : "Other asthma"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J47",
+      "display" : "Bronchiectasis"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J47.0",
+      "display" : "Bronchiectasis with acute lower respiratory infection"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J47.1",
+      "display" : "Bronchiectasis with (acute) exacerbation"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J47.9",
+      "display" : "Bronchiectasis, uncomplicated"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J4A",
+      "display" : "Chronic lung allograft dysfunction"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J4A.0",
+      "display" : "Restrictive allograft syndrome"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J4A.8",
+      "display" : "Other chronic lung allograft dysfunction"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J4A.9",
+      "display" : "Chronic lung allograft dysfunction, unspecified"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J60",
+      "display" : "Coalworker's pneumoconiosis"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J60-J70",
+      "display" : "Lung diseases due to external agents (J60-J70)"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J61",
+      "display" : "Pneumoconiosis due to asbestos and other mineral fibers"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J62",
+      "display" : "Pneumoconiosis due to dust containing silica"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J62.0",
+      "display" : "Pneumoconiosis due to talc dust"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J62.8",
+      "display" : "Pneumoconiosis due to other dust containing silica"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J63",
+      "display" : "Pneumoconiosis due to other inorganic dusts"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J63.0",
+      "display" : "Aluminosis (of lung)"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J63.1",
+      "display" : "Bauxite fibrosis (of lung)"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J63.2",
+      "display" : "Berylliosis"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J63.3",
+      "display" : "Graphite fibrosis (of lung)"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J63.4",
+      "display" : "Siderosis"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J63.5",
+      "display" : "Stannosis"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J63.6",
+      "display" : "Pneumoconiosis due to other specified inorganic dusts"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J64",
+      "display" : "Unspecified pneumoconiosis"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J65",
+      "display" : "Pneumoconiosis associated with tuberculosis"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J66",
+      "display" : "Airway disease due to specific organic dust"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J66.0",
+      "display" : "Byssinosis"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J66.1",
+      "display" : "Flax-dressers' disease"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J66.2",
+      "display" : "Cannabinosis"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J66.8",
+      "display" : "Airway disease due to other specific organic dusts"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J67",
+      "display" : "Hypersensitivity pneumonitis due to organic dust"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J67.0",
+      "display" : "Farmer's lung"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J67.1",
+      "display" : "Bagassosis"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J67.2",
+      "display" : "Bird fancier's lung"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J67.3",
+      "display" : "Suberosis"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J67.4",
+      "display" : "Maltworker's lung"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J67.5",
+      "display" : "Mushroom-worker's lung"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J67.6",
+      "display" : "Maple-bark-stripper's lung"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J67.7",
+      "display" : "Air conditioner and humidifier lung"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J67.8",
+      "display" : "Hypersensitivity pneumonitis due to other organic dusts"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J67.9",
+      "display" : "Hypersensitivity pneumonitis due to unspecified organic dust"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J68",
+      "display" : "Respiratory conditions due to inhalation of chemicals, gases, fumes and vapors"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J68.0",
+      "display" : "Bronchitis and pneumonitis due to chemicals, gases, fumes and vapors"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J68.1",
+      "display" : "Pulmonary edema due to chemicals, gases, fumes and vapors"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J68.2",
+      "display" : "Upper respiratory inflammation due to chemicals, gases, fumes and vapors, not elsewhere classified"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J68.3",
+      "display" : "Other acute and subacute respiratory conditions due to chemicals, gases, fumes and vapors"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J68.4",
+      "display" : "Chronic respiratory conditions due to chemicals, gases, fumes and vapors"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J68.8",
+      "display" : "Other respiratory conditions due to chemicals, gases, fumes and vapors"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J68.9",
+      "display" : "Unspecified respiratory condition due to chemicals, gases, fumes and vapors"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J69",
+      "display" : "Pneumonitis due to solids and liquids"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J69.0",
+      "display" : "Pneumonitis due to inhalation of food and vomit"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J69.1",
+      "display" : "Pneumonitis due to inhalation of oils and essences"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J69.8",
+      "display" : "Pneumonitis due to inhalation of other solids and liquids"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J70",
+      "display" : "Respiratory conditions due to other external agents"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J70.0",
+      "display" : "Acute pulmonary manifestations due to radiation"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J70.1",
+      "display" : "Chronic and other pulmonary manifestations due to radiation"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J70.2",
+      "display" : "Acute drug-induced interstitial lung disorders"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J70.3",
+      "display" : "Chronic drug-induced interstitial lung disorders"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J70.4",
+      "display" : "Drug-induced interstitial lung disorders, unspecified"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J70.5",
+      "display" : "Respiratory conditions due to smoke inhalation"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J70.8",
+      "display" : "Respiratory conditions due to other specified external agents"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J70.9",
+      "display" : "Respiratory conditions due to unspecified external agent"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J80",
+      "display" : "Acute respiratory distress syndrome"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J80-J84",
+      "display" : "Other respiratory diseases principally affecting the interstitium (J80-J84)"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J81",
+      "display" : "Pulmonary edema"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J81.0",
+      "display" : "Acute pulmonary edema"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J81.1",
+      "display" : "Chronic pulmonary edema"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J82",
+      "display" : "Pulmonary eosinophilia, not elsewhere classified"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J82.8",
+      "display" : "Pulmonary eosinophilia, not elsewhere classified"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J82.81",
+      "display" : "Chronic eosinophilic pneumonia"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J82.82",
+      "display" : "Acute eosinophilic pneumonia"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J82.83",
+      "display" : "Eosinophilic asthma"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J82.89",
+      "display" : "Other pulmonary eosinophilia, not elsewhere classified"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J84",
+      "display" : "Other interstitial pulmonary diseases"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J84.0",
+      "display" : "Alveolar and parieto-alveolar conditions"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J84.01",
+      "display" : "Alveolar proteinosis"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J84.02",
+      "display" : "Pulmonary alveolar microlithiasis"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J84.03",
+      "display" : "Idiopathic pulmonary hemosiderosis"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J84.09",
+      "display" : "Other alveolar and parieto-alveolar conditions"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J84.1",
+      "display" : "Other interstitial pulmonary diseases with fibrosis"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J84.10",
+      "display" : "Pulmonary fibrosis, unspecified"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J84.11",
+      "display" : "Idiopathic interstitial pneumonia"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J84.111",
+      "display" : "Idiopathic interstitial pneumonia, not otherwise specified"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J84.112",
+      "display" : "Idiopathic pulmonary fibrosis"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J84.113",
+      "display" : "Idiopathic non-specific interstitial pneumonitis"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J84.114",
+      "display" : "Acute interstitial pneumonitis"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J84.115",
+      "display" : "Respiratory bronchiolitis interstitial lung disease"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J84.116",
+      "display" : "Cryptogenic organizing pneumonia"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J84.117",
+      "display" : "Desquamative interstitial pneumonia"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J84.17",
+      "display" : "Other interstitial pulmonary diseases with fibrosis in diseases classified elsewhere"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J84.170",
+      "display" : "Interstitial lung disease with progressive fibrotic phenotype in diseases classified elsewhere"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J84.178",
+      "display" : "Other interstitial pulmonary diseases with fibrosis in diseases classified elsewhere"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J84.2",
+      "display" : "Lymphoid interstitial pneumonia"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J84.8",
+      "display" : "Other specified interstitial pulmonary diseases"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J84.81",
+      "display" : "Lymphangioleiomyomatosis"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J84.82",
+      "display" : "Adult pulmonary Langerhans cell histiocytosis"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J84.83",
+      "display" : "Surfactant mutations of the lung"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J84.84",
+      "display" : "Other interstitial lung diseases of childhood"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J84.841",
+      "display" : "Neuroendocrine cell hyperplasia of infancy"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J84.842",
+      "display" : "Pulmonary interstitial glycogenosis"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J84.843",
+      "display" : "Alveolar capillary dysplasia with vein misalignment"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J84.848",
+      "display" : "Other interstitial lung diseases of childhood"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J84.89",
+      "display" : "Other specified interstitial pulmonary diseases"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J84.9",
+      "display" : "Interstitial pulmonary disease, unspecified"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J85",
+      "display" : "Abscess of lung and mediastinum"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J85-J86",
+      "display" : "Suppurative and necrotic conditions of the lower respiratory tract (J85-J86)"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J85.0",
+      "display" : "Gangrene and necrosis of lung"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J85.1",
+      "display" : "Abscess of lung with pneumonia"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J85.2",
+      "display" : "Abscess of lung without pneumonia"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J85.3",
+      "display" : "Abscess of mediastinum"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J86",
+      "display" : "Pyothorax"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J86.0",
+      "display" : "Pyothorax with fistula"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J86.9",
+      "display" : "Pyothorax without fistula"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J90",
+      "display" : "Pleural effusion, not elsewhere classified"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J90-J94",
+      "display" : "Other diseases of the pleura (J90-J94)"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J91",
+      "display" : "Pleural effusion in conditions classified elsewhere"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J91.0",
+      "display" : "Malignant pleural effusion"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J91.8",
+      "display" : "Pleural effusion in other conditions classified elsewhere"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J92",
+      "display" : "Pleural plaque"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J92.0",
+      "display" : "Pleural plaque with presence of asbestos"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J92.9",
+      "display" : "Pleural plaque without asbestos"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J93",
+      "display" : "Pneumothorax and air leak"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J93.0",
+      "display" : "Spontaneous tension pneumothorax"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J93.1",
+      "display" : "Other spontaneous pneumothorax"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J93.11",
+      "display" : "Primary spontaneous pneumothorax"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J93.12",
+      "display" : "Secondary spontaneous pneumothorax"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J93.8",
+      "display" : "Other pneumothorax and air leak"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J93.81",
+      "display" : "Chronic pneumothorax"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J93.82",
+      "display" : "Other air leak"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J93.83",
+      "display" : "Other pneumothorax"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J93.9",
+      "display" : "Pneumothorax, unspecified"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J94",
+      "display" : "Other pleural conditions"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J94.0",
+      "display" : "Chylous effusion"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J94.1",
+      "display" : "Fibrothorax"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J94.2",
+      "display" : "Hemothorax"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J94.8",
+      "display" : "Other specified pleural conditions"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J94.9",
+      "display" : "Pleural condition, unspecified"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J95",
+      "display" : "Intraoperative and postprocedural complications and disorders of respiratory system, not elsewhere classified"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J95-J95",
+      "display" : "Intraoperative and postprocedural complications and disorders of respiratory system, not elsewhere classified (J95)"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J95.0",
+      "display" : "Tracheostomy complications"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J95.00",
+      "display" : "Unspecified tracheostomy complication"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J95.01",
+      "display" : "Hemorrhage from tracheostomy stoma"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J95.02",
+      "display" : "Infection of tracheostomy stoma"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J95.03",
+      "display" : "Malfunction of tracheostomy stoma"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J95.04",
+      "display" : "Tracheo-esophageal fistula following tracheostomy"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J95.09",
+      "display" : "Other tracheostomy complication"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J95.1",
+      "display" : "Acute pulmonary insufficiency following thoracic surgery"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J95.2",
+      "display" : "Acute pulmonary insufficiency following nonthoracic surgery"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J95.3",
+      "display" : "Chronic pulmonary insufficiency following surgery"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J95.4",
+      "display" : "Chemical pneumonitis due to anesthesia"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J95.5",
+      "display" : "Postprocedural subglottic stenosis"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J95.6",
+      "display" : "Intraoperative hemorrhage and hematoma of a respiratory system organ or structure complicating a procedure"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J95.61",
+      "display" : "Intraoperative hemorrhage and hematoma of a respiratory system organ or structure complicating a respiratory system procedure"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J95.62",
+      "display" : "Intraoperative hemorrhage and hematoma of a respiratory system organ or structure complicating other procedure"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J95.7",
+      "display" : "Accidental puncture and laceration of a respiratory system organ or structure during a procedure"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J95.71",
+      "display" : "Accidental puncture and laceration of a respiratory system organ or structure during a respiratory system procedure"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J95.72",
+      "display" : "Accidental puncture and laceration of a respiratory system organ or structure during other procedure"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J95.8",
+      "display" : "Other intraoperative and postprocedural complications and disorders of respiratory system, not elsewhere classified"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J95.81",
+      "display" : "Postprocedural pneumothorax and air leak"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J95.811",
+      "display" : "Postprocedural pneumothorax"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J95.812",
+      "display" : "Postprocedural air leak"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J95.82",
+      "display" : "Postprocedural respiratory failure"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J95.821",
+      "display" : "Acute postprocedural respiratory failure"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J95.822",
+      "display" : "Acute and chronic postprocedural respiratory failure"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J95.83",
+      "display" : "Postprocedural hemorrhage of a respiratory system organ or structure following a procedure"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J95.830",
+      "display" : "Postprocedural hemorrhage of a respiratory system organ or structure following a respiratory system procedure"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J95.831",
+      "display" : "Postprocedural hemorrhage of a respiratory system organ or structure following other procedure"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J95.84",
+      "display" : "Transfusion-related acute lung injury (TRALI)"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J95.85",
+      "display" : "Complication of respirator [ventilator]"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J95.850",
+      "display" : "Mechanical complication of respirator"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J95.851",
+      "display" : "Ventilator associated pneumonia"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J95.859",
+      "display" : "Other complication of respirator [ventilator]"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J95.86",
+      "display" : "Postprocedural hematoma and seroma of a respiratory system organ or structure following a procedure"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J95.860",
+      "display" : "Postprocedural hematoma of a respiratory system organ or structure following a respiratory system procedure"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J95.861",
+      "display" : "Postprocedural hematoma of a respiratory system organ or structure following other procedure"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J95.862",
+      "display" : "Postprocedural seroma of a respiratory system organ or structure following a respiratory system procedure"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J95.863",
+      "display" : "Postprocedural seroma of a respiratory system organ or structure following other procedure"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J95.87",
+      "display" : "Transfusion-associated dyspnea (TAD)"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J95.88",
+      "display" : "Other intraoperative complications of respiratory system, not elsewhere classified"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J95.89",
+      "display" : "Other postprocedural complications and disorders of respiratory system, not elsewhere classified"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J96",
+      "display" : "Respiratory failure, not elsewhere classified"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J96-J99",
+      "display" : "Other diseases of the respiratory system (J96-J99)"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J96.0",
+      "display" : "Acute respiratory failure"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J96.00",
+      "display" : "Acute respiratory failure, unspecified whether with hypoxia or hypercapnia"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J96.01",
+      "display" : "Acute respiratory failure with hypoxia"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J96.02",
+      "display" : "Acute respiratory failure with hypercapnia"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J96.1",
+      "display" : "Chronic respiratory failure"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J96.10",
+      "display" : "Chronic respiratory failure, unspecified whether with hypoxia or hypercapnia"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J96.11",
+      "display" : "Chronic respiratory failure with hypoxia"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J96.12",
+      "display" : "Chronic respiratory failure with hypercapnia"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J96.2",
+      "display" : "Acute and chronic respiratory failure"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J96.20",
+      "display" : "Acute and chronic respiratory failure, unspecified whether with hypoxia or hypercapnia"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J96.21",
+      "display" : "Acute and chronic respiratory failure with hypoxia"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J96.22",
+      "display" : "Acute and chronic respiratory failure with hypercapnia"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J96.9",
+      "display" : "Respiratory failure, unspecified"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J96.90",
+      "display" : "Respiratory failure, unspecified, unspecified whether with hypoxia or hypercapnia"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J96.91",
+      "display" : "Respiratory failure, unspecified with hypoxia"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J96.92",
+      "display" : "Respiratory failure, unspecified with hypercapnia"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J98",
+      "display" : "Other respiratory disorders"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J98.0",
+      "display" : "Diseases of bronchus, not elsewhere classified"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J98.01",
+      "display" : "Acute bronchospasm"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J98.09",
+      "display" : "Other diseases of bronchus, not elsewhere classified"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J98.1",
+      "display" : "Pulmonary collapse"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J98.11",
+      "display" : "Atelectasis"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J98.19",
+      "display" : "Other pulmonary collapse"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J98.2",
+      "display" : "Interstitial emphysema"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J98.3",
+      "display" : "Compensatory emphysema"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J98.4",
+      "display" : "Other disorders of lung"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J98.5",
+      "display" : "Diseases of mediastinum, not elsewhere classified"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J98.51",
+      "display" : "Mediastinitis"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J98.59",
+      "display" : "Other diseases of mediastinum, not elsewhere classified"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J98.6",
+      "display" : "Disorders of diaphragm"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J98.8",
+      "display" : "Other specified respiratory disorders"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J98.9",
+      "display" : "Respiratory disorder, unspecified"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "J99",
+      "display" : "Respiratory disorders in diseases classified elsewhere"
+    }]
+  }
+}

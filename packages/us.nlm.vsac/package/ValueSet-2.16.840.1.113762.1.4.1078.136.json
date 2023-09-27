@@ -1,0 +1,258 @@
+{
+  "resourceType" : "ValueSet",
+  "id" : "2.16.840.1.113762.1.4.1078.136",
+  "meta" : {
+    "versionId" : "11",
+    "lastUpdated" : "2023-09-20T13:53:05.000-04:00",
+    "profile" : ["http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+    "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"]
+  },
+  "extension" : [{
+    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+    "valueString" : "Optum Author"
+  },
+  {
+    "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+    "valueDate" : "2023-06-01"
+  },
+  {
+    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+    "valueDate" : "2023-09-20"
+  }],
+  "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1078.136",
+  "identifier" : [{
+    "system" : "urn:ietf:rfc:3986",
+    "value" : "urn:oid:2.16.840.1.113762.1.4.1078.136"
+  }],
+  "version" : "20230601",
+  "name" : "VirtualRealityContraindicationsVestibularConditionsI10",
+  "title" : "Virtual reality Contraindications Vestibular Conditions I10",
+  "status" : "active",
+  "date" : "2023-06-01T01:01:19-04:00",
+  "publisher" : "Optum Steward",
+  "jurisdiction" : [{
+    "extension" : [{
+      "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
+      "valueString" : "UNKNOWN"
+    }]
+  }],
+  "purpose" : "(Clinical Focus: Vestibular conditions such as vertigo that are contraindications to using virtual reality-based therapeutics),(Data Element Scope: CONDITION: CLINICAL_DRIVER:),(Inclusion Criteria: Codes related to dizziness (including vertigo), motion sickness, and ataxia),(Exclusion Criteria: Benign paroxysmal positional vertigo (BPPV).)",
+  "compose" : {
+    "include" : [{
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "filter" : [{
+        "property" : "concept",
+        "op" : "=",
+        "value" : "R42"
+      }]
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "filter" : [{
+        "modifierExtension" : [{
+          "url" : "vsacOpModifier",
+          "valueString" : "leafOf"
+        }],
+        "property" : "concept",
+        "op" : "is-a",
+        "value" : "H81"
+      }]
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "filter" : [{
+        "property" : "concept",
+        "op" : "=",
+        "value" : "T75.3"
+      }]
+    }],
+    "exclude" : [{
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "filter" : [{
+        "property" : "concept",
+        "op" : "is-a",
+        "value" : "H81.1"
+      }]
+    }]
+  },
+  "expansion" : {
+    "identifier" : "urn:uuid:bc6b4380-7c56-4e8c-8fc3-f195a64f15db",
+    "timestamp" : "2023-09-26T13:52:45-04:00",
+    "total" : 27,
+    "offset" : 0,
+    "parameter" : [{
+      "name" : "count",
+      "valueInteger" : 1000
+    },
+    {
+      "name" : "offset",
+      "valueInteger" : 0
+    }],
+    "contains" : [{
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "H81.01",
+      "display" : "Ménière's disease, right ear"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "H81.02",
+      "display" : "Ménière's disease, left ear"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "H81.03",
+      "display" : "Ménière's disease, bilateral"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "H81.09",
+      "display" : "Ménière's disease, unspecified ear"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "H81.20",
+      "display" : "Vestibular neuronitis, unspecified ear"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "H81.21",
+      "display" : "Vestibular neuronitis, right ear"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "H81.22",
+      "display" : "Vestibular neuronitis, left ear"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "H81.23",
+      "display" : "Vestibular neuronitis, bilateral"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "H81.311",
+      "display" : "Aural vertigo, right ear"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "H81.312",
+      "display" : "Aural vertigo, left ear"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "H81.313",
+      "display" : "Aural vertigo, bilateral"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "H81.319",
+      "display" : "Aural vertigo, unspecified ear"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "H81.391",
+      "display" : "Other peripheral vertigo, right ear"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "H81.392",
+      "display" : "Other peripheral vertigo, left ear"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "H81.393",
+      "display" : "Other peripheral vertigo, bilateral"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "H81.399",
+      "display" : "Other peripheral vertigo, unspecified ear"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "H81.4",
+      "display" : "Vertigo of central origin"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "H81.8X1",
+      "display" : "Other disorders of vestibular function, right ear"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "H81.8X2",
+      "display" : "Other disorders of vestibular function, left ear"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "H81.8X3",
+      "display" : "Other disorders of vestibular function, bilateral"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "H81.8X9",
+      "display" : "Other disorders of vestibular function, unspecified ear"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "H81.90",
+      "display" : "Unspecified disorder of vestibular function, unspecified ear"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "H81.91",
+      "display" : "Unspecified disorder of vestibular function, right ear"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "H81.92",
+      "display" : "Unspecified disorder of vestibular function, left ear"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "H81.93",
+      "display" : "Unspecified disorder of vestibular function, bilateral"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "R42",
+      "display" : "Dizziness and giddiness"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "T75.3",
+      "display" : "Motion sickness"
+    }]
+  }
+}

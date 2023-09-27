@@ -1,0 +1,70 @@
+{
+  "resourceType" : "ValueSet",
+  "id" : "2.16.840.1.113762.1.4.1182.19",
+  "meta" : {
+    "versionId" : "5",
+    "lastUpdated" : "2018-05-10T01:07:37.000-04:00",
+    "profile" : ["http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+    "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"]
+  },
+  "extension" : [{
+    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+    "valueString" : "Change Healthcare Author"
+  },
+  {
+    "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+    "valueDate" : "2022-12-15"
+  },
+  {
+    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+    "valueDate" : "2018-05-10"
+  }],
+  "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1182.19",
+  "identifier" : [{
+    "system" : "urn:ietf:rfc:3986",
+    "value" : "urn:oid:2.16.840.1.113762.1.4.1182.19"
+  }],
+  "version" : "20180510",
+  "name" : "TwoOrMoreOrdersForSameHighRiskMedicationNotOrdered",
+  "title" : "Two or More Orders for Same High Risk Medication Not Ordered",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2018-05-10T01:00:04-04:00",
+  "publisher" : "Change Healthcare Steward",
+  "jurisdiction" : [{
+    "extension" : [{
+      "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
+      "valueString" : "UNKNOWN"
+    }]
+  }],
+  "purpose" : "(Clinical Focus: Patient Safety),(Data Element Scope: HCPCS for Registry reporting),(Inclusion Criteria: Performance Not Met option),(Exclusion Criteria: n/a)",
+  "compose" : {
+    "include" : [{
+      "system" : "http://www.nlm.nih.gov/research/umls/hcpcs",
+      "concept" : [{
+        "code" : "G9368",
+        "display" : "At least two different high-risk medications not ordered"
+      }]
+    }]
+  },
+  "expansion" : {
+    "identifier" : "urn:uuid:7a0d4398-c1e5-47c4-8f14-393f24351c2f",
+    "timestamp" : "2023-09-26T13:43:24-04:00",
+    "total" : 1,
+    "offset" : 0,
+    "parameter" : [{
+      "name" : "count",
+      "valueInteger" : 1000
+    },
+    {
+      "name" : "offset",
+      "valueInteger" : 0
+    }],
+    "contains" : [{
+      "system" : "http://www.nlm.nih.gov/research/umls/hcpcs",
+      "version" : "2023",
+      "code" : "G9368",
+      "display" : "At least two orders for high-risk medications from the same drug class not ordered"
+    }]
+  }
+}

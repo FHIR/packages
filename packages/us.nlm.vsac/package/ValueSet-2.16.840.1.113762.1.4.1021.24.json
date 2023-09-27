@@ -1,0 +1,94 @@
+{
+  "resourceType" : "ValueSet",
+  "id" : "2.16.840.1.113762.1.4.1021.24",
+  "meta" : {
+    "versionId" : "18",
+    "lastUpdated" : "2021-11-19T01:02:04.000-05:00",
+    "profile" : ["http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+    "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"]
+  },
+  "extension" : [{
+    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+    "valueString" : "MD Partners Author"
+  },
+  {
+    "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+    "valueDate" : "2022-12-15"
+  },
+  {
+    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+    "valueDate" : "2021-11-19"
+  }],
+  "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1021.24",
+  "identifier" : [{
+    "system" : "urn:ietf:rfc:3986",
+    "value" : "urn:oid:2.16.840.1.113762.1.4.1021.24"
+  }],
+  "version" : "20211119",
+  "name" : "BirthSex",
+  "title" : "Birth Sex",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2021-11-19T01:02:04-05:00",
+  "publisher" : "MD Partners Steward",
+  "description" : "Scope updated 2021-11-18 to align with changes in USCore v5.0.0 BirthSex value set v4.1.0 and with US ISA https://www.healthit.gov/isa/representing-patient-sex-birth",
+  "jurisdiction" : [{
+    "extension" : [{
+      "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
+      "valueString" : "UNKNOWN"
+    }]
+  }],
+  "purpose" : "(Clinical Focus: Sex identity limited to M and F with the addition of null codes to represent other values found in records),(Data Element Scope: Patient birth sex representation),(Inclusion Criteria: Male and Female concepts supplemented with required null codes),(Exclusion Criteria: Only concepts noted in inclusion)",
+  "compose" : {
+    "include" : [{
+      "valueSet" : ["http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1"]
+    },
+    {
+      "valueSet" : ["http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1021.103"]
+    }]
+  },
+  "expansion" : {
+    "identifier" : "urn:uuid:75cf09d5-bf42-4e36-a3cf-d168d7ab0fef",
+    "timestamp" : "2023-09-26T08:11:28-04:00",
+    "total" : 5,
+    "offset" : 0,
+    "parameter" : [{
+      "name" : "count",
+      "valueInteger" : 1000
+    },
+    {
+      "name" : "offset",
+      "valueInteger" : 0
+    }],
+    "contains" : [{
+      "system" : "http://terminology.hl7.org/CodeSystem/v3-NullFlavor",
+      "version" : "2023-02-01",
+      "code" : "ASKU",
+      "display" : "asked but unknown"
+    },
+    {
+      "system" : "http://terminology.hl7.org/CodeSystem/v3-AdministrativeGender",
+      "version" : "2023-02-01",
+      "code" : "F",
+      "display" : "Female"
+    },
+    {
+      "system" : "http://terminology.hl7.org/CodeSystem/v3-AdministrativeGender",
+      "version" : "2023-02-01",
+      "code" : "M",
+      "display" : "Male"
+    },
+    {
+      "system" : "http://terminology.hl7.org/CodeSystem/v3-NullFlavor",
+      "version" : "2023-02-01",
+      "code" : "OTH",
+      "display" : "other"
+    },
+    {
+      "system" : "http://terminology.hl7.org/CodeSystem/v3-NullFlavor",
+      "version" : "2023-02-01",
+      "code" : "UNK",
+      "display" : "unknown"
+    }]
+  }
+}

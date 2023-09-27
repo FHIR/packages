@@ -1,0 +1,90 @@
+{
+  "resourceType" : "ValueSet",
+  "id" : "2.16.840.1.113762.1.4.1228.3",
+  "meta" : {
+    "versionId" : "6",
+    "lastUpdated" : "2021-05-13T01:00:34.000-04:00",
+    "profile" : ["http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+    "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"]
+  },
+  "extension" : [{
+    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+    "valueString" : "Alara Imaging Author"
+  },
+  {
+    "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+    "valueDate" : "2023-01-09"
+  },
+  {
+    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+    "valueDate" : "2021-05-13"
+  }],
+  "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1228.3",
+  "identifier" : [{
+    "system" : "urn:ietf:rfc:3986",
+    "value" : "urn:oid:2.16.840.1.113762.1.4.1228.3"
+  }],
+  "version" : "20210513",
+  "name" : "ExcessiveRadiationDoseOrInadequateImageQualityForDiagnosticComputedTomographyNuclearMedicineWithCT",
+  "title" : "Excessive Radiation Dose or Inadequate Image Quality for Diagnostic Computed Tomography Nuclear Medicine With CT",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2021-05-13T01:00:34-04:00",
+  "publisher" : "Alara Imaging Steward",
+  "jurisdiction" : [{
+    "extension" : [{
+      "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
+      "valueString" : "UNKNOWN"
+    }]
+  }],
+  "purpose" : "(Clinical Focus: The values in this set are derived from a combination of diagnostic CT examinations (including images and DICOM) and information from the electronic health record including CPT and ICD10 codes for the purposes of characterizing CT scans based on image quality and radiation dose requirements associated with the clinical reason for the scan and for normalizing the radiation dose for patient size. These values are used in calculating a performance measure based on diagnostic CT radiation dose and image quality.),(Data Element Scope: These data elements will be used for exclusion logic in our eCQM),(Inclusion Criteria: CPT codes for concurrent nuclear medicine and CT are included in this set (which is used for exclusion in our eCQM)),(Exclusion Criteria: N/A)",
+  "compose" : {
+    "include" : [{
+      "system" : "http://www.ama-assn.org/go/cpt",
+      "concept" : [{
+        "code" : "78072",
+        "display" : "Parathyroid planar imaging (including subtraction, when performed); with tomographic (SPECT), and concurrently acquired computed tomography (CT) for anatomical localization"
+      },
+      {
+        "code" : "78815",
+        "display" : "Positron emission tomography (PET) with concurrently acquired computed tomography (CT) for attenuation correction and anatomical localization imaging; skull base to mid-thigh"
+      },
+      {
+        "code" : "78816",
+        "display" : "Positron emission tomography (PET) with concurrently acquired computed tomography (CT) for attenuation correction and anatomical localization imaging; whole body"
+      }]
+    }]
+  },
+  "expansion" : {
+    "identifier" : "urn:uuid:b9a67e1a-de6e-47d2-8b49-7dfbb16dcf55",
+    "timestamp" : "2023-09-26T10:22:59-04:00",
+    "total" : 3,
+    "offset" : 0,
+    "parameter" : [{
+      "name" : "count",
+      "valueInteger" : 1000
+    },
+    {
+      "name" : "offset",
+      "valueInteger" : 0
+    }],
+    "contains" : [{
+      "system" : "http://www.ama-assn.org/go/cpt",
+      "version" : "2023",
+      "code" : "78072",
+      "display" : "Parathyroid planar imaging (including subtraction, when performed); with tomographic (SPECT), and concurrently acquired computed tomography (CT) for anatomical localization"
+    },
+    {
+      "system" : "http://www.ama-assn.org/go/cpt",
+      "version" : "2023",
+      "code" : "78815",
+      "display" : "Positron emission tomography (PET) with concurrently acquired computed tomography (CT) for attenuation correction and anatomical localization imaging; skull base to mid-thigh"
+    },
+    {
+      "system" : "http://www.ama-assn.org/go/cpt",
+      "version" : "2023",
+      "code" : "78816",
+      "display" : "Positron emission tomography (PET) with concurrently acquired computed tomography (CT) for attenuation correction and anatomical localization imaging; whole body"
+    }]
+  }
+}

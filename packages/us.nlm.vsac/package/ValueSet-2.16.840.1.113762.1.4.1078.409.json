@@ -1,0 +1,252 @@
+{
+  "resourceType" : "ValueSet",
+  "id" : "2.16.840.1.113762.1.4.1078.409",
+  "meta" : {
+    "versionId" : "23",
+    "lastUpdated" : "2023-09-15T01:01:46.000-04:00",
+    "profile" : ["http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+    "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"]
+  },
+  "extension" : [{
+    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+    "valueString" : "Optum Author"
+  },
+  {
+    "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+    "valueDate" : "2023-09-15"
+  },
+  {
+    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+    "valueDate" : "2023-09-15"
+  }],
+  "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1078.409",
+  "identifier" : [{
+    "system" : "urn:ietf:rfc:3986",
+    "value" : "urn:oid:2.16.840.1.113762.1.4.1078.409"
+  }],
+  "version" : "20230915",
+  "name" : "HypertensionI10",
+  "title" : "Hypertension I10",
+  "status" : "active",
+  "date" : "2023-09-15T01:01:46-04:00",
+  "publisher" : "Optum Steward",
+  "description" : "I1A added in 2024",
+  "jurisdiction" : [{
+    "extension" : [{
+      "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
+      "valueString" : "UNKNOWN"
+    }]
+  }],
+  "purpose" : "(Clinical Focus: Codes indicating systemic arterial hypertension),(Data Element Scope: CONDITION: CLINICAL_DRIVER:),(Inclusion Criteria: Billable ICD-10-CM codes indicating systemic arterial hypertension),(Exclusion Criteria: Excludes non-arterial hypertension and non-systemic hypertension. Excludes elevated blood pressure without a diagnosis of hypertension.)",
+  "compose" : {
+    "include" : [{
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "filter" : [{
+        "property" : "concept",
+        "op" : "=",
+        "value" : "I10"
+      }]
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "filter" : [{
+        "modifierExtension" : [{
+          "url" : "vsacOpModifier",
+          "valueString" : "leafOf"
+        }],
+        "property" : "concept",
+        "op" : "is-a",
+        "value" : "I11"
+      }]
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "filter" : [{
+        "modifierExtension" : [{
+          "url" : "vsacOpModifier",
+          "valueString" : "leafOf"
+        }],
+        "property" : "concept",
+        "op" : "is-a",
+        "value" : "I12"
+      }]
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "filter" : [{
+        "modifierExtension" : [{
+          "url" : "vsacOpModifier",
+          "valueString" : "leafOf"
+        }],
+        "property" : "concept",
+        "op" : "is-a",
+        "value" : "I13"
+      }]
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "filter" : [{
+        "modifierExtension" : [{
+          "url" : "vsacOpModifier",
+          "valueString" : "leafOf"
+        }],
+        "property" : "concept",
+        "op" : "is-a",
+        "value" : "I15"
+      }]
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "filter" : [{
+        "modifierExtension" : [{
+          "url" : "vsacOpModifier",
+          "valueString" : "leafOf"
+        }],
+        "property" : "concept",
+        "op" : "is-a",
+        "value" : "I16"
+      }]
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "filter" : [{
+        "modifierExtension" : [{
+          "url" : "vsacOpModifier",
+          "valueString" : "leafOf"
+        }],
+        "property" : "concept",
+        "op" : "is-a",
+        "value" : "I1A"
+      }]
+    }]
+  },
+  "expansion" : {
+    "identifier" : "urn:uuid:9a40fde0-4a91-4e11-a8f3-d91284082854",
+    "timestamp" : "2023-09-26T11:00:10-04:00",
+    "total" : 18,
+    "offset" : 0,
+    "parameter" : [{
+      "name" : "count",
+      "valueInteger" : 1000
+    },
+    {
+      "name" : "offset",
+      "valueInteger" : 0
+    }],
+    "contains" : [{
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "I10",
+      "display" : "Essential (primary) hypertension"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "I11.0",
+      "display" : "Hypertensive heart disease with heart failure"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "I11.9",
+      "display" : "Hypertensive heart disease without heart failure"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "I12.0",
+      "display" : "Hypertensive chronic kidney disease with stage 5 chronic kidney disease or end stage renal disease"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "I12.9",
+      "display" : "Hypertensive chronic kidney disease with stage 1 through stage 4 chronic kidney disease, or unspecified chronic kidney disease"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "I13.0",
+      "display" : "Hypertensive heart and chronic kidney disease with heart failure and stage 1 through stage 4 chronic kidney disease, or unspecified chronic kidney disease"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "I13.10",
+      "display" : "Hypertensive heart and chronic kidney disease without heart failure, with stage 1 through stage 4 chronic kidney disease, or unspecified chronic kidney disease"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "I13.11",
+      "display" : "Hypertensive heart and chronic kidney disease without heart failure, with stage 5 chronic kidney disease, or end stage renal disease"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "I13.2",
+      "display" : "Hypertensive heart and chronic kidney disease with heart failure and with stage 5 chronic kidney disease, or end stage renal disease"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "I15.0",
+      "display" : "Renovascular hypertension"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "I15.1",
+      "display" : "Hypertension secondary to other renal disorders"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "I15.2",
+      "display" : "Hypertension secondary to endocrine disorders"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "I15.8",
+      "display" : "Other secondary hypertension"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "I15.9",
+      "display" : "Secondary hypertension, unspecified"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "I16.0",
+      "display" : "Hypertensive urgency"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "I16.1",
+      "display" : "Hypertensive emergency"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "I16.9",
+      "display" : "Hypertensive crisis, unspecified"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "I1A.0",
+      "display" : "Resistant hypertension"
+    }]
+  }
+}

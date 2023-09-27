@@ -1,0 +1,88 @@
+{
+  "resourceType" : "ValueSet",
+  "id" : "2.16.840.1.113762.1.4.1222.788",
+  "meta" : {
+    "versionId" : "5",
+    "lastUpdated" : "2021-09-16T01:00:31.000-04:00",
+    "profile" : ["http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+    "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"]
+  },
+  "extension" : [{
+    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+    "valueString" : "MCC eCare Plan Author"
+  },
+  {
+    "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+    "valueDate" : "2022-12-15"
+  },
+  {
+    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+    "valueDate" : "2021-09-16"
+  }],
+  "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1222.788",
+  "identifier" : [{
+    "system" : "urn:ietf:rfc:3986",
+    "value" : "urn:oid:2.16.840.1.113762.1.4.1222.788"
+  }],
+  "version" : "20210916",
+  "name" : "OrderedBy",
+  "title" : "Ordered By",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2021-09-16T01:00:31-04:00",
+  "publisher" : "HL7 Patient Care WG Steward",
+  "description" : "The name and contact information for the person who ordered the test/survey/assessment (Business ID: Entry 2712995)",
+  "jurisdiction" : [{
+    "extension" : [{
+      "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
+      "valueString" : "UNKNOWN"
+    }]
+  }],
+  "purpose" : "(Clinical Focus: This set of values addresses terms representing Ordered By.),(Data Element Scope: The intent of this set of values is to identify patients who have a/an the name and contact information for the person who ordered the test/survey/assessment.),(Inclusion Criteria: Includes LOINC codes for Ordered By.),(Exclusion Criteria: Terms not representative of observable encoded terms that may have values indicating Ordered By.)",
+  "compose" : {
+    "include" : [{
+      "system" : "http://loinc.org",
+      "version" : "2.74",
+      "filter" : [{
+        "property" : "concept",
+        "op" : "=",
+        "value" : "18780-7"
+      }]
+    },
+    {
+      "system" : "http://loinc.org",
+      "version" : "2.74",
+      "filter" : [{
+        "property" : "concept",
+        "op" : "=",
+        "value" : "18781-5"
+      }]
+    }]
+  },
+  "expansion" : {
+    "identifier" : "urn:uuid:bc176857-06d8-4ddc-ab43-9e5aa582083c",
+    "timestamp" : "2023-09-26T12:16:09-04:00",
+    "total" : 2,
+    "offset" : 0,
+    "parameter" : [{
+      "name" : "count",
+      "valueInteger" : 1000
+    },
+    {
+      "name" : "offset",
+      "valueInteger" : 0
+    }],
+    "contains" : [{
+      "system" : "http://loinc.org",
+      "version" : "2.74",
+      "code" : "18780-7",
+      "display" : "Ordering practitioner identifier"
+    },
+    {
+      "system" : "http://loinc.org",
+      "version" : "2.74",
+      "code" : "18781-5",
+      "display" : "Ordering practitioner name"
+    }]
+  }
+}

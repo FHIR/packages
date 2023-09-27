@@ -1,0 +1,163 @@
+{
+  "resourceType" : "ValueSet",
+  "id" : "2.16.840.1.113762.1.4.1078.451",
+  "meta" : {
+    "versionId" : "5",
+    "lastUpdated" : "2023-03-24T01:02:43.000-04:00",
+    "profile" : ["http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+    "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"]
+  },
+  "extension" : [{
+    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+    "valueString" : "Optum Author"
+  },
+  {
+    "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+    "valueDate" : "2023-03-24"
+  },
+  {
+    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+    "valueDate" : "2023-03-24"
+  }],
+  "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1078.451",
+  "identifier" : [{
+    "system" : "urn:ietf:rfc:3986",
+    "value" : "urn:oid:2.16.840.1.113762.1.4.1078.451"
+  }],
+  "version" : "20230324",
+  "name" : "ObesityI10",
+  "title" : "Obesity I10",
+  "status" : "active",
+  "date" : "2023-03-24T01:02:43-04:00",
+  "publisher" : "Optum Steward",
+  "jurisdiction" : [{
+    "extension" : [{
+      "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
+      "valueString" : "UNKNOWN"
+    }]
+  }],
+  "purpose" : "(Clinical Focus: Codes for obesity),(Data Element Scope: CONDITION: CLINICAL_DRIVER:),(Inclusion Criteria: Codes for obesity (severe and morbid) , drug-induced obesity, morbid obesity with alveolar hypoventilation, obesity complicating pregnancy, childbirth and the puerperium),(Exclusion Criteria: Codes for overweight, childhood obesity)",
+  "compose" : {
+    "include" : [{
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "filter" : [{
+        "modifierExtension" : [{
+          "url" : "vsacOpModifier",
+          "valueString" : "leafOf"
+        }],
+        "property" : "concept",
+        "op" : "is-a",
+        "value" : "E66"
+      }]
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "filter" : [{
+        "modifierExtension" : [{
+          "url" : "vsacOpModifier",
+          "valueString" : "leafOf"
+        }],
+        "property" : "concept",
+        "op" : "is-a",
+        "value" : "O99.21"
+      }]
+    }],
+    "exclude" : [{
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "filter" : [{
+        "property" : "concept",
+        "op" : "=",
+        "value" : "E66.3"
+      }]
+    }]
+  },
+  "expansion" : {
+    "identifier" : "urn:uuid:9189ea9b-96f8-4be3-b10a-bf8e59f15f49",
+    "timestamp" : "2023-09-26T12:11:20-04:00",
+    "total" : 12,
+    "offset" : 0,
+    "parameter" : [{
+      "name" : "count",
+      "valueInteger" : 1000
+    },
+    {
+      "name" : "offset",
+      "valueInteger" : 0
+    }],
+    "contains" : [{
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "E66.01",
+      "display" : "Morbid (severe) obesity due to excess calories"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "E66.09",
+      "display" : "Other obesity due to excess calories"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "E66.1",
+      "display" : "Drug-induced obesity"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "E66.2",
+      "display" : "Morbid (severe) obesity with alveolar hypoventilation"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "E66.8",
+      "display" : "Other obesity"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "E66.9",
+      "display" : "Obesity, unspecified"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "O99.210",
+      "display" : "Obesity complicating pregnancy, unspecified trimester"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "O99.211",
+      "display" : "Obesity complicating pregnancy, first trimester"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "O99.212",
+      "display" : "Obesity complicating pregnancy, second trimester"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "O99.213",
+      "display" : "Obesity complicating pregnancy, third trimester"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "O99.214",
+      "display" : "Obesity complicating childbirth"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "O99.215",
+      "display" : "Obesity complicating the puerperium"
+    }]
+  }
+}
