@@ -2,544 +2,75 @@
   "resourceType" : "ValueSet",
   "id" : "2.16.840.1.113762.1.4.1222.1082",
   "meta" : {
-    "versionId" : "5",
-    "lastUpdated" : "2023-04-25T11:40:36.000-04:00",
-    "profile" : [
-      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
-      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
-    ]
+    "versionId" : "27",
+    "lastUpdated" : "2023-07-21T01:01:06.000-04:00",
+    "profile" : ["http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+    "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"]
   },
-  "extension" : [
-    {
-      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
-      "valueString" : "MCC eCare Plan Author"
-    },
-    {
-      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-keyWord",
-      "valueString" : "MCC_IG,MCC_Useful"
-    },
-    {
-      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
-      "valueDate" : "2022-12-15"
-    },
-    {
-      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
-      "valueDate" : "2021-09-24"
-    }
-  ],
+  "extension" : [{
+    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+    "valueString" : "MCC eCare Plan Author"
+  },
+  {
+    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-keyWord",
+    "valueString" : "MCC_IG,MCC_Useful"
+  },
+  {
+    "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+    "valueDate" : "2023-07-21"
+  },
+  {
+    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+    "valueDate" : "2023-07-21"
+  }],
   "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1222.1082",
-  "identifier" : [
-    {
-      "system" : "urn:ietf:rfc:3986",
-      "value" : "urn:oid:2.16.840.1.113762.1.4.1222.1082"
-    }
-  ],
-  "version" : "20210924",
-  "name" : "CriminalJusticeInvolvementOrIncarcerationHistory",
-  "title" : "Criminal Justice Involvement or Incarceration History",
+  "identifier" : [{
+    "system" : "urn:ietf:rfc:3986",
+    "value" : "urn:oid:2.16.840.1.113762.1.4.1222.1082"
+  }],
+  "version" : "20230721",
+  "name" : "CriminalJusticeInvolvementOrIncarceration",
+  "title" : "Criminal Justice Involvement or Incarceration",
   "status" : "active",
-  "experimental" : false,
-  "date" : "2021-09-24T01:18:18-04:00",
+  "date" : "2023-07-21T01:01:07-04:00",
   "publisher" : "HL7 Patient Care WG Steward",
   "description" : "This value set may undergo changes until the HL7 Multiple Chronic Care FHIR IG is formally published in 2024.",
-  "jurisdiction" : [
-    {
-      "extension" : [
-        {
-          "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
-          "valueString" : "UNKNOWN"
-        }
-      ]
-    }
-  ],
-  "purpose" : "(Clinical Focus: This set of values addresses terms representing an observation of criminal justice involvement or incarceration history.),(Data Element Scope: The intent of this set of values is to identify patients who have a/an assessment of the person's criminal justice involvement, including history of incarceration.),(Inclusion Criteria: Includes LOINC codes for Criminal Justice Involvement or Incarceration History.),(Exclusion Criteria: Terms not representative of observable encoded terms that may have values indicating Criminal Justice Involvement or Incarceration History.)",
+  "jurisdiction" : [{
+    "extension" : [{
+      "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
+      "valueString" : "UNKNOWN"
+    }]
+  }],
+  "purpose" : "(Clinical Focus: This single member value set represents a question with an associated LOINC answer set about criminal justice involvement or incarceration.),(Data Element Scope: The intent of this single member value set is to identify patients who have answered a question about criminal justice involvement, including incarceration.),(Inclusion Criteria: Includes LOINC observation code/s for Criminal Justice Involvement or Incarceration.),(Exclusion Criteria: )",
   "compose" : {
-    "include" : [
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "filter" : [
-          {
-            "property" : "concept",
-            "op" : "in",
-            "value" : "66963-0,66974-7,67016-6,66989-5,67001-8,66975-4,67035-6,66972-1,67005-9,67026-5,66965-5,66992-9,66979-6,66957-2,67003-4,67014-1,67004-2,66967-1,66991-1,67021-6,66996-0,66970-5,66961-4,67009-1,66969-7,66958-0,62940-2,66977-0,67019-0,67036-4,67015-8,62939-4,67027-3,66985-3,66986-1,67024-0,67030-7,66980-4,66990-3,67022-4,66983-8,66966-3,67037-2,67034-9,66994-5,66982-0,67028-1,67033-1,89570-6,66960-6,67010-9,66981-2,67017-4,66956-4,67020-8,66984-6,67008-3,66968-9,67029-9,66971-3,66976-2,66959-8,67039-8,66978-8,67013-3,66987-9,66973-9,66993-7,66955-6,66962-2,66995-2,67038-0,66954-9,67025-7,66964-8,66988-7"
-          }
-        ]
-      }
-    ]
+    "include" : [{
+      "system" : "http://loinc.org",
+      "version" : "2.74",
+      "filter" : [{
+        "property" : "concept",
+        "op" : "=",
+        "value" : "89570-6"
+      }]
+    }]
   },
   "expansion" : {
-    "identifier" : "urn:uuid:8584e5e3-1e58-4297-b170-203eeb9441cc",
-    "timestamp" : "2023-06-29T16:50:26-04:00",
-    "total" : 76,
+    "identifier" : "urn:uuid:b22d5ff1-4a7e-486b-9fe9-ddf6af8cf605",
+    "timestamp" : "2023-09-26T09:51:59-04:00",
+    "total" : 1,
     "offset" : 0,
-    "parameter" : [
-      {
-        "name" : "count",
-        "valueInteger" : 1000
-      },
-      {
-        "name" : "offset",
-        "valueInteger" : 0
-      }
-    ],
-    "contains" : [
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "62939-4",
-        "display" : "PhenX - crime and delinquency - adolescent protocol 181201"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "62940-2",
-        "display" : "PhenX - crime and delinquency - adult protocol 181202"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "66954-9",
-        "display" : "How many times in the last year have you purposely damaged or destroyed property that did not belong to you [Denver Youth Survey]"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "66955-6",
-        "display" : "How many times in the last year have you purposely set fire to a house, building, car, or other property or tried to do so [Denver Youth Survey]"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "66956-4",
-        "display" : "How many times in the last year have you broken city curfew laws [Denver Youth Survey]"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "66957-2",
-        "display" : "How many times in the last year have you avoided paying for things such as movies, bus or subway rides, and food or computer services [Denver Youth Survey]"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "66958-0",
-        "display" : "How many times in the last year have you gone into or tried to go into a building to steal something [Denver Youth Survey]"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "66959-8",
-        "display" : "How many times in the last year have you stolen or tried to steal money or things worth 5 dollars or less [Denver Youth Survey]"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "66960-6",
-        "display" : "How many times in the last year have you stolen or tried to steal money or things worth between 5 and 50 dollars [Denver Youth Survey]"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "66961-4",
-        "display" : "How many times in the last year have you stolen or tried to steal money or things worth more than 50 but less than 100 dollars [Denver Youth Survey]"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "66962-2",
-        "display" : "How many times in the last year have you stolen or tried to steal money or things worth 100 dollars or more [Denver Youth Survey]"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "66963-0",
-        "display" : "How many times in the last year have you taken something from a store without paying for it [Denver Youth Survey]"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "66964-8",
-        "display" : "How many times in the last year have you snatched someone's purse or wallet or picked someones pocket [Denver Youth Survey]"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "66965-5",
-        "display" : "How many times in the last year have you taken something from a car that did not belong to you [Denver Youth Survey]"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "66966-3",
-        "display" : "How many times in the last year have you knowingly bought, sold or held stolen goods or tried to do any of these things [Denver Youth Survey]"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "66967-1",
-        "display" : "How many times in the last year have you gone joyriding [Denver Youth Survey]"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "66968-9",
-        "display" : "How many times in the last year have you stolen or tried to steal a motor vehicle such as a car or motorcycle [Denver Youth Survey]"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "66969-7",
-        "display" : "How many times in the last year have you used checks illegally or used a slug or fake money to pay for something [Denver Youth Survey]"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "66970-5",
-        "display" : "How many times in the last year have you used or tried to use a credit or bank cards without the owners permission [Denver Youth Survey]"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "66971-3",
-        "display" : "How many times in the last year have you tried to cheat someone by selling them something that was worthless or not what you said it was [Denver Youth Survey]"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "66972-1",
-        "display" : "How many times in the last year have you attacked someone with a weapon or with the idea of seriously hurting or killing them [Denver Youth Survey]"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "66973-9",
-        "display" : "How many times in the last year have you hit someone with the idea of hurting them, other than the events just mentioned [Denver Youth Survey]"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "66974-7",
-        "display" : "How many times in the last year have you used a weapon, force, or strong-arm methods to get money or things from people [Denver Youth Survey]"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "66975-4",
-        "display" : "How many times in the last year have you thrown objects such as rocks or bottles at people, other than events you have already mentioned [Denver Youth Survey]"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "66976-2",
-        "display" : "How many times in the last year have you been involved in gang fights [Denver Youth Survey]"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "66977-0",
-        "display" : "How many times in the last year have you been paid for having sexual relations with someone [Denver Youth Survey]"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "66978-8",
-        "display" : "How many times in the last year have you physically hurt or threatened to hurt someone to get them to have sex with you [Denver Youth Survey]"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "66979-6",
-        "display" : "How many times in the last year have you had or tried to have sexual relations with someone against their will, other than events you just mentioned [Denver Youth Survey]"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "66980-4",
-        "display" : "How many times in the last year have you sold marijuana or hashish, pot, grass, hash [Denver Youth Survey]"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "66981-2",
-        "display" : "How many times in the last year have you sold hard drugs such as heroin, cocaine, and LSD [Denver Youth Survey]"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "66982-0",
-        "display" : "Have you done anything else in the past year that could have gotten you in trouble with the police [Denver Youth Survey]"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "66983-8",
-        "display" : "What kind of things did you do [Denver Youth Survey]"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "66984-6",
-        "display" : "How many times in the past year [Denver Youth Survey]"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "66985-3",
-        "display" : "How many times in the last year have you run away from home [Denver Youth Survey]"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "66986-1",
-        "display" : "How many times in the last year have you skipped classes or school without an excuse [Denver Youth Survey]"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "66987-9",
-        "display" : "How many times in the last year have you been suspended or sent home from school for bad behavior [Denver Youth Survey]"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "66988-7",
-        "display" : "How many times in the last year have you lied about your age to get into some place or to buy something [Denver Youth Survey]"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "66989-5",
-        "display" : "How many times in the last year have you cheated on school tests [Denver Youth Survey]"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "66990-3",
-        "display" : "How many times in the last year have you hitchhiked where it was illegal to do so [Denver Youth Survey]"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "66991-1",
-        "display" : "How many times in the last year have you carried a hidden weapon [Denver Youth Survey]"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "66992-9",
-        "display" : "How many times in the last year have you been loud, rowdy, or unruly in a public place so that people complained about it or you got in trouble [Denver Youth Survey]"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "66993-7",
-        "display" : "How many times in the last year have you begged for money or things from strangers [Denver Youth Survey]"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "66994-5",
-        "display" : "How many times in the last year have you made obscene telephone calls such as calling someone and saying dirty things [Denver Youth Survey]"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "66995-2",
-        "display" : "How many times in the last year have you been drunk in a public place [Denver Youth Survey]"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "66996-0",
-        "display" : "How many times in the last year did you run away from your home and stay away overnight [Denver Youth Survey]"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "67001-8",
-        "display" : "How many times in the last year did you break into, or try to break into a building, to steal something [Denver Youth Survey]"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "67003-4",
-        "display" : "How many times in the last year did you steal, or try to steal, money or things worth between 5 and 100 dollars [Denver Youth Survey]"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "67004-2",
-        "display" : "How many times in the last year did you steal, or try to steal, money or things worth between 100 and 500 dollars [Denver Youth Survey]"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "67005-9",
-        "display" : "How many times in the last year did you steal, or try to steal, money or things worth over 500 dollars [Denver Youth Survey]"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "67008-3",
-        "display" : "How many times in the last year have you converted a vehicle, that is, taken a motor vehicle such as a car or motorcycle for a ride or drive without the owner's permission, when you didn't mean to keep or sell it [Denver Youth Survey]"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "67009-1",
-        "display" : "How many times in the last year have you stolen, or tried to steal, a motor vehicle such as a car or motorcycle to keep or sell [Denver Youth Survey]"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "67010-9",
-        "display" : "How many times in the last year have you used worthless checks or fake money to pay for something [Denver Youth Survey]"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "67013-3",
-        "display" : "How many times in the last year have you been so angry with a child that you attacked them with a weapon, or with the idea of seriously hurting them [Denver Youth Survey]"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "67014-1",
-        "display" : "How many times in the last year have you been so angry with a child that you hit them [Denver Youth Survey]"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "67015-8",
-        "display" : "How many times in the last year have you attacked an adult with a weapon or with the idea of seriously hurting or killing them [Denver Youth Survey]"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "67016-6",
-        "display" : "How many times in the last year have you hit an adult with the idea of hurting them [Denver Youth Survey]"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "67017-4",
-        "display" : "How many times in the last year have you used a weapon, force or strong arm methods to rob a person, shop, bank, or other business [Denver Youth Survey]"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "67019-0",
-        "display" : "How many times in the last year have you committed a serious driving offense, such as driving while drunk, driving recklessly, or speeding 50 km per hour over the posted speed limit [Denver Youth Survey]"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "67020-8",
-        "display" : "How many times in the last year have you embezzled money - that means used money entrusted to your care for some purpose not intended [Denver Youth Survey]"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "67021-6",
-        "display" : "How many times in the last year have you lied about your age [Denver Youth Survey]"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "67022-4",
-        "display" : "How many times in the last year have you made obscene telephone calls, such as calling someone and saying rude things [Denver Youth Survey]"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "67024-0",
-        "display" : "How many times in the last year did you give false information on a tax form, an insurance claim, or on applications for a loan or bank account [Denver Youth Survey]"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "67025-7",
-        "display" : "How many times in the last year did you use a false name or alias so you couldn't be identified [Denver Youth Survey]"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "67026-5",
-        "display" : "How many times in the last year did you move away from a flat or house without paying the final bills or rent [Denver Youth Survey]"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "67027-3",
-        "display" : "How many times in the last year have you made illegal copies of computer software or video files [Denver Youth Survey]"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "67028-1",
-        "display" : "How many times in the last year did you buy something on credit and then never made the payments [Denver Youth Survey]"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "67029-9",
-        "display" : "How many times in the last year did you interfere with the work of the law by trying to get away from police, by hiding someone that the police were looking for, or by telling a lie to a police officer or judge [Denver Youth Survey]"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "67030-7",
-        "display" : "How many times in the last year have you driven a vehicle when you did not have a driver's license or after your license had been suspended or disqualified [Denver Youth Survey]"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "67033-1",
-        "display" : "How many times in the last year have you used marijuana [Denver Youth Survey]"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "67034-9",
-        "display" : "How many times in the last year have you used a harder drug, such as heroin, cocaine or LSD [Denver Youth Survey]"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "67035-6",
-        "display" : "How many times in the last year have you paid someone to have sex with you [Denver Youth Survey]"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "67036-4",
-        "display" : "How many times in the last year have you been paid, or received other favors for having sex with someone [Denver Youth Survey]"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "67037-2",
-        "display" : "How many times in the last year did you threaten or hurt someone to get them to have sex with you [Denver Youth Survey]"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "67038-0",
-        "display" : "How many times in the last year have you contributed to the delinquency of a person under age 17 [Denver Youth Survey]"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "67039-8",
-        "display" : "How many times in the last year have you failed to obey the courts [Denver Youth Survey]"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "89570-6",
-        "display" : "Involvement with criminal justice [CUBS]"
-      }
-    ]
+    "parameter" : [{
+      "name" : "count",
+      "valueInteger" : 1000
+    },
+    {
+      "name" : "offset",
+      "valueInteger" : 0
+    }],
+    "contains" : [{
+      "system" : "http://loinc.org",
+      "version" : "2.74",
+      "code" : "89570-6",
+      "display" : "Involvement with criminal justice [CUBS]"
+    }]
   }
 }

@@ -3,33 +3,27 @@
   "id" : "2.16.840.1.113762.1.4.1222.959",
   "meta" : {
     "versionId" : "5",
-    "lastUpdated" : "2022-11-02T10:57:49.000-04:00",
-    "profile" : [
-      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
-      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
-    ]
+    "lastUpdated" : "2023-07-11T17:36:56.000-04:00",
+    "profile" : ["http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+    "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"]
   },
-  "extension" : [
-    {
-      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
-      "valueString" : "MCC eCare Plan Author"
-    },
-    {
-      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
-      "valueDate" : "2022-12-15"
-    },
-    {
-      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
-      "valueDate" : "2021-09-22"
-    }
-  ],
+  "extension" : [{
+    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+    "valueString" : "MCC eCare Plan Author"
+  },
+  {
+    "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+    "valueDate" : "2022-12-15"
+  },
+  {
+    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+    "valueDate" : "2023-07-11"
+  }],
   "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1222.959",
-  "identifier" : [
-    {
-      "system" : "urn:ietf:rfc:3986",
-      "value" : "urn:oid:2.16.840.1.113762.1.4.1222.959"
-    }
-  ],
+  "identifier" : [{
+    "system" : "urn:ietf:rfc:3986",
+    "value" : "urn:oid:2.16.840.1.113762.1.4.1222.959"
+  }],
   "version" : "20210922",
   "name" : "EatingOrFeedingADLIADL",
   "title" : "Eating or Feeding (ADL/IADL)",
@@ -37,73 +31,61 @@
   "experimental" : false,
   "date" : "2021-09-22T01:00:52-04:00",
   "publisher" : "HL7 Patient Care WG Steward",
-  "description" : "Assessment of the person's ability to eat/feed as an ADL/IADL (Business ID: Entry 37100)",
-  "jurisdiction" : [
-    {
-      "extension" : [
-        {
-          "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
-          "valueString" : "UNKNOWN"
-        }
-      ]
-    }
-  ],
-  "purpose" : "(Clinical Focus: This set of values addresses terms representing Eating or Feeding (ADL/IADL).),(Data Element Scope: The intent of this set of values is to identify patients who have a/an assessment of the person's ability to eat/feed as an ADL/IADL.),(Inclusion Criteria: Includes LOINC codes for Eating or Feeding (ADL/IADL).),(Exclusion Criteria: Terms not representative of observable encoded terms that may have values indicating Eating or Feeding (ADL/IADL).)",
+  "description" : "Himali: I edited the focus.\nAlso need to add the \"may change\" disclaimer",
+  "jurisdiction" : [{
+    "extension" : [{
+      "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
+      "valueString" : "UNKNOWN"
+    }]
+  }],
+  "purpose" : "(Clinical Focus: This set of values contains terms representing Eating or Feeding ability questions.),(Data Element Scope: The intent of this set of values is to identify patients who have had an assessment of the person's ability to eat/feed.),(Inclusion Criteria: Includes LOINC codes for Eating or Feeding),(Exclusion Criteria: Terms not representative of observable encoded terms that may have values indicating Eating or Feeding (ADL/IADL).)",
   "compose" : {
-    "include" : [
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "filter" : [
-          {
-            "property" : "concept",
-            "op" : "in",
-            "value" : "45602-0,57248-7,77694-8,45603-8"
-          }
-        ]
-      }
-    ]
+    "include" : [{
+      "system" : "http://loinc.org",
+      "version" : "2.74",
+      "filter" : [{
+        "property" : "concept",
+        "op" : "in",
+        "value" : "45602-0,57248-7,77694-8,45603-8"
+      }]
+    }]
   },
   "expansion" : {
-    "identifier" : "urn:uuid:1df72f59-7b32-40c6-9e34-b345ec93e0a6",
-    "timestamp" : "2023-06-29T17:10:05-04:00",
+    "identifier" : "urn:uuid:bfaf7e91-a595-4035-8279-06a9521783dd",
+    "timestamp" : "2023-09-26T10:12:51-04:00",
     "total" : 4,
     "offset" : 0,
-    "parameter" : [
-      {
-        "name" : "count",
-        "valueInteger" : 1000
-      },
-      {
-        "name" : "offset",
-        "valueInteger" : 0
-      }
-    ],
-    "contains" : [
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "45602-0",
-        "display" : "Eating - self-performance during assessment period [CMS Assessment]"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "45603-8",
-        "display" : "Eating - support provided during assessment period [CMS Assessment]"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "57248-7",
-        "display" : "Feeding - functional ability [CMS Assessment]"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "77694-8",
-        "display" : "Utensils scale [UPDRS]"
-      }
-    ]
+    "parameter" : [{
+      "name" : "count",
+      "valueInteger" : 1000
+    },
+    {
+      "name" : "offset",
+      "valueInteger" : 0
+    }],
+    "contains" : [{
+      "system" : "http://loinc.org",
+      "version" : "2.74",
+      "code" : "45602-0",
+      "display" : "Eating - self-performance during assessment period [CMS Assessment]"
+    },
+    {
+      "system" : "http://loinc.org",
+      "version" : "2.74",
+      "code" : "45603-8",
+      "display" : "Eating - support provided during assessment period [CMS Assessment]"
+    },
+    {
+      "system" : "http://loinc.org",
+      "version" : "2.74",
+      "code" : "57248-7",
+      "display" : "Feeding - functional ability [CMS Assessment]"
+    },
+    {
+      "system" : "http://loinc.org",
+      "version" : "2.74",
+      "code" : "77694-8",
+      "display" : "Utensils scale [UPDRS]"
+    }]
   }
 }

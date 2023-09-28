@@ -2,1304 +2,1182 @@
   "resourceType" : "ValueSet",
   "id" : "2.16.840.1.113762.1.4.1222.1075",
   "meta" : {
-    "versionId" : "11",
-    "lastUpdated" : "2023-01-25T15:37:12.000-05:00",
-    "profile" : [
-      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
-      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
-    ]
+    "versionId" : "18",
+    "lastUpdated" : "2023-07-20T01:01:20.000-04:00",
+    "profile" : ["http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+    "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"]
   },
-  "extension" : [
-    {
-      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
-      "valueString" : "MCC eCare Plan Author"
-    },
-    {
-      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-keyWord",
-      "valueString" : "MCC_IG"
-    },
-    {
-      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
-      "valueDate" : "2022-12-15"
-    },
-    {
-      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
-      "valueDate" : "2021-09-24"
-    }
-  ],
+  "extension" : [{
+    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+    "valueString" : "MCC eCare Plan Author"
+  },
+  {
+    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-keyWord",
+    "valueString" : "MCC_IG"
+  },
+  {
+    "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+    "valueDate" : "2023-07-20"
+  },
+  {
+    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+    "valueDate" : "2023-07-20"
+  }],
   "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1222.1075",
-  "identifier" : [
-    {
-      "system" : "urn:ietf:rfc:3986",
-      "value" : "urn:oid:2.16.840.1.113762.1.4.1222.1075"
-    }
-  ],
-  "version" : "20210924",
+  "identifier" : [{
+    "system" : "urn:ietf:rfc:3986",
+    "value" : "urn:oid:2.16.840.1.113762.1.4.1222.1075"
+  }],
+  "version" : "20230720",
   "name" : "ExposureToEnvironmentalHazards",
   "title" : "Exposure to Environmental Hazards",
   "status" : "active",
-  "experimental" : false,
-  "date" : "2021-09-24T01:18:02-04:00",
+  "date" : "2023-07-20T01:01:20-04:00",
   "publisher" : "HL7 Patient Care WG Steward",
   "description" : "This value set may undergo changes until the HL7 Multiple Chronic Care FHIR IG is formally published in 2024.",
-  "jurisdiction" : [
-    {
-      "extension" : [
-        {
-          "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
-          "valueString" : "UNKNOWN"
-        }
-      ]
-    }
-  ],
-  "purpose" : "(Clinical Focus: This set of values addresses terms representing an observation of exposure to environmental hazards.),(Data Element Scope: The intent of this set of values is to identify patients who have a/an potential exposure to hazards in the person's environment, including work, school, home, etc),(Inclusion Criteria: Includes LOINC codes for Exposure to Environmental Hazards.),(Exclusion Criteria: Terms not representative of observable encoded terms that may have values indicating Exposure to Environmental Hazards.)",
+  "jurisdiction" : [{
+    "extension" : [{
+      "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
+      "valueString" : "UNKNOWN"
+    }]
+  }],
+  "purpose" : "(Clinical Focus: This set of values addresses terms representing an observation of exposure to environmental hazards.),(Data Element Scope: The intent of this set of values is to identify patients who have potential exposure to hazards in the person's environment, including work, school, home, etc),(Inclusion Criteria: Includes LOINC codes for Exposure to Environmental Hazards.),(Exclusion Criteria: Terms not representative of observable encoded terms that may have values indicating Exposure to Environmental Hazards.)",
   "compose" : {
-    "include" : [
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "filter" : [
-          {
-            "property" : "concept",
-            "op" : "in",
-            "value" : "62528-5,63816-3,63790-0,63796-7,62536-8,63784-3,63842-9,63838-7,63833-8,63814-8,62524-4,63812-2,63800-7,63780-1,63853-6,63849-4,63807-2,63808-0,63828-8,63835-3,63795-9,62532-7,62530-1,63850-2,63824-7,63851-0,63774-4,63788-4,63803-1,63765-2,63852-8,63779-3,63826-2,63832-0,63844-5,63776-9,63809-8,63778-5,63769-4,63843-7,63827-0,63764-5,63786-8,63856-9,63791-8,62538-4,63831-2,63783-5,63837-9,63804-9,63787-6,63836-1,63839-5,63811-4,62526-9,62534-3,63773-6,63834-6,63802-3,63793-4,63806-4,63792-6,63854-4,63840-3,63767-8,63823-9,63846-0,63777-7,63799-1,63782-7,63766-0,63830-4,63815-5,63770-2,63845-2,63785-0,64035-9,63798-3,63801-5,63772-8,63794-2,74781-6,63775-1,63857-7,63855-1,63789-2,63768-6,63817-1,63781-9,63813-0,63829-6,63797-5,63805-6,63771-0,63810-6,62540-0,63825-4,63847-8,63841-1,62563-2,63698-5,63737-1,63754-6,63753-8,63728-0,63757-9,94658-2,63694-4,63741-3,64036-7,63755-3,63701-7,63870-0,62516-0,63763-7,63720-7,63740-5,94652-5,63818-9,63731-4"
-          }
-        ]
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "filter" : [
-          {
-            "property" : "concept",
-            "op" : "in",
-            "value" : "63756-1,63750-4,63872-6,63759-5,63749-6,63743-9,63762-9,63751-2,63733-0,63732-2,63735-5,81267-7,63955-9,63746-2,63736-3,63744-7,63760-3,94654-1,63871-8,63758-7,63734-8,63729-8,63738-9,88636-6,93848-0,64011-0,8676-9,64010-2,94656-6,8683-5,63730-6,63752-0,63761-1,63956-7,63745-4,63742-1,63739-7,63748-8"
-          }
-        ]
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "filter" : [
-          {
-            "property" : "concept",
-            "op" : "in",
-            "value" : "63717-3,62518-6,63726-4,63696-9,63725-6,63693-6,62514-5,63723-1,63721-5,63695-1,63715-7,63704-1,63714-0,63700-9,63705-8,39193-8,63711-6,63703-3,63692-8,63697-7,63716-5,63719-9,63707-4,63709-0,63699-3,63708-2,39195-3,63706-6,63727-2,63724-9,62512-9,63713-2,63722-3,63710-8,63702-5,63718-1,39196-1,62520-2,39194-6,63712-4,62522-8"
-          }
-        ]
-      }
-    ]
+    "include" : [{
+      "system" : "http://loinc.org",
+      "version" : "2.74",
+      "filter" : [{
+        "property" : "concept",
+        "op" : "in",
+        "value" : "62528-5,63816-3,63790-0,63796-7,62536-8,63784-3,63842-9,63838-7,63833-8,63814-8,62524-4,63812-2,63800-7,63780-1,63853-6,63849-4,63807-2,63808-0,63828-8,63835-3,63795-9,62532-7,62530-1,63850-2,63824-7,63851-0,63774-4,63788-4,63803-1,63765-2,63852-8,63779-3,63826-2,63832-0,63844-5,63776-9,63809-8,63778-5,63769-4,63843-7,63827-0,63764-5,63786-8,63856-9,63791-8,62538-4,63831-2,63783-5,63837-9,63804-9,63787-6,63836-1,63839-5,63811-4,62526-9,62534-3,63773-6,63834-6,63802-3,63793-4,63806-4,63792-6,63854-4,63840-3,63767-8,63823-9,63846-0,63777-7,63799-1,63782-7,63766-0,63830-4,63815-5,63770-2,63845-2,63785-0,64035-9,63798-3,63801-5,63772-8,63794-2,74781-6,63775-1,63857-7,63855-1,63789-2,63768-6,63817-1,63781-9,63813-0,63829-6,63797-5,63805-6,63771-0,63810-6,62540-0,63825-4,63847-8,63841-1,62563-2,63698-5,63737-1,63754-6,63753-8,63728-0,63757-9,94658-2,63694-4,63741-3,64036-7,63755-3,63701-7,63870-0,62516-0,63763-7,63720-7,63740-5,94652-5,63818-9,63731-4"
+      }]
+    },
+    {
+      "system" : "http://loinc.org",
+      "version" : "2.74",
+      "filter" : [{
+        "property" : "concept",
+        "op" : "in",
+        "value" : "63756-1,63750-4,63872-6,63759-5,63749-6,63743-9,63762-9,63751-2,63733-0,63732-2,63735-5,81267-7,63955-9,63746-2,63736-3,63744-7,63760-3,94654-1,63871-8,63758-7,63734-8,63729-8,63738-9,88636-6,93848-0,64011-0,8676-9,64010-2,94656-6,8683-5,63730-6,63752-0,63761-1,63956-7,63745-4,63742-1,63739-7,63748-8"
+      }]
+    },
+    {
+      "system" : "http://loinc.org",
+      "version" : "2.74",
+      "filter" : [{
+        "property" : "concept",
+        "op" : "in",
+        "value" : "63717-3,62518-6,63726-4,63696-9,63725-6,63693-6,62514-5,63723-1,63721-5,63695-1,63715-7,63704-1,63714-0,63700-9,63705-8,39193-8,63711-6,63703-3,63692-8,63697-7,63716-5,63719-9,63707-4,63709-0,63699-3,63708-2,39195-3,63706-6,63727-2,63724-9,62512-9,63713-2,63722-3,63710-8,63702-5,63718-1,39196-1,62520-2,39194-6,63712-4,62522-8"
+      }]
+    }],
+    "exclude" : [{
+      "system" : "http://loinc.org",
+      "version" : "2.74",
+      "filter" : [{
+        "property" : "concept",
+        "op" : "in",
+        "value" : "62528-5,62563-2,62518-6,62538-4,39193-8,62522-8,94654-1,62516-0,62534-3,62520-2,62540-0,62514-5,62526-9,62530-1,62536-8,62512-9,62532-7,62524-4"
+      }]
+    }]
   },
   "expansion" : {
-    "identifier" : "urn:uuid:68418a3f-7bc7-41eb-817c-4b72e242512a",
-    "timestamp" : "2023-06-29T17:20:38-04:00",
-    "total" : 199,
+    "identifier" : "urn:uuid:1af14945-307b-4e63-8084-1aff7dff22d9",
+    "timestamp" : "2023-09-26T10:23:49-04:00",
+    "total" : 181,
     "offset" : 0,
-    "parameter" : [
-      {
-        "name" : "count",
-        "valueInteger" : 1000
-      },
-      {
-        "name" : "offset",
-        "valueInteger" : 0
-      }
-    ],
-    "contains" : [
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "39193-8",
-        "display" : "Lead (exposure to) screen assessment Set CPHS"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "39194-6",
-        "display" : "Lead (exposure to) screen results indicator CPHS"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "39195-3",
-        "display" : "Lead (exposure to) screen follow-up status CPHS"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "39196-1",
-        "display" : "Lead (exposure to) screen finding recency CPHS"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "62512-9",
-        "display" : "PhenX domain - Environmental exposures"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "62514-5",
-        "display" : "PhenX - environmental exposures - characteristics of current residence protocol 060101"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "62516-0",
-        "display" : "PhenX - environmental exposures - water source protocol 060201"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "62518-6",
-        "display" : "PhenX - environmental exposures - residential history protocol 060301"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "62520-2",
-        "display" : "PhenX - environmental exposures - exposure at work and daily life protocol 060401"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "62522-8",
-        "display" : "PhenX - environmental exposures - occupation - occupation history protocol 060501"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "62524-4",
-        "display" : "PhenX - environmental exposures - exposures from hobbies protocol 060601"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "62526-9",
-        "display" : "PhenX - environmental exposures - current environmental tobacco smoke exposure protocol 060701"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "62528-5",
-        "display" : "PhenX - environmental exposures - sibship - birth order protocol 060801"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "62530-1",
-        "display" : "PhenX - environmental exposures - day care - pre-school attendance protocol 060901"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "62532-7",
-        "display" : "PhenX - environmental exposures - history of being breast fed protocol 061001"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "62534-3",
-        "display" : "PhenX - environmental exposures - air contaminants in the home environment protocol 061101"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "62536-8",
-        "display" : "PhenX - environmental exposures - dust collection - vacuum bag protocol 061201"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "62538-4",
-        "display" : "PhenX - environmental exposures - ultraviolet light exposure protocol 061301"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "62540-0",
-        "display" : "PhenX - environmental exposures - plastic exposures at work and home protocol 061401"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "62563-2",
-        "display" : "PhenX - passive smoke exposure protocol 070301"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "63692-8",
-        "display" : "What is type of dwelling [ICAS]"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "63693-6",
-        "display" : "Type of dwelling if other [ICAS]"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "63694-4",
-        "display" : "Is property actively used as a farm or ranch [NHEXAS]"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "63695-1",
-        "display" : "What is the approximate age of your building [MESA]"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "63696-9",
-        "display" : "What year was building built [LIBCSP]"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "63697-7",
-        "display" : "What month did you start living there [LIBCSP]"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "63698-5",
-        "display" : "What year did you start living there [LIBCSP]"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "63699-3",
-        "display" : "At what age did you start living there [NHEXAS]"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "63700-9",
-        "display" : "What month did you move from there [NHEXAS]"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "63701-7",
-        "display" : "What year did you move from there [NHEXAS]"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "63702-5",
-        "display" : "What age did you move from there [NHEXAS]"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "63703-3",
-        "display" : "How many years have or did you live there [NHEXAS]"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "63704-1",
-        "display" : "Is there an enclosed garage attached to this house or apartment [NHEXAS]"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "63705-8",
-        "display" : "Are automobiles, vans, trucks or other motor vehicles parked in this attached garage [NHEXAS]"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "63706-6",
-        "display" : "Are any gas powered devices stored in any room, basement, or attached garage in this house or apartment [NHEXAS]"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "63707-4",
-        "display" : "During the past 12 months, has there been water or dampness in your home from broken pipes, leaks, heavy rain, or floods [NSLAH]"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "63708-2",
-        "display" : "Does your home frequently have a mildew odor or musty smell [NSLAH]"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "63709-0",
-        "display" : "Is air conditioning, refrigeration, used to cool this house or apartment [NHEXAS]"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "63710-8",
-        "display" : "Which types of air conditioning units do you use [NHEXAS]"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "63711-6",
-        "display" : "During which month do you usually start using air conditioning to cool this house or apartment [NHEXAS]"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "63712-4",
-        "display" : "During which month do you usually stop using air conditioning [NHEXAS]"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "63713-2",
-        "display" : "Which fuels are used for heating this house or apartment [NHEXAS]"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "63714-0",
-        "display" : "Does this house or apartment have a central heating system with ducts that blow air into most rooms [NHEXAS]"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "63715-7",
-        "display" : "During which month do you usually start using heating devices [NHEXAS]"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "63716-5",
-        "display" : "During which month do you usually stop using heating devices [NHEXAS]"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "63717-3",
-        "display" : "In the last 12 months, did any dogs, cats or other small furry animals, such as a rabbit, guinea pig or hamster, live or spend time inside your home [NHANES]"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "63718-1",
-        "display" : "What kind of pet lived or spent time inside your home [NHANES]"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "63719-9",
-        "display" : "What was the primary source of drinking water at your home [Next-of-kin]"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "63720-7",
-        "display" : "What was the primary source of drinking water at your home if other [Next-of-kin]"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "63721-5",
-        "display" : "What was the depth of the private well [Next-of-kin]"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "63722-3",
-        "display" : "Was the private well cased [Next-of-kin]"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "63723-1",
-        "display" : "Are any of the water treatment devices listed on this card used in your home [PhenX]"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "63724-9",
-        "display" : "Which of these water treatment devices are now used in your home [PhenX]"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "63725-6",
-        "display" : "Residence [PEG]"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "63726-4",
-        "display" : "From what date did you live in the residence"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "63727-2",
-        "display" : "To what date did you live in the residence"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "63728-0",
-        "display" : "What is the residence address, street - crosstreets, city, state or landmark [PEG]"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "63729-8",
-        "display" : "Was this on a farm [PEG]"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "63730-6",
-        "display" : "What was your water supply [PEG]"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "63731-4",
-        "display" : "What was your water supply if other [PEG]"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "63732-2",
-        "display" : "Near fields or orchards [PEG]"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "63733-0",
-        "display" : "Did you live close to the center or margin of town [PEG]"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "63734-8",
-        "display" : "Were geocoordinates verified [PEG]"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "63735-5",
-        "display" : "How were the geocoordinates verified [PEG]"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "63736-3",
-        "display" : "Materials to which you were exposed in your work or daily life [ACSCP-II]"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "63737-1",
-        "display" : "In your work or daily life, were you regularly exposed to this material [ACSCP-II]"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "63738-9",
-        "display" : "How many years were you regularly exposed to this material [ACSCP-II]"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "63739-7",
-        "display" : "How many hours did you work last week at all jobs or businesses in the past week [NHANES]"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "63740-5",
-        "display" : "Do you usually work 35 hours or more per week in total at all jobs or businesses [NHANES]"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "63741-3",
-        "display" : "For whom did you work for at your main job or business [NHANES]"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "63742-1",
-        "display" : "What kind of business or industry is this [NHANES]"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "63743-9",
-        "display" : "What kind of work were you doing [NHANES]"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "63744-7",
-        "display" : "What were your most important activities on this job [NHANES]"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "63745-4",
-        "display" : "Which of the following best describes the hours you usually work at you main job or business [NHANES]"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "63746-2",
-        "display" : "About how long have you worked for your employer in your occupation [NHANES]"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "63748-8",
-        "display" : "What kind of work were you doing the longest [NHANES]"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "63749-6",
-        "display" : "What kind of business or industry did you work in for the longest period of time [NHANES]"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "63750-4",
-        "display" : "What were your most important activities on this job or business [NHANES]"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "63751-2",
-        "display" : "About how long did you work at that job or business"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "63752-0",
-        "display" : "Since the age 16, did you ever work for 6 months or more [NHANES]"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "63753-8",
-        "display" : "Job number [NHANES]"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "63754-6",
-        "display" : "What was the name of the company where you first or next worked, for 6 months or longer [NHANES]"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "63755-3",
-        "display" : "What was the job title of the first or next job you held at this company [NHANES]"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "63756-1",
-        "display" : "In what year did you start working at this job [NHANES]"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "63757-9",
-        "display" : "In what year did you stop working at this job [NHANES]"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "63758-7",
-        "display" : "What was the location of this company [Address] [NHANES]"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "63759-5",
-        "display" : "Was this a full-time or part-time job [NHANES]"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "63760-3",
-        "display" : "What did they make, or what service did they provide - what type of business was it [NHANES]"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "63761-1",
-        "display" : "What were your main activities or duties for this job [NHANES]"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "63762-9",
-        "display" : "What kinds of chemicals or materials did you handle in that job [NHANES]"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "63763-7",
-        "display" : "What kinds of tools and equipment did you use [NHANES]"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "63764-5",
-        "display" : "Hobby [LIBCSP]"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "63765-2",
-        "display" : "Have you participated for 6 months or longer in this hobby [LIBCSP]"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "63766-0",
-        "display" : "In what year were you first involved in this hobby [LIBCSP]"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "63767-8",
-        "display" : "In what year were you last involved in in this hobby [LIBCSP]"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "63768-6",
-        "display" : "Overall, for how many years were you involved in this hobby [LIBCSP]"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "63769-4",
-        "display" : "On average, about how many hours per week, month, or year have you participated in this hobby [LIBCSP]"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "63770-2",
-        "display" : "Other activities involving use of chemicals [LIBCSP]"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "63771-0",
-        "display" : "Does anyone who lives here smoke cigarettes, cigars, or pipes anywhere inside this home [NHANES]"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "63772-8",
-        "display" : "Who smokes [NHANES]"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "63773-6",
-        "display" : "How many cigarettes per day do you usually smoke anywhere inside the home [NHANES]"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "63774-4",
-        "display" : "At this job or business, that is at your employer, in your occupation, how many hours per day can you smell the smoke from other peoples cigarettes, cigars, or pipes [NHANES]"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "63775-1",
-        "display" : "How many full brothers do you have [#] [CBCS]"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "63776-9",
-        "display" : "How many full sisters do you have [#] [CBCS]"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "63777-7",
-        "display" : "Do you have a twin brother or sister [CBCS]"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "63778-5",
-        "display" : "Are you and your twin identical or not identical [CBCS]"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "63779-3",
-        "display" : "Sibling [CBCS]"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "63780-1",
-        "display" : "Who is the oldest or what is the first name of your next brother or sister [CBCS]"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "63781-9",
-        "display" : "Sex of Sibling"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "63782-7",
-        "display" : "Is this brother or sister still living [CBCS]"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "63783-5",
-        "display" : "How old is this brother or sister now or how old was brother or sister when he or she died [CBCS]"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "63784-3",
-        "display" : "Day care or preschool category [PhenX]"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "63785-0",
-        "display" : "In what month and year did child begin the first or next attendance at day care or preschool outside the home [PhenX]"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "63786-8",
-        "display" : "In what month and year did child end the first or next attendance of day care or preschool [PhenX]"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "63787-6",
-        "display" : "About how many hours per week did or does child attend day care or preschool outside the home [PhenX]"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "63788-4",
-        "display" : "Childs age at reference date [PhenX]"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "63789-2",
-        "display" : "Did your mother breastfeed you [LIBCSP]"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "63790-0",
-        "display" : "In the past year has there been a major renovation to this house or apartment, such as adding a room, putting up or taking down a wall, replacing windows, or refinishing floors [RIOPA]"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "63791-8",
-        "display" : "What type of renovation [RIOPA]"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "63792-6",
-        "display" : "When was the last renovation [RIOPA]"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "63793-4",
-        "display" : "Within the last 6 months were rugs, drapes or furniture professionally cleaned [RIOPA]"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "63794-2",
-        "display" : "Were they cleaned inside the house [RIOPA]"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "63795-9",
-        "display" : "When were they cleaned [RIOPA]"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "63796-7",
-        "display" : "What items were cleaned [RIOPA]"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "63797-5",
-        "display" : "In the past year, was the inside of this house or apartment painted [RIOPA]"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "63798-3",
-        "display" : "When was the last time the inside of this house or apartment was painted [RIOPA]"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "63799-1",
-        "display" : "How many rooms of the inside of this house or apartment were painted [#] [RIOPA]"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "63800-7",
-        "display" : "Did you go to the dry cleaners during the past week [PhenX]"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "63801-5",
-        "display" : "Did you bring home any items from the cleaners that were dry-cleaned during the past week [PhenX]"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "63802-3",
-        "display" : "Specify air contaminant in the home [RIOPA]"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "63803-1",
-        "display" : "Have you, or has someone near you, used this air contaminant in the last 48 hours [RIOPA]"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "63804-9",
-        "display" : "Did you handle this air contaminant yourself [RIOPA]"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "63805-6",
-        "display" : "How long did you handle this air contaminant yourself [RIOPA]"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "63806-4",
-        "display" : "Were you near somebody who handled this air contaminant [RIOPA]"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "63807-2",
-        "display" : "How long were you near somebody else who handled this air contaminant [RIOPA]"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "63808-0",
-        "display" : "Which cleaning solutions [RIOPA]"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "63809-8",
-        "display" : "During the last 48 hours, the study period, did you or anyone else park a car or other motor vehicle in [RIOPA]"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "63810-6",
-        "display" : "During the last 48 hours, the study period, did you or anyone else start a car or other motor vehicle in [RIOPA]"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "63811-4",
-        "display" : "During the last 48 hours, the study period, was there any diesel vehicles parked around the house [RIOPA]"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "63812-2",
-        "display" : "During the last 48 hours, the study period, have you operated or been near diesel engines, e.g. bus terminal, truck stop [RIOPA]"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "63813-0",
-        "display" : "Time vacuum bag was emptied [PhenX]"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "63814-8",
-        "display" : "Vacuum dust collection contaminant [PhenX]"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "63815-5",
-        "display" : "Name of vacuum dust collection contaminant [PhenX]"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "63816-3",
-        "display" : "Concentration of vacuum dust collection contaminant [Mass/volume] [PhenX]"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "63817-1",
-        "display" : "If you spent an hour in the mid-day sun for the first time without sunscreen, which of these reactions best describes what would happen to your skin [NHL]"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "63818-9",
-        "display" : "Who provided most of the responses in this section [NHANES]"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "63823-9",
-        "display" : "Did you ever get a blistering sunburn [NHL]"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "63824-7",
-        "display" : "Did you ever get a skin rash from sun exposure [NHL]"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "63825-4",
-        "display" : "Have you ever used a sunlamp [NHL]"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "63826-2",
-        "display" : "Have you ever used a tanning booth [NHL]"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "63827-0",
-        "display" : "Ultraviolet light exposure [NHL]"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "63828-8",
-        "display" : "Age group for ultraviolet light exposure [NHL]"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "63829-6",
-        "display" : "On a typical weekday in the summer, about how many hours did you generally spend in the mid-day sun [NHL]"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "63830-4",
-        "display" : "On a typical weekend day in the summer, about how many hours did you generally spend in the mid-day sun [NHL]"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "63831-2",
-        "display" : "Has there been renovation or repairs in your workspace because of moisture damage [FEAS]"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "63832-0",
-        "display" : "What is the floor material in your workspace [FEAS]"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "63833-8",
-        "display" : "Floor material in your workspace if other [FEAS]"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "63834-6",
-        "display" : "Is the wall material of your work space textile, cloth, jute, etc [FEAS]"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "63835-3",
-        "display" : "Is the wall material of your work space plastic [FEAS]"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "63836-1",
-        "display" : "Has there been renovation or repairs in your home due to moisture damage [FEAS]"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "63837-9",
-        "display" : "Has there been renovation in your home during the past 12 months [FEAS]"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "63838-7",
-        "display" : "Which of the following repairs was done in your home during the past 12 months [FEAS]"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "63839-5",
-        "display" : "Do you have wall-to-wall carpeting in your home [FEAS]"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "63840-3",
-        "display" : "Is the floor material in your home plastic or vinyl [FEAS]"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "63841-1",
-        "display" : "Is the wall material in your home textile, cloth, jute, etc [FEAS]"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "63842-9",
-        "display" : "Is the wall material in your home plastic [FEAS]"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "63843-7",
-        "display" : "Has child attended day care outside the home [PhenX]"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "63844-5",
-        "display" : "Has child attended preschool [PhenX]"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "63845-2",
-        "display" : "In the past year were new carpets or rugs installed [RIOPA]"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "63846-0",
-        "display" : "When was the installation [RIOPA]"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "63847-8",
-        "display" : "On how many rooms were new carpets or rugs installed [#] [RIOPA]"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "63849-4",
-        "display" : "Number of days vacuum has been used since changing bag or emptying the collection chamber [PhenX]"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "63850-2",
-        "display" : "Weight of dust collected [Mass] [PhenX]"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "63851-0",
-        "display" : "How old were you the first time you got this exposure [NHL]"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "63852-8",
-        "display" : "About how old were you the first time you got this exposure [NHL]"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "63853-6",
-        "display" : "How old were you the last time you got this exposure [NHL]"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "63854-4",
-        "display" : "About how old were you the last time you got this exposure [NHL]"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "63855-1",
-        "display" : "How many of these ultraviolet light exposures have you gotten in your life [#] [NHL]"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "63856-9",
-        "display" : "About how many of these ultraviolet light exposures have you gotten in your life [NHL]"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "63857-7",
-        "display" : "How many months a year did you usually have a tan [NHL]"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "63870-0",
-        "display" : "For how many hours per day were you exposed to smoke from other peoples cigarettes or tobacco products during this time at this location [PhenX]"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "63871-8",
-        "display" : "For how many years were you exposed to smoke from other peoples cigarettes or tobacco products during this time at this location [PhenX]"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "63872-6",
-        "display" : "At the present time, how many hours per day are you exposed to the smoke of others [PhenX]"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "63955-9",
-        "display" : "Time and location of passive smoke exposure [PhenX]"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "63956-7",
-        "display" : "Were you exposed to smoke from other peoples cigarettes or tobacco products during this time at this location [PhenX]"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "64010-2",
-        "display" : "Latitude for the residence [PEG]"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "64011-0",
-        "display" : "Longitude for the residence [PEG]"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "64035-9",
-        "display" : "Repair done in your home during the past 12 months if other [FEAS]"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "64036-7",
-        "display" : "What did they make, or what service did they provide [NHANES]"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "74781-6",
-        "display" : "Vacuum dust collection contaminant panel PhenX"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "81267-7",
-        "display" : "Setting of exposure to illness"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "8676-9",
-        "display" : "History of Industrial exposure"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "8683-5",
-        "display" : "History of Occupational exposure"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "88636-6",
-        "display" : "Known exposure [Identifier]"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "93848-0",
-        "display" : "Setting of exposure to environmental or occupational hazard"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "94652-5",
-        "display" : "Known exposure date"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "94654-1",
-        "display" : "Known exposure panel"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "94656-6",
-        "display" : "State of known exposure"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.74",
-        "code" : "94658-2",
-        "display" : "City of known exposure"
-      }
-    ]
+    "parameter" : [{
+      "name" : "count",
+      "valueInteger" : 1000
+    },
+    {
+      "name" : "offset",
+      "valueInteger" : 0
+    }],
+    "contains" : [{
+      "system" : "http://loinc.org",
+      "version" : "2.74",
+      "code" : "39194-6",
+      "display" : "Lead (exposure to) screen results indicator CPHS"
+    },
+    {
+      "system" : "http://loinc.org",
+      "version" : "2.74",
+      "code" : "39195-3",
+      "display" : "Lead (exposure to) screen follow-up status CPHS"
+    },
+    {
+      "system" : "http://loinc.org",
+      "version" : "2.74",
+      "code" : "39196-1",
+      "display" : "Lead (exposure to) screen finding recency CPHS"
+    },
+    {
+      "system" : "http://loinc.org",
+      "version" : "2.74",
+      "code" : "63692-8",
+      "display" : "What is type of dwelling [ICAS]"
+    },
+    {
+      "system" : "http://loinc.org",
+      "version" : "2.74",
+      "code" : "63693-6",
+      "display" : "Type of dwelling if other [ICAS]"
+    },
+    {
+      "system" : "http://loinc.org",
+      "version" : "2.74",
+      "code" : "63694-4",
+      "display" : "Is property actively used as a farm or ranch [NHEXAS]"
+    },
+    {
+      "system" : "http://loinc.org",
+      "version" : "2.74",
+      "code" : "63695-1",
+      "display" : "What is the approximate age of your building [MESA]"
+    },
+    {
+      "system" : "http://loinc.org",
+      "version" : "2.74",
+      "code" : "63696-9",
+      "display" : "What year was building built [LIBCSP]"
+    },
+    {
+      "system" : "http://loinc.org",
+      "version" : "2.74",
+      "code" : "63697-7",
+      "display" : "What month did you start living there [LIBCSP]"
+    },
+    {
+      "system" : "http://loinc.org",
+      "version" : "2.74",
+      "code" : "63698-5",
+      "display" : "What year did you start living there [LIBCSP]"
+    },
+    {
+      "system" : "http://loinc.org",
+      "version" : "2.74",
+      "code" : "63699-3",
+      "display" : "At what age did you start living there [NHEXAS]"
+    },
+    {
+      "system" : "http://loinc.org",
+      "version" : "2.74",
+      "code" : "63700-9",
+      "display" : "What month did you move from there [NHEXAS]"
+    },
+    {
+      "system" : "http://loinc.org",
+      "version" : "2.74",
+      "code" : "63701-7",
+      "display" : "What year did you move from there [NHEXAS]"
+    },
+    {
+      "system" : "http://loinc.org",
+      "version" : "2.74",
+      "code" : "63702-5",
+      "display" : "What age did you move from there [NHEXAS]"
+    },
+    {
+      "system" : "http://loinc.org",
+      "version" : "2.74",
+      "code" : "63703-3",
+      "display" : "How many years have or did you live there [NHEXAS]"
+    },
+    {
+      "system" : "http://loinc.org",
+      "version" : "2.74",
+      "code" : "63704-1",
+      "display" : "Is there an enclosed garage attached to this house or apartment [NHEXAS]"
+    },
+    {
+      "system" : "http://loinc.org",
+      "version" : "2.74",
+      "code" : "63705-8",
+      "display" : "Are automobiles, vans, trucks or other motor vehicles parked in this attached garage [NHEXAS]"
+    },
+    {
+      "system" : "http://loinc.org",
+      "version" : "2.74",
+      "code" : "63706-6",
+      "display" : "Are any gas powered devices stored in any room, basement, or attached garage in this house or apartment [NHEXAS]"
+    },
+    {
+      "system" : "http://loinc.org",
+      "version" : "2.74",
+      "code" : "63707-4",
+      "display" : "During the past 12 months, has there been water or dampness in your home from broken pipes, leaks, heavy rain, or floods [NSLAH]"
+    },
+    {
+      "system" : "http://loinc.org",
+      "version" : "2.74",
+      "code" : "63708-2",
+      "display" : "Does your home frequently have a mildew odor or musty smell [NSLAH]"
+    },
+    {
+      "system" : "http://loinc.org",
+      "version" : "2.74",
+      "code" : "63709-0",
+      "display" : "Is air conditioning, refrigeration, used to cool this house or apartment [NHEXAS]"
+    },
+    {
+      "system" : "http://loinc.org",
+      "version" : "2.74",
+      "code" : "63710-8",
+      "display" : "Which types of air conditioning units do you use [NHEXAS]"
+    },
+    {
+      "system" : "http://loinc.org",
+      "version" : "2.74",
+      "code" : "63711-6",
+      "display" : "During which month do you usually start using air conditioning to cool this house or apartment [NHEXAS]"
+    },
+    {
+      "system" : "http://loinc.org",
+      "version" : "2.74",
+      "code" : "63712-4",
+      "display" : "During which month do you usually stop using air conditioning [NHEXAS]"
+    },
+    {
+      "system" : "http://loinc.org",
+      "version" : "2.74",
+      "code" : "63713-2",
+      "display" : "Which fuels are used for heating this house or apartment [NHEXAS]"
+    },
+    {
+      "system" : "http://loinc.org",
+      "version" : "2.74",
+      "code" : "63714-0",
+      "display" : "Does this house or apartment have a central heating system with ducts that blow air into most rooms [NHEXAS]"
+    },
+    {
+      "system" : "http://loinc.org",
+      "version" : "2.74",
+      "code" : "63715-7",
+      "display" : "During which month do you usually start using heating devices [NHEXAS]"
+    },
+    {
+      "system" : "http://loinc.org",
+      "version" : "2.74",
+      "code" : "63716-5",
+      "display" : "During which month do you usually stop using heating devices [NHEXAS]"
+    },
+    {
+      "system" : "http://loinc.org",
+      "version" : "2.74",
+      "code" : "63717-3",
+      "display" : "In the last 12 months, did any dogs, cats or other small furry animals, such as a rabbit, guinea pig or hamster, live or spend time inside your home [NHANES]"
+    },
+    {
+      "system" : "http://loinc.org",
+      "version" : "2.74",
+      "code" : "63718-1",
+      "display" : "What kind of pet lived or spent time inside your home [NHANES]"
+    },
+    {
+      "system" : "http://loinc.org",
+      "version" : "2.74",
+      "code" : "63719-9",
+      "display" : "What was the primary source of drinking water at your home [Next-of-kin]"
+    },
+    {
+      "system" : "http://loinc.org",
+      "version" : "2.74",
+      "code" : "63720-7",
+      "display" : "What was the primary source of drinking water at your home if other [Next-of-kin]"
+    },
+    {
+      "system" : "http://loinc.org",
+      "version" : "2.74",
+      "code" : "63721-5",
+      "display" : "What was the depth of the private well [Next-of-kin]"
+    },
+    {
+      "system" : "http://loinc.org",
+      "version" : "2.74",
+      "code" : "63722-3",
+      "display" : "Was the private well cased [Next-of-kin]"
+    },
+    {
+      "system" : "http://loinc.org",
+      "version" : "2.74",
+      "code" : "63723-1",
+      "display" : "Are any of the water treatment devices listed on this card used in your home [PhenX]"
+    },
+    {
+      "system" : "http://loinc.org",
+      "version" : "2.74",
+      "code" : "63724-9",
+      "display" : "Which of these water treatment devices are now used in your home [PhenX]"
+    },
+    {
+      "system" : "http://loinc.org",
+      "version" : "2.74",
+      "code" : "63725-6",
+      "display" : "Residence [PEG]"
+    },
+    {
+      "system" : "http://loinc.org",
+      "version" : "2.74",
+      "code" : "63726-4",
+      "display" : "From what date did you live in the residence"
+    },
+    {
+      "system" : "http://loinc.org",
+      "version" : "2.74",
+      "code" : "63727-2",
+      "display" : "To what date did you live in the residence"
+    },
+    {
+      "system" : "http://loinc.org",
+      "version" : "2.74",
+      "code" : "63728-0",
+      "display" : "What is the residence address, street - crosstreets, city, state or landmark [PEG]"
+    },
+    {
+      "system" : "http://loinc.org",
+      "version" : "2.74",
+      "code" : "63729-8",
+      "display" : "Was this on a farm [PEG]"
+    },
+    {
+      "system" : "http://loinc.org",
+      "version" : "2.74",
+      "code" : "63730-6",
+      "display" : "What was your water supply [PEG]"
+    },
+    {
+      "system" : "http://loinc.org",
+      "version" : "2.74",
+      "code" : "63731-4",
+      "display" : "What was your water supply if other [PEG]"
+    },
+    {
+      "system" : "http://loinc.org",
+      "version" : "2.74",
+      "code" : "63732-2",
+      "display" : "Near fields or orchards [PEG]"
+    },
+    {
+      "system" : "http://loinc.org",
+      "version" : "2.74",
+      "code" : "63733-0",
+      "display" : "Did you live close to the center or margin of town [PEG]"
+    },
+    {
+      "system" : "http://loinc.org",
+      "version" : "2.74",
+      "code" : "63734-8",
+      "display" : "Were geocoordinates verified [PEG]"
+    },
+    {
+      "system" : "http://loinc.org",
+      "version" : "2.74",
+      "code" : "63735-5",
+      "display" : "How were the geocoordinates verified [PEG]"
+    },
+    {
+      "system" : "http://loinc.org",
+      "version" : "2.74",
+      "code" : "63736-3",
+      "display" : "Materials to which you were exposed in your work or daily life [ACSCP-II]"
+    },
+    {
+      "system" : "http://loinc.org",
+      "version" : "2.74",
+      "code" : "63737-1",
+      "display" : "In your work or daily life, were you regularly exposed to this material [ACSCP-II]"
+    },
+    {
+      "system" : "http://loinc.org",
+      "version" : "2.74",
+      "code" : "63738-9",
+      "display" : "How many years were you regularly exposed to this material [ACSCP-II]"
+    },
+    {
+      "system" : "http://loinc.org",
+      "version" : "2.74",
+      "code" : "63739-7",
+      "display" : "How many hours did you work last week at all jobs or businesses in the past week [NHANES]"
+    },
+    {
+      "system" : "http://loinc.org",
+      "version" : "2.74",
+      "code" : "63740-5",
+      "display" : "Do you usually work 35 hours or more per week in total at all jobs or businesses [NHANES]"
+    },
+    {
+      "system" : "http://loinc.org",
+      "version" : "2.74",
+      "code" : "63741-3",
+      "display" : "For whom did you work for at your main job or business [NHANES]"
+    },
+    {
+      "system" : "http://loinc.org",
+      "version" : "2.74",
+      "code" : "63742-1",
+      "display" : "What kind of business or industry is this [NHANES]"
+    },
+    {
+      "system" : "http://loinc.org",
+      "version" : "2.74",
+      "code" : "63743-9",
+      "display" : "What kind of work were you doing [NHANES]"
+    },
+    {
+      "system" : "http://loinc.org",
+      "version" : "2.74",
+      "code" : "63744-7",
+      "display" : "What were your most important activities on this job [NHANES]"
+    },
+    {
+      "system" : "http://loinc.org",
+      "version" : "2.74",
+      "code" : "63745-4",
+      "display" : "Which of the following best describes the hours you usually work at you main job or business [NHANES]"
+    },
+    {
+      "system" : "http://loinc.org",
+      "version" : "2.74",
+      "code" : "63746-2",
+      "display" : "About how long have you worked for your employer in your occupation [NHANES]"
+    },
+    {
+      "system" : "http://loinc.org",
+      "version" : "2.74",
+      "code" : "63748-8",
+      "display" : "What kind of work were you doing the longest [NHANES]"
+    },
+    {
+      "system" : "http://loinc.org",
+      "version" : "2.74",
+      "code" : "63749-6",
+      "display" : "What kind of business or industry did you work in for the longest period of time [NHANES]"
+    },
+    {
+      "system" : "http://loinc.org",
+      "version" : "2.74",
+      "code" : "63750-4",
+      "display" : "What were your most important activities on this job or business [NHANES]"
+    },
+    {
+      "system" : "http://loinc.org",
+      "version" : "2.74",
+      "code" : "63751-2",
+      "display" : "About how long did you work at that job or business"
+    },
+    {
+      "system" : "http://loinc.org",
+      "version" : "2.74",
+      "code" : "63752-0",
+      "display" : "Since the age 16, did you ever work for 6 months or more [NHANES]"
+    },
+    {
+      "system" : "http://loinc.org",
+      "version" : "2.74",
+      "code" : "63753-8",
+      "display" : "Job number [NHANES]"
+    },
+    {
+      "system" : "http://loinc.org",
+      "version" : "2.74",
+      "code" : "63754-6",
+      "display" : "What was the name of the company where you first or next worked, for 6 months or longer [NHANES]"
+    },
+    {
+      "system" : "http://loinc.org",
+      "version" : "2.74",
+      "code" : "63755-3",
+      "display" : "What was the job title of the first or next job you held at this company [NHANES]"
+    },
+    {
+      "system" : "http://loinc.org",
+      "version" : "2.74",
+      "code" : "63756-1",
+      "display" : "In what year did you start working at this job [NHANES]"
+    },
+    {
+      "system" : "http://loinc.org",
+      "version" : "2.74",
+      "code" : "63757-9",
+      "display" : "In what year did you stop working at this job [NHANES]"
+    },
+    {
+      "system" : "http://loinc.org",
+      "version" : "2.74",
+      "code" : "63758-7",
+      "display" : "What was the location of this company [Address] [NHANES]"
+    },
+    {
+      "system" : "http://loinc.org",
+      "version" : "2.74",
+      "code" : "63759-5",
+      "display" : "Was this a full-time or part-time job [NHANES]"
+    },
+    {
+      "system" : "http://loinc.org",
+      "version" : "2.74",
+      "code" : "63760-3",
+      "display" : "What did they make, or what service did they provide - what type of business was it [NHANES]"
+    },
+    {
+      "system" : "http://loinc.org",
+      "version" : "2.74",
+      "code" : "63761-1",
+      "display" : "What were your main activities or duties for this job [NHANES]"
+    },
+    {
+      "system" : "http://loinc.org",
+      "version" : "2.74",
+      "code" : "63762-9",
+      "display" : "What kinds of chemicals or materials did you handle in that job [NHANES]"
+    },
+    {
+      "system" : "http://loinc.org",
+      "version" : "2.74",
+      "code" : "63763-7",
+      "display" : "What kinds of tools and equipment did you use [NHANES]"
+    },
+    {
+      "system" : "http://loinc.org",
+      "version" : "2.74",
+      "code" : "63764-5",
+      "display" : "Hobby [LIBCSP]"
+    },
+    {
+      "system" : "http://loinc.org",
+      "version" : "2.74",
+      "code" : "63765-2",
+      "display" : "Have you participated for 6 months or longer in this hobby [LIBCSP]"
+    },
+    {
+      "system" : "http://loinc.org",
+      "version" : "2.74",
+      "code" : "63766-0",
+      "display" : "In what year were you first involved in this hobby [LIBCSP]"
+    },
+    {
+      "system" : "http://loinc.org",
+      "version" : "2.74",
+      "code" : "63767-8",
+      "display" : "In what year were you last involved in in this hobby [LIBCSP]"
+    },
+    {
+      "system" : "http://loinc.org",
+      "version" : "2.74",
+      "code" : "63768-6",
+      "display" : "Overall, for how many years were you involved in this hobby [LIBCSP]"
+    },
+    {
+      "system" : "http://loinc.org",
+      "version" : "2.74",
+      "code" : "63769-4",
+      "display" : "On average, about how many hours per week, month, or year have you participated in this hobby [LIBCSP]"
+    },
+    {
+      "system" : "http://loinc.org",
+      "version" : "2.74",
+      "code" : "63770-2",
+      "display" : "Other activities involving use of chemicals [LIBCSP]"
+    },
+    {
+      "system" : "http://loinc.org",
+      "version" : "2.74",
+      "code" : "63771-0",
+      "display" : "Does anyone who lives here smoke cigarettes, cigars, or pipes anywhere inside this home [NHANES]"
+    },
+    {
+      "system" : "http://loinc.org",
+      "version" : "2.74",
+      "code" : "63772-8",
+      "display" : "Who smokes [NHANES]"
+    },
+    {
+      "system" : "http://loinc.org",
+      "version" : "2.74",
+      "code" : "63773-6",
+      "display" : "How many cigarettes per day do you usually smoke anywhere inside the home [NHANES]"
+    },
+    {
+      "system" : "http://loinc.org",
+      "version" : "2.74",
+      "code" : "63774-4",
+      "display" : "At this job or business, that is at your employer, in your occupation, how many hours per day can you smell the smoke from other peoples cigarettes, cigars, or pipes [NHANES]"
+    },
+    {
+      "system" : "http://loinc.org",
+      "version" : "2.74",
+      "code" : "63775-1",
+      "display" : "How many full brothers do you have [#] [CBCS]"
+    },
+    {
+      "system" : "http://loinc.org",
+      "version" : "2.74",
+      "code" : "63776-9",
+      "display" : "How many full sisters do you have [#] [CBCS]"
+    },
+    {
+      "system" : "http://loinc.org",
+      "version" : "2.74",
+      "code" : "63777-7",
+      "display" : "Do you have a twin brother or sister [CBCS]"
+    },
+    {
+      "system" : "http://loinc.org",
+      "version" : "2.74",
+      "code" : "63778-5",
+      "display" : "Are you and your twin identical or not identical [CBCS]"
+    },
+    {
+      "system" : "http://loinc.org",
+      "version" : "2.74",
+      "code" : "63779-3",
+      "display" : "Sibling [CBCS]"
+    },
+    {
+      "system" : "http://loinc.org",
+      "version" : "2.74",
+      "code" : "63780-1",
+      "display" : "Who is the oldest or what is the first name of your next brother or sister [CBCS]"
+    },
+    {
+      "system" : "http://loinc.org",
+      "version" : "2.74",
+      "code" : "63781-9",
+      "display" : "Sex of Sibling"
+    },
+    {
+      "system" : "http://loinc.org",
+      "version" : "2.74",
+      "code" : "63782-7",
+      "display" : "Is this brother or sister still living [CBCS]"
+    },
+    {
+      "system" : "http://loinc.org",
+      "version" : "2.74",
+      "code" : "63783-5",
+      "display" : "How old is this brother or sister now or how old was brother or sister when he or she died [CBCS]"
+    },
+    {
+      "system" : "http://loinc.org",
+      "version" : "2.74",
+      "code" : "63784-3",
+      "display" : "Day care or preschool category [PhenX]"
+    },
+    {
+      "system" : "http://loinc.org",
+      "version" : "2.74",
+      "code" : "63785-0",
+      "display" : "In what month and year did child begin the first or next attendance at day care or preschool outside the home [PhenX]"
+    },
+    {
+      "system" : "http://loinc.org",
+      "version" : "2.74",
+      "code" : "63786-8",
+      "display" : "In what month and year did child end the first or next attendance of day care or preschool [PhenX]"
+    },
+    {
+      "system" : "http://loinc.org",
+      "version" : "2.74",
+      "code" : "63787-6",
+      "display" : "About how many hours per week did or does child attend day care or preschool outside the home [PhenX]"
+    },
+    {
+      "system" : "http://loinc.org",
+      "version" : "2.74",
+      "code" : "63788-4",
+      "display" : "Childs age at reference date [PhenX]"
+    },
+    {
+      "system" : "http://loinc.org",
+      "version" : "2.74",
+      "code" : "63789-2",
+      "display" : "Did your mother breastfeed you [LIBCSP]"
+    },
+    {
+      "system" : "http://loinc.org",
+      "version" : "2.74",
+      "code" : "63790-0",
+      "display" : "In the past year has there been a major renovation to this house or apartment, such as adding a room, putting up or taking down a wall, replacing windows, or refinishing floors [RIOPA]"
+    },
+    {
+      "system" : "http://loinc.org",
+      "version" : "2.74",
+      "code" : "63791-8",
+      "display" : "What type of renovation [RIOPA]"
+    },
+    {
+      "system" : "http://loinc.org",
+      "version" : "2.74",
+      "code" : "63792-6",
+      "display" : "When was the last renovation [RIOPA]"
+    },
+    {
+      "system" : "http://loinc.org",
+      "version" : "2.74",
+      "code" : "63793-4",
+      "display" : "Within the last 6 months were rugs, drapes or furniture professionally cleaned [RIOPA]"
+    },
+    {
+      "system" : "http://loinc.org",
+      "version" : "2.74",
+      "code" : "63794-2",
+      "display" : "Were they cleaned inside the house [RIOPA]"
+    },
+    {
+      "system" : "http://loinc.org",
+      "version" : "2.74",
+      "code" : "63795-9",
+      "display" : "When were they cleaned [RIOPA]"
+    },
+    {
+      "system" : "http://loinc.org",
+      "version" : "2.74",
+      "code" : "63796-7",
+      "display" : "What items were cleaned [RIOPA]"
+    },
+    {
+      "system" : "http://loinc.org",
+      "version" : "2.74",
+      "code" : "63797-5",
+      "display" : "In the past year, was the inside of this house or apartment painted [RIOPA]"
+    },
+    {
+      "system" : "http://loinc.org",
+      "version" : "2.74",
+      "code" : "63798-3",
+      "display" : "When was the last time the inside of this house or apartment was painted [RIOPA]"
+    },
+    {
+      "system" : "http://loinc.org",
+      "version" : "2.74",
+      "code" : "63799-1",
+      "display" : "How many rooms of the inside of this house or apartment were painted [#] [RIOPA]"
+    },
+    {
+      "system" : "http://loinc.org",
+      "version" : "2.74",
+      "code" : "63800-7",
+      "display" : "Did you go to the dry cleaners during the past week [PhenX]"
+    },
+    {
+      "system" : "http://loinc.org",
+      "version" : "2.74",
+      "code" : "63801-5",
+      "display" : "Did you bring home any items from the cleaners that were dry-cleaned during the past week [PhenX]"
+    },
+    {
+      "system" : "http://loinc.org",
+      "version" : "2.74",
+      "code" : "63802-3",
+      "display" : "Specify air contaminant in the home [RIOPA]"
+    },
+    {
+      "system" : "http://loinc.org",
+      "version" : "2.74",
+      "code" : "63803-1",
+      "display" : "Have you, or has someone near you, used this air contaminant in the last 48 hours [RIOPA]"
+    },
+    {
+      "system" : "http://loinc.org",
+      "version" : "2.74",
+      "code" : "63804-9",
+      "display" : "Did you handle this air contaminant yourself [RIOPA]"
+    },
+    {
+      "system" : "http://loinc.org",
+      "version" : "2.74",
+      "code" : "63805-6",
+      "display" : "How long did you handle this air contaminant yourself [RIOPA]"
+    },
+    {
+      "system" : "http://loinc.org",
+      "version" : "2.74",
+      "code" : "63806-4",
+      "display" : "Were you near somebody who handled this air contaminant [RIOPA]"
+    },
+    {
+      "system" : "http://loinc.org",
+      "version" : "2.74",
+      "code" : "63807-2",
+      "display" : "How long were you near somebody else who handled this air contaminant [RIOPA]"
+    },
+    {
+      "system" : "http://loinc.org",
+      "version" : "2.74",
+      "code" : "63808-0",
+      "display" : "Which cleaning solutions [RIOPA]"
+    },
+    {
+      "system" : "http://loinc.org",
+      "version" : "2.74",
+      "code" : "63809-8",
+      "display" : "During the last 48 hours, the study period, did you or anyone else park a car or other motor vehicle in [RIOPA]"
+    },
+    {
+      "system" : "http://loinc.org",
+      "version" : "2.74",
+      "code" : "63810-6",
+      "display" : "During the last 48 hours, the study period, did you or anyone else start a car or other motor vehicle in [RIOPA]"
+    },
+    {
+      "system" : "http://loinc.org",
+      "version" : "2.74",
+      "code" : "63811-4",
+      "display" : "During the last 48 hours, the study period, was there any diesel vehicles parked around the house [RIOPA]"
+    },
+    {
+      "system" : "http://loinc.org",
+      "version" : "2.74",
+      "code" : "63812-2",
+      "display" : "During the last 48 hours, the study period, have you operated or been near diesel engines, e.g. bus terminal, truck stop [RIOPA]"
+    },
+    {
+      "system" : "http://loinc.org",
+      "version" : "2.74",
+      "code" : "63813-0",
+      "display" : "Time vacuum bag was emptied [PhenX]"
+    },
+    {
+      "system" : "http://loinc.org",
+      "version" : "2.74",
+      "code" : "63814-8",
+      "display" : "Vacuum dust collection contaminant [PhenX]"
+    },
+    {
+      "system" : "http://loinc.org",
+      "version" : "2.74",
+      "code" : "63815-5",
+      "display" : "Name of vacuum dust collection contaminant [PhenX]"
+    },
+    {
+      "system" : "http://loinc.org",
+      "version" : "2.74",
+      "code" : "63816-3",
+      "display" : "Concentration of vacuum dust collection contaminant [Mass/volume] [PhenX]"
+    },
+    {
+      "system" : "http://loinc.org",
+      "version" : "2.74",
+      "code" : "63817-1",
+      "display" : "If you spent an hour in the mid-day sun for the first time without sunscreen, which of these reactions best describes what would happen to your skin [NHL]"
+    },
+    {
+      "system" : "http://loinc.org",
+      "version" : "2.74",
+      "code" : "63818-9",
+      "display" : "Who provided most of the responses in this section [NHANES]"
+    },
+    {
+      "system" : "http://loinc.org",
+      "version" : "2.74",
+      "code" : "63823-9",
+      "display" : "Did you ever get a blistering sunburn [NHL]"
+    },
+    {
+      "system" : "http://loinc.org",
+      "version" : "2.74",
+      "code" : "63824-7",
+      "display" : "Did you ever get a skin rash from sun exposure [NHL]"
+    },
+    {
+      "system" : "http://loinc.org",
+      "version" : "2.74",
+      "code" : "63825-4",
+      "display" : "Have you ever used a sunlamp [NHL]"
+    },
+    {
+      "system" : "http://loinc.org",
+      "version" : "2.74",
+      "code" : "63826-2",
+      "display" : "Have you ever used a tanning booth [NHL]"
+    },
+    {
+      "system" : "http://loinc.org",
+      "version" : "2.74",
+      "code" : "63827-0",
+      "display" : "Ultraviolet light exposure [NHL]"
+    },
+    {
+      "system" : "http://loinc.org",
+      "version" : "2.74",
+      "code" : "63828-8",
+      "display" : "Age group for ultraviolet light exposure [NHL]"
+    },
+    {
+      "system" : "http://loinc.org",
+      "version" : "2.74",
+      "code" : "63829-6",
+      "display" : "On a typical weekday in the summer, about how many hours did you generally spend in the mid-day sun [NHL]"
+    },
+    {
+      "system" : "http://loinc.org",
+      "version" : "2.74",
+      "code" : "63830-4",
+      "display" : "On a typical weekend day in the summer, about how many hours did you generally spend in the mid-day sun [NHL]"
+    },
+    {
+      "system" : "http://loinc.org",
+      "version" : "2.74",
+      "code" : "63831-2",
+      "display" : "Has there been renovation or repairs in your workspace because of moisture damage [FEAS]"
+    },
+    {
+      "system" : "http://loinc.org",
+      "version" : "2.74",
+      "code" : "63832-0",
+      "display" : "What is the floor material in your workspace [FEAS]"
+    },
+    {
+      "system" : "http://loinc.org",
+      "version" : "2.74",
+      "code" : "63833-8",
+      "display" : "Floor material in your workspace if other [FEAS]"
+    },
+    {
+      "system" : "http://loinc.org",
+      "version" : "2.74",
+      "code" : "63834-6",
+      "display" : "Is the wall material of your work space textile, cloth, jute, etc [FEAS]"
+    },
+    {
+      "system" : "http://loinc.org",
+      "version" : "2.74",
+      "code" : "63835-3",
+      "display" : "Is the wall material of your work space plastic [FEAS]"
+    },
+    {
+      "system" : "http://loinc.org",
+      "version" : "2.74",
+      "code" : "63836-1",
+      "display" : "Has there been renovation or repairs in your home due to moisture damage [FEAS]"
+    },
+    {
+      "system" : "http://loinc.org",
+      "version" : "2.74",
+      "code" : "63837-9",
+      "display" : "Has there been renovation in your home during the past 12 months [FEAS]"
+    },
+    {
+      "system" : "http://loinc.org",
+      "version" : "2.74",
+      "code" : "63838-7",
+      "display" : "Which of the following repairs was done in your home during the past 12 months [FEAS]"
+    },
+    {
+      "system" : "http://loinc.org",
+      "version" : "2.74",
+      "code" : "63839-5",
+      "display" : "Do you have wall-to-wall carpeting in your home [FEAS]"
+    },
+    {
+      "system" : "http://loinc.org",
+      "version" : "2.74",
+      "code" : "63840-3",
+      "display" : "Is the floor material in your home plastic or vinyl [FEAS]"
+    },
+    {
+      "system" : "http://loinc.org",
+      "version" : "2.74",
+      "code" : "63841-1",
+      "display" : "Is the wall material in your home textile, cloth, jute, etc [FEAS]"
+    },
+    {
+      "system" : "http://loinc.org",
+      "version" : "2.74",
+      "code" : "63842-9",
+      "display" : "Is the wall material in your home plastic [FEAS]"
+    },
+    {
+      "system" : "http://loinc.org",
+      "version" : "2.74",
+      "code" : "63843-7",
+      "display" : "Has child attended day care outside the home [PhenX]"
+    },
+    {
+      "system" : "http://loinc.org",
+      "version" : "2.74",
+      "code" : "63844-5",
+      "display" : "Has child attended preschool [PhenX]"
+    },
+    {
+      "system" : "http://loinc.org",
+      "version" : "2.74",
+      "code" : "63845-2",
+      "display" : "In the past year were new carpets or rugs installed [RIOPA]"
+    },
+    {
+      "system" : "http://loinc.org",
+      "version" : "2.74",
+      "code" : "63846-0",
+      "display" : "When was the installation [RIOPA]"
+    },
+    {
+      "system" : "http://loinc.org",
+      "version" : "2.74",
+      "code" : "63847-8",
+      "display" : "On how many rooms were new carpets or rugs installed [#] [RIOPA]"
+    },
+    {
+      "system" : "http://loinc.org",
+      "version" : "2.74",
+      "code" : "63849-4",
+      "display" : "Number of days vacuum has been used since changing bag or emptying the collection chamber [PhenX]"
+    },
+    {
+      "system" : "http://loinc.org",
+      "version" : "2.74",
+      "code" : "63850-2",
+      "display" : "Weight of dust collected [Mass] [PhenX]"
+    },
+    {
+      "system" : "http://loinc.org",
+      "version" : "2.74",
+      "code" : "63851-0",
+      "display" : "How old were you the first time you got this exposure [NHL]"
+    },
+    {
+      "system" : "http://loinc.org",
+      "version" : "2.74",
+      "code" : "63852-8",
+      "display" : "About how old were you the first time you got this exposure [NHL]"
+    },
+    {
+      "system" : "http://loinc.org",
+      "version" : "2.74",
+      "code" : "63853-6",
+      "display" : "How old were you the last time you got this exposure [NHL]"
+    },
+    {
+      "system" : "http://loinc.org",
+      "version" : "2.74",
+      "code" : "63854-4",
+      "display" : "About how old were you the last time you got this exposure [NHL]"
+    },
+    {
+      "system" : "http://loinc.org",
+      "version" : "2.74",
+      "code" : "63855-1",
+      "display" : "How many of these ultraviolet light exposures have you gotten in your life [#] [NHL]"
+    },
+    {
+      "system" : "http://loinc.org",
+      "version" : "2.74",
+      "code" : "63856-9",
+      "display" : "About how many of these ultraviolet light exposures have you gotten in your life [NHL]"
+    },
+    {
+      "system" : "http://loinc.org",
+      "version" : "2.74",
+      "code" : "63857-7",
+      "display" : "How many months a year did you usually have a tan [NHL]"
+    },
+    {
+      "system" : "http://loinc.org",
+      "version" : "2.74",
+      "code" : "63870-0",
+      "display" : "For how many hours per day were you exposed to smoke from other peoples cigarettes or tobacco products during this time at this location [PhenX]"
+    },
+    {
+      "system" : "http://loinc.org",
+      "version" : "2.74",
+      "code" : "63871-8",
+      "display" : "For how many years were you exposed to smoke from other peoples cigarettes or tobacco products during this time at this location [PhenX]"
+    },
+    {
+      "system" : "http://loinc.org",
+      "version" : "2.74",
+      "code" : "63872-6",
+      "display" : "At the present time, how many hours per day are you exposed to the smoke of others [PhenX]"
+    },
+    {
+      "system" : "http://loinc.org",
+      "version" : "2.74",
+      "code" : "63955-9",
+      "display" : "Time and location of passive smoke exposure [PhenX]"
+    },
+    {
+      "system" : "http://loinc.org",
+      "version" : "2.74",
+      "code" : "63956-7",
+      "display" : "Were you exposed to smoke from other peoples cigarettes or tobacco products during this time at this location [PhenX]"
+    },
+    {
+      "system" : "http://loinc.org",
+      "version" : "2.74",
+      "code" : "64010-2",
+      "display" : "Latitude for the residence [PEG]"
+    },
+    {
+      "system" : "http://loinc.org",
+      "version" : "2.74",
+      "code" : "64011-0",
+      "display" : "Longitude for the residence [PEG]"
+    },
+    {
+      "system" : "http://loinc.org",
+      "version" : "2.74",
+      "code" : "64035-9",
+      "display" : "Repair done in your home during the past 12 months if other [FEAS]"
+    },
+    {
+      "system" : "http://loinc.org",
+      "version" : "2.74",
+      "code" : "64036-7",
+      "display" : "What did they make, or what service did they provide [NHANES]"
+    },
+    {
+      "system" : "http://loinc.org",
+      "version" : "2.74",
+      "code" : "74781-6",
+      "display" : "Vacuum dust collection contaminant panel PhenX"
+    },
+    {
+      "system" : "http://loinc.org",
+      "version" : "2.74",
+      "code" : "81267-7",
+      "display" : "Setting of exposure to illness"
+    },
+    {
+      "system" : "http://loinc.org",
+      "version" : "2.74",
+      "code" : "8676-9",
+      "display" : "History of Industrial exposure"
+    },
+    {
+      "system" : "http://loinc.org",
+      "version" : "2.74",
+      "code" : "8683-5",
+      "display" : "History of Occupational exposure"
+    },
+    {
+      "system" : "http://loinc.org",
+      "version" : "2.74",
+      "code" : "88636-6",
+      "display" : "Known exposure [Identifier]"
+    },
+    {
+      "system" : "http://loinc.org",
+      "version" : "2.74",
+      "code" : "93848-0",
+      "display" : "Setting of exposure to environmental or occupational hazard"
+    },
+    {
+      "system" : "http://loinc.org",
+      "version" : "2.74",
+      "code" : "94652-5",
+      "display" : "Known exposure date"
+    },
+    {
+      "system" : "http://loinc.org",
+      "version" : "2.74",
+      "code" : "94656-6",
+      "display" : "State of known exposure"
+    },
+    {
+      "system" : "http://loinc.org",
+      "version" : "2.74",
+      "code" : "94658-2",
+      "display" : "City of known exposure"
+    }]
   }
 }

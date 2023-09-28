@@ -1,0 +1,107 @@
+{
+  "resourceType" : "ValueSet",
+  "id" : "2.16.840.1.113762.1.4.1078.519",
+  "meta" : {
+    "versionId" : "6",
+    "lastUpdated" : "2023-07-06T01:01:05.000-04:00",
+    "profile" : ["http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+    "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"]
+  },
+  "extension" : [{
+    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+    "valueString" : "Optum Author"
+  },
+  {
+    "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+    "valueDate" : "2023-07-06"
+  },
+  {
+    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+    "valueDate" : "2023-07-06"
+  }],
+  "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1078.519",
+  "identifier" : [{
+    "system" : "urn:ietf:rfc:3986",
+    "value" : "urn:oid:2.16.840.1.113762.1.4.1078.519"
+  }],
+  "version" : "20230706",
+  "name" : "DrugHypersensitivitySCT",
+  "title" : "Drug hypersensitivity SCT",
+  "status" : "active",
+  "date" : "2023-07-06T01:01:05-04:00",
+  "publisher" : "Optum Steward",
+  "jurisdiction" : [{
+    "extension" : [{
+      "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
+      "valueString" : "UNKNOWN"
+    }]
+  }],
+  "purpose" : "(Clinical Focus: Codes for drug hypersensitivity),(Data Element Scope: CONDITION: CLINICAL_DRIVER:),(Inclusion Criteria: SNOMED CT codes indicatiing drug hypersensitivity reaction),(Exclusion Criteria: None)",
+  "compose" : {
+    "include" : [{
+      "system" : "http://snomed.info/sct",
+      "version" : "http://snomed.info/sct/731000124108/version/20230301",
+      "filter" : [{
+        "property" : "concept",
+        "op" : "=",
+        "value" : "427640001"
+      }]
+    },
+    {
+      "system" : "http://snomed.info/sct",
+      "version" : "http://snomed.info/sct/731000124108/version/20230301",
+      "filter" : [{
+        "property" : "concept",
+        "op" : "is-a",
+        "value" : "735456000"
+      }]
+    },
+    {
+      "system" : "http://snomed.info/sct",
+      "version" : "http://snomed.info/sct/731000124108/version/20230301",
+      "filter" : [{
+        "property" : "concept",
+        "op" : "=",
+        "value" : "702809001"
+      }]
+    }]
+  },
+  "expansion" : {
+    "identifier" : "urn:uuid:a4bf047b-f356-42de-b5ee-5bcc9b5f288e",
+    "timestamp" : "2023-09-26T10:10:18-04:00",
+    "total" : 4,
+    "offset" : 0,
+    "parameter" : [{
+      "name" : "count",
+      "valueInteger" : 1000
+    },
+    {
+      "name" : "offset",
+      "valueInteger" : 0
+    }],
+    "contains" : [{
+      "system" : "http://snomed.info/sct",
+      "version" : "http://snomed.info/sct/731000124108/version/20230301",
+      "code" : "426364002",
+      "display" : "Allergic hepatitis (disorder)"
+    },
+    {
+      "system" : "http://snomed.info/sct",
+      "version" : "http://snomed.info/sct/731000124108/version/20230301",
+      "code" : "427640001",
+      "display" : "Non-allergic drug hypersensitivity disorder (disorder)"
+    },
+    {
+      "system" : "http://snomed.info/sct",
+      "version" : "http://snomed.info/sct/731000124108/version/20230301",
+      "code" : "702809001",
+      "display" : "Drug reaction with eosinophilia and systemic symptoms (disorder)"
+    },
+    {
+      "system" : "http://snomed.info/sct",
+      "version" : "http://snomed.info/sct/731000124108/version/20230301",
+      "code" : "735456000",
+      "display" : "Hypersensitivity disease of liver caused by drug (disorder)"
+    }]
+  }
+}

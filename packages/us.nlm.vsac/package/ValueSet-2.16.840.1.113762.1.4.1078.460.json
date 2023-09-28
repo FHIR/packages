@@ -4,162 +4,138 @@
   "meta" : {
     "versionId" : "5",
     "lastUpdated" : "2023-04-05T01:03:06.000-04:00",
-    "profile" : [
-      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
-      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
-    ]
+    "profile" : ["http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+    "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"]
   },
-  "extension" : [
-    {
-      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
-      "valueString" : "Optum Author"
-    },
-    {
-      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
-      "valueDate" : "2023-04-05"
-    },
-    {
-      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
-      "valueDate" : "2023-04-05"
-    }
-  ],
+  "extension" : [{
+    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+    "valueString" : "Optum Author"
+  },
+  {
+    "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+    "valueDate" : "2023-04-05"
+  },
+  {
+    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+    "valueDate" : "2023-04-05"
+  }],
   "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1078.460",
-  "identifier" : [
-    {
-      "system" : "urn:ietf:rfc:3986",
-      "value" : "urn:oid:2.16.840.1.113762.1.4.1078.460"
-    }
-  ],
+  "identifier" : [{
+    "system" : "urn:ietf:rfc:3986",
+    "value" : "urn:oid:2.16.840.1.113762.1.4.1078.460"
+  }],
   "version" : "20230405",
   "name" : "LiverCirrhosisI10",
   "title" : "Liver cirrhosis I10",
   "status" : "active",
   "date" : "2023-04-05T01:03:06-04:00",
   "publisher" : "Optum Steward",
-  "jurisdiction" : [
-    {
-      "extension" : [
-        {
-          "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
-          "valueString" : "UNKNOWN"
-        }
-      ]
-    }
-  ],
+  "jurisdiction" : [{
+    "extension" : [{
+      "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
+      "valueString" : "UNKNOWN"
+    }]
+  }],
   "purpose" : "(Clinical Focus: Liver cirrhosis),(Data Element Scope: CONDITION: CLINICAL_DRIVER:),(Inclusion Criteria: Liver cirrhosis regardless of etiology),(Exclusion Criteria: None)",
   "compose" : {
-    "include" : [
-      {
-        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-        "version" : "2023",
-        "filter" : [
-          {
-            "property" : "concept",
-            "op" : "in",
-            "value" : "K74.3,K74.4,K74.5,K74.6,K74.60,K74.69"
-          }
-        ]
-      },
-      {
-        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-        "version" : "2023",
-        "filter" : [
-          {
-            "modifierExtension" : [
-              {
-                "url" : "vsacOpModifier",
-                "valueString" : "leafOf"
-              }
-            ],
-            "property" : "concept",
-            "op" : "is-a",
-            "value" : "K70.3"
-          }
-        ]
-      },
-      {
-        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-        "version" : "2023",
-        "filter" : [
-          {
-            "property" : "concept",
-            "op" : "=",
-            "value" : "K71.7"
-          }
-        ]
-      }
-    ]
+    "include" : [{
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "filter" : [{
+        "property" : "concept",
+        "op" : "in",
+        "value" : "K74.3,K74.4,K74.5,K74.6,K74.60,K74.69"
+      }]
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "filter" : [{
+        "modifierExtension" : [{
+          "url" : "vsacOpModifier",
+          "valueString" : "leafOf"
+        }],
+        "property" : "concept",
+        "op" : "is-a",
+        "value" : "K70.3"
+      }]
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "filter" : [{
+        "property" : "concept",
+        "op" : "=",
+        "value" : "K71.7"
+      }]
+    }]
   },
   "expansion" : {
-    "identifier" : "urn:uuid:04b5d51c-8a6c-49ad-9e9b-0f08c2942fa2",
-    "timestamp" : "2023-06-29T18:18:27-04:00",
+    "identifier" : "urn:uuid:4a1fb126-6c65-45df-ba0b-d42cc880edc0",
+    "timestamp" : "2023-09-26T11:25:38-04:00",
     "total" : 9,
     "offset" : 0,
-    "parameter" : [
-      {
-        "name" : "count",
-        "valueInteger" : 1000
-      },
-      {
-        "name" : "offset",
-        "valueInteger" : 0
-      }
-    ],
-    "contains" : [
-      {
-        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-        "version" : "2023",
-        "code" : "K70.30",
-        "display" : "Alcoholic cirrhosis of liver without ascites"
-      },
-      {
-        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-        "version" : "2023",
-        "code" : "K70.31",
-        "display" : "Alcoholic cirrhosis of liver with ascites"
-      },
-      {
-        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-        "version" : "2023",
-        "code" : "K71.7",
-        "display" : "Toxic liver disease with fibrosis and cirrhosis of liver"
-      },
-      {
-        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-        "version" : "2023",
-        "code" : "K74.3",
-        "display" : "Primary biliary cirrhosis"
-      },
-      {
-        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-        "version" : "2023",
-        "code" : "K74.4",
-        "display" : "Secondary biliary cirrhosis"
-      },
-      {
-        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-        "version" : "2023",
-        "code" : "K74.5",
-        "display" : "Biliary cirrhosis, unspecified"
-      },
-      {
-        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-        "version" : "2023",
-        "code" : "K74.6",
-        "display" : "Other and unspecified cirrhosis of liver"
-      },
-      {
-        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-        "version" : "2023",
-        "code" : "K74.60",
-        "display" : "Unspecified cirrhosis of liver"
-      },
-      {
-        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-        "version" : "2023",
-        "code" : "K74.69",
-        "display" : "Other cirrhosis of liver"
-      }
-    ]
+    "parameter" : [{
+      "name" : "count",
+      "valueInteger" : 1000
+    },
+    {
+      "name" : "offset",
+      "valueInteger" : 0
+    }],
+    "contains" : [{
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "K70.30",
+      "display" : "Alcoholic cirrhosis of liver without ascites"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "K70.31",
+      "display" : "Alcoholic cirrhosis of liver with ascites"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "K71.7",
+      "display" : "Toxic liver disease with fibrosis and cirrhosis of liver"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "K74.3",
+      "display" : "Primary biliary cirrhosis"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "K74.4",
+      "display" : "Secondary biliary cirrhosis"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "K74.5",
+      "display" : "Biliary cirrhosis, unspecified"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "K74.6",
+      "display" : "Other and unspecified cirrhosis of liver"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "K74.60",
+      "display" : "Unspecified cirrhosis of liver"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "K74.69",
+      "display" : "Other cirrhosis of liver"
+    }]
   }
 }

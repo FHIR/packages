@@ -4,32 +4,26 @@
   "meta" : {
     "versionId" : "17",
     "lastUpdated" : "2021-09-13T14:39:55.000-04:00",
-    "profile" : [
-      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
-      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
-    ]
+    "profile" : ["http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+    "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"]
   },
-  "extension" : [
-    {
-      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
-      "valueString" : "NCQA PHEMUR Author"
-    },
-    {
-      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
-      "valueDate" : "2022-12-15"
-    },
-    {
-      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
-      "valueDate" : "2017-05-04"
-    }
-  ],
+  "extension" : [{
+    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+    "valueString" : "NCQA PHEMUR Author"
+  },
+  {
+    "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+    "valueDate" : "2022-12-15"
+  },
+  {
+    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+    "valueDate" : "2021-09-13"
+  }],
   "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.101.11.1035",
-  "identifier" : [
-    {
-      "system" : "urn:ietf:rfc:3986",
-      "value" : "urn:oid:2.16.840.1.113883.3.464.1003.101.11.1035"
-    }
-  ],
+  "identifier" : [{
+    "system" : "urn:ietf:rfc:3986",
+    "value" : "urn:oid:2.16.840.1.113883.3.464.1003.101.11.1035"
+  }],
   "version" : "20170504",
   "name" : "DischargeServicesHospitalInpatient",
   "title" : "Discharge Services Hospital Inpatient",
@@ -37,62 +31,50 @@
   "experimental" : false,
   "date" : "2017-05-04T01:00:13-04:00",
   "publisher" : "NCQA PHEMUR",
-  "jurisdiction" : [
-    {
-      "extension" : [
-        {
-          "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
-          "valueString" : "UNKNOWN"
-        }
-      ]
-    }
-  ],
+  "jurisdiction" : [{
+    "extension" : [{
+      "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
+      "valueString" : "UNKNOWN"
+    }]
+  }],
   "purpose" : "(Clinical Focus: The purpose of this value set is to represent concepts for encounters for inpatient hospital discharge services.),(Data Element Scope: This value set may use a model element related to Encounter.),(Inclusion Criteria: Includes concepts that represent an encounter for hospital discharge day management.),(Exclusion Criteria: Excludes concepts that represent encounters other than inpatient hospital discharge services.)",
   "compose" : {
-    "include" : [
+    "include" : [{
+      "system" : "http://www.ama-assn.org/go/cpt",
+      "concept" : [{
+        "code" : "99238",
+        "display" : "Hospital discharge day management; 30 minutes or less"
+      },
       {
-        "system" : "http://www.ama-assn.org/go/cpt",
-        "concept" : [
-          {
-            "code" : "99238",
-            "display" : "Hospital discharge day management; 30 minutes or less"
-          },
-          {
-            "code" : "99239",
-            "display" : "Hospital discharge day management; more than 30 minutes"
-          }
-        ]
-      }
-    ]
+        "code" : "99239",
+        "display" : "Hospital discharge day management; more than 30 minutes"
+      }]
+    }]
   },
   "expansion" : {
-    "identifier" : "urn:uuid:4b36ad30-33b5-43c6-89d2-fd8f4ce0c00e",
-    "timestamp" : "2023-06-29T17:05:13-04:00",
+    "identifier" : "urn:uuid:0ab66b54-d9c6-4599-b01b-ba61b8b0186e",
+    "timestamp" : "2023-09-26T10:07:27-04:00",
     "total" : 2,
     "offset" : 0,
-    "parameter" : [
-      {
-        "name" : "count",
-        "valueInteger" : 1000
-      },
-      {
-        "name" : "offset",
-        "valueInteger" : 0
-      }
-    ],
-    "contains" : [
-      {
-        "system" : "http://www.ama-assn.org/go/cpt",
-        "version" : "2023",
-        "code" : "99238",
-        "display" : "Hospital inpatient or observation discharge day management; 30 minutes or less on the date of the encounter"
-      },
-      {
-        "system" : "http://www.ama-assn.org/go/cpt",
-        "version" : "2023",
-        "code" : "99239",
-        "display" : "Hospital inpatient or observation discharge day management; more than 30 minutes on the date of the encounter"
-      }
-    ]
+    "parameter" : [{
+      "name" : "count",
+      "valueInteger" : 1000
+    },
+    {
+      "name" : "offset",
+      "valueInteger" : 0
+    }],
+    "contains" : [{
+      "system" : "http://www.ama-assn.org/go/cpt",
+      "version" : "2023",
+      "code" : "99238",
+      "display" : "Hospital inpatient or observation discharge day management; 30 minutes or less on the date of the encounter"
+    },
+    {
+      "system" : "http://www.ama-assn.org/go/cpt",
+      "version" : "2023",
+      "code" : "99239",
+      "display" : "Hospital inpatient or observation discharge day management; more than 30 minutes on the date of the encounter"
+    }]
   }
 }

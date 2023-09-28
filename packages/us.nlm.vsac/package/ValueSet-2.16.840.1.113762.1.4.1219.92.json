@@ -4,32 +4,26 @@
   "meta" : {
     "versionId" : "7",
     "lastUpdated" : "2022-03-15T01:04:14.000-04:00",
-    "profile" : [
-      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
-      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
-    ]
+    "profile" : ["http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+    "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"]
   },
-  "extension" : [
-    {
-      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
-      "valueString" : "CMS DRLS Author"
-    },
-    {
-      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
-      "valueDate" : "2022-12-15"
-    },
-    {
-      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
-      "valueDate" : "2022-03-15"
-    }
-  ],
+  "extension" : [{
+    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+    "valueString" : "CMS DRLS Author"
+  },
+  {
+    "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+    "valueDate" : "2022-12-15"
+  },
+  {
+    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+    "valueDate" : "2022-03-15"
+  }],
   "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1219.92",
-  "identifier" : [
-    {
-      "system" : "urn:ietf:rfc:3986",
-      "value" : "urn:oid:2.16.840.1.113762.1.4.1219.92"
-    }
-  ],
+  "identifier" : [{
+    "system" : "urn:ietf:rfc:3986",
+    "value" : "urn:oid:2.16.840.1.113762.1.4.1219.92"
+  }],
   "version" : "20220315",
   "name" : "PulmonaryHypertensionDisorderICD10CM",
   "title" : "Pulmonary Hypertension Disorder ICD10CM",
@@ -37,124 +31,108 @@
   "experimental" : false,
   "date" : "2022-03-15T01:04:14-04:00",
   "publisher" : "CMS DRLS Steward",
-  "jurisdiction" : [
-    {
-      "extension" : [
-        {
-          "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
-          "valueString" : "UNKNOWN"
-        }
-      ]
-    }
-  ],
+  "jurisdiction" : [{
+    "extension" : [{
+      "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
+      "valueString" : "UNKNOWN"
+    }]
+  }],
   "purpose" : "(Clinical Focus: Pulmonary hypertension.),(Data Element Scope: Pulmonary hypertension conditions that may require provision of medical equipment such as oxygen therapy, as defined by U.S. Centers for Medicare and Medicaid.),(Inclusion Criteria: Pulmonary hypertension.),(Exclusion Criteria: No exclusions.)",
   "compose" : {
-    "include" : [
-      {
-        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-        "version" : "2023",
-        "filter" : [
-          {
-            "property" : "concept",
-            "op" : "=",
-            "value" : "P29.30"
-          }
-        ]
-      },
-      {
-        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-        "version" : "2023",
-        "filter" : [
-          {
-            "property" : "concept",
-            "op" : "=",
-            "value" : "I27.0"
-          }
-        ]
-      },
-      {
-        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-        "version" : "2023",
-        "filter" : [
-          {
-            "property" : "concept",
-            "op" : "is-a",
-            "value" : "I27.2"
-          }
-        ]
-      }
-    ]
+    "include" : [{
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "filter" : [{
+        "property" : "concept",
+        "op" : "=",
+        "value" : "P29.30"
+      }]
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "filter" : [{
+        "property" : "concept",
+        "op" : "=",
+        "value" : "I27.0"
+      }]
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "filter" : [{
+        "property" : "concept",
+        "op" : "is-a",
+        "value" : "I27.2"
+      }]
+    }]
   },
   "expansion" : {
-    "identifier" : "urn:uuid:5b89ced2-9af5-4421-ba10-9e9975e1d621",
-    "timestamp" : "2023-06-29T19:34:17-04:00",
+    "identifier" : "urn:uuid:4a299ee4-3b95-47b6-9207-84c76cb06b76",
+    "timestamp" : "2023-09-26T12:49:10-04:00",
     "total" : 9,
     "offset" : 0,
-    "parameter" : [
-      {
-        "name" : "count",
-        "valueInteger" : 1000
-      },
-      {
-        "name" : "offset",
-        "valueInteger" : 0
-      }
-    ],
-    "contains" : [
-      {
-        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-        "version" : "2023",
-        "code" : "I27.0",
-        "display" : "Primary pulmonary hypertension"
-      },
-      {
-        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-        "version" : "2023",
-        "code" : "I27.2",
-        "display" : "Other secondary pulmonary hypertension"
-      },
-      {
-        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-        "version" : "2023",
-        "code" : "I27.20",
-        "display" : "Pulmonary hypertension, unspecified"
-      },
-      {
-        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-        "version" : "2023",
-        "code" : "I27.21",
-        "display" : "Secondary pulmonary arterial hypertension"
-      },
-      {
-        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-        "version" : "2023",
-        "code" : "I27.22",
-        "display" : "Pulmonary hypertension due to left heart disease"
-      },
-      {
-        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-        "version" : "2023",
-        "code" : "I27.23",
-        "display" : "Pulmonary hypertension due to lung diseases and hypoxia"
-      },
-      {
-        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-        "version" : "2023",
-        "code" : "I27.24",
-        "display" : "Chronic thromboembolic pulmonary hypertension"
-      },
-      {
-        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-        "version" : "2023",
-        "code" : "I27.29",
-        "display" : "Other secondary pulmonary hypertension"
-      },
-      {
-        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-        "version" : "2023",
-        "code" : "P29.30",
-        "display" : "Pulmonary hypertension of newborn"
-      }
-    ]
+    "parameter" : [{
+      "name" : "count",
+      "valueInteger" : 1000
+    },
+    {
+      "name" : "offset",
+      "valueInteger" : 0
+    }],
+    "contains" : [{
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "I27.0",
+      "display" : "Primary pulmonary hypertension"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "I27.2",
+      "display" : "Other secondary pulmonary hypertension"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "I27.20",
+      "display" : "Pulmonary hypertension, unspecified"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "I27.21",
+      "display" : "Secondary pulmonary arterial hypertension"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "I27.22",
+      "display" : "Pulmonary hypertension due to left heart disease"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "I27.23",
+      "display" : "Pulmonary hypertension due to lung diseases and hypoxia"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "I27.24",
+      "display" : "Chronic thromboembolic pulmonary hypertension"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "I27.29",
+      "display" : "Other secondary pulmonary hypertension"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "P29.30",
+      "display" : "Pulmonary hypertension of newborn"
+    }]
   }
 }

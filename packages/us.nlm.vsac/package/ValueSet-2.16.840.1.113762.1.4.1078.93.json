@@ -2,208 +2,217 @@
   "resourceType" : "ValueSet",
   "id" : "2.16.840.1.113762.1.4.1078.93",
   "meta" : {
-    "versionId" : "11",
-    "lastUpdated" : "2023-04-05T01:03:06.000-04:00",
-    "profile" : [
-      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
-      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
-    ]
+    "versionId" : "17",
+    "lastUpdated" : "2023-09-15T01:01:46.000-04:00",
+    "profile" : ["http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+    "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"]
   },
-  "extension" : [
-    {
-      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
-      "valueString" : "Optum Author"
-    },
-    {
-      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
-      "valueDate" : "2023-04-05"
-    },
-    {
-      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
-      "valueDate" : "2023-04-05"
-    }
-  ],
+  "extension" : [{
+    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+    "valueString" : "Optum Author"
+  },
+  {
+    "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+    "valueDate" : "2023-09-15"
+  },
+  {
+    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+    "valueDate" : "2023-09-15"
+  }],
   "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1078.93",
-  "identifier" : [
-    {
-      "system" : "urn:ietf:rfc:3986",
-      "value" : "urn:oid:2.16.840.1.113762.1.4.1078.93"
-    }
-  ],
-  "version" : "20230405",
-  "name" : "Albuminuria",
-  "title" : "Albuminuria",
+  "identifier" : [{
+    "system" : "urn:ietf:rfc:3986",
+    "value" : "urn:oid:2.16.840.1.113762.1.4.1078.93"
+  }],
+  "version" : "20230915",
+  "name" : "AlbuminuriaI10",
+  "title" : "Albuminuria I10",
   "status" : "active",
-  "date" : "2023-04-05T01:03:06-04:00",
+  "date" : "2023-09-15T01:01:46-04:00",
   "publisher" : "Optum Steward",
-  "description" : "Used for Grouping",
-  "jurisdiction" : [
-    {
-      "extension" : [
-        {
-          "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
-          "valueString" : "UNKNOWN"
-        }
-      ]
-    }
-  ],
+  "description" : "2023-09-11: N06.02 becomes non-billable 2024",
+  "jurisdiction" : [{
+    "extension" : [{
+      "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
+      "valueString" : "UNKNOWN"
+    }]
+  }],
   "purpose" : "(Clinical Focus: This set of values contains diagnosis terms representing all grades of Albuminuria. The intent of this set of values is to identify patients who have a diagnosis of any grade of Albuminuria.),(Data Element Scope: CONDITION: CLINICAL_DRIVER:),(Inclusion Criteria: Includes all grade of Albuminuria diagnosis.),(Exclusion Criteria: exercise caused Albuminuria)",
   "compose" : {
-    "include" : [
-      {
-        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-        "version" : "2023",
-        "filter" : [
-          {
-            "modifierExtension" : [
-              {
-                "url" : "vsacOpModifier",
-                "valueString" : "leafOf"
-              }
-            ],
-            "property" : "concept",
-            "op" : "is-a",
-            "value" : "R80"
-          }
-        ]
-      },
-      {
-        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-        "version" : "2023",
-        "filter" : [
-          {
-            "modifierExtension" : [
-              {
-                "url" : "vsacOpModifier",
-                "valueString" : "leafOf"
-              }
-            ],
-            "property" : "concept",
-            "op" : "is-a",
-            "value" : "N06"
-          }
-        ]
-      }
-    ]
+    "include" : [{
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "filter" : [{
+        "modifierExtension" : [{
+          "url" : "vsacOpModifier",
+          "valueString" : "leafOf"
+        }],
+        "property" : "concept",
+        "op" : "is-a",
+        "value" : "R80"
+      }]
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "filter" : [{
+        "modifierExtension" : [{
+          "url" : "vsacOpModifier",
+          "valueString" : "leafOf"
+        }],
+        "property" : "concept",
+        "op" : "is-a",
+        "value" : "N06"
+      }]
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "filter" : [{
+        "property" : "concept",
+        "op" : "=",
+        "value" : "N06.2"
+      }]
+    }]
   },
   "expansion" : {
-    "identifier" : "urn:uuid:7aeeebe5-a614-4e33-9252-133b68ffe063",
-    "timestamp" : "2023-06-29T15:34:52-04:00",
-    "total" : 17,
+    "identifier" : "urn:uuid:8edad15e-061d-42b0-bd70-20fa1c53c43e",
+    "timestamp" : "2023-09-26T07:45:37-04:00",
+    "total" : 21,
     "offset" : 0,
-    "parameter" : [
-      {
-        "name" : "count",
-        "valueInteger" : 1000
-      },
-      {
-        "name" : "offset",
-        "valueInteger" : 0
-      }
-    ],
-    "contains" : [
-      {
-        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-        "version" : "2023",
-        "code" : "N06.0",
-        "display" : "Isolated proteinuria with minor glomerular abnormality"
-      },
-      {
-        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-        "version" : "2023",
-        "code" : "N06.1",
-        "display" : "Isolated proteinuria with focal and segmental glomerular lesions"
-      },
-      {
-        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-        "version" : "2023",
-        "code" : "N06.2",
-        "display" : "Isolated proteinuria with diffuse membranous glomerulonephritis"
-      },
-      {
-        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-        "version" : "2023",
-        "code" : "N06.3",
-        "display" : "Isolated proteinuria with diffuse mesangial proliferative glomerulonephritis"
-      },
-      {
-        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-        "version" : "2023",
-        "code" : "N06.4",
-        "display" : "Isolated proteinuria with diffuse endocapillary proliferative glomerulonephritis"
-      },
-      {
-        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-        "version" : "2023",
-        "code" : "N06.5",
-        "display" : "Isolated proteinuria with diffuse mesangiocapillary glomerulonephritis"
-      },
-      {
-        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-        "version" : "2023",
-        "code" : "N06.6",
-        "display" : "Isolated proteinuria with dense deposit disease"
-      },
-      {
-        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-        "version" : "2023",
-        "code" : "N06.7",
-        "display" : "Isolated proteinuria with diffuse crescentic glomerulonephritis"
-      },
-      {
-        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-        "version" : "2023",
-        "code" : "N06.8",
-        "display" : "Isolated proteinuria with other morphologic lesion"
-      },
-      {
-        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-        "version" : "2023",
-        "code" : "N06.9",
-        "display" : "Isolated proteinuria with unspecified morphologic lesion"
-      },
-      {
-        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-        "version" : "2023",
-        "code" : "N06.A",
-        "display" : "Isolated proteinuria with C3 glomerulonephritis"
-      },
-      {
-        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-        "version" : "2023",
-        "code" : "R80.0",
-        "display" : "Isolated proteinuria"
-      },
-      {
-        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-        "version" : "2023",
-        "code" : "R80.1",
-        "display" : "Persistent proteinuria, unspecified"
-      },
-      {
-        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-        "version" : "2023",
-        "code" : "R80.2",
-        "display" : "Orthostatic proteinuria, unspecified"
-      },
-      {
-        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-        "version" : "2023",
-        "code" : "R80.3",
-        "display" : "Bence Jones proteinuria"
-      },
-      {
-        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-        "version" : "2023",
-        "code" : "R80.8",
-        "display" : "Other proteinuria"
-      },
-      {
-        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-        "version" : "2023",
-        "code" : "R80.9",
-        "display" : "Proteinuria, unspecified"
-      }
-    ]
+    "parameter" : [{
+      "name" : "count",
+      "valueInteger" : 1000
+    },
+    {
+      "name" : "offset",
+      "valueInteger" : 0
+    }],
+    "contains" : [{
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "N06.0",
+      "display" : "Isolated proteinuria with minor glomerular abnormality"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "N06.1",
+      "display" : "Isolated proteinuria with focal and segmental glomerular lesions"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "N06.2",
+      "display" : "Isolated proteinuria with diffuse membranous glomerulonephritis"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "N06.20",
+      "display" : "Isolated proteinuria with diffuse membranous glomerulonephritis, unspecified"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "N06.21",
+      "display" : "Primary membranous nephropathy with isolated proteinuria"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "N06.22",
+      "display" : "Secondary membranous nephropathy with isolated proteinuria"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "N06.29",
+      "display" : "Other isolated proteinuria with diffuse membranous glomerulonephritis"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "N06.3",
+      "display" : "Isolated proteinuria with diffuse mesangial proliferative glomerulonephritis"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "N06.4",
+      "display" : "Isolated proteinuria with diffuse endocapillary proliferative glomerulonephritis"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "N06.5",
+      "display" : "Isolated proteinuria with diffuse mesangiocapillary glomerulonephritis"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "N06.6",
+      "display" : "Isolated proteinuria with dense deposit disease"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "N06.7",
+      "display" : "Isolated proteinuria with diffuse crescentic glomerulonephritis"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "N06.8",
+      "display" : "Isolated proteinuria with other morphologic lesion"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "N06.9",
+      "display" : "Isolated proteinuria with unspecified morphologic lesion"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "N06.A",
+      "display" : "Isolated proteinuria with C3 glomerulonephritis"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "R80.0",
+      "display" : "Isolated proteinuria"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "R80.1",
+      "display" : "Persistent proteinuria, unspecified"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "R80.2",
+      "display" : "Orthostatic proteinuria, unspecified"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "R80.3",
+      "display" : "Bence Jones proteinuria"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "R80.8",
+      "display" : "Other proteinuria"
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "version" : "2024",
+      "code" : "R80.9",
+      "display" : "Proteinuria, unspecified"
+    }]
   }
 }

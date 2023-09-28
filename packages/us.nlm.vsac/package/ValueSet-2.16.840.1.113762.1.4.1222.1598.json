@@ -1,0 +1,91 @@
+{
+  "resourceType" : "ValueSet",
+  "id" : "2.16.840.1.113762.1.4.1222.1598",
+  "meta" : {
+    "versionId" : "8",
+    "lastUpdated" : "2023-07-21T01:01:06.000-04:00",
+    "profile" : ["http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+    "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"]
+  },
+  "extension" : [{
+    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+    "valueString" : "MCC eCare Plan Author"
+  },
+  {
+    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-keyWord",
+    "valueString" : "MCC_IG,MCC_Useful"
+  },
+  {
+    "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+    "valueDate" : "2023-07-21"
+  },
+  {
+    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+    "valueDate" : "2023-07-21"
+  }],
+  "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1222.1598",
+  "identifier" : [{
+    "system" : "urn:ietf:rfc:3986",
+    "value" : "urn:oid:2.16.840.1.113762.1.4.1222.1598"
+  }],
+  "version" : "20230721",
+  "name" : "CriminalJusticeInvolvementOrIncarcerationHistory",
+  "title" : "Criminal Justice Involvement or Incarceration History",
+  "status" : "active",
+  "date" : "2023-07-21T01:01:07-04:00",
+  "publisher" : "HL7 Patient Care WG Steward",
+  "description" : "This value set may undergo changes until the HL7 Multiple Chronic Care FHIR IG is formally published in 2024.",
+  "jurisdiction" : [{
+    "extension" : [{
+      "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
+      "valueString" : "UNKNOWN"
+    }]
+  }],
+  "purpose" : "(Clinical Focus: This set of values contain LOINC Panel codes pertaining to criminal justice involvement or incarceration in the past year.),(Data Element Scope: The intent of this set of values is to identify patients who have completed a questionnaire about criminal justice involvement, including incarceration in the past year.),(Inclusion Criteria: Includes LOINC panel codes for Criminal Justice Involvement or Incarceration History.),(Exclusion Criteria: )",
+  "compose" : {
+    "include" : [{
+      "system" : "http://loinc.org",
+      "version" : "2.74",
+      "filter" : [{
+        "property" : "concept",
+        "op" : "=",
+        "value" : "62940-2"
+      }]
+    },
+    {
+      "system" : "http://loinc.org",
+      "version" : "2.74",
+      "filter" : [{
+        "property" : "concept",
+        "op" : "=",
+        "value" : "62939-4"
+      }]
+    }]
+  },
+  "expansion" : {
+    "identifier" : "urn:uuid:f4c07003-eb0f-4a5d-bc86-fbef7d36f3fa",
+    "timestamp" : "2023-09-26T09:52:04-04:00",
+    "total" : 2,
+    "offset" : 0,
+    "parameter" : [{
+      "name" : "count",
+      "valueInteger" : 1000
+    },
+    {
+      "name" : "offset",
+      "valueInteger" : 0
+    }],
+    "contains" : [{
+      "system" : "http://loinc.org",
+      "version" : "2.74",
+      "code" : "62939-4",
+      "display" : "PhenX - crime and delinquency - adolescent protocol 181201"
+    },
+    {
+      "system" : "http://loinc.org",
+      "version" : "2.74",
+      "code" : "62940-2",
+      "display" : "PhenX - crime and delinquency - adult protocol 181202"
+    }]
+  }
+}
