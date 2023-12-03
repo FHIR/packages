@@ -4,26 +4,32 @@
   "meta" : {
     "versionId" : "9",
     "lastUpdated" : "2019-01-05T01:00:08.000-05:00",
-    "profile" : ["http://hl7.org/fhir/StructureDefinition/shareablevalueset",
-    "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"]
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "extension" : [{
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
-    "valueString" : "Oncology Nursing Society Author"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
-    "valueDate" : "2022-12-15"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
-    "valueDate" : "2019-01-05"
-  }],
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "Oncology Nursing Society Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2022-12-15"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2019-01-05"
+    }
+  ],
   "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.7643.2.1072",
-  "identifier" : [{
-    "system" : "urn:ietf:rfc:3986",
-    "value" : "urn:oid:2.16.840.1.113883.3.7643.2.1072"
-  }],
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113883.3.7643.2.1072"
+    }
+  ],
   "version" : "20190105",
   "name" : "HypothermiaNotDueToEnvironment",
   "title" : "Hypothermia Not Due to Environment",
@@ -31,50 +37,51 @@
   "experimental" : false,
   "date" : "2019-01-05T01:00:08-05:00",
   "publisher" : "Oncology Nursing Society Steward",
-  "jurisdiction" : [{
-    "extension" : [{
-      "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
-      "valueString" : "UNKNOWN"
-    }]
-  }],
+  "jurisdiction" : [
+    {
+      "coding" : [
+        {
+          "system" : "urn:iso:std:iso:3166",
+          "code" : "US"
+        }
+      ]
+    }
+  ],
   "purpose" : "(Clinical Focus: This value set contains concepts related to a diagnosis of hypothermia.),(Data Element Scope: This value set would use the Diagnosis QDM category.),(Inclusion Criteria: This value set contains concepts related to hypothermia with either an undocumented cause or which could have been caused by a specific substance or drug.),(Exclusion Criteria: This value set excludes concepts that specify other causes of hypothermia.)",
   "compose" : {
-    "include" : [{
-      "system" : "http://snomed.info/sct",
-      "concept" : [{
+    "include" : [
+      {
+        "system" : "http://snomed.info/sct",
+        "concept" : [
+          {
+            "code" : "123461000119109",
+            "display" : "Hypothermia not associated with low environmental temperature (finding)"
+          },
+          {
+            "code" : "386689009",
+            "display" : "Hypothermia (finding)"
+          }
+        ]
+      }
+    ]
+  },
+  "expansion" : {
+    "identifier" : "urn:uuid:1d8ed37c-04b7-491d-84e6-3d8af0e6da09",
+    "timestamp" : "2023-11-26T21:52:35-05:00",
+    "total" : 2,
+    "contains" : [
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20230901",
         "code" : "123461000119109",
         "display" : "Hypothermia not associated with low environmental temperature (finding)"
       },
       {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20230901",
         "code" : "386689009",
         "display" : "Hypothermia (finding)"
-      }]
-    }]
-  },
-  "expansion" : {
-    "identifier" : "urn:uuid:bc12cf35-e2f6-4f6e-8d6c-9168997f6eec",
-    "timestamp" : "2023-09-26T11:01:53-04:00",
-    "total" : 2,
-    "offset" : 0,
-    "parameter" : [{
-      "name" : "count",
-      "valueInteger" : 1000
-    },
-    {
-      "name" : "offset",
-      "valueInteger" : 0
-    }],
-    "contains" : [{
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "123461000119109",
-      "display" : "Hypothermia not associated with low environmental temperature (finding)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "386689009",
-      "display" : "Hypothermia (finding)"
-    }]
+      }
+    ]
   }
 }

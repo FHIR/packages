@@ -4,30 +4,36 @@
   "meta" : {
     "versionId" : "7",
     "lastUpdated" : "2017-08-01T01:00:05.000-04:00",
-    "profile" : ["http://hl7.org/fhir/StructureDefinition/shareablevalueset",
-    "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"]
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "extension" : [{
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
-    "valueString" : "PharmacyHIT Author"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-keyWord",
-    "valueString" : "Active"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
-    "valueDate" : "2022-12-27"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
-    "valueDate" : "2017-08-01"
-  }],
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "PharmacyHIT Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-keyWord",
+      "valueString" : "Active"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2022-12-27"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2017-08-01"
+    }
+  ],
   "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1096.95",
-  "identifier" : [{
-    "system" : "urn:ietf:rfc:3986",
-    "value" : "urn:oid:2.16.840.1.113762.1.4.1096.95"
-  }],
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113762.1.4.1096.95"
+    }
+  ],
   "version" : "20170801",
   "name" : "RecommendationsRelatedToMedicationRegimenChangeMedicationCourse",
   "title" : "Recommendations Related to Medication Regimen, Change Medication Course",
@@ -35,60 +41,61 @@
   "experimental" : false,
   "date" : "2017-08-01T01:00:05-04:00",
   "publisher" : "PharmacyHIT",
-  "jurisdiction" : [{
-    "extension" : [{
-      "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
-      "valueString" : "UNKNOWN"
-    }]
-  }],
+  "jurisdiction" : [
+    {
+      "coding" : [
+        {
+          "system" : "urn:iso:std:iso:3166",
+          "code" : "US"
+        }
+      ]
+    }
+  ],
   "purpose" : "(Clinical Focus: This value set contains codes that represent an instance where a provider recommends to a prescriber or provider in modify a medication course, or length of time the patient will be on the therapy, within a prescribed regimen.),(Data Element Scope: Datatype: Intervention\n\nThe intent of this data element is to document a drug therapy recommendation to modify a medication course within a prescribed treatment regimen.),(Inclusion Criteria: Codes that represent a recommendation to modify the course of a medication or therapy.),(Exclusion Criteria: Any codes that represent an explicit action has taken place or other codes for recommendations that are not specifically for changing a medication course.)",
   "compose" : {
-    "include" : [{
-      "system" : "http://snomed.info/sct",
-      "concept" : [{
+    "include" : [
+      {
+        "system" : "http://snomed.info/sct",
+        "concept" : [
+          {
+            "code" : "428721000124102",
+            "display" : "Recommendation to change medication course duration (procedure)"
+          },
+          {
+            "code" : "428731000124104",
+            "display" : "Recommendation to shorten medication course duration (procedure)"
+          },
+          {
+            "code" : "428741000124109",
+            "display" : "Recommendation to lengthen medication course duration (procedure)"
+          }
+        ]
+      }
+    ]
+  },
+  "expansion" : {
+    "identifier" : "urn:uuid:e8ed1ba0-5a3e-4478-b1d7-4755dc51bcf4",
+    "timestamp" : "2023-11-26T12:45:30-05:00",
+    "total" : 3,
+    "contains" : [
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20230901",
         "code" : "428721000124102",
         "display" : "Recommendation to change medication course duration (procedure)"
       },
       {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20230901",
         "code" : "428731000124104",
         "display" : "Recommendation to shorten medication course duration (procedure)"
       },
       {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20230901",
         "code" : "428741000124109",
         "display" : "Recommendation to lengthen medication course duration (procedure)"
-      }]
-    }]
-  },
-  "expansion" : {
-    "identifier" : "urn:uuid:c295bb2f-2ba7-4bc8-8f14-051d9de00377",
-    "timestamp" : "2023-09-26T12:52:08-04:00",
-    "total" : 3,
-    "offset" : 0,
-    "parameter" : [{
-      "name" : "count",
-      "valueInteger" : 1000
-    },
-    {
-      "name" : "offset",
-      "valueInteger" : 0
-    }],
-    "contains" : [{
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "428721000124102",
-      "display" : "Recommendation to change medication course duration (procedure)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "428731000124104",
-      "display" : "Recommendation to shorten medication course duration (procedure)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "428741000124109",
-      "display" : "Recommendation to lengthen medication course duration (procedure)"
-    }]
+      }
+    ]
   }
 }

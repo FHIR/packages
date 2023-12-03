@@ -4,26 +4,32 @@
   "meta" : {
     "versionId" : "6",
     "lastUpdated" : "2021-10-12T01:01:38.000-04:00",
-    "profile" : ["http://hl7.org/fhir/StructureDefinition/shareablevalueset",
-    "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"]
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "extension" : [{
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
-    "valueString" : "OPA Author"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
-    "valueDate" : "2022-12-15"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
-    "valueDate" : "2021-10-12"
-  }],
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "OPA Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2022-12-15"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2021-10-12"
+    }
+  ],
   "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1166.122",
-  "identifier" : [{
-    "system" : "urn:ietf:rfc:3986",
-    "value" : "urn:oid:2.16.840.1.113762.1.4.1166.122"
-  }],
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113762.1.4.1166.122"
+    }
+  ],
   "version" : "20211012",
   "name" : "PrenatalCareVisitsSNOMED",
   "title" : "Prenatal Care Visits SNOMED",
@@ -32,50 +38,51 @@
   "date" : "2021-10-12T01:01:38-04:00",
   "publisher" : "OPA Steward",
   "description" : "For Contraceptive eCQMs Approval for Trial Use application in Spring 2022; This set of values contains codes indicating visits for prenatal care.",
-  "jurisdiction" : [{
-    "extension" : [{
-      "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
-      "valueString" : "UNKNOWN"
-    }]
-  }],
+  "jurisdiction" : [
+    {
+      "coding" : [
+        {
+          "system" : "urn:iso:std:iso:3166",
+          "code" : "US"
+        }
+      ]
+    }
+  ],
   "purpose" : "(Clinical Focus: Family Planning - provision of most and moderately effective contraceptive methods, access to long-acting reversible contraception (LARC)),(Data Element Scope: Codes indicating general visits for prenatal care),(Inclusion Criteria: Codes indicating general visits for prenatal care),(Exclusion Criteria: Excluding online assessments and telephone visits)",
   "compose" : {
-    "include" : [{
-      "system" : "http://snomed.info/sct",
-      "concept" : [{
+    "include" : [
+      {
+        "system" : "http://snomed.info/sct",
+        "concept" : [
+          {
+            "code" : "281036007",
+            "display" : "Follow-up consultation (procedure)"
+          },
+          {
+            "code" : "77406008",
+            "display" : "Confirmatory medical consultation (procedure)"
+          }
+        ]
+      }
+    ]
+  },
+  "expansion" : {
+    "identifier" : "urn:uuid:6576fe2b-5222-49d8-b0f8-195000a34fa3",
+    "timestamp" : "2023-11-26T17:23:16-05:00",
+    "total" : 2,
+    "contains" : [
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20230901",
         "code" : "281036007",
         "display" : "Follow-up consultation (procedure)"
       },
       {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20230901",
         "code" : "77406008",
         "display" : "Confirmatory medical consultation (procedure)"
-      }]
-    }]
-  },
-  "expansion" : {
-    "identifier" : "urn:uuid:6bbdd401-1896-4a20-a048-9841cb021be1",
-    "timestamp" : "2023-09-26T12:40:47-04:00",
-    "total" : 2,
-    "offset" : 0,
-    "parameter" : [{
-      "name" : "count",
-      "valueInteger" : 1000
-    },
-    {
-      "name" : "offset",
-      "valueInteger" : 0
-    }],
-    "contains" : [{
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "281036007",
-      "display" : "Follow-up consultation (procedure)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "77406008",
-      "display" : "Confirmatory medical consultation (procedure)"
-    }]
+      }
+    ]
   }
 }

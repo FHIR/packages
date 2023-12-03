@@ -4,26 +4,32 @@
   "meta" : {
     "versionId" : "10",
     "lastUpdated" : "2015-11-05T01:00:01.000-05:00",
-    "profile" : ["http://hl7.org/fhir/StructureDefinition/shareablevalueset",
-    "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"]
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "extension" : [{
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
-    "valueString" : "Lantana Author"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
-    "valueDate" : "2022-12-15"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
-    "valueDate" : "2015-11-05"
-  }],
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "Lantana Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2022-12-15"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2015-11-05"
+    }
+  ],
   "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1046.115",
-  "identifier" : [{
-    "system" : "urn:ietf:rfc:3986",
-    "value" : "urn:oid:2.16.840.1.113762.1.4.1046.115"
-  }],
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113762.1.4.1046.115"
+    }
+  ],
   "version" : "20151105",
   "name" : "GlasgowComaScoreVerbal",
   "title" : "Glasgow Coma Score Verbal",
@@ -31,50 +37,51 @@
   "experimental" : false,
   "date" : "2015-11-05T01:00:01-05:00",
   "publisher" : "Joint Commission",
-  "jurisdiction" : [{
-    "extension" : [{
-      "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
-      "valueString" : "UNKNOWN"
-    }]
-  }],
+  "jurisdiction" : [
+    {
+      "coding" : [
+        {
+          "system" : "urn:iso:std:iso:3166",
+          "code" : "US"
+        }
+      ]
+    }
+  ],
   "purpose" : "(Clinical Focus: This set of values is part of a neurological assessment tool-the Glasgow Coma Score Verbal.  The person performing the physical exam determines based on clinical judgment and Glasgow Coma Score parameters at what level the verbal ability is currently.),(Data Element Scope: The intent of this data element is to identify patients who have had physical exam performed which includes the Glasgow Coma Score Verbal component.  Using the Quality Data Model, this element maps to the Physical, Exam: Performed datatype.),(Inclusion Criteria: This value set includes concepts that identify Glasgow Coma Scale Verbal Component for the best verbal response score by a patient.),(Exclusion Criteria: None)",
   "compose" : {
-    "include" : [{
-      "system" : "http://loinc.org",
-      "concept" : [{
+    "include" : [
+      {
+        "system" : "http://loinc.org",
+        "concept" : [
+          {
+            "code" : "11326-6",
+            "display" : "Glasgow coma score verbal at First encounter"
+          },
+          {
+            "code" : "9270-0",
+            "display" : "Glasgow coma score verbal"
+          }
+        ]
+      }
+    ]
+  },
+  "expansion" : {
+    "identifier" : "urn:uuid:53e64e67-00d4-41f0-b716-8c14de20a170",
+    "timestamp" : "2023-11-24T16:26:40-05:00",
+    "total" : 2,
+    "contains" : [
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.76",
         "code" : "11326-6",
         "display" : "Glasgow coma score verbal at First encounter"
       },
       {
+        "system" : "http://loinc.org",
+        "version" : "2.76",
         "code" : "9270-0",
         "display" : "Glasgow coma score verbal"
-      }]
-    }]
-  },
-  "expansion" : {
-    "identifier" : "urn:uuid:3cc5d086-0f07-4f19-8bb7-ab9e27ef6e2e",
-    "timestamp" : "2023-09-26T10:37:38-04:00",
-    "total" : 2,
-    "offset" : 0,
-    "parameter" : [{
-      "name" : "count",
-      "valueInteger" : 1000
-    },
-    {
-      "name" : "offset",
-      "valueInteger" : 0
-    }],
-    "contains" : [{
-      "system" : "http://loinc.org",
-      "version" : "2.74",
-      "code" : "11326-6",
-      "display" : "Glasgow coma score verbal at First encounter"
-    },
-    {
-      "system" : "http://loinc.org",
-      "version" : "2.74",
-      "code" : "9270-0",
-      "display" : "Glasgow coma score verbal"
-    }]
+      }
+    ]
   }
 }

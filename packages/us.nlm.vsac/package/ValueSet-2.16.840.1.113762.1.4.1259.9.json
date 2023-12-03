@@ -4,76 +4,83 @@
   "meta" : {
     "versionId" : "5",
     "lastUpdated" : "2023-08-17T01:00:54.000-04:00",
-    "profile" : ["http://hl7.org/fhir/StructureDefinition/shareablevalueset",
-    "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"]
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "extension" : [{
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
-    "valueString" : "One Medical Author"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
-    "valueDate" : "2023-08-17"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
-    "valueDate" : "2023-08-17"
-  }],
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "One Medical Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2023-08-17"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2023-08-17"
+    }
+  ],
   "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1259.9",
-  "identifier" : [{
-    "system" : "urn:ietf:rfc:3986",
-    "value" : "urn:oid:2.16.840.1.113762.1.4.1259.9"
-  }],
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113762.1.4.1259.9"
+    }
+  ],
   "version" : "20230817",
   "name" : "IgEAgonistsPrescribable",
   "title" : "IgE Agonists, prescribable",
   "status" : "active",
   "date" : "2023-08-17T01:00:54-04:00",
   "publisher" : "One Medical Steward",
-  "jurisdiction" : [{
-    "extension" : [{
-      "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
-      "valueString" : "UNKNOWN"
-    }]
-  }],
+  "jurisdiction" : [
+    {
+      "coding" : [
+        {
+          "system" : "urn:iso:std:iso:3166",
+          "code" : "US"
+        }
+      ]
+    }
+  ],
   "purpose" : "(Clinical Focus: The purpose of this value set is to represent concepts for IgE Agonists appropriate for asthma control.),(Data Element Scope: This value set may be used to represent a Medication.),(Inclusion Criteria: Includes concepts that describe a medication specific to prescribable SBD/SCD TTYs for Omalizumab.),(Exclusion Criteria: None)",
   "compose" : {
-    "include" : [{
-      "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "concept" : [{
+    "include" : [
+      {
+        "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "concept" : [
+          {
+            "code" : "1657209",
+            "display" : "omalizumab 150 MG Injection"
+          },
+          {
+            "code" : "1657212",
+            "display" : "omalizumab 150 MG Injection [Xolair]"
+          }
+        ]
+      }
+    ]
+  },
+  "expansion" : {
+    "identifier" : "urn:uuid:ee256627-2a63-4bb9-a8bf-e4136a32a66e",
+    "timestamp" : "2023-11-26T19:20:14-05:00",
+    "total" : 2,
+    "contains" : [
+      {
+        "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "version" : "11062023",
         "code" : "1657209",
         "display" : "omalizumab 150 MG Injection"
       },
       {
+        "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "version" : "11062023",
         "code" : "1657212",
         "display" : "omalizumab 150 MG Injection [Xolair]"
-      }]
-    }]
-  },
-  "expansion" : {
-    "identifier" : "urn:uuid:dd4b761f-f79e-435e-8a4b-34854ecbf568",
-    "timestamp" : "2023-09-26T11:03:12-04:00",
-    "total" : 2,
-    "offset" : 0,
-    "parameter" : [{
-      "name" : "count",
-      "valueInteger" : 1000
-    },
-    {
-      "name" : "offset",
-      "valueInteger" : 0
-    }],
-    "contains" : [{
-      "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version" : "09052023",
-      "code" : "1657209",
-      "display" : "omalizumab 150 MG Injection"
-    },
-    {
-      "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version" : "09052023",
-      "code" : "1657212",
-      "display" : "omalizumab 150 MG Injection [Xolair]"
-    }]
+      }
+    ]
   }
 }

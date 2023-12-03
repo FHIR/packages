@@ -4,80 +4,87 @@
   "meta" : {
     "versionId" : "5",
     "lastUpdated" : "2023-01-25T01:08:07.000-05:00",
-    "profile" : ["http://hl7.org/fhir/StructureDefinition/shareablevalueset",
-    "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"]
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "extension" : [{
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
-    "valueString" : "CSTE Author"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-keyWord",
-    "valueString" : "G_Common"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
-    "valueDate" : "2023-01-25"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
-    "valueDate" : "2023-01-25"
-  }],
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "CSTE Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-keyWord",
+      "valueString" : "G_Common"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2023-01-25"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2023-01-25"
+    }
+  ],
   "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1146.2010",
-  "identifier" : [{
-    "system" : "urn:ietf:rfc:3986",
-    "value" : "urn:oid:2.16.840.1.113762.1.4.1146.2010"
-  }],
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113762.1.4.1146.2010"
+    }
+  ],
   "version" : "20230125",
   "name" : "EosinophilsConcentrationTestsInCSFByAnyMethod",
   "title" : "Eosinophils [Concentration] (Tests in CSF by Any Method)",
   "status" : "active",
   "date" : "2023-01-25T01:08:07-05:00",
   "publisher" : "CSTE Steward",
-  "jurisdiction" : [{
-    "extension" : [{
-      "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
-      "valueString" : "UNKNOWN"
-    }]
-  }],
+  "jurisdiction" : [
+    {
+      "coding" : [
+        {
+          "system" : "urn:iso:std:iso:3166",
+          "code" : "US"
+        }
+      ]
+    }
+  ],
   "purpose" : "(Clinical Focus: This set of values contains codes for laboratory test names associated with measuring Eosinophils [Concentration] (Tests in CSF by Any Method)),(Data Element Scope: Laboratory tests names that were ordered or observed.),(Inclusion Criteria: Eosinophils [Concentration] CSF),(Exclusion Criteria: none)",
   "compose" : {
-    "include" : [{
-      "system" : "http://loinc.org",
-      "concept" : [{
+    "include" : [
+      {
+        "system" : "http://loinc.org",
+        "concept" : [
+          {
+            "code" : "34957-1",
+            "display" : "Eosinophils [#/volume] in Cerebral spinal fluid by Manual count"
+          },
+          {
+            "code" : "34958-9",
+            "display" : "Eosinophils [#/volume] in Cerebral spinal fluid"
+          }
+        ]
+      }
+    ]
+  },
+  "expansion" : {
+    "identifier" : "urn:uuid:b5c06bab-da1d-4e42-b872-7ab0955b3916",
+    "timestamp" : "2023-11-26T17:01:18-05:00",
+    "total" : 2,
+    "contains" : [
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.76",
         "code" : "34957-1",
         "display" : "Eosinophils [#/volume] in Cerebral spinal fluid by Manual count"
       },
       {
+        "system" : "http://loinc.org",
+        "version" : "2.76",
         "code" : "34958-9",
         "display" : "Eosinophils [#/volume] in Cerebral spinal fluid"
-      }]
-    }]
-  },
-  "expansion" : {
-    "identifier" : "urn:uuid:f2548a0e-54d0-4b22-bfed-57ece779fdfa",
-    "timestamp" : "2023-09-26T10:19:54-04:00",
-    "total" : 2,
-    "offset" : 0,
-    "parameter" : [{
-      "name" : "count",
-      "valueInteger" : 1000
-    },
-    {
-      "name" : "offset",
-      "valueInteger" : 0
-    }],
-    "contains" : [{
-      "system" : "http://loinc.org",
-      "version" : "2.74",
-      "code" : "34957-1",
-      "display" : "Eosinophils [#/volume] in Cerebral spinal fluid by Manual count"
-    },
-    {
-      "system" : "http://loinc.org",
-      "version" : "2.74",
-      "code" : "34958-9",
-      "display" : "Eosinophils [#/volume] in Cerebral spinal fluid"
-    }]
+      }
+    ]
   }
 }

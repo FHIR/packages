@@ -4,26 +4,32 @@
   "meta" : {
     "versionId" : "9",
     "lastUpdated" : "2023-02-23T13:29:12.000-05:00",
-    "profile" : ["http://hl7.org/fhir/StructureDefinition/shareablevalueset",
-    "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"]
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "extension" : [{
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
-    "valueString" : "B.well Connected Health Author"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
-    "valueDate" : "2023-01-18"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
-    "valueDate" : "2023-02-23"
-  }],
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "B.well Connected Health Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2023-01-18"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2023-02-23"
+    }
+  ],
   "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1235.174",
-  "identifier" : [{
-    "system" : "urn:ietf:rfc:3986",
-    "value" : "urn:oid:2.16.840.1.113762.1.4.1235.174"
-  }],
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113762.1.4.1235.174"
+    }
+  ],
   "version" : "20230118",
   "name" : "SystolicBloodPressure_HD_CPT",
   "title" : "Systolic Blood Pressure_HD_CPT",
@@ -31,60 +37,61 @@
   "date" : "2023-01-18T01:03:05-05:00",
   "publisher" : "B.well Connected Health Steward",
   "description" : "b.well created value set by Sr. Clinical Business Analyst for Blood Pressure.",
-  "jurisdiction" : [{
-    "extension" : [{
-      "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
-      "valueString" : "UNKNOWN"
-    }]
-  }],
+  "jurisdiction" : [
+    {
+      "coding" : [
+        {
+          "system" : "urn:iso:std:iso:3166",
+          "code" : "US"
+        }
+      ]
+    }
+  ],
   "purpose" : "(Clinical Focus: The intent of this value set is for the purpose of defining the clinical codes that constitute Blood Pressure for inclusion and utilization in patients/users connected heath.),(Data Element Scope: Blood Pressure for b.well.),(Inclusion Criteria: Blood Pressure Codes that constitute the Blood Pressure for b.well.),(Exclusion Criteria: N/A)",
   "compose" : {
-    "include" : [{
-      "system" : "http://www.ama-assn.org/go/cpt",
-      "concept" : [{
+    "include" : [
+      {
+        "system" : "http://www.ama-assn.org/go/cpt",
+        "concept" : [
+          {
+            "code" : "3074F",
+            "display" : "Most recent systolic blood pressure less than 130 mm Hg (DM) (HTN, CKD, CAD)"
+          },
+          {
+            "code" : "3075F",
+            "display" : "Most recent systolic blood pressure 130-139 mm Hg (DM) (HTN, CKD, CAD)"
+          },
+          {
+            "code" : "3077F",
+            "display" : "Most recent systolic blood pressure greater than or equal to 140 mm Hg (HTN, CKD, CAD) (DM)"
+          }
+        ]
+      }
+    ]
+  },
+  "expansion" : {
+    "identifier" : "urn:uuid:a367a01c-e787-4b2d-9374-2bf4689d9ee2",
+    "timestamp" : "2023-11-26T19:03:04-05:00",
+    "total" : 3,
+    "contains" : [
+      {
+        "system" : "http://www.ama-assn.org/go/cpt",
+        "version" : "2024",
         "code" : "3074F",
         "display" : "Most recent systolic blood pressure less than 130 mm Hg (DM) (HTN, CKD, CAD)"
       },
       {
+        "system" : "http://www.ama-assn.org/go/cpt",
+        "version" : "2024",
         "code" : "3075F",
         "display" : "Most recent systolic blood pressure 130-139 mm Hg (DM) (HTN, CKD, CAD)"
       },
       {
+        "system" : "http://www.ama-assn.org/go/cpt",
+        "version" : "2024",
         "code" : "3077F",
         "display" : "Most recent systolic blood pressure greater than or equal to 140 mm Hg (HTN, CKD, CAD) (DM)"
-      }]
-    }]
-  },
-  "expansion" : {
-    "identifier" : "urn:uuid:f15ea71f-6623-476f-a9e8-2d7a484c2887",
-    "timestamp" : "2023-09-26T13:27:11-04:00",
-    "total" : 3,
-    "offset" : 0,
-    "parameter" : [{
-      "name" : "count",
-      "valueInteger" : 1000
-    },
-    {
-      "name" : "offset",
-      "valueInteger" : 0
-    }],
-    "contains" : [{
-      "system" : "http://www.ama-assn.org/go/cpt",
-      "version" : "2023",
-      "code" : "3074F",
-      "display" : "Most recent systolic blood pressure less than 130 mm Hg (DM) (HTN, CKD, CAD)"
-    },
-    {
-      "system" : "http://www.ama-assn.org/go/cpt",
-      "version" : "2023",
-      "code" : "3075F",
-      "display" : "Most recent systolic blood pressure 130-139 mm Hg (DM) (HTN, CKD, CAD)"
-    },
-    {
-      "system" : "http://www.ama-assn.org/go/cpt",
-      "version" : "2023",
-      "code" : "3077F",
-      "display" : "Most recent systolic blood pressure greater than or equal to 140 mm Hg (HTN, CKD, CAD) (DM)"
-    }]
+      }
+    ]
   }
 }

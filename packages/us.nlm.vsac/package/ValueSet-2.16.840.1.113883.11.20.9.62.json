@@ -4,26 +4,32 @@
   "meta" : {
     "versionId" : "3",
     "lastUpdated" : "2017-04-26T01:00:03.000-04:00",
-    "profile" : ["http://hl7.org/fhir/StructureDefinition/shareablevalueset",
-    "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"]
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "extension" : [{
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
-    "valueString" : "HL7 Structured Documents WG"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
-    "valueDate" : "2022-12-15"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
-    "valueDate" : "2017-04-26"
-  }],
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "HL7 Structured Documents WG"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2022-12-15"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2017-04-26"
+    }
+  ],
   "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.11.20.9.62",
-  "identifier" : [{
-    "system" : "urn:ietf:rfc:3986",
-    "value" : "urn:oid:2.16.840.1.113883.11.20.9.62"
-  }],
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113883.11.20.9.62"
+    }
+  ],
   "version" : "20170426",
   "name" : "RelatedDocumentAppendReplace",
   "title" : "Related Document (append/replace)",
@@ -31,50 +37,51 @@
   "experimental" : false,
   "date" : "2017-04-26T01:00:03-04:00",
   "publisher" : "HL7 Terminology",
-  "jurisdiction" : [{
-    "extension" : [{
-      "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
-      "valueString" : "UNKNOWN"
-    }]
-  }],
+  "jurisdiction" : [
+    {
+      "coding" : [
+        {
+          "system" : "urn:iso:std:iso:3166",
+          "code" : "US"
+        }
+      ]
+    }
+  ],
   "purpose" : "(Clinical Focus: Describes the relationship of a new document to the parent document),(Data Element Scope: C-CDA r2.1 CarePlan template relatedDocument Typecode CONF:1198-31889),(Inclusion Criteria: two selected concepts only),(Exclusion Criteria: as noted)",
   "compose" : {
-    "include" : [{
-      "system" : "http://terminology.hl7.org/CodeSystem/v3-ActRelationshipType",
-      "concept" : [{
+    "include" : [
+      {
+        "system" : "http://terminology.hl7.org/CodeSystem/v3-ActRelationshipType",
+        "concept" : [
+          {
+            "code" : "APND",
+            "display" : "is appendage"
+          },
+          {
+            "code" : "RPLC",
+            "display" : "replaces"
+          }
+        ]
+      }
+    ]
+  },
+  "expansion" : {
+    "identifier" : "urn:uuid:24d56dd3-24a3-40ee-acce-eef13599b630",
+    "timestamp" : "2023-11-26T19:28:31-05:00",
+    "total" : 2,
+    "contains" : [
+      {
+        "system" : "http://terminology.hl7.org/CodeSystem/v3-ActRelationshipType",
+        "version" : "2023-02-01",
         "code" : "APND",
         "display" : "is appendage"
       },
       {
+        "system" : "http://terminology.hl7.org/CodeSystem/v3-ActRelationshipType",
+        "version" : "2023-02-01",
         "code" : "RPLC",
         "display" : "replaces"
-      }]
-    }]
-  },
-  "expansion" : {
-    "identifier" : "urn:uuid:65d78fd1-ae58-4043-86d2-8490359f718f",
-    "timestamp" : "2023-09-26T12:54:15-04:00",
-    "total" : 2,
-    "offset" : 0,
-    "parameter" : [{
-      "name" : "count",
-      "valueInteger" : 1000
-    },
-    {
-      "name" : "offset",
-      "valueInteger" : 0
-    }],
-    "contains" : [{
-      "system" : "http://terminology.hl7.org/CodeSystem/v3-ActRelationshipType",
-      "version" : "2023-02-01",
-      "code" : "APND",
-      "display" : "is appendage"
-    },
-    {
-      "system" : "http://terminology.hl7.org/CodeSystem/v3-ActRelationshipType",
-      "version" : "2023-02-01",
-      "code" : "RPLC",
-      "display" : "replaces"
-    }]
+      }
+    ]
   }
 }

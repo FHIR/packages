@@ -4,111 +4,124 @@
   "meta" : {
     "versionId" : "10",
     "lastUpdated" : "2023-03-21T01:03:39.000-04:00",
-    "profile" : ["http://hl7.org/fhir/StructureDefinition/shareablevalueset",
-    "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"]
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "extension" : [{
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
-    "valueString" : "Optum Author"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
-    "valueDate" : "2023-03-21"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
-    "valueDate" : "2023-03-21"
-  }],
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "Optum Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2023-03-21"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2023-03-21"
+    }
+  ],
   "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1078.162",
-  "identifier" : [{
-    "system" : "urn:ietf:rfc:3986",
-    "value" : "urn:oid:2.16.840.1.113762.1.4.1078.162"
-  }],
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113762.1.4.1078.162"
+    }
+  ],
   "version" : "20230321",
   "name" : "AllergicRhinitisI10",
   "title" : "Allergic Rhinitis I10",
   "status" : "active",
   "date" : "2023-03-21T01:03:39-04:00",
   "publisher" : "Optum Steward",
-  "jurisdiction" : [{
-    "extension" : [{
-      "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
-      "valueString" : "UNKNOWN"
-    }]
-  }],
+  "jurisdiction" : [
+    {
+      "coding" : [
+        {
+          "system" : "urn:iso:std:iso:3166",
+          "code" : "US"
+        }
+      ]
+    }
+  ],
   "purpose" : "(Clinical Focus: This value set contains concepts that represent a diagnosis of COPD),(Data Element Scope: CONDITION: CLINICAL_DRIVER:),(Inclusion Criteria: Includes relevant concepts from ICD10 CM and SNOMEDCT\u00a0 associated with a diagnosis of allergic rhinitis),(Exclusion Criteria: Excludes all non-billable ICD10CM codes, Vasomotor rhinitis J30*)",
   "compose" : {
-    "include" : [{
-      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-      "version" : "2024",
-      "filter" : [{
-        "modifierExtension" : [{
-          "url" : "vsacOpModifier",
-          "valueString" : "leafOf"
-        }],
-        "property" : "concept",
-        "op" : "is-a",
-        "value" : "J30"
-      }]
-    }],
-    "exclude" : [{
-      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-      "version" : "2024",
-      "filter" : [{
-        "property" : "concept",
-        "op" : "=",
-        "value" : "J30.0"
-      }]
-    }]
+    "include" : [
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2024",
+        "filter" : [
+          {
+            "modifierExtension" : [
+              {
+                "url" : "vsacOpModifier",
+                "valueString" : "leafOf"
+              }
+            ],
+            "property" : "concept",
+            "op" : "is-a",
+            "value" : "J30"
+          }
+        ]
+      }
+    ],
+    "exclude" : [
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2024",
+        "filter" : [
+          {
+            "property" : "concept",
+            "op" : "=",
+            "value" : "J30.0"
+          }
+        ]
+      }
+    ]
   },
   "expansion" : {
-    "identifier" : "urn:uuid:86d449de-4243-4854-a666-4e6f1db3e9ff",
-    "timestamp" : "2023-09-26T07:47:56-04:00",
+    "identifier" : "urn:uuid:68660afa-4542-42e2-b2f3-df1efb4fae53",
+    "timestamp" : "2023-11-24T16:34:26-05:00",
     "total" : 6,
-    "offset" : 0,
-    "parameter" : [{
-      "name" : "count",
-      "valueInteger" : 1000
-    },
-    {
-      "name" : "offset",
-      "valueInteger" : 0
-    }],
-    "contains" : [{
-      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-      "version" : "2024",
-      "code" : "J30.1",
-      "display" : "Allergic rhinitis due to pollen"
-    },
-    {
-      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-      "version" : "2024",
-      "code" : "J30.2",
-      "display" : "Other seasonal allergic rhinitis"
-    },
-    {
-      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-      "version" : "2024",
-      "code" : "J30.5",
-      "display" : "Allergic rhinitis due to food"
-    },
-    {
-      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-      "version" : "2024",
-      "code" : "J30.81",
-      "display" : "Allergic rhinitis due to animal (cat) (dog) hair and dander"
-    },
-    {
-      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-      "version" : "2024",
-      "code" : "J30.89",
-      "display" : "Other allergic rhinitis"
-    },
-    {
-      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-      "version" : "2024",
-      "code" : "J30.9",
-      "display" : "Allergic rhinitis, unspecified"
-    }]
+    "contains" : [
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2024",
+        "code" : "J30.1",
+        "display" : "Allergic rhinitis due to pollen"
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2024",
+        "code" : "J30.2",
+        "display" : "Other seasonal allergic rhinitis"
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2024",
+        "code" : "J30.5",
+        "display" : "Allergic rhinitis due to food"
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2024",
+        "code" : "J30.81",
+        "display" : "Allergic rhinitis due to animal (cat) (dog) hair and dander"
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2024",
+        "code" : "J30.89",
+        "display" : "Other allergic rhinitis"
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2024",
+        "code" : "J30.9",
+        "display" : "Allergic rhinitis, unspecified"
+      }
+    ]
   }
 }

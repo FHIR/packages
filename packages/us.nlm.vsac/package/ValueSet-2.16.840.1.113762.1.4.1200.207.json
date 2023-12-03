@@ -4,26 +4,32 @@
   "meta" : {
     "versionId" : "6",
     "lastUpdated" : "2021-11-23T01:01:55.000-05:00",
-    "profile" : ["http://hl7.org/fhir/StructureDefinition/shareablevalueset",
-    "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"]
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "extension" : [{
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
-    "valueString" : "Cliniwiz Author"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
-    "valueDate" : "2023-01-31"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
-    "valueDate" : "2021-11-23"
-  }],
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "Cliniwiz Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2023-01-31"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2021-11-23"
+    }
+  ],
   "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1200.207",
-  "identifier" : [{
-    "system" : "urn:ietf:rfc:3986",
-    "value" : "urn:oid:2.16.840.1.113762.1.4.1200.207"
-  }],
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113762.1.4.1200.207"
+    }
+  ],
   "version" : "20211123",
   "name" : "DischargeDispositionStatusPatientExpired",
   "title" : "Discharge Disposition status,Patient Expired",
@@ -31,50 +37,51 @@
   "experimental" : false,
   "date" : "2021-11-23T01:01:55-05:00",
   "publisher" : "Cliniwiz Steward",
-  "jurisdiction" : [{
-    "extension" : [{
-      "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
-      "valueString" : "UNKNOWN"
-    }]
-  }],
+  "jurisdiction" : [
+    {
+      "coding" : [
+        {
+          "system" : "urn:iso:std:iso:3166",
+          "code" : "US"
+        }
+      ]
+    }
+  ],
   "purpose" : "(Clinical Focus: ),(Data Element Scope: ),(Inclusion Criteria: ),(Exclusion Criteria: )",
   "compose" : {
-    "include" : [{
-      "system" : "http://terminology.hl7.org/CodeSystem/v2-0112",
-      "concept" : [{
+    "include" : [
+      {
+        "system" : "http://terminology.hl7.org/CodeSystem/v2-0112",
+        "concept" : [
+          {
+            "code" : "20",
+            "display" : "Expired (i.e. dead)"
+          },
+          {
+            "code" : "41",
+            "display" : "Expired (i.e. died) in a medical facility; e.g., hospital, SNF, ICF, or free standing hospice"
+          }
+        ]
+      }
+    ]
+  },
+  "expansion" : {
+    "identifier" : "urn:uuid:1a447b76-6f9d-4d6e-ae4b-1dfe7b9246b1",
+    "timestamp" : "2023-11-26T17:56:13-05:00",
+    "total" : 2,
+    "contains" : [
+      {
+        "system" : "http://terminology.hl7.org/CodeSystem/v2-0112",
+        "version" : "2.5",
         "code" : "20",
         "display" : "Expired (i.e. dead)"
       },
       {
+        "system" : "http://terminology.hl7.org/CodeSystem/v2-0112",
+        "version" : "2.5",
         "code" : "41",
         "display" : "Expired (i.e. died) in a medical facility; e.g., hospital, SNF, ICF, or free standing hospice"
-      }]
-    }]
-  },
-  "expansion" : {
-    "identifier" : "urn:uuid:20d6d792-e57d-44ae-9f5d-44a483ff16bf",
-    "timestamp" : "2023-09-26T10:07:15-04:00",
-    "total" : 2,
-    "offset" : 0,
-    "parameter" : [{
-      "name" : "count",
-      "valueInteger" : 1000
-    },
-    {
-      "name" : "offset",
-      "valueInteger" : 0
-    }],
-    "contains" : [{
-      "system" : "http://terminology.hl7.org/CodeSystem/v2-0112",
-      "version" : "2.5",
-      "code" : "20",
-      "display" : "Expired (i.e. dead)"
-    },
-    {
-      "system" : "http://terminology.hl7.org/CodeSystem/v2-0112",
-      "version" : "2.5",
-      "code" : "41",
-      "display" : "Expired (i.e. died) in a medical facility; e.g., hospital, SNF, ICF, or free standing hospice"
-    }]
+      }
+    ]
   }
 }

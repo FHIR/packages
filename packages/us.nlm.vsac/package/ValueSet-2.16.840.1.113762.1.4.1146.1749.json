@@ -4,90 +4,97 @@
   "meta" : {
     "versionId" : "10",
     "lastUpdated" : "2023-01-25T01:08:07.000-05:00",
-    "profile" : ["http://hl7.org/fhir/StructureDefinition/shareablevalueset",
-    "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"]
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "extension" : [{
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
-    "valueString" : "CSTE Author"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-keyWord",
-    "valueString" : "Chemical_Pneumonitis,Trigger"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
-    "valueDate" : "2023-01-25"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
-    "valueDate" : "2023-01-25"
-  }],
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "CSTE Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-keyWord",
+      "valueString" : "Chemical_Pneumonitis,Trigger"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2023-01-25"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2023-01-25"
+    }
+  ],
   "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1146.1749",
-  "identifier" : [{
-    "system" : "urn:ietf:rfc:3986",
-    "value" : "urn:oid:2.16.840.1.113762.1.4.1146.1749"
-  }],
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113762.1.4.1146.1749"
+    }
+  ],
   "version" : "20230125",
   "name" : "ChemicalPneumonitisDisordersICD10CM",
   "title" : "Chemical Pneumonitis (Disorders) (ICD10CM)",
   "status" : "active",
   "date" : "2023-01-25T01:08:07-05:00",
   "publisher" : "CSTE Steward",
-  "jurisdiction" : [{
-    "extension" : [{
-      "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
-      "valueString" : "UNKNOWN"
-    }]
-  }],
+  "jurisdiction" : [
+    {
+      "coding" : [
+        {
+          "system" : "urn:iso:std:iso:3166",
+          "code" : "US"
+        }
+      ]
+    }
+  ],
   "purpose" : "(Clinical Focus: This set of values contains diagnoses or problems that represent that the patient has Chemical Pneumonitis regardless of the clinical presentation of the condition),(Data Element Scope: This value set contains concepts related to a diagnosis of Chemical Pneumonitis),(Inclusion Criteria: Chemical Pneumonitis),(Exclusion Criteria: Radiation Pneumonitis, Drug-induced Pneumonitis, Other types of Interstitial Pneumonitis)",
   "compose" : {
-    "include" : [{
-      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-      "concept" : [{
+    "include" : [
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "concept" : [
+          {
+            "code" : "J68.0",
+            "display" : "Bronchitis and pneumonitis due to chemicals, gases, fumes and vapors"
+          },
+          {
+            "code" : "J69.1",
+            "display" : "Pneumonitis due to inhalation of oils and essences"
+          },
+          {
+            "code" : "J95.4",
+            "display" : "Chemical pneumonitis due to anesthesia"
+          }
+        ]
+      }
+    ]
+  },
+  "expansion" : {
+    "identifier" : "urn:uuid:415604ff-af1a-4cb7-817b-391c3eb1e472",
+    "timestamp" : "2023-11-26T16:56:15-05:00",
+    "total" : 3,
+    "contains" : [
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2024",
         "code" : "J68.0",
         "display" : "Bronchitis and pneumonitis due to chemicals, gases, fumes and vapors"
       },
       {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2024",
         "code" : "J69.1",
         "display" : "Pneumonitis due to inhalation of oils and essences"
       },
       {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2024",
         "code" : "J95.4",
         "display" : "Chemical pneumonitis due to anesthesia"
-      }]
-    }]
-  },
-  "expansion" : {
-    "identifier" : "urn:uuid:dc872f9d-5426-448f-9bd0-3a3fa9b7b9ae",
-    "timestamp" : "2023-09-26T09:17:51-04:00",
-    "total" : 3,
-    "offset" : 0,
-    "parameter" : [{
-      "name" : "count",
-      "valueInteger" : 1000
-    },
-    {
-      "name" : "offset",
-      "valueInteger" : 0
-    }],
-    "contains" : [{
-      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-      "version" : "2024",
-      "code" : "J68.0",
-      "display" : "Bronchitis and pneumonitis due to chemicals, gases, fumes and vapors"
-    },
-    {
-      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-      "version" : "2024",
-      "code" : "J69.1",
-      "display" : "Pneumonitis due to inhalation of oils and essences"
-    },
-    {
-      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-      "version" : "2024",
-      "code" : "J95.4",
-      "display" : "Chemical pneumonitis due to anesthesia"
-    }]
+      }
+    ]
   }
 }

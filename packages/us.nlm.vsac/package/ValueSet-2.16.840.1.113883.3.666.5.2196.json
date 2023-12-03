@@ -4,26 +4,32 @@
   "meta" : {
     "versionId" : "21",
     "lastUpdated" : "2016-03-31T01:00:12.000-04:00",
-    "profile" : ["http://hl7.org/fhir/StructureDefinition/shareablevalueset",
-    "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"]
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "extension" : [{
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
-    "valueString" : "Lantana EH Author"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
-    "valueDate" : "2022-12-15"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
-    "valueDate" : "2016-03-31"
-  }],
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "Lantana EH Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2022-12-15"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2016-03-31"
+    }
+  ],
   "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.666.5.2196",
-  "identifier" : [{
-    "system" : "urn:ietf:rfc:3986",
-    "value" : "urn:oid:2.16.840.1.113883.3.666.5.2196"
-  }],
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113883.3.666.5.2196"
+    }
+  ],
   "version" : "20160331",
   "name" : "WoundCareSMCT",
   "title" : "Wound Care SM CT",
@@ -31,80 +37,81 @@
   "experimental" : false,
   "date" : "2016-03-31T01:00:12-04:00",
   "publisher" : "Lantana EH Steward",
-  "jurisdiction" : [{
-    "extension" : [{
-      "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
-      "valueString" : "UNKNOWN"
-    }]
-  }],
+  "jurisdiction" : [
+    {
+      "coding" : [
+        {
+          "system" : "urn:iso:std:iso:3166",
+          "code" : "US"
+        }
+      ]
+    }
+  ],
   "purpose" : "(Clinical Focus: This set of values contains procedures used for wound care.),(Data Element Scope: The intent of this data element is to identify patients who have had a procedure performed for wound care.  Using the Quality Data Model, this particular element will map to the Procedure category.),(Inclusion Criteria: Include codes representing therapy related to  wound care using the  SNOMED CT code system.),(Exclusion Criteria: None.)",
   "compose" : {
-    "include" : [{
-      "system" : "http://snomed.info/sct",
-      "concept" : [{
+    "include" : [
+      {
+        "system" : "http://snomed.info/sct",
+        "concept" : [
+          {
+            "code" : "225358003",
+            "display" : "Wound care (regime/therapy)"
+          },
+          {
+            "code" : "226007004",
+            "display" : "Post-surgical wound care (regime/therapy)"
+          },
+          {
+            "code" : "385942004",
+            "display" : "Wound care management (procedure)"
+          },
+          {
+            "code" : "410330006",
+            "display" : "Dressing change/wound care case management (procedure)"
+          },
+          {
+            "code" : "428431000124105",
+            "display" : "Chronic wound care (regime/therapy)"
+          }
+        ]
+      }
+    ]
+  },
+  "expansion" : {
+    "identifier" : "urn:uuid:8420c392-3dcc-4ad5-99bc-42fada84746a",
+    "timestamp" : "2023-11-26T21:42:21-05:00",
+    "total" : 5,
+    "contains" : [
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20230901",
         "code" : "225358003",
         "display" : "Wound care (regime/therapy)"
       },
       {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20230901",
         "code" : "226007004",
         "display" : "Post-surgical wound care (regime/therapy)"
       },
       {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20230901",
         "code" : "385942004",
         "display" : "Wound care management (procedure)"
       },
       {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20230901",
         "code" : "410330006",
         "display" : "Dressing change/wound care case management (procedure)"
       },
       {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20230901",
         "code" : "428431000124105",
         "display" : "Chronic wound care (regime/therapy)"
-      }]
-    }]
-  },
-  "expansion" : {
-    "identifier" : "urn:uuid:a4c0355e-b757-4e7c-81e5-b3bf03986a4f",
-    "timestamp" : "2023-09-26T13:56:33-04:00",
-    "total" : 5,
-    "offset" : 0,
-    "parameter" : [{
-      "name" : "count",
-      "valueInteger" : 1000
-    },
-    {
-      "name" : "offset",
-      "valueInteger" : 0
-    }],
-    "contains" : [{
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "225358003",
-      "display" : "Wound care (regime/therapy)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "226007004",
-      "display" : "Post-surgical wound care (regime/therapy)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "385942004",
-      "display" : "Wound care management (procedure)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "410330006",
-      "display" : "Dressing change/wound care case management (procedure)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "428431000124105",
-      "display" : "Chronic wound care (regime/therapy)"
-    }]
+      }
+    ]
   }
 }

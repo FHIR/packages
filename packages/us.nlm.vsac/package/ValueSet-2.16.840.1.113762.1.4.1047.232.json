@@ -4,26 +4,32 @@
   "meta" : {
     "versionId" : "10",
     "lastUpdated" : "2016-12-27T01:00:03.000-05:00",
-    "profile" : ["http://hl7.org/fhir/StructureDefinition/shareablevalueset",
-    "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"]
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "extension" : [{
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
-    "valueString" : "Oncology Nursing Society Author"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
-    "valueDate" : "2022-12-15"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
-    "valueDate" : "2016-12-27"
-  }],
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "Oncology Nursing Society Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2022-12-15"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2016-12-27"
+    }
+  ],
   "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1047.232",
-  "identifier" : [{
-    "system" : "urn:ietf:rfc:3986",
-    "value" : "urn:oid:2.16.840.1.113762.1.4.1047.232"
-  }],
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113762.1.4.1047.232"
+    }
+  ],
   "version" : "20161227",
   "name" : "BoneHealthAssessmentSNOMEDCT",
   "title" : "Bone Health Assessment SNOMEDCT",
@@ -32,70 +38,71 @@
   "date" : "2016-12-27T01:00:03-05:00",
   "publisher" : "Oncology Nursing Society Steward",
   "description" : "ONS measure set",
-  "jurisdiction" : [{
-    "extension" : [{
-      "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
-      "valueString" : "UNKNOWN"
-    }]
-  }],
+  "jurisdiction" : [
+    {
+      "coding" : [
+        {
+          "system" : "urn:iso:std:iso:3166",
+          "code" : "US"
+        }
+      ]
+    }
+  ],
   "purpose" : "(Clinical Focus: This set of values assesses a patients bone health risk),(Data Element Scope: This data element maps to the Diagnostic Study category of the QDM.),(Inclusion Criteria: Including assessment of bone health using bone density, other bone studies to assess bone health),(Exclusion Criteria: Excluded are codes that do not meet inclusion criteria.)",
   "compose" : {
-    "include" : [{
-      "system" : "http://snomed.info/sct",
-      "concept" : [{
+    "include" : [
+      {
+        "system" : "http://snomed.info/sct",
+        "concept" : [
+          {
+            "code" : "22059005",
+            "display" : "Computerized tomography, bone density study (procedure)"
+          },
+          {
+            "code" : "23572007",
+            "display" : "Transmission bone density study (procedure)"
+          },
+          {
+            "code" : "312681000",
+            "display" : "Bone density scan (procedure)"
+          },
+          {
+            "code" : "82066000",
+            "display" : "Bone density study, dual photon absorptiometry (procedure)"
+          }
+        ]
+      }
+    ]
+  },
+  "expansion" : {
+    "identifier" : "urn:uuid:164cbc38-119b-4fb9-9e5d-f0f730027797",
+    "timestamp" : "2023-11-24T16:28:06-05:00",
+    "total" : 4,
+    "contains" : [
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20230901",
         "code" : "22059005",
-        "display" : "Computerized tomography, bone density study (procedure)"
+        "display" : "Computed tomography bone density study (procedure)"
       },
       {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20230901",
         "code" : "23572007",
         "display" : "Transmission bone density study (procedure)"
       },
       {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20230901",
         "code" : "312681000",
         "display" : "Bone density scan (procedure)"
       },
       {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20230901",
         "code" : "82066000",
         "display" : "Bone density study, dual photon absorptiometry (procedure)"
-      }]
-    }]
-  },
-  "expansion" : {
-    "identifier" : "urn:uuid:3fc531cb-5edf-477f-9f76-f94487c2140b",
-    "timestamp" : "2023-09-26T08:51:15-04:00",
-    "total" : 4,
-    "offset" : 0,
-    "parameter" : [{
-      "name" : "count",
-      "valueInteger" : 1000
-    },
-    {
-      "name" : "offset",
-      "valueInteger" : 0
-    }],
-    "contains" : [{
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "22059005",
-      "display" : "Computed tomography bone density study (procedure)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "23572007",
-      "display" : "Transmission bone density study (procedure)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "312681000",
-      "display" : "Bone density scan (procedure)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "82066000",
-      "display" : "Bone density study, dual photon absorptiometry (procedure)"
-    }]
+      }
+    ]
   }
 }

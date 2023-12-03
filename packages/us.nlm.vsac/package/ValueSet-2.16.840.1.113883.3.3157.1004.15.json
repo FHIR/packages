@@ -4,26 +4,32 @@
   "meta" : {
     "versionId" : "29",
     "lastUpdated" : "2021-02-23T15:02:21.000-05:00",
-    "profile" : ["http://hl7.org/fhir/StructureDefinition/shareablevalueset",
-    "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"]
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "extension" : [{
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
-    "valueString" : "Mathematica EP"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
-    "valueDate" : "2023-02-28"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
-    "valueDate" : "2021-02-23"
-  }],
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "Mathematica EP"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2023-02-28"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2021-02-23"
+    }
+  ],
   "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.3157.1004.15",
-  "identifier" : [{
-    "system" : "urn:ietf:rfc:3986",
-    "value" : "urn:oid:2.16.840.1.113883.3.3157.1004.15"
-  }],
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113883.3.3157.1004.15"
+    }
+  ],
   "version" : "20210223",
   "name" : "OpiumCombinations",
   "title" : "Opium Combinations",
@@ -32,50 +38,51 @@
   "date" : "2021-02-23T01:01:00-05:00",
   "publisher" : "Mathematica",
   "description" : "This value set includes semantic clinical drugs (SCD) and generic pack (GPCK) RxNorm codes.",
-  "jurisdiction" : [{
-    "extension" : [{
-      "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
-      "valueString" : "UNKNOWN"
-    }]
-  }],
+  "jurisdiction" : [
+    {
+      "coding" : [
+        {
+          "system" : "urn:iso:std:iso:3166",
+          "code" : "US"
+        }
+      ]
+    }
+  ],
   "purpose" : "(Clinical Focus: The purpose of this value set is to represent concepts for medications that are Schedules II and III opium combination medications.),(Data Element Scope: This value set may use a model element related to Medication.),(Inclusion Criteria: Includes concepts that identify a medication for opium with multiple ingredient .),(Exclusion Criteria: Excludes concepts that represents opium tincture because of its morphine content. Excludes concepts that represent schedule I, unscheduled, nonprescribable, non-human, and inactive opium combination medications.)",
   "compose" : {
-    "include" : [{
-      "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "concept" : [{
+    "include" : [
+      {
+        "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "concept" : [
+          {
+            "code" : "312104",
+            "display" : "belladonna alkaloids 16.2 MG / opium 30 MG Rectal Suppository"
+          },
+          {
+            "code" : "312107",
+            "display" : "belladonna alkaloids 16.2 MG / opium 60 MG Rectal Suppository"
+          }
+        ]
+      }
+    ]
+  },
+  "expansion" : {
+    "identifier" : "urn:uuid:e5c4651a-a119-4a7d-be1b-83e2cec3495b",
+    "timestamp" : "2023-11-26T19:57:55-05:00",
+    "total" : 2,
+    "contains" : [
+      {
+        "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "version" : "11062023",
         "code" : "312104",
         "display" : "belladonna alkaloids 16.2 MG / opium 30 MG Rectal Suppository"
       },
       {
+        "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "version" : "11062023",
         "code" : "312107",
         "display" : "belladonna alkaloids 16.2 MG / opium 60 MG Rectal Suppository"
-      }]
-    }]
-  },
-  "expansion" : {
-    "identifier" : "urn:uuid:32d54b81-ac21-4ad8-86e5-4c3579137856",
-    "timestamp" : "2023-09-26T12:15:04-04:00",
-    "total" : 2,
-    "offset" : 0,
-    "parameter" : [{
-      "name" : "count",
-      "valueInteger" : 1000
-    },
-    {
-      "name" : "offset",
-      "valueInteger" : 0
-    }],
-    "contains" : [{
-      "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version" : "09052023",
-      "code" : "312104",
-      "display" : "belladonna alkaloids 16.2 MG / opium 30 MG Rectal Suppository"
-    },
-    {
-      "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version" : "09052023",
-      "code" : "312107",
-      "display" : "belladonna alkaloids 16.2 MG / opium 60 MG Rectal Suppository"
-    }]
+      }
+    ]
   }
 }

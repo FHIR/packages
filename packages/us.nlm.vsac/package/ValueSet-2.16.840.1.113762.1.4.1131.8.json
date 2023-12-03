@@ -4,26 +4,32 @@
   "meta" : {
     "versionId" : "5",
     "lastUpdated" : "2020-11-04T01:02:44.000-05:00",
-    "profile" : ["http://hl7.org/fhir/StructureDefinition/shareablevalueset",
-    "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"]
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "extension" : [{
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
-    "valueString" : "CAP Author"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
-    "valueDate" : "2022-12-15"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
-    "valueDate" : "2020-11-04"
-  }],
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "CAP Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2022-12-15"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2020-11-04"
+    }
+  ],
   "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1131.8",
-  "identifier" : [{
-    "system" : "urn:ietf:rfc:3986",
-    "value" : "urn:oid:2.16.840.1.113762.1.4.1131.8"
-  }],
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113762.1.4.1131.8"
+    }
+  ],
   "version" : "20201104",
   "name" : "CannotBeDetermined_EGFR",
   "title" : "Cannot Be Determined_EGFR",
@@ -32,70 +38,71 @@
   "date" : "2020-11-04T01:02:44-05:00",
   "publisher" : "CAP Steward",
   "description" : "Same as Cannot Be Determined, created to avoid duplication in composite NSCLC measure in 2021",
-  "jurisdiction" : [{
-    "extension" : [{
-      "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
-      "valueString" : "UNKNOWN"
-    }]
-  }],
+  "jurisdiction" : [
+    {
+      "coding" : [
+        {
+          "system" : "urn:iso:std:iso:3166",
+          "code" : "US"
+        }
+      ]
+    }
+  ],
   "purpose" : "(Clinical Focus: Indeterminate results of a test that was run; does not include reasons why a test was not run, positive or negative values),(Data Element Scope: Only indeterminate results for a test that was run),(Inclusion Criteria: Indeterminate test results),(Exclusion Criteria: Positive or Negative results; previously performed test; test recommended but not performed; medical reason why a test was not performed)",
   "compose" : {
-    "include" : [{
-      "system" : "http://snomed.info/sct",
-      "concept" : [{
+    "include" : [
+      {
+        "system" : "http://snomed.info/sct",
+        "concept" : [
+          {
+            "code" : "280416009",
+            "display" : "Indeterminate result (qualifier value)"
+          },
+          {
+            "code" : "373068000",
+            "display" : "Undetermined (qualifier value)"
+          },
+          {
+            "code" : "373117000",
+            "display" : "Pathology examination findings indeterminate (finding)"
+          },
+          {
+            "code" : "82334004",
+            "display" : "Indeterminate (qualifier value)"
+          }
+        ]
+      }
+    ]
+  },
+  "expansion" : {
+    "identifier" : "urn:uuid:74063012-5287-4f1c-87bc-f9f043cc27d5",
+    "timestamp" : "2023-11-26T16:36:28-05:00",
+    "total" : 4,
+    "contains" : [
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20230901",
         "code" : "280416009",
         "display" : "Indeterminate result (qualifier value)"
       },
       {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20230901",
         "code" : "373068000",
         "display" : "Undetermined (qualifier value)"
       },
       {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20230901",
         "code" : "373117000",
         "display" : "Pathology examination findings indeterminate (finding)"
       },
       {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20230901",
         "code" : "82334004",
         "display" : "Indeterminate (qualifier value)"
-      }]
-    }]
-  },
-  "expansion" : {
-    "identifier" : "urn:uuid:c9a0ea14-634f-4140-b190-6058327c24fe",
-    "timestamp" : "2023-09-26T09:01:45-04:00",
-    "total" : 4,
-    "offset" : 0,
-    "parameter" : [{
-      "name" : "count",
-      "valueInteger" : 1000
-    },
-    {
-      "name" : "offset",
-      "valueInteger" : 0
-    }],
-    "contains" : [{
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "280416009",
-      "display" : "Indeterminate result (qualifier value)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "373068000",
-      "display" : "Undetermined (qualifier value)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "373117000",
-      "display" : "Pathology examination findings indeterminate (finding)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "82334004",
-      "display" : "Indeterminate (qualifier value)"
-    }]
+      }
+    ]
   }
 }

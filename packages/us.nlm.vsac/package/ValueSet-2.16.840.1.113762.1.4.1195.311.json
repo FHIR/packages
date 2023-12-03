@@ -4,26 +4,32 @@
   "meta" : {
     "versionId" : "5",
     "lastUpdated" : "2019-02-06T01:00:02.000-05:00",
-    "profile" : ["http://hl7.org/fhir/StructureDefinition/shareablevalueset",
-    "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"]
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "extension" : [{
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
-    "valueString" : "NJII Author"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
-    "valueDate" : "2022-12-15"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
-    "valueDate" : "2019-02-06"
-  }],
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "NJII Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2022-12-15"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2019-02-06"
+    }
+  ],
   "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1195.311",
-  "identifier" : [{
-    "system" : "urn:ietf:rfc:3986",
-    "value" : "urn:oid:2.16.840.1.113762.1.4.1195.311"
-  }],
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113762.1.4.1195.311"
+    }
+  ],
   "version" : "20190206",
   "name" : "SerumPotassium_AETNA100388",
   "title" : "Serum Potassium_AETNA100388",
@@ -31,50 +37,51 @@
   "experimental" : false,
   "date" : "2019-02-06T01:00:02-05:00",
   "publisher" : "NJII Steward",
-  "jurisdiction" : [{
-    "extension" : [{
-      "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
-      "valueString" : "UNKNOWN"
-    }]
-  }],
+  "jurisdiction" : [
+    {
+      "coding" : [
+        {
+          "system" : "urn:iso:std:iso:3166",
+          "code" : "US"
+        }
+      ]
+    }
+  ],
   "purpose" : "(Clinical Focus: Numerator AETNA100388),(Data Element Scope: CPT),(Inclusion Criteria: Per measure Id on page 9-10 (April 2017)),(Exclusion Criteria: None noted)",
   "compose" : {
-    "include" : [{
-      "system" : "http://www.ama-assn.org/go/cpt",
-      "concept" : [{
+    "include" : [
+      {
+        "system" : "http://www.ama-assn.org/go/cpt",
+        "concept" : [
+          {
+            "code" : "80051",
+            "display" : "Electrolyte panel This panel must include the following: Carbon dioxide (bicarbonate) (82374) Chloride (82435) Potassium (84132) Sodium (84295)"
+          },
+          {
+            "code" : "84132",
+            "display" : "Potassium; serum, plasma or whole blood"
+          }
+        ]
+      }
+    ]
+  },
+  "expansion" : {
+    "identifier" : "urn:uuid:24e601cd-2354-4620-ab67-e65feb7c102d",
+    "timestamp" : "2023-11-26T17:47:53-05:00",
+    "total" : 2,
+    "contains" : [
+      {
+        "system" : "http://www.ama-assn.org/go/cpt",
+        "version" : "2024",
         "code" : "80051",
         "display" : "Electrolyte panel This panel must include the following: Carbon dioxide (bicarbonate) (82374) Chloride (82435) Potassium (84132) Sodium (84295)"
       },
       {
+        "system" : "http://www.ama-assn.org/go/cpt",
+        "version" : "2024",
         "code" : "84132",
         "display" : "Potassium; serum, plasma or whole blood"
-      }]
-    }]
-  },
-  "expansion" : {
-    "identifier" : "urn:uuid:c62b20eb-7449-478c-867f-82a131e555ba",
-    "timestamp" : "2023-09-26T13:09:25-04:00",
-    "total" : 2,
-    "offset" : 0,
-    "parameter" : [{
-      "name" : "count",
-      "valueInteger" : 1000
-    },
-    {
-      "name" : "offset",
-      "valueInteger" : 0
-    }],
-    "contains" : [{
-      "system" : "http://www.ama-assn.org/go/cpt",
-      "version" : "2023",
-      "code" : "80051",
-      "display" : "Electrolyte panel This panel must include the following: Carbon dioxide (bicarbonate) (82374) Chloride (82435) Potassium (84132) Sodium (84295)"
-    },
-    {
-      "system" : "http://www.ama-assn.org/go/cpt",
-      "version" : "2023",
-      "code" : "84132",
-      "display" : "Potassium; serum, plasma or whole blood"
-    }]
+      }
+    ]
   }
 }

@@ -4,350 +4,375 @@
   "meta" : {
     "versionId" : "13",
     "lastUpdated" : "2023-03-30T01:02:45.000-04:00",
-    "profile" : ["http://hl7.org/fhir/StructureDefinition/shareablevalueset",
-    "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"]
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "extension" : [{
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
-    "valueString" : "Optum Author"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
-    "valueDate" : "2023-03-30"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
-    "valueDate" : "2023-03-30"
-  }],
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "Optum Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2023-03-30"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2023-03-30"
+    }
+  ],
   "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1078.399",
-  "identifier" : [{
-    "system" : "urn:ietf:rfc:3986",
-    "value" : "urn:oid:2.16.840.1.113762.1.4.1078.399"
-  }],
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113762.1.4.1078.399"
+    }
+  ],
   "version" : "20230330",
   "name" : "AcuteCoronarySyndromeI10",
   "title" : "Acute coronary syndrome I10",
   "status" : "active",
   "date" : "2023-03-30T01:02:45-04:00",
   "publisher" : "Optum Steward",
-  "jurisdiction" : [{
-    "extension" : [{
-      "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
-      "valueString" : "UNKNOWN"
-    }]
-  }],
+  "jurisdiction" : [
+    {
+      "coding" : [
+        {
+          "system" : "urn:iso:std:iso:3166",
+          "code" : "US"
+        }
+      ]
+    }
+  ],
   "purpose" : "(Clinical Focus: ICD10CM codes indicating acute coronary syndrome (ACS)),(Data Element Scope: CONDITION: CLINICAL_DRIVER:),(Inclusion Criteria: Billable codes for  STEMI, NSTEMI, and unstable angina. Includes codes indicating a history of myocardial infarction.),(Exclusion Criteria: Non-billable codes)",
   "compose" : {
-    "include" : [{
-      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-      "version" : "2024",
-      "filter" : [{
-        "property" : "concept",
-        "op" : "=",
-        "value" : "I20.0"
-      }]
-    },
-    {
-      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-      "version" : "2024",
-      "filter" : [{
-        "modifierExtension" : [{
-          "url" : "vsacOpModifier",
-          "valueString" : "leafOf"
-        }],
-        "property" : "concept",
-        "op" : "is-a",
-        "value" : "I21"
-      }]
-    },
-    {
-      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-      "version" : "2024",
-      "filter" : [{
-        "property" : "concept",
-        "op" : "=",
-        "value" : "I25.2"
-      }]
-    },
-    {
-      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-      "version" : "2024",
-      "filter" : [{
-        "modifierExtension" : [{
-          "url" : "vsacOpModifier",
-          "valueString" : "leafOf"
-        }],
-        "property" : "concept",
-        "op" : "is-a",
-        "value" : "I22"
-      }]
-    },
-    {
-      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-      "version" : "2024",
-      "filter" : [{
-        "modifierExtension" : [{
-          "url" : "vsacOpModifier",
-          "valueString" : "leafOf"
-        }],
-        "property" : "concept",
-        "op" : "is-a",
-        "value" : "I23"
-      }]
-    },
-    {
-      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-      "version" : "2024",
-      "filter" : [{
-        "property" : "concept",
-        "op" : "in",
-        "value" : "I25.110,I25.720,I25.790,I25.760,I25.700,I25.730,I25.710"
-      }]
-    },
-    {
-      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-      "version" : "2024",
-      "filter" : [{
-        "property" : "concept",
-        "op" : "=",
-        "value" : "I24.0"
-      }]
-    }]
+    "include" : [
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2024",
+        "filter" : [
+          {
+            "property" : "concept",
+            "op" : "=",
+            "value" : "I20.0"
+          }
+        ]
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2024",
+        "filter" : [
+          {
+            "modifierExtension" : [
+              {
+                "url" : "vsacOpModifier",
+                "valueString" : "leafOf"
+              }
+            ],
+            "property" : "concept",
+            "op" : "is-a",
+            "value" : "I21"
+          }
+        ]
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2024",
+        "filter" : [
+          {
+            "property" : "concept",
+            "op" : "=",
+            "value" : "I25.2"
+          }
+        ]
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2024",
+        "filter" : [
+          {
+            "modifierExtension" : [
+              {
+                "url" : "vsacOpModifier",
+                "valueString" : "leafOf"
+              }
+            ],
+            "property" : "concept",
+            "op" : "is-a",
+            "value" : "I22"
+          }
+        ]
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2024",
+        "filter" : [
+          {
+            "modifierExtension" : [
+              {
+                "url" : "vsacOpModifier",
+                "valueString" : "leafOf"
+              }
+            ],
+            "property" : "concept",
+            "op" : "is-a",
+            "value" : "I23"
+          }
+        ]
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2024",
+        "filter" : [
+          {
+            "property" : "concept",
+            "op" : "in",
+            "value" : "I25.110,I25.720,I25.790,I25.760,I25.700,I25.730,I25.710"
+          }
+        ]
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2024",
+        "filter" : [
+          {
+            "property" : "concept",
+            "op" : "=",
+            "value" : "I24.0"
+          }
+        ]
+      }
+    ]
   },
   "expansion" : {
-    "identifier" : "urn:uuid:11135453-c8d0-4232-80af-79501b635b78",
-    "timestamp" : "2023-09-26T07:39:16-04:00",
+    "identifier" : "urn:uuid:e14e9f2f-3dee-442a-9343-4ebd71748251",
+    "timestamp" : "2023-11-26T12:25:53-05:00",
     "total" : 37,
-    "offset" : 0,
-    "parameter" : [{
-      "name" : "count",
-      "valueInteger" : 1000
-    },
-    {
-      "name" : "offset",
-      "valueInteger" : 0
-    }],
-    "contains" : [{
-      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-      "version" : "2024",
-      "code" : "I20.0",
-      "display" : "Unstable angina"
-    },
-    {
-      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-      "version" : "2024",
-      "code" : "I21.01",
-      "display" : "ST elevation (STEMI) myocardial infarction involving left main coronary artery"
-    },
-    {
-      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-      "version" : "2024",
-      "code" : "I21.02",
-      "display" : "ST elevation (STEMI) myocardial infarction involving left anterior descending coronary artery"
-    },
-    {
-      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-      "version" : "2024",
-      "code" : "I21.09",
-      "display" : "ST elevation (STEMI) myocardial infarction involving other coronary artery of anterior wall"
-    },
-    {
-      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-      "version" : "2024",
-      "code" : "I21.11",
-      "display" : "ST elevation (STEMI) myocardial infarction involving right coronary artery"
-    },
-    {
-      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-      "version" : "2024",
-      "code" : "I21.19",
-      "display" : "ST elevation (STEMI) myocardial infarction involving other coronary artery of inferior wall"
-    },
-    {
-      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-      "version" : "2024",
-      "code" : "I21.21",
-      "display" : "ST elevation (STEMI) myocardial infarction involving left circumflex coronary artery"
-    },
-    {
-      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-      "version" : "2024",
-      "code" : "I21.29",
-      "display" : "ST elevation (STEMI) myocardial infarction involving other sites"
-    },
-    {
-      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-      "version" : "2024",
-      "code" : "I21.3",
-      "display" : "ST elevation (STEMI) myocardial infarction of unspecified site"
-    },
-    {
-      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-      "version" : "2024",
-      "code" : "I21.4",
-      "display" : "Non-ST elevation (NSTEMI) myocardial infarction"
-    },
-    {
-      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-      "version" : "2024",
-      "code" : "I21.9",
-      "display" : "Acute myocardial infarction, unspecified"
-    },
-    {
-      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-      "version" : "2024",
-      "code" : "I21.A1",
-      "display" : "Myocardial infarction type 2"
-    },
-    {
-      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-      "version" : "2024",
-      "code" : "I21.A9",
-      "display" : "Other myocardial infarction type"
-    },
-    {
-      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-      "version" : "2024",
-      "code" : "I21.B",
-      "display" : "Myocardial infarction with coronary microvascular dysfunction"
-    },
-    {
-      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-      "version" : "2024",
-      "code" : "I22.0",
-      "display" : "Subsequent ST elevation (STEMI) myocardial infarction of anterior wall"
-    },
-    {
-      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-      "version" : "2024",
-      "code" : "I22.1",
-      "display" : "Subsequent ST elevation (STEMI) myocardial infarction of inferior wall"
-    },
-    {
-      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-      "version" : "2024",
-      "code" : "I22.2",
-      "display" : "Subsequent non-ST elevation (NSTEMI) myocardial infarction"
-    },
-    {
-      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-      "version" : "2024",
-      "code" : "I22.8",
-      "display" : "Subsequent ST elevation (STEMI) myocardial infarction of other sites"
-    },
-    {
-      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-      "version" : "2024",
-      "code" : "I22.9",
-      "display" : "Subsequent ST elevation (STEMI) myocardial infarction of unspecified site"
-    },
-    {
-      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-      "version" : "2024",
-      "code" : "I23.0",
-      "display" : "Hemopericardium as current complication following acute myocardial infarction"
-    },
-    {
-      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-      "version" : "2024",
-      "code" : "I23.1",
-      "display" : "Atrial septal defect as current complication following acute myocardial infarction"
-    },
-    {
-      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-      "version" : "2024",
-      "code" : "I23.2",
-      "display" : "Ventricular septal defect as current complication following acute myocardial infarction"
-    },
-    {
-      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-      "version" : "2024",
-      "code" : "I23.3",
-      "display" : "Rupture of cardiac wall without hemopericardium as current complication following acute myocardial infarction"
-    },
-    {
-      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-      "version" : "2024",
-      "code" : "I23.4",
-      "display" : "Rupture of chordae tendineae as current complication following acute myocardial infarction"
-    },
-    {
-      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-      "version" : "2024",
-      "code" : "I23.5",
-      "display" : "Rupture of papillary muscle as current complication following acute myocardial infarction"
-    },
-    {
-      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-      "version" : "2024",
-      "code" : "I23.6",
-      "display" : "Thrombosis of atrium, auricular appendage, and ventricle as current complications following acute myocardial infarction"
-    },
-    {
-      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-      "version" : "2024",
-      "code" : "I23.7",
-      "display" : "Postinfarction angina"
-    },
-    {
-      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-      "version" : "2024",
-      "code" : "I23.8",
-      "display" : "Other current complications following acute myocardial infarction"
-    },
-    {
-      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-      "version" : "2024",
-      "code" : "I24.0",
-      "display" : "Acute coronary thrombosis not resulting in myocardial infarction"
-    },
-    {
-      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-      "version" : "2024",
-      "code" : "I25.110",
-      "display" : "Atherosclerotic heart disease of native coronary artery with unstable angina pectoris"
-    },
-    {
-      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-      "version" : "2024",
-      "code" : "I25.2",
-      "display" : "Old myocardial infarction"
-    },
-    {
-      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-      "version" : "2024",
-      "code" : "I25.700",
-      "display" : "Atherosclerosis of coronary artery bypass graft(s), unspecified, with unstable angina pectoris"
-    },
-    {
-      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-      "version" : "2024",
-      "code" : "I25.710",
-      "display" : "Atherosclerosis of autologous vein coronary artery bypass graft(s) with unstable angina pectoris"
-    },
-    {
-      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-      "version" : "2024",
-      "code" : "I25.720",
-      "display" : "Atherosclerosis of autologous artery coronary artery bypass graft(s) with unstable angina pectoris"
-    },
-    {
-      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-      "version" : "2024",
-      "code" : "I25.730",
-      "display" : "Atherosclerosis of nonautologous biological coronary artery bypass graft(s) with unstable angina pectoris"
-    },
-    {
-      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-      "version" : "2024",
-      "code" : "I25.760",
-      "display" : "Atherosclerosis of bypass graft of coronary artery of transplanted heart with unstable angina"
-    },
-    {
-      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-      "version" : "2024",
-      "code" : "I25.790",
-      "display" : "Atherosclerosis of other coronary artery bypass graft(s) with unstable angina pectoris"
-    }]
+    "contains" : [
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2024",
+        "code" : "I20.0",
+        "display" : "Unstable angina"
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2024",
+        "code" : "I21.01",
+        "display" : "ST elevation (STEMI) myocardial infarction involving left main coronary artery"
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2024",
+        "code" : "I21.02",
+        "display" : "ST elevation (STEMI) myocardial infarction involving left anterior descending coronary artery"
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2024",
+        "code" : "I21.09",
+        "display" : "ST elevation (STEMI) myocardial infarction involving other coronary artery of anterior wall"
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2024",
+        "code" : "I21.11",
+        "display" : "ST elevation (STEMI) myocardial infarction involving right coronary artery"
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2024",
+        "code" : "I21.19",
+        "display" : "ST elevation (STEMI) myocardial infarction involving other coronary artery of inferior wall"
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2024",
+        "code" : "I21.21",
+        "display" : "ST elevation (STEMI) myocardial infarction involving left circumflex coronary artery"
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2024",
+        "code" : "I21.29",
+        "display" : "ST elevation (STEMI) myocardial infarction involving other sites"
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2024",
+        "code" : "I21.3",
+        "display" : "ST elevation (STEMI) myocardial infarction of unspecified site"
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2024",
+        "code" : "I21.4",
+        "display" : "Non-ST elevation (NSTEMI) myocardial infarction"
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2024",
+        "code" : "I21.9",
+        "display" : "Acute myocardial infarction, unspecified"
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2024",
+        "code" : "I21.A1",
+        "display" : "Myocardial infarction type 2"
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2024",
+        "code" : "I21.A9",
+        "display" : "Other myocardial infarction type"
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2024",
+        "code" : "I21.B",
+        "display" : "Myocardial infarction with coronary microvascular dysfunction"
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2024",
+        "code" : "I22.0",
+        "display" : "Subsequent ST elevation (STEMI) myocardial infarction of anterior wall"
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2024",
+        "code" : "I22.1",
+        "display" : "Subsequent ST elevation (STEMI) myocardial infarction of inferior wall"
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2024",
+        "code" : "I22.2",
+        "display" : "Subsequent non-ST elevation (NSTEMI) myocardial infarction"
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2024",
+        "code" : "I22.8",
+        "display" : "Subsequent ST elevation (STEMI) myocardial infarction of other sites"
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2024",
+        "code" : "I22.9",
+        "display" : "Subsequent ST elevation (STEMI) myocardial infarction of unspecified site"
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2024",
+        "code" : "I23.0",
+        "display" : "Hemopericardium as current complication following acute myocardial infarction"
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2024",
+        "code" : "I23.1",
+        "display" : "Atrial septal defect as current complication following acute myocardial infarction"
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2024",
+        "code" : "I23.2",
+        "display" : "Ventricular septal defect as current complication following acute myocardial infarction"
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2024",
+        "code" : "I23.3",
+        "display" : "Rupture of cardiac wall without hemopericardium as current complication following acute myocardial infarction"
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2024",
+        "code" : "I23.4",
+        "display" : "Rupture of chordae tendineae as current complication following acute myocardial infarction"
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2024",
+        "code" : "I23.5",
+        "display" : "Rupture of papillary muscle as current complication following acute myocardial infarction"
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2024",
+        "code" : "I23.6",
+        "display" : "Thrombosis of atrium, auricular appendage, and ventricle as current complications following acute myocardial infarction"
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2024",
+        "code" : "I23.7",
+        "display" : "Postinfarction angina"
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2024",
+        "code" : "I23.8",
+        "display" : "Other current complications following acute myocardial infarction"
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2024",
+        "code" : "I24.0",
+        "display" : "Acute coronary thrombosis not resulting in myocardial infarction"
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2024",
+        "code" : "I25.110",
+        "display" : "Atherosclerotic heart disease of native coronary artery with unstable angina pectoris"
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2024",
+        "code" : "I25.2",
+        "display" : "Old myocardial infarction"
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2024",
+        "code" : "I25.700",
+        "display" : "Atherosclerosis of coronary artery bypass graft(s), unspecified, with unstable angina pectoris"
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2024",
+        "code" : "I25.710",
+        "display" : "Atherosclerosis of autologous vein coronary artery bypass graft(s) with unstable angina pectoris"
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2024",
+        "code" : "I25.720",
+        "display" : "Atherosclerosis of autologous artery coronary artery bypass graft(s) with unstable angina pectoris"
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2024",
+        "code" : "I25.730",
+        "display" : "Atherosclerosis of nonautologous biological coronary artery bypass graft(s) with unstable angina pectoris"
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2024",
+        "code" : "I25.760",
+        "display" : "Atherosclerosis of bypass graft of coronary artery of transplanted heart with unstable angina"
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2024",
+        "code" : "I25.790",
+        "display" : "Atherosclerosis of other coronary artery bypass graft(s) with unstable angina pectoris"
+      }
+    ]
   }
 }

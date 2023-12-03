@@ -4,26 +4,32 @@
   "meta" : {
     "versionId" : "4",
     "lastUpdated" : "2015-10-13T01:00:01.000-04:00",
-    "profile" : ["http://hl7.org/fhir/StructureDefinition/shareablevalueset",
-    "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"]
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "extension" : [{
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
-    "valueString" : "Lewin EH Author"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
-    "valueDate" : "2022-12-15"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
-    "valueDate" : "2015-10-13"
-  }],
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "Lewin EH Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2022-12-15"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2015-10-13"
+    }
+  ],
   "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.3157.1002.24",
-  "identifier" : [{
-    "system" : "urn:ietf:rfc:3986",
-    "value" : "urn:oid:2.16.840.1.113883.3.3157.1002.24"
-  }],
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113883.3.3157.1002.24"
+    }
+  ],
   "version" : "20151013",
   "name" : "PatientExpiredDuringHospitalEncounter",
   "title" : "Patient Expired during Hospital Encounter",
@@ -31,152 +37,153 @@
   "experimental" : false,
   "date" : "2015-10-13T01:00:01-04:00",
   "publisher" : "Lewin EH Steward",
-  "jurisdiction" : [{
-    "extension" : [{
-      "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
-      "valueString" : "UNKNOWN"
-    }]
-  }],
+  "jurisdiction" : [
+    {
+      "coding" : [
+        {
+          "system" : "urn:iso:std:iso:3166",
+          "code" : "US"
+        }
+      ]
+    }
+  ],
   "purpose" : "(Clinical Focus: This set of values contains SNOMEDCT codes commonly associated with patients who expire during the course of their hospital encounter.),(Data Element Scope: The intent of this data element is to identify patients who expire during their hospital encounter. Using the Quality Data Model, this particular element would map to the \"Patient Characteristic\" element.),(Inclusion Criteria: Codes included in this value set are specific to a hospital care setting or are more broadly indicative of death during an encounter (e.g., \"Patient died (finding)).),(Exclusion Criteria: Codes specific to patient expiration in non-hospital care settings are not captured by this value set.)",
   "compose" : {
-    "include" : [{
-      "system" : "http://snomed.info/sct",
-      "concept" : [{
+    "include" : [
+      {
+        "system" : "http://snomed.info/sct",
+        "concept" : [
+          {
+            "code" : "11545006",
+            "display" : "Emergency room admission, dead on arrival (procedure)"
+          },
+          {
+            "code" : "16983000",
+            "display" : "Death in hospital (event)"
+          },
+          {
+            "code" : "184297005",
+            "display" : "Patient died in hospital (finding)"
+          },
+          {
+            "code" : "18632008",
+            "display" : "Patient status determination, deceased (finding)"
+          },
+          {
+            "code" : "304215001",
+            "display" : "Patient died during operation (finding)"
+          },
+          {
+            "code" : "371828006",
+            "display" : "Patient deceased during stay (discharge status = dead) (finding)"
+          },
+          {
+            "code" : "373815005",
+            "display" : "Patient died before anti-cancer treatment (finding)"
+          },
+          {
+            "code" : "397709008",
+            "display" : "Patient died (finding)"
+          },
+          {
+            "code" : "419099009",
+            "display" : "Dead (finding)"
+          },
+          {
+            "code" : "419620001",
+            "display" : "Death (event)"
+          },
+          {
+            "code" : "440031000124101",
+            "display" : "Death in hospital-based outpatient department (event)"
+          },
+          {
+            "code" : "440041000124106",
+            "display" : "Death in hospital-based emergency department (event)"
+          },
+          {
+            "code" : "75004002",
+            "display" : "Emergency room admission, died in emergency room (procedure)"
+          },
+          {
+            "code" : "89816009",
+            "display" : "Died without sign of disease (finding)"
+          }
+        ]
+      }
+    ]
+  },
+  "expansion" : {
+    "identifier" : "urn:uuid:07b7d2a5-1ea6-4c65-94df-8ec90248b8da",
+    "timestamp" : "2023-11-26T19:57:18-05:00",
+    "total" : 11,
+    "contains" : [
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20230901",
         "code" : "11545006",
         "display" : "Emergency room admission, dead on arrival (procedure)"
       },
       {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20230901",
         "code" : "16983000",
         "display" : "Death in hospital (event)"
       },
       {
-        "code" : "184297005",
-        "display" : "Patient died in hospital (finding)"
-      },
-      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20230901",
         "code" : "18632008",
         "display" : "Patient status determination, deceased (finding)"
       },
       {
-        "code" : "304215001",
-        "display" : "Patient died during operation (finding)"
-      },
-      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20230901",
         "code" : "371828006",
         "display" : "Patient deceased during stay (discharge status = dead) (finding)"
       },
       {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20230901",
         "code" : "373815005",
         "display" : "Patient died before anti-cancer treatment (finding)"
       },
       {
-        "code" : "397709008",
-        "display" : "Patient died (finding)"
-      },
-      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20230901",
         "code" : "419099009",
         "display" : "Dead (finding)"
       },
       {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20230901",
         "code" : "419620001",
         "display" : "Death (event)"
       },
       {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20230901",
         "code" : "440031000124101",
         "display" : "Death in hospital-based outpatient department (event)"
       },
       {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20230901",
         "code" : "440041000124106",
         "display" : "Death in hospital-based emergency department (event)"
       },
       {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20230901",
         "code" : "75004002",
         "display" : "Emergency room admission, died in emergency room (procedure)"
       },
       {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20230901",
         "code" : "89816009",
         "display" : "Died without sign of disease (finding)"
-      }]
-    }]
-  },
-  "expansion" : {
-    "identifier" : "urn:uuid:d9af94ca-a6f3-4398-b0f8-f9bf22fe3cd5",
-    "timestamp" : "2023-09-26T12:25:59-04:00",
-    "total" : 11,
-    "offset" : 0,
-    "parameter" : [{
-      "name" : "count",
-      "valueInteger" : 1000
-    },
-    {
-      "name" : "offset",
-      "valueInteger" : 0
-    }],
-    "contains" : [{
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "11545006",
-      "display" : "Emergency room admission, dead on arrival (procedure)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "16983000",
-      "display" : "Death in hospital (event)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "18632008",
-      "display" : "Patient status determination, deceased (finding)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "371828006",
-      "display" : "Patient deceased during stay (discharge status = dead) (finding)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "373815005",
-      "display" : "Patient died before anti-cancer treatment (finding)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "419099009",
-      "display" : "Dead (finding)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "419620001",
-      "display" : "Death (event)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "440031000124101",
-      "display" : "Death in hospital-based outpatient department (event)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "440041000124106",
-      "display" : "Death in hospital-based emergency department (event)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "75004002",
-      "display" : "Emergency room admission, died in emergency room (procedure)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "89816009",
-      "display" : "Died without sign of disease (finding)"
-    }]
+      }
+    ]
   }
 }

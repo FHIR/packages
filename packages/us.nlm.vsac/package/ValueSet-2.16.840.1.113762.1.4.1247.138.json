@@ -4,26 +4,32 @@
   "meta" : {
     "versionId" : "5",
     "lastUpdated" : "2023-06-19T17:32:06.000-04:00",
-    "profile" : ["http://hl7.org/fhir/StructureDefinition/shareablevalueset",
-    "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"]
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "extension" : [{
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
-    "valueString" : "The Gravity Project Author"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
-    "valueDate" : "2023-07-18"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
-    "valueDate" : "2023-06-19"
-  }],
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "The Gravity Project Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2023-07-18"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2023-06-19"
+    }
+  ],
   "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1247.138",
-  "identifier" : [{
-    "system" : "urn:ietf:rfc:3986",
-    "value" : "urn:oid:2.16.840.1.113762.1.4.1247.138"
-  }],
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113762.1.4.1247.138"
+    }
+  ],
   "version" : "20220727",
   "name" : "FinancialInsecurityScreeningAssessments",
   "title" : "Financial Insecurity Screening Assessments",
@@ -31,50 +37,51 @@
   "experimental" : false,
   "date" : "2022-07-27T01:03:23-04:00",
   "publisher" : "The Gravity Project Steward",
-  "jurisdiction" : [{
-    "extension" : [{
-      "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
-      "valueString" : "UNKNOWN"
-    }]
-  }],
+  "jurisdiction" : [
+    {
+      "coding" : [
+        {
+          "system" : "urn:iso:std:iso:3166",
+          "code" : "US"
+        }
+      ]
+    }
+  ],
   "purpose" : "(Clinical Focus: This set of values represents screening assessments for Financial Insecurity as selected by the Gravity Project.),(Data Element Scope: This set of values may be used to represent screening assessments in observations, questionnaires, and questionnaire responses for this SDOH domain (e.g., for the SDOHCC Observation Screening Response profile in the Gravity SDOH Clinical Care FHIR Implementation Guide).),(Inclusion Criteria: Includes LOINC codes for SDOH screening assessments as selected by the Gravity Project.),(Exclusion Criteria: NA)",
   "compose" : {
-    "include" : [{
-      "system" : "http://loinc.org",
-      "concept" : [{
+    "include" : [
+      {
+        "system" : "http://loinc.org",
+        "concept" : [
+          {
+            "code" : "96447-8",
+            "display" : "WE CARE Survey [WE CARE] Caregiver"
+          },
+          {
+            "code" : "97023-6",
+            "display" : "Accountable health communities (AHC) health-related social needs (HRSN) supplemental questions"
+          }
+        ]
+      }
+    ]
+  },
+  "expansion" : {
+    "identifier" : "urn:uuid:e1e73024-c4aa-4597-add6-37fdc882ffac",
+    "timestamp" : "2023-11-26T19:12:46-05:00",
+    "total" : 2,
+    "contains" : [
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.76",
         "code" : "96447-8",
         "display" : "WE CARE Survey [WE CARE] Caregiver"
       },
       {
+        "system" : "http://loinc.org",
+        "version" : "2.76",
         "code" : "97023-6",
         "display" : "Accountable health communities (AHC) health-related social needs (HRSN) supplemental questions"
-      }]
-    }]
-  },
-  "expansion" : {
-    "identifier" : "urn:uuid:7cee489f-b56a-4d06-b3d8-922309b14fd8",
-    "timestamp" : "2023-09-26T10:27:48-04:00",
-    "total" : 2,
-    "offset" : 0,
-    "parameter" : [{
-      "name" : "count",
-      "valueInteger" : 1000
-    },
-    {
-      "name" : "offset",
-      "valueInteger" : 0
-    }],
-    "contains" : [{
-      "system" : "http://loinc.org",
-      "version" : "2.74",
-      "code" : "96447-8",
-      "display" : "WE CARE Survey [WE CARE] Caregiver"
-    },
-    {
-      "system" : "http://loinc.org",
-      "version" : "2.74",
-      "code" : "97023-6",
-      "display" : "Accountable health communities (AHC) health-related social needs (HRSN) supplemental questions"
-    }]
+      }
+    ]
   }
 }

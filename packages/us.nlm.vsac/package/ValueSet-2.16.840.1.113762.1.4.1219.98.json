@@ -4,26 +4,32 @@
   "meta" : {
     "versionId" : "7",
     "lastUpdated" : "2022-03-15T01:04:14.000-04:00",
-    "profile" : ["http://hl7.org/fhir/StructureDefinition/shareablevalueset",
-    "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"]
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "extension" : [{
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
-    "valueString" : "CMS DRLS Author"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
-    "valueDate" : "2022-12-15"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
-    "valueDate" : "2022-03-15"
-  }],
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "CMS DRLS Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2022-12-15"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2022-03-15"
+    }
+  ],
   "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1219.98",
-  "identifier" : [{
-    "system" : "urn:ietf:rfc:3986",
-    "value" : "urn:oid:2.16.840.1.113762.1.4.1219.98"
-  }],
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113762.1.4.1219.98"
+    }
+  ],
   "version" : "20220315",
   "name" : "PhysicalTherapyProcedureHCPCS",
   "title" : "Physical Therapy Procedure HCPCS",
@@ -31,60 +37,61 @@
   "experimental" : false,
   "date" : "2022-03-15T01:04:14-04:00",
   "publisher" : "CMS DRLS Steward",
-  "jurisdiction" : [{
-    "extension" : [{
-      "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
-      "valueString" : "UNKNOWN"
-    }]
-  }],
+  "jurisdiction" : [
+    {
+      "coding" : [
+        {
+          "system" : "urn:iso:std:iso:3166",
+          "code" : "US"
+        }
+      ]
+    }
+  ],
   "purpose" : "(Clinical Focus: General physical therapy procedure.),(Data Element Scope: Generic rehabilitation physical therapy procedure that may qualify a patient for home health care  as defined by the US Centers for Medicare and Medicaid Services.),(Inclusion Criteria: General physical therapy procedure.),(Exclusion Criteria: Rehabilitation therapy procedures generally described as occupational therapy or speech-language pathology.)",
   "compose" : {
-    "include" : [{
-      "system" : "http://www.nlm.nih.gov/research/umls/hcpcs",
-      "concept" : [{
+    "include" : [
+      {
+        "system" : "http://www.nlm.nih.gov/research/umls/hcpcs",
+        "concept" : [
+          {
+            "code" : "G0151",
+            "display" : "Services performed by a qualified physical therapist in the home health or hospice setting, each 15 minutes"
+          },
+          {
+            "code" : "G0157",
+            "display" : "Services performed by a qualified physical therapist assistant in the home health or hospice setting, each 15 minutes"
+          },
+          {
+            "code" : "S9131",
+            "display" : "Physical therapy; in the home, per diem"
+          }
+        ]
+      }
+    ]
+  },
+  "expansion" : {
+    "identifier" : "urn:uuid:331a523a-90af-4200-896b-fef946c8c941",
+    "timestamp" : "2023-11-26T18:27:38-05:00",
+    "total" : 3,
+    "contains" : [
+      {
+        "system" : "http://www.nlm.nih.gov/research/umls/hcpcs",
+        "version" : "2023",
         "code" : "G0151",
         "display" : "Services performed by a qualified physical therapist in the home health or hospice setting, each 15 minutes"
       },
       {
+        "system" : "http://www.nlm.nih.gov/research/umls/hcpcs",
+        "version" : "2023",
         "code" : "G0157",
         "display" : "Services performed by a qualified physical therapist assistant in the home health or hospice setting, each 15 minutes"
       },
       {
+        "system" : "http://www.nlm.nih.gov/research/umls/hcpcs",
+        "version" : "2023",
         "code" : "S9131",
         "display" : "Physical therapy; in the home, per diem"
-      }]
-    }]
-  },
-  "expansion" : {
-    "identifier" : "urn:uuid:42b7db5a-3f82-405e-9678-489cfcee6443",
-    "timestamp" : "2023-09-26T12:32:11-04:00",
-    "total" : 3,
-    "offset" : 0,
-    "parameter" : [{
-      "name" : "count",
-      "valueInteger" : 1000
-    },
-    {
-      "name" : "offset",
-      "valueInteger" : 0
-    }],
-    "contains" : [{
-      "system" : "http://www.nlm.nih.gov/research/umls/hcpcs",
-      "version" : "2023",
-      "code" : "G0151",
-      "display" : "Services performed by a qualified physical therapist in the home health or hospice setting, each 15 minutes"
-    },
-    {
-      "system" : "http://www.nlm.nih.gov/research/umls/hcpcs",
-      "version" : "2023",
-      "code" : "G0157",
-      "display" : "Services performed by a qualified physical therapist assistant in the home health or hospice setting, each 15 minutes"
-    },
-    {
-      "system" : "http://www.nlm.nih.gov/research/umls/hcpcs",
-      "version" : "2023",
-      "code" : "S9131",
-      "display" : "Physical therapy; in the home, per diem"
-    }]
+      }
+    ]
   }
 }
