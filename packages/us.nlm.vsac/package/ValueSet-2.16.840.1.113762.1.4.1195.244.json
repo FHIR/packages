@@ -4,26 +4,32 @@
   "meta" : {
     "versionId" : "7",
     "lastUpdated" : "2019-02-06T01:00:02.000-05:00",
-    "profile" : ["http://hl7.org/fhir/StructureDefinition/shareablevalueset",
-    "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"]
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "extension" : [{
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
-    "valueString" : "NJII Author"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
-    "valueDate" : "2022-12-15"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
-    "valueDate" : "2019-02-06"
-  }],
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "NJII Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2022-12-15"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2019-02-06"
+    }
+  ],
   "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1195.244",
-  "identifier" : [{
-    "system" : "urn:ietf:rfc:3986",
-    "value" : "urn:oid:2.16.840.1.113762.1.4.1195.244"
-  }],
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113762.1.4.1195.244"
+    }
+  ],
   "version" : "20190206",
   "name" : "CARE1DischargeMedicationsReconciledWithTheCurrentMedicationListInOutpatientMedicalRecord",
   "title" : "CARE1 Discharge medications reconciled with the current medication list in outpatient medical record",
@@ -31,50 +37,51 @@
   "experimental" : false,
   "date" : "2019-02-06T01:00:02-05:00",
   "publisher" : "NJII Steward",
-  "jurisdiction" : [{
-    "extension" : [{
-      "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
-      "valueString" : "UNKNOWN"
-    }]
-  }],
+  "jurisdiction" : [
+    {
+      "coding" : [
+        {
+          "system" : "urn:iso:std:iso:3166",
+          "code" : "US"
+        }
+      ]
+    }
+  ],
   "purpose" : "(Clinical Focus: Discharge medications reconciled with the current medication list in outpatient medical record, MSSPCARE1),(Data Element Scope: Discharge medications reconciled with the current medication list in outpatient medical record SNOMEDCT codes),(Inclusion Criteria: Discharge medications reconciled with the current medication list in outpatient medical record MSSPCARE1),(Exclusion Criteria: Discharge medications reconciled with the current medication list in outpatient medical record MSSPCARE1)",
   "compose" : {
-    "include" : [{
-      "system" : "http://snomed.info/sct",
-      "concept" : [{
+    "include" : [
+      {
+        "system" : "http://snomed.info/sct",
+        "concept" : [
+          {
+            "code" : "428701000124107",
+            "display" : "Medication reconciliation by pharmacist (procedure)"
+          },
+          {
+            "code" : "430193006",
+            "display" : "Medication Reconciliation (procedure)"
+          }
+        ]
+      }
+    ]
+  },
+  "expansion" : {
+    "identifier" : "urn:uuid:dede26d4-416c-41d2-b096-a3ae75f1efe8",
+    "timestamp" : "2023-11-26T17:45:52-05:00",
+    "total" : 2,
+    "contains" : [
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20230901",
         "code" : "428701000124107",
         "display" : "Medication reconciliation by pharmacist (procedure)"
       },
       {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20230901",
         "code" : "430193006",
-        "display" : "Medication Reconciliation (procedure)"
-      }]
-    }]
-  },
-  "expansion" : {
-    "identifier" : "urn:uuid:7c53ea2f-7a52-4ead-843f-15e551e65516",
-    "timestamp" : "2023-09-26T09:13:03-04:00",
-    "total" : 2,
-    "offset" : 0,
-    "parameter" : [{
-      "name" : "count",
-      "valueInteger" : 1000
-    },
-    {
-      "name" : "offset",
-      "valueInteger" : 0
-    }],
-    "contains" : [{
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "428701000124107",
-      "display" : "Medication reconciliation by pharmacist (procedure)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "430193006",
-      "display" : "Medication reconciliation (procedure)"
-    }]
+        "display" : "Medication reconciliation (procedure)"
+      }
+    ]
   }
 }

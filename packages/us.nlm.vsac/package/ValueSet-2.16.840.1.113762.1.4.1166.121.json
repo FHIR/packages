@@ -4,26 +4,32 @@
   "meta" : {
     "versionId" : "8",
     "lastUpdated" : "2021-10-12T01:01:38.000-04:00",
-    "profile" : ["http://hl7.org/fhir/StructureDefinition/shareablevalueset",
-    "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"]
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "extension" : [{
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
-    "valueString" : "OPA Author"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
-    "valueDate" : "2022-12-15"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
-    "valueDate" : "2021-10-12"
-  }],
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "OPA Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2022-12-15"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2021-10-12"
+    }
+  ],
   "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1166.121",
-  "identifier" : [{
-    "system" : "urn:ietf:rfc:3986",
-    "value" : "urn:oid:2.16.840.1.113762.1.4.1166.121"
-  }],
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113762.1.4.1166.121"
+    }
+  ],
   "version" : "20211012",
   "name" : "PrenatalCareVisitsHCPCS",
   "title" : "Prenatal Care Visits HCPCS",
@@ -32,50 +38,51 @@
   "date" : "2021-10-12T01:01:38-04:00",
   "publisher" : "OPA Steward",
   "description" : "For Contraceptive eCQMs Approval for Trial Use application in Spring 2022; This set of values contains codes indicating visits for prenatal care.",
-  "jurisdiction" : [{
-    "extension" : [{
-      "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
-      "valueString" : "UNKNOWN"
-    }]
-  }],
+  "jurisdiction" : [
+    {
+      "coding" : [
+        {
+          "system" : "urn:iso:std:iso:3166",
+          "code" : "US"
+        }
+      ]
+    }
+  ],
   "purpose" : "(Clinical Focus: Family Planning - provision of most and moderately effective contraceptive methods, access to long-acting reversible contraception (LARC)),(Data Element Scope: Codes indicating general visits for prenatal care),(Inclusion Criteria: Codes indicating general visits for prenatal care),(Exclusion Criteria: Excludes online assessments and telephone visits)",
   "compose" : {
-    "include" : [{
-      "system" : "http://www.nlm.nih.gov/research/umls/hcpcs",
-      "concept" : [{
+    "include" : [
+      {
+        "system" : "http://www.nlm.nih.gov/research/umls/hcpcs",
+        "concept" : [
+          {
+            "code" : "G0463",
+            "display" : "Hospital outpatient clinic visit for assessment and management of a patient"
+          },
+          {
+            "code" : "T1015",
+            "display" : "Clinic visit/encounter, all-inclusive"
+          }
+        ]
+      }
+    ]
+  },
+  "expansion" : {
+    "identifier" : "urn:uuid:d3e3998e-bfa3-476b-a771-631592b26aa0",
+    "timestamp" : "2023-11-26T17:23:14-05:00",
+    "total" : 2,
+    "contains" : [
+      {
+        "system" : "http://www.nlm.nih.gov/research/umls/hcpcs",
+        "version" : "2023",
         "code" : "G0463",
         "display" : "Hospital outpatient clinic visit for assessment and management of a patient"
       },
       {
+        "system" : "http://www.nlm.nih.gov/research/umls/hcpcs",
+        "version" : "2023",
         "code" : "T1015",
         "display" : "Clinic visit/encounter, all-inclusive"
-      }]
-    }]
-  },
-  "expansion" : {
-    "identifier" : "urn:uuid:dfef241b-a713-4b75-9a4d-8ac70b4b6066",
-    "timestamp" : "2023-09-26T12:40:46-04:00",
-    "total" : 2,
-    "offset" : 0,
-    "parameter" : [{
-      "name" : "count",
-      "valueInteger" : 1000
-    },
-    {
-      "name" : "offset",
-      "valueInteger" : 0
-    }],
-    "contains" : [{
-      "system" : "http://www.nlm.nih.gov/research/umls/hcpcs",
-      "version" : "2023",
-      "code" : "G0463",
-      "display" : "Hospital outpatient clinic visit for assessment and management of a patient"
-    },
-    {
-      "system" : "http://www.nlm.nih.gov/research/umls/hcpcs",
-      "version" : "2023",
-      "code" : "T1015",
-      "display" : "Clinic visit/encounter, all-inclusive"
-    }]
+      }
+    ]
   }
 }

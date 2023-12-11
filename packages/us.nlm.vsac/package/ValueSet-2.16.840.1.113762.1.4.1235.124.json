@@ -4,26 +4,32 @@
   "meta" : {
     "versionId" : "6",
     "lastUpdated" : "2022-08-25T01:03:06.000-04:00",
-    "profile" : ["http://hl7.org/fhir/StructureDefinition/shareablevalueset",
-    "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"]
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "extension" : [{
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
-    "valueString" : "B.well Connected Health Author"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
-    "valueDate" : "2022-12-15"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
-    "valueDate" : "2022-08-25"
-  }],
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "B.well Connected Health Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2022-12-15"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2022-08-25"
+    }
+  ],
   "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1235.124",
-  "identifier" : [{
-    "system" : "urn:ietf:rfc:3986",
-    "value" : "urn:oid:2.16.840.1.113762.1.4.1235.124"
-  }],
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113762.1.4.1235.124"
+    }
+  ],
   "version" : "20220825",
   "name" : "AbsenceOfRightBreast_HD_SNOMED",
   "title" : "Absence of Right Breast_HD_SNOMED",
@@ -32,50 +38,51 @@
   "date" : "2022-08-25T01:03:06-04:00",
   "publisher" : "B.well Connected Health Steward",
   "description" : "b.well created value set by Sr. Clinical Business Analyst for Breast Cancer Screening.",
-  "jurisdiction" : [{
-    "extension" : [{
-      "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
-      "valueString" : "UNKNOWN"
-    }]
-  }],
+  "jurisdiction" : [
+    {
+      "coding" : [
+        {
+          "system" : "urn:iso:std:iso:3166",
+          "code" : "US"
+        }
+      ]
+    }
+  ],
   "purpose" : "(Clinical Focus: The intent of this value set is for the purpose of defining the clinical codes that constitute Breast Cancer Screening for inclusion and utilization in patients/users connected heath.),(Data Element Scope: Breast Cancer Screening care need for b.well.),(Inclusion Criteria: Breast Cancer Screening SNOMED Codes that constitute the Absence of Right Breast For BCS care need for b.well.),(Exclusion Criteria: N/A)",
   "compose" : {
-    "include" : [{
-      "system" : "http://snomed.info/sct",
-      "concept" : [{
+    "include" : [
+      {
+        "system" : "http://snomed.info/sct",
+        "concept" : [
+          {
+            "code" : "137681000119108",
+            "display" : "History of prophylactic mastectomy of right breast (situation)"
+          },
+          {
+            "code" : "429242008",
+            "display" : "History of right mastectomy (situation)"
+          }
+        ]
+      }
+    ]
+  },
+  "expansion" : {
+    "identifier" : "urn:uuid:a9e257e1-0e7f-4f3a-ada8-81ba4563ed1c",
+    "timestamp" : "2023-11-26T19:02:01-05:00",
+    "total" : 2,
+    "contains" : [
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20230901",
         "code" : "137681000119108",
         "display" : "History of prophylactic mastectomy of right breast (situation)"
       },
       {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20230901",
         "code" : "429242008",
         "display" : "History of right mastectomy (situation)"
-      }]
-    }]
-  },
-  "expansion" : {
-    "identifier" : "urn:uuid:f54d3180-5a63-4e3e-835e-036ed8331843",
-    "timestamp" : "2023-09-26T07:36:25-04:00",
-    "total" : 2,
-    "offset" : 0,
-    "parameter" : [{
-      "name" : "count",
-      "valueInteger" : 1000
-    },
-    {
-      "name" : "offset",
-      "valueInteger" : 0
-    }],
-    "contains" : [{
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "137681000119108",
-      "display" : "History of prophylactic mastectomy of right breast (situation)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "429242008",
-      "display" : "History of right mastectomy (situation)"
-    }]
+      }
+    ]
   }
 }

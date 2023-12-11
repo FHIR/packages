@@ -4,26 +4,32 @@
   "meta" : {
     "versionId" : "13",
     "lastUpdated" : "2021-08-17T14:51:08.000-04:00",
-    "profile" : ["http://hl7.org/fhir/StructureDefinition/shareablevalueset",
-    "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"]
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "extension" : [{
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
-    "valueString" : "Lewin EH Author"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
-    "valueDate" : "2022-12-15"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
-    "valueDate" : "2021-08-17"
-  }],
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "Lewin EH Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2022-12-15"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2021-08-17"
+    }
+  ],
   "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.3157.1",
-  "identifier" : [{
-    "system" : "urn:ietf:rfc:3986",
-    "value" : "urn:oid:2.16.840.1.113883.3.3157.1"
-  }],
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113883.3.3157.1"
+    }
+  ],
   "version" : "20200715",
   "name" : "AbdomenCTWithoutContrast",
   "title" : "Abdomen CT without contrast",
@@ -32,50 +38,51 @@
   "date" : "2020-07-15T01:00:26-04:00",
   "publisher" : "Lewin EH Steward",
   "description" : "This value set is used to calculate OP-10 (Abdomen CT—Use of Contrast Material), a claims-based measure used in the Centers for Medicare & Medicaid Services' Hospital Outpatient Quality Reporting (HOQR) Program. Patients are eligible for inclusion in the OP-10 measure denominator if their provider performs an abdomen/abdominopelvic CT without contrast, with contrast, or without then with contrast. Patients are eligible for inclusion in the OP-10 measure numerator if their provider performs an abdomen/abdominopelvic CT without contrast.\nPlease reference the OP-10 annual reevaluation report for more details on the measure's denominator, numerator, and exclusion criteria.",
-  "jurisdiction" : [{
-    "extension" : [{
-      "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
-      "valueString" : "UNKNOWN"
-    }]
-  }],
+  "jurisdiction" : [
+    {
+      "coding" : [
+        {
+          "system" : "urn:iso:std:iso:3166",
+          "code" : "US"
+        }
+      ]
+    }
+  ],
   "purpose" : "(Clinical Focus: This set of values contains CPT codes for abdomen and abdominopelvic CT studies performed without contrast.),(Data Element Scope: The intent of this data element is to identify patients with claims-based evidence of an abdomen or abdominopelvic CT study performed without contrast.),(Inclusion Criteria: CPT codes for abdomen or abdominopelvic CT studies performed without contrast are included in this value set.),(Exclusion Criteria: CPT codes not associated with abdomen or abdominopelvic CT studies performed without contrast are excluded from this value set. Terminologies other than CPT are also excluded from this value set.)",
   "compose" : {
-    "include" : [{
-      "system" : "http://www.ama-assn.org/go/cpt",
-      "concept" : [{
+    "include" : [
+      {
+        "system" : "http://www.ama-assn.org/go/cpt",
+        "concept" : [
+          {
+            "code" : "74150",
+            "display" : "Computed tomography, abdomen; without contrast material"
+          },
+          {
+            "code" : "74176",
+            "display" : "Computed tomography, abdomen and pelvis; without contrast material"
+          }
+        ]
+      }
+    ]
+  },
+  "expansion" : {
+    "identifier" : "urn:uuid:b684da39-8687-4ffc-93a6-fd00c71c3ee7",
+    "timestamp" : "2023-11-26T19:57:11-05:00",
+    "total" : 2,
+    "contains" : [
+      {
+        "system" : "http://www.ama-assn.org/go/cpt",
+        "version" : "2024",
         "code" : "74150",
         "display" : "Computed tomography, abdomen; without contrast material"
       },
       {
+        "system" : "http://www.ama-assn.org/go/cpt",
+        "version" : "2024",
         "code" : "74176",
         "display" : "Computed tomography, abdomen and pelvis; without contrast material"
-      }]
-    }]
-  },
-  "expansion" : {
-    "identifier" : "urn:uuid:b5ea44e3-5649-4110-bb48-30b7ee652458",
-    "timestamp" : "2023-09-26T07:34:38-04:00",
-    "total" : 2,
-    "offset" : 0,
-    "parameter" : [{
-      "name" : "count",
-      "valueInteger" : 1000
-    },
-    {
-      "name" : "offset",
-      "valueInteger" : 0
-    }],
-    "contains" : [{
-      "system" : "http://www.ama-assn.org/go/cpt",
-      "version" : "2023",
-      "code" : "74150",
-      "display" : "Computed tomography, abdomen; without contrast material"
-    },
-    {
-      "system" : "http://www.ama-assn.org/go/cpt",
-      "version" : "2023",
-      "code" : "74176",
-      "display" : "Computed tomography, abdomen and pelvis; without contrast material"
-    }]
+      }
+    ]
   }
 }

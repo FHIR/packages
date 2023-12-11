@@ -4,26 +4,32 @@
   "meta" : {
     "versionId" : "5",
     "lastUpdated" : "2019-05-24T01:00:11.000-04:00",
-    "profile" : ["http://hl7.org/fhir/StructureDefinition/shareablevalueset",
-    "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"]
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "extension" : [{
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
-    "valueString" : "National EMS Quality Alliance Author"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
-    "valueDate" : "2022-12-15"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
-    "valueDate" : "2019-05-24"
-  }],
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "National EMS Quality Alliance Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2022-12-15"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2019-05-24"
+    }
+  ],
   "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1204.26",
-  "identifier" : [{
-    "system" : "urn:ietf:rfc:3986",
-    "value" : "urn:oid:2.16.840.1.113762.1.4.1204.26"
-  }],
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113762.1.4.1204.26"
+    }
+  ],
   "version" : "20190524",
   "name" : "RespiratoryRate",
   "title" : "Respiratory Rate",
@@ -31,50 +37,51 @@
   "experimental" : false,
   "date" : "2019-05-24T01:00:11-04:00",
   "publisher" : "National EMS Quality Alliance Steward",
-  "jurisdiction" : [{
-    "extension" : [{
-      "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
-      "valueString" : "UNKNOWN"
-    }]
-  }],
+  "jurisdiction" : [
+    {
+      "coding" : [
+        {
+          "system" : "urn:iso:std:iso:3166",
+          "code" : "US"
+        }
+      ]
+    }
+  ],
   "purpose" : "(Clinical Focus: This set of values contains test that measure respiratory rate..),(Data Element Scope: The intent of this data element is to identify patients whose respiratory rate was measured while receiving care. Using the Quality Data Model, this element would map to the Assessment category.),(Inclusion Criteria: Include results for respiratory rate procedures.),(Exclusion Criteria: None)",
   "compose" : {
-    "include" : [{
-      "system" : "http://loinc.org",
-      "concept" : [{
+    "include" : [
+      {
+        "system" : "http://loinc.org",
+        "concept" : [
+          {
+            "code" : "11291-2",
+            "display" : "Respiratory rate at First encounter"
+          },
+          {
+            "code" : "9279-1",
+            "display" : "Respiratory rate"
+          }
+        ]
+      }
+    ]
+  },
+  "expansion" : {
+    "identifier" : "urn:uuid:6374a127-154f-4ce5-afdc-87049eb31b1b",
+    "timestamp" : "2023-11-26T18:04:44-05:00",
+    "total" : 2,
+    "contains" : [
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.76",
         "code" : "11291-2",
         "display" : "Respiratory rate at First encounter"
       },
       {
+        "system" : "http://loinc.org",
+        "version" : "2.76",
         "code" : "9279-1",
         "display" : "Respiratory rate"
-      }]
-    }]
-  },
-  "expansion" : {
-    "identifier" : "urn:uuid:4b638147-f053-4c08-a1ec-6b3af5c80080",
-    "timestamp" : "2023-09-26T12:57:24-04:00",
-    "total" : 2,
-    "offset" : 0,
-    "parameter" : [{
-      "name" : "count",
-      "valueInteger" : 1000
-    },
-    {
-      "name" : "offset",
-      "valueInteger" : 0
-    }],
-    "contains" : [{
-      "system" : "http://loinc.org",
-      "version" : "2.74",
-      "code" : "11291-2",
-      "display" : "Respiratory rate at First encounter"
-    },
-    {
-      "system" : "http://loinc.org",
-      "version" : "2.74",
-      "code" : "9279-1",
-      "display" : "Respiratory rate"
-    }]
+      }
+    ]
   }
 }

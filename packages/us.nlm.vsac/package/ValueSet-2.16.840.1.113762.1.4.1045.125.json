@@ -4,26 +4,32 @@
   "meta" : {
     "versionId" : "11",
     "lastUpdated" : "2015-01-28T01:00:02.000-05:00",
-    "profile" : ["http://hl7.org/fhir/StructureDefinition/shareablevalueset",
-    "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"]
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "extension" : [{
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
-    "valueString" : "Mathematica-CCDE"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
-    "valueDate" : "2022-12-15"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
-    "valueDate" : "2015-01-28"
-  }],
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "Mathematica-CCDE"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2022-12-15"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2015-01-28"
+    }
+  ],
   "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1045.125",
-  "identifier" : [{
-    "system" : "urn:ietf:rfc:3986",
-    "value" : "urn:oid:2.16.840.1.113762.1.4.1045.125"
-  }],
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113762.1.4.1045.125"
+    }
+  ],
   "version" : "20150128",
   "name" : "CreatinineLabTestBloodSerumPlasmaMolesPerVolume",
   "title" : "Creatinine Lab Test Blood Serum Plasma Moles Per Volume",
@@ -32,50 +38,51 @@
   "date" : "2015-01-28T01:00:02-05:00",
   "publisher" : "Yale",
   "description" : "CCDE",
-  "jurisdiction" : [{
-    "extension" : [{
-      "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
-      "valueString" : "UNKNOWN"
-    }]
-  }],
+  "jurisdiction" : [
+    {
+      "coding" : [
+        {
+          "system" : "urn:iso:std:iso:3166",
+          "code" : "US"
+        }
+      ]
+    }
+  ],
   "purpose" : "(Clinical Focus: This set of values contains lab tests commonly used for a blood/serum/plasma creatinine test.),(Data Element Scope: The intent of this data element is to identify patients with a lab test performed on a source of blood/serum/plasma for creatinine. Using the Quality Data Model, this particular element would map to 'Laboratory Test, Result' or 'Laboratory Test, Order' datatype.),(Inclusion Criteria: Creatinine lab test using the source of blood/serum/plasma with a reporting scale of moles/volume.),(Exclusion Criteria: Creatinine lab test using a non-blood/serum/plasma source of blood.)",
   "compose" : {
-    "include" : [{
-      "system" : "http://loinc.org",
-      "concept" : [{
+    "include" : [
+      {
+        "system" : "http://loinc.org",
+        "concept" : [
+          {
+            "code" : "14682-9",
+            "display" : "Creatinine [Moles/volume] in Serum or Plasma"
+          },
+          {
+            "code" : "59826-8",
+            "display" : "Creatinine [Moles/volume] in Blood"
+          }
+        ]
+      }
+    ]
+  },
+  "expansion" : {
+    "identifier" : "urn:uuid:19587025-7192-44b5-9ef0-e4aacdbdfb86",
+    "timestamp" : "2023-11-24T16:24:16-05:00",
+    "total" : 2,
+    "contains" : [
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.76",
         "code" : "14682-9",
         "display" : "Creatinine [Moles/volume] in Serum or Plasma"
       },
       {
+        "system" : "http://loinc.org",
+        "version" : "2.76",
         "code" : "59826-8",
         "display" : "Creatinine [Moles/volume] in Blood"
-      }]
-    }]
-  },
-  "expansion" : {
-    "identifier" : "urn:uuid:76dd0560-dbb8-4acb-ac8d-77d3dcd1488a",
-    "timestamp" : "2023-09-26T09:51:50-04:00",
-    "total" : 2,
-    "offset" : 0,
-    "parameter" : [{
-      "name" : "count",
-      "valueInteger" : 1000
-    },
-    {
-      "name" : "offset",
-      "valueInteger" : 0
-    }],
-    "contains" : [{
-      "system" : "http://loinc.org",
-      "version" : "2.74",
-      "code" : "14682-9",
-      "display" : "Creatinine [Moles/volume] in Serum or Plasma"
-    },
-    {
-      "system" : "http://loinc.org",
-      "version" : "2.74",
-      "code" : "59826-8",
-      "display" : "Creatinine [Moles/volume] in Blood"
-    }]
+      }
+    ]
   }
 }

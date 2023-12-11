@@ -4,26 +4,32 @@
   "meta" : {
     "versionId" : "14",
     "lastUpdated" : "2015-01-08T01:00:03.000-05:00",
-    "profile" : ["http://hl7.org/fhir/StructureDefinition/shareablevalueset",
-    "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"]
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "extension" : [{
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
-    "valueString" : "FHIMS Author"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
-    "valueDate" : "2022-12-15"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
-    "valueDate" : "2015-01-08"
-  }],
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "FHIMS Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2022-12-15"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2015-01-08"
+    }
+  ],
   "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.2074.1.1.7",
-  "identifier" : [{
-    "system" : "urn:ietf:rfc:3986",
-    "value" : "urn:oid:2.16.840.1.113883.3.2074.1.1.7"
-  }],
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113883.3.2074.1.1.7"
+    }
+  ],
   "version" : "20150108",
   "name" : "AdvanceDirectiveLegalFunction",
   "title" : "Advance Directive Legal Function",
@@ -31,60 +37,61 @@
   "experimental" : false,
   "date" : "2015-01-08T01:00:03-05:00",
   "publisher" : "FHIMS Steward",
-  "jurisdiction" : [{
-    "extension" : [{
-      "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
-      "valueString" : "UNKNOWN"
-    }]
-  }],
+  "jurisdiction" : [
+    {
+      "coding" : [
+        {
+          "system" : "urn:iso:std:iso:3166",
+          "code" : "US"
+        }
+      ]
+    }
+  ],
   "purpose" : "(Clinical Focus: Kinds of advance directives by legal function rather than communication channel or clinical procedure),(Data Element Scope: Advance Directive Kind: Element used to capture the presence of an advanced directive or to classify a directive already recorded or linked),(Inclusion Criteria: Advance directive kinds by legal function of the directive),(Exclusion Criteria: Concepts that describe the communication channel used to communicate the directive (paper document, word of mouth), or that describes clinical procedure permissions (resuscitation, medication, etc.))",
   "compose" : {
-    "include" : [{
-      "system" : "http://snomed.info/sct",
-      "concept" : [{
+    "include" : [
+      {
+        "system" : "http://snomed.info/sct",
+        "concept" : [
+          {
+            "code" : "425393008",
+            "display" : "Active Durable Power of Attorney for Healthcare (finding)"
+          },
+          {
+            "code" : "425395001",
+            "display" : "Active living will (finding)"
+          },
+          {
+            "code" : "443564001",
+            "display" : "Willing to be donor of organ (finding)"
+          }
+        ]
+      }
+    ]
+  },
+  "expansion" : {
+    "identifier" : "urn:uuid:c6160f7f-ed94-40f4-ad2a-b516f1bd8158",
+    "timestamp" : "2023-11-26T19:57:10-05:00",
+    "total" : 3,
+    "contains" : [
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20230901",
         "code" : "425393008",
         "display" : "Active Durable Power of Attorney for Healthcare (finding)"
       },
       {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20230901",
         "code" : "425395001",
         "display" : "Active living will (finding)"
       },
       {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20230901",
         "code" : "443564001",
         "display" : "Willing to be donor of organ (finding)"
-      }]
-    }]
-  },
-  "expansion" : {
-    "identifier" : "urn:uuid:8e1c4d04-3790-4d3d-ad9e-50aad7e95522",
-    "timestamp" : "2023-09-26T07:43:39-04:00",
-    "total" : 3,
-    "offset" : 0,
-    "parameter" : [{
-      "name" : "count",
-      "valueInteger" : 1000
-    },
-    {
-      "name" : "offset",
-      "valueInteger" : 0
-    }],
-    "contains" : [{
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "425393008",
-      "display" : "Active Durable Power of Attorney for Healthcare (finding)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "425395001",
-      "display" : "Active living will (finding)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "443564001",
-      "display" : "Willing to be donor of organ (finding)"
-    }]
+      }
+    ]
   }
 }

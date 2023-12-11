@@ -4,26 +4,32 @@
   "meta" : {
     "versionId" : "14",
     "lastUpdated" : "2023-08-23T13:48:56.000-04:00",
-    "profile" : ["http://hl7.org/fhir/StructureDefinition/shareablevalueset",
-    "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"]
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "extension" : [{
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
-    "valueString" : "The Gravity Project Author"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
-    "valueDate" : "2022-12-15"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
-    "valueDate" : "2023-08-23"
-  }],
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "The Gravity Project Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2022-12-15"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2023-08-23"
+    }
+  ],
   "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1247.102",
-  "identifier" : [{
-    "system" : "urn:ietf:rfc:3986",
-    "value" : "urn:oid:2.16.840.1.113762.1.4.1247.102"
-  }],
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113762.1.4.1247.102"
+    }
+  ],
   "version" : "20221028",
   "name" : "LessThanHighSchoolEducationDiagnosesICD10CM",
   "title" : "Less Than High School Education Diagnoses ICD10CM",
@@ -31,50 +37,51 @@
   "experimental" : false,
   "date" : "2022-10-28T01:03:05-04:00",
   "publisher" : "The Gravity Project Steward",
-  "jurisdiction" : [{
-    "extension" : [{
-      "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
-      "valueString" : "UNKNOWN"
-    }]
-  }],
+  "jurisdiction" : [
+    {
+      "coding" : [
+        {
+          "system" : "urn:iso:std:iso:3166",
+          "code" : "US"
+        }
+      ]
+    }
+  ],
   "purpose" : "(Clinical Focus: <insert metadata>\nThe terms in this value set represent the diagnoses associated with Less than high school education as identified by the Gravity Project),(Data Element Scope: Supports the exchange of data for the Gravity SDOH Clinical Care FHIR Implementation Guide as well as other uses of these SDOH terms),(Inclusion Criteria: Includes ICD10CM diagnoses that have been identified through the Gravity Project community consensus voting process),(Exclusion Criteria: N/A)",
   "compose" : {
-    "include" : [{
-      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-      "concept" : [{
+    "include" : [
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "concept" : [
+          {
+            "code" : "Z55.5",
+            "display" : "Less than a high school diploma"
+          },
+          {
+            "code" : "Z71.88",
+            "display" : "Encounter for counseling for socioeconomic factors"
+          }
+        ]
+      }
+    ]
+  },
+  "expansion" : {
+    "identifier" : "urn:uuid:a5c33b37-f78f-483d-8ad8-8bc0cd8f9ea6",
+    "timestamp" : "2023-11-26T19:12:00-05:00",
+    "total" : 2,
+    "contains" : [
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2024",
         "code" : "Z55.5",
         "display" : "Less than a high school diploma"
       },
       {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2024",
         "code" : "Z71.88",
         "display" : "Encounter for counseling for socioeconomic factors"
-      }]
-    }]
-  },
-  "expansion" : {
-    "identifier" : "urn:uuid:0b1d4ed7-44cb-4add-a659-8691ca5d9380",
-    "timestamp" : "2023-09-26T11:23:24-04:00",
-    "total" : 2,
-    "offset" : 0,
-    "parameter" : [{
-      "name" : "count",
-      "valueInteger" : 1000
-    },
-    {
-      "name" : "offset",
-      "valueInteger" : 0
-    }],
-    "contains" : [{
-      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-      "version" : "2024",
-      "code" : "Z55.5",
-      "display" : "Less than a high school diploma"
-    },
-    {
-      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-      "version" : "2024",
-      "code" : "Z71.88",
-      "display" : "Encounter for counseling for socioeconomic factors"
-    }]
+      }
+    ]
   }
 }

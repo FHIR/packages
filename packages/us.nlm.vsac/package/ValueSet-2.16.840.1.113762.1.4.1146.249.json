@@ -4,30 +4,36 @@
   "meta" : {
     "versionId" : "26",
     "lastUpdated" : "2020-02-19T11:28:06.000-05:00",
-    "profile" : ["http://hl7.org/fhir/StructureDefinition/shareablevalueset",
-    "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"]
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "extension" : [{
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
-    "valueString" : "CSTE Author"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-keyWord",
-    "valueString" : "G_ZVD,Spotted_Fever,Trigger"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
-    "valueDate" : "2022-12-15"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
-    "valueDate" : "2020-02-19"
-  }],
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "CSTE Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-keyWord",
+      "valueString" : "G_ZVD,Spotted_Fever,Trigger"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2022-12-15"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2020-02-19"
+    }
+  ],
   "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1146.249",
-  "identifier" : [{
-    "system" : "urn:ietf:rfc:3986",
-    "value" : "urn:oid:2.16.840.1.113762.1.4.1146.249"
-  }],
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113762.1.4.1146.249"
+    }
+  ],
   "version" : "20181031",
   "name" : "SpottedFeverRickettsiosisDisordersICD10CM",
   "title" : "Spotted Fever Rickettsiosis (Disorders) (ICD10CM)",
@@ -36,130 +42,131 @@
   "date" : "2018-10-31T01:00:09-04:00",
   "publisher" : "CSTE Steward",
   "description" : "The Spotted fever group - SPG contains bacteria recognized as human pathogens: R. rickettsii, R. conorii, R. africae, R. sibirica, R. japonica, R. honei, R. parkeri, R. massiliae, R. monacensis, R. slovaca, R. aeschlimannii, and R. helvetica. R. rickettsia and R. parkeri are endemic to North America. (MCM). Transitional group: - R. australis - R. akari - R. felis Spotted fever group rickettsioses (spotted fevers) in the United States include: (CDC RMSF) - Rickettsia parkeri\u202frickettsiosis, caused by\u202fR. parkeri; - Pacific Coast tick fever, caused by\u202fRickettsia philipii; - Rickettsialpox, caused by\u202fRickettsia akari.",
-  "jurisdiction" : [{
-    "extension" : [{
-      "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
-      "valueString" : "UNKNOWN"
-    }]
-  }],
+  "jurisdiction" : [
+    {
+      "coding" : [
+        {
+          "system" : "urn:iso:std:iso:3166",
+          "code" : "US"
+        }
+      ]
+    }
+  ],
   "purpose" : "(Clinical Focus: This set of values contains diagnoses or problems that represent that the patient has Spotted Fever Rickettsiosis regardless of the clinical presentation of the condition),(Data Element Scope: Diagnoses or problems documented in a clinical record.),(Inclusion Criteria: Root1 = Spotted Fever; Rickettsiosis \nRoot1 children included = Some;\n\nAdded leaf concepts: YES \n\nRoot2 = Other rickettsioses; \nRoot2 children included = Some;),(Exclusion Criteria: Rickettsiosis due to Ehrlichia sennetsu)",
   "compose" : {
-    "include" : [{
-      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-      "concept" : [{
+    "include" : [
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "concept" : [
+          {
+            "code" : "A77",
+            "display" : "Spotted fever [tick-borne rickettsioses]"
+          },
+          {
+            "code" : "A77.0",
+            "display" : "Spotted fever due to Rickettsia rickettsii"
+          },
+          {
+            "code" : "A77.1",
+            "display" : "Spotted fever due to Rickettsia conorii"
+          },
+          {
+            "code" : "A77.2",
+            "display" : "Spotted fever due to Rickettsia siberica"
+          },
+          {
+            "code" : "A77.3",
+            "display" : "Spotted fever due to Rickettsia australis"
+          },
+          {
+            "code" : "A77.8",
+            "display" : "Other spotted fevers"
+          },
+          {
+            "code" : "A77.9",
+            "display" : "Spotted fever, unspecified"
+          },
+          {
+            "code" : "A79.1",
+            "display" : "Rickettsialpox due to Rickettsia akari"
+          },
+          {
+            "code" : "A79.81",
+            "display" : "Rickettsiosis due to Ehrlichia sennetsu"
+          },
+          {
+            "code" : "A79.9",
+            "display" : "Rickettsiosis, unspecified"
+          }
+        ]
+      }
+    ]
+  },
+  "expansion" : {
+    "identifier" : "urn:uuid:b8b239ea-acaa-4d81-8848-89457472e60e",
+    "timestamp" : "2023-11-26T17:05:31-05:00",
+    "total" : 10,
+    "contains" : [
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2024",
         "code" : "A77",
         "display" : "Spotted fever [tick-borne rickettsioses]"
       },
       {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2024",
         "code" : "A77.0",
         "display" : "Spotted fever due to Rickettsia rickettsii"
       },
       {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2024",
         "code" : "A77.1",
         "display" : "Spotted fever due to Rickettsia conorii"
       },
       {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2024",
         "code" : "A77.2",
         "display" : "Spotted fever due to Rickettsia siberica"
       },
       {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2024",
         "code" : "A77.3",
         "display" : "Spotted fever due to Rickettsia australis"
       },
       {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2024",
         "code" : "A77.8",
         "display" : "Other spotted fevers"
       },
       {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2024",
         "code" : "A77.9",
         "display" : "Spotted fever, unspecified"
       },
       {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2024",
         "code" : "A79.1",
         "display" : "Rickettsialpox due to Rickettsia akari"
       },
       {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2024",
         "code" : "A79.81",
         "display" : "Rickettsiosis due to Ehrlichia sennetsu"
       },
       {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2024",
         "code" : "A79.9",
         "display" : "Rickettsiosis, unspecified"
-      }]
-    }]
-  },
-  "expansion" : {
-    "identifier" : "urn:uuid:81120d18-4fb1-4404-be91-51e40d7c3e22",
-    "timestamp" : "2023-09-26T13:18:23-04:00",
-    "total" : 10,
-    "offset" : 0,
-    "parameter" : [{
-      "name" : "count",
-      "valueInteger" : 1000
-    },
-    {
-      "name" : "offset",
-      "valueInteger" : 0
-    }],
-    "contains" : [{
-      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-      "version" : "2024",
-      "code" : "A77",
-      "display" : "Spotted fever [tick-borne rickettsioses]"
-    },
-    {
-      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-      "version" : "2024",
-      "code" : "A77.0",
-      "display" : "Spotted fever due to Rickettsia rickettsii"
-    },
-    {
-      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-      "version" : "2024",
-      "code" : "A77.1",
-      "display" : "Spotted fever due to Rickettsia conorii"
-    },
-    {
-      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-      "version" : "2024",
-      "code" : "A77.2",
-      "display" : "Spotted fever due to Rickettsia siberica"
-    },
-    {
-      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-      "version" : "2024",
-      "code" : "A77.3",
-      "display" : "Spotted fever due to Rickettsia australis"
-    },
-    {
-      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-      "version" : "2024",
-      "code" : "A77.8",
-      "display" : "Other spotted fevers"
-    },
-    {
-      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-      "version" : "2024",
-      "code" : "A77.9",
-      "display" : "Spotted fever, unspecified"
-    },
-    {
-      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-      "version" : "2024",
-      "code" : "A79.1",
-      "display" : "Rickettsialpox due to Rickettsia akari"
-    },
-    {
-      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-      "version" : "2024",
-      "code" : "A79.81",
-      "display" : "Rickettsiosis due to Ehrlichia sennetsu"
-    },
-    {
-      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-      "version" : "2024",
-      "code" : "A79.9",
-      "display" : "Rickettsiosis, unspecified"
-    }]
+      }
+    ]
   }
 }

@@ -4,30 +4,36 @@
   "meta" : {
     "versionId" : "17",
     "lastUpdated" : "2023-01-17T16:22:41.000-05:00",
-    "profile" : ["http://hl7.org/fhir/StructureDefinition/shareablevalueset",
-    "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"]
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "extension" : [{
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
-    "valueString" : "CSTE Author"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-keyWord",
-    "valueString" : "Opioid,Trigger"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
-    "valueDate" : "2022-12-15"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
-    "valueDate" : "2023-01-17"
-  }],
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "CSTE Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-keyWord",
+      "valueString" : "Opioid,Trigger"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2022-12-15"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2023-01-17"
+    }
+  ],
   "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1146.1008",
-  "identifier" : [{
-    "system" : "urn:ietf:rfc:3986",
-    "value" : "urn:oid:2.16.840.1.113762.1.4.1146.1008"
-  }],
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113762.1.4.1146.1008"
+    }
+  ],
   "version" : "20191227",
   "name" : "OpioidOverdoseAndPoisoningDisordersICD10CM",
   "title" : "Opioid Overdose and Poisoning (Disorders) (ICD10CM)",
@@ -36,288 +42,315 @@
   "date" : "2019-12-27T01:00:33-05:00",
   "publisher" : "CSTE Steward",
   "description" : "Set to re-publish 1/2023",
-  "jurisdiction" : [{
-    "extension" : [{
-      "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
-      "valueString" : "UNKNOWN"
-    }]
-  }],
+  "jurisdiction" : [
+    {
+      "coding" : [
+        {
+          "system" : "urn:iso:std:iso:3166",
+          "code" : "US"
+        }
+      ]
+    }
+  ],
   "purpose" : "(Clinical Focus: This set of values contains diagnoses or problems that represent that the patient has had poisoning or overdose by other opioids regardless of the clinical presentation of the condition.),(Data Element Scope: Diagnoses or problems documented in a clinical record.),(Inclusion Criteria: Root1 = T40; \nRoot1 children included = some;\n\nAdded leaf concepts: NO),(Exclusion Criteria: None)",
   "compose" : {
-    "include" : [{
-      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-      "version" : "2024",
-      "filter" : [{
-        "property" : "concept",
-        "op" : "descendent-of",
-        "value" : "T40.1X"
-      }]
-    },
-    {
-      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-      "version" : "2024",
-      "filter" : [{
-        "property" : "concept",
-        "op" : "descendent-of",
-        "value" : "T40.0X"
-      }]
-    },
-    {
-      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-      "version" : "2024",
-      "filter" : [{
-        "property" : "concept",
-        "op" : "descendent-of",
-        "value" : "T40.2X"
-      }]
-    },
-    {
-      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-      "version" : "2024",
-      "filter" : [{
-        "property" : "concept",
-        "op" : "descendent-of",
-        "value" : "T40.3X"
-      }]
-    },
-    {
-      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-      "version" : "2024",
-      "filter" : [{
-        "property" : "concept",
-        "op" : "descendent-of",
-        "value" : "T40.4X"
-      }]
-    },
-    {
-      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-      "version" : "2024",
-      "filter" : [{
-        "property" : "concept",
-        "op" : "descendent-of",
-        "value" : "T40.60"
-      }]
-    },
-    {
-      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-      "version" : "2024",
-      "filter" : [{
-        "property" : "concept",
-        "op" : "in",
-        "value" : "T40.691A,T40.692A,T40.693A,T40.694A"
-      }]
-    }],
-    "exclude" : [{
-      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-      "version" : "2024",
-      "filter" : [{
-        "property" : "concept",
-        "op" : "in",
-        "value" : "T40.0X1,T40.0X1D,T40.0X1S,T40.0X2,T40.0X2D,T40.0X2S,T40.0X3,T40.0X3D,T40.0X3S,T40.0X4,T40.0X4D,T40.0X4S,T40.0X5,T40.0X5A,T40.0X5D,T40.0X5S,T40.0X6,T40.0X6A,T40.0X6D,T40.0X6S"
-      }]
-    },
-    {
-      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-      "version" : "2024",
-      "filter" : [{
-        "property" : "concept",
-        "op" : "in",
-        "value" : "T40.1X1,T40.1X1D,T40.1X1S,T40.1X2,T40.1X2D,T40.1X2S,T40.1X3,T40.1X3D,T40.1X3S,T40.1X4,T40.1X4D,T40.1X4S"
-      }]
-    },
-    {
-      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-      "version" : "2024",
-      "filter" : [{
-        "property" : "concept",
-        "op" : "in",
-        "value" : "T40.2X,T40.2X1,T40.2X1D,T40.2X1S,T40.2X2,T40.2X2D,T40.2X2S,T40.2X3,T40.2X3D,T40.2X3S,T40.2X4,T40.2X4D,T40.2X4S,T40.2X5,T40.2X5D,T40.2X5S,T40.2X6,T40.2X6D,T40.2X6S,T40.2X5A,T40.2X6A"
-      }]
-    },
-    {
-      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-      "version" : "2024",
-      "filter" : [{
-        "property" : "concept",
-        "op" : "in",
-        "value" : "T40.3X,T40.3X1,T40.3X1D,T40.3X1S,T40.3X2,T40.3X2D,T40.3X2S,T40.3X3,T40.3X3D,T40.3X3S,T40.3X4,T40.3X4D,T40.3X4S,T40.3X5,T40.3X5A,T40.3X5D,T40.3X5S,T40.3X6,T40.3X6A,T40.3X6D,T40.3X6S"
-      }]
-    },
-    {
-      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-      "version" : "2024",
-      "filter" : [{
-        "property" : "concept",
-        "op" : "in",
-        "value" : "T40.4X,T40.4X1,T40.4X1D,T40.4X1S,T40.4X2,T40.4X2D,T40.4X2S,T40.4X3,T40.4X3D,T40.4X3S,T40.4X4,T40.4X4D,T40.4X4S,T40.4X5,T40.4X5A,T40.4X5D,T40.4X5S,T40.4X6,T40.4X6A,T40.4X6D,T40.4X6S"
-      }]
-    },
-    {
-      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-      "version" : "2024",
-      "filter" : [{
-        "property" : "concept",
-        "op" : "in",
-        "value" : "T40.601,T40.601D,T40.601S,T40.602,T40.602D,T40.602S,T40.603,T40.603D,T40.603S,T40.604,T40.604D,T40.604S,T40.605,T40.605A,T40.605D,T40.605S,T40.606,T40.606A,T40.606D,T40.606S"
-      }]
-    }]
+    "include" : [
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2024",
+        "filter" : [
+          {
+            "property" : "concept",
+            "op" : "descendent-of",
+            "value" : "T40.1X"
+          }
+        ]
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2024",
+        "filter" : [
+          {
+            "property" : "concept",
+            "op" : "descendent-of",
+            "value" : "T40.0X"
+          }
+        ]
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2024",
+        "filter" : [
+          {
+            "property" : "concept",
+            "op" : "descendent-of",
+            "value" : "T40.2X"
+          }
+        ]
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2024",
+        "filter" : [
+          {
+            "property" : "concept",
+            "op" : "descendent-of",
+            "value" : "T40.3X"
+          }
+        ]
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2024",
+        "filter" : [
+          {
+            "property" : "concept",
+            "op" : "descendent-of",
+            "value" : "T40.4X"
+          }
+        ]
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2024",
+        "filter" : [
+          {
+            "property" : "concept",
+            "op" : "descendent-of",
+            "value" : "T40.60"
+          }
+        ]
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2024",
+        "filter" : [
+          {
+            "property" : "concept",
+            "op" : "in",
+            "value" : "T40.691A,T40.692A,T40.693A,T40.694A"
+          }
+        ]
+      }
+    ],
+    "exclude" : [
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2024",
+        "filter" : [
+          {
+            "property" : "concept",
+            "op" : "in",
+            "value" : "T40.0X1,T40.0X1D,T40.0X1S,T40.0X2,T40.0X2D,T40.0X2S,T40.0X3,T40.0X3D,T40.0X3S,T40.0X4,T40.0X4D,T40.0X4S,T40.0X5,T40.0X5A,T40.0X5D,T40.0X5S,T40.0X6,T40.0X6A,T40.0X6D,T40.0X6S"
+          }
+        ]
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2024",
+        "filter" : [
+          {
+            "property" : "concept",
+            "op" : "in",
+            "value" : "T40.1X1,T40.1X1D,T40.1X1S,T40.1X2,T40.1X2D,T40.1X2S,T40.1X3,T40.1X3D,T40.1X3S,T40.1X4,T40.1X4D,T40.1X4S"
+          }
+        ]
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2024",
+        "filter" : [
+          {
+            "property" : "concept",
+            "op" : "in",
+            "value" : "T40.2X,T40.2X1,T40.2X1D,T40.2X1S,T40.2X2,T40.2X2D,T40.2X2S,T40.2X3,T40.2X3D,T40.2X3S,T40.2X4,T40.2X4D,T40.2X4S,T40.2X5,T40.2X5D,T40.2X5S,T40.2X6,T40.2X6D,T40.2X6S,T40.2X5A,T40.2X6A"
+          }
+        ]
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2024",
+        "filter" : [
+          {
+            "property" : "concept",
+            "op" : "in",
+            "value" : "T40.3X,T40.3X1,T40.3X1D,T40.3X1S,T40.3X2,T40.3X2D,T40.3X2S,T40.3X3,T40.3X3D,T40.3X3S,T40.3X4,T40.3X4D,T40.3X4S,T40.3X5,T40.3X5A,T40.3X5D,T40.3X5S,T40.3X6,T40.3X6A,T40.3X6D,T40.3X6S"
+          }
+        ]
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2024",
+        "filter" : [
+          {
+            "property" : "concept",
+            "op" : "in",
+            "value" : "T40.4X,T40.4X1,T40.4X1D,T40.4X1S,T40.4X2,T40.4X2D,T40.4X2S,T40.4X3,T40.4X3D,T40.4X3S,T40.4X4,T40.4X4D,T40.4X4S,T40.4X5,T40.4X5A,T40.4X5D,T40.4X5S,T40.4X6,T40.4X6A,T40.4X6D,T40.4X6S"
+          }
+        ]
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2024",
+        "filter" : [
+          {
+            "property" : "concept",
+            "op" : "in",
+            "value" : "T40.601,T40.601D,T40.601S,T40.602,T40.602D,T40.602S,T40.603,T40.603D,T40.603S,T40.604,T40.604D,T40.604S,T40.605,T40.605A,T40.605D,T40.605S,T40.606,T40.606A,T40.606D,T40.606S"
+          }
+        ]
+      }
+    ]
   },
   "expansion" : {
-    "identifier" : "urn:uuid:243b3d5d-d24d-4437-bd5a-25185ed8f16f",
-    "timestamp" : "2023-09-26T12:14:21-04:00",
+    "identifier" : "urn:uuid:dc612216-589c-4ff3-b6cb-a8c07ec3c9b2",
+    "timestamp" : "2023-11-26T16:40:50-05:00",
     "total" : 24,
-    "offset" : 0,
-    "parameter" : [{
-      "name" : "count",
-      "valueInteger" : 1000
-    },
-    {
-      "name" : "offset",
-      "valueInteger" : 0
-    }],
-    "contains" : [{
-      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-      "version" : "2024",
-      "code" : "T40.0X1A",
-      "display" : "Poisoning by opium, accidental (unintentional), initial encounter"
-    },
-    {
-      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-      "version" : "2024",
-      "code" : "T40.0X2A",
-      "display" : "Poisoning by opium, intentional self-harm, initial encounter"
-    },
-    {
-      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-      "version" : "2024",
-      "code" : "T40.0X3A",
-      "display" : "Poisoning by opium, assault, initial encounter"
-    },
-    {
-      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-      "version" : "2024",
-      "code" : "T40.0X4A",
-      "display" : "Poisoning by opium, undetermined, initial encounter"
-    },
-    {
-      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-      "version" : "2024",
-      "code" : "T40.1X1A",
-      "display" : "Poisoning by heroin, accidental (unintentional), initial encounter"
-    },
-    {
-      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-      "version" : "2024",
-      "code" : "T40.1X2A",
-      "display" : "Poisoning by heroin, intentional self-harm, initial encounter"
-    },
-    {
-      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-      "version" : "2024",
-      "code" : "T40.1X3A",
-      "display" : "Poisoning by heroin, assault, initial encounter"
-    },
-    {
-      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-      "version" : "2024",
-      "code" : "T40.1X4A",
-      "display" : "Poisoning by heroin, undetermined, initial encounter"
-    },
-    {
-      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-      "version" : "2024",
-      "code" : "T40.2X1A",
-      "display" : "Poisoning by other opioids, accidental (unintentional), initial encounter"
-    },
-    {
-      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-      "version" : "2024",
-      "code" : "T40.2X2A",
-      "display" : "Poisoning by other opioids, intentional self-harm, initial encounter"
-    },
-    {
-      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-      "version" : "2024",
-      "code" : "T40.2X3A",
-      "display" : "Poisoning by other opioids, assault, initial encounter"
-    },
-    {
-      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-      "version" : "2024",
-      "code" : "T40.2X4A",
-      "display" : "Poisoning by other opioids, undetermined, initial encounter"
-    },
-    {
-      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-      "version" : "2024",
-      "code" : "T40.3X1A",
-      "display" : "Poisoning by methadone, accidental (unintentional), initial encounter"
-    },
-    {
-      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-      "version" : "2024",
-      "code" : "T40.3X2A",
-      "display" : "Poisoning by methadone, intentional self-harm, initial encounter"
-    },
-    {
-      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-      "version" : "2024",
-      "code" : "T40.3X3A",
-      "display" : "Poisoning by methadone, assault, initial encounter"
-    },
-    {
-      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-      "version" : "2024",
-      "code" : "T40.3X4A",
-      "display" : "Poisoning by methadone, undetermined, initial encounter"
-    },
-    {
-      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-      "version" : "2024",
-      "code" : "T40.601A",
-      "display" : "Poisoning by unspecified narcotics, accidental (unintentional), initial encounter"
-    },
-    {
-      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-      "version" : "2024",
-      "code" : "T40.602A",
-      "display" : "Poisoning by unspecified narcotics, intentional self-harm, initial encounter"
-    },
-    {
-      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-      "version" : "2024",
-      "code" : "T40.603A",
-      "display" : "Poisoning by unspecified narcotics, assault, initial encounter"
-    },
-    {
-      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-      "version" : "2024",
-      "code" : "T40.604A",
-      "display" : "Poisoning by unspecified narcotics, undetermined, initial encounter"
-    },
-    {
-      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-      "version" : "2024",
-      "code" : "T40.691A",
-      "display" : "Poisoning by other narcotics, accidental (unintentional), initial encounter"
-    },
-    {
-      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-      "version" : "2024",
-      "code" : "T40.692A",
-      "display" : "Poisoning by other narcotics, intentional self-harm, initial encounter"
-    },
-    {
-      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-      "version" : "2024",
-      "code" : "T40.693A",
-      "display" : "Poisoning by other narcotics, assault, initial encounter"
-    },
-    {
-      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-      "version" : "2024",
-      "code" : "T40.694A",
-      "display" : "Poisoning by other narcotics, undetermined, initial encounter"
-    }]
+    "contains" : [
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2024",
+        "code" : "T40.0X1A",
+        "display" : "Poisoning by opium, accidental (unintentional), initial encounter"
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2024",
+        "code" : "T40.0X2A",
+        "display" : "Poisoning by opium, intentional self-harm, initial encounter"
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2024",
+        "code" : "T40.0X3A",
+        "display" : "Poisoning by opium, assault, initial encounter"
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2024",
+        "code" : "T40.0X4A",
+        "display" : "Poisoning by opium, undetermined, initial encounter"
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2024",
+        "code" : "T40.1X1A",
+        "display" : "Poisoning by heroin, accidental (unintentional), initial encounter"
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2024",
+        "code" : "T40.1X2A",
+        "display" : "Poisoning by heroin, intentional self-harm, initial encounter"
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2024",
+        "code" : "T40.1X3A",
+        "display" : "Poisoning by heroin, assault, initial encounter"
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2024",
+        "code" : "T40.1X4A",
+        "display" : "Poisoning by heroin, undetermined, initial encounter"
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2024",
+        "code" : "T40.2X1A",
+        "display" : "Poisoning by other opioids, accidental (unintentional), initial encounter"
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2024",
+        "code" : "T40.2X2A",
+        "display" : "Poisoning by other opioids, intentional self-harm, initial encounter"
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2024",
+        "code" : "T40.2X3A",
+        "display" : "Poisoning by other opioids, assault, initial encounter"
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2024",
+        "code" : "T40.2X4A",
+        "display" : "Poisoning by other opioids, undetermined, initial encounter"
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2024",
+        "code" : "T40.3X1A",
+        "display" : "Poisoning by methadone, accidental (unintentional), initial encounter"
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2024",
+        "code" : "T40.3X2A",
+        "display" : "Poisoning by methadone, intentional self-harm, initial encounter"
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2024",
+        "code" : "T40.3X3A",
+        "display" : "Poisoning by methadone, assault, initial encounter"
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2024",
+        "code" : "T40.3X4A",
+        "display" : "Poisoning by methadone, undetermined, initial encounter"
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2024",
+        "code" : "T40.601A",
+        "display" : "Poisoning by unspecified narcotics, accidental (unintentional), initial encounter"
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2024",
+        "code" : "T40.602A",
+        "display" : "Poisoning by unspecified narcotics, intentional self-harm, initial encounter"
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2024",
+        "code" : "T40.603A",
+        "display" : "Poisoning by unspecified narcotics, assault, initial encounter"
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2024",
+        "code" : "T40.604A",
+        "display" : "Poisoning by unspecified narcotics, undetermined, initial encounter"
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2024",
+        "code" : "T40.691A",
+        "display" : "Poisoning by other narcotics, accidental (unintentional), initial encounter"
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2024",
+        "code" : "T40.692A",
+        "display" : "Poisoning by other narcotics, intentional self-harm, initial encounter"
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2024",
+        "code" : "T40.693A",
+        "display" : "Poisoning by other narcotics, assault, initial encounter"
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2024",
+        "code" : "T40.694A",
+        "display" : "Poisoning by other narcotics, undetermined, initial encounter"
+      }
+    ]
   }
 }

@@ -4,26 +4,32 @@
   "meta" : {
     "versionId" : "5",
     "lastUpdated" : "2020-09-15T10:30:47.000-04:00",
-    "profile" : ["http://hl7.org/fhir/StructureDefinition/shareablevalueset",
-    "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"]
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "extension" : [{
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
-    "valueString" : "CDC NHSN Author"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
-    "valueDate" : "2022-12-15"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
-    "valueDate" : "2020-09-15"
-  }],
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "CDC NHSN Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2022-12-15"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2020-09-15"
+    }
+  ],
   "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.114222.4.11.7239",
-  "identifier" : [{
-    "system" : "urn:ietf:rfc:3986",
-    "value" : "urn:oid:2.16.840.1.114222.4.11.7239"
-  }],
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.114222.4.11.7239"
+    }
+  ],
   "version" : "20200807",
   "name" : "NHSNContraindicationType",
   "title" : "NHSNContraindicationType",
@@ -31,60 +37,61 @@
   "experimental" : false,
   "date" : "2020-08-07T01:00:29-04:00",
   "publisher" : "CDC NHSN",
-  "jurisdiction" : [{
-    "extension" : [{
-      "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
-      "valueString" : "UNKNOWN"
-    }]
-  }],
+  "jurisdiction" : [
+    {
+      "coding" : [
+        {
+          "system" : "urn:iso:std:iso:3166",
+          "code" : "US"
+        }
+      ]
+    }
+  ],
   "purpose" : "(Clinical Focus: NHSN surveillance reporting: Contraindication for using chlorhexidine gluconate (CHG) for Central Line Insertion Practices (CLIP) adherence monitoring),(Data Element Scope: A coded observation value representing the type of contraindication.),(Inclusion Criteria: ),(Exclusion Criteria: )",
   "compose" : {
-    "include" : [{
-      "system" : "https://www.cdc.gov/nhsn/cdaportal/terminology/codesystem/cdcnhsn.html",
-      "concept" : [{
+    "include" : [
+      {
+        "system" : "https://www.cdc.gov/nhsn/cdaportal/terminology/codesystem/cdcnhsn.html",
+        "concept" : [
+          {
+            "code" : "6131-7",
+            "display" : "Patient is less than 2 months of age - chlorhexidine gluconate is to be used with caution in patients less than 2 months of age"
+          },
+          {
+            "code" : "6132-5",
+            "display" : "Patient has a documented/known allergy/reaction to chlorhexidine gluconate-based products that would preclude its use"
+          },
+          {
+            "code" : "6133-3",
+            "display" : "Facility restrictions or safety concerns for chlorhexidine gluconate use in premature infants precludes its use"
+          }
+        ]
+      }
+    ]
+  },
+  "expansion" : {
+    "identifier" : "urn:uuid:c76efb2f-7cf2-4e09-b3bf-ed0ecefc96e6",
+    "timestamp" : "2023-11-26T22:28:09-05:00",
+    "total" : 3,
+    "contains" : [
+      {
+        "system" : "https://www.cdc.gov/nhsn/cdaportal/terminology/codesystem/cdcnhsn.html",
+        "version" : "2023-04",
         "code" : "6131-7",
         "display" : "Patient is less than 2 months of age - chlorhexidine gluconate is to be used with caution in patients less than 2 months of age"
       },
       {
+        "system" : "https://www.cdc.gov/nhsn/cdaportal/terminology/codesystem/cdcnhsn.html",
+        "version" : "2023-04",
         "code" : "6132-5",
         "display" : "Patient has a documented/known allergy/reaction to chlorhexidine gluconate-based products that would preclude its use"
       },
       {
+        "system" : "https://www.cdc.gov/nhsn/cdaportal/terminology/codesystem/cdcnhsn.html",
+        "version" : "2023-04",
         "code" : "6133-3",
         "display" : "Facility restrictions or safety concerns for chlorhexidine gluconate use in premature infants precludes its use"
-      }]
-    }]
-  },
-  "expansion" : {
-    "identifier" : "urn:uuid:d4e45d7c-c61b-43c8-8361-b5b5907178e3",
-    "timestamp" : "2023-09-26T12:02:12-04:00",
-    "total" : 3,
-    "offset" : 0,
-    "parameter" : [{
-      "name" : "count",
-      "valueInteger" : 1000
-    },
-    {
-      "name" : "offset",
-      "valueInteger" : 0
-    }],
-    "contains" : [{
-      "system" : "https://www.cdc.gov/nhsn/cdaportal/terminology/codesystem/cdcnhsn.html",
-      "version" : "2023-04",
-      "code" : "6131-7",
-      "display" : "Patient is less than 2 months of age - chlorhexidine gluconate is to be used with caution in patients less than 2 months of age"
-    },
-    {
-      "system" : "https://www.cdc.gov/nhsn/cdaportal/terminology/codesystem/cdcnhsn.html",
-      "version" : "2023-04",
-      "code" : "6132-5",
-      "display" : "Patient has a documented/known allergy/reaction to chlorhexidine gluconate-based products that would preclude its use"
-    },
-    {
-      "system" : "https://www.cdc.gov/nhsn/cdaportal/terminology/codesystem/cdcnhsn.html",
-      "version" : "2023-04",
-      "code" : "6133-3",
-      "display" : "Facility restrictions or safety concerns for chlorhexidine gluconate use in premature infants precludes its use"
-    }]
+      }
+    ]
   }
 }

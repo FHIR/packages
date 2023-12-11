@@ -4,26 +4,32 @@
   "meta" : {
     "versionId" : "7",
     "lastUpdated" : "2017-07-11T01:00:04.000-04:00",
-    "profile" : ["http://hl7.org/fhir/StructureDefinition/shareablevalueset",
-    "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"]
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "extension" : [{
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
-    "valueString" : "Mathematica-CHIT"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
-    "valueDate" : "2022-12-15"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
-    "valueDate" : "2017-07-11"
-  }],
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "Mathematica-CHIT"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2022-12-15"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2017-07-11"
+    }
+  ],
   "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.1240.2017.3.1.1006",
-  "identifier" : [{
-    "system" : "urn:ietf:rfc:3986",
-    "value" : "urn:oid:2.16.840.1.113883.3.1240.2017.3.1.1006"
-  }],
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113883.3.1240.2017.3.1.1006"
+    }
+  ],
   "version" : "20170711",
   "name" : "VisionScreening",
   "title" : "Vision Screening",
@@ -31,60 +37,61 @@
   "experimental" : false,
   "date" : "2017-07-11T01:00:04-04:00",
   "publisher" : "Mathematica",
-  "jurisdiction" : [{
-    "extension" : [{
-      "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
-      "valueString" : "UNKNOWN"
-    }]
-  }],
+  "jurisdiction" : [
+    {
+      "coding" : [
+        {
+          "system" : "urn:iso:std:iso:3166",
+          "code" : "US"
+        }
+      ]
+    }
+  ],
   "purpose" : "(Clinical Focus: This set of values contains screening procedures (including instrument-based screenings) that are used to assess a child's vision.),(Data Element Scope: The intent of this data element is to identify children who have had their vision screened.Using the Quality Data Model, this particular element would map to the \"Procedure, Performed\" element.),(Inclusion Criteria: Screening procedures (including instrument-based screenings) for children should be included in this  value set.),(Exclusion Criteria: Screening procedures that are only appropriate for adults should not be included in this value set as this value set is focused on child vision screenings. Visual acuity screenings are excluded from this value set as there is another value set that pertains specifically to visual acuity screenings.)",
   "compose" : {
-    "include" : [{
-      "system" : "http://snomed.info/sct",
-      "concept" : [{
+    "include" : [
+      {
+        "system" : "http://snomed.info/sct",
+        "concept" : [
+          {
+            "code" : "252886007",
+            "display" : "Refraction assessment (procedure)"
+          },
+          {
+            "code" : "408761008",
+            "display" : "Children's vision screening (procedure)"
+          },
+          {
+            "code" : "408762001",
+            "display" : "Photoscreening (procedure)"
+          }
+        ]
+      }
+    ]
+  },
+  "expansion" : {
+    "identifier" : "urn:uuid:045a8326-730c-435d-b878-c63b9afeee23",
+    "timestamp" : "2023-11-26T19:49:49-05:00",
+    "total" : 3,
+    "contains" : [
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20230901",
         "code" : "252886007",
         "display" : "Refraction assessment (procedure)"
       },
       {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20230901",
         "code" : "408761008",
         "display" : "Children's vision screening (procedure)"
       },
       {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20230901",
         "code" : "408762001",
         "display" : "Photoscreening (procedure)"
-      }]
-    }]
-  },
-  "expansion" : {
-    "identifier" : "urn:uuid:7ccc64db-0d29-432e-98af-cf2b7feb8ce5",
-    "timestamp" : "2023-09-26T13:53:17-04:00",
-    "total" : 3,
-    "offset" : 0,
-    "parameter" : [{
-      "name" : "count",
-      "valueInteger" : 1000
-    },
-    {
-      "name" : "offset",
-      "valueInteger" : 0
-    }],
-    "contains" : [{
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "252886007",
-      "display" : "Refraction assessment (procedure)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "408761008",
-      "display" : "Children's vision screening (procedure)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "408762001",
-      "display" : "Photoscreening (procedure)"
-    }]
+      }
+    ]
   }
 }
