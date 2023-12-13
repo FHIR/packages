@@ -4,30 +4,36 @@
   "meta" : {
     "versionId" : "44",
     "lastUpdated" : "2020-06-27T01:00:34.000-04:00",
-    "profile" : ["http://hl7.org/fhir/StructureDefinition/shareablevalueset",
-    "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"]
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "extension" : [{
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
-    "valueString" : "HL7 Structured Documents WG"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-keyWord",
-    "valueString" : "CCDAr21"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
-    "valueDate" : "2022-12-15"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
-    "valueDate" : "2020-06-27"
-  }],
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "HL7 Structured Documents WG"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-keyWord",
+      "valueString" : "CCDAr21"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2022-12-15"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2020-06-27"
+    }
+  ],
   "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1010.8",
-  "identifier" : [{
-    "system" : "urn:ietf:rfc:3986",
-    "value" : "urn:oid:2.16.840.1.113762.1.4.1010.8"
-  }],
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113762.1.4.1010.8"
+    }
+  ],
   "version" : "20200627",
   "name" : "VaccineClinicalDrug",
   "title" : "Vaccine Clinical Drug",
@@ -36,1106 +42,1107 @@
   "date" : "2020-06-27T01:00:34-04:00",
   "publisher" : "HL7 Terminology",
   "description" : "Original Inclusion: \"RxNorm TTY = IN, MIN, SCD, SBD, GPCK, BPCK based on the NDCs included in the CDC \"NDC_Unit_Use\" file which contains vaccines currently in use by CVX code. In addition, include the noted RxNorm TTY where the NDC is missing from RxNorm but the drug name matches.\"\n2018-05-07 Using MEDRT: find all EPC with \"vaccine\" in name, then pull all SCD or SBD concepts linked. Include \"Obsolete\" concepts.\n2019: all TTY=SBD or SCD with a CVX code mapped. This results in only active vaccines included. Changed this to retrieving all concepts with \"vaccine\" in the name and limiting to SCD or SBD brings in \"obsolete\" concepts that do not have a CVX mapped.",
-  "jurisdiction" : [{
-    "extension" : [{
-      "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
-      "valueString" : "UNKNOWN"
-    }]
-  }],
+  "jurisdiction" : [
+    {
+      "coding" : [
+        {
+          "system" : "urn:iso:std:iso:3166",
+          "code" : "US"
+        }
+      ]
+    }
+  ],
   "purpose" : "(Clinical Focus: Administrable vaccine medication formulations represented using either a \"generic\" or \"brand-specific\" concept.),(Data Element Scope: vaccine medication),(Inclusion Criteria: Currently Active RxNorm clinical drug concepts that have the a mapped CVX code. Limit to SBD or SCD TTY.),(Exclusion Criteria: Any drug not meeting the inclusion criteria)",
   "compose" : {
-    "include" : [{
-      "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "concept" : [{
+    "include" : [
+      {
+        "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "concept" : [
+          {
+            "code" : "1099936",
+            "display" : "adenovirus type 4 vaccine live 32000 UNT Delayed Release Oral Tablet"
+          },
+          {
+            "code" : "1099940",
+            "display" : "adenovirus type 7 vaccine live 32000 UNT Delayed Release Oral Tablet"
+          },
+          {
+            "code" : "1190916",
+            "display" : "0.5 ML diphtheria toxoid vaccine, inactivated 4 UNT/ML / tetanus toxoid vaccine, inactivated 10 UNT/ML Injection [Tenivac]"
+          },
+          {
+            "code" : "1190919",
+            "display" : "0.5 ML diphtheria toxoid vaccine, inactivated 4 UNT/ML / tetanus toxoid vaccine, inactivated 10 UNT/ML Prefilled Syringe [Tenivac]"
+          },
+          {
+            "code" : "1244205",
+            "display" : "0.5 ML diphtheria toxoid vaccine, inactivated 50 UNT/ML / tetanus toxoid vaccine, inactivated 10 UNT/ML Injection"
+          },
+          {
+            "code" : "1292435",
+            "display" : "0.65 ML varicella-zoster virus vaccine live (Oka-Merck) strain 29800 UNT/ML Injection [Zostavax]"
+          },
+          {
+            "code" : "1292443",
+            "display" : "0.5 ML measles virus vaccine live, Enders' attenuated Edmonston strain 2000 UNT/ML / mumps virus vaccine live, Jeryl Lynn strain 40000 UNT/ML / rubella virus vaccine live (Wistar RA 27-3 strain) 2000 UNT/ML / varicella-zoster virus vaccine live (Oka-Merck) strain 20000 UNT/ML Injection [ProQuad]"
+          },
+          {
+            "code" : "1292459",
+            "display" : "0.5 ML varicella-zoster virus vaccine live (Oka-Merck) strain 2700 UNT/ML Injection [Varivax]"
+          },
+          {
+            "code" : "1292828",
+            "display" : "yellow fever virus strain 17D-204 live antigen 4000 UNT/ML Injectable Suspension [YF-Vax]"
+          },
+          {
+            "code" : "1298819",
+            "display" : "influenza A-California-7-2009-(H1N1)v-like virus vaccine 158000000 UNT/ML Nasal Spray"
+          },
+          {
+            "code" : "1300191",
+            "display" : "0.5 ML Bordetella pertussis filamentous hemagglutinin vaccine, inactivated 0.01 MG/ML / Bordetella pertussis fimbriae 2/3 vaccine, inactivated 0.01 MG/ML / Bordetella pertussis pertactin vaccine, inactivated 0.006 MG/ML / Bordetella pertussis toxoid vaccine, inactivated 0.005 MG/ML / diphtheria toxoid vaccine, inactivated 4 UNT/ML / tetanus toxoid vaccine, inactivated 10 UNT/ML Prefilled Syringe [Adacel]"
+          },
+          {
+            "code" : "1300206",
+            "display" : "0.5 ML Bordetella pertussis filamentous hemagglutinin vaccine, inactivated 0.01 MG/ML / Bordetella pertussis fimbriae 2/3 vaccine, inactivated 0.01 MG/ML / Bordetella pertussis pertactin vaccine, inactivated 0.006 MG/ML / Bordetella pertussis toxoid vaccine, inactivated 0.005 MG/ML / diphtheria toxoid vaccine, inactivated 4 UNT/ML / tetanus toxoid vaccine, inactivated 10 UNT/ML Injection [Adacel]"
+          },
+          {
+            "code" : "1300310",
+            "display" : "0.5 ML Bordetella pertussis filamentous hemagglutinin vaccine, inactivated 0.01 MG/ML / Bordetella pertussis fimbriae 2/3 vaccine, inactivated 0.01 MG/ML / Bordetella pertussis pertactin vaccine, inactivated 0.006 MG/ML / Bordetella pertussis toxoid vaccine, inactivated 0.02 MG/ML / diphtheria toxoid vaccine, inactivated 30 UNT/ML / tetanus toxoid vaccine, inactivated 10 UNT/ML Injection [Daptacel]"
+          },
+          {
+            "code" : "1300370",
+            "display" : "0.5 ML Bordetella pertussis filamentous hemagglutinin vaccine, inactivated 0.016 MG/ML / Bordetella pertussis pertactin vaccine, inactivated 0.005 MG/ML / Bordetella pertussis toxoid vaccine, inactivated 0.016 MG/ML / diphtheria toxoid vaccine, inactivated 5 UNT/ML / tetanus toxoid vaccine, inactivated 10 UNT/ML Prefilled Syringe [Boostrix]"
+          },
+          {
+            "code" : "1300378",
+            "display" : "0.5 ML Bordetella pertussis filamentous hemagglutinin vaccine, inactivated 0.016 MG/ML / Bordetella pertussis pertactin vaccine, inactivated 0.005 UNT/ML / Bordetella pertussis toxoid vaccine, inactivated 0.016 MG/ML / diphtheria toxoid vaccine, inactivated 5 UNT/ML / tetanus toxoid vaccine, inactivated 10 UNT/ML Injection [Boostrix]"
+          },
+          {
+            "code" : "1300384",
+            "display" : "0.5 ML Bordetella pertussis filamentous hemagglutinin vaccine, inactivated 0.05 MG/ML / Bordetella pertussis pertactin vaccine, inactivated 0.016 MG/ML / Bordetella pertussis toxoid vaccine, inactivated 0.05 MG/ML / diphtheria toxoid vaccine, inactivated 50 UNT/ML / tetanus toxoid vaccine, inactivated 20 UNT/ML Prefilled Syringe [Infanrix]"
+          },
+          {
+            "code" : "1300386",
+            "display" : "0.5 ML Bordetella pertussis filamentous hemagglutinin vaccine, inactivated 0.05 MG/ML / Bordetella pertussis pertactin vaccine, inactivated 0.016 MG/ML / Bordetella pertussis toxoid vaccine, inactivated 0.05 MG/ML / diphtheria toxoid vaccine, inactivated 50 UNT/ML / tetanus toxoid vaccine, inactivated 20 UNT/ML Injection [Infanrix]"
+          },
+          {
+            "code" : "1300468",
+            "display" : "0.5 ML Haemophilus influenzae type b strain 1482, capsular polysaccharide inactivated tetanus toxoid conjugate vaccine 0.068 MG/ML Injection [ActHIB]"
+          },
+          {
+            "code" : "1300783",
+            "display" : "0.5 ML Japanese encephalitis virus vaccine Nakayama-NIH strain, inactivated 0.012 MG/ML Prefilled Syringe [Ixiaro]"
+          },
+          {
+            "code" : "1300810",
+            "display" : "0.5 ML Haemophilus influenzae type b strain 20752, capsular polysaccharide inactivated tetanus toxoid conjugate vaccine 0.07 MG/ML Injection [Hiberix]"
+          },
+          {
+            "code" : "1301891",
+            "display" : "0.5 ML human papillomavirus type 16, L1 capsid protein (residues 2-471) vaccine 0.04 MG/ML / human papillomavirus type 18, L1 capsid protein (residues 2-472) vaccine 0.04 MG/ML Prefilled Syringe [Cervarix]"
+          },
+          {
+            "code" : "1367005",
+            "display" : "influenza A virus vaccine, A-Victoria-361-2011 (H3N2)-like virus 0.09 MG/ML / influenza A-California-7-2009-(H1N1)v-like virus vaccine 0.09 MG/ML / influenza B virus vaccine, B-Wisconsin-1-2010-like virus 0.09 MG/ML Injectable Solution [Flublok 2012-2013 Formula]"
+          },
+          {
+            "code" : "1437916",
+            "display" : "0.5 ML Haemophilus influenzae type b strain 1482, capsular polysaccharide inactivated tetanus toxoid conjugate vaccine 0.005 MG/ML / meningococcal group C polysaccharide 0.01 MG/ML / meningococcal polysaccharide vaccine group Y 0.01 MG/ML Injection [MenHibrix]"
+          },
+          {
+            "code" : "1442210",
+            "display" : "influenza A virus vaccine, A-Victoria-361-2011 (H3N2)-like virus 0.09 MG/ML / influenza A-California-7-2009-(H1N1)v-like virus vaccine 0.09 MG/ML / influenza B virus vaccine, B-Massachusetts-2-2012-like virus 0.09 MG/ML Injectable Solution [Flublok 2013-2014 Formula]"
+          },
+          {
+            "code" : "1486496",
+            "display" : "0.5 ML typhoid Vi polysaccharide vaccine, S typhi Ty2 strain 0.05 MG/ML Prefilled Syringe [Typhim VI]"
+          },
+          {
+            "code" : "1537521",
+            "display" : "influenza A virus vaccine, A-Victoria-361-2011 (H3N2)-like virus 0.09 MG/ML / influenza A-California-7-2009-(H1N1)v-like virus vaccine 0.09 MG/ML / influenza B virus vaccine, B-Massachusetts-2-2012-like virus 0.09 MG/ML Injectable Solution [Flublok 2014-2015 Formula]"
+          },
+          {
+            "code" : "1547582",
+            "display" : "0.5 ML Streptococcus pneumoniae type 1 capsular polysaccharide antigen 0.05 MG/ML / Streptococcus pneumoniae type 10A capsular polysaccharide antigen 0.05 MG/ML / Streptococcus pneumoniae type 11A capsular polysaccharide antigen 0.05 MG/ML / Streptococcus pneumoniae type 12F capsular polysaccharide antigen 0.05 MG/ML / Streptococcus pneumoniae type 14 capsular polysaccharide antigen 0.05 MG/ML / Streptococcus pneumoniae type 15B capsular polysaccharide antigen 0.05 MG/ML / Streptococcus pneumoniae type 17F capsular polysaccharide antigen 0.05 MG/ML / Streptococcus pneumoniae type 18C capsular polysaccharide antigen 0.05 MG/ML / Streptococcus pneumoniae type 19A capsular polysaccharide antigen 0.05 MG/ML / Streptococcus pneumoniae type 19F capsular polysaccharide antigen 0.05 MG/ML / Streptococcus pneumoniae type 2 capsular polysaccharide antigen 0.05 MG/ML / Streptococcus pneumoniae type 20 capsular polysaccharide antigen 0.05 MG/ML / Streptococcus pneumoniae type 22F capsular polysaccharide antigen 0.05 MG/ML / Streptococcus pneumoniae type 23F capsular polysaccharide antigen 0.05 MG/ML / Streptococcus pneumoniae type 3 capsular polysaccharide antigen 0.05 MG/ML / Streptococcus pneumoniae type 33F capsular polysaccharide antigen 0.05 MG/ML / Streptococcus pneumoniae type 4 capsular polysaccharide antigen 0.05 MG/ML / Streptococcus pneumoniae type 5 capsular polysaccharide antigen 0.05 MG/ML / Streptococcus pneumoniae type 6B capsular polysaccharide antigen 0.05 MG/ML / Streptococcus pneumoniae type 7F capsular polysaccharide antigen 0.05 MG/ML / Streptococcus pneumoniae type 8 capsular polysaccharide antigen 0.05 MG/ML / Streptococcus pneumoniae type 9N capsular polysaccharide antigen 0.05 MG/ML / Streptococcus pneumoniae type 9V capsular polysaccharide antigen 0.05 MG/ML Prefilled Syringe [Pneumovax 23]"
+          },
+          {
+            "code" : "1593140",
+            "display" : "0.5 ML Neisseria meningitidis serogroup B recombinant LP2086 A05 protein variant antigen 0.12 MG/ML / Neisseria meningitidis serogroup B recombinant LP2086 B01 protein variant antigen 0.12 MG/ML Prefilled Syringe [Trumenba]"
+          },
+          {
+            "code" : "1597099",
+            "display" : "0.5 ML L1 protein, human papillomavirus type 11 vaccine 0.08 MG/ML / L1 protein, human papillomavirus type 16 vaccine 0.12 MG/ML / L1 protein, human papillomavirus type 18 vaccine 0.08 MG/ML / L1 protein, human papillomavirus type 31 vaccine 0.04 MG/ML / L1 protein, human papillomavirus type 33 vaccine 0.04 MG/ML / L1 protein, human papillomavirus type 45 vaccine 0.04 MG/ML / L1 protein, human papillomavirus type 52 vaccine 0.04 MG/ML / L1 protein, human papillomavirus type 58 vaccine 0.04 MG/ML / L1 protein, human papillomavirus type 6 vaccine 0.06 MG/ML Injection [Gardasil 9]"
+          },
+          {
+            "code" : "1597103",
+            "display" : "0.5 ML L1 protein, human papillomavirus type 11 vaccine 0.08 MG/ML / L1 protein, human papillomavirus type 16 vaccine 0.12 MG/ML / L1 protein, human papillomavirus type 18 vaccine 0.08 MG/ML / L1 protein, human papillomavirus type 31 vaccine 0.04 MG/ML / L1 protein, human papillomavirus type 33 vaccine 0.04 MG/ML / L1 protein, human papillomavirus type 45 vaccine 0.04 MG/ML / L1 protein, human papillomavirus type 52 vaccine 0.04 MG/ML / L1 protein, human papillomavirus type 58 vaccine 0.04 MG/ML / L1 protein, human papillomavirus type 6 vaccine 0.06 MG/ML Prefilled Syringe [Gardasil 9]"
+          },
+          {
+            "code" : "1601407",
+            "display" : "0.5 ML meningococcal group B vaccine 0.1 MG/ML / Neisseria meningitidis serogroup B recombinant FHBP fusion protein antigen 0.1 MG/ML / Neisseria meningitidis serogroup B recombinant NHBA fusion protein antigen 0.1 MG/ML / Neisseria meningitidis serogroup B strain NZ98/254 outer membrane vesicle 0.05 MG/ML Prefilled Syringe [Bexsero]"
+          },
+          {
+            "code" : "1607808",
+            "display" : "0.5 ML Bordetella pertussis filamentous hemagglutinin vaccine, inactivated 0.04 MG/ML / Bordetella pertussis fimbriae 2/3 vaccine, inactivated 0.01 MG/ML / Bordetella pertussis pertactin vaccine, inactivated 0.006 MG/ML / Bordetella pertussis toxoid vaccine, inactivated 0.04 MG/ML / diphtheria toxoid vaccine, inactivated 30 UNT/ML / poliovirus vaccine inactivated, type 1 (Mahoney) 80 UNT/ML / poliovirus vaccine inactivated, type 2 (MEF-1) 16 UNT/ML / poliovirus vaccine inactivated, type 3 (Saukett) 64 UNT/ML / tetanus toxoid vaccine, inactivated 10 UNT/ML Injection [Quadracel]"
+          },
+          {
+            "code" : "1653579",
+            "display" : "BCG, live, Tice strain 50 MG Injection"
+          },
+          {
+            "code" : "1657144",
+            "display" : "0.5 ML influenza A virus A/Brisbane/10/2010 (H1N1) antigen 0.03 MG/ML / influenza A virus A/South Australia/55/2014 (H3N2) antigen 0.03 MG/ML / influenza B virus B/Utah/9/2014 antigen 0.03 MG/ML Prefilled Syringe [Flucelvax 2015-2016]"
+          },
+          {
+            "code" : "1657236",
+            "display" : "0.5 ML influenza A virus A/Christchurch/16/2010 (H1N1) antigen 0.03 MG/ML / influenza A virus A/Switzerland/9715293/2013 (H3N2) antigen 0.03 MG/ML / influenza B virus B/Brisbane/60/2008 antigen 0.03 MG/ML / influenza B virus B/Phuket/3073/2013 antigen 0.03 MG/ML Prefilled Syringe [Fluarix Quadrivalent 2015-2016]"
+          },
+          {
+            "code" : "1657330",
+            "display" : "influenza A virus A/Christchurch/16/2010 (H1N1) antigen 0.03 MG/ML / influenza A virus A/Switzerland/9715293/2013 (H3N2) antigen 0.03 MG/ML / influenza B virus B/Phuket/3073/2013 antigen 0.03 MG/ML Injectable Suspension [Fluvirin 2015-2016]"
+          },
+          {
+            "code" : "1657339",
+            "display" : "influenza A virus A/California/7/2009 (H1N1) antigen 0.03 MG/ML / influenza A virus A/Switzerland/9715293/2013 (H3N2) antigen 0.03 MG/ML / influenza B virus B/Brisbane/60/2008 antigen 0.03 MG/ML / influenza B virus B/Phuket/3073/2013 antigen 0.03 MG/ML Injectable Suspension [FluLaval Quadrivalent 2015-2016]"
+          },
+          {
+            "code" : "1658060",
+            "display" : "1 ML hepatitis A vaccine (inactivated) strain HM175 1440 UNT/ML Injection [Havrix]"
+          },
+          {
+            "code" : "1658066",
+            "display" : "0.5 ML hepatitis A vaccine (inactivated) strain HM175 1440 UNT/ML Injection [Havrix]"
+          },
+          {
+            "code" : "1658102",
+            "display" : "1 ML hepatitis A virus strain CR 326F antigen, inactivated 50 UNT/ML Injection [Vaqta]"
+          },
+          {
+            "code" : "1658106",
+            "display" : "0.5 ML hepatitis A virus strain CR 326F antigen, inactivated 50 UNT/ML Injection [Vaqta]"
+          },
+          {
+            "code" : "1658144",
+            "display" : "0.5 ML hepatitis B surface antigen vaccine 0.02 MG/ML Injection [Engerix-B]"
+          },
+          {
+            "code" : "1658150",
+            "display" : "1 ML hepatitis B surface antigen vaccine 0.01 MG/ML Injection [Recombivax]"
+          },
+          {
+            "code" : "1658155",
+            "display" : "0.5 ML hepatitis B surface antigen vaccine 0.01 MG/ML Injection [Recombivax]"
+          },
+          {
+            "code" : "1658157",
+            "display" : "1 ML hepatitis B surface antigen vaccine 0.02 MG/ML Injection [Engerix-B]"
+          },
+          {
+            "code" : "1658228",
+            "display" : "0.5 ML meningococcal group A polysaccharide 0.1 MG/ML / meningococcal group C polysaccharide 0.1 MG/ML / meningococcal polysaccharide vaccine group W-135 0.1 MG/ML / meningococcal polysaccharide vaccine group Y 0.1 MG/ML Injection [Menomune A/C/Y/W-135]"
+          },
+          {
+            "code" : "1658241",
+            "display" : "0.5 ML yellow fever virus strain 17D-204 live antigen 4000 UNT/ML Injection [YF-Vax]"
+          },
+          {
+            "code" : "1658472",
+            "display" : "0.5 ML Streptococcus pneumoniae type 1 capsular polysaccharide antigen 0.05 MG/ML / Streptococcus pneumoniae type 10A capsular polysaccharide antigen 0.05 MG/ML / Streptococcus pneumoniae type 11A capsular polysaccharide antigen 0.05 MG/ML / Streptococcus pneumoniae type 12F capsular polysaccharide antigen 0.05 MG/ML / Streptococcus pneumoniae type 14 capsular polysaccharide antigen 0.05 MG/ML / Streptococcus pneumoniae type 15B capsular polysaccharide antigen 0.05 MG/ML / Streptococcus pneumoniae type 17F capsular polysaccharide antigen 0.05 MG/ML / Streptococcus pneumoniae type 18C capsular polysaccharide antigen 0.05 MG/ML / Streptococcus pneumoniae type 19A capsular polysaccharide antigen 0.05 MG/ML / Streptococcus pneumoniae type 19F capsular polysaccharide antigen 0.05 MG/ML / Streptococcus pneumoniae type 2 capsular polysaccharide antigen 0.05 MG/ML / Streptococcus pneumoniae type 20 capsular polysaccharide antigen 0.05 MG/ML / Streptococcus pneumoniae type 22F capsular polysaccharide antigen 0.05 MG/ML / Streptococcus pneumoniae type 23F capsular polysaccharide antigen 0.05 MG/ML / Streptococcus pneumoniae type 3 capsular polysaccharide antigen 0.05 MG/ML / Streptococcus pneumoniae type 33F capsular polysaccharide antigen 0.05 MG/ML / Streptococcus pneumoniae type 4 capsular polysaccharide antigen 0.05 MG/ML / Streptococcus pneumoniae type 5 capsular polysaccharide antigen 0.05 MG/ML / Streptococcus pneumoniae type 6B capsular polysaccharide antigen 0.05 MG/ML / Streptococcus pneumoniae type 7F capsular polysaccharide antigen 0.05 MG/ML / Streptococcus pneumoniae type 8 capsular polysaccharide antigen 0.05 MG/ML / Streptococcus pneumoniae type 9N capsular polysaccharide antigen 0.05 MG/ML / Streptococcus pneumoniae type 9V capsular polysaccharide antigen 0.05 MG/ML Injection [Pneumovax 23]"
+          },
+          {
+            "code" : "1658706",
+            "display" : "influenza A virus A/California/7/2009 (H1N1) antigen 0.03 MG/ML / influenza A virus A/Switzerland/9715293/2013 (H3N2) antigen 0.03 MG/ML / influenza B virus B/Phuket/3073/2013 antigen 0.03 MG/ML Injectable Suspension [Fluzone 2015-2016]"
+          },
+          {
+            "code" : "1658714",
+            "display" : "0.5 ML influenza A virus A/California/7/2009 (H1N1) antigen 0.12 MG/ML / influenza A virus A/Switzerland/9715293/2013 (H3N2) antigen 0.12 MG/ML / influenza B virus B/Phuket/3073/2013 antigen 0.12 MG/ML Prefilled Syringe [Fluzone 2015-2016]"
+          },
+          {
+            "code" : "1659729",
+            "display" : "influenza A virus A/California/7/2009 (H1N1) antigen 0.03 MG/ML / influenza A virus A/Switzerland/9715293/2013 (H3N2) antigen 0.03 MG/ML / influenza B virus B/Brisbane/60/2008 antigen 0.03 MG/ML / influenza B virus B/Phuket/3073/2013 antigen 0.03 MG/ML Injectable Suspension [Fluzone Quadrivalent 2015-2016]"
+          },
+          {
+            "code" : "1659737",
+            "display" : "0.5 ML influenza A virus A/California/7/2009 (H1N1) antigen 0.03 MG/ML / influenza A virus A/Switzerland/9715293/2013 (H3N2) antigen 0.03 MG/ML / influenza B virus B/Brisbane/60/2008 antigen 0.03 MG/ML / influenza B virus B/Phuket/3073/2013 antigen 0.03 MG/ML Prefilled Syringe [Fluzone Quadrivalent 2015-2016]"
+          },
+          {
+            "code" : "1659748",
+            "display" : "0.5 ML influenza A virus A/California/7/2009 (H1N1) antigen 0.03 MG/ML / influenza A virus A/Switzerland/9715293/2013 (H3N2) antigen 0.03 MG/ML / influenza B virus B/Brisbane/60/2008 antigen 0.03 MG/ML / influenza B virus B/Phuket/3073/2013 antigen 0.03 MG/ML Injection [Fluzone Quadrivalent 2015-2016]"
+          },
+          {
+            "code" : "1659983",
+            "display" : "0.5 ML influenza A virus A/Christchurch/16/2010 (H1N1) antigen 0.03 MG/ML / influenza A virus A/Switzerland/9715293/2013 (H3N2) antigen 0.03 MG/ML / influenza B virus B/Phuket/3073/2013 antigen 0.03 MG/ML Prefilled Syringe [Fluvirin 2015-2016]"
+          },
+          {
+            "code" : "1660929",
+            "display" : "0.5 ML influenza A virus A/California/7/2009 (H1N1) antigen 0.09 MG/ML / influenza A virus A/Switzerland/9715293/2013 (H3N2) antigen 0.09 MG/ML / influenza B virus B/Phuket/3073/2013 antigen 0.09 MG/ML Injection [Flublok 2015-2016]"
+          },
+          {
+            "code" : "1661113",
+            "display" : "0.1 ML influenza A virus A/California/7/2009 (H1N1) antigen 0.09 MG/ML / influenza A virus A/Switzerland/9715293/2013 (H3N2) antigen 0.09 MG/ML / influenza B virus B/Brisbane/60/2008 antigen 0.09 MG/ML / influenza B virus B/Phuket/3073/2013 antigen 0.09 MG/ML Prefilled Syringe [Fluzone Quadrivalent 2015-2016]"
+          },
+          {
+            "code" : "1661807",
+            "display" : "0.5 ML influenza A virus A/California/7/2009 (H1N1) antigen 0.03 MG/ML / influenza A virus A/South Australia/55/2014 (H3N2) antigen 0.03 MG/ML / influenza B virus B/Phuket/3073/2013 antigen 0.03 MG/ML Prefilled Syringe [Afluria 2015-2016]"
+          },
+          {
+            "code" : "1661812",
+            "display" : "influenza A virus A/California/7/2009 (H1N1) antigen 0.03 MG/ML / influenza A virus A/South Australia/55/2014 (H3N2) antigen 0.03 MG/ML / influenza B virus B/Phuket/3073/2013 antigen 0.03 MG/ML Injectable Suspension [Afluria 2015-2016]"
+          },
+          {
+            "code" : "1664644",
+            "display" : "influenza A virus A/Bolivia/559/2013 (H1N1) antigen 50000000 MG/ML / influenza A virus A/Switzerland/9715293/2013 (H3N2) antigen 50000000 MG/ML / influenza B virus B/Brisbane/60/2008 antigen 50000000 MG/ML / influenza B virus B/Phuket/3073/2013 antigen 50000000 MG/ML Nasal Spray [Flumist 2015-2016]"
+          },
+          {
+            "code" : "1724012",
+            "display" : "0.5 ML influenza A virus A/California/7/2009 (H1N1) antigen 0.015 MG/ML / influenza A virus A/Switzerland/9715293/2013 (H3N2) antigen 0.015 MG/ML / influenza B virus B/Brisbane/9/2014 antigen 0.015 MG/ML Prefilled Syringe [FLUAD 2015-2016]"
+          },
+          {
+            "code" : "1799106",
+            "display" : "0.5 ML influenza A virus A/California/7/2009 (H1N1) antigen 0.03 MG/ML / influenza A virus A/Hong Kong/4801/2014 (H3N2) antigen 0.03 MG/ML / influenza B virus B/Brisbane/60/2008 antigen 0.03 MG/ML / influenza B virus B/Phuket/3073/2013 antigen 0.03 MG/ML Prefilled Syringe [Flulaval Quadrivalent 2016-2017]"
+          },
+          {
+            "code" : "1799123",
+            "display" : "0.5 ML influenza A virus A/Christchurch/16/2010 (H1N1) antigen 0.03 MG/ML / influenza A virus A/Hong Kong/4801/2014 (H3N2) antigen 0.03 MG/ML / influenza B virus B/Brisbane/60/2008 antigen 0.03 MG/ML / influenza B virus B/Phuket/3073/2013 antigen 0.03 MG/ML Prefilled Syringe [Fluarix Quadrivalent 2016-2017]"
+          },
+          {
+            "code" : "1799205",
+            "display" : "influenza A virus A/California/7/2009 (H1N1) antigen 0.03 MG/ML / influenza A virus A/Hong Kong/4801/2014 (H3N2) antigen 0.03 MG/ML / influenza B virus B/Brisbane/60/2008 antigen 0.03 MG/ML / influenza B virus B/Phuket/3073/2013 antigen 0.03 MG/ML Injectable Suspension [Flulaval Quadrivalent 2016-2017]"
+          },
+          {
+            "code" : "1799403",
+            "display" : "0.5 ML influenza A virus A/California/7/2009 (H1N1) antigen 0.03 MG/ML / influenza A virus A/Hong Kong/4801/2014 (H3N2) antigen 0.03 MG/ML / influenza B virus B/Brisbane/60/2008 antigen 0.03 MG/ML Prefilled Syringe [Afluria 2016-2017]"
+          },
+          {
+            "code" : "1799413",
+            "display" : "influenza A virus A/California/7/2009 (H1N1) antigen 0.03 MG/ML / influenza A virus A/Hong Kong/4801/2014 (H3N2) antigen 0.03 MG/ML / influenza B virus B/Brisbane/60/2008 antigen 0.03 MG/ML Injectable Suspension [Afluria 2016-2017]"
+          },
+          {
+            "code" : "1801075",
+            "display" : "0.1 ML influenza A virus A/California/7/2009 (H1N1) antigen 0.09 MG/ML / influenza A virus A/Hong Kong/4801/2014 (H3N2) antigen 0.09 MG/ML / influenza B virus B/Brisbane/60/2008 antigen 0.09 MG/ML / influenza B virus B/Phuket/3073/2013 antigen 0.09 MG/ML Prefilled Syringe [Fluzone Quadrivalent 2016-2017]"
+          },
+          {
+            "code" : "1801082",
+            "display" : "0.5 ML influenza A virus A/California/7/2009 (H1N1) antigen 0.03 MG/ML / influenza A virus A/Hong Kong/4801/2014 (H3N2) antigen 0.03 MG/ML / influenza B virus B/Brisbane/60/2008 antigen 0.03 MG/ML Prefilled Syringe [Fluad 2016-2017]"
+          },
+          {
+            "code" : "1801157",
+            "display" : "influenza A virus A/Christchurch/16/2010 (H1N1) antigen 0.03 MG/ML / influenza A virus A/Hong Kong/4801/2014 (H3N2) antigen 0.03 MG/ML / influenza B virus B/Brisbane/60/2008 antigen 0.03 MG/ML Injectable Suspension [Fluvirin 2016-2017]"
+          },
+          {
+            "code" : "1801163",
+            "display" : "0.5 ML influenza A virus A/Christchurch/16/2010 (H1N1) antigen 0.03 MG/ML / influenza A virus A/Hong Kong/4801/2014 (H3N2) antigen 0.03 MG/ML / influenza B virus B/Brisbane/60/2008 antigen 0.03 MG/ML Prefilled Syringe [Fluvirin 2016-2017]"
+          },
+          {
+            "code" : "1801174",
+            "display" : "0.25 ML influenza A virus A/California/7/2009 (H1N1) antigen 0.03 MG/ML / influenza A virus A/Hong Kong/4801/2014 (H3N2) antigen 0.03 MG/ML / influenza B virus B/Brisbane/60/2008 antigen 0.03 MG/ML / influenza B virus B/Phuket/3073/2013 antigen 0.03 MG/ML Prefilled Syringe [Fluzone Quadrivalent 2016-2017]"
+          },
+          {
+            "code" : "1801183",
+            "display" : "0.5 ML influenza A virus A/California/7/2009 (H1N1) antigen 0.12 MG/ML / influenza A virus A/Hong Kong/4801/2014 (H3N2) antigen 0.12 MG/ML / influenza B virus B/Brisbane/60/2008 antigen 0.12 MG/ML Prefilled Syringe [Fluzone 2016-2017]"
+          },
+          {
+            "code" : "1801186",
+            "display" : "0.5 ML influenza A virus A/California/7/2009 (H1N1) antigen 0.03 MG/ML / influenza A virus A/Hong Kong/4801/2014 (H3N2) antigen 0.03 MG/ML / influenza B virus B/Brisbane/60/2008 antigen 0.03 MG/ML / influenza B virus B/Phuket/3073/2013 antigen 0.03 MG/ML Prefilled Syringe [Fluzone Quadrivalent 2016-2017]"
+          },
+          {
+            "code" : "1801189",
+            "display" : "0.5 ML influenza A virus A/California/7/2009 (H1N1) antigen 0.03 MG/ML / influenza A virus A/Hong Kong/4801/2014 (H3N2) antigen 0.03 MG/ML / influenza B virus B/Brisbane/60/2008 antigen 0.03 MG/ML / influenza B virus B/Phuket/3073/2013 antigen 0.03 MG/ML Injection [Fluzone Quadrivalent 2016-2017]"
+          },
+          {
+            "code" : "1801193",
+            "display" : "influenza A virus A/California/7/2009 (H1N1) antigen 0.03 MG/ML / influenza A virus A/Hong Kong/4801/2014 (H3N2) antigen 0.03 MG/ML / influenza B virus B/Brisbane/60/2008 antigen 0.03 MG/ML / influenza B virus B/Phuket/3073/2013 antigen 0.03 MG/ML Injectable Suspension [Fluzone Quadrivalent 2016-2017]"
+          },
+          {
+            "code" : "1801611",
+            "display" : "0.5 ML influenza A virus A/Brisbane/10/2010 (H1N1) antigen 0.03 MG/ML / influenza A virus A/Hong Kong/4801/2014 (H3N2) antigen 0.03 MG/ML / influenza B virus B/Hong Kong/259/2010 antigen 0.03 MG/ML / influenza B virus B/Utah/9/2014 antigen 0.03 MG/ML Prefilled Syringe [Flucelvax Quadrivalent 2016-2017]"
+          },
+          {
+            "code" : "1801830",
+            "display" : "influenza A virus A/Bolivia/559/2013 (H1N1) antigen 50000000 MG/ML / influenza A virus A/New Caledonia/71/2014 (H3N2) antigen 50000000 MG/ML / influenza B virus B/Brisbane/60/2008 antigen 50000000 MG/ML / influenza B virus B/Phuket/3073/2013 antigen 50000000 MG/ML Nasal Spray [Flumist Quadrivalent 2016-2017]"
+          },
+          {
+            "code" : "1803024",
+            "display" : "0.5 ML influenza A virus A/California/7/2009 (H1N1) antigen 0.09 MG/ML / influenza A virus A/Hong Kong/4801/2014 (H3N2) antigen 0.09 MG/ML / influenza B virus B/Brisbane/60/2008 antigen 0.09 MG/ML Injection [Flublok 2016-2017]"
+          },
+          {
+            "code" : "1812951",
+            "display" : "Vibrio cholerae CVD 103-HGR strain live antigen 12000000 UNT/ML Oral Suspension [Vaxchora]"
+          },
+          {
+            "code" : "1858963",
+            "display" : "0.5 ML influenza A virus A/California/7/2009 (H1N1) antigen 0.03 MG/ML / influenza A virus A/Hong Kong/4801/2014 (H3N2) antigen 0.03 MG/ML / influenza B virus B/Brisbane/60/2008 antigen 0.03 MG/ML / influenza B virus B/Phuket/3073/2013 antigen 0.03 MG/ML Prefilled Syringe [Afluria Quadrivalent 2016-2017 Formula]"
+          },
+          {
+            "code" : "1858966",
+            "display" : "influenza A virus A/California/7/2009 (H1N1) antigen 0.03 MG/ML / influenza A virus A/Hong Kong/4801/2014 (H3N2) antigen 0.03 MG/ML / influenza B virus B/Brisbane/60/2008 antigen 0.03 MG/ML / influenza B virus B/Phuket/3073/2013 antigen 0.03 MG/ML Injectable Suspension [Afluria Quadrivalent 2016-2017 Formula]"
+          },
+          {
+            "code" : "1876710",
+            "display" : "0.5 ML yellow fever virus strain 17D-204 live antigen 2000 UNT/ML Injection [Stamaril]"
+          },
+          {
+            "code" : "1928307",
+            "display" : "0.5 ML influenza A virus A/Hong Kong/4801/2014 (H3N2) antigen 0.03 MG/ML / influenza A virus A/Singapore/GP1908/2015 (H1N1) antigen 0.03 MG/ML / influenza B virus B/Brisbane/60/2008 antigen 0.03 MG/ML / influenza B virus B/Phuket/3073/2013 antigen 0.03 MG/ML Prefilled Syringe [Fluarix Quadrivalent 2017-2018]"
+          },
+          {
+            "code" : "1928317",
+            "display" : "0.5 ML influenza A virus A/Hong Kong/4801/2014 (H3N2) antigen 0.03 MG/ML / influenza A virus A/Michigan/45/2015 (H1N1) antigen 0.03 MG/ML / influenza B virus B/Brisbane/60/2008 antigen 0.03 MG/ML / influenza B virus B/Phuket/3073/2013 antigen 0.03 MG/ML Injection [Fluzone Quadrivalent 2017-2018]"
+          },
+          {
+            "code" : "1928329",
+            "display" : "influenza A virus A/Hong Kong/4801/2014 (H3N2) antigen 0.03 MG/ML / influenza A virus A/Singapore/GP1908/2015 (H1N1) antigen 0.03 MG/ML / influenza B virus B/Brisbane/60/2008 antigen 0.03 MG/ML / influenza B virus B/Phuket/3073/2013 antigen 0.03 MG/ML Injectable Suspension [Flulaval Quadrivalent 2017-2018]"
+          },
+          {
+            "code" : "1928332",
+            "display" : "0.25 ML influenza A virus A/Hong Kong/4801/2014 (H3N2) antigen 0.03 MG/ML / influenza A virus A/Michigan/45/2015 (H1N1) antigen 0.03 MG/ML / influenza B virus B/Brisbane/60/2008 antigen 0.03 MG/ML / influenza B virus B/Phuket/3073/2013 antigen 0.03 MG/ML Prefilled Syringe [Fluzone Quadrivalent 2017-2018]"
+          },
+          {
+            "code" : "1928336",
+            "display" : "0.5 ML influenza A virus A/Hong Kong/4801/2014 (H3N2) antigen 0.03 MG/ML / influenza A virus A/Singapore/GP1908/2015 (H1N1) antigen 0.03 MG/ML / influenza B virus B/Brisbane/60/2008 antigen 0.03 MG/ML / influenza B virus B/Phuket/3073/2013 antigen 0.03 MG/ML Prefilled Syringe [Flulaval Quadrivalent 2017-2018]"
+          },
+          {
+            "code" : "1928344",
+            "display" : "0.5 ML influenza A virus A/Hong Kong/4801/2014 (H3N2) antigen 0.12 MG/ML / influenza A virus A/Michigan/45/2015 (H1N1) antigen 0.12 MG/ML / influenza B virus B/Brisbane/60/2008 antigen 0.12 MG/ML Prefilled Syringe [Fluzone 2017-2018]"
+          },
+          {
+            "code" : "1928356",
+            "display" : "influenza A virus A/Hong Kong/4801/2014 (H3N2) antigen 0.03 MG/ML / influenza A virus A/Michigan/45/2015 (H1N1) antigen 0.03 MG/ML / influenza B virus B/Brisbane/60/2008 antigen 0.03 MG/ML / influenza B virus B/Phuket/3073/2013 antigen 0.03 MG/ML Injectable Suspension [Fluzone Quadrivalent 2017-2018]"
+          },
+          {
+            "code" : "1928359",
+            "display" : "0.5 ML influenza A virus A/Hong Kong/4801/2014 (H3N2) antigen 0.03 MG/ML / influenza A virus A/Michigan/45/2015 (H1N1) antigen 0.03 MG/ML / influenza B virus B/Brisbane/60/2008 antigen 0.03 MG/ML / influenza B virus B/Phuket/3073/2013 antigen 0.03 MG/ML Prefilled Syringe [Fluzone Quadrivalent 2017-2018]"
+          },
+          {
+            "code" : "1928362",
+            "display" : "0.5 ML influenza A virus A/Hong Kong/4801/2014 (H3N2) antigen 0.09 MG/ML / influenza A virus A/Michigan/45/2015 (H1N1) antigen 0.09 MG/ML / influenza B virus B/Brisbane/60/2008 antigen 0.09 MG/ML / influenza B virus B/Phuket/3073/2013 antigen 0.09 MG/ML Prefilled Syringe [Flublok Quadrivalent 2017-2018]"
+          },
+          {
+            "code" : "1928470",
+            "display" : "0.1 ML influenza A virus A/Hong Kong/4801/2014 (H3N2) antigen 0.09 MG/ML / influenza A virus A/Michigan/45/2015 (H1N1) antigen 0.09 MG/ML / influenza B virus B/Brisbane/60/2008 antigen 0.09 MG/ML / influenza B virus B/Phuket/3073/2013 antigen 0.09 MG/ML Prefilled Syringe [Fluzone Quadrivalent 2017-2018]"
+          },
+          {
+            "code" : "1928537",
+            "display" : "influenza A virus A/Singapore/GP1908/2015 (H1N1) antigen 0.03 MG/ML / influenza A virus A/Singapore/GP2050/2015 (H3N2) antigen 0.03 MG/ML / influenza B virus B/Hong Kong/259/2010 antigen 0.03 MG/ML / influenza B virus B/Utah/9/2014 antigen 0.03 MG/ML Injectable Suspension [Flucelvax Quadrivalent 2017-2018]"
+          },
+          {
+            "code" : "1928540",
+            "display" : "0.5 ML influenza A virus A/Singapore/GP1908/2015 (H1N1) antigen 0.03 MG/ML / influenza A virus A/Singapore/GP2050/2015 (H3N2) antigen 0.03 MG/ML / influenza B virus B/Hong Kong/259/2010 antigen 0.03 MG/ML / influenza B virus B/Utah/9/2014 antigen 0.03 MG/ML Prefilled Syringe [Flucelvax Quadrivalent 2017-2018]"
+          },
+          {
+            "code" : "1928880",
+            "display" : "0.5 ML influenza A virus A/Hong Kong/4801/2014 (H3N2) antigen 0.09 MG/ML / influenza A virus A/Michigan/45/2015 (H1N1) antigen 0.09 MG/ML / influenza B virus B/Brisbane/60/2008 antigen 0.09 MG/ML Injection [Flublok 2017-2018]"
+          },
+          {
+            "code" : "1928965",
+            "display" : "0.5 ML influenza A virus A/Hong Kong/4801/2014 (H3N2) antigen 0.03 MG/ML / influenza A virus A/Singapore/GP1908/2015 (H1N1) antigen 0.03 MG/ML / influenza B virus B/Brisbane/60/2008 antigen 0.03 MG/ML Prefilled Syringe [Fluad 2017-2018]"
+          },
+          {
+            "code" : "1928974",
+            "display" : "influenza A virus A/Hong Kong/4801/2014 (H3N2) antigen 0.03 MG/ML / influenza A virus A/Singapore/GP1908/2015 (H1N1) antigen 0.03 MG/ML / influenza B virus B/Brisbane/60/2008 antigen 0.03 MG/ML Injectable Suspension [Fluvirin 2017-2018]"
+          },
+          {
+            "code" : "1928982",
+            "display" : "0.5 ML influenza A virus A/Hong Kong/4801/2014 (H3N2) antigen 0.03 MG/ML / influenza A virus A/Singapore/GP1908/2015 (H1N1) antigen 0.03 MG/ML / influenza B virus B/Brisbane/60/2008 antigen 0.03 MG/ML Prefilled Syringe [Fluvirin 2017-2018]"
+          },
+          {
+            "code" : "1942132",
+            "display" : "0.5 ML influenza A virus A/Hong Kong/4801/2014 (H3N2) antigen 0.03 MG/ML / influenza A virus A/Singapore/GP1908/2015 (H1N1) antigen 0.03 MG/ML / influenza B virus B/Brisbane/46/2015 antigen 0.03 MG/ML Prefilled Syringe [Afluria 2017-2018]"
+          },
+          {
+            "code" : "1942158",
+            "display" : "influenza A virus A/Hong Kong/4801/2014 (H3N2) antigen 0.03 MG/ML / influenza A virus A/Singapore/GP1908/2015 (H1N1) antigen 0.03 MG/ML / influenza B virus B/Brisbane/46/2015 antigen 0.03 MG/ML Injectable Suspension [Afluria 2017-2018]"
+          },
+          {
+            "code" : "1942166",
+            "display" : "0.5 ML influenza A virus A/Hong Kong/4801/2014 (H3N2) antigen 0.03 MG/ML / influenza A virus A/Singapore/GP1908/2015 (H1N1) antigen 0.03 MG/ML / influenza B virus B/Brisbane/46/2015 antigen 0.03 MG/ML / influenza B virus B/Phuket/3073/2013 antigen 0.03 MG/ML Prefilled Syringe [Afluria Quadrivalent 2017-2018]"
+          },
+          {
+            "code" : "1942173",
+            "display" : "influenza A virus A/Hong Kong/4801/2014 (H3N2) antigen 0.03 MG/ML / influenza A virus A/Singapore/GP1908/2015 (H1N1) antigen 0.03 MG/ML / influenza B virus B/Brisbane/46/2015 antigen 0.03 MG/ML / influenza B virus B/Phuket/3073/2013 antigen 0.03 MG/ML Injectable Suspension [Afluria Quadrivalent 2017-2018]"
+          },
+          {
+            "code" : "1946986",
+            "display" : "influenza A virus A/New Caledonia/71/2014 (H3N2) antigen 158000000 UNT/ML / influenza A virus A/Slovenia/2903/2015 (H1N1) antigen 158000000 UNT/ML / influenza B virus B/Brisbane/60/2008 antigen 158000000 UNT/ML / influenza B virus B/Phuket/3073/2013 antigen 158000000 UNT/ML Nasal Spray [Flumist Quadrivalent 2017-2018]"
+          },
+          {
+            "code" : "1986830",
+            "display" : "0.5 ML varicella zoster virus glycoprotein E, recombinant 0.1 MG/ML Injection [Shingrix]"
+          },
+          {
+            "code" : "1994352",
+            "display" : "0.5 ML hepatitis B surface antigen vaccine 0.04 MG/ML Injection [Heplisav-B]"
+          },
+          {
+            "code" : "2048966",
+            "display" : "0.5 ML influenza A virus A/Singapore/GP1908/2015 (H1N1) antigen 0.03 MG/ML / influenza A virus A/Singapore/INFIMH-16-0019/2016 (H3N2) antigen 0.03 MG/ML / influenza B virus B/Maryland/15/2016 antigen 0.03 MG/ML / influenza B virus B/Phuket/3073/2013 antigen 0.03 MG/ML Prefilled Syringe [Fluarix Quadrivalent 2018-2019]"
+          },
+          {
+            "code" : "2048974",
+            "display" : "influenza A virus A/Singapore/GP1908/2015 (H1N1) antigen 0.03 MG/ML / influenza A virus A/Singapore/INFIMH-16-0019/2016 (H3N2) antigen 0.03 MG/ML / influenza B virus B/Maryland/15/2016 antigen 0.03 MG/ML / influenza B virus B/Phuket/3073/2013 antigen 0.03 MG/ML Injectable Suspension [Flulaval Quadrivalent 2018-2019]"
+          },
+          {
+            "code" : "2048976",
+            "display" : "0.5 ML influenza A virus A/Singapore/GP1908/2015 (H1N1) antigen 0.03 MG/ML / influenza A virus A/Singapore/INFIMH-16-0019/2016 (H3N2) antigen 0.03 MG/ML / influenza B virus B/Maryland/15/2016 antigen 0.03 MG/ML / influenza B virus B/Phuket/3073/2013 antigen 0.03 MG/ML Prefilled Syringe [Flulaval Quadrivalent 2018-2019]"
+          },
+          {
+            "code" : "2050059",
+            "display" : "0.5 ML hepatitis B surface antigen vaccine 0.04 MG/ML Prefilled Syringe [Heplisav-B]"
+          },
+          {
+            "code" : "2050382",
+            "display" : "0.5 ML influenza A virus A/Michigan/45/2015 (H1N1) antigen 0.09 MG/ML / influenza A virus A/Singapore/INFIMH-16-0019/2016 (H3N2) antigen 0.09 MG/ML / influenza B virus B/Maryland/15/2016 antigen 0.09 MG/ML / influenza B virus B/Phuket/3073/2013 antigen 0.09 MG/ML Prefilled Syringe [Flublok Quadrivalent 2018-2019]"
+          },
+          {
+            "code" : "2050423",
+            "display" : "0.5 ML influenza A virus A/Michigan/45/2015 (H1N1) antigen 0.12 MG/ML / influenza A virus A/Singapore/INFIMH-16-0019/2016 (H3N2) antigen 0.12 MG/ML / influenza B virus B/Maryland/15/2016 antigen 0.12 MG/ML Prefilled Syringe [Fluzone 2018-2019]"
+          },
+          {
+            "code" : "2050763",
+            "display" : "0.5 ML influenza A virus A/Singapore/GP1908/2015 (H1N1) antigen 0.03 MG/ML / influenza A virus A/Singapore/INFIMH-16-0019/2016 (H3N2) antigen 0.03 MG/ML / influenza B virus B/Maryland/15/2016 antigen 0.03 MG/ML Prefilled Syringe [Fluad 2018-2019]"
+          },
+          {
+            "code" : "2050771",
+            "display" : "influenza A virus A/Singapore/GP1908/2015 (H1N1) antigen 0.03 MG/ML / influenza A virus A/Singapore/INFIMH-16-0019/2016 (H3N2) antigen 0.03 MG/ML / influenza B virus B/Maryland/15/2016 antigen 0.03 MG/ML Injectable Suspension [Afluria 2018-2019]"
+          },
+          {
+            "code" : "2050777",
+            "display" : "0.5 ML influenza A virus A/Michigan/45/2015 (H1N1) antigen 0.03 MG/ML / influenza A virus A/Singapore/INFIMH-16-0019/2016 (H3N2) antigen 0.03 MG/ML / influenza B virus B/Maryland/15/2016 antigen 0.03 MG/ML / influenza B virus B/Phuket/3073/2013 antigen 0.03 MG/ML Prefilled Syringe [Fluzone Quadrivalent 2018-2019]"
+          },
+          {
+            "code" : "2050782",
+            "display" : "0.5 ML influenza A virus A/Michigan/45/2015 (H1N1) antigen 0.03 MG/ML / influenza A virus A/Singapore/INFIMH-16-0019/2016 (H3N2) antigen 0.03 MG/ML / influenza B virus B/Maryland/15/2016 antigen 0.03 MG/ML / influenza B virus B/Phuket/3073/2013 antigen 0.03 MG/ML Injection [Fluzone Quadrivalent 2018-2019]"
+          },
+          {
+            "code" : "2050787",
+            "display" : "influenza A virus A/Michigan/45/2015 (H1N1) antigen 0.03 MG/ML / influenza A virus A/Singapore/INFIMH-16-0019/2016 (H3N2) antigen 0.03 MG/ML / influenza B virus B/Maryland/15/2016 antigen 0.03 MG/ML / influenza B virus B/Phuket/3073/2013 antigen 0.03 MG/ML Injectable Suspension [Fluzone Quadrivalent 2018-2019]"
+          },
+          {
+            "code" : "2050789",
+            "display" : "0.25 ML influenza A virus A/Michigan/45/2015 (H1N1) antigen 0.03 MG/ML / influenza A virus A/Singapore/INFIMH-16-0019/2016 (H3N2) antigen 0.03 MG/ML / influenza B virus B/Maryland/15/2016 antigen 0.03 MG/ML / influenza B virus B/Phuket/3073/2013 antigen 0.03 MG/ML Prefilled Syringe [Fluzone Quadrivalent 2018-2019]"
+          },
+          {
+            "code" : "2050795",
+            "display" : "influenza A virus A/Singapore/GP1908/2015 (H1N1) antigen 0.03 MG/ML / influenza A virus A/Singapore/INFIMH-16-0019/2016 (H3N2) antigen 0.03 MG/ML / influenza B virus B/Maryland/15/2016 antigen 0.03 MG/ML / influenza B virus B/Phuket/3073/2013 antigen 0.03 MG/ML Injectable Suspension [Afluria Quadrivalent 2018-2019]"
+          },
+          {
+            "code" : "2050797",
+            "display" : "0.5 ML influenza A virus A/Singapore/GP1908/2015 (H1N1) antigen 0.03 MG/ML / influenza A virus A/Singapore/INFIMH-16-0019/2016 (H3N2) antigen 0.03 MG/ML / influenza B virus B/Maryland/15/2016 antigen 0.03 MG/ML / influenza B virus B/Phuket/3073/2013 antigen 0.03 MG/ML Prefilled Syringe [Afluria Quadrivalent 2018-2019]"
+          },
+          {
+            "code" : "2050803",
+            "display" : "0.5 ML influenza A virus A/Singapore/GP1908/2015 (H1N1) antigen 0.03 MG/ML / influenza A virus A/Singapore/INFIMH-16-0019/2016 (H3N2) antigen 0.03 MG/ML / influenza B virus B/Maryland/15/2016 antigen 0.03 MG/ML Prefilled Syringe [Afluria 2018-2019]"
+          },
+          {
+            "code" : "205259",
+            "display" : "0.5 ML diphtheria toxoid vaccine, inactivated 4 UNT/ML / tetanus toxoid vaccine, inactivated 4 UNT/ML Injection"
+          },
+          {
+            "code" : "2054274",
+            "display" : "influenza A virus A/Singapore/INFIMH-16-0019/2016 (H3N2) antigen 158000000 UNT/ML / influenza A virus A/Slovenia/2903/2015 (H1N1) antigen 158000000 UNT/ML / influenza B virus B/Colorado/06/2017 antigen 158000000 UNT/ML / influenza B virus B/Phuket/3073/2013 antigen 158000000 UNT/ML Nasal Spray [Flumist Quadrivalent 2018-2019]"
+          },
+          {
+            "code" : "2055031",
+            "display" : "0.5 ML influenza A virus A/North Carolina/04/2016 (H3N2) antigen 0.03 MG/ML / influenza A virus A/Singapore/GP1908/2015 (H1N1) antigen 0.03 MG/ML / influenza B virus B/Iowa/06/2017 antigen 0.03 MG/ML / influenza B virus B/Singapore/INFTT-16-0610/2016 antigen 0.03 MG/ML Prefilled Syringe [Flucelvax Quadrivalent 2018-2019]"
+          },
+          {
+            "code" : "2055034",
+            "display" : "influenza A virus A/North Carolina/04/2016 (H3N2) antigen 0.03 MG/ML / influenza A virus A/Singapore/GP1908/2015 (H1N1) antigen 0.03 MG/ML / influenza B virus B/Iowa/06/2017 antigen 0.03 MG/ML / influenza B virus B/Singapore/INFTT-16-0610/2016 antigen 0.03 MG/ML Injectable Suspension [Flucelvax Quadrivalent 2018-2019]"
+          },
+          {
+            "code" : "207269",
+            "display" : "meningococcal group A polysaccharide 0.1 MG/ML / meningococcal group C polysaccharide 0.1 MG/ML / meningococcal polysaccharide vaccine group W-135 0.1 MG/ML / meningococcal polysaccharide vaccine group Y 0.1 MG/ML Injectable Solution [Menomune A/C/Y/W-135]"
+          },
+          {
+            "code" : "2109620",
+            "display" : "0.5 ML Bordetella pertussis filamentous hemagglutinin vaccine, inactivated 0.04 MG/ML / Bordetella pertussis fimbriae 2/3 vaccine, inactivated 0.01 MG/ML / Bordetella pertussis pertactin vaccine, inactivated 0.006 MG/ML / Bordetella pertussis toxoid vaccine, inactivated 0.04 MG/ML / diphtheria toxoid vaccine, inactivated 30 UNT/ML / Haemophilus influenzae b (Ross strain) capsular polysaccharide meningococcal protein conjugate vaccine 0.006 MG/ML / hepatitis B surface antigen vaccine 0.02 MG/ML / poliovirus vaccine inactivated, type 1 (Mahoney) 58 UNT/ML / poliovirus vaccine inactivated, type 2 (MEF-1) 14 UNT/ML / poliovirus vaccine inactivated, type 3 (Saukett) 52 UNT/ML / tetanus toxoid vaccine, inactivated 10 UNT/ML Injection [Vaxelis]"
+          },
+          {
+            "code" : "762602",
+            "display" : "Salmonella typhi Ty21a live antigen 2000000000 UNT Delayed Release Oral Capsule [Vivotif]"
+          },
+          {
+            "code" : "763106",
+            "display" : "poliovirus vaccine inactivated, type 1 (Mahoney) 80 UNT/ML / poliovirus vaccine inactivated, type 2 (MEF-1) 16 UNT/ML / poliovirus vaccine inactivated, type 3 (Saukett) 64 UNT/ML Injectable Suspension [Ipol]"
+          },
+          {
+            "code" : "797641",
+            "display" : "0.5 ML Neisseria meningitidis serogroup A capsular polysaccharide diphtheria toxoid protein conjugate vaccine 0.104 MG/ML / Neisseria meningitidis serogroup C capsular polysaccharide diphtheria toxoid protein conjugate vaccine 0.104 MG/ML / Neisseria meningitidis serogroup W-135 capsular polysaccharide diphtheria toxoid protein conjugate vaccine 0.104 MG/ML / Neisseria meningitidis serogroup Y capsular polysaccharide diphtheria toxoid protein conjugate vaccine 0.104 MG/ML Injection [Menactra]"
+          },
+          {
+            "code" : "798278",
+            "display" : "0.5 ML L1 protein, human papillomavirus type 11 vaccine 0.08 MG/ML / L1 protein, human papillomavirus type 16 vaccine 0.08 MG/ML / L1 protein, human papillomavirus type 18 vaccine 0.04 MG/ML / L1 protein, human papillomavirus type 6 vaccine 0.04 MG/ML Prefilled Syringe [Gardasil]"
+          },
+          {
+            "code" : "798300",
+            "display" : "human-bovine reassortant rotavirus strain G1 vaccine 1100000 UNT/ML / human-bovine reassortant rotavirus strain G2 vaccine 1400000 UNT/ML / human-bovine reassortant rotavirus strain G3 vaccine 1100000 UNT/ML / human-bovine reassortant rotavirus strain G4 vaccine 1000000 UNT/ML / human-bovine reassortant rotavirus strain P1A[8] vaccine 1150000 UNT/ML Oral Suspension [RotaTeq]"
+          },
+          {
+            "code" : "798428",
+            "display" : "1 ML hepatitis B surface antigen vaccine 0.02 MG/ML Prefilled Syringe [Engerix-B]"
+          },
+          {
+            "code" : "798430",
+            "display" : "0.5 ML hepatitis B surface antigen vaccine 0.02 MG/ML Prefilled Syringe [Engerix-B]"
+          },
+          {
+            "code" : "798443",
+            "display" : "0.5 ML Haemophilus influenzae b (Ross strain) capsular polysaccharide meningococcal protein conjugate vaccine 0.265 MG/ML / hepatitis B surface antigen vaccine 0.01 MG/ML Injection [COMVAX]"
+          },
+          {
+            "code" : "798451",
+            "display" : "0.5 ML Haemophilus influenzae b (Ross strain) capsular polysaccharide meningococcal protein conjugate vaccine 0.265 MG/ML Injection [PedvaxHIB]"
+          },
+          {
+            "code" : "798479",
+            "display" : "1 ML hepatitis A vaccine (inactivated) strain HM175 1440 UNT/ML Prefilled Syringe [Havrix]"
+          },
+          {
+            "code" : "798482",
+            "display" : "0.5 ML hepatitis A vaccine (inactivated) strain HM175 1440 UNT/ML Prefilled Syringe [Havrix]"
+          },
+          {
+            "code" : "803367",
+            "display" : "1 ML hepatitis A vaccine (inactivated) strain HM175 720 UNT/ML / hepatitis B surface antigen vaccine 0.02 MG/ML Injection [Twinrix]"
+          },
+          {
+            "code" : "803371",
+            "display" : "1 ML hepatitis A vaccine (inactivated) strain HM175 720 UNT/ML / hepatitis B surface antigen vaccine 0.02 MG/ML Prefilled Syringe [Twinrix]"
+          },
+          {
+            "code" : "804186",
+            "display" : "0.5 ML measles virus vaccine live, Enders' attenuated Edmonston strain 2000 UNT/ML / mumps virus vaccine live, Jeryl Lynn strain 25000 UNT/ML / rubella virus vaccine live (Wistar RA 27-3 strain) 2000 UNT/ML Injection [M-M-R II]"
+          },
+          {
+            "code" : "805378",
+            "display" : "0.5 ML acellular pertussis vaccine, inactivated 96 UNT/ML / diphtheria toxoid vaccine, inactivated 30 UNT/ML / Haemophilus influenzae type b, capsular polysaccharide inactivated tetanus toxoid conjugate vaccine 68 UNT/ML / poliovirus vaccine inactivated, type 1 (Mahoney) 80 UNT/ML / poliovirus vaccine inactivated, type 2 (MEF-1) 16 UNT/ML / poliovirus vaccine inactivated, type 3 (Saukett) 64 UNT/ML / tetanus toxoid vaccine, inactivated 20 UNT/ML Injection [Pentacel]"
+          },
+          {
+            "code" : "805579",
+            "display" : "rotavirus vaccine, live attenuated, G1P[8] human 89-12 strain 1000000 UNT/ML Oral Suspension [Rotarix]"
+          },
+          {
+            "code" : "807225",
+            "display" : "typhoid Vi polysaccharide vaccine, S typhi Ty2 strain 0.05 MG/ML Injectable Solution [Typhim VI]"
+          },
+          {
+            "code" : "829989",
+            "display" : "0.5 ML acellular pertussis vaccine, inactivated 0.116 MG/ML / diphtheria toxoid vaccine, inactivated 50 UNT/ML / hepatitis B surface antigen vaccine 0.02 MG/ML / poliovirus vaccine inactivated, type 1 (Mahoney) 80 UNT/ML / poliovirus vaccine inactivated, type 2 (MEF-1) 16 UNT/ML / poliovirus vaccine inactivated, type 3 (Saukett) 64 UNT/ML / tetanus toxoid vaccine, inactivated 20 UNT/ML Prefilled Syringe [PEDIARIX]"
+          },
+          {
+            "code" : "830245",
+            "display" : "1 ML hepatitis B surface antigen vaccine 0.01 MG/ML Prefilled Syringe [Recombivax]"
+          },
+          {
+            "code" : "830253",
+            "display" : "0.5 ML hepatitis B surface antigen vaccine 0.01 MG/ML Prefilled Syringe [Recombivax]"
+          },
+          {
+            "code" : "830263",
+            "display" : "1 ML hepatitis B surface antigen vaccine 0.04 MG/ML Injection [Recombivax]"
+          },
+          {
+            "code" : "830463",
+            "display" : "1 ML rabies virus vaccine flury-lep strain 2.5 UNT/ML Injection [RabAvert]"
+          },
+          {
+            "code" : "830470",
+            "display" : "1 ML rabies virus vaccine wistar strain PM-1503-3M (human), inactivated 2.5 UNT/ML Injection [Imovax]"
+          },
+          {
+            "code" : "830552",
+            "display" : "0.5 ML Bordetella pertussis filamentous hemagglutinin vaccine, inactivated 0.05 MG/ML / Bordetella pertussis pertactin vaccine, inactivated 0.016 MG/ML / Bordetella pertussis toxoid vaccine, inactivated 0.05 MG/ML / diphtheria toxoid vaccine, inactivated 50 UNT/ML / poliovirus vaccine inactivated, type 1 (Mahoney) 80 UNT/ML / poliovirus vaccine inactivated, type 2 (MEF-1) 16 UNT/ML / poliovirus vaccine inactivated, type 3 (Saukett) 64 UNT/ML / tetanus toxoid vaccine, inactivated 20 UNT/ML Injection [Kinrix]"
+          },
+          {
+            "code" : "830557",
+            "display" : "0.5 ML acellular pertussis vaccine, inactivated 0.116 MG/ML / diphtheria toxoid vaccine, inactivated 50 UNT/ML / poliovirus vaccine inactivated, type 1 (Mahoney) 80 UNT/ML / poliovirus vaccine inactivated, type 2 (MEF-1) 16 UNT/ML / poliovirus vaccine inactivated, type 3 (Saukett) 64 UNT/ML / tetanus toxoid vaccine, inactivated 20 UNT/ML Prefilled Syringe [Kinrix]"
+          },
+          {
+            "code" : "832682",
+            "display" : "Bacillus anthracis strain V770-NP1-R antigens 0.1 MG/ML Injectable Suspension [Biothrax]"
+          },
+          {
+            "code" : "836634",
+            "display" : "1 ML hepatitis A virus strain CR 326F antigen, inactivated 50 UNT/ML Prefilled Syringe [Vaqta]"
+          },
+          {
+            "code" : "836636",
+            "display" : "0.5 ML hepatitis A virus strain CR 326F antigen, inactivated 50 UNT/ML Prefilled Syringe [Vaqta]"
+          },
+          {
+            "code" : "864704",
+            "display" : "influenza A-California-7-2009-(H1N1)v-like virus vaccine 0.03 MG/ML Injectable Suspension"
+          },
+          {
+            "code" : "864781",
+            "display" : "0.25 ML influenza A-California-7-2009-(H1N1)v-like virus vaccine 0.03 MG/ML Prefilled Syringe"
+          },
+          {
+            "code" : "864797",
+            "display" : "0.5 ML influenza A-California-7-2009-(H1N1)v-like virus vaccine 0.03 MG/ML Prefilled Syringe"
+          },
+          {
+            "code" : "901518",
+            "display" : "0.5 ML Neisseria meningitidis serogroup A oligosaccharide diphtheria CRM197 protein conjugate vaccine 0.02 MG/ML / Neisseria meningitidis serogroup C oligosaccharide diphtheria CRM197 protein conjugate vaccine 0.01 MG/ML / Neisseria meningitidis serogroup W-135 oligosaccharide diphtheria CRM197 protein conjugate vaccine 0.01 MG/ML / Neisseria meningitidis serogroup Y oligosaccharide diphtheria CRM197 protein conjugate vaccine 0.01 MG/ML Injection [Menveo]"
+          },
+          {
+            "code" : "901644",
+            "display" : "0.5 ML Streptococcus pneumoniae serotype 1 capsular antigen diphtheria CRM197 protein conjugate vaccine 0.0044 MG/ML / Streptococcus pneumoniae serotype 14 capsular antigen diphtheria CRM197 protein conjugate vaccine 0.0044 MG/ML / Streptococcus pneumoniae serotype 18C capsular antigen diphtheria CRM197 protein conjugate vaccine 0.0044 MG/ML / Streptococcus pneumoniae serotype 19A capsular antigen diphtheria CRM197 protein conjugate vaccine 0.0044 MG/ML / Streptococcus pneumoniae serotype 19F capsular antigen diphtheria CRM197 protein conjugate vaccine 0.0044 MG/ML / Streptococcus pneumoniae serotype 23F capsular antigen diphtheria CRM197 protein conjugate vaccine 0.0044 MG/ML / Streptococcus pneumoniae serotype 3 capsular antigen diphtheria CRM197 protein conjugate vaccine 0.0044 MG/ML / Streptococcus pneumoniae serotype 4 capsular antigen diphtheria CRM197 protein conjugate vaccine 0.0044 MG/ML / Streptococcus pneumoniae serotype 5 capsular antigen diphtheria CRM197 protein conjugate vaccine 0.0044 MG/ML / Streptococcus pneumoniae serotype 6A capsular antigen diphtheria CRM197 protein conjugate vaccine 0.0044 MG/ML / Streptococcus pneumoniae serotype 6B capsular antigen diphtheria CRM197 protein conjugate vaccine 0.0088 MG/ML / Streptococcus pneumoniae serotype 7F capsular antigen diphtheria CRM197 protein conjugate vaccine 0.0044 MG/ML / Streptococcus pneumoniae serotype 9V capsular antigen diphtheria CRM197 protein conjugate vaccine 0.0044 MG/ML Prefilled Syringe [Prevnar 13]"
+          }
+        ]
+      }
+    ]
+  },
+  "expansion" : {
+    "identifier" : "urn:uuid:dfa1f1c9-8516-4abb-b6c8-1c07ed6976b2",
+    "timestamp" : "2023-11-24T15:58:50-05:00",
+    "total" : 74,
+    "contains" : [
+      {
+        "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "version" : "11062023",
         "code" : "1099936",
         "display" : "adenovirus type 4 vaccine live 32000 UNT Delayed Release Oral Tablet"
       },
       {
+        "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "version" : "11062023",
         "code" : "1099940",
         "display" : "adenovirus type 7 vaccine live 32000 UNT Delayed Release Oral Tablet"
       },
       {
+        "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "version" : "11062023",
         "code" : "1190916",
         "display" : "0.5 ML diphtheria toxoid vaccine, inactivated 4 UNT/ML / tetanus toxoid vaccine, inactivated 10 UNT/ML Injection [Tenivac]"
       },
       {
+        "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "version" : "11062023",
         "code" : "1190919",
         "display" : "0.5 ML diphtheria toxoid vaccine, inactivated 4 UNT/ML / tetanus toxoid vaccine, inactivated 10 UNT/ML Prefilled Syringe [Tenivac]"
       },
       {
+        "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "version" : "11062023",
         "code" : "1244205",
         "display" : "0.5 ML diphtheria toxoid vaccine, inactivated 50 UNT/ML / tetanus toxoid vaccine, inactivated 10 UNT/ML Injection"
       },
       {
+        "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "version" : "11062023",
         "code" : "1292435",
         "display" : "0.65 ML varicella-zoster virus vaccine live (Oka-Merck) strain 29800 UNT/ML Injection [Zostavax]"
       },
       {
+        "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "version" : "11062023",
         "code" : "1292443",
         "display" : "0.5 ML measles virus vaccine live, Enders' attenuated Edmonston strain 2000 UNT/ML / mumps virus vaccine live, Jeryl Lynn strain 40000 UNT/ML / rubella virus vaccine live (Wistar RA 27-3 strain) 2000 UNT/ML / varicella-zoster virus vaccine live (Oka-Merck) strain 20000 UNT/ML Injection [ProQuad]"
       },
       {
+        "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "version" : "11062023",
         "code" : "1292459",
         "display" : "0.5 ML varicella-zoster virus vaccine live (Oka-Merck) strain 2700 UNT/ML Injection [Varivax]"
       },
       {
+        "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "version" : "11062023",
         "code" : "1292828",
         "display" : "yellow fever virus strain 17D-204 live antigen 4000 UNT/ML Injectable Suspension [YF-Vax]"
       },
       {
-        "code" : "1298819",
-        "display" : "influenza A-California-7-2009-(H1N1)v-like virus vaccine 158000000 UNT/ML Nasal Spray"
-      },
-      {
+        "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "version" : "11062023",
         "code" : "1300191",
         "display" : "0.5 ML Bordetella pertussis filamentous hemagglutinin vaccine, inactivated 0.01 MG/ML / Bordetella pertussis fimbriae 2/3 vaccine, inactivated 0.01 MG/ML / Bordetella pertussis pertactin vaccine, inactivated 0.006 MG/ML / Bordetella pertussis toxoid vaccine, inactivated 0.005 MG/ML / diphtheria toxoid vaccine, inactivated 4 UNT/ML / tetanus toxoid vaccine, inactivated 10 UNT/ML Prefilled Syringe [Adacel]"
       },
       {
+        "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "version" : "11062023",
         "code" : "1300206",
         "display" : "0.5 ML Bordetella pertussis filamentous hemagglutinin vaccine, inactivated 0.01 MG/ML / Bordetella pertussis fimbriae 2/3 vaccine, inactivated 0.01 MG/ML / Bordetella pertussis pertactin vaccine, inactivated 0.006 MG/ML / Bordetella pertussis toxoid vaccine, inactivated 0.005 MG/ML / diphtheria toxoid vaccine, inactivated 4 UNT/ML / tetanus toxoid vaccine, inactivated 10 UNT/ML Injection [Adacel]"
       },
       {
+        "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "version" : "11062023",
         "code" : "1300310",
         "display" : "0.5 ML Bordetella pertussis filamentous hemagglutinin vaccine, inactivated 0.01 MG/ML / Bordetella pertussis fimbriae 2/3 vaccine, inactivated 0.01 MG/ML / Bordetella pertussis pertactin vaccine, inactivated 0.006 MG/ML / Bordetella pertussis toxoid vaccine, inactivated 0.02 MG/ML / diphtheria toxoid vaccine, inactivated 30 UNT/ML / tetanus toxoid vaccine, inactivated 10 UNT/ML Injection [Daptacel]"
       },
       {
+        "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "version" : "11062023",
         "code" : "1300370",
         "display" : "0.5 ML Bordetella pertussis filamentous hemagglutinin vaccine, inactivated 0.016 MG/ML / Bordetella pertussis pertactin vaccine, inactivated 0.005 MG/ML / Bordetella pertussis toxoid vaccine, inactivated 0.016 MG/ML / diphtheria toxoid vaccine, inactivated 5 UNT/ML / tetanus toxoid vaccine, inactivated 10 UNT/ML Prefilled Syringe [Boostrix]"
       },
       {
+        "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "version" : "11062023",
         "code" : "1300378",
         "display" : "0.5 ML Bordetella pertussis filamentous hemagglutinin vaccine, inactivated 0.016 MG/ML / Bordetella pertussis pertactin vaccine, inactivated 0.005 UNT/ML / Bordetella pertussis toxoid vaccine, inactivated 0.016 MG/ML / diphtheria toxoid vaccine, inactivated 5 UNT/ML / tetanus toxoid vaccine, inactivated 10 UNT/ML Injection [Boostrix]"
       },
       {
+        "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "version" : "11062023",
         "code" : "1300384",
         "display" : "0.5 ML Bordetella pertussis filamentous hemagglutinin vaccine, inactivated 0.05 MG/ML / Bordetella pertussis pertactin vaccine, inactivated 0.016 MG/ML / Bordetella pertussis toxoid vaccine, inactivated 0.05 MG/ML / diphtheria toxoid vaccine, inactivated 50 UNT/ML / tetanus toxoid vaccine, inactivated 20 UNT/ML Prefilled Syringe [Infanrix]"
       },
       {
+        "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "version" : "11062023",
         "code" : "1300386",
         "display" : "0.5 ML Bordetella pertussis filamentous hemagglutinin vaccine, inactivated 0.05 MG/ML / Bordetella pertussis pertactin vaccine, inactivated 0.016 MG/ML / Bordetella pertussis toxoid vaccine, inactivated 0.05 MG/ML / diphtheria toxoid vaccine, inactivated 50 UNT/ML / tetanus toxoid vaccine, inactivated 20 UNT/ML Injection [Infanrix]"
       },
       {
+        "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "version" : "11062023",
         "code" : "1300468",
         "display" : "0.5 ML Haemophilus influenzae type b strain 1482, capsular polysaccharide inactivated tetanus toxoid conjugate vaccine 0.068 MG/ML Injection [ActHIB]"
       },
       {
+        "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "version" : "11062023",
         "code" : "1300783",
         "display" : "0.5 ML Japanese encephalitis virus vaccine Nakayama-NIH strain, inactivated 0.012 MG/ML Prefilled Syringe [Ixiaro]"
       },
       {
+        "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "version" : "11062023",
         "code" : "1300810",
         "display" : "0.5 ML Haemophilus influenzae type b strain 20752, capsular polysaccharide inactivated tetanus toxoid conjugate vaccine 0.07 MG/ML Injection [Hiberix]"
       },
       {
-        "code" : "1301891",
-        "display" : "0.5 ML human papillomavirus type 16, L1 capsid protein (residues 2-471) vaccine 0.04 MG/ML / human papillomavirus type 18, L1 capsid protein (residues 2-472) vaccine 0.04 MG/ML Prefilled Syringe [Cervarix]"
-      },
-      {
-        "code" : "1367005",
-        "display" : "influenza A virus vaccine, A-Victoria-361-2011 (H3N2)-like virus 0.09 MG/ML / influenza A-California-7-2009-(H1N1)v-like virus vaccine 0.09 MG/ML / influenza B virus vaccine, B-Wisconsin-1-2010-like virus 0.09 MG/ML Injectable Solution [Flublok 2012-2013 Formula]"
-      },
-      {
-        "code" : "1437916",
-        "display" : "0.5 ML Haemophilus influenzae type b strain 1482, capsular polysaccharide inactivated tetanus toxoid conjugate vaccine 0.005 MG/ML / meningococcal group C polysaccharide 0.01 MG/ML / meningococcal polysaccharide vaccine group Y 0.01 MG/ML Injection [MenHibrix]"
-      },
-      {
-        "code" : "1442210",
-        "display" : "influenza A virus vaccine, A-Victoria-361-2011 (H3N2)-like virus 0.09 MG/ML / influenza A-California-7-2009-(H1N1)v-like virus vaccine 0.09 MG/ML / influenza B virus vaccine, B-Massachusetts-2-2012-like virus 0.09 MG/ML Injectable Solution [Flublok 2013-2014 Formula]"
-      },
-      {
+        "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "version" : "11062023",
         "code" : "1486496",
         "display" : "0.5 ML typhoid Vi polysaccharide vaccine, S typhi Ty2 strain 0.05 MG/ML Prefilled Syringe [Typhim VI]"
       },
       {
-        "code" : "1537521",
-        "display" : "influenza A virus vaccine, A-Victoria-361-2011 (H3N2)-like virus 0.09 MG/ML / influenza A-California-7-2009-(H1N1)v-like virus vaccine 0.09 MG/ML / influenza B virus vaccine, B-Massachusetts-2-2012-like virus 0.09 MG/ML Injectable Solution [Flublok 2014-2015 Formula]"
-      },
-      {
+        "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "version" : "11062023",
         "code" : "1547582",
         "display" : "0.5 ML Streptococcus pneumoniae type 1 capsular polysaccharide antigen 0.05 MG/ML / Streptococcus pneumoniae type 10A capsular polysaccharide antigen 0.05 MG/ML / Streptococcus pneumoniae type 11A capsular polysaccharide antigen 0.05 MG/ML / Streptococcus pneumoniae type 12F capsular polysaccharide antigen 0.05 MG/ML / Streptococcus pneumoniae type 14 capsular polysaccharide antigen 0.05 MG/ML / Streptococcus pneumoniae type 15B capsular polysaccharide antigen 0.05 MG/ML / Streptococcus pneumoniae type 17F capsular polysaccharide antigen 0.05 MG/ML / Streptococcus pneumoniae type 18C capsular polysaccharide antigen 0.05 MG/ML / Streptococcus pneumoniae type 19A capsular polysaccharide antigen 0.05 MG/ML / Streptococcus pneumoniae type 19F capsular polysaccharide antigen 0.05 MG/ML / Streptococcus pneumoniae type 2 capsular polysaccharide antigen 0.05 MG/ML / Streptococcus pneumoniae type 20 capsular polysaccharide antigen 0.05 MG/ML / Streptococcus pneumoniae type 22F capsular polysaccharide antigen 0.05 MG/ML / Streptococcus pneumoniae type 23F capsular polysaccharide antigen 0.05 MG/ML / Streptococcus pneumoniae type 3 capsular polysaccharide antigen 0.05 MG/ML / Streptococcus pneumoniae type 33F capsular polysaccharide antigen 0.05 MG/ML / Streptococcus pneumoniae type 4 capsular polysaccharide antigen 0.05 MG/ML / Streptococcus pneumoniae type 5 capsular polysaccharide antigen 0.05 MG/ML / Streptococcus pneumoniae type 6B capsular polysaccharide antigen 0.05 MG/ML / Streptococcus pneumoniae type 7F capsular polysaccharide antigen 0.05 MG/ML / Streptococcus pneumoniae type 8 capsular polysaccharide antigen 0.05 MG/ML / Streptococcus pneumoniae type 9N capsular polysaccharide antigen 0.05 MG/ML / Streptococcus pneumoniae type 9V capsular polysaccharide antigen 0.05 MG/ML Prefilled Syringe [Pneumovax 23]"
       },
       {
+        "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "version" : "11062023",
         "code" : "1593140",
         "display" : "0.5 ML Neisseria meningitidis serogroup B recombinant LP2086 A05 protein variant antigen 0.12 MG/ML / Neisseria meningitidis serogroup B recombinant LP2086 B01 protein variant antigen 0.12 MG/ML Prefilled Syringe [Trumenba]"
       },
       {
+        "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "version" : "11062023",
         "code" : "1597099",
         "display" : "0.5 ML L1 protein, human papillomavirus type 11 vaccine 0.08 MG/ML / L1 protein, human papillomavirus type 16 vaccine 0.12 MG/ML / L1 protein, human papillomavirus type 18 vaccine 0.08 MG/ML / L1 protein, human papillomavirus type 31 vaccine 0.04 MG/ML / L1 protein, human papillomavirus type 33 vaccine 0.04 MG/ML / L1 protein, human papillomavirus type 45 vaccine 0.04 MG/ML / L1 protein, human papillomavirus type 52 vaccine 0.04 MG/ML / L1 protein, human papillomavirus type 58 vaccine 0.04 MG/ML / L1 protein, human papillomavirus type 6 vaccine 0.06 MG/ML Injection [Gardasil 9]"
       },
       {
+        "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "version" : "11062023",
         "code" : "1597103",
         "display" : "0.5 ML L1 protein, human papillomavirus type 11 vaccine 0.08 MG/ML / L1 protein, human papillomavirus type 16 vaccine 0.12 MG/ML / L1 protein, human papillomavirus type 18 vaccine 0.08 MG/ML / L1 protein, human papillomavirus type 31 vaccine 0.04 MG/ML / L1 protein, human papillomavirus type 33 vaccine 0.04 MG/ML / L1 protein, human papillomavirus type 45 vaccine 0.04 MG/ML / L1 protein, human papillomavirus type 52 vaccine 0.04 MG/ML / L1 protein, human papillomavirus type 58 vaccine 0.04 MG/ML / L1 protein, human papillomavirus type 6 vaccine 0.06 MG/ML Prefilled Syringe [Gardasil 9]"
       },
       {
+        "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "version" : "11062023",
         "code" : "1601407",
         "display" : "0.5 ML meningococcal group B vaccine 0.1 MG/ML / Neisseria meningitidis serogroup B recombinant FHBP fusion protein antigen 0.1 MG/ML / Neisseria meningitidis serogroup B recombinant NHBA fusion protein antigen 0.1 MG/ML / Neisseria meningitidis serogroup B strain NZ98/254 outer membrane vesicle 0.05 MG/ML Prefilled Syringe [Bexsero]"
       },
       {
+        "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "version" : "11062023",
         "code" : "1607808",
         "display" : "0.5 ML Bordetella pertussis filamentous hemagglutinin vaccine, inactivated 0.04 MG/ML / Bordetella pertussis fimbriae 2/3 vaccine, inactivated 0.01 MG/ML / Bordetella pertussis pertactin vaccine, inactivated 0.006 MG/ML / Bordetella pertussis toxoid vaccine, inactivated 0.04 MG/ML / diphtheria toxoid vaccine, inactivated 30 UNT/ML / poliovirus vaccine inactivated, type 1 (Mahoney) 80 UNT/ML / poliovirus vaccine inactivated, type 2 (MEF-1) 16 UNT/ML / poliovirus vaccine inactivated, type 3 (Saukett) 64 UNT/ML / tetanus toxoid vaccine, inactivated 10 UNT/ML Injection [Quadracel]"
       },
       {
+        "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "version" : "11062023",
         "code" : "1653579",
         "display" : "BCG, live, Tice strain 50 MG Injection"
       },
       {
-        "code" : "1657144",
-        "display" : "0.5 ML influenza A virus A/Brisbane/10/2010 (H1N1) antigen 0.03 MG/ML / influenza A virus A/South Australia/55/2014 (H3N2) antigen 0.03 MG/ML / influenza B virus B/Utah/9/2014 antigen 0.03 MG/ML Prefilled Syringe [Flucelvax 2015-2016]"
-      },
-      {
-        "code" : "1657236",
-        "display" : "0.5 ML influenza A virus A/Christchurch/16/2010 (H1N1) antigen 0.03 MG/ML / influenza A virus A/Switzerland/9715293/2013 (H3N2) antigen 0.03 MG/ML / influenza B virus B/Brisbane/60/2008 antigen 0.03 MG/ML / influenza B virus B/Phuket/3073/2013 antigen 0.03 MG/ML Prefilled Syringe [Fluarix Quadrivalent 2015-2016]"
-      },
-      {
-        "code" : "1657330",
-        "display" : "influenza A virus A/Christchurch/16/2010 (H1N1) antigen 0.03 MG/ML / influenza A virus A/Switzerland/9715293/2013 (H3N2) antigen 0.03 MG/ML / influenza B virus B/Phuket/3073/2013 antigen 0.03 MG/ML Injectable Suspension [Fluvirin 2015-2016]"
-      },
-      {
-        "code" : "1657339",
-        "display" : "influenza A virus A/California/7/2009 (H1N1) antigen 0.03 MG/ML / influenza A virus A/Switzerland/9715293/2013 (H3N2) antigen 0.03 MG/ML / influenza B virus B/Brisbane/60/2008 antigen 0.03 MG/ML / influenza B virus B/Phuket/3073/2013 antigen 0.03 MG/ML Injectable Suspension [FluLaval Quadrivalent 2015-2016]"
-      },
-      {
+        "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "version" : "11062023",
         "code" : "1658060",
         "display" : "1 ML hepatitis A vaccine (inactivated) strain HM175 1440 UNT/ML Injection [Havrix]"
       },
       {
+        "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "version" : "11062023",
         "code" : "1658066",
         "display" : "0.5 ML hepatitis A vaccine (inactivated) strain HM175 1440 UNT/ML Injection [Havrix]"
       },
       {
+        "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "version" : "11062023",
         "code" : "1658102",
         "display" : "1 ML hepatitis A virus strain CR 326F antigen, inactivated 50 UNT/ML Injection [Vaqta]"
       },
       {
+        "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "version" : "11062023",
         "code" : "1658106",
         "display" : "0.5 ML hepatitis A virus strain CR 326F antigen, inactivated 50 UNT/ML Injection [Vaqta]"
       },
       {
-        "code" : "1658144",
-        "display" : "0.5 ML hepatitis B surface antigen vaccine 0.02 MG/ML Injection [Engerix-B]"
-      },
-      {
+        "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "version" : "11062023",
         "code" : "1658150",
         "display" : "1 ML hepatitis B surface antigen vaccine 0.01 MG/ML Injection [Recombivax]"
       },
       {
+        "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "version" : "11062023",
         "code" : "1658155",
         "display" : "0.5 ML hepatitis B surface antigen vaccine 0.01 MG/ML Injection [Recombivax]"
       },
       {
+        "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "version" : "11062023",
         "code" : "1658157",
         "display" : "1 ML hepatitis B surface antigen vaccine 0.02 MG/ML Injection [Engerix-B]"
       },
       {
-        "code" : "1658228",
-        "display" : "0.5 ML meningococcal group A polysaccharide 0.1 MG/ML / meningococcal group C polysaccharide 0.1 MG/ML / meningococcal polysaccharide vaccine group W-135 0.1 MG/ML / meningococcal polysaccharide vaccine group Y 0.1 MG/ML Injection [Menomune A/C/Y/W-135]"
-      },
-      {
+        "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "version" : "11062023",
         "code" : "1658241",
         "display" : "0.5 ML yellow fever virus strain 17D-204 live antigen 4000 UNT/ML Injection [YF-Vax]"
       },
       {
+        "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "version" : "11062023",
         "code" : "1658472",
         "display" : "0.5 ML Streptococcus pneumoniae type 1 capsular polysaccharide antigen 0.05 MG/ML / Streptococcus pneumoniae type 10A capsular polysaccharide antigen 0.05 MG/ML / Streptococcus pneumoniae type 11A capsular polysaccharide antigen 0.05 MG/ML / Streptococcus pneumoniae type 12F capsular polysaccharide antigen 0.05 MG/ML / Streptococcus pneumoniae type 14 capsular polysaccharide antigen 0.05 MG/ML / Streptococcus pneumoniae type 15B capsular polysaccharide antigen 0.05 MG/ML / Streptococcus pneumoniae type 17F capsular polysaccharide antigen 0.05 MG/ML / Streptococcus pneumoniae type 18C capsular polysaccharide antigen 0.05 MG/ML / Streptococcus pneumoniae type 19A capsular polysaccharide antigen 0.05 MG/ML / Streptococcus pneumoniae type 19F capsular polysaccharide antigen 0.05 MG/ML / Streptococcus pneumoniae type 2 capsular polysaccharide antigen 0.05 MG/ML / Streptococcus pneumoniae type 20 capsular polysaccharide antigen 0.05 MG/ML / Streptococcus pneumoniae type 22F capsular polysaccharide antigen 0.05 MG/ML / Streptococcus pneumoniae type 23F capsular polysaccharide antigen 0.05 MG/ML / Streptococcus pneumoniae type 3 capsular polysaccharide antigen 0.05 MG/ML / Streptococcus pneumoniae type 33F capsular polysaccharide antigen 0.05 MG/ML / Streptococcus pneumoniae type 4 capsular polysaccharide antigen 0.05 MG/ML / Streptococcus pneumoniae type 5 capsular polysaccharide antigen 0.05 MG/ML / Streptococcus pneumoniae type 6B capsular polysaccharide antigen 0.05 MG/ML / Streptococcus pneumoniae type 7F capsular polysaccharide antigen 0.05 MG/ML / Streptococcus pneumoniae type 8 capsular polysaccharide antigen 0.05 MG/ML / Streptococcus pneumoniae type 9N capsular polysaccharide antigen 0.05 MG/ML / Streptococcus pneumoniae type 9V capsular polysaccharide antigen 0.05 MG/ML Injection [Pneumovax 23]"
       },
       {
-        "code" : "1658706",
-        "display" : "influenza A virus A/California/7/2009 (H1N1) antigen 0.03 MG/ML / influenza A virus A/Switzerland/9715293/2013 (H3N2) antigen 0.03 MG/ML / influenza B virus B/Phuket/3073/2013 antigen 0.03 MG/ML Injectable Suspension [Fluzone 2015-2016]"
-      },
-      {
-        "code" : "1658714",
-        "display" : "0.5 ML influenza A virus A/California/7/2009 (H1N1) antigen 0.12 MG/ML / influenza A virus A/Switzerland/9715293/2013 (H3N2) antigen 0.12 MG/ML / influenza B virus B/Phuket/3073/2013 antigen 0.12 MG/ML Prefilled Syringe [Fluzone 2015-2016]"
-      },
-      {
-        "code" : "1659729",
-        "display" : "influenza A virus A/California/7/2009 (H1N1) antigen 0.03 MG/ML / influenza A virus A/Switzerland/9715293/2013 (H3N2) antigen 0.03 MG/ML / influenza B virus B/Brisbane/60/2008 antigen 0.03 MG/ML / influenza B virus B/Phuket/3073/2013 antigen 0.03 MG/ML Injectable Suspension [Fluzone Quadrivalent 2015-2016]"
-      },
-      {
-        "code" : "1659737",
-        "display" : "0.5 ML influenza A virus A/California/7/2009 (H1N1) antigen 0.03 MG/ML / influenza A virus A/Switzerland/9715293/2013 (H3N2) antigen 0.03 MG/ML / influenza B virus B/Brisbane/60/2008 antigen 0.03 MG/ML / influenza B virus B/Phuket/3073/2013 antigen 0.03 MG/ML Prefilled Syringe [Fluzone Quadrivalent 2015-2016]"
-      },
-      {
-        "code" : "1659748",
-        "display" : "0.5 ML influenza A virus A/California/7/2009 (H1N1) antigen 0.03 MG/ML / influenza A virus A/Switzerland/9715293/2013 (H3N2) antigen 0.03 MG/ML / influenza B virus B/Brisbane/60/2008 antigen 0.03 MG/ML / influenza B virus B/Phuket/3073/2013 antigen 0.03 MG/ML Injection [Fluzone Quadrivalent 2015-2016]"
-      },
-      {
-        "code" : "1659983",
-        "display" : "0.5 ML influenza A virus A/Christchurch/16/2010 (H1N1) antigen 0.03 MG/ML / influenza A virus A/Switzerland/9715293/2013 (H3N2) antigen 0.03 MG/ML / influenza B virus B/Phuket/3073/2013 antigen 0.03 MG/ML Prefilled Syringe [Fluvirin 2015-2016]"
-      },
-      {
-        "code" : "1660929",
-        "display" : "0.5 ML influenza A virus A/California/7/2009 (H1N1) antigen 0.09 MG/ML / influenza A virus A/Switzerland/9715293/2013 (H3N2) antigen 0.09 MG/ML / influenza B virus B/Phuket/3073/2013 antigen 0.09 MG/ML Injection [Flublok 2015-2016]"
-      },
-      {
-        "code" : "1661113",
-        "display" : "0.1 ML influenza A virus A/California/7/2009 (H1N1) antigen 0.09 MG/ML / influenza A virus A/Switzerland/9715293/2013 (H3N2) antigen 0.09 MG/ML / influenza B virus B/Brisbane/60/2008 antigen 0.09 MG/ML / influenza B virus B/Phuket/3073/2013 antigen 0.09 MG/ML Prefilled Syringe [Fluzone Quadrivalent 2015-2016]"
-      },
-      {
-        "code" : "1661807",
-        "display" : "0.5 ML influenza A virus A/California/7/2009 (H1N1) antigen 0.03 MG/ML / influenza A virus A/South Australia/55/2014 (H3N2) antigen 0.03 MG/ML / influenza B virus B/Phuket/3073/2013 antigen 0.03 MG/ML Prefilled Syringe [Afluria 2015-2016]"
-      },
-      {
-        "code" : "1661812",
-        "display" : "influenza A virus A/California/7/2009 (H1N1) antigen 0.03 MG/ML / influenza A virus A/South Australia/55/2014 (H3N2) antigen 0.03 MG/ML / influenza B virus B/Phuket/3073/2013 antigen 0.03 MG/ML Injectable Suspension [Afluria 2015-2016]"
-      },
-      {
-        "code" : "1664644",
-        "display" : "influenza A virus A/Bolivia/559/2013 (H1N1) antigen 50000000 MG/ML / influenza A virus A/Switzerland/9715293/2013 (H3N2) antigen 50000000 MG/ML / influenza B virus B/Brisbane/60/2008 antigen 50000000 MG/ML / influenza B virus B/Phuket/3073/2013 antigen 50000000 MG/ML Nasal Spray [Flumist 2015-2016]"
-      },
-      {
-        "code" : "1724012",
-        "display" : "0.5 ML influenza A virus A/California/7/2009 (H1N1) antigen 0.015 MG/ML / influenza A virus A/Switzerland/9715293/2013 (H3N2) antigen 0.015 MG/ML / influenza B virus B/Brisbane/9/2014 antigen 0.015 MG/ML Prefilled Syringe [FLUAD 2015-2016]"
-      },
-      {
-        "code" : "1799106",
-        "display" : "0.5 ML influenza A virus A/California/7/2009 (H1N1) antigen 0.03 MG/ML / influenza A virus A/Hong Kong/4801/2014 (H3N2) antigen 0.03 MG/ML / influenza B virus B/Brisbane/60/2008 antigen 0.03 MG/ML / influenza B virus B/Phuket/3073/2013 antigen 0.03 MG/ML Prefilled Syringe [Flulaval Quadrivalent 2016-2017]"
-      },
-      {
-        "code" : "1799123",
-        "display" : "0.5 ML influenza A virus A/Christchurch/16/2010 (H1N1) antigen 0.03 MG/ML / influenza A virus A/Hong Kong/4801/2014 (H3N2) antigen 0.03 MG/ML / influenza B virus B/Brisbane/60/2008 antigen 0.03 MG/ML / influenza B virus B/Phuket/3073/2013 antigen 0.03 MG/ML Prefilled Syringe [Fluarix Quadrivalent 2016-2017]"
-      },
-      {
-        "code" : "1799205",
-        "display" : "influenza A virus A/California/7/2009 (H1N1) antigen 0.03 MG/ML / influenza A virus A/Hong Kong/4801/2014 (H3N2) antigen 0.03 MG/ML / influenza B virus B/Brisbane/60/2008 antigen 0.03 MG/ML / influenza B virus B/Phuket/3073/2013 antigen 0.03 MG/ML Injectable Suspension [Flulaval Quadrivalent 2016-2017]"
-      },
-      {
-        "code" : "1799403",
-        "display" : "0.5 ML influenza A virus A/California/7/2009 (H1N1) antigen 0.03 MG/ML / influenza A virus A/Hong Kong/4801/2014 (H3N2) antigen 0.03 MG/ML / influenza B virus B/Brisbane/60/2008 antigen 0.03 MG/ML Prefilled Syringe [Afluria 2016-2017]"
-      },
-      {
-        "code" : "1799413",
-        "display" : "influenza A virus A/California/7/2009 (H1N1) antigen 0.03 MG/ML / influenza A virus A/Hong Kong/4801/2014 (H3N2) antigen 0.03 MG/ML / influenza B virus B/Brisbane/60/2008 antigen 0.03 MG/ML Injectable Suspension [Afluria 2016-2017]"
-      },
-      {
-        "code" : "1801075",
-        "display" : "0.1 ML influenza A virus A/California/7/2009 (H1N1) antigen 0.09 MG/ML / influenza A virus A/Hong Kong/4801/2014 (H3N2) antigen 0.09 MG/ML / influenza B virus B/Brisbane/60/2008 antigen 0.09 MG/ML / influenza B virus B/Phuket/3073/2013 antigen 0.09 MG/ML Prefilled Syringe [Fluzone Quadrivalent 2016-2017]"
-      },
-      {
-        "code" : "1801082",
-        "display" : "0.5 ML influenza A virus A/California/7/2009 (H1N1) antigen 0.03 MG/ML / influenza A virus A/Hong Kong/4801/2014 (H3N2) antigen 0.03 MG/ML / influenza B virus B/Brisbane/60/2008 antigen 0.03 MG/ML Prefilled Syringe [Fluad 2016-2017]"
-      },
-      {
-        "code" : "1801157",
-        "display" : "influenza A virus A/Christchurch/16/2010 (H1N1) antigen 0.03 MG/ML / influenza A virus A/Hong Kong/4801/2014 (H3N2) antigen 0.03 MG/ML / influenza B virus B/Brisbane/60/2008 antigen 0.03 MG/ML Injectable Suspension [Fluvirin 2016-2017]"
-      },
-      {
-        "code" : "1801163",
-        "display" : "0.5 ML influenza A virus A/Christchurch/16/2010 (H1N1) antigen 0.03 MG/ML / influenza A virus A/Hong Kong/4801/2014 (H3N2) antigen 0.03 MG/ML / influenza B virus B/Brisbane/60/2008 antigen 0.03 MG/ML Prefilled Syringe [Fluvirin 2016-2017]"
-      },
-      {
-        "code" : "1801174",
-        "display" : "0.25 ML influenza A virus A/California/7/2009 (H1N1) antigen 0.03 MG/ML / influenza A virus A/Hong Kong/4801/2014 (H3N2) antigen 0.03 MG/ML / influenza B virus B/Brisbane/60/2008 antigen 0.03 MG/ML / influenza B virus B/Phuket/3073/2013 antigen 0.03 MG/ML Prefilled Syringe [Fluzone Quadrivalent 2016-2017]"
-      },
-      {
-        "code" : "1801183",
-        "display" : "0.5 ML influenza A virus A/California/7/2009 (H1N1) antigen 0.12 MG/ML / influenza A virus A/Hong Kong/4801/2014 (H3N2) antigen 0.12 MG/ML / influenza B virus B/Brisbane/60/2008 antigen 0.12 MG/ML Prefilled Syringe [Fluzone 2016-2017]"
-      },
-      {
-        "code" : "1801186",
-        "display" : "0.5 ML influenza A virus A/California/7/2009 (H1N1) antigen 0.03 MG/ML / influenza A virus A/Hong Kong/4801/2014 (H3N2) antigen 0.03 MG/ML / influenza B virus B/Brisbane/60/2008 antigen 0.03 MG/ML / influenza B virus B/Phuket/3073/2013 antigen 0.03 MG/ML Prefilled Syringe [Fluzone Quadrivalent 2016-2017]"
-      },
-      {
-        "code" : "1801189",
-        "display" : "0.5 ML influenza A virus A/California/7/2009 (H1N1) antigen 0.03 MG/ML / influenza A virus A/Hong Kong/4801/2014 (H3N2) antigen 0.03 MG/ML / influenza B virus B/Brisbane/60/2008 antigen 0.03 MG/ML / influenza B virus B/Phuket/3073/2013 antigen 0.03 MG/ML Injection [Fluzone Quadrivalent 2016-2017]"
-      },
-      {
-        "code" : "1801193",
-        "display" : "influenza A virus A/California/7/2009 (H1N1) antigen 0.03 MG/ML / influenza A virus A/Hong Kong/4801/2014 (H3N2) antigen 0.03 MG/ML / influenza B virus B/Brisbane/60/2008 antigen 0.03 MG/ML / influenza B virus B/Phuket/3073/2013 antigen 0.03 MG/ML Injectable Suspension [Fluzone Quadrivalent 2016-2017]"
-      },
-      {
-        "code" : "1801611",
-        "display" : "0.5 ML influenza A virus A/Brisbane/10/2010 (H1N1) antigen 0.03 MG/ML / influenza A virus A/Hong Kong/4801/2014 (H3N2) antigen 0.03 MG/ML / influenza B virus B/Hong Kong/259/2010 antigen 0.03 MG/ML / influenza B virus B/Utah/9/2014 antigen 0.03 MG/ML Prefilled Syringe [Flucelvax Quadrivalent 2016-2017]"
-      },
-      {
-        "code" : "1801830",
-        "display" : "influenza A virus A/Bolivia/559/2013 (H1N1) antigen 50000000 MG/ML / influenza A virus A/New Caledonia/71/2014 (H3N2) antigen 50000000 MG/ML / influenza B virus B/Brisbane/60/2008 antigen 50000000 MG/ML / influenza B virus B/Phuket/3073/2013 antigen 50000000 MG/ML Nasal Spray [Flumist Quadrivalent 2016-2017]"
-      },
-      {
-        "code" : "1803024",
-        "display" : "0.5 ML influenza A virus A/California/7/2009 (H1N1) antigen 0.09 MG/ML / influenza A virus A/Hong Kong/4801/2014 (H3N2) antigen 0.09 MG/ML / influenza B virus B/Brisbane/60/2008 antigen 0.09 MG/ML Injection [Flublok 2016-2017]"
-      },
-      {
+        "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "version" : "11062023",
         "code" : "1812951",
         "display" : "Vibrio cholerae CVD 103-HGR strain live antigen 12000000 UNT/ML Oral Suspension [Vaxchora]"
       },
       {
-        "code" : "1858963",
-        "display" : "0.5 ML influenza A virus A/California/7/2009 (H1N1) antigen 0.03 MG/ML / influenza A virus A/Hong Kong/4801/2014 (H3N2) antigen 0.03 MG/ML / influenza B virus B/Brisbane/60/2008 antigen 0.03 MG/ML / influenza B virus B/Phuket/3073/2013 antigen 0.03 MG/ML Prefilled Syringe [Afluria Quadrivalent 2016-2017 Formula]"
-      },
-      {
-        "code" : "1858966",
-        "display" : "influenza A virus A/California/7/2009 (H1N1) antigen 0.03 MG/ML / influenza A virus A/Hong Kong/4801/2014 (H3N2) antigen 0.03 MG/ML / influenza B virus B/Brisbane/60/2008 antigen 0.03 MG/ML / influenza B virus B/Phuket/3073/2013 antigen 0.03 MG/ML Injectable Suspension [Afluria Quadrivalent 2016-2017 Formula]"
-      },
-      {
+        "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "version" : "11062023",
         "code" : "1876710",
         "display" : "0.5 ML yellow fever virus strain 17D-204 live antigen 2000 UNT/ML Injection [Stamaril]"
       },
       {
-        "code" : "1928307",
-        "display" : "0.5 ML influenza A virus A/Hong Kong/4801/2014 (H3N2) antigen 0.03 MG/ML / influenza A virus A/Singapore/GP1908/2015 (H1N1) antigen 0.03 MG/ML / influenza B virus B/Brisbane/60/2008 antigen 0.03 MG/ML / influenza B virus B/Phuket/3073/2013 antigen 0.03 MG/ML Prefilled Syringe [Fluarix Quadrivalent 2017-2018]"
-      },
-      {
-        "code" : "1928317",
-        "display" : "0.5 ML influenza A virus A/Hong Kong/4801/2014 (H3N2) antigen 0.03 MG/ML / influenza A virus A/Michigan/45/2015 (H1N1) antigen 0.03 MG/ML / influenza B virus B/Brisbane/60/2008 antigen 0.03 MG/ML / influenza B virus B/Phuket/3073/2013 antigen 0.03 MG/ML Injection [Fluzone Quadrivalent 2017-2018]"
-      },
-      {
-        "code" : "1928329",
-        "display" : "influenza A virus A/Hong Kong/4801/2014 (H3N2) antigen 0.03 MG/ML / influenza A virus A/Singapore/GP1908/2015 (H1N1) antigen 0.03 MG/ML / influenza B virus B/Brisbane/60/2008 antigen 0.03 MG/ML / influenza B virus B/Phuket/3073/2013 antigen 0.03 MG/ML Injectable Suspension [Flulaval Quadrivalent 2017-2018]"
-      },
-      {
-        "code" : "1928332",
-        "display" : "0.25 ML influenza A virus A/Hong Kong/4801/2014 (H3N2) antigen 0.03 MG/ML / influenza A virus A/Michigan/45/2015 (H1N1) antigen 0.03 MG/ML / influenza B virus B/Brisbane/60/2008 antigen 0.03 MG/ML / influenza B virus B/Phuket/3073/2013 antigen 0.03 MG/ML Prefilled Syringe [Fluzone Quadrivalent 2017-2018]"
-      },
-      {
-        "code" : "1928336",
-        "display" : "0.5 ML influenza A virus A/Hong Kong/4801/2014 (H3N2) antigen 0.03 MG/ML / influenza A virus A/Singapore/GP1908/2015 (H1N1) antigen 0.03 MG/ML / influenza B virus B/Brisbane/60/2008 antigen 0.03 MG/ML / influenza B virus B/Phuket/3073/2013 antigen 0.03 MG/ML Prefilled Syringe [Flulaval Quadrivalent 2017-2018]"
-      },
-      {
-        "code" : "1928344",
-        "display" : "0.5 ML influenza A virus A/Hong Kong/4801/2014 (H3N2) antigen 0.12 MG/ML / influenza A virus A/Michigan/45/2015 (H1N1) antigen 0.12 MG/ML / influenza B virus B/Brisbane/60/2008 antigen 0.12 MG/ML Prefilled Syringe [Fluzone 2017-2018]"
-      },
-      {
-        "code" : "1928356",
-        "display" : "influenza A virus A/Hong Kong/4801/2014 (H3N2) antigen 0.03 MG/ML / influenza A virus A/Michigan/45/2015 (H1N1) antigen 0.03 MG/ML / influenza B virus B/Brisbane/60/2008 antigen 0.03 MG/ML / influenza B virus B/Phuket/3073/2013 antigen 0.03 MG/ML Injectable Suspension [Fluzone Quadrivalent 2017-2018]"
-      },
-      {
-        "code" : "1928359",
-        "display" : "0.5 ML influenza A virus A/Hong Kong/4801/2014 (H3N2) antigen 0.03 MG/ML / influenza A virus A/Michigan/45/2015 (H1N1) antigen 0.03 MG/ML / influenza B virus B/Brisbane/60/2008 antigen 0.03 MG/ML / influenza B virus B/Phuket/3073/2013 antigen 0.03 MG/ML Prefilled Syringe [Fluzone Quadrivalent 2017-2018]"
-      },
-      {
-        "code" : "1928362",
-        "display" : "0.5 ML influenza A virus A/Hong Kong/4801/2014 (H3N2) antigen 0.09 MG/ML / influenza A virus A/Michigan/45/2015 (H1N1) antigen 0.09 MG/ML / influenza B virus B/Brisbane/60/2008 antigen 0.09 MG/ML / influenza B virus B/Phuket/3073/2013 antigen 0.09 MG/ML Prefilled Syringe [Flublok Quadrivalent 2017-2018]"
-      },
-      {
-        "code" : "1928470",
-        "display" : "0.1 ML influenza A virus A/Hong Kong/4801/2014 (H3N2) antigen 0.09 MG/ML / influenza A virus A/Michigan/45/2015 (H1N1) antigen 0.09 MG/ML / influenza B virus B/Brisbane/60/2008 antigen 0.09 MG/ML / influenza B virus B/Phuket/3073/2013 antigen 0.09 MG/ML Prefilled Syringe [Fluzone Quadrivalent 2017-2018]"
-      },
-      {
-        "code" : "1928537",
-        "display" : "influenza A virus A/Singapore/GP1908/2015 (H1N1) antigen 0.03 MG/ML / influenza A virus A/Singapore/GP2050/2015 (H3N2) antigen 0.03 MG/ML / influenza B virus B/Hong Kong/259/2010 antigen 0.03 MG/ML / influenza B virus B/Utah/9/2014 antigen 0.03 MG/ML Injectable Suspension [Flucelvax Quadrivalent 2017-2018]"
-      },
-      {
-        "code" : "1928540",
-        "display" : "0.5 ML influenza A virus A/Singapore/GP1908/2015 (H1N1) antigen 0.03 MG/ML / influenza A virus A/Singapore/GP2050/2015 (H3N2) antigen 0.03 MG/ML / influenza B virus B/Hong Kong/259/2010 antigen 0.03 MG/ML / influenza B virus B/Utah/9/2014 antigen 0.03 MG/ML Prefilled Syringe [Flucelvax Quadrivalent 2017-2018]"
-      },
-      {
-        "code" : "1928880",
-        "display" : "0.5 ML influenza A virus A/Hong Kong/4801/2014 (H3N2) antigen 0.09 MG/ML / influenza A virus A/Michigan/45/2015 (H1N1) antigen 0.09 MG/ML / influenza B virus B/Brisbane/60/2008 antigen 0.09 MG/ML Injection [Flublok 2017-2018]"
-      },
-      {
-        "code" : "1928965",
-        "display" : "0.5 ML influenza A virus A/Hong Kong/4801/2014 (H3N2) antigen 0.03 MG/ML / influenza A virus A/Singapore/GP1908/2015 (H1N1) antigen 0.03 MG/ML / influenza B virus B/Brisbane/60/2008 antigen 0.03 MG/ML Prefilled Syringe [Fluad 2017-2018]"
-      },
-      {
-        "code" : "1928974",
-        "display" : "influenza A virus A/Hong Kong/4801/2014 (H3N2) antigen 0.03 MG/ML / influenza A virus A/Singapore/GP1908/2015 (H1N1) antigen 0.03 MG/ML / influenza B virus B/Brisbane/60/2008 antigen 0.03 MG/ML Injectable Suspension [Fluvirin 2017-2018]"
-      },
-      {
-        "code" : "1928982",
-        "display" : "0.5 ML influenza A virus A/Hong Kong/4801/2014 (H3N2) antigen 0.03 MG/ML / influenza A virus A/Singapore/GP1908/2015 (H1N1) antigen 0.03 MG/ML / influenza B virus B/Brisbane/60/2008 antigen 0.03 MG/ML Prefilled Syringe [Fluvirin 2017-2018]"
-      },
-      {
-        "code" : "1942132",
-        "display" : "0.5 ML influenza A virus A/Hong Kong/4801/2014 (H3N2) antigen 0.03 MG/ML / influenza A virus A/Singapore/GP1908/2015 (H1N1) antigen 0.03 MG/ML / influenza B virus B/Brisbane/46/2015 antigen 0.03 MG/ML Prefilled Syringe [Afluria 2017-2018]"
-      },
-      {
-        "code" : "1942158",
-        "display" : "influenza A virus A/Hong Kong/4801/2014 (H3N2) antigen 0.03 MG/ML / influenza A virus A/Singapore/GP1908/2015 (H1N1) antigen 0.03 MG/ML / influenza B virus B/Brisbane/46/2015 antigen 0.03 MG/ML Injectable Suspension [Afluria 2017-2018]"
-      },
-      {
-        "code" : "1942166",
-        "display" : "0.5 ML influenza A virus A/Hong Kong/4801/2014 (H3N2) antigen 0.03 MG/ML / influenza A virus A/Singapore/GP1908/2015 (H1N1) antigen 0.03 MG/ML / influenza B virus B/Brisbane/46/2015 antigen 0.03 MG/ML / influenza B virus B/Phuket/3073/2013 antigen 0.03 MG/ML Prefilled Syringe [Afluria Quadrivalent 2017-2018]"
-      },
-      {
-        "code" : "1942173",
-        "display" : "influenza A virus A/Hong Kong/4801/2014 (H3N2) antigen 0.03 MG/ML / influenza A virus A/Singapore/GP1908/2015 (H1N1) antigen 0.03 MG/ML / influenza B virus B/Brisbane/46/2015 antigen 0.03 MG/ML / influenza B virus B/Phuket/3073/2013 antigen 0.03 MG/ML Injectable Suspension [Afluria Quadrivalent 2017-2018]"
-      },
-      {
-        "code" : "1946986",
-        "display" : "influenza A virus A/New Caledonia/71/2014 (H3N2) antigen 158000000 UNT/ML / influenza A virus A/Slovenia/2903/2015 (H1N1) antigen 158000000 UNT/ML / influenza B virus B/Brisbane/60/2008 antigen 158000000 UNT/ML / influenza B virus B/Phuket/3073/2013 antigen 158000000 UNT/ML Nasal Spray [Flumist Quadrivalent 2017-2018]"
-      },
-      {
+        "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "version" : "11062023",
         "code" : "1986830",
         "display" : "0.5 ML varicella zoster virus glycoprotein E, recombinant 0.1 MG/ML Injection [Shingrix]"
       },
       {
+        "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "version" : "11062023",
         "code" : "1994352",
         "display" : "0.5 ML hepatitis B surface antigen vaccine 0.04 MG/ML Injection [Heplisav-B]"
       },
       {
-        "code" : "2048966",
-        "display" : "0.5 ML influenza A virus A/Singapore/GP1908/2015 (H1N1) antigen 0.03 MG/ML / influenza A virus A/Singapore/INFIMH-16-0019/2016 (H3N2) antigen 0.03 MG/ML / influenza B virus B/Maryland/15/2016 antigen 0.03 MG/ML / influenza B virus B/Phuket/3073/2013 antigen 0.03 MG/ML Prefilled Syringe [Fluarix Quadrivalent 2018-2019]"
-      },
-      {
-        "code" : "2048974",
-        "display" : "influenza A virus A/Singapore/GP1908/2015 (H1N1) antigen 0.03 MG/ML / influenza A virus A/Singapore/INFIMH-16-0019/2016 (H3N2) antigen 0.03 MG/ML / influenza B virus B/Maryland/15/2016 antigen 0.03 MG/ML / influenza B virus B/Phuket/3073/2013 antigen 0.03 MG/ML Injectable Suspension [Flulaval Quadrivalent 2018-2019]"
-      },
-      {
-        "code" : "2048976",
-        "display" : "0.5 ML influenza A virus A/Singapore/GP1908/2015 (H1N1) antigen 0.03 MG/ML / influenza A virus A/Singapore/INFIMH-16-0019/2016 (H3N2) antigen 0.03 MG/ML / influenza B virus B/Maryland/15/2016 antigen 0.03 MG/ML / influenza B virus B/Phuket/3073/2013 antigen 0.03 MG/ML Prefilled Syringe [Flulaval Quadrivalent 2018-2019]"
-      },
-      {
+        "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "version" : "11062023",
         "code" : "2050059",
         "display" : "0.5 ML hepatitis B surface antigen vaccine 0.04 MG/ML Prefilled Syringe [Heplisav-B]"
       },
       {
-        "code" : "2050382",
-        "display" : "0.5 ML influenza A virus A/Michigan/45/2015 (H1N1) antigen 0.09 MG/ML / influenza A virus A/Singapore/INFIMH-16-0019/2016 (H3N2) antigen 0.09 MG/ML / influenza B virus B/Maryland/15/2016 antigen 0.09 MG/ML / influenza B virus B/Phuket/3073/2013 antigen 0.09 MG/ML Prefilled Syringe [Flublok Quadrivalent 2018-2019]"
-      },
-      {
+        "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "version" : "11062023",
         "code" : "2050423",
         "display" : "0.5 ML influenza A virus A/Michigan/45/2015 (H1N1) antigen 0.12 MG/ML / influenza A virus A/Singapore/INFIMH-16-0019/2016 (H3N2) antigen 0.12 MG/ML / influenza B virus B/Maryland/15/2016 antigen 0.12 MG/ML Prefilled Syringe [Fluzone 2018-2019]"
       },
       {
-        "code" : "2050763",
-        "display" : "0.5 ML influenza A virus A/Singapore/GP1908/2015 (H1N1) antigen 0.03 MG/ML / influenza A virus A/Singapore/INFIMH-16-0019/2016 (H3N2) antigen 0.03 MG/ML / influenza B virus B/Maryland/15/2016 antigen 0.03 MG/ML Prefilled Syringe [Fluad 2018-2019]"
-      },
-      {
-        "code" : "2050771",
-        "display" : "influenza A virus A/Singapore/GP1908/2015 (H1N1) antigen 0.03 MG/ML / influenza A virus A/Singapore/INFIMH-16-0019/2016 (H3N2) antigen 0.03 MG/ML / influenza B virus B/Maryland/15/2016 antigen 0.03 MG/ML Injectable Suspension [Afluria 2018-2019]"
-      },
-      {
-        "code" : "2050777",
-        "display" : "0.5 ML influenza A virus A/Michigan/45/2015 (H1N1) antigen 0.03 MG/ML / influenza A virus A/Singapore/INFIMH-16-0019/2016 (H3N2) antigen 0.03 MG/ML / influenza B virus B/Maryland/15/2016 antigen 0.03 MG/ML / influenza B virus B/Phuket/3073/2013 antigen 0.03 MG/ML Prefilled Syringe [Fluzone Quadrivalent 2018-2019]"
-      },
-      {
-        "code" : "2050782",
-        "display" : "0.5 ML influenza A virus A/Michigan/45/2015 (H1N1) antigen 0.03 MG/ML / influenza A virus A/Singapore/INFIMH-16-0019/2016 (H3N2) antigen 0.03 MG/ML / influenza B virus B/Maryland/15/2016 antigen 0.03 MG/ML / influenza B virus B/Phuket/3073/2013 antigen 0.03 MG/ML Injection [Fluzone Quadrivalent 2018-2019]"
-      },
-      {
+        "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "version" : "11062023",
         "code" : "2050787",
         "display" : "influenza A virus A/Michigan/45/2015 (H1N1) antigen 0.03 MG/ML / influenza A virus A/Singapore/INFIMH-16-0019/2016 (H3N2) antigen 0.03 MG/ML / influenza B virus B/Maryland/15/2016 antigen 0.03 MG/ML / influenza B virus B/Phuket/3073/2013 antigen 0.03 MG/ML Injectable Suspension [Fluzone Quadrivalent 2018-2019]"
       },
       {
-        "code" : "2050789",
-        "display" : "0.25 ML influenza A virus A/Michigan/45/2015 (H1N1) antigen 0.03 MG/ML / influenza A virus A/Singapore/INFIMH-16-0019/2016 (H3N2) antigen 0.03 MG/ML / influenza B virus B/Maryland/15/2016 antigen 0.03 MG/ML / influenza B virus B/Phuket/3073/2013 antigen 0.03 MG/ML Prefilled Syringe [Fluzone Quadrivalent 2018-2019]"
-      },
-      {
-        "code" : "2050795",
-        "display" : "influenza A virus A/Singapore/GP1908/2015 (H1N1) antigen 0.03 MG/ML / influenza A virus A/Singapore/INFIMH-16-0019/2016 (H3N2) antigen 0.03 MG/ML / influenza B virus B/Maryland/15/2016 antigen 0.03 MG/ML / influenza B virus B/Phuket/3073/2013 antigen 0.03 MG/ML Injectable Suspension [Afluria Quadrivalent 2018-2019]"
-      },
-      {
-        "code" : "2050797",
-        "display" : "0.5 ML influenza A virus A/Singapore/GP1908/2015 (H1N1) antigen 0.03 MG/ML / influenza A virus A/Singapore/INFIMH-16-0019/2016 (H3N2) antigen 0.03 MG/ML / influenza B virus B/Maryland/15/2016 antigen 0.03 MG/ML / influenza B virus B/Phuket/3073/2013 antigen 0.03 MG/ML Prefilled Syringe [Afluria Quadrivalent 2018-2019]"
-      },
-      {
-        "code" : "2050803",
-        "display" : "0.5 ML influenza A virus A/Singapore/GP1908/2015 (H1N1) antigen 0.03 MG/ML / influenza A virus A/Singapore/INFIMH-16-0019/2016 (H3N2) antigen 0.03 MG/ML / influenza B virus B/Maryland/15/2016 antigen 0.03 MG/ML Prefilled Syringe [Afluria 2018-2019]"
-      },
-      {
+        "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "version" : "11062023",
         "code" : "205259",
         "display" : "0.5 ML diphtheria toxoid vaccine, inactivated 4 UNT/ML / tetanus toxoid vaccine, inactivated 4 UNT/ML Injection"
       },
       {
-        "code" : "2054274",
-        "display" : "influenza A virus A/Singapore/INFIMH-16-0019/2016 (H3N2) antigen 158000000 UNT/ML / influenza A virus A/Slovenia/2903/2015 (H1N1) antigen 158000000 UNT/ML / influenza B virus B/Colorado/06/2017 antigen 158000000 UNT/ML / influenza B virus B/Phuket/3073/2013 antigen 158000000 UNT/ML Nasal Spray [Flumist Quadrivalent 2018-2019]"
-      },
-      {
-        "code" : "2055031",
-        "display" : "0.5 ML influenza A virus A/North Carolina/04/2016 (H3N2) antigen 0.03 MG/ML / influenza A virus A/Singapore/GP1908/2015 (H1N1) antigen 0.03 MG/ML / influenza B virus B/Iowa/06/2017 antigen 0.03 MG/ML / influenza B virus B/Singapore/INFTT-16-0610/2016 antigen 0.03 MG/ML Prefilled Syringe [Flucelvax Quadrivalent 2018-2019]"
-      },
-      {
-        "code" : "2055034",
-        "display" : "influenza A virus A/North Carolina/04/2016 (H3N2) antigen 0.03 MG/ML / influenza A virus A/Singapore/GP1908/2015 (H1N1) antigen 0.03 MG/ML / influenza B virus B/Iowa/06/2017 antigen 0.03 MG/ML / influenza B virus B/Singapore/INFTT-16-0610/2016 antigen 0.03 MG/ML Injectable Suspension [Flucelvax Quadrivalent 2018-2019]"
-      },
-      {
-        "code" : "207269",
-        "display" : "meningococcal group A polysaccharide 0.1 MG/ML / meningococcal group C polysaccharide 0.1 MG/ML / meningococcal polysaccharide vaccine group W-135 0.1 MG/ML / meningococcal polysaccharide vaccine group Y 0.1 MG/ML Injectable Solution [Menomune A/C/Y/W-135]"
-      },
-      {
+        "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "version" : "11062023",
         "code" : "2109620",
         "display" : "0.5 ML Bordetella pertussis filamentous hemagglutinin vaccine, inactivated 0.04 MG/ML / Bordetella pertussis fimbriae 2/3 vaccine, inactivated 0.01 MG/ML / Bordetella pertussis pertactin vaccine, inactivated 0.006 MG/ML / Bordetella pertussis toxoid vaccine, inactivated 0.04 MG/ML / diphtheria toxoid vaccine, inactivated 30 UNT/ML / Haemophilus influenzae b (Ross strain) capsular polysaccharide meningococcal protein conjugate vaccine 0.006 MG/ML / hepatitis B surface antigen vaccine 0.02 MG/ML / poliovirus vaccine inactivated, type 1 (Mahoney) 58 UNT/ML / poliovirus vaccine inactivated, type 2 (MEF-1) 14 UNT/ML / poliovirus vaccine inactivated, type 3 (Saukett) 52 UNT/ML / tetanus toxoid vaccine, inactivated 10 UNT/ML Injection [Vaxelis]"
       },
       {
+        "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "version" : "11062023",
         "code" : "762602",
         "display" : "Salmonella typhi Ty21a live antigen 2000000000 UNT Delayed Release Oral Capsule [Vivotif]"
       },
       {
+        "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "version" : "11062023",
         "code" : "763106",
         "display" : "poliovirus vaccine inactivated, type 1 (Mahoney) 80 UNT/ML / poliovirus vaccine inactivated, type 2 (MEF-1) 16 UNT/ML / poliovirus vaccine inactivated, type 3 (Saukett) 64 UNT/ML Injectable Suspension [Ipol]"
       },
       {
+        "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "version" : "11062023",
         "code" : "797641",
         "display" : "0.5 ML Neisseria meningitidis serogroup A capsular polysaccharide diphtheria toxoid protein conjugate vaccine 0.104 MG/ML / Neisseria meningitidis serogroup C capsular polysaccharide diphtheria toxoid protein conjugate vaccine 0.104 MG/ML / Neisseria meningitidis serogroup W-135 capsular polysaccharide diphtheria toxoid protein conjugate vaccine 0.104 MG/ML / Neisseria meningitidis serogroup Y capsular polysaccharide diphtheria toxoid protein conjugate vaccine 0.104 MG/ML Injection [Menactra]"
       },
       {
+        "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "version" : "11062023",
         "code" : "798278",
         "display" : "0.5 ML L1 protein, human papillomavirus type 11 vaccine 0.08 MG/ML / L1 protein, human papillomavirus type 16 vaccine 0.08 MG/ML / L1 protein, human papillomavirus type 18 vaccine 0.04 MG/ML / L1 protein, human papillomavirus type 6 vaccine 0.04 MG/ML Prefilled Syringe [Gardasil]"
       },
       {
+        "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "version" : "11062023",
         "code" : "798300",
         "display" : "human-bovine reassortant rotavirus strain G1 vaccine 1100000 UNT/ML / human-bovine reassortant rotavirus strain G2 vaccine 1400000 UNT/ML / human-bovine reassortant rotavirus strain G3 vaccine 1100000 UNT/ML / human-bovine reassortant rotavirus strain G4 vaccine 1000000 UNT/ML / human-bovine reassortant rotavirus strain P1A[8] vaccine 1150000 UNT/ML Oral Suspension [RotaTeq]"
       },
       {
+        "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "version" : "11062023",
         "code" : "798428",
         "display" : "1 ML hepatitis B surface antigen vaccine 0.02 MG/ML Prefilled Syringe [Engerix-B]"
       },
       {
+        "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "version" : "11062023",
         "code" : "798430",
         "display" : "0.5 ML hepatitis B surface antigen vaccine 0.02 MG/ML Prefilled Syringe [Engerix-B]"
       },
       {
-        "code" : "798443",
-        "display" : "0.5 ML Haemophilus influenzae b (Ross strain) capsular polysaccharide meningococcal protein conjugate vaccine 0.265 MG/ML / hepatitis B surface antigen vaccine 0.01 MG/ML Injection [COMVAX]"
-      },
-      {
+        "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "version" : "11062023",
         "code" : "798451",
         "display" : "0.5 ML Haemophilus influenzae b (Ross strain) capsular polysaccharide meningococcal protein conjugate vaccine 0.265 MG/ML Injection [PedvaxHIB]"
       },
       {
+        "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "version" : "11062023",
         "code" : "798479",
         "display" : "1 ML hepatitis A vaccine (inactivated) strain HM175 1440 UNT/ML Prefilled Syringe [Havrix]"
       },
       {
+        "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "version" : "11062023",
         "code" : "798482",
         "display" : "0.5 ML hepatitis A vaccine (inactivated) strain HM175 1440 UNT/ML Prefilled Syringe [Havrix]"
       },
       {
+        "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "version" : "11062023",
         "code" : "803367",
         "display" : "1 ML hepatitis A vaccine (inactivated) strain HM175 720 UNT/ML / hepatitis B surface antigen vaccine 0.02 MG/ML Injection [Twinrix]"
       },
       {
+        "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "version" : "11062023",
         "code" : "803371",
         "display" : "1 ML hepatitis A vaccine (inactivated) strain HM175 720 UNT/ML / hepatitis B surface antigen vaccine 0.02 MG/ML Prefilled Syringe [Twinrix]"
       },
       {
+        "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "version" : "11062023",
         "code" : "804186",
         "display" : "0.5 ML measles virus vaccine live, Enders' attenuated Edmonston strain 2000 UNT/ML / mumps virus vaccine live, Jeryl Lynn strain 25000 UNT/ML / rubella virus vaccine live (Wistar RA 27-3 strain) 2000 UNT/ML Injection [M-M-R II]"
       },
       {
+        "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "version" : "11062023",
         "code" : "805378",
         "display" : "0.5 ML acellular pertussis vaccine, inactivated 96 UNT/ML / diphtheria toxoid vaccine, inactivated 30 UNT/ML / Haemophilus influenzae type b, capsular polysaccharide inactivated tetanus toxoid conjugate vaccine 68 UNT/ML / poliovirus vaccine inactivated, type 1 (Mahoney) 80 UNT/ML / poliovirus vaccine inactivated, type 2 (MEF-1) 16 UNT/ML / poliovirus vaccine inactivated, type 3 (Saukett) 64 UNT/ML / tetanus toxoid vaccine, inactivated 20 UNT/ML Injection [Pentacel]"
       },
       {
+        "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "version" : "11062023",
         "code" : "805579",
         "display" : "rotavirus vaccine, live attenuated, G1P[8] human 89-12 strain 1000000 UNT/ML Oral Suspension [Rotarix]"
       },
       {
+        "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "version" : "11062023",
         "code" : "807225",
         "display" : "typhoid Vi polysaccharide vaccine, S typhi Ty2 strain 0.05 MG/ML Injectable Solution [Typhim VI]"
       },
       {
+        "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "version" : "11062023",
         "code" : "829989",
         "display" : "0.5 ML acellular pertussis vaccine, inactivated 0.116 MG/ML / diphtheria toxoid vaccine, inactivated 50 UNT/ML / hepatitis B surface antigen vaccine 0.02 MG/ML / poliovirus vaccine inactivated, type 1 (Mahoney) 80 UNT/ML / poliovirus vaccine inactivated, type 2 (MEF-1) 16 UNT/ML / poliovirus vaccine inactivated, type 3 (Saukett) 64 UNT/ML / tetanus toxoid vaccine, inactivated 20 UNT/ML Prefilled Syringe [PEDIARIX]"
       },
       {
+        "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "version" : "11062023",
         "code" : "830245",
         "display" : "1 ML hepatitis B surface antigen vaccine 0.01 MG/ML Prefilled Syringe [Recombivax]"
       },
       {
+        "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "version" : "11062023",
         "code" : "830253",
         "display" : "0.5 ML hepatitis B surface antigen vaccine 0.01 MG/ML Prefilled Syringe [Recombivax]"
       },
       {
+        "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "version" : "11062023",
         "code" : "830263",
         "display" : "1 ML hepatitis B surface antigen vaccine 0.04 MG/ML Injection [Recombivax]"
       },
       {
+        "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "version" : "11062023",
         "code" : "830463",
         "display" : "1 ML rabies virus vaccine flury-lep strain 2.5 UNT/ML Injection [RabAvert]"
       },
       {
+        "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "version" : "11062023",
         "code" : "830470",
         "display" : "1 ML rabies virus vaccine wistar strain PM-1503-3M (human), inactivated 2.5 UNT/ML Injection [Imovax]"
       },
       {
+        "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "version" : "11062023",
         "code" : "830552",
         "display" : "0.5 ML Bordetella pertussis filamentous hemagglutinin vaccine, inactivated 0.05 MG/ML / Bordetella pertussis pertactin vaccine, inactivated 0.016 MG/ML / Bordetella pertussis toxoid vaccine, inactivated 0.05 MG/ML / diphtheria toxoid vaccine, inactivated 50 UNT/ML / poliovirus vaccine inactivated, type 1 (Mahoney) 80 UNT/ML / poliovirus vaccine inactivated, type 2 (MEF-1) 16 UNT/ML / poliovirus vaccine inactivated, type 3 (Saukett) 64 UNT/ML / tetanus toxoid vaccine, inactivated 20 UNT/ML Injection [Kinrix]"
       },
       {
+        "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "version" : "11062023",
         "code" : "830557",
         "display" : "0.5 ML acellular pertussis vaccine, inactivated 0.116 MG/ML / diphtheria toxoid vaccine, inactivated 50 UNT/ML / poliovirus vaccine inactivated, type 1 (Mahoney) 80 UNT/ML / poliovirus vaccine inactivated, type 2 (MEF-1) 16 UNT/ML / poliovirus vaccine inactivated, type 3 (Saukett) 64 UNT/ML / tetanus toxoid vaccine, inactivated 20 UNT/ML Prefilled Syringe [Kinrix]"
       },
       {
+        "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "version" : "11062023",
         "code" : "832682",
         "display" : "Bacillus anthracis strain V770-NP1-R antigens 0.1 MG/ML Injectable Suspension [Biothrax]"
       },
       {
+        "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "version" : "11062023",
         "code" : "836634",
         "display" : "1 ML hepatitis A virus strain CR 326F antigen, inactivated 50 UNT/ML Prefilled Syringe [Vaqta]"
       },
       {
+        "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "version" : "11062023",
         "code" : "836636",
         "display" : "0.5 ML hepatitis A virus strain CR 326F antigen, inactivated 50 UNT/ML Prefilled Syringe [Vaqta]"
       },
       {
-        "code" : "864704",
-        "display" : "influenza A-California-7-2009-(H1N1)v-like virus vaccine 0.03 MG/ML Injectable Suspension"
-      },
-      {
-        "code" : "864781",
-        "display" : "0.25 ML influenza A-California-7-2009-(H1N1)v-like virus vaccine 0.03 MG/ML Prefilled Syringe"
-      },
-      {
-        "code" : "864797",
-        "display" : "0.5 ML influenza A-California-7-2009-(H1N1)v-like virus vaccine 0.03 MG/ML Prefilled Syringe"
-      },
-      {
+        "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "version" : "11062023",
         "code" : "901518",
         "display" : "0.5 ML Neisseria meningitidis serogroup A oligosaccharide diphtheria CRM197 protein conjugate vaccine 0.02 MG/ML / Neisseria meningitidis serogroup C oligosaccharide diphtheria CRM197 protein conjugate vaccine 0.01 MG/ML / Neisseria meningitidis serogroup W-135 oligosaccharide diphtheria CRM197 protein conjugate vaccine 0.01 MG/ML / Neisseria meningitidis serogroup Y oligosaccharide diphtheria CRM197 protein conjugate vaccine 0.01 MG/ML Injection [Menveo]"
       },
       {
+        "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "version" : "11062023",
         "code" : "901644",
         "display" : "0.5 ML Streptococcus pneumoniae serotype 1 capsular antigen diphtheria CRM197 protein conjugate vaccine 0.0044 MG/ML / Streptococcus pneumoniae serotype 14 capsular antigen diphtheria CRM197 protein conjugate vaccine 0.0044 MG/ML / Streptococcus pneumoniae serotype 18C capsular antigen diphtheria CRM197 protein conjugate vaccine 0.0044 MG/ML / Streptococcus pneumoniae serotype 19A capsular antigen diphtheria CRM197 protein conjugate vaccine 0.0044 MG/ML / Streptococcus pneumoniae serotype 19F capsular antigen diphtheria CRM197 protein conjugate vaccine 0.0044 MG/ML / Streptococcus pneumoniae serotype 23F capsular antigen diphtheria CRM197 protein conjugate vaccine 0.0044 MG/ML / Streptococcus pneumoniae serotype 3 capsular antigen diphtheria CRM197 protein conjugate vaccine 0.0044 MG/ML / Streptococcus pneumoniae serotype 4 capsular antigen diphtheria CRM197 protein conjugate vaccine 0.0044 MG/ML / Streptococcus pneumoniae serotype 5 capsular antigen diphtheria CRM197 protein conjugate vaccine 0.0044 MG/ML / Streptococcus pneumoniae serotype 6A capsular antigen diphtheria CRM197 protein conjugate vaccine 0.0044 MG/ML / Streptococcus pneumoniae serotype 6B capsular antigen diphtheria CRM197 protein conjugate vaccine 0.0088 MG/ML / Streptococcus pneumoniae serotype 7F capsular antigen diphtheria CRM197 protein conjugate vaccine 0.0044 MG/ML / Streptococcus pneumoniae serotype 9V capsular antigen diphtheria CRM197 protein conjugate vaccine 0.0044 MG/ML Prefilled Syringe [Prevnar 13]"
-      }]
-    }]
-  },
-  "expansion" : {
-    "identifier" : "urn:uuid:7e31b11a-c338-40dd-882f-a3313113ff7a",
-    "timestamp" : "2023-09-26T13:49:24-04:00",
-    "total" : 74,
-    "offset" : 0,
-    "parameter" : [{
-      "name" : "count",
-      "valueInteger" : 1000
-    },
-    {
-      "name" : "offset",
-      "valueInteger" : 0
-    }],
-    "contains" : [{
-      "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version" : "09052023",
-      "code" : "1099936",
-      "display" : "adenovirus type 4 vaccine live 32000 UNT Delayed Release Oral Tablet"
-    },
-    {
-      "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version" : "09052023",
-      "code" : "1099940",
-      "display" : "adenovirus type 7 vaccine live 32000 UNT Delayed Release Oral Tablet"
-    },
-    {
-      "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version" : "09052023",
-      "code" : "1190916",
-      "display" : "0.5 ML diphtheria toxoid vaccine, inactivated 4 UNT/ML / tetanus toxoid vaccine, inactivated 10 UNT/ML Injection [Tenivac]"
-    },
-    {
-      "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version" : "09052023",
-      "code" : "1190919",
-      "display" : "0.5 ML diphtheria toxoid vaccine, inactivated 4 UNT/ML / tetanus toxoid vaccine, inactivated 10 UNT/ML Prefilled Syringe [Tenivac]"
-    },
-    {
-      "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version" : "09052023",
-      "code" : "1244205",
-      "display" : "0.5 ML diphtheria toxoid vaccine, inactivated 50 UNT/ML / tetanus toxoid vaccine, inactivated 10 UNT/ML Injection"
-    },
-    {
-      "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version" : "09052023",
-      "code" : "1292435",
-      "display" : "0.65 ML varicella-zoster virus vaccine live (Oka-Merck) strain 29800 UNT/ML Injection [Zostavax]"
-    },
-    {
-      "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version" : "09052023",
-      "code" : "1292443",
-      "display" : "0.5 ML measles virus vaccine live, Enders' attenuated Edmonston strain 2000 UNT/ML / mumps virus vaccine live, Jeryl Lynn strain 40000 UNT/ML / rubella virus vaccine live (Wistar RA 27-3 strain) 2000 UNT/ML / varicella-zoster virus vaccine live (Oka-Merck) strain 20000 UNT/ML Injection [ProQuad]"
-    },
-    {
-      "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version" : "09052023",
-      "code" : "1292459",
-      "display" : "0.5 ML varicella-zoster virus vaccine live (Oka-Merck) strain 2700 UNT/ML Injection [Varivax]"
-    },
-    {
-      "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version" : "09052023",
-      "code" : "1292828",
-      "display" : "yellow fever virus strain 17D-204 live antigen 4000 UNT/ML Injectable Suspension [YF-Vax]"
-    },
-    {
-      "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version" : "09052023",
-      "code" : "1300191",
-      "display" : "0.5 ML Bordetella pertussis filamentous hemagglutinin vaccine, inactivated 0.01 MG/ML / Bordetella pertussis fimbriae 2/3 vaccine, inactivated 0.01 MG/ML / Bordetella pertussis pertactin vaccine, inactivated 0.006 MG/ML / Bordetella pertussis toxoid vaccine, inactivated 0.005 MG/ML / diphtheria toxoid vaccine, inactivated 4 UNT/ML / tetanus toxoid vaccine, inactivated 10 UNT/ML Prefilled Syringe [Adacel]"
-    },
-    {
-      "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version" : "09052023",
-      "code" : "1300206",
-      "display" : "0.5 ML Bordetella pertussis filamentous hemagglutinin vaccine, inactivated 0.01 MG/ML / Bordetella pertussis fimbriae 2/3 vaccine, inactivated 0.01 MG/ML / Bordetella pertussis pertactin vaccine, inactivated 0.006 MG/ML / Bordetella pertussis toxoid vaccine, inactivated 0.005 MG/ML / diphtheria toxoid vaccine, inactivated 4 UNT/ML / tetanus toxoid vaccine, inactivated 10 UNT/ML Injection [Adacel]"
-    },
-    {
-      "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version" : "09052023",
-      "code" : "1300310",
-      "display" : "0.5 ML Bordetella pertussis filamentous hemagglutinin vaccine, inactivated 0.01 MG/ML / Bordetella pertussis fimbriae 2/3 vaccine, inactivated 0.01 MG/ML / Bordetella pertussis pertactin vaccine, inactivated 0.006 MG/ML / Bordetella pertussis toxoid vaccine, inactivated 0.02 MG/ML / diphtheria toxoid vaccine, inactivated 30 UNT/ML / tetanus toxoid vaccine, inactivated 10 UNT/ML Injection [Daptacel]"
-    },
-    {
-      "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version" : "09052023",
-      "code" : "1300370",
-      "display" : "0.5 ML Bordetella pertussis filamentous hemagglutinin vaccine, inactivated 0.016 MG/ML / Bordetella pertussis pertactin vaccine, inactivated 0.005 MG/ML / Bordetella pertussis toxoid vaccine, inactivated 0.016 MG/ML / diphtheria toxoid vaccine, inactivated 5 UNT/ML / tetanus toxoid vaccine, inactivated 10 UNT/ML Prefilled Syringe [Boostrix]"
-    },
-    {
-      "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version" : "09052023",
-      "code" : "1300378",
-      "display" : "0.5 ML Bordetella pertussis filamentous hemagglutinin vaccine, inactivated 0.016 MG/ML / Bordetella pertussis pertactin vaccine, inactivated 0.005 UNT/ML / Bordetella pertussis toxoid vaccine, inactivated 0.016 MG/ML / diphtheria toxoid vaccine, inactivated 5 UNT/ML / tetanus toxoid vaccine, inactivated 10 UNT/ML Injection [Boostrix]"
-    },
-    {
-      "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version" : "09052023",
-      "code" : "1300384",
-      "display" : "0.5 ML Bordetella pertussis filamentous hemagglutinin vaccine, inactivated 0.05 MG/ML / Bordetella pertussis pertactin vaccine, inactivated 0.016 MG/ML / Bordetella pertussis toxoid vaccine, inactivated 0.05 MG/ML / diphtheria toxoid vaccine, inactivated 50 UNT/ML / tetanus toxoid vaccine, inactivated 20 UNT/ML Prefilled Syringe [Infanrix]"
-    },
-    {
-      "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version" : "09052023",
-      "code" : "1300386",
-      "display" : "0.5 ML Bordetella pertussis filamentous hemagglutinin vaccine, inactivated 0.05 MG/ML / Bordetella pertussis pertactin vaccine, inactivated 0.016 MG/ML / Bordetella pertussis toxoid vaccine, inactivated 0.05 MG/ML / diphtheria toxoid vaccine, inactivated 50 UNT/ML / tetanus toxoid vaccine, inactivated 20 UNT/ML Injection [Infanrix]"
-    },
-    {
-      "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version" : "09052023",
-      "code" : "1300468",
-      "display" : "0.5 ML Haemophilus influenzae type b strain 1482, capsular polysaccharide inactivated tetanus toxoid conjugate vaccine 0.068 MG/ML Injection [ActHIB]"
-    },
-    {
-      "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version" : "09052023",
-      "code" : "1300783",
-      "display" : "0.5 ML Japanese encephalitis virus vaccine Nakayama-NIH strain, inactivated 0.012 MG/ML Prefilled Syringe [Ixiaro]"
-    },
-    {
-      "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version" : "09052023",
-      "code" : "1300810",
-      "display" : "0.5 ML Haemophilus influenzae type b strain 20752, capsular polysaccharide inactivated tetanus toxoid conjugate vaccine 0.07 MG/ML Injection [Hiberix]"
-    },
-    {
-      "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version" : "09052023",
-      "code" : "1486496",
-      "display" : "0.5 ML typhoid Vi polysaccharide vaccine, S typhi Ty2 strain 0.05 MG/ML Prefilled Syringe [Typhim VI]"
-    },
-    {
-      "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version" : "09052023",
-      "code" : "1547582",
-      "display" : "0.5 ML Streptococcus pneumoniae type 1 capsular polysaccharide antigen 0.05 MG/ML / Streptococcus pneumoniae type 10A capsular polysaccharide antigen 0.05 MG/ML / Streptococcus pneumoniae type 11A capsular polysaccharide antigen 0.05 MG/ML / Streptococcus pneumoniae type 12F capsular polysaccharide antigen 0.05 MG/ML / Streptococcus pneumoniae type 14 capsular polysaccharide antigen 0.05 MG/ML / Streptococcus pneumoniae type 15B capsular polysaccharide antigen 0.05 MG/ML / Streptococcus pneumoniae type 17F capsular polysaccharide antigen 0.05 MG/ML / Streptococcus pneumoniae type 18C capsular polysaccharide antigen 0.05 MG/ML / Streptococcus pneumoniae type 19A capsular polysaccharide antigen 0.05 MG/ML / Streptococcus pneumoniae type 19F capsular polysaccharide antigen 0.05 MG/ML / Streptococcus pneumoniae type 2 capsular polysaccharide antigen 0.05 MG/ML / Streptococcus pneumoniae type 20 capsular polysaccharide antigen 0.05 MG/ML / Streptococcus pneumoniae type 22F capsular polysaccharide antigen 0.05 MG/ML / Streptococcus pneumoniae type 23F capsular polysaccharide antigen 0.05 MG/ML / Streptococcus pneumoniae type 3 capsular polysaccharide antigen 0.05 MG/ML / Streptococcus pneumoniae type 33F capsular polysaccharide antigen 0.05 MG/ML / Streptococcus pneumoniae type 4 capsular polysaccharide antigen 0.05 MG/ML / Streptococcus pneumoniae type 5 capsular polysaccharide antigen 0.05 MG/ML / Streptococcus pneumoniae type 6B capsular polysaccharide antigen 0.05 MG/ML / Streptococcus pneumoniae type 7F capsular polysaccharide antigen 0.05 MG/ML / Streptococcus pneumoniae type 8 capsular polysaccharide antigen 0.05 MG/ML / Streptococcus pneumoniae type 9N capsular polysaccharide antigen 0.05 MG/ML / Streptococcus pneumoniae type 9V capsular polysaccharide antigen 0.05 MG/ML Prefilled Syringe [Pneumovax 23]"
-    },
-    {
-      "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version" : "09052023",
-      "code" : "1593140",
-      "display" : "0.5 ML Neisseria meningitidis serogroup B recombinant LP2086 A05 protein variant antigen 0.12 MG/ML / Neisseria meningitidis serogroup B recombinant LP2086 B01 protein variant antigen 0.12 MG/ML Prefilled Syringe [Trumenba]"
-    },
-    {
-      "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version" : "09052023",
-      "code" : "1597099",
-      "display" : "0.5 ML L1 protein, human papillomavirus type 11 vaccine 0.08 MG/ML / L1 protein, human papillomavirus type 16 vaccine 0.12 MG/ML / L1 protein, human papillomavirus type 18 vaccine 0.08 MG/ML / L1 protein, human papillomavirus type 31 vaccine 0.04 MG/ML / L1 protein, human papillomavirus type 33 vaccine 0.04 MG/ML / L1 protein, human papillomavirus type 45 vaccine 0.04 MG/ML / L1 protein, human papillomavirus type 52 vaccine 0.04 MG/ML / L1 protein, human papillomavirus type 58 vaccine 0.04 MG/ML / L1 protein, human papillomavirus type 6 vaccine 0.06 MG/ML Injection [Gardasil 9]"
-    },
-    {
-      "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version" : "09052023",
-      "code" : "1597103",
-      "display" : "0.5 ML L1 protein, human papillomavirus type 11 vaccine 0.08 MG/ML / L1 protein, human papillomavirus type 16 vaccine 0.12 MG/ML / L1 protein, human papillomavirus type 18 vaccine 0.08 MG/ML / L1 protein, human papillomavirus type 31 vaccine 0.04 MG/ML / L1 protein, human papillomavirus type 33 vaccine 0.04 MG/ML / L1 protein, human papillomavirus type 45 vaccine 0.04 MG/ML / L1 protein, human papillomavirus type 52 vaccine 0.04 MG/ML / L1 protein, human papillomavirus type 58 vaccine 0.04 MG/ML / L1 protein, human papillomavirus type 6 vaccine 0.06 MG/ML Prefilled Syringe [Gardasil 9]"
-    },
-    {
-      "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version" : "09052023",
-      "code" : "1601407",
-      "display" : "0.5 ML meningococcal group B vaccine 0.1 MG/ML / Neisseria meningitidis serogroup B recombinant FHBP fusion protein antigen 0.1 MG/ML / Neisseria meningitidis serogroup B recombinant NHBA fusion protein antigen 0.1 MG/ML / Neisseria meningitidis serogroup B strain NZ98/254 outer membrane vesicle 0.05 MG/ML Prefilled Syringe [Bexsero]"
-    },
-    {
-      "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version" : "09052023",
-      "code" : "1607808",
-      "display" : "0.5 ML Bordetella pertussis filamentous hemagglutinin vaccine, inactivated 0.04 MG/ML / Bordetella pertussis fimbriae 2/3 vaccine, inactivated 0.01 MG/ML / Bordetella pertussis pertactin vaccine, inactivated 0.006 MG/ML / Bordetella pertussis toxoid vaccine, inactivated 0.04 MG/ML / diphtheria toxoid vaccine, inactivated 30 UNT/ML / poliovirus vaccine inactivated, type 1 (Mahoney) 80 UNT/ML / poliovirus vaccine inactivated, type 2 (MEF-1) 16 UNT/ML / poliovirus vaccine inactivated, type 3 (Saukett) 64 UNT/ML / tetanus toxoid vaccine, inactivated 10 UNT/ML Injection [Quadracel]"
-    },
-    {
-      "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version" : "09052023",
-      "code" : "1653579",
-      "display" : "BCG, live, Tice strain 50 MG Injection"
-    },
-    {
-      "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version" : "09052023",
-      "code" : "1658060",
-      "display" : "1 ML hepatitis A vaccine (inactivated) strain HM175 1440 UNT/ML Injection [Havrix]"
-    },
-    {
-      "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version" : "09052023",
-      "code" : "1658066",
-      "display" : "0.5 ML hepatitis A vaccine (inactivated) strain HM175 1440 UNT/ML Injection [Havrix]"
-    },
-    {
-      "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version" : "09052023",
-      "code" : "1658102",
-      "display" : "1 ML hepatitis A virus strain CR 326F antigen, inactivated 50 UNT/ML Injection [Vaqta]"
-    },
-    {
-      "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version" : "09052023",
-      "code" : "1658106",
-      "display" : "0.5 ML hepatitis A virus strain CR 326F antigen, inactivated 50 UNT/ML Injection [Vaqta]"
-    },
-    {
-      "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version" : "09052023",
-      "code" : "1658150",
-      "display" : "1 ML hepatitis B surface antigen vaccine 0.01 MG/ML Injection [Recombivax]"
-    },
-    {
-      "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version" : "09052023",
-      "code" : "1658155",
-      "display" : "0.5 ML hepatitis B surface antigen vaccine 0.01 MG/ML Injection [Recombivax]"
-    },
-    {
-      "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version" : "09052023",
-      "code" : "1658157",
-      "display" : "1 ML hepatitis B surface antigen vaccine 0.02 MG/ML Injection [Engerix-B]"
-    },
-    {
-      "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version" : "09052023",
-      "code" : "1658241",
-      "display" : "0.5 ML yellow fever virus strain 17D-204 live antigen 4000 UNT/ML Injection [YF-Vax]"
-    },
-    {
-      "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version" : "09052023",
-      "code" : "1658472",
-      "display" : "0.5 ML Streptococcus pneumoniae type 1 capsular polysaccharide antigen 0.05 MG/ML / Streptococcus pneumoniae type 10A capsular polysaccharide antigen 0.05 MG/ML / Streptococcus pneumoniae type 11A capsular polysaccharide antigen 0.05 MG/ML / Streptococcus pneumoniae type 12F capsular polysaccharide antigen 0.05 MG/ML / Streptococcus pneumoniae type 14 capsular polysaccharide antigen 0.05 MG/ML / Streptococcus pneumoniae type 15B capsular polysaccharide antigen 0.05 MG/ML / Streptococcus pneumoniae type 17F capsular polysaccharide antigen 0.05 MG/ML / Streptococcus pneumoniae type 18C capsular polysaccharide antigen 0.05 MG/ML / Streptococcus pneumoniae type 19A capsular polysaccharide antigen 0.05 MG/ML / Streptococcus pneumoniae type 19F capsular polysaccharide antigen 0.05 MG/ML / Streptococcus pneumoniae type 2 capsular polysaccharide antigen 0.05 MG/ML / Streptococcus pneumoniae type 20 capsular polysaccharide antigen 0.05 MG/ML / Streptococcus pneumoniae type 22F capsular polysaccharide antigen 0.05 MG/ML / Streptococcus pneumoniae type 23F capsular polysaccharide antigen 0.05 MG/ML / Streptococcus pneumoniae type 3 capsular polysaccharide antigen 0.05 MG/ML / Streptococcus pneumoniae type 33F capsular polysaccharide antigen 0.05 MG/ML / Streptococcus pneumoniae type 4 capsular polysaccharide antigen 0.05 MG/ML / Streptococcus pneumoniae type 5 capsular polysaccharide antigen 0.05 MG/ML / Streptococcus pneumoniae type 6B capsular polysaccharide antigen 0.05 MG/ML / Streptococcus pneumoniae type 7F capsular polysaccharide antigen 0.05 MG/ML / Streptococcus pneumoniae type 8 capsular polysaccharide antigen 0.05 MG/ML / Streptococcus pneumoniae type 9N capsular polysaccharide antigen 0.05 MG/ML / Streptococcus pneumoniae type 9V capsular polysaccharide antigen 0.05 MG/ML Injection [Pneumovax 23]"
-    },
-    {
-      "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version" : "09052023",
-      "code" : "1812951",
-      "display" : "Vibrio cholerae CVD 103-HGR strain live antigen 12000000 UNT/ML Oral Suspension [Vaxchora]"
-    },
-    {
-      "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version" : "09052023",
-      "code" : "1876710",
-      "display" : "0.5 ML yellow fever virus strain 17D-204 live antigen 2000 UNT/ML Injection [Stamaril]"
-    },
-    {
-      "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version" : "09052023",
-      "code" : "1986830",
-      "display" : "0.5 ML varicella zoster virus glycoprotein E, recombinant 0.1 MG/ML Injection [Shingrix]"
-    },
-    {
-      "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version" : "09052023",
-      "code" : "1994352",
-      "display" : "0.5 ML hepatitis B surface antigen vaccine 0.04 MG/ML Injection [Heplisav-B]"
-    },
-    {
-      "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version" : "09052023",
-      "code" : "2050059",
-      "display" : "0.5 ML hepatitis B surface antigen vaccine 0.04 MG/ML Prefilled Syringe [Heplisav-B]"
-    },
-    {
-      "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version" : "09052023",
-      "code" : "2050423",
-      "display" : "0.5 ML influenza A virus A/Michigan/45/2015 (H1N1) antigen 0.12 MG/ML / influenza A virus A/Singapore/INFIMH-16-0019/2016 (H3N2) antigen 0.12 MG/ML / influenza B virus B/Maryland/15/2016 antigen 0.12 MG/ML Prefilled Syringe [Fluzone 2018-2019]"
-    },
-    {
-      "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version" : "09052023",
-      "code" : "2050787",
-      "display" : "influenza A virus A/Michigan/45/2015 (H1N1) antigen 0.03 MG/ML / influenza A virus A/Singapore/INFIMH-16-0019/2016 (H3N2) antigen 0.03 MG/ML / influenza B virus B/Maryland/15/2016 antigen 0.03 MG/ML / influenza B virus B/Phuket/3073/2013 antigen 0.03 MG/ML Injectable Suspension [Fluzone Quadrivalent 2018-2019]"
-    },
-    {
-      "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version" : "09052023",
-      "code" : "205259",
-      "display" : "0.5 ML diphtheria toxoid vaccine, inactivated 4 UNT/ML / tetanus toxoid vaccine, inactivated 4 UNT/ML Injection"
-    },
-    {
-      "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version" : "09052023",
-      "code" : "2109620",
-      "display" : "0.5 ML Bordetella pertussis filamentous hemagglutinin vaccine, inactivated 0.04 MG/ML / Bordetella pertussis fimbriae 2/3 vaccine, inactivated 0.01 MG/ML / Bordetella pertussis pertactin vaccine, inactivated 0.006 MG/ML / Bordetella pertussis toxoid vaccine, inactivated 0.04 MG/ML / diphtheria toxoid vaccine, inactivated 30 UNT/ML / Haemophilus influenzae b (Ross strain) capsular polysaccharide meningococcal protein conjugate vaccine 0.006 MG/ML / hepatitis B surface antigen vaccine 0.02 MG/ML / poliovirus vaccine inactivated, type 1 (Mahoney) 58 UNT/ML / poliovirus vaccine inactivated, type 2 (MEF-1) 14 UNT/ML / poliovirus vaccine inactivated, type 3 (Saukett) 52 UNT/ML / tetanus toxoid vaccine, inactivated 10 UNT/ML Injection [Vaxelis]"
-    },
-    {
-      "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version" : "09052023",
-      "code" : "762602",
-      "display" : "Salmonella typhi Ty21a live antigen 2000000000 UNT Delayed Release Oral Capsule [Vivotif]"
-    },
-    {
-      "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version" : "09052023",
-      "code" : "763106",
-      "display" : "poliovirus vaccine inactivated, type 1 (Mahoney) 80 UNT/ML / poliovirus vaccine inactivated, type 2 (MEF-1) 16 UNT/ML / poliovirus vaccine inactivated, type 3 (Saukett) 64 UNT/ML Injectable Suspension [Ipol]"
-    },
-    {
-      "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version" : "09052023",
-      "code" : "797641",
-      "display" : "0.5 ML Neisseria meningitidis serogroup A capsular polysaccharide diphtheria toxoid protein conjugate vaccine 0.104 MG/ML / Neisseria meningitidis serogroup C capsular polysaccharide diphtheria toxoid protein conjugate vaccine 0.104 MG/ML / Neisseria meningitidis serogroup W-135 capsular polysaccharide diphtheria toxoid protein conjugate vaccine 0.104 MG/ML / Neisseria meningitidis serogroup Y capsular polysaccharide diphtheria toxoid protein conjugate vaccine 0.104 MG/ML Injection [Menactra]"
-    },
-    {
-      "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version" : "09052023",
-      "code" : "798278",
-      "display" : "0.5 ML L1 protein, human papillomavirus type 11 vaccine 0.08 MG/ML / L1 protein, human papillomavirus type 16 vaccine 0.08 MG/ML / L1 protein, human papillomavirus type 18 vaccine 0.04 MG/ML / L1 protein, human papillomavirus type 6 vaccine 0.04 MG/ML Prefilled Syringe [Gardasil]"
-    },
-    {
-      "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version" : "09052023",
-      "code" : "798300",
-      "display" : "human-bovine reassortant rotavirus strain G1 vaccine 1100000 UNT/ML / human-bovine reassortant rotavirus strain G2 vaccine 1400000 UNT/ML / human-bovine reassortant rotavirus strain G3 vaccine 1100000 UNT/ML / human-bovine reassortant rotavirus strain G4 vaccine 1000000 UNT/ML / human-bovine reassortant rotavirus strain P1A[8] vaccine 1150000 UNT/ML Oral Suspension [RotaTeq]"
-    },
-    {
-      "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version" : "09052023",
-      "code" : "798428",
-      "display" : "1 ML hepatitis B surface antigen vaccine 0.02 MG/ML Prefilled Syringe [Engerix-B]"
-    },
-    {
-      "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version" : "09052023",
-      "code" : "798430",
-      "display" : "0.5 ML hepatitis B surface antigen vaccine 0.02 MG/ML Prefilled Syringe [Engerix-B]"
-    },
-    {
-      "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version" : "09052023",
-      "code" : "798451",
-      "display" : "0.5 ML Haemophilus influenzae b (Ross strain) capsular polysaccharide meningococcal protein conjugate vaccine 0.265 MG/ML Injection [PedvaxHIB]"
-    },
-    {
-      "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version" : "09052023",
-      "code" : "798479",
-      "display" : "1 ML hepatitis A vaccine (inactivated) strain HM175 1440 UNT/ML Prefilled Syringe [Havrix]"
-    },
-    {
-      "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version" : "09052023",
-      "code" : "798482",
-      "display" : "0.5 ML hepatitis A vaccine (inactivated) strain HM175 1440 UNT/ML Prefilled Syringe [Havrix]"
-    },
-    {
-      "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version" : "09052023",
-      "code" : "803367",
-      "display" : "1 ML hepatitis A vaccine (inactivated) strain HM175 720 UNT/ML / hepatitis B surface antigen vaccine 0.02 MG/ML Injection [Twinrix]"
-    },
-    {
-      "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version" : "09052023",
-      "code" : "803371",
-      "display" : "1 ML hepatitis A vaccine (inactivated) strain HM175 720 UNT/ML / hepatitis B surface antigen vaccine 0.02 MG/ML Prefilled Syringe [Twinrix]"
-    },
-    {
-      "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version" : "09052023",
-      "code" : "804186",
-      "display" : "0.5 ML measles virus vaccine live, Enders' attenuated Edmonston strain 2000 UNT/ML / mumps virus vaccine live, Jeryl Lynn strain 25000 UNT/ML / rubella virus vaccine live (Wistar RA 27-3 strain) 2000 UNT/ML Injection [M-M-R II]"
-    },
-    {
-      "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version" : "09052023",
-      "code" : "805378",
-      "display" : "0.5 ML acellular pertussis vaccine, inactivated 96 UNT/ML / diphtheria toxoid vaccine, inactivated 30 UNT/ML / Haemophilus influenzae type b, capsular polysaccharide inactivated tetanus toxoid conjugate vaccine 68 UNT/ML / poliovirus vaccine inactivated, type 1 (Mahoney) 80 UNT/ML / poliovirus vaccine inactivated, type 2 (MEF-1) 16 UNT/ML / poliovirus vaccine inactivated, type 3 (Saukett) 64 UNT/ML / tetanus toxoid vaccine, inactivated 20 UNT/ML Injection [Pentacel]"
-    },
-    {
-      "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version" : "09052023",
-      "code" : "805579",
-      "display" : "rotavirus vaccine, live attenuated, G1P[8] human 89-12 strain 1000000 UNT/ML Oral Suspension [Rotarix]"
-    },
-    {
-      "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version" : "09052023",
-      "code" : "807225",
-      "display" : "typhoid Vi polysaccharide vaccine, S typhi Ty2 strain 0.05 MG/ML Injectable Solution [Typhim VI]"
-    },
-    {
-      "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version" : "09052023",
-      "code" : "829989",
-      "display" : "0.5 ML acellular pertussis vaccine, inactivated 0.116 MG/ML / diphtheria toxoid vaccine, inactivated 50 UNT/ML / hepatitis B surface antigen vaccine 0.02 MG/ML / poliovirus vaccine inactivated, type 1 (Mahoney) 80 UNT/ML / poliovirus vaccine inactivated, type 2 (MEF-1) 16 UNT/ML / poliovirus vaccine inactivated, type 3 (Saukett) 64 UNT/ML / tetanus toxoid vaccine, inactivated 20 UNT/ML Prefilled Syringe [PEDIARIX]"
-    },
-    {
-      "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version" : "09052023",
-      "code" : "830245",
-      "display" : "1 ML hepatitis B surface antigen vaccine 0.01 MG/ML Prefilled Syringe [Recombivax]"
-    },
-    {
-      "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version" : "09052023",
-      "code" : "830253",
-      "display" : "0.5 ML hepatitis B surface antigen vaccine 0.01 MG/ML Prefilled Syringe [Recombivax]"
-    },
-    {
-      "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version" : "09052023",
-      "code" : "830263",
-      "display" : "1 ML hepatitis B surface antigen vaccine 0.04 MG/ML Injection [Recombivax]"
-    },
-    {
-      "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version" : "09052023",
-      "code" : "830463",
-      "display" : "1 ML rabies virus vaccine flury-lep strain 2.5 UNT/ML Injection [RabAvert]"
-    },
-    {
-      "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version" : "09052023",
-      "code" : "830470",
-      "display" : "1 ML rabies virus vaccine wistar strain PM-1503-3M (human), inactivated 2.5 UNT/ML Injection [Imovax]"
-    },
-    {
-      "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version" : "09052023",
-      "code" : "830552",
-      "display" : "0.5 ML Bordetella pertussis filamentous hemagglutinin vaccine, inactivated 0.05 MG/ML / Bordetella pertussis pertactin vaccine, inactivated 0.016 MG/ML / Bordetella pertussis toxoid vaccine, inactivated 0.05 MG/ML / diphtheria toxoid vaccine, inactivated 50 UNT/ML / poliovirus vaccine inactivated, type 1 (Mahoney) 80 UNT/ML / poliovirus vaccine inactivated, type 2 (MEF-1) 16 UNT/ML / poliovirus vaccine inactivated, type 3 (Saukett) 64 UNT/ML / tetanus toxoid vaccine, inactivated 20 UNT/ML Injection [Kinrix]"
-    },
-    {
-      "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version" : "09052023",
-      "code" : "830557",
-      "display" : "0.5 ML acellular pertussis vaccine, inactivated 0.116 MG/ML / diphtheria toxoid vaccine, inactivated 50 UNT/ML / poliovirus vaccine inactivated, type 1 (Mahoney) 80 UNT/ML / poliovirus vaccine inactivated, type 2 (MEF-1) 16 UNT/ML / poliovirus vaccine inactivated, type 3 (Saukett) 64 UNT/ML / tetanus toxoid vaccine, inactivated 20 UNT/ML Prefilled Syringe [Kinrix]"
-    },
-    {
-      "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version" : "09052023",
-      "code" : "832682",
-      "display" : "Bacillus anthracis strain V770-NP1-R antigens 0.1 MG/ML Injectable Suspension [Biothrax]"
-    },
-    {
-      "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version" : "09052023",
-      "code" : "836634",
-      "display" : "1 ML hepatitis A virus strain CR 326F antigen, inactivated 50 UNT/ML Prefilled Syringe [Vaqta]"
-    },
-    {
-      "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version" : "09052023",
-      "code" : "836636",
-      "display" : "0.5 ML hepatitis A virus strain CR 326F antigen, inactivated 50 UNT/ML Prefilled Syringe [Vaqta]"
-    },
-    {
-      "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version" : "09052023",
-      "code" : "901518",
-      "display" : "0.5 ML Neisseria meningitidis serogroup A oligosaccharide diphtheria CRM197 protein conjugate vaccine 0.02 MG/ML / Neisseria meningitidis serogroup C oligosaccharide diphtheria CRM197 protein conjugate vaccine 0.01 MG/ML / Neisseria meningitidis serogroup W-135 oligosaccharide diphtheria CRM197 protein conjugate vaccine 0.01 MG/ML / Neisseria meningitidis serogroup Y oligosaccharide diphtheria CRM197 protein conjugate vaccine 0.01 MG/ML Injection [Menveo]"
-    },
-    {
-      "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version" : "09052023",
-      "code" : "901644",
-      "display" : "0.5 ML Streptococcus pneumoniae serotype 1 capsular antigen diphtheria CRM197 protein conjugate vaccine 0.0044 MG/ML / Streptococcus pneumoniae serotype 14 capsular antigen diphtheria CRM197 protein conjugate vaccine 0.0044 MG/ML / Streptococcus pneumoniae serotype 18C capsular antigen diphtheria CRM197 protein conjugate vaccine 0.0044 MG/ML / Streptococcus pneumoniae serotype 19A capsular antigen diphtheria CRM197 protein conjugate vaccine 0.0044 MG/ML / Streptococcus pneumoniae serotype 19F capsular antigen diphtheria CRM197 protein conjugate vaccine 0.0044 MG/ML / Streptococcus pneumoniae serotype 23F capsular antigen diphtheria CRM197 protein conjugate vaccine 0.0044 MG/ML / Streptococcus pneumoniae serotype 3 capsular antigen diphtheria CRM197 protein conjugate vaccine 0.0044 MG/ML / Streptococcus pneumoniae serotype 4 capsular antigen diphtheria CRM197 protein conjugate vaccine 0.0044 MG/ML / Streptococcus pneumoniae serotype 5 capsular antigen diphtheria CRM197 protein conjugate vaccine 0.0044 MG/ML / Streptococcus pneumoniae serotype 6A capsular antigen diphtheria CRM197 protein conjugate vaccine 0.0044 MG/ML / Streptococcus pneumoniae serotype 6B capsular antigen diphtheria CRM197 protein conjugate vaccine 0.0088 MG/ML / Streptococcus pneumoniae serotype 7F capsular antigen diphtheria CRM197 protein conjugate vaccine 0.0044 MG/ML / Streptococcus pneumoniae serotype 9V capsular antigen diphtheria CRM197 protein conjugate vaccine 0.0044 MG/ML Prefilled Syringe [Prevnar 13]"
-    }]
+      }
+    ]
   }
 }

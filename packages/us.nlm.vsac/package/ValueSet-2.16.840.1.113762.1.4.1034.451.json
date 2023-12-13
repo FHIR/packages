@@ -4,26 +4,32 @@
   "meta" : {
     "versionId" : "9",
     "lastUpdated" : "2022-04-22T01:02:25.000-04:00",
-    "profile" : ["http://hl7.org/fhir/StructureDefinition/shareablevalueset",
-    "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"]
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "extension" : [{
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
-    "valueString" : "American Academy of Neurology Author"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
-    "valueDate" : "2022-12-15"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
-    "valueDate" : "2022-04-22"
-  }],
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "American Academy of Neurology Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2022-12-15"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2022-04-22"
+    }
+  ],
   "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1034.451",
-  "identifier" : [{
-    "system" : "urn:ietf:rfc:3986",
-    "value" : "urn:oid:2.16.840.1.113762.1.4.1034.451"
-  }],
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113762.1.4.1034.451"
+    }
+  ],
   "version" : "20220422",
   "name" : "FallICD10CM",
   "title" : "Fall (ICD10CM)",
@@ -32,70 +38,71 @@
   "date" : "2022-04-22T01:02:25-04:00",
   "publisher" : "American Academy of Neurology Steward",
   "description" : "This value set contains ICD10CM concepts for falls.",
-  "jurisdiction" : [{
-    "extension" : [{
-      "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
-      "valueString" : "UNKNOWN"
-    }]
-  }],
+  "jurisdiction" : [
+    {
+      "coding" : [
+        {
+          "system" : "urn:iso:std:iso:3166",
+          "code" : "US"
+        }
+      ]
+    }
+  ],
   "purpose" : "(Clinical Focus: This value set contains ICD10CM concepts for falls.),(Data Element Scope: The intent of this data element is to identify people with a fall documented in the health record. This element may map to \"Diagnosis\" Category of the Quality Data Model.),(Inclusion Criteria: Includes fall both with and without injury. Includes single or repeated falls. Includes initial and subsequent encounters for fall. Includes encounters for sequelae of fall.),(Exclusion Criteria: None.)",
   "compose" : {
-    "include" : [{
-      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-      "concept" : [{
+    "include" : [
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "concept" : [
+          {
+            "code" : "R29.6",
+            "display" : "Repeated falls"
+          },
+          {
+            "code" : "W19.XXXA",
+            "display" : "Unspecified fall, initial encounter"
+          },
+          {
+            "code" : "W19.XXXD",
+            "display" : "Unspecified fall, subsequent encounter"
+          },
+          {
+            "code" : "W19.XXXS",
+            "display" : "Unspecified fall, sequela"
+          }
+        ]
+      }
+    ]
+  },
+  "expansion" : {
+    "identifier" : "urn:uuid:c9699f60-9016-42e3-a128-4724a458b601",
+    "timestamp" : "2023-11-24T16:21:15-05:00",
+    "total" : 4,
+    "contains" : [
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2024",
         "code" : "R29.6",
         "display" : "Repeated falls"
       },
       {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2024",
         "code" : "W19.XXXA",
         "display" : "Unspecified fall, initial encounter"
       },
       {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2024",
         "code" : "W19.XXXD",
         "display" : "Unspecified fall, subsequent encounter"
       },
       {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2024",
         "code" : "W19.XXXS",
         "display" : "Unspecified fall, sequela"
-      }]
-    }]
-  },
-  "expansion" : {
-    "identifier" : "urn:uuid:9311628b-87d1-411b-98fc-105bb48c9840",
-    "timestamp" : "2023-09-26T10:24:58-04:00",
-    "total" : 4,
-    "offset" : 0,
-    "parameter" : [{
-      "name" : "count",
-      "valueInteger" : 1000
-    },
-    {
-      "name" : "offset",
-      "valueInteger" : 0
-    }],
-    "contains" : [{
-      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-      "version" : "2024",
-      "code" : "R29.6",
-      "display" : "Repeated falls"
-    },
-    {
-      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-      "version" : "2024",
-      "code" : "W19.XXXA",
-      "display" : "Unspecified fall, initial encounter"
-    },
-    {
-      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-      "version" : "2024",
-      "code" : "W19.XXXD",
-      "display" : "Unspecified fall, subsequent encounter"
-    },
-    {
-      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-      "version" : "2024",
-      "code" : "W19.XXXS",
-      "display" : "Unspecified fall, sequela"
-    }]
+      }
+    ]
   }
 }

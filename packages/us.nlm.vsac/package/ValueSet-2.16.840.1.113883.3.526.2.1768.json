@@ -4,26 +4,32 @@
   "meta" : {
     "versionId" : "6",
     "lastUpdated" : "2021-01-15T13:05:26.000-05:00",
-    "profile" : ["http://hl7.org/fhir/StructureDefinition/shareablevalueset",
-    "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"]
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "extension" : [{
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
-    "valueString" : "American Academy of Ophthalmology Author"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
-    "valueDate" : "2022-12-15"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
-    "valueDate" : "2021-01-15"
-  }],
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "American Academy of Ophthalmology Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2022-12-15"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2021-01-15"
+    }
+  ],
   "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.526.2.1768",
-  "identifier" : [{
-    "system" : "urn:ietf:rfc:3986",
-    "value" : "urn:oid:2.16.840.1.113883.3.526.2.1768"
-  }],
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113883.3.526.2.1768"
+    }
+  ],
   "version" : "20190315",
   "name" : "MacularScarOfPosteriorPolar",
   "title" : "Macular Scar of Posterior Polar",
@@ -31,50 +37,51 @@
   "experimental" : false,
   "date" : "2019-03-15T01:00:14-04:00",
   "publisher" : "American Academy of Ophthalmology Steward",
-  "jurisdiction" : [{
-    "extension" : [{
-      "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
-      "valueString" : "UNKNOWN"
-    }]
-  }],
+  "jurisdiction" : [
+    {
+      "coding" : [
+        {
+          "system" : "urn:iso:std:iso:3166",
+          "code" : "US"
+        }
+      ]
+    }
+  ],
   "purpose" : "(Clinical Focus: This value set contains concepts that represent a diagnosis of macular scar of posterior polar.),(Data Element Scope: This value set may use the Quality Data Model (QDM) category related to Diagnosis.),(Inclusion Criteria: Includes relevant concepts associated with a diagnosis of macular or posterior pole scarring.),(Exclusion Criteria: Excludes concepts that pertain to 'unspecified eye.')",
   "compose" : {
-    "include" : [{
-      "system" : "http://hl7.org/fhir/sid/icd-9-cm",
-      "concept" : [{
+    "include" : [
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-9-cm",
+        "concept" : [
+          {
+            "code" : "363.32",
+            "display" : "Other macular scars"
+          },
+          {
+            "code" : "363.33",
+            "display" : "Other scars of posterior pole"
+          }
+        ]
+      }
+    ]
+  },
+  "expansion" : {
+    "identifier" : "urn:uuid:5222d934-6914-43a6-b037-95270f6aa70b",
+    "timestamp" : "2023-11-26T21:23:19-05:00",
+    "total" : 2,
+    "contains" : [
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-9-cm",
+        "version" : "2013",
         "code" : "363.32",
         "display" : "Other macular scars"
       },
       {
+        "system" : "http://hl7.org/fhir/sid/icd-9-cm",
+        "version" : "2013",
         "code" : "363.33",
         "display" : "Other scars of posterior pole"
-      }]
-    }]
-  },
-  "expansion" : {
-    "identifier" : "urn:uuid:bdd72fc9-8e78-480c-8133-900e9b52e8ec",
-    "timestamp" : "2023-09-26T11:32:33-04:00",
-    "total" : 2,
-    "offset" : 0,
-    "parameter" : [{
-      "name" : "count",
-      "valueInteger" : 1000
-    },
-    {
-      "name" : "offset",
-      "valueInteger" : 0
-    }],
-    "contains" : [{
-      "system" : "http://hl7.org/fhir/sid/icd-9-cm",
-      "version" : "2013",
-      "code" : "363.32",
-      "display" : "Other macular scars"
-    },
-    {
-      "system" : "http://hl7.org/fhir/sid/icd-9-cm",
-      "version" : "2013",
-      "code" : "363.33",
-      "display" : "Other scars of posterior pole"
-    }]
+      }
+    ]
   }
 }

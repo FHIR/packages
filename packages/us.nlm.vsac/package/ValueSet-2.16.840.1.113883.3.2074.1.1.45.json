@@ -4,26 +4,32 @@
   "meta" : {
     "versionId" : "11",
     "lastUpdated" : "2014-11-13T01:00:01.000-05:00",
-    "profile" : ["http://hl7.org/fhir/StructureDefinition/shareablevalueset",
-    "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"]
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "extension" : [{
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
-    "valueString" : "FHIMS Author"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
-    "valueDate" : "2022-12-15"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
-    "valueDate" : "2014-11-13"
-  }],
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "FHIMS Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2022-12-15"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2014-11-13"
+    }
+  ],
   "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.2074.1.1.45",
-  "identifier" : [{
-    "system" : "urn:ietf:rfc:3986",
-    "value" : "urn:oid:2.16.840.1.113883.3.2074.1.1.45"
-  }],
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113883.3.2074.1.1.45"
+    }
+  ],
   "version" : "20141113",
   "name" : "ConcernContext",
   "title" : "Concern context",
@@ -32,130 +38,131 @@
   "date" : "2014-11-13T01:00:01-05:00",
   "publisher" : "FHIMS Steward",
   "description" : "Might ontological and epistemological values be separated into two sets, for two properties?",
-  "jurisdiction" : [{
-    "extension" : [{
-      "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
-      "valueString" : "UNKNOWN"
-    }]
-  }],
+  "jurisdiction" : [
+    {
+      "coding" : [
+        {
+          "system" : "urn:iso:std:iso:3166",
+          "code" : "US"
+        }
+      ]
+    }
+  ],
   "purpose" : "(Clinical Focus: Both ontological (risk, goal) and epistemological (suspected, confirmed) modes of existence for a concern),(Data Element Scope: Refinement of an identified concern (diagnosis, risk, or other concern)\n\nFHIM: HealthConcern.concernContext),(Inclusion Criteria: Leaf node descendants of finding context value (410514004)),(Exclusion Criteria: grouping concepts, some concepts felt to be insufficiently distinct from others)",
   "compose" : {
-    "include" : [{
-      "system" : "http://snomed.info/sct",
-      "concept" : [{
+    "include" : [
+      {
+        "system" : "http://snomed.info/sct",
+        "concept" : [
+          {
+            "code" : "261665006",
+            "display" : "Unknown (qualifier value)"
+          },
+          {
+            "code" : "410518001",
+            "display" : "Goal context (qualifier value)"
+          },
+          {
+            "code" : "410519009",
+            "display" : "At risk context (qualifier value)"
+          },
+          {
+            "code" : "410592001",
+            "display" : "Probably present (qualifier value)"
+          },
+          {
+            "code" : "410593006",
+            "display" : "Probably NOT present (qualifier value)"
+          },
+          {
+            "code" : "410594000",
+            "display" : "Definitely NOT present (qualifier value)"
+          },
+          {
+            "code" : "410596003",
+            "display" : "Likely outcome (qualifier value)"
+          },
+          {
+            "code" : "410605003",
+            "display" : "Confirmed present (qualifier value)"
+          },
+          {
+            "code" : "415684004",
+            "display" : "Suspected (qualifier value)"
+          },
+          {
+            "code" : "428263003",
+            "display" : "NOT suspected (qualifier value)"
+          }
+        ]
+      }
+    ]
+  },
+  "expansion" : {
+    "identifier" : "urn:uuid:80fb10e9-dddc-4254-badb-2d0fe668fcb9",
+    "timestamp" : "2023-11-26T19:57:08-05:00",
+    "total" : 10,
+    "contains" : [
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20230901",
         "code" : "261665006",
         "display" : "Unknown (qualifier value)"
       },
       {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20230901",
         "code" : "410518001",
         "display" : "Goal context (qualifier value)"
       },
       {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20230901",
         "code" : "410519009",
         "display" : "At risk context (qualifier value)"
       },
       {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20230901",
         "code" : "410592001",
         "display" : "Probably present (qualifier value)"
       },
       {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20230901",
         "code" : "410593006",
-        "display" : "Probably NOT present (qualifier value)"
+        "display" : "Probably not present (qualifier value)"
       },
       {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20230901",
         "code" : "410594000",
         "display" : "Definitely NOT present (qualifier value)"
       },
       {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20230901",
         "code" : "410596003",
         "display" : "Likely outcome (qualifier value)"
       },
       {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20230901",
         "code" : "410605003",
         "display" : "Confirmed present (qualifier value)"
       },
       {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20230901",
         "code" : "415684004",
         "display" : "Suspected (qualifier value)"
       },
       {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20230901",
         "code" : "428263003",
         "display" : "NOT suspected (qualifier value)"
-      }]
-    }]
-  },
-  "expansion" : {
-    "identifier" : "urn:uuid:e8c72e35-d002-427a-b9f8-fed733592d19",
-    "timestamp" : "2023-09-26T09:32:17-04:00",
-    "total" : 10,
-    "offset" : 0,
-    "parameter" : [{
-      "name" : "count",
-      "valueInteger" : 1000
-    },
-    {
-      "name" : "offset",
-      "valueInteger" : 0
-    }],
-    "contains" : [{
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "261665006",
-      "display" : "Unknown (qualifier value)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "410518001",
-      "display" : "Goal context (qualifier value)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "410519009",
-      "display" : "At risk context (qualifier value)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "410592001",
-      "display" : "Probably present (qualifier value)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "410593006",
-      "display" : "Probably not present (qualifier value)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "410594000",
-      "display" : "Definitely NOT present (qualifier value)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "410596003",
-      "display" : "Likely outcome (qualifier value)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "410605003",
-      "display" : "Confirmed present (qualifier value)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "415684004",
-      "display" : "Suspected (qualifier value)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "428263003",
-      "display" : "NOT suspected (qualifier value)"
-    }]
+      }
+    ]
   }
 }

@@ -4,26 +4,32 @@
   "meta" : {
     "versionId" : "5",
     "lastUpdated" : "2016-03-02T01:00:04.000-05:00",
-    "profile" : ["http://hl7.org/fhir/StructureDefinition/shareablevalueset",
-    "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"]
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "extension" : [{
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
-    "valueString" : "American Academy of Neurology Author"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
-    "valueDate" : "2022-12-15"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
-    "valueDate" : "2016-03-02"
-  }],
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "American Academy of Neurology Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2022-12-15"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2016-03-02"
+    }
+  ],
   "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1111.93",
-  "identifier" : [{
-    "system" : "urn:ietf:rfc:3986",
-    "value" : "urn:oid:2.16.840.1.113762.1.4.1111.93"
-  }],
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113762.1.4.1111.93"
+    }
+  ],
   "version" : "20160302",
   "name" : "TreatmentFailure",
   "title" : "Treatment Failure",
@@ -31,54 +37,55 @@
   "experimental" : false,
   "date" : "2016-03-02T01:00:04-05:00",
   "publisher" : "American Academy of Neurology Steward",
-  "jurisdiction" : [{
-    "extension" : [{
-      "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
-      "valueString" : "UNKNOWN"
-    }]
-  }],
+  "jurisdiction" : [
+    {
+      "coding" : [
+        {
+          "system" : "urn:iso:std:iso:3166",
+          "code" : "US"
+        }
+      ]
+    }
+  ],
   "purpose" : "(Clinical Focus: This set of values identifies a patient who has had no or very poor response to treatment for opioid overuse.),(Data Element Scope: The intent of this data element is to identify patients who have tried treatment for opioid overuse and have failed the treatment regime.  Using the Quality Data Model, this element maps to the Communication category.),(Inclusion Criteria: Only use codes which represent the absence of or a very poor response to treatment for opioid overuse.  These codes use the terminology of SNOMED CT.),(Exclusion Criteria: Exclude patients who have a good response to treatment for opioid overuse.  Also exclude any patients who do not meet the inclusion criteria.)",
   "compose" : {
-    "include" : [{
-      "system" : "http://snomed.info/sct",
-      "concept" : [{
-        "code" : "102471002",
-        "display" : "Absence of therapeutic response (finding)"
-      },
+    "include" : [
       {
+        "system" : "http://snomed.info/sct",
+        "concept" : [
+          {
+            "code" : "102471002",
+            "display" : "Absence of therapeutic response (finding)"
+          },
+          {
+            "code" : "275934008",
+            "display" : "Very poor response treatment (situation)"
+          },
+          {
+            "code" : "405786003",
+            "display" : "Poor response to treatment (situation)"
+          }
+        ]
+      }
+    ]
+  },
+  "expansion" : {
+    "identifier" : "urn:uuid:06127d9f-8fca-41e6-9d8e-e72ace385478",
+    "timestamp" : "2023-11-26T16:21:41-05:00",
+    "total" : 2,
+    "contains" : [
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20230901",
         "code" : "275934008",
         "display" : "Very poor response treatment (situation)"
       },
       {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20230901",
         "code" : "405786003",
         "display" : "Poor response to treatment (situation)"
-      }]
-    }]
-  },
-  "expansion" : {
-    "identifier" : "urn:uuid:d1a05cb0-1379-491b-bad1-be64e2e22ca0",
-    "timestamp" : "2023-09-26T13:40:58-04:00",
-    "total" : 2,
-    "offset" : 0,
-    "parameter" : [{
-      "name" : "count",
-      "valueInteger" : 1000
-    },
-    {
-      "name" : "offset",
-      "valueInteger" : 0
-    }],
-    "contains" : [{
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "275934008",
-      "display" : "Very poor response treatment (situation)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "405786003",
-      "display" : "Poor response to treatment (situation)"
-    }]
+      }
+    ]
   }
 }

@@ -4,30 +4,36 @@
   "meta" : {
     "versionId" : "7",
     "lastUpdated" : "2022-06-01T01:02:23.000-04:00",
-    "profile" : ["http://hl7.org/fhir/StructureDefinition/shareablevalueset",
-    "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"]
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "extension" : [{
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
-    "valueString" : "CSTE Author"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-keyWord",
-    "valueString" : "MycoNonTBPulmonary,Trigger"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
-    "valueDate" : "2022-12-15"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
-    "valueDate" : "2022-06-01"
-  }],
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "CSTE Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-keyWord",
+      "valueString" : "MycoNonTBPulmonary,Trigger"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2022-12-15"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2022-06-01"
+    }
+  ],
   "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1146.1802",
-  "identifier" : [{
-    "system" : "urn:ietf:rfc:3986",
-    "value" : "urn:oid:2.16.840.1.113762.1.4.1146.1802"
-  }],
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113762.1.4.1146.1802"
+    }
+  ],
   "version" : "20220601",
   "name" : "NontuberculousMycobacteriaInfectionPulmonaryTestsForMycobacteriumSpeciesInSputumSpecimenByCultureAndIdentificationMethod",
   "title" : "Nontuberculous Mycobacteria Infection, Pulmonary (Tests for Mycobacterium species in Sputum Specimen by Culture and Identification Method)",
@@ -35,50 +41,51 @@
   "experimental" : false,
   "date" : "2022-06-01T01:02:23-04:00",
   "publisher" : "CSTE Steward",
-  "jurisdiction" : [{
-    "extension" : [{
-      "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
-      "valueString" : "UNKNOWN"
-    }]
-  }],
+  "jurisdiction" : [
+    {
+      "coding" : [
+        {
+          "system" : "urn:iso:std:iso:3166",
+          "code" : "US"
+        }
+      ]
+    }
+  ],
   "purpose" : "(Clinical Focus: This set of values contains codes for laboratory test names associated with detecting the presence of Mycobacterium species in sputum by culture or identification),(Data Element Scope: Laboratory tests names that were ordered or observed.),(Inclusion Criteria: Mycobacterium sp, culture, isolate, sputum),(Exclusion Criteria: none)",
   "compose" : {
-    "include" : [{
-      "system" : "http://loinc.org",
-      "concept" : [{
+    "include" : [
+      {
+        "system" : "http://loinc.org",
+        "concept" : [
+          {
+            "code" : "539-7",
+            "display" : "Mycobacterium sp identified in Sputum by Organism specific culture"
+          },
+          {
+            "code" : "90433-4",
+            "display" : "Mycobacterium preliminary growth [Presence] in Sputum by Organism specific culture"
+          }
+        ]
+      }
+    ]
+  },
+  "expansion" : {
+    "identifier" : "urn:uuid:d313e4d1-1d2e-4306-ba53-646fb52cd60a",
+    "timestamp" : "2023-11-26T16:57:18-05:00",
+    "total" : 2,
+    "contains" : [
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.76",
         "code" : "539-7",
         "display" : "Mycobacterium sp identified in Sputum by Organism specific culture"
       },
       {
+        "system" : "http://loinc.org",
+        "version" : "2.76",
         "code" : "90433-4",
         "display" : "Mycobacterium preliminary growth [Presence] in Sputum by Organism specific culture"
-      }]
-    }]
-  },
-  "expansion" : {
-    "identifier" : "urn:uuid:344fc7e4-cbad-4d8d-8dce-54ac3f0d8597",
-    "timestamp" : "2023-09-26T12:07:40-04:00",
-    "total" : 2,
-    "offset" : 0,
-    "parameter" : [{
-      "name" : "count",
-      "valueInteger" : 1000
-    },
-    {
-      "name" : "offset",
-      "valueInteger" : 0
-    }],
-    "contains" : [{
-      "system" : "http://loinc.org",
-      "version" : "2.74",
-      "code" : "539-7",
-      "display" : "Mycobacterium sp identified in Sputum by Organism specific culture"
-    },
-    {
-      "system" : "http://loinc.org",
-      "version" : "2.74",
-      "code" : "90433-4",
-      "display" : "Mycobacterium preliminary growth [Presence] in Sputum by Organism specific culture"
-    }]
+      }
+    ]
   }
 }

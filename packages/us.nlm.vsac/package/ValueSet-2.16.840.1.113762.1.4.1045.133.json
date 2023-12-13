@@ -4,26 +4,32 @@
   "meta" : {
     "versionId" : "12",
     "lastUpdated" : "2015-01-31T01:00:02.000-05:00",
-    "profile" : ["http://hl7.org/fhir/StructureDefinition/shareablevalueset",
-    "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"]
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "extension" : [{
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
-    "valueString" : "Mathematica-CCDE"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
-    "valueDate" : "2022-12-15"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
-    "valueDate" : "2015-01-31"
-  }],
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "Mathematica-CCDE"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2022-12-15"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2015-01-31"
+    }
+  ],
   "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1045.133",
-  "identifier" : [{
-    "system" : "urn:ietf:rfc:3986",
-    "value" : "urn:oid:2.16.840.1.113762.1.4.1045.133"
-  }],
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113762.1.4.1045.133"
+    }
+  ],
   "version" : "20150131",
   "name" : "HematocritCapillaryInVolumeFraction",
   "title" : "Hematocrit Capillary in Volume Fraction",
@@ -32,50 +38,51 @@
   "date" : "2015-01-31T01:00:02-05:00",
   "publisher" : "Yale",
   "description" : "CCDE for Yale",
-  "jurisdiction" : [{
-    "extension" : [{
-      "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
-      "valueString" : "UNKNOWN"
-    }]
-  }],
+  "jurisdiction" : [
+    {
+      "coding" : [
+        {
+          "system" : "urn:iso:std:iso:3166",
+          "code" : "US"
+        }
+      ]
+    }
+  ],
   "purpose" : "(Clinical Focus: This set of values contains codes for lab tests commonly used to measure hematocrit done on a source of capillary blood.  The measurement is represented as volume fraction-%.  These codes are LOINC codes.),(Data Element Scope: The intent of this data element is to identify patients with a lab test performed on a source of capillary blood to measure hematocrit.  Using the Quality Data Model, this data element maps to the Laboratory, Result or Laboratory, Order data type.),(Inclusion Criteria: Hematocrit lab test using the source of capillary test with a reporting scale of volume fraction-%.),(Exclusion Criteria: Hematocrit lab test using a non-capillary source of blood.)",
   "compose" : {
-    "include" : [{
-      "system" : "http://loinc.org",
-      "concept" : [{
+    "include" : [
+      {
+        "system" : "http://loinc.org",
+        "concept" : [
+          {
+            "code" : "42908-4",
+            "display" : "Hematocrit [Volume Fraction] of Capillary blood"
+          },
+          {
+            "code" : "71831-2",
+            "display" : "Hematocrit [Pure volume fraction] of Capillary blood"
+          }
+        ]
+      }
+    ]
+  },
+  "expansion" : {
+    "identifier" : "urn:uuid:109ede3b-47da-4922-a42b-4e7bd323b000",
+    "timestamp" : "2023-11-24T16:24:23-05:00",
+    "total" : 2,
+    "contains" : [
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.76",
         "code" : "42908-4",
         "display" : "Hematocrit [Volume Fraction] of Capillary blood"
       },
       {
+        "system" : "http://loinc.org",
+        "version" : "2.76",
         "code" : "71831-2",
         "display" : "Hematocrit [Pure volume fraction] of Capillary blood"
-      }]
-    }]
-  },
-  "expansion" : {
-    "identifier" : "urn:uuid:1710698c-9bfc-4a5f-96ce-74896e059604",
-    "timestamp" : "2023-09-26T10:46:05-04:00",
-    "total" : 2,
-    "offset" : 0,
-    "parameter" : [{
-      "name" : "count",
-      "valueInteger" : 1000
-    },
-    {
-      "name" : "offset",
-      "valueInteger" : 0
-    }],
-    "contains" : [{
-      "system" : "http://loinc.org",
-      "version" : "2.74",
-      "code" : "42908-4",
-      "display" : "Hematocrit [Volume Fraction] of Capillary blood"
-    },
-    {
-      "system" : "http://loinc.org",
-      "version" : "2.74",
-      "code" : "71831-2",
-      "display" : "Hematocrit [Pure volume fraction] of Capillary blood"
-    }]
+      }
+    ]
   }
 }

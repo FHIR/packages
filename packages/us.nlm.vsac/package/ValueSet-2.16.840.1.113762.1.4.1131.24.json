@@ -4,26 +4,32 @@
   "meta" : {
     "versionId" : "5",
     "lastUpdated" : "2021-12-03T01:02:45.000-05:00",
-    "profile" : ["http://hl7.org/fhir/StructureDefinition/shareablevalueset",
-    "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"]
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "extension" : [{
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
-    "valueString" : "CAP Author"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
-    "valueDate" : "2022-12-15"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
-    "valueDate" : "2021-12-03"
-  }],
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "CAP Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2022-12-15"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2021-12-03"
+    }
+  ],
   "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1131.24",
-  "identifier" : [{
-    "system" : "urn:ietf:rfc:3986",
-    "value" : "urn:oid:2.16.840.1.113762.1.4.1131.24"
-  }],
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113762.1.4.1131.24"
+    }
+  ],
   "version" : "20211203",
   "name" : "MetastaticCarcinomaNSCLC",
   "title" : "Metastatic Carcinoma NSCLC",
@@ -32,70 +38,65 @@
   "date" : "2021-12-03T01:02:45-05:00",
   "publisher" : "CAP Steward",
   "description" : "For Exception of CAP 34; contains specific terms for lung cancer",
-  "jurisdiction" : [{
-    "extension" : [{
-      "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
-      "valueString" : "UNKNOWN"
-    }]
-  }],
+  "jurisdiction" : [
+    {
+      "coding" : [
+        {
+          "system" : "urn:iso:std:iso:3166",
+          "code" : "US"
+        }
+      ]
+    }
+  ],
   "purpose" : "(Clinical Focus: Lung cancer that has become metastatic),(Data Element Scope: Non-small cell lung cancer that has metastasized),(Inclusion Criteria: NSCLC metastasizing to other organs, includes all other organs without specifying),(Exclusion Criteria: Does not include small cell carcinoma of the lung; does not specifically include other cancers that metastasize to the lung)",
   "compose" : {
-    "include" : [{
-      "system" : "http://snomed.info/sct",
-      "concept" : [{
+    "include" : [
+      {
+        "system" : "http://snomed.info/sct",
+        "concept" : [
+          {
+            "code" : "403906006",
+            "display" : "Metastatic squamous cell carcinoma (disorder)"
+          },
+          {
+            "code" : "457711000124107",
+            "display" : "Metastatic non-small cell carcinoma (morphologic abnormality)"
+          },
+          {
+            "code" : "64204000",
+            "display" : "Squamous cell carcinoma, metastatic (morphologic abnormality)"
+          },
+          {
+            "code" : "79282002",
+            "display" : "Carcinoma, metastatic (morphologic abnormality)"
+          }
+        ]
+      }
+    ]
+  },
+  "expansion" : {
+    "identifier" : "urn:uuid:1c94fc74-f138-4bfd-bf00-fa20ec60784d",
+    "timestamp" : "2023-11-26T16:36:19-05:00",
+    "total" : 3,
+    "contains" : [
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20230901",
         "code" : "403906006",
         "display" : "Metastatic squamous cell carcinoma (disorder)"
       },
       {
-        "code" : "457711000124107",
-        "display" : "Metastatic non-small cell carcinoma (morphologic abnormality)"
-      },
-      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20230901",
         "code" : "64204000",
         "display" : "Squamous cell carcinoma, metastatic (morphologic abnormality)"
       },
       {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20230901",
         "code" : "79282002",
         "display" : "Carcinoma, metastatic (morphologic abnormality)"
-      }]
-    }]
-  },
-  "expansion" : {
-    "identifier" : "urn:uuid:9d7ba31c-695e-4fb6-88f6-c304a699c372",
-    "timestamp" : "2023-09-26T11:47:48-04:00",
-    "total" : 4,
-    "offset" : 0,
-    "parameter" : [{
-      "name" : "count",
-      "valueInteger" : 1000
-    },
-    {
-      "name" : "offset",
-      "valueInteger" : 0
-    }],
-    "contains" : [{
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "403906006",
-      "display" : "Metastatic squamous cell carcinoma (disorder)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "457711000124107",
-      "display" : "Metastatic non-small cell carcinoma (morphologic abnormality)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "64204000",
-      "display" : "Squamous cell carcinoma, metastatic (morphologic abnormality)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "79282002",
-      "display" : "Carcinoma, metastatic (morphologic abnormality)"
-    }]
+      }
+    ]
   }
 }

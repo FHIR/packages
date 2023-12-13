@@ -4,26 +4,32 @@
   "meta" : {
     "versionId" : "15",
     "lastUpdated" : "2021-09-09T01:01:05.000-04:00",
-    "profile" : ["http://hl7.org/fhir/StructureDefinition/shareablevalueset",
-    "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"]
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "extension" : [{
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
-    "valueString" : "NHLBI Implementation Science and Health Care Innovation Author"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
-    "valueDate" : "2022-12-15"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
-    "valueDate" : "2021-09-09"
-  }],
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "NHLBI Implementation Science and Health Care Innovation Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2022-12-15"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2021-09-09"
+    }
+  ],
   "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1196.465",
-  "identifier" : [{
-    "system" : "urn:ietf:rfc:3986",
-    "value" : "urn:oid:2.16.840.1.113762.1.4.1196.465"
-  }],
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113762.1.4.1196.465"
+    }
+  ],
   "version" : "20210909",
   "name" : "CromolynInhalantPreparations",
   "title" : "Cromolyn Inhalant Preparations",
@@ -31,50 +37,51 @@
   "experimental" : false,
   "date" : "2021-09-09T01:01:05-04:00",
   "publisher" : "NHLBI Implementation Science and Health Care Innovation Steward",
-  "jurisdiction" : [{
-    "extension" : [{
-      "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
-      "valueString" : "UNKNOWN"
-    }]
-  }],
+  "jurisdiction" : [
+    {
+      "coding" : [
+        {
+          "system" : "urn:iso:std:iso:3166",
+          "code" : "US"
+        }
+      ]
+    }
+  ],
   "purpose" : "(Clinical Focus: This valueset contains oral inhalant cromolyn preparations that are used for maintenance therapy in asthmatic adults and children as per the NHLBI NAEPP EPR3 Guidelines for the Diagnosis and Management of Asthma (2007) and associated Summary Report and Quick Reference Guide and the 2020 Focused Updates to the Asthma Management Guidelines.),(Data Element Scope: FHIR \nMedicationStatement.medicationCodeableConcept, MedicationRequest.medicationCodeableConcept),(Inclusion Criteria: oral inhalant cromolyn preparations - in the United States, cromolyn is not available in HFA-containing MDIs, and the only remaining formulations for asthma are solutions of cromolyn (10 mg/mL) for nebulization.),(Exclusion Criteria: Excludes withdrawn preparations and retired codes (although they may still be available from pharmacies until supplies are exhausted))",
   "compose" : {
-    "include" : [{
-      "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "concept" : [{
+    "include" : [
+      {
+        "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "concept" : [
+          {
+            "code" : "309548",
+            "display" : "cromolyn sodium 20 MG Inhalation Powder"
+          },
+          {
+            "code" : "831246",
+            "display" : "cromolyn sodium 10 MG/ML Inhalation Solution"
+          }
+        ]
+      }
+    ]
+  },
+  "expansion" : {
+    "identifier" : "urn:uuid:7f94aa79-0351-4d71-bbd9-3fba9c2b3a8f",
+    "timestamp" : "2023-11-26T17:52:39-05:00",
+    "total" : 2,
+    "contains" : [
+      {
+        "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "version" : "11062023",
         "code" : "309548",
         "display" : "cromolyn sodium 20 MG Inhalation Powder"
       },
       {
+        "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "version" : "11062023",
         "code" : "831246",
         "display" : "cromolyn sodium 10 MG/ML Inhalation Solution"
-      }]
-    }]
-  },
-  "expansion" : {
-    "identifier" : "urn:uuid:cdd43b12-11c8-45d7-8245-43759d1e31ca",
-    "timestamp" : "2023-09-26T09:52:13-04:00",
-    "total" : 2,
-    "offset" : 0,
-    "parameter" : [{
-      "name" : "count",
-      "valueInteger" : 1000
-    },
-    {
-      "name" : "offset",
-      "valueInteger" : 0
-    }],
-    "contains" : [{
-      "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version" : "09052023",
-      "code" : "309548",
-      "display" : "cromolyn sodium 20 MG Inhalation Powder"
-    },
-    {
-      "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version" : "09052023",
-      "code" : "831246",
-      "display" : "cromolyn sodium 10 MG/ML Inhalation Solution"
-    }]
+      }
+    ]
   }
 }

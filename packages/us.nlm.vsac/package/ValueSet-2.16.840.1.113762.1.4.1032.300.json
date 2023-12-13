@@ -4,76 +4,83 @@
   "meta" : {
     "versionId" : "5",
     "lastUpdated" : "2023-09-06T01:01:41.000-04:00",
-    "profile" : ["http://hl7.org/fhir/StructureDefinition/shareablevalueset",
-    "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"]
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "extension" : [{
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
-    "valueString" : "MITRE Author"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
-    "valueDate" : "2023-09-06"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
-    "valueDate" : "2023-09-06"
-  }],
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "MITRE Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2023-09-06"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2023-09-06"
+    }
+  ],
   "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1032.300",
-  "identifier" : [{
-    "system" : "urn:ietf:rfc:3986",
-    "value" : "urn:oid:2.16.840.1.113762.1.4.1032.300"
-  }],
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113762.1.4.1032.300"
+    }
+  ],
   "version" : "20230906",
   "name" : "HPV18Tests",
   "title" : "HPV 18 Tests",
   "status" : "active",
   "date" : "2023-09-06T01:01:41-04:00",
   "publisher" : "MITRE Steward",
-  "jurisdiction" : [{
-    "extension" : [{
-      "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
-      "valueString" : "UNKNOWN"
-    }]
-  }],
+  "jurisdiction" : [
+    {
+      "coding" : [
+        {
+          "system" : "urn:iso:std:iso:3166",
+          "code" : "US"
+        }
+      ]
+    }
+  ],
   "purpose" : "(Clinical Focus: LOINC codes indicating an hrHPV 18 Test with a specimen source of cervix),(Data Element Scope: ),(Inclusion Criteria: hrHPV 18 tests from Cervix),(Exclusion Criteria: )",
   "compose" : {
-    "include" : [{
-      "system" : "http://loinc.org",
-      "concept" : [{
+    "include" : [
+      {
+        "system" : "http://loinc.org",
+        "concept" : [
+          {
+            "code" : "59264-2",
+            "display" : "Human papilloma virus 18 DNA [Presence] in Cervix by Probe with signal amplification"
+          },
+          {
+            "code" : "77400-0",
+            "display" : "Human papilloma virus 18 DNA [Presence] in Cervix by NAA with probe detection"
+          }
+        ]
+      }
+    ]
+  },
+  "expansion" : {
+    "identifier" : "urn:uuid:72bf71d2-8430-48e3-9aeb-4edfb458d5a9",
+    "timestamp" : "2023-11-24T16:17:44-05:00",
+    "total" : 2,
+    "contains" : [
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.76",
         "code" : "59264-2",
         "display" : "Human papilloma virus 18 DNA [Presence] in Cervix by Probe with signal amplification"
       },
       {
+        "system" : "http://loinc.org",
+        "version" : "2.76",
         "code" : "77400-0",
         "display" : "Human papilloma virus 18 DNA [Presence] in Cervix by NAA with probe detection"
-      }]
-    }]
-  },
-  "expansion" : {
-    "identifier" : "urn:uuid:538c7699-2b75-4472-a3d5-588eab961f25",
-    "timestamp" : "2023-09-26T10:58:24-04:00",
-    "total" : 2,
-    "offset" : 0,
-    "parameter" : [{
-      "name" : "count",
-      "valueInteger" : 1000
-    },
-    {
-      "name" : "offset",
-      "valueInteger" : 0
-    }],
-    "contains" : [{
-      "system" : "http://loinc.org",
-      "version" : "2.74",
-      "code" : "59264-2",
-      "display" : "Human papilloma virus 18 DNA [Presence] in Cervix by Probe with signal amplification"
-    },
-    {
-      "system" : "http://loinc.org",
-      "version" : "2.74",
-      "code" : "77400-0",
-      "display" : "Human papilloma virus 18 DNA [Presence] in Cervix by NAA with probe detection"
-    }]
+      }
+    ]
   }
 }

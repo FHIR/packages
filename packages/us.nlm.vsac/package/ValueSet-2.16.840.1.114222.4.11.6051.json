@@ -4,26 +4,32 @@
   "meta" : {
     "versionId" : "5",
     "lastUpdated" : "2020-09-15T10:29:43.000-04:00",
-    "profile" : ["http://hl7.org/fhir/StructureDefinition/shareablevalueset",
-    "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"]
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "extension" : [{
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
-    "valueString" : "CDC NHSN Author"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
-    "valueDate" : "2022-12-15"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
-    "valueDate" : "2020-09-15"
-  }],
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "CDC NHSN Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2022-12-15"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2020-09-15"
+    }
+  ],
   "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.114222.4.11.6051",
-  "identifier" : [{
-    "system" : "urn:ietf:rfc:3986",
-    "value" : "urn:oid:2.16.840.1.114222.4.11.6051"
-  }],
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.114222.4.11.6051"
+    }
+  ],
   "version" : "20200807",
   "name" : "NHSNClosureTechniqueCode",
   "title" : "NHSNClosureTechniqueCode",
@@ -31,50 +37,51 @@
   "experimental" : false,
   "date" : "2020-08-07T01:00:29-04:00",
   "publisher" : "CDC NHSN",
-  "jurisdiction" : [{
-    "extension" : [{
-      "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
-      "valueString" : "UNKNOWN"
-    }]
-  }],
+  "jurisdiction" : [
+    {
+      "coding" : [
+        {
+          "system" : "urn:iso:std:iso:3166",
+          "code" : "US"
+        }
+      ]
+    }
+  ],
   "purpose" : "(Clinical Focus: NHSN surveillance reporting: Used to distinguish between primary and non-primary surgical closure techniques),(Data Element Scope: A method code identifying the closure technique used in surgical procedures.),(Inclusion Criteria: ),(Exclusion Criteria: )",
   "compose" : {
-    "include" : [{
-      "system" : "https://www.cdc.gov/nhsn/cdaportal/terminology/codesystem/cdcnhsn.html",
-      "concept" : [{
+    "include" : [
+      {
+        "system" : "https://www.cdc.gov/nhsn/cdaportal/terminology/codesystem/cdcnhsn.html",
+        "concept" : [
+          {
+            "code" : "2406-7",
+            "display" : "Primary"
+          },
+          {
+            "code" : "2407-5",
+            "display" : "Other than primary"
+          }
+        ]
+      }
+    ]
+  },
+  "expansion" : {
+    "identifier" : "urn:uuid:c5ec4f22-9856-4990-bb00-53f14ce4b711",
+    "timestamp" : "2023-11-26T22:27:59-05:00",
+    "total" : 2,
+    "contains" : [
+      {
+        "system" : "https://www.cdc.gov/nhsn/cdaportal/terminology/codesystem/cdcnhsn.html",
+        "version" : "2023-04",
         "code" : "2406-7",
         "display" : "Primary"
       },
       {
+        "system" : "https://www.cdc.gov/nhsn/cdaportal/terminology/codesystem/cdcnhsn.html",
+        "version" : "2023-04",
         "code" : "2407-5",
         "display" : "Other than primary"
-      }]
-    }]
-  },
-  "expansion" : {
-    "identifier" : "urn:uuid:8cb0b98c-2948-46c8-b04f-7fe751790325",
-    "timestamp" : "2023-09-26T12:02:11-04:00",
-    "total" : 2,
-    "offset" : 0,
-    "parameter" : [{
-      "name" : "count",
-      "valueInteger" : 1000
-    },
-    {
-      "name" : "offset",
-      "valueInteger" : 0
-    }],
-    "contains" : [{
-      "system" : "https://www.cdc.gov/nhsn/cdaportal/terminology/codesystem/cdcnhsn.html",
-      "version" : "2023-04",
-      "code" : "2406-7",
-      "display" : "Primary"
-    },
-    {
-      "system" : "https://www.cdc.gov/nhsn/cdaportal/terminology/codesystem/cdcnhsn.html",
-      "version" : "2023-04",
-      "code" : "2407-5",
-      "display" : "Other than primary"
-    }]
+      }
+    ]
   }
 }

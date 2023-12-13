@@ -4,30 +4,36 @@
   "meta" : {
     "versionId" : "11",
     "lastUpdated" : "2022-10-20T17:30:52.000-04:00",
-    "profile" : ["http://hl7.org/fhir/StructureDefinition/shareablevalueset",
-    "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"]
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "extension" : [{
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
-    "valueString" : "MCC eCare Plan Author"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-keyWord",
-    "valueString" : "MCC_IG"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
-    "valueDate" : "2022-12-15"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
-    "valueDate" : "2022-10-20"
-  }],
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "MCC eCare Plan Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-keyWord",
+      "valueString" : "MCC_IG"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2022-12-15"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2022-10-20"
+    }
+  ],
   "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1222.145",
-  "identifier" : [{
-    "system" : "urn:ietf:rfc:3986",
-    "value" : "urn:oid:2.16.840.1.113762.1.4.1222.145"
-  }],
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113762.1.4.1222.145"
+    }
+  ],
   "version" : "20221020",
   "name" : "MeanCorpuscularHemoglobinConcentration",
   "title" : "Mean Corpuscular Hemoglobin Concentration",
@@ -36,60 +42,61 @@
   "date" : "2022-10-20T17:30:52-04:00",
   "publisher" : "HL7 Patient Care WG Steward",
   "description" : "Note - \"This value set may undergo changes until the HL7 Multiple Chronic Care FHIR IG is formally published in 2024.\"",
-  "jurisdiction" : [{
-    "extension" : [{
-      "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
-      "valueString" : "UNKNOWN"
-    }]
-  }],
+  "jurisdiction" : [
+    {
+      "coding" : [
+        {
+          "system" : "urn:iso:std:iso:3166",
+          "code" : "US"
+        }
+      ]
+    }
+  ],
   "purpose" : "(Clinical Focus: This set of values contains laboratory observable term codes for Mean Corpuscular Hemoglobin Concentration results in blood.),(Data Element Scope: The intent of this set of values is to discover or request blood Mean Corpuscular Hemoglobin Concentration levels in clinical records.),(Inclusion Criteria: Includes laboratory LOINC encoded observable terms representing Mean Corpuscular Hemoglobin Concentration terms in blood.),(Exclusion Criteria: Laboratory LOINC encoded terms that do not represent Mean Corpuscular Hemoglobin Concentration terms in blood.)",
   "compose" : {
-    "include" : [{
-      "system" : "http://loinc.org",
-      "concept" : [{
+    "include" : [
+      {
+        "system" : "http://loinc.org",
+        "concept" : [
+          {
+            "code" : "28540-3",
+            "display" : "MCHC [Mass/volume]"
+          },
+          {
+            "code" : "59467-1",
+            "display" : "MCHC [Moles/volume]"
+          },
+          {
+            "code" : "786-4",
+            "display" : "MCHC [Mass/volume] by Automated count"
+          }
+        ]
+      }
+    ]
+  },
+  "expansion" : {
+    "identifier" : "urn:uuid:38a6ec17-ccb4-4615-858b-ff1cb19b1289",
+    "timestamp" : "2023-11-26T18:40:14-05:00",
+    "total" : 3,
+    "contains" : [
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.76",
         "code" : "28540-3",
         "display" : "MCHC [Mass/volume]"
       },
       {
+        "system" : "http://loinc.org",
+        "version" : "2.76",
         "code" : "59467-1",
         "display" : "MCHC [Moles/volume]"
       },
       {
+        "system" : "http://loinc.org",
+        "version" : "2.76",
         "code" : "786-4",
         "display" : "MCHC [Mass/volume] by Automated count"
-      }]
-    }]
-  },
-  "expansion" : {
-    "identifier" : "urn:uuid:fe7d3c8f-0c78-474a-9af6-865e15466594",
-    "timestamp" : "2023-09-26T11:39:34-04:00",
-    "total" : 3,
-    "offset" : 0,
-    "parameter" : [{
-      "name" : "count",
-      "valueInteger" : 1000
-    },
-    {
-      "name" : "offset",
-      "valueInteger" : 0
-    }],
-    "contains" : [{
-      "system" : "http://loinc.org",
-      "version" : "2.74",
-      "code" : "28540-3",
-      "display" : "MCHC [Mass/volume]"
-    },
-    {
-      "system" : "http://loinc.org",
-      "version" : "2.74",
-      "code" : "59467-1",
-      "display" : "MCHC [Moles/volume]"
-    },
-    {
-      "system" : "http://loinc.org",
-      "version" : "2.74",
-      "code" : "786-4",
-      "display" : "MCHC [Mass/volume] by Automated count"
-    }]
+      }
+    ]
   }
 }

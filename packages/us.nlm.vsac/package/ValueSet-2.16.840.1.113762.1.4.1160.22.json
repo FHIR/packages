@@ -4,76 +4,83 @@
   "meta" : {
     "versionId" : "6",
     "lastUpdated" : "2023-01-07T01:02:49.000-05:00",
-    "profile" : ["http://hl7.org/fhir/StructureDefinition/shareablevalueset",
-    "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"]
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "extension" : [{
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
-    "valueString" : "HSAG Author"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
-    "valueDate" : "2023-01-07"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
-    "valueDate" : "2023-01-07"
-  }],
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "HSAG Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2023-01-07"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2023-01-07"
+    }
+  ],
   "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1160.22",
-  "identifier" : [{
-    "system" : "urn:ietf:rfc:3986",
-    "value" : "urn:oid:2.16.840.1.113762.1.4.1160.22"
-  }],
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113762.1.4.1160.22"
+    }
+  ],
   "version" : "20230107",
   "name" : "OfficeVisitEncounterToScreenForDiabetes",
   "title" : "Office Visit Encounter to Screen for Diabetes",
   "status" : "active",
   "date" : "2023-01-07T01:02:49-05:00",
   "publisher" : "American Medical Association Steward",
-  "jurisdiction" : [{
-    "extension" : [{
-      "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
-      "valueString" : "UNKNOWN"
-    }]
-  }],
+  "jurisdiction" : [
+    {
+      "coding" : [
+        {
+          "system" : "urn:iso:std:iso:3166",
+          "code" : "US"
+        }
+      ]
+    }
+  ],
   "purpose" : "(Clinical Focus: Office visit outpatient encounters for diabetes screening),(Data Element Scope: Allowable outpatient encounters for diabetes screening),(Inclusion Criteria: Outpatient visits),(Exclusion Criteria: None)",
   "compose" : {
-    "include" : [{
-      "system" : "http://www.nlm.nih.gov/research/umls/hcpcs",
-      "concept" : [{
+    "include" : [
+      {
+        "system" : "http://www.nlm.nih.gov/research/umls/hcpcs",
+        "concept" : [
+          {
+            "code" : "G0463",
+            "display" : "Hospital outpatient clinic visit for assessment and management of a patient"
+          },
+          {
+            "code" : "T1015",
+            "display" : "Clinic visit/encounter, all-inclusive"
+          }
+        ]
+      }
+    ]
+  },
+  "expansion" : {
+    "identifier" : "urn:uuid:82de9e66-c487-421b-ae15-723919ec88ed",
+    "timestamp" : "2023-11-26T17:21:35-05:00",
+    "total" : 2,
+    "contains" : [
+      {
+        "system" : "http://www.nlm.nih.gov/research/umls/hcpcs",
+        "version" : "2023",
         "code" : "G0463",
         "display" : "Hospital outpatient clinic visit for assessment and management of a patient"
       },
       {
+        "system" : "http://www.nlm.nih.gov/research/umls/hcpcs",
+        "version" : "2023",
         "code" : "T1015",
         "display" : "Clinic visit/encounter, all-inclusive"
-      }]
-    }]
-  },
-  "expansion" : {
-    "identifier" : "urn:uuid:8f3d0c0b-f51e-47c0-acfb-75a113b797e1",
-    "timestamp" : "2023-09-26T12:12:54-04:00",
-    "total" : 2,
-    "offset" : 0,
-    "parameter" : [{
-      "name" : "count",
-      "valueInteger" : 1000
-    },
-    {
-      "name" : "offset",
-      "valueInteger" : 0
-    }],
-    "contains" : [{
-      "system" : "http://www.nlm.nih.gov/research/umls/hcpcs",
-      "version" : "2023",
-      "code" : "G0463",
-      "display" : "Hospital outpatient clinic visit for assessment and management of a patient"
-    },
-    {
-      "system" : "http://www.nlm.nih.gov/research/umls/hcpcs",
-      "version" : "2023",
-      "code" : "T1015",
-      "display" : "Clinic visit/encounter, all-inclusive"
-    }]
+      }
+    ]
   }
 }

@@ -4,26 +4,32 @@
   "meta" : {
     "versionId" : "5",
     "lastUpdated" : "2020-09-15T16:50:58.000-04:00",
-    "profile" : ["http://hl7.org/fhir/StructureDefinition/shareablevalueset",
-    "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"]
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "extension" : [{
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
-    "valueString" : "CDC NHSN Author"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
-    "valueDate" : "2022-12-15"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
-    "valueDate" : "2020-09-15"
-  }],
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "CDC NHSN Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2022-12-15"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2020-09-15"
+    }
+  ],
   "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.114222.4.11.7238",
-  "identifier" : [{
-    "system" : "urn:ietf:rfc:3986",
-    "value" : "urn:oid:2.16.840.1.114222.4.11.7238"
-  }],
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.114222.4.11.7238"
+    }
+  ],
   "version" : "20200807",
   "name" : "NHSNPreviousFacility",
   "title" : "NHSNPreviousFacility",
@@ -31,50 +37,51 @@
   "experimental" : false,
   "date" : "2020-08-07T01:00:24-04:00",
   "publisher" : "CDC NHSN",
-  "jurisdiction" : [{
-    "extension" : [{
-      "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
-      "valueString" : "UNKNOWN"
-    }]
-  }],
+  "jurisdiction" : [
+    {
+      "coding" : [
+        {
+          "system" : "urn:iso:std:iso:3166",
+          "code" : "US"
+        }
+      ]
+    }
+  ],
   "purpose" : "(Clinical Focus: NHSN surveillance reporting: This value set contains codes describing the previous facility from which the patient has been discharged.),(Data Element Scope: A code identifying the type of facility the patient was previously discharged.),(Inclusion Criteria: ),(Exclusion Criteria: )",
   "compose" : {
-    "include" : [{
-      "system" : "https://www.cdc.gov/nhsn/cdaportal/terminology/codesystem/cdcnhsn.html",
-      "concept" : [{
+    "include" : [
+      {
+        "system" : "https://www.cdc.gov/nhsn/cdaportal/terminology/codesystem/cdcnhsn.html",
+        "concept" : [
+          {
+            "code" : "3005-6",
+            "display" : "Nursing Home/Skilled Nursing Facility"
+          },
+          {
+            "code" : "3006-4",
+            "display" : "Other inpatient healthcare setting (e.g., Acute Care Hospital, LTAC, Rehabilitation, etc.)"
+          }
+        ]
+      }
+    ]
+  },
+  "expansion" : {
+    "identifier" : "urn:uuid:3f7b7459-04fc-4520-8b30-1d76522fe6a6",
+    "timestamp" : "2023-11-26T22:28:08-05:00",
+    "total" : 2,
+    "contains" : [
+      {
+        "system" : "https://www.cdc.gov/nhsn/cdaportal/terminology/codesystem/cdcnhsn.html",
+        "version" : "2023-04",
         "code" : "3005-6",
         "display" : "Nursing Home/Skilled Nursing Facility"
       },
       {
+        "system" : "https://www.cdc.gov/nhsn/cdaportal/terminology/codesystem/cdcnhsn.html",
+        "version" : "2023-04",
         "code" : "3006-4",
         "display" : "Other inpatient healthcare setting (e.g., Acute Care Hospital, LTAC, Rehabilitation, etc.)"
-      }]
-    }]
-  },
-  "expansion" : {
-    "identifier" : "urn:uuid:9b4c27ab-9387-4ac3-af16-e08bec546baa",
-    "timestamp" : "2023-09-26T12:03:02-04:00",
-    "total" : 2,
-    "offset" : 0,
-    "parameter" : [{
-      "name" : "count",
-      "valueInteger" : 1000
-    },
-    {
-      "name" : "offset",
-      "valueInteger" : 0
-    }],
-    "contains" : [{
-      "system" : "https://www.cdc.gov/nhsn/cdaportal/terminology/codesystem/cdcnhsn.html",
-      "version" : "2023-04",
-      "code" : "3005-6",
-      "display" : "Nursing Home/Skilled Nursing Facility"
-    },
-    {
-      "system" : "https://www.cdc.gov/nhsn/cdaportal/terminology/codesystem/cdcnhsn.html",
-      "version" : "2023-04",
-      "code" : "3006-4",
-      "display" : "Other inpatient healthcare setting (e.g., Acute Care Hospital, LTAC, Rehabilitation, etc.)"
-    }]
+      }
+    ]
   }
 }
