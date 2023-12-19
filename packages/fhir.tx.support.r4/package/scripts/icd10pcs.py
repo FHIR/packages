@@ -1,87 +1,56 @@
-
-import xml.etree.ElementTree as ET
-from itertools import product
-import sys
 import json
+import requests
+import io
+import zipfile
 
-def parse_xml(file_path):
-    tree = ET.parse(file_path)
-    root = tree.getroot()
 
-    pcs_tables = []
-    for pcsTable in root.findall('pcsTable'):
-        table_data = {
-            "prefix": [],
-            "rows": []
+def parse_txt(file_like_object):
+    codes = []
+    for line in file_like_object:
+        icd_code = line[6:13].strip()
+        is_header = line[14:15].strip() == '0'
+        long_description = line[77:].strip()
+
+        if not is_header:  # We check if the code is valid for submission
+            codes.append({
+                "code": icd_code,
+                "long_description": long_description
+            })
+    return codes
+
+def concepts_from_txt(codes):
+    for entry in codes:
+        yield {
+            "code": entry["code"],
+            "display": entry["long_description"]
         }
 
-        for axis in pcsTable.findall('axis'):
-            axis_data = {
-                "title": axis.find('title').text,
-                "label": None
-            }
-            for label in axis.findall('label'):
-                if axis_data["label"] != None:
-                    raise "Unexpected label count"
-                axis_data["label"] = {
-                    "code": label.attrib['code'],
-                    "label": label.text
-                }
-            table_data["prefix"].append(axis_data)
+def download_and_extract_zip(url, specific_file=None):
+    response = requests.get(url, stream=True)
+    response.raise_for_status()
 
-        for pcsRow in pcsTable.findall('pcsRow'):
-            row_data = {
-                "axes": []
-            }
+    with zipfile.ZipFile(io.BytesIO(response.content)) as zip_ref:
+        with zip_ref.open(specific_file) as file:
+            # Read the contents of the file while it's open and return them.
+            content = io.TextIOWrapper(file, encoding='utf-8').readlines()
+    return content
 
-            for axis in pcsRow.findall('axis'):
-                axis_data = {
-                    "title": axis.find('title').text,
-                    "labels": []
-                }
-                for label in axis.findall('label'):
-                    axis_data["labels"].append({
-                        "code": label.attrib['code'],
-                        "label": label.text
-                    })
-                row_data["axes"].append(axis_data)
-
-            table_data["rows"].append(row_data)
-
-        pcs_tables.append(table_data)
-
-    return pcs_tables
-
-def generate_codes_and_displays(pcs_tables):
-    for table in pcs_tables:
-        prefix_code = "".join([axis["label"]["code"] for axis in table["prefix"]])
-        table["prefix_code"] = prefix_code
-        #print(table)
-        display_table = [{"title": level["title"], "label": level["label"]["label"]} for level in table["prefix"]]
-        for row in table["rows"]:
-            cartesian_product = product(*[axis["labels"] for axis in row["axes"]])
-            row_codes = [table["prefix_code"] + "".join([item["code"] for item in combo]) for combo in cartesian_product]
-            row["codes"] = row_codes
-            row["displays"] = []
-            cartesian_product = product(*[axis["labels"] for axis in row["axes"]])
-            for combo in cartesian_product:
-                display = display_table + [{"title": axis["title"], "label": label["label"]} for axis, label in zip(row["axes"], combo)]
-                row["displays"].append(display)
-
-def concepts(pcs_tables):
-    for table in pcs_tables:
-        for row in table["rows"]:
-            for code, display in zip(row["codes"], row["displays"]):
-                concept = {
-                    "display": ", ".join([f"{d['title']}={d['label']}" for d in display]),
-                    "code": code
-                }
-                yield concept
 
 if __name__ == "__main__":
-    template = json.load(open("template.json"))
-    print(template["url"])
-    pcs_tables = parse_xml("icd10pcs_tables_2023.xml")
-    generate_codes_and_displays(pcs_tables)
-    template['concept'] = [x for x in concepts(pcs_tables)]
-    json.dump(template, open("CodeSystem-icd10PCS.json", "w"), indent=2)
+
+    zip_url = 'https://www.cms.gov/files/zip/2024-icd-10-pcs-order-file-long-and-abbreviated-titles-updated-12/19/2023.zip'
+    specific_file = 'icd10pcs_order_2024.txt'
+
+    # Download and extract the specific file
+    txt_file_stream = download_and_extract_zip(zip_url, specific_file=specific_file)
+    codes = parse_txt(txt_file_stream)
+    concepts = list(concepts_from_txt(codes))
+
+    template = json.load(open("CodeSystem-icd10PCS.json"))
+    concepts = list(concepts_from_txt(codes))
+    template['concept'] = concepts
+
+
+    # Save the modified template as a new JSON file
+    with open("CodeSystem-icd10PCS.json", "w") as file:
+        json.dump(template, file, indent=2)
