@@ -2,10 +2,11 @@
   "resourceType" : "ValueSet",
   "id" : "2.16.840.1.113762.1.4.1247.77",
   "meta" : {
-    "versionId" : "9",
-    "lastUpdated" : "2023-11-06T15:04:47.000-05:00",
+    "versionId" : "14",
+    "lastUpdated" : "2024-05-07T09:55:44.000-04:00",
     "profile" : [
       "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-valueset-cqfm",
       "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
     ]
   },
@@ -16,11 +17,11 @@
     },
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
-      "valueDate" : "2022-12-15"
+      "valueDate" : "2023-12-05"
     },
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
-      "valueDate" : "2023-11-06"
+      "valueDate" : "2023-12-05"
     }
   ],
   "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1247.77",
@@ -30,12 +31,11 @@
       "value" : "urn:oid:2.16.840.1.113762.1.4.1247.77"
     }
   ],
-  "version" : "20221028",
+  "version" : "20231205",
   "name" : "VeteranStatusDiagnosesICD10CM",
   "title" : "Veteran Status Diagnoses ICD10CM",
   "status" : "active",
-  "experimental" : false,
-  "date" : "2022-10-28T01:03:05-04:00",
+  "date" : "2023-12-05T01:09:25-05:00",
   "publisher" : "The Gravity Project Steward",
   "jurisdiction" : [
     {
@@ -47,7 +47,7 @@
       ]
     }
   ],
-  "purpose" : "(Clinical Focus: <insert metadata>\n\nThe terms in this value set represent the diagnoses associated with Veteran Status as identified by the Gravity Project),(Data Element Scope: Supports the exchange of data for the Gravity SDOH Clinical Care FHIR implementation guide as well as other uses of these SDOH terms.),(Inclusion Criteria: Includes ICD 10 CM diagnoses that have been identified through the Gravity Project community consensus voting process),(Exclusion Criteria: N/A)",
+  "purpose" : "(Clinical Focus: This set of values represent diagnoses for Veteran Status as selected by the Gravity Project.),(Data Element Scope: In the FHIR Condition resource, these values may be used for Condition.code (e.g., for the SDOHCC Condition profile in the Gravity SDOH Clinical Care FHIR Implementation Guide).),(Inclusion Criteria: Includes ICD 10 CM diagnoses for Veteran Status as selected by the Gravity Project.),(Exclusion Criteria: NA)",
   "compose" : {
     "include" : [
       {
@@ -60,15 +60,19 @@
           {
             "code" : "Z91.82",
             "display" : "Personal history of military deployment"
+          },
+          {
+            "code" : "Z91.85",
+            "display" : "Personal history of military service"
           }
         ]
       }
     ]
   },
   "expansion" : {
-    "identifier" : "urn:uuid:3f5b1243-710c-4b5c-abd8-261f9e852f38",
-    "timestamp" : "2023-11-26T19:15:33-05:00",
-    "total" : 2,
+    "identifier" : "urn:uuid:292cb239-0b1d-4828-bf51-b90afefc1c54",
+    "timestamp" : "2024-06-14T15:00:01-04:00",
+    "total" : 3,
     "contains" : [
       {
         "system" : "http://hl7.org/fhir/sid/icd-10-cm",
@@ -81,6 +85,12 @@
         "version" : "2024",
         "code" : "Z91.82",
         "display" : "Personal history of military deployment"
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2024",
+        "code" : "Z91.85",
+        "display" : "Personal history of military service"
       }
     ]
   }

@@ -2,10 +2,11 @@
   "resourceType" : "ValueSet",
   "id" : "2.16.840.1.113762.1.4.1095.47",
   "meta" : {
-    "versionId" : "8",
-    "lastUpdated" : "2022-03-01T01:02:29.000-05:00",
+    "versionId" : "16",
+    "lastUpdated" : "2024-01-17T01:08:53.000-05:00",
     "profile" : [
       "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-valueset-cqfm",
       "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
     ]
   },
@@ -16,11 +17,11 @@
     },
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
-      "valueDate" : "2022-12-15"
+      "valueDate" : "2024-01-17"
     },
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
-      "valueDate" : "2022-03-01"
+      "valueDate" : "2024-01-17"
     }
   ],
   "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1095.47",
@@ -30,12 +31,11 @@
       "value" : "urn:oid:2.16.840.1.113762.1.4.1095.47"
     }
   ],
-  "version" : "20220216",
-  "name" : "NutritionalStatusModeratelyMalnourished",
-  "title" : "Nutritional Status Moderately Malnourished",
+  "version" : "20240117",
+  "name" : "NutritionAssessmentStatusFindingOfModeratelyMalnourished",
+  "title" : "Nutrition Assessment Status Finding of Moderately Malnourished",
   "status" : "active",
-  "experimental" : false,
-  "date" : "2022-03-07T11:14:02-05:00",
+  "date" : "2024-01-17T01:08:53-05:00",
   "publisher" : "AND Steward",
   "jurisdiction" : [
     {
@@ -47,55 +47,97 @@
       ]
     }
   ],
-  "purpose" : "(Clinical Focus: Malnutrition assessment of a patient based upon clinically relevant criteria indicates that an individual is moderately malnourished.),(Data Element Scope: This set of values indicates that an individual is moderately malnourished.),(Inclusion Criteria: Terms related to Moderately Malnourished are included.),(Exclusion Criteria: Terms other than those representing Moderate Malnutrition are excluded.)",
+  "purpose" : "(Clinical Focus: Malnutrition assessment of a patient based upon clinically relevant criteria indicates that an individual is moderately malnourished.),(Data Element Scope: This set of values indicates that an individual is moderately malnourished.),(Inclusion Criteria: Terms related to moderately malnourished are included.),(Exclusion Criteria: Nutrition screening data and/or data indicating that an individual is not, mildly, or severely malnourished.)",
   "compose" : {
     "include" : [
       {
         "valueSet" : [
-          "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1095.46"
+          "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1095.44"
         ]
       },
       {
         "valueSet" : [
-          "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1095.44"
+          "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1095.98"
         ]
       }
     ]
   },
   "expansion" : {
-    "identifier" : "urn:uuid:51a2b5a4-1001-4cd3-8067-8fa6d8b14259",
-    "timestamp" : "2023-11-26T12:40:23-05:00",
-    "total" : 5,
+    "identifier" : "urn:uuid:b53f7ef8-49c5-4232-b128-6baf8ed890c1",
+    "timestamp" : "2024-06-14T11:02:31-04:00",
+    "total" : 12,
     "contains" : [
       {
         "system" : "http://snomed.info/sct",
-        "version" : "http://snomed.info/sct/731000124108/version/20230901",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
         "code" : "102636009",
         "display" : "Chronic nutritional deficiency (finding)"
       },
       {
         "system" : "http://snomed.info/sct",
-        "version" : "http://snomed.info/sct/731000124108/version/20230901",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
         "code" : "190606006",
         "display" : "Moderate protein energy malnutrition (disorder)"
       },
       {
         "system" : "http://snomed.info/sct",
-        "version" : "http://snomed.info/sct/731000124108/version/20230901",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "238107002",
+        "display" : "Deficiency of macronutrients (disorder)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "238111008",
+        "display" : "Deficiency of micronutrients (disorder)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "2492009",
+        "display" : "Nutritional disorder (disorder)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "285588004",
+        "display" : "Nutrition deficiency due to insufficient food (disorder)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "441961000124100",
+        "display" : "Acute disease or injury-related malnutrition (disorder)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "441971000124107",
+        "display" : "Chronic disease-related malnutrition (disorder)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
         "code" : "448765001",
         "display" : "Unintentional weight loss (finding)"
       },
       {
         "system" : "http://snomed.info/sct",
-        "version" : "http://snomed.info/sct/731000124108/version/20230901",
-        "code" : "698859001",
-        "display" : "Impaired nutrient utilization (finding)"
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "65404009",
+        "display" : "Undernutrition (disorder)"
       },
       {
-        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-        "version" : "2024",
-        "code" : "E44.0",
-        "display" : "Moderate protein-calorie malnutrition"
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "70241007",
+        "display" : "Nutritional deficiency disorder (disorder)"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
+        "code" : "LA33704-0",
+        "display" : "Moderately malnourished"
       }
     ]
   }

@@ -2,10 +2,11 @@
   "resourceType" : "ValueSet",
   "id" : "2.16.840.1.113762.1.4.1078.43",
   "meta" : {
-    "versionId" : "7",
-    "lastUpdated" : "2022-08-25T01:03:06.000-04:00",
+    "versionId" : "13",
+    "lastUpdated" : "2024-02-29T01:19:50.000-05:00",
     "profile" : [
       "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-valueset-cqfm",
       "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
     ]
   },
@@ -16,11 +17,11 @@
     },
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
-      "valueDate" : "2022-12-15"
+      "valueDate" : "2024-02-29"
     },
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
-      "valueDate" : "2022-08-25"
+      "valueDate" : "2024-02-29"
     }
   ],
   "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1078.43",
@@ -30,12 +31,11 @@
       "value" : "urn:oid:2.16.840.1.113762.1.4.1078.43"
     }
   ],
-  "version" : "20220825",
+  "version" : "20240229",
   "name" : "Urinalysis",
   "title" : "Urinalysis",
   "status" : "active",
-  "experimental" : false,
-  "date" : "2022-08-25T01:03:06-04:00",
+  "date" : "2024-02-29T01:19:50-05:00",
   "publisher" : "Optum Steward",
   "jurisdiction" : [
     {
@@ -47,16 +47,12 @@
       ]
     }
   ],
-  "purpose" : "(Clinical Focus: Representations of panels that assess urine protein. In some operations, these satisfy requirements for periodic diabetic nephropathy screening.),(Data Element Scope: Codes that may be in FHIR Observation resource),(Inclusion Criteria: Panels that include an assessment of urine protein),(Exclusion Criteria: Panels that do not include an assessment of urine protein.)",
+  "purpose" : "(Clinical Focus: Representations of results that assess urine protein. In some operations, these satisfy requirements for periodic diabetic nephropathy screening.),(Data Element Scope: Codes that may be in FHIR Observation resource),(Inclusion Criteria: Laboratory studies that include an assessment of urine protein),(Exclusion Criteria: LOINC codes for values other than results (e.g., LOINC codes for panels).)",
   "compose" : {
     "include" : [
       {
         "system" : "http://loinc.org",
         "concept" : [
-          {
-            "code" : "18729-4",
-            "display" : "Urinalysis studies (set)"
-          },
           {
             "code" : "20454-5",
             "display" : "Protein [Presence] in Urine by Test strip"
@@ -96,311 +92,75 @@
           {
             "code" : "58077-9",
             "display" : "Urinalysis complete W Reflex Culture panel - Urine"
-          },
-          {
-            "code" : "LP14149-6",
-            "display" : "Urinalysis macroscopic panel"
-          },
-          {
-            "code" : "LP14150-4",
-            "display" : "Urinalysis panel"
-          },
-          {
-            "code" : "LP14151-2",
-            "display" : "Urinalysis macro (dipstick) panel"
-          },
-          {
-            "code" : "LP32744-2",
-            "display" : "Urinalysis"
-          },
-          {
-            "code" : "LP402534-4",
-            "display" : "Protein | Urine | Urinalysis"
-          },
-          {
-            "code" : "LP402535-1",
-            "display" : "Protein/Creatinine | Urine | Urinalysis"
-          },
-          {
-            "code" : "LP402546-8",
-            "display" : "Urinalysis complete panel | Urine | Urinalysis Panels"
-          },
-          {
-            "code" : "LP402547-6",
-            "display" : "Urinalysis complete W Reflex Culture panel | Urine | Urinalysis Panels"
-          },
-          {
-            "code" : "LP402548-4",
-            "display" : "Urinalysis dipstick panel | Urine | Urinalysis Panels"
-          },
-          {
-            "code" : "LP402549-2",
-            "display" : "Urinalysis dipstick W Reflex Culture panel | Urine | Urinalysis Panels"
-          },
-          {
-            "code" : "LP402550-0",
-            "display" : "Urinalysis dipstick W Reflex Microscopic panel | Urine | Urinalysis Panels"
-          },
-          {
-            "code" : "LP402551-8",
-            "display" : "Urinalysis macro (dipstick) panel | Urine | Urinalysis Panels"
-          },
-          {
-            "code" : "LP402552-6",
-            "display" : "Urinalysis macroscopic panel | Urine | Urinalysis Panels"
-          },
-          {
-            "code" : "LP402553-4",
-            "display" : "Urinalysis microscopic panel | Urine | Urinalysis Panels"
-          },
-          {
-            "code" : "LP402556-7",
-            "display" : "Urinalysis panel | Urine | Urinalysis Panels"
-          },
-          {
-            "code" : "LP74376-2",
-            "display" : "Urinalysis studies"
-          },
-          {
-            "code" : "LP7838-8",
-            "display" : "PANEL.UA"
-          },
-          {
-            "code" : "LP7851-1",
-            "display" : "UA"
-          },
-          {
-            "code" : "LP96795-7",
-            "display" : "Urinalysis complete panel"
-          },
-          {
-            "code" : "LP96798-1",
-            "display" : "Urinalysis dipstick W Reflex Culture panel"
-          },
-          {
-            "code" : "LP96799-9",
-            "display" : "Urinalysis dipstick W Reflex Microscopic panel"
-          },
-          {
-            "code" : "LP98136-2",
-            "display" : "Urinalysis complete W Reflex Culture panel"
-          },
-          {
-            "code" : "LP99284-9",
-            "display" : "Urinalysis dipstick panel"
           }
         ]
       }
     ]
   },
   "expansion" : {
-    "identifier" : "urn:uuid:d40b0689-003a-438f-8c05-22c06238b457",
-    "timestamp" : "2023-11-26T12:27:05-05:00",
-    "total" : 34,
+    "identifier" : "urn:uuid:4258beb2-0253-46ea-9f4c-9e3e13fc961c",
+    "timestamp" : "2024-06-14T10:47:39-04:00",
+    "total" : 10,
     "contains" : [
       {
         "system" : "http://loinc.org",
-        "version" : "2.76",
-        "code" : "18729-4",
-        "display" : "Urinalysis studies (set)"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.76",
+        "version" : "2.77",
         "code" : "20454-5",
         "display" : "Protein [Presence] in Urine by Test strip"
       },
       {
         "system" : "http://loinc.org",
-        "version" : "2.76",
+        "version" : "2.77",
         "code" : "24356-8",
         "display" : "Urinalysis complete panel - Urine"
       },
       {
         "system" : "http://loinc.org",
-        "version" : "2.76",
+        "version" : "2.77",
         "code" : "24357-6",
         "display" : "Urinalysis macro (dipstick) panel - Urine"
       },
       {
         "system" : "http://loinc.org",
-        "version" : "2.76",
+        "version" : "2.77",
         "code" : "50556-0",
         "display" : "Urinalysis dipstick panel - Urine by Automated test strip"
       },
       {
         "system" : "http://loinc.org",
-        "version" : "2.76",
+        "version" : "2.77",
         "code" : "50561-0",
         "display" : "Protein [Mass/volume] in Urine by Automated test strip"
       },
       {
         "system" : "http://loinc.org",
-        "version" : "2.76",
+        "version" : "2.77",
         "code" : "50564-4",
         "display" : "Urinalysis panel - Urine by Auto"
       },
       {
         "system" : "http://loinc.org",
-        "version" : "2.76",
+        "version" : "2.77",
         "code" : "57019-2",
         "display" : "Urinalysis dipstick W Reflex Culture panel - Urine"
       },
       {
         "system" : "http://loinc.org",
-        "version" : "2.76",
+        "version" : "2.77",
         "code" : "57020-0",
         "display" : "Urinalysis dipstick W Reflex Microscopic panel - Urine"
       },
       {
         "system" : "http://loinc.org",
-        "version" : "2.76",
+        "version" : "2.77",
         "code" : "5804-0",
         "display" : "Protein [Mass/volume] in Urine by Test strip"
       },
       {
         "system" : "http://loinc.org",
-        "version" : "2.76",
+        "version" : "2.77",
         "code" : "58077-9",
         "display" : "Urinalysis complete W Reflex Culture panel - Urine"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.76",
-        "code" : "LP14149-6",
-        "display" : "Urinalysis macroscopic panel"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.76",
-        "code" : "LP14150-4",
-        "display" : "Urinalysis panel"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.76",
-        "code" : "LP14151-2",
-        "display" : "Urinalysis macro (dipstick) panel"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.76",
-        "code" : "LP32744-2",
-        "display" : "Urinalysis"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.76",
-        "code" : "LP402534-4",
-        "display" : "Protein | Urine | Urinalysis"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.76",
-        "code" : "LP402535-1",
-        "display" : "Protein/Creatinine | Urine | Urinalysis"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.76",
-        "code" : "LP402546-8",
-        "display" : "Urinalysis complete panel | Urine | Urinalysis Panels"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.76",
-        "code" : "LP402547-6",
-        "display" : "Urinalysis complete W Reflex Culture panel | Urine | Urinalysis Panels"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.76",
-        "code" : "LP402548-4",
-        "display" : "Urinalysis dipstick panel | Urine | Urinalysis Panels"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.76",
-        "code" : "LP402549-2",
-        "display" : "Urinalysis dipstick W Reflex Culture panel | Urine | Urinalysis Panels"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.76",
-        "code" : "LP402550-0",
-        "display" : "Urinalysis dipstick W Reflex Microscopic panel | Urine | Urinalysis Panels"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.76",
-        "code" : "LP402551-8",
-        "display" : "Urinalysis macro (dipstick) panel | Urine | Urinalysis Panels"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.76",
-        "code" : "LP402552-6",
-        "display" : "Urinalysis macroscopic panel | Urine | Urinalysis Panels"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.76",
-        "code" : "LP402553-4",
-        "display" : "Urinalysis microscopic panel | Urine | Urinalysis Panels"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.76",
-        "code" : "LP402556-7",
-        "display" : "Urinalysis panel | Urine | Urinalysis Panels"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.76",
-        "code" : "LP74376-2",
-        "display" : "Urinalysis studies"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.76",
-        "code" : "LP7838-8",
-        "display" : "PANEL.UA"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.76",
-        "code" : "LP7851-1",
-        "display" : "UA"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.76",
-        "code" : "LP96795-7",
-        "display" : "Urinalysis complete panel"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.76",
-        "code" : "LP96798-1",
-        "display" : "Urinalysis dipstick W Reflex Culture panel"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.76",
-        "code" : "LP96799-9",
-        "display" : "Urinalysis dipstick W Reflex Microscopic panel"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.76",
-        "code" : "LP98136-2",
-        "display" : "Urinalysis complete W Reflex Culture panel"
-      },
-      {
-        "system" : "http://loinc.org",
-        "version" : "2.76",
-        "code" : "LP99284-9",
-        "display" : "Urinalysis dipstick panel"
       }
     ]
   }

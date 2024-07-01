@@ -2,10 +2,11 @@
   "resourceType" : "ValueSet",
   "id" : "2.16.840.1.113762.1.4.1247.51",
   "meta" : {
-    "versionId" : "12",
-    "lastUpdated" : "2022-05-13T01:02:40.000-04:00",
+    "versionId" : "32",
+    "lastUpdated" : "2024-06-05T15:22:34.000-04:00",
     "profile" : [
       "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-valueset-cqfm",
       "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
     ]
   },
@@ -16,11 +17,11 @@
     },
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
-      "valueDate" : "2022-12-15"
+      "valueDate" : "2024-06-04"
     },
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
-      "valueDate" : "2022-05-13"
+      "valueDate" : "2024-06-04"
     }
   ],
   "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1247.51",
@@ -30,12 +31,11 @@
       "value" : "urn:oid:2.16.840.1.113762.1.4.1247.51"
     }
   ],
-  "version" : "20220513",
+  "version" : "20240604",
   "name" : "InadequateHousingInterventionsSNOMEDCT",
   "title" : "Inadequate Housing Interventions SNOMED CT",
   "status" : "active",
-  "experimental" : false,
-  "date" : "2022-05-13T01:02:41-04:00",
+  "date" : "2024-06-04T01:21:19-04:00",
   "publisher" : "The Gravity Project Steward",
   "jurisdiction" : [
     {
@@ -47,7 +47,7 @@
       ]
     }
   ],
-  "purpose" : "(Clinical Focus: <insert metadata>\n\nThe terms in this value set represent the interventions associated with Inadequate Housing as identified by the Gravity Project),(Data Element Scope: Supports the exchange of data for the Gravity SDOH Clinical Care FHIR Implementation Guide as well as other uses of this SDOH terms),(Inclusion Criteria: Includes SNOMED CT interventions that have been identified through the Gravity Project community consensus voting process),(Exclusion Criteria: Excludes Social Determinants of Health General Interventions used in multiple domains)",
+  "purpose" : "(Clinical Focus: This set of values represent interventions for Inadequate Housing as selected by the Gravity Project.),(Data Element Scope: In the FHIR Procedure and ServiceRequest resources, these values may be used for Procedure.code and ServiceRequest.code (e.g., for the SDOHCC Procedure and ServiceRequest profiles in the Gravity SDOH Clinical Care FHIR Implementation Guide).),(Inclusion Criteria: Includes SNOMED CT interventions for Inadequate Housing as selected by the Gravity Project.),(Exclusion Criteria: Excludes codes included in the \"Cross-Domains Interventions SNOMED CT\" Value Set.)",
   "compose" : {
     "include" : [
       {
@@ -64,6 +64,10 @@
           {
             "code" : "1148823006",
             "display" : "Assessment of progress toward goals to achieve adequate housing (procedure)"
+          },
+          {
+            "code" : "1268686005",
+            "display" : "Coordination of resources to address inadequate housing (procedure)"
           },
           {
             "code" : "470431000124106",
@@ -140,147 +144,193 @@
           {
             "code" : "551081000124104",
             "display" : "Assistance with application for housing repair program (procedure)"
+          },
+          {
+            "code" : "761231000124100",
+            "display" : "Assistance with application for residential abatement program (procedure)"
+          },
+          {
+            "code" : "761321000124105",
+            "display" : "Education about residential abatement program (procedure)"
+          },
+          {
+            "code" : "761381000124109",
+            "display" : "Evaluation of eligibility for residential abatement program (procedure)"
+          },
+          {
+            "code" : "761531000124102",
+            "display" : "Referral to residential abatement program (procedure)"
           }
         ]
       }
     ]
   },
   "expansion" : {
-    "identifier" : "urn:uuid:0d2d98fd-ba90-4d40-8281-c91f1388384f",
-    "timestamp" : "2023-11-26T19:14:57-05:00",
-    "total" : 22,
+    "identifier" : "urn:uuid:759d34bb-9351-439c-a8d1-35dfbd5445a4",
+    "timestamp" : "2024-06-14T14:59:18-04:00",
+    "total" : 27,
     "contains" : [
       {
         "system" : "http://snomed.info/sct",
-        "version" : "http://snomed.info/sct/731000124108/version/20230901",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
         "code" : "1148813002",
         "display" : "Assessment of barriers in inadequate housing care plan (procedure)"
       },
       {
         "system" : "http://snomed.info/sct",
-        "version" : "http://snomed.info/sct/731000124108/version/20230901",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
         "code" : "1148815009",
         "display" : "Assessment of goals to achieve adequate housing (procedure)"
       },
       {
         "system" : "http://snomed.info/sct",
-        "version" : "http://snomed.info/sct/731000124108/version/20230901",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
         "code" : "1148823006",
         "display" : "Assessment of progress toward goals to achieve adequate housing (procedure)"
       },
       {
         "system" : "http://snomed.info/sct",
-        "version" : "http://snomed.info/sct/731000124108/version/20230901",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "1268686005",
+        "display" : "Coordination of resources to address inadequate housing (procedure)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
         "code" : "470431000124106",
         "display" : "Referral to weatherization assistance program (procedure)"
       },
       {
         "system" : "http://snomed.info/sct",
-        "version" : "http://snomed.info/sct/731000124108/version/20230901",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
         "code" : "470441000124101",
         "display" : "Evaluation of eligibility for weatherization assistance program (procedure)"
       },
       {
         "system" : "http://snomed.info/sct",
-        "version" : "http://snomed.info/sct/731000124108/version/20230901",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
         "code" : "470451000124104",
         "display" : "Education about weatherization assistance program (procedure)"
       },
       {
         "system" : "http://snomed.info/sct",
-        "version" : "http://snomed.info/sct/731000124108/version/20230901",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
         "code" : "470461000124102",
         "display" : "Assistance with application for weatherization assistance program (procedure)"
       },
       {
         "system" : "http://snomed.info/sct",
-        "version" : "http://snomed.info/sct/731000124108/version/20230901",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
         "code" : "472201000124100",
         "display" : "Counseling for readiness to achieve adequate housing goals (procedure)"
       },
       {
         "system" : "http://snomed.info/sct",
-        "version" : "http://snomed.info/sct/731000124108/version/20230901",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
         "code" : "472211000124102",
         "display" : "Counseling for readiness to implement inadequate housing care plan (procedure)"
       },
       {
         "system" : "http://snomed.info/sct",
-        "version" : "http://snomed.info/sct/731000124108/version/20230901",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
         "code" : "472231000124108",
         "display" : "Counseling for barriers to achieve adequate housing (procedure)"
       },
       {
         "system" : "http://snomed.info/sct",
-        "version" : "http://snomed.info/sct/731000124108/version/20230901",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
         "code" : "472251000124101",
         "display" : "Counseling for inadequate housing care plan participation barriers (procedure)"
       },
       {
         "system" : "http://snomed.info/sct",
-        "version" : "http://snomed.info/sct/731000124108/version/20230901",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
         "code" : "472371000124102",
         "display" : "Provision of voucher for repair of place of residence (procedure)"
       },
       {
         "system" : "http://snomed.info/sct",
-        "version" : "http://snomed.info/sct/731000124108/version/20230901",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
         "code" : "480881000124103",
         "display" : "Referral to environmental hazard testing of residence program (procedure)"
       },
       {
         "system" : "http://snomed.info/sct",
-        "version" : "http://snomed.info/sct/731000124108/version/20230901",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
         "code" : "480891000124100",
         "display" : "Evaluation of eligibility for environmental hazard testing of residence program (procedure)"
       },
       {
         "system" : "http://snomed.info/sct",
-        "version" : "http://snomed.info/sct/731000124108/version/20230901",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
         "code" : "480911000124103",
         "display" : "Education about environmental hazard testing of residence program (procedure)"
       },
       {
         "system" : "http://snomed.info/sct",
-        "version" : "http://snomed.info/sct/731000124108/version/20230901",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
         "code" : "480951000124102",
         "display" : "Assistance with application for environmental hazard testing of residence program (procedure)"
       },
       {
         "system" : "http://snomed.info/sct",
-        "version" : "http://snomed.info/sct/731000124108/version/20230901",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
         "code" : "49919000",
         "display" : "Home safety education (procedure)"
       },
       {
         "system" : "http://snomed.info/sct",
-        "version" : "http://snomed.info/sct/731000124108/version/20230901",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
         "code" : "551041000124105",
         "display" : "Referral to housing repair program (procedure)"
       },
       {
         "system" : "http://snomed.info/sct",
-        "version" : "http://snomed.info/sct/731000124108/version/20230901",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
         "code" : "551051000124107",
         "display" : "Referral for housing repair assessment program (procedure)"
       },
       {
         "system" : "http://snomed.info/sct",
-        "version" : "http://snomed.info/sct/731000124108/version/20230901",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
         "code" : "551061000124109",
         "display" : "Evaluation of eligibility for housing repair program (procedure)"
       },
       {
         "system" : "http://snomed.info/sct",
-        "version" : "http://snomed.info/sct/731000124108/version/20230901",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
         "code" : "551071000124102",
         "display" : "Education about housing repair program (procedure)"
       },
       {
         "system" : "http://snomed.info/sct",
-        "version" : "http://snomed.info/sct/731000124108/version/20230901",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
         "code" : "551081000124104",
         "display" : "Assistance with application for housing repair program (procedure)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "761231000124100",
+        "display" : "Assistance with application for residential abatement program (procedure)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "761321000124105",
+        "display" : "Education about residential abatement program (procedure)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "761381000124109",
+        "display" : "Evaluation of eligibility for residential abatement program (procedure)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "761531000124102",
+        "display" : "Referral to residential abatement program (procedure)"
       }
     ]
   }

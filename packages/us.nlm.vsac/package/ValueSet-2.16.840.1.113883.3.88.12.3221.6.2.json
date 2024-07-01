@@ -2,29 +2,26 @@
   "resourceType" : "ValueSet",
   "id" : "2.16.840.1.113883.3.88.12.3221.6.2",
   "meta" : {
-    "versionId" : "20",
-    "lastUpdated" : "2023-11-04T01:04:04.000-04:00",
+    "versionId" : "33",
+    "lastUpdated" : "2024-06-06T01:23:01.000-04:00",
     "profile" : [
       "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-valueset-cqfm",
       "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
     ]
   },
   "extension" : [
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
-      "valueString" : "HL7 Structured Documents WG"
-    },
-    {
-      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-keyWord",
-      "valueString" : "C-CDA,CCDAr1_1,CCDAr21"
+      "valueString" : "HL7 US Realm Program Management Author"
     },
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
-      "valueDate" : "2023-11-04"
+      "valueDate" : "2024-06-06"
     },
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
-      "valueDate" : "2023-11-04"
+      "valueDate" : "2024-06-06"
     }
   ],
   "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.88.12.3221.6.2",
@@ -34,13 +31,12 @@
       "value" : "urn:oid:2.16.840.1.113883.3.88.12.3221.6.2"
     }
   ],
-  "version" : "20231104",
+  "version" : "20240606",
   "name" : "AllergyAndIntoleranceType",
   "title" : "Allergy and Intolerance Type",
   "status" : "active",
-  "date" : "2023-11-04T01:04:04-04:00",
-  "publisher" : "HL7 Terminology",
-  "description" : "Scope statement added and value set renamed to match C-CDA IG",
+  "date" : "2024-06-06T01:23:01-04:00",
+  "publisher" : "HL7 US Realm Program Management Steward",
   "jurisdiction" : [
     {
       "coding" : [
@@ -51,12 +47,16 @@
       ]
     }
   ],
-  "purpose" : "(Clinical Focus: The class of substance and intolerance suffered by the patient),(Data Element Scope: Describes any medication allergies, adverse reactions, idiosyncratic reactions, anaphylaxis/anaphylactoid reactions to food items, and metabolic variations or adverse reactions/allergies to other substances (such as latex, iodine, tape adhesives)),(Inclusion Criteria: ),(Exclusion Criteria: Codes with 'propensity to' in their description)",
+  "purpose" : "(Clinical Focus: The category of allergy or intolerance suffered by the patient),(Data Element Scope: Categorizes allergies, intolerances and propensities to general types, drug, food, environmental, seasonal and biologic.),(Inclusion Criteria: Selected high level concepts from SNOMED CT's hypersensitvity condition, allergic condition, and propensity to adverse reaction hierarchies.\nFor backwards compatability this 2024 update includes 2 inactive SNOMED CT codes: 419199007\tAllergy to substance (finding)\n418038007\tPropensity to adverse reactions to substance (finding)\nIn addition, the suggested remap code 609328004\tAllergic disposition (finding) for 418038007 was added, the suggested remap for 419199007, 420134006 is already in the value set),(Exclusion Criteria: Concepts/codes higher or lower in the hierarchies.)",
   "compose" : {
     "include" : [
       {
         "system" : "http://snomed.info/sct",
         "concept" : [
+          {
+            "code" : "12481000132103",
+            "display" : "History of biological substance allergy (situation)"
+          },
           {
             "code" : "235719002",
             "display" : "Intolerance to food (finding)"
@@ -90,59 +90,95 @@
             "display" : "Propensity to adverse reaction (finding)"
           },
           {
+            "code" : "426232007",
+            "display" : "Environmental allergy (finding)"
+          },
+          {
+            "code" : "444316004",
+            "display" : "Seasonal allergy (finding)"
+          },
+          {
             "code" : "59037007",
             "display" : "Intolerance to drug (finding)"
+          },
+          {
+            "code" : "609328004",
+            "display" : "Allergic disposition (finding)"
           }
         ]
       }
     ]
   },
   "expansion" : {
-    "identifier" : "urn:uuid:29885e1f-afc8-4bbb-af81-a3445a3d3bae",
-    "timestamp" : "2023-11-26T21:55:11-05:00",
-    "total" : 7,
+    "identifier" : "urn:uuid:c7bece7d-b3b6-4186-8ba1-84a6194843a3",
+    "timestamp" : "2024-06-14T18:12:00-04:00",
+    "total" : 11,
     "contains" : [
       {
         "system" : "http://snomed.info/sct",
-        "version" : "http://snomed.info/sct/731000124108/version/20230901",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "12481000132103",
+        "display" : "History of biological substance allergy (situation)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
         "code" : "235719002",
         "display" : "Intolerance to food (finding)"
       },
       {
         "system" : "http://snomed.info/sct",
-        "version" : "http://snomed.info/sct/731000124108/version/20230901",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
         "code" : "414285001",
         "display" : "Allergy to food (finding)"
       },
       {
         "system" : "http://snomed.info/sct",
-        "version" : "http://snomed.info/sct/731000124108/version/20230901",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
         "code" : "416098002",
         "display" : "Allergy to drug (finding)"
       },
       {
         "system" : "http://snomed.info/sct",
-        "version" : "http://snomed.info/sct/731000124108/version/20230901",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
         "code" : "418471000",
         "display" : "Propensity to adverse reactions to food (finding)"
       },
       {
         "system" : "http://snomed.info/sct",
-        "version" : "http://snomed.info/sct/731000124108/version/20230901",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
         "code" : "419511003",
         "display" : "Propensity to adverse reactions to drug (finding)"
       },
       {
         "system" : "http://snomed.info/sct",
-        "version" : "http://snomed.info/sct/731000124108/version/20230901",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
         "code" : "420134006",
         "display" : "Propensity to adverse reaction (finding)"
       },
       {
         "system" : "http://snomed.info/sct",
-        "version" : "http://snomed.info/sct/731000124108/version/20230901",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "426232007",
+        "display" : "Environmental allergy (finding)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "444316004",
+        "display" : "Seasonal allergy (finding)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
         "code" : "59037007",
         "display" : "Intolerance to drug (finding)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "609328004",
+        "display" : "Allergic disposition (finding)"
       }
     ]
   }

@@ -2,25 +2,26 @@
   "resourceType" : "ValueSet",
   "id" : "2.16.840.1.113762.1.4.1099.53",
   "meta" : {
-    "versionId" : "19",
-    "lastUpdated" : "2023-05-30T12:37:12.000-04:00",
+    "versionId" : "30",
+    "lastUpdated" : "2024-04-25T13:25:07.000-04:00",
     "profile" : [
       "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-valueset-cqfm",
       "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
     ]
   },
   "extension" : [
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
-      "valueString" : "HL7 Structured Documents WG"
+      "valueString" : "HL7 US Realm Program Management Author"
     },
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
-      "valueDate" : "2023-05-16"
+      "valueDate" : "2024-06-05"
     },
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
-      "valueDate" : "2023-05-30"
+      "valueDate" : "2024-02-17"
     }
   ],
   "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1099.53",
@@ -30,12 +31,13 @@
       "value" : "urn:oid:2.16.840.1.113762.1.4.1099.53"
     }
   ],
-  "version" : "20230516",
+  "version" : "20240217",
   "name" : "Sex",
   "title" : "Sex",
   "status" : "active",
-  "date" : "2023-05-16T01:00:59-04:00",
-  "publisher" : "HL7 C-CDA",
+  "date" : "2024-02-17T01:10:27-05:00",
+  "publisher" : "HL7 US Realm Program Management Steward",
+  "description" : "This value set was developed explicity to represent the USCDI \"Sex: data element.",
   "jurisdiction" : [
     {
       "coding" : [
@@ -46,7 +48,7 @@
       ]
     }
   ],
-  "purpose" : "(Clinical Focus: This set of values includes the terms Male, Female, Patient Sex Unknown, for documentation of a person’s sex.),(Data Element Scope: Terms commonly used for documentation of sex),(Inclusion Criteria: Basic sex terms commonly collected including coverage of Unknown.),(Exclusion Criteria: Biology of sex, genetics sex, and other more explicit sex terms needed for clinical care.)",
+  "purpose" : "(Clinical Focus: This set of values includes the terms Male, Female, Patient Sex Unknown, for documentation of a person’s sex.),(Data Element Scope: This set of values contains codes for the terms Male, Female, Patient Sex Unknown, and Identifies as Binary.\nNote that this term has a SNOMED CT synonym of \"Fluctuating between male and female, or identifying as either having a gender that is in-between or beyond the two categories or as having no gender, either permanently or some of the time.\" which aligns with the concept of \"X\" that is an allowable term on passports and many states birth certificates.),(Inclusion Criteria: Basic sex terms commonly collected including coverage of Unknown.),(Exclusion Criteria: Biology of sex, genetics sex, and other more explicit sex terms needed for clinical care.)",
   "compose" : {
     "include" : [
       {
@@ -63,33 +65,43 @@
           {
             "code" : "248153007",
             "display" : "Male (finding)"
+          },
+          {
+            "code" : "33791000087105",
+            "display" : "Identifies as nonbinary gender (finding)"
           }
         ]
       }
     ]
   },
   "expansion" : {
-    "identifier" : "urn:uuid:d44d5931-e575-4dd4-aac7-87e8e23dc3ca",
-    "timestamp" : "2023-11-26T12:48:07-05:00",
-    "total" : 3,
+    "identifier" : "urn:uuid:09c3c26f-5691-4160-b89e-81d2c0dc46b8",
+    "timestamp" : "2024-06-14T11:08:59-04:00",
+    "total" : 4,
     "contains" : [
       {
         "system" : "http://snomed.info/sct",
-        "version" : "http://snomed.info/sct/731000124108/version/20230901",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
         "code" : "184115007",
         "display" : "Patient sex unknown (finding)"
       },
       {
         "system" : "http://snomed.info/sct",
-        "version" : "http://snomed.info/sct/731000124108/version/20230901",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
         "code" : "248152002",
         "display" : "Female (finding)"
       },
       {
         "system" : "http://snomed.info/sct",
-        "version" : "http://snomed.info/sct/731000124108/version/20230901",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
         "code" : "248153007",
         "display" : "Male (finding)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "33791000087105",
+        "display" : "Identifies as nonbinary gender (finding)"
       }
     ]
   }

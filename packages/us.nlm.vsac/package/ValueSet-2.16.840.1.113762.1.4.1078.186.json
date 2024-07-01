@@ -2,10 +2,11 @@
   "resourceType" : "ValueSet",
   "id" : "2.16.840.1.113762.1.4.1078.186",
   "meta" : {
-    "versionId" : "7",
-    "lastUpdated" : "2023-03-22T21:50:43.000-04:00",
+    "versionId" : "17",
+    "lastUpdated" : "2023-12-21T17:43:03.000-05:00",
     "profile" : [
       "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-valueset-cqfm",
       "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
     ]
   },
@@ -16,11 +17,11 @@
     },
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
-      "valueDate" : "2023-03-21"
+      "valueDate" : "2023-12-07"
     },
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
-      "valueDate" : "2023-03-22"
+      "valueDate" : "2023-12-07"
     }
   ],
   "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1078.186",
@@ -30,11 +31,11 @@
       "value" : "urn:oid:2.16.840.1.113762.1.4.1078.186"
     }
   ],
-  "version" : "20230321",
+  "version" : "20231207",
   "name" : "BetaBlockersGDMTForHeartFailure",
   "title" : "Beta blockers GDMT for heart failure",
   "status" : "active",
-  "date" : "2023-03-21T01:03:39-04:00",
+  "date" : "2023-12-07T01:08:16-05:00",
   "publisher" : "Optum Steward",
   "jurisdiction" : [
     {
@@ -46,12 +47,20 @@
       ]
     }
   ],
-  "purpose" : "(Clinical Focus: RxCUIs representing the three beta blockers that are guideline-concordant for heart failure),(Data Element Scope: DRUG_CLASS_MEMBERS: PHARMACOLOGIC:),(Inclusion Criteria: Single ingredient forms of bisoprolol, carvedilol, and metoprolol succinate),(Exclusion Criteria: Multiple ingredient forms. Forms of metoprolol that aren't specific to metoprolol succinate (extended release).)",
+  "purpose" : "(Clinical Focus: RxCUIs representing the three beta blockers that are guideline-concordant for heart failure),(Data Element Scope: DRUG_CLASS_MEMBERS: PHARMACOLOGIC:),(Inclusion Criteria: Medications including bisoprolol, carvedilol, and metoprolol succinate as an ingredient, including multi-ingredient forms.),(Exclusion Criteria: Forms of metoprolol that aren't specific to metoprolol succinate (extended release).)",
   "compose" : {
     "include" : [
       {
         "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
         "concept" : [
+          {
+            "code" : "1154704",
+            "display" : "bisoprolol / hydrochlorothiazide Oral Product"
+          },
+          {
+            "code" : "1154705",
+            "display" : "bisoprolol / hydrochlorothiazide Pill"
+          },
           {
             "code" : "1154706",
             "display" : "bisoprolol Oral Product"
@@ -69,12 +78,28 @@
             "display" : "carvedilol Pill"
           },
           {
+            "code" : "1162132",
+            "display" : "hydrochlorothiazide / metoprolol Oral Product"
+          },
+          {
+            "code" : "1162133",
+            "display" : "hydrochlorothiazide / metoprolol Pill"
+          },
+          {
             "code" : "1169532",
             "display" : "Coreg Oral Product"
           },
           {
             "code" : "1169533",
             "display" : "Coreg Pill"
+          },
+          {
+            "code" : "1169653",
+            "display" : "Dutoprol Oral Product"
+          },
+          {
+            "code" : "1169654",
+            "display" : "Dutoprol Pill"
           },
           {
             "code" : "1178006",
@@ -85,8 +110,20 @@
             "display" : "Toprol Pill"
           },
           {
+            "code" : "1187449",
+            "display" : "Ziac Pill"
+          },
+          {
+            "code" : "1187450",
+            "display" : "Ziac Oral Product"
+          },
+          {
             "code" : "1370474",
             "display" : "metoprolol succinate 50 MG"
+          },
+          {
+            "code" : "1370476",
+            "display" : "hydrochlorothiazide 12.5 MG / metoprolol succinate 50 MG [Dutoprol]"
           },
           {
             "code" : "1370483",
@@ -99,6 +136,14 @@
           {
             "code" : "1370489",
             "display" : "metoprolol succinate 25 MG"
+          },
+          {
+            "code" : "1370491",
+            "display" : "hydrochlorothiazide 12.5 MG / metoprolol succinate 25 MG [Dutoprol]"
+          },
+          {
+            "code" : "1370496",
+            "display" : "hydrochlorothiazide 12.5 MG / metoprolol succinate 100 MG [Dutoprol]"
           },
           {
             "code" : "1370500",
@@ -115,6 +160,10 @@
           {
             "code" : "1370512",
             "display" : "metoprolol succinate 50 MG [Toprol]"
+          },
+          {
+            "code" : "1372709",
+            "display" : "Dutoprol"
           },
           {
             "code" : "142146",
@@ -221,12 +270,48 @@
             "display" : "carvedilol 25 MG Oral Tablet [Coreg]"
           },
           {
+            "code" : "214317",
+            "display" : "bisoprolol / hydrochlorothiazide"
+          },
+          {
             "code" : "216221",
             "display" : "Coreg"
           },
           {
             "code" : "221124",
             "display" : "metoprolol succinate"
+          },
+          {
+            "code" : "2648592",
+            "display" : "hydrochlorothiazide / metoprolol succinate Extended Release Oral Tablet"
+          },
+          {
+            "code" : "2648608",
+            "display" : "bisoprolol fumarate / hydrochlorothiazide Oral Tablet"
+          },
+          {
+            "code" : "2655514",
+            "display" : "hydrochlorothiazide / metoprolol succinate Extended Release Oral Tablet [Dutoprol]"
+          },
+          {
+            "code" : "2656127",
+            "display" : "bisoprolol fumarate / hydrochlorothiazide Oral Tablet [Ziac]"
+          },
+          {
+            "code" : "2661091",
+            "display" : "hydrochlorothiazide / metoprolol succinate Pill"
+          },
+          {
+            "code" : "2661196",
+            "display" : "hydrochlorothiazide / metoprolol succinate Oral Product"
+          },
+          {
+            "code" : "2662778",
+            "display" : "bisoprolol fumarate / hydrochlorothiazide Oral Product"
+          },
+          {
+            "code" : "2662823",
+            "display" : "bisoprolol fumarate / hydrochlorothiazide Pill"
           },
           {
             "code" : "315575",
@@ -245,12 +330,20 @@
             "display" : "carvedilol Oral Tablet [Coreg]"
           },
           {
+            "code" : "371103",
+            "display" : "bisoprolol / hydrochlorothiazide Oral Tablet"
+          },
+          {
             "code" : "371104",
             "display" : "bisoprolol Oral Tablet"
           },
           {
             "code" : "371296",
             "display" : "carvedilol Oral Tablet"
+          },
+          {
+            "code" : "372890",
+            "display" : "hydrochlorothiazide / metoprolol Extended Release Oral Tablet"
           },
           {
             "code" : "378660",
@@ -297,6 +390,14 @@
             "display" : "carvedilol 3.125 MG Oral Tablet [Coreg]"
           },
           {
+            "code" : "745976",
+            "display" : "bisoprolol / hydrochlorothiazide Oral Tablet [Ziac]"
+          },
+          {
+            "code" : "75038",
+            "display" : "Ziac"
+          },
+          {
             "code" : "854900",
             "display" : "bisoprolol fumarate 10 MG"
           },
@@ -313,8 +414,44 @@
             "display" : "bisoprolol fumarate 5 MG Oral Tablet"
           },
           {
+            "code" : "854908",
+            "display" : "bisoprolol fumarate 10 MG / hydrochlorothiazide 6.25 MG Oral Tablet"
+          },
+          {
+            "code" : "854909",
+            "display" : "bisoprolol fumarate 10 MG / hydrochlorothiazide 6.25 MG [Ziac]"
+          },
+          {
+            "code" : "854910",
+            "display" : "bisoprolol fumarate 10 MG / hydrochlorothiazide 6.25 MG Oral Tablet [Ziac]"
+          },
+          {
             "code" : "854915",
             "display" : "bisoprolol fumarate 2.5 MG"
+          },
+          {
+            "code" : "854916",
+            "display" : "bisoprolol fumarate 2.5 MG / hydrochlorothiazide 6.25 MG Oral Tablet"
+          },
+          {
+            "code" : "854917",
+            "display" : "bisoprolol fumarate 2.5 MG / hydrochlorothiazide 6.25 MG [Ziac]"
+          },
+          {
+            "code" : "854918",
+            "display" : "bisoprolol fumarate 2.5 MG / hydrochlorothiazide 6.25 MG Oral Tablet [Ziac]"
+          },
+          {
+            "code" : "854919",
+            "display" : "bisoprolol fumarate 5 MG / hydrochlorothiazide 6.25 MG Oral Tablet"
+          },
+          {
+            "code" : "854920",
+            "display" : "bisoprolol fumarate 5 MG / hydrochlorothiazide 6.25 MG [Ziac]"
+          },
+          {
+            "code" : "854921",
+            "display" : "bisoprolol fumarate 5 MG / hydrochlorothiazide 6.25 MG Oral Tablet [Ziac]"
           },
           {
             "code" : "860509",
@@ -419,567 +556,841 @@
           {
             "code" : "866438",
             "display" : "24 HR metoprolol succinate 50 MG Extended Release Oral Tablet [Toprol]"
+          },
+          {
+            "code" : "866452",
+            "display" : "24 HR hydrochlorothiazide 12.5 MG / metoprolol succinate 100 MG Extended Release Oral Tablet"
+          },
+          {
+            "code" : "866455",
+            "display" : "24 HR hydrochlorothiazide 12.5 MG / metoprolol succinate 100 MG Extended Release Oral Tablet [Dutoprol]"
+          },
+          {
+            "code" : "866461",
+            "display" : "24 HR hydrochlorothiazide 12.5 MG / metoprolol succinate 25 MG Extended Release Oral Tablet"
+          },
+          {
+            "code" : "866463",
+            "display" : "hydrochlorothiazide / metoprolol Extended Release Oral Tablet [Dutoprol]"
+          },
+          {
+            "code" : "866464",
+            "display" : "24 HR hydrochlorothiazide 12.5 MG / metoprolol succinate 25 MG Extended Release Oral Tablet [Dutoprol]"
+          },
+          {
+            "code" : "866472",
+            "display" : "24 HR hydrochlorothiazide 12.5 MG / metoprolol succinate 50 MG Extended Release Oral Tablet"
+          },
+          {
+            "code" : "866475",
+            "display" : "24 HR hydrochlorothiazide 12.5 MG / metoprolol succinate 50 MG Extended Release Oral Tablet [Dutoprol]"
           }
         ]
       }
     ]
   },
   "expansion" : {
-    "identifier" : "urn:uuid:fa2ed832-6271-4889-bb34-28e295a2d1a1",
-    "timestamp" : "2023-11-24T16:35:04-05:00",
-    "total" : 92,
+    "identifier" : "urn:uuid:3fc6bd0e-6b37-4cdf-aeaa-bc177e8da674",
+    "timestamp" : "2024-06-14T10:37:42-04:00",
+    "total" : 133,
     "contains" : [
       {
         "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-        "version" : "11062023",
+        "version" : "05062024",
+        "code" : "1154704",
+        "display" : "bisoprolol / hydrochlorothiazide Oral Product"
+      },
+      {
+        "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "version" : "05062024",
+        "code" : "1154705",
+        "display" : "bisoprolol / hydrochlorothiazide Pill"
+      },
+      {
+        "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "version" : "05062024",
         "code" : "1154706",
         "display" : "bisoprolol Oral Product"
       },
       {
         "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-        "version" : "11062023",
+        "version" : "05062024",
         "code" : "1154707",
         "display" : "bisoprolol Pill"
       },
       {
         "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-        "version" : "11062023",
+        "version" : "05062024",
         "code" : "1160589",
         "display" : "carvedilol Oral Product"
       },
       {
         "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-        "version" : "11062023",
+        "version" : "05062024",
         "code" : "1160590",
         "display" : "carvedilol Pill"
       },
       {
         "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-        "version" : "11062023",
+        "version" : "05062024",
+        "code" : "1162132",
+        "display" : "hydrochlorothiazide / metoprolol Oral Product"
+      },
+      {
+        "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "version" : "05062024",
+        "code" : "1162133",
+        "display" : "hydrochlorothiazide / metoprolol Pill"
+      },
+      {
+        "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "version" : "05062024",
         "code" : "1169532",
         "display" : "Coreg Oral Product"
       },
       {
         "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-        "version" : "11062023",
+        "version" : "05062024",
         "code" : "1169533",
         "display" : "Coreg Pill"
       },
       {
         "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-        "version" : "11062023",
+        "version" : "05062024",
+        "code" : "1169653",
+        "display" : "Dutoprol Oral Product"
+      },
+      {
+        "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "version" : "05062024",
+        "code" : "1169654",
+        "display" : "Dutoprol Pill"
+      },
+      {
+        "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "version" : "05062024",
         "code" : "1178006",
         "display" : "Toprol Oral Product"
       },
       {
         "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-        "version" : "11062023",
+        "version" : "05062024",
         "code" : "1178007",
         "display" : "Toprol Pill"
       },
       {
         "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-        "version" : "11062023",
+        "version" : "05062024",
+        "code" : "1187449",
+        "display" : "Ziac Pill"
+      },
+      {
+        "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "version" : "05062024",
+        "code" : "1187450",
+        "display" : "Ziac Oral Product"
+      },
+      {
+        "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "version" : "05062024",
         "code" : "1370474",
         "display" : "metoprolol succinate 50 MG"
       },
       {
         "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-        "version" : "11062023",
+        "version" : "05062024",
+        "code" : "1370476",
+        "display" : "hydrochlorothiazide 12.5 MG / metoprolol succinate 50 MG [Dutoprol]"
+      },
+      {
+        "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "version" : "05062024",
         "code" : "1370483",
         "display" : "metoprolol succinate 100 MG"
       },
       {
         "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-        "version" : "11062023",
+        "version" : "05062024",
         "code" : "1370485",
         "display" : "metoprolol succinate 100 MG [Toprol]"
       },
       {
         "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-        "version" : "11062023",
+        "version" : "05062024",
         "code" : "1370489",
         "display" : "metoprolol succinate 25 MG"
       },
       {
         "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-        "version" : "11062023",
+        "version" : "05062024",
+        "code" : "1370491",
+        "display" : "hydrochlorothiazide 12.5 MG / metoprolol succinate 25 MG [Dutoprol]"
+      },
+      {
+        "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "version" : "05062024",
+        "code" : "1370496",
+        "display" : "hydrochlorothiazide 12.5 MG / metoprolol succinate 100 MG [Dutoprol]"
+      },
+      {
+        "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "version" : "05062024",
         "code" : "1370500",
         "display" : "metoprolol succinate 200 MG"
       },
       {
         "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-        "version" : "11062023",
+        "version" : "05062024",
         "code" : "1370502",
         "display" : "metoprolol succinate 200 MG [Toprol]"
       },
       {
         "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-        "version" : "11062023",
+        "version" : "05062024",
         "code" : "1370507",
         "display" : "metoprolol succinate 25 MG [Toprol]"
       },
       {
         "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-        "version" : "11062023",
+        "version" : "05062024",
         "code" : "1370512",
         "display" : "metoprolol succinate 50 MG [Toprol]"
       },
       {
         "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-        "version" : "11062023",
+        "version" : "05062024",
+        "code" : "1372709",
+        "display" : "Dutoprol"
+      },
+      {
+        "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "version" : "05062024",
         "code" : "142146",
         "display" : "bisoprolol fumarate"
       },
       {
         "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-        "version" : "11062023",
+        "version" : "05062024",
         "code" : "19484",
         "display" : "bisoprolol"
       },
       {
         "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-        "version" : "11062023",
+        "version" : "05062024",
         "code" : "1999027",
         "display" : "metoprolol Extended Release Oral Capsule"
       },
       {
         "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-        "version" : "11062023",
+        "version" : "05062024",
         "code" : "1999031",
         "display" : "24 HR metoprolol succinate 100 MG Extended Release Oral Capsule"
       },
       {
         "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-        "version" : "11062023",
+        "version" : "05062024",
         "code" : "1999033",
         "display" : "24 HR metoprolol succinate 200 MG Extended Release Oral Capsule"
       },
       {
         "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-        "version" : "11062023",
+        "version" : "05062024",
         "code" : "1999035",
         "display" : "24 HR metoprolol succinate 25 MG Extended Release Oral Capsule"
       },
       {
         "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-        "version" : "11062023",
+        "version" : "05062024",
         "code" : "1999037",
         "display" : "24 HR metoprolol succinate 50 MG Extended Release Oral Capsule"
       },
       {
         "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-        "version" : "11062023",
+        "version" : "05062024",
         "code" : "200031",
         "display" : "carvedilol 6.25 MG Oral Tablet"
       },
       {
         "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-        "version" : "11062023",
+        "version" : "05062024",
         "code" : "200032",
         "display" : "carvedilol 12.5 MG Oral Tablet"
       },
       {
         "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-        "version" : "11062023",
+        "version" : "05062024",
         "code" : "200033",
         "display" : "carvedilol 25 MG Oral Tablet"
       },
       {
         "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-        "version" : "11062023",
+        "version" : "05062024",
         "code" : "20352",
         "display" : "carvedilol"
       },
       {
         "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-        "version" : "11062023",
+        "version" : "05062024",
         "code" : "2047761",
         "display" : "Kapspargo"
       },
       {
         "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-        "version" : "11062023",
+        "version" : "05062024",
         "code" : "2047762",
         "display" : "metoprolol succinate 100 MG [Kapspargo]"
       },
       {
         "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-        "version" : "11062023",
+        "version" : "05062024",
         "code" : "2047763",
         "display" : "metoprolol Extended Release Oral Capsule [Kapspargo]"
       },
       {
         "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-        "version" : "11062023",
+        "version" : "05062024",
         "code" : "2047764",
         "display" : "Kapspargo Oral Product"
       },
       {
         "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-        "version" : "11062023",
+        "version" : "05062024",
         "code" : "2047765",
         "display" : "Kapspargo Pill"
       },
       {
         "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-        "version" : "11062023",
+        "version" : "05062024",
         "code" : "2047766",
         "display" : "24 HR metoprolol succinate 100 MG Extended Release Oral Capsule [Kapspargo]"
       },
       {
         "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-        "version" : "11062023",
+        "version" : "05062024",
         "code" : "2047768",
         "display" : "metoprolol succinate 200 MG [Kapspargo]"
       },
       {
         "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-        "version" : "11062023",
+        "version" : "05062024",
         "code" : "2047769",
         "display" : "24 HR metoprolol succinate 200 MG Extended Release Oral Capsule [Kapspargo]"
       },
       {
         "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-        "version" : "11062023",
+        "version" : "05062024",
         "code" : "2047771",
         "display" : "metoprolol succinate 25 MG [Kapspargo]"
       },
       {
         "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-        "version" : "11062023",
+        "version" : "05062024",
         "code" : "2047772",
         "display" : "24 HR metoprolol succinate 25 MG Extended Release Oral Capsule [Kapspargo]"
       },
       {
         "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-        "version" : "11062023",
+        "version" : "05062024",
         "code" : "2047774",
         "display" : "metoprolol succinate 50 MG [Kapspargo]"
       },
       {
         "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-        "version" : "11062023",
+        "version" : "05062024",
         "code" : "2047775",
         "display" : "24 HR metoprolol succinate 50 MG Extended Release Oral Capsule [Kapspargo]"
       },
       {
         "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-        "version" : "11062023",
+        "version" : "05062024",
         "code" : "212388",
         "display" : "carvedilol 6.25 MG Oral Tablet [Coreg]"
       },
       {
         "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-        "version" : "11062023",
+        "version" : "05062024",
         "code" : "212389",
         "display" : "carvedilol 12.5 MG Oral Tablet [Coreg]"
       },
       {
         "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-        "version" : "11062023",
+        "version" : "05062024",
         "code" : "212390",
         "display" : "carvedilol 25 MG Oral Tablet [Coreg]"
       },
       {
         "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-        "version" : "11062023",
+        "version" : "05062024",
+        "code" : "214317",
+        "display" : "bisoprolol / hydrochlorothiazide"
+      },
+      {
+        "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "version" : "05062024",
         "code" : "216221",
         "display" : "Coreg"
       },
       {
         "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-        "version" : "11062023",
+        "version" : "05062024",
         "code" : "221124",
         "display" : "metoprolol succinate"
       },
       {
         "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-        "version" : "11062023",
+        "version" : "05062024",
+        "code" : "2648592",
+        "display" : "hydrochlorothiazide / metoprolol succinate Extended Release Oral Tablet"
+      },
+      {
+        "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "version" : "05062024",
+        "code" : "2648608",
+        "display" : "bisoprolol fumarate / hydrochlorothiazide Oral Tablet"
+      },
+      {
+        "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "version" : "05062024",
+        "code" : "2655514",
+        "display" : "hydrochlorothiazide / metoprolol succinate Extended Release Oral Tablet [Dutoprol]"
+      },
+      {
+        "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "version" : "05062024",
+        "code" : "2656127",
+        "display" : "bisoprolol fumarate / hydrochlorothiazide Oral Tablet [Ziac]"
+      },
+      {
+        "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "version" : "05062024",
+        "code" : "2661091",
+        "display" : "hydrochlorothiazide / metoprolol succinate Pill"
+      },
+      {
+        "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "version" : "05062024",
+        "code" : "2661196",
+        "display" : "hydrochlorothiazide / metoprolol succinate Oral Product"
+      },
+      {
+        "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "version" : "05062024",
+        "code" : "2662778",
+        "display" : "bisoprolol fumarate / hydrochlorothiazide Oral Product"
+      },
+      {
+        "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "version" : "05062024",
+        "code" : "2662823",
+        "display" : "bisoprolol fumarate / hydrochlorothiazide Pill"
+      },
+      {
+        "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "version" : "05062024",
         "code" : "315575",
         "display" : "carvedilol 12.5 MG"
       },
       {
         "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-        "version" : "11062023",
+        "version" : "05062024",
         "code" : "315576",
         "display" : "carvedilol 25 MG"
       },
       {
         "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-        "version" : "11062023",
+        "version" : "05062024",
         "code" : "315577",
         "display" : "carvedilol 6.25 MG"
       },
       {
         "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-        "version" : "11062023",
+        "version" : "05062024",
         "code" : "368387",
         "display" : "carvedilol Oral Tablet [Coreg]"
       },
       {
         "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-        "version" : "11062023",
+        "version" : "05062024",
+        "code" : "371103",
+        "display" : "bisoprolol / hydrochlorothiazide Oral Tablet"
+      },
+      {
+        "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "version" : "05062024",
         "code" : "371104",
         "display" : "bisoprolol Oral Tablet"
       },
       {
         "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-        "version" : "11062023",
+        "version" : "05062024",
         "code" : "371296",
         "display" : "carvedilol Oral Tablet"
       },
       {
         "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-        "version" : "11062023",
+        "version" : "05062024",
+        "code" : "372890",
+        "display" : "hydrochlorothiazide / metoprolol Extended Release Oral Tablet"
+      },
+      {
+        "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "version" : "05062024",
         "code" : "378660",
         "display" : "metoprolol Extended Release Oral Tablet"
       },
       {
         "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-        "version" : "11062023",
+        "version" : "05062024",
         "code" : "572581",
         "display" : "carvedilol 6.25 MG [Coreg]"
       },
       {
         "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-        "version" : "11062023",
+        "version" : "05062024",
         "code" : "572582",
         "display" : "carvedilol 12.5 MG [Coreg]"
       },
       {
         "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-        "version" : "11062023",
+        "version" : "05062024",
         "code" : "572583",
         "display" : "carvedilol 25 MG [Coreg]"
       },
       {
         "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-        "version" : "11062023",
+        "version" : "05062024",
         "code" : "664767",
         "display" : "carvedilol Extended Release Oral Capsule"
       },
       {
         "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-        "version" : "11062023",
+        "version" : "05062024",
         "code" : "664770",
         "display" : "carvedilol Extended Release Oral Capsule [Coreg]"
       },
       {
         "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-        "version" : "11062023",
+        "version" : "05062024",
         "code" : "668310",
         "display" : "carvedilol phosphate"
       },
       {
         "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-        "version" : "11062023",
+        "version" : "05062024",
         "code" : "686923",
         "display" : "carvedilol 3.125 MG"
       },
       {
         "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-        "version" : "11062023",
+        "version" : "05062024",
         "code" : "686924",
         "display" : "carvedilol 3.125 MG Oral Tablet"
       },
       {
         "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-        "version" : "11062023",
+        "version" : "05062024",
         "code" : "686925",
         "display" : "carvedilol 3.125 MG [Coreg]"
       },
       {
         "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-        "version" : "11062023",
+        "version" : "05062024",
         "code" : "686926",
         "display" : "carvedilol 3.125 MG Oral Tablet [Coreg]"
       },
       {
         "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-        "version" : "11062023",
+        "version" : "05062024",
+        "code" : "745976",
+        "display" : "bisoprolol / hydrochlorothiazide Oral Tablet [Ziac]"
+      },
+      {
+        "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "version" : "05062024",
+        "code" : "75038",
+        "display" : "Ziac"
+      },
+      {
+        "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "version" : "05062024",
         "code" : "854900",
         "display" : "bisoprolol fumarate 10 MG"
       },
       {
         "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-        "version" : "11062023",
+        "version" : "05062024",
         "code" : "854901",
         "display" : "bisoprolol fumarate 10 MG Oral Tablet"
       },
       {
         "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-        "version" : "11062023",
+        "version" : "05062024",
         "code" : "854904",
         "display" : "bisoprolol fumarate 5 MG"
       },
       {
         "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-        "version" : "11062023",
+        "version" : "05062024",
         "code" : "854905",
         "display" : "bisoprolol fumarate 5 MG Oral Tablet"
       },
       {
         "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-        "version" : "11062023",
+        "version" : "05062024",
+        "code" : "854908",
+        "display" : "bisoprolol fumarate 10 MG / hydrochlorothiazide 6.25 MG Oral Tablet"
+      },
+      {
+        "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "version" : "05062024",
+        "code" : "854909",
+        "display" : "bisoprolol fumarate 10 MG / hydrochlorothiazide 6.25 MG [Ziac]"
+      },
+      {
+        "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "version" : "05062024",
+        "code" : "854910",
+        "display" : "bisoprolol fumarate 10 MG / hydrochlorothiazide 6.25 MG Oral Tablet [Ziac]"
+      },
+      {
+        "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "version" : "05062024",
         "code" : "854915",
         "display" : "bisoprolol fumarate 2.5 MG"
       },
       {
         "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-        "version" : "11062023",
+        "version" : "05062024",
+        "code" : "854916",
+        "display" : "bisoprolol fumarate 2.5 MG / hydrochlorothiazide 6.25 MG Oral Tablet"
+      },
+      {
+        "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "version" : "05062024",
+        "code" : "854917",
+        "display" : "bisoprolol fumarate 2.5 MG / hydrochlorothiazide 6.25 MG [Ziac]"
+      },
+      {
+        "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "version" : "05062024",
+        "code" : "854918",
+        "display" : "bisoprolol fumarate 2.5 MG / hydrochlorothiazide 6.25 MG Oral Tablet [Ziac]"
+      },
+      {
+        "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "version" : "05062024",
+        "code" : "854919",
+        "display" : "bisoprolol fumarate 5 MG / hydrochlorothiazide 6.25 MG Oral Tablet"
+      },
+      {
+        "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "version" : "05062024",
+        "code" : "854920",
+        "display" : "bisoprolol fumarate 5 MG / hydrochlorothiazide 6.25 MG [Ziac]"
+      },
+      {
+        "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "version" : "05062024",
+        "code" : "854921",
+        "display" : "bisoprolol fumarate 5 MG / hydrochlorothiazide 6.25 MG Oral Tablet [Ziac]"
+      },
+      {
+        "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "version" : "05062024",
         "code" : "860509",
         "display" : "carvedilol phosphate 10 MG"
       },
       {
         "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-        "version" : "11062023",
+        "version" : "05062024",
         "code" : "860510",
         "display" : "24 HR carvedilol phosphate 10 MG Extended Release Oral Capsule"
       },
       {
         "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-        "version" : "11062023",
+        "version" : "05062024",
         "code" : "860511",
         "display" : "carvedilol phosphate 10 MG [Coreg]"
       },
       {
         "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-        "version" : "11062023",
+        "version" : "05062024",
         "code" : "860512",
         "display" : "24 HR carvedilol phosphate 10 MG Extended Release Oral Capsule [Coreg]"
       },
       {
         "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-        "version" : "11062023",
+        "version" : "05062024",
         "code" : "860515",
         "display" : "carvedilol phosphate 20 MG"
       },
       {
         "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-        "version" : "11062023",
+        "version" : "05062024",
         "code" : "860516",
         "display" : "24 HR carvedilol phosphate 20 MG Extended Release Oral Capsule"
       },
       {
         "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-        "version" : "11062023",
+        "version" : "05062024",
         "code" : "860517",
         "display" : "carvedilol phosphate 20 MG [Coreg]"
       },
       {
         "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-        "version" : "11062023",
+        "version" : "05062024",
         "code" : "860518",
         "display" : "24 HR carvedilol phosphate 20 MG Extended Release Oral Capsule [Coreg]"
       },
       {
         "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-        "version" : "11062023",
+        "version" : "05062024",
         "code" : "860521",
         "display" : "carvedilol phosphate 40 MG"
       },
       {
         "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-        "version" : "11062023",
+        "version" : "05062024",
         "code" : "860522",
         "display" : "24 HR carvedilol phosphate 40 MG Extended Release Oral Capsule"
       },
       {
         "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-        "version" : "11062023",
+        "version" : "05062024",
         "code" : "860523",
         "display" : "carvedilol phosphate 40 MG [Coreg]"
       },
       {
         "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-        "version" : "11062023",
+        "version" : "05062024",
         "code" : "860524",
         "display" : "24 HR carvedilol phosphate 40 MG Extended Release Oral Capsule [Coreg]"
       },
       {
         "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-        "version" : "11062023",
+        "version" : "05062024",
         "code" : "860531",
         "display" : "carvedilol phosphate 80 MG"
       },
       {
         "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-        "version" : "11062023",
+        "version" : "05062024",
         "code" : "860532",
         "display" : "24 HR carvedilol phosphate 80 MG Extended Release Oral Capsule"
       },
       {
         "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-        "version" : "11062023",
+        "version" : "05062024",
         "code" : "860533",
         "display" : "carvedilol phosphate 80 MG [Coreg]"
       },
       {
         "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-        "version" : "11062023",
+        "version" : "05062024",
         "code" : "860534",
         "display" : "24 HR carvedilol phosphate 80 MG Extended Release Oral Capsule [Coreg]"
       },
       {
         "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-        "version" : "11062023",
+        "version" : "05062024",
         "code" : "865575",
         "display" : "Toprol"
       },
       {
         "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-        "version" : "11062023",
+        "version" : "05062024",
         "code" : "865577",
         "display" : "metoprolol Extended Release Oral Tablet [Toprol]"
       },
       {
         "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-        "version" : "11062023",
+        "version" : "05062024",
         "code" : "866412",
         "display" : "24 HR metoprolol succinate 100 MG Extended Release Oral Tablet"
       },
       {
         "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-        "version" : "11062023",
+        "version" : "05062024",
         "code" : "866414",
         "display" : "24 HR metoprolol succinate 100 MG Extended Release Oral Tablet [Toprol]"
       },
       {
         "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-        "version" : "11062023",
+        "version" : "05062024",
         "code" : "866419",
         "display" : "24 HR metoprolol succinate 200 MG Extended Release Oral Tablet"
       },
       {
         "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-        "version" : "11062023",
+        "version" : "05062024",
         "code" : "866421",
         "display" : "24 HR metoprolol succinate 200 MG Extended Release Oral Tablet [Toprol]"
       },
       {
         "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-        "version" : "11062023",
+        "version" : "05062024",
         "code" : "866427",
         "display" : "24 HR metoprolol succinate 25 MG Extended Release Oral Tablet"
       },
       {
         "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-        "version" : "11062023",
+        "version" : "05062024",
         "code" : "866429",
         "display" : "24 HR metoprolol succinate 25 MG Extended Release Oral Tablet [Toprol]"
       },
       {
         "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-        "version" : "11062023",
+        "version" : "05062024",
         "code" : "866436",
         "display" : "24 HR metoprolol succinate 50 MG Extended Release Oral Tablet"
       },
       {
         "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-        "version" : "11062023",
+        "version" : "05062024",
         "code" : "866438",
         "display" : "24 HR metoprolol succinate 50 MG Extended Release Oral Tablet [Toprol]"
+      },
+      {
+        "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "version" : "05062024",
+        "code" : "866452",
+        "display" : "24 HR hydrochlorothiazide 12.5 MG / metoprolol succinate 100 MG Extended Release Oral Tablet"
+      },
+      {
+        "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "version" : "05062024",
+        "code" : "866455",
+        "display" : "24 HR hydrochlorothiazide 12.5 MG / metoprolol succinate 100 MG Extended Release Oral Tablet [Dutoprol]"
+      },
+      {
+        "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "version" : "05062024",
+        "code" : "866461",
+        "display" : "24 HR hydrochlorothiazide 12.5 MG / metoprolol succinate 25 MG Extended Release Oral Tablet"
+      },
+      {
+        "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "version" : "05062024",
+        "code" : "866463",
+        "display" : "hydrochlorothiazide / metoprolol Extended Release Oral Tablet [Dutoprol]"
+      },
+      {
+        "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "version" : "05062024",
+        "code" : "866464",
+        "display" : "24 HR hydrochlorothiazide 12.5 MG / metoprolol succinate 25 MG Extended Release Oral Tablet [Dutoprol]"
+      },
+      {
+        "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "version" : "05062024",
+        "code" : "866472",
+        "display" : "24 HR hydrochlorothiazide 12.5 MG / metoprolol succinate 50 MG Extended Release Oral Tablet"
+      },
+      {
+        "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "version" : "05062024",
+        "code" : "866475",
+        "display" : "24 HR hydrochlorothiazide 12.5 MG / metoprolol succinate 50 MG Extended Release Oral Tablet [Dutoprol]"
       }
     ]
   }

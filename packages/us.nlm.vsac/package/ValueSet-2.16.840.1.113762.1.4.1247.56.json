@@ -2,10 +2,11 @@
   "resourceType" : "ValueSet",
   "id" : "2.16.840.1.113762.1.4.1247.56",
   "meta" : {
-    "versionId" : "11",
-    "lastUpdated" : "2023-08-23T13:49:02.000-04:00",
+    "versionId" : "19",
+    "lastUpdated" : "2024-06-04T01:21:19.000-04:00",
     "profile" : [
       "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-valueset-cqfm",
       "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
     ]
   },
@@ -16,11 +17,11 @@
     },
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
-      "valueDate" : "2022-12-15"
+      "valueDate" : "2024-06-04"
     },
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
-      "valueDate" : "2023-08-23"
+      "valueDate" : "2024-06-04"
     }
   ],
   "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1247.56",
@@ -30,13 +31,13 @@
       "value" : "urn:oid:2.16.840.1.113762.1.4.1247.56"
     }
   ],
-  "version" : "20221028",
+  "version" : "20240604",
   "name" : "LessThanHighSchoolEducationProcedures",
   "title" : "Less Than High School Education Procedures",
   "status" : "active",
-  "experimental" : false,
-  "date" : "2022-10-28T01:03:05-04:00",
+  "date" : "2024-06-04T01:21:19-04:00",
   "publisher" : "The Gravity Project Steward",
+  "description" : "Although values in the value sets for Procedure and ServiceRequest may initially be identical, they are anticipated to diverge over time. For this reason, there are separate value sets for Procedure and ServiceRequest.",
   "jurisdiction" : [
     {
       "coding" : [
@@ -47,7 +48,7 @@
       ]
     }
   ],
-  "purpose" : "(Clinical Focus: <insert metadata> \nThe value sets in this group represent the interventions associated with Less than high school education as identified by the Gravity Project.),(Data Element Scope: Supports the Gravity SDOH Clinical Care FHIR Implementation guide for the exchange of procedure.code.),(Inclusion Criteria: Includes SNOMED CT and CPT codes that have been identified through the Gravity Project community consensus voting process),(Exclusion Criteria: N/A)",
+  "purpose" : "(Clinical Focus: This set of values represent interventions for Less Than High School Education as selected by the Gravity Project.),(Data Element Scope: In the FHIR Procedure resource, these values may be used for Procedure.code (e.g., for the SDOHCC Procedure profile in the Gravity SDOH Clinical Care FHIR Implementation Guide).),(Inclusion Criteria: Includes SNOMED CT, CPT, and HCPCS procedures for Less Than High School Education as selected by the Gravity Project.),(Exclusion Criteria: NA)",
   "compose" : {
     "include" : [
       {
@@ -57,422 +58,469 @@
       },
       {
         "valueSet" : [
+          "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1247.145"
+        ]
+      },
+      {
+        "valueSet" : [
           "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1247.8"
         ]
       },
       {
         "valueSet" : [
-          "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1247.145"
+          "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1247.253"
         ]
       }
     ]
   },
   "expansion" : {
-    "identifier" : "urn:uuid:db473a60-818f-4a0a-81df-7ba7bcf97238",
-    "timestamp" : "2023-11-26T19:15:03-05:00",
-    "total" : 70,
+    "identifier" : "urn:uuid:0ae98e87-ee50-48d1-95ed-dd255030cd87",
+    "timestamp" : "2024-06-14T14:59:25-04:00",
+    "total" : 83,
     "contains" : [
       {
         "system" : "http://snomed.info/sct",
-        "version" : "http://snomed.info/sct/731000124108/version/20230901",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
         "code" : "1148446004",
         "display" : "Education about legal aid (procedure)"
       },
       {
         "system" : "http://snomed.info/sct",
-        "version" : "http://snomed.info/sct/731000124108/version/20230901",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
         "code" : "1162436000",
         "display" : "Referral to legal aid (procedure)"
       },
       {
         "system" : "http://snomed.info/sct",
-        "version" : "http://snomed.info/sct/731000124108/version/20230901",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
         "code" : "1230284006",
         "display" : "Referral to tutoring program (procedure)"
       },
       {
         "system" : "http://snomed.info/sct",
-        "version" : "http://snomed.info/sct/731000124108/version/20230901",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
         "code" : "1230285007",
         "display" : "Referral to adult learning center (procedure)"
       },
       {
         "system" : "http://snomed.info/sct",
-        "version" : "http://snomed.info/sct/731000124108/version/20230901",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
         "code" : "1230338004",
         "display" : "Referral to charitable organization (procedure)"
       },
       {
         "system" : "http://snomed.info/sct",
-        "version" : "http://snomed.info/sct/731000124108/version/20230901",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
         "code" : "1230365006",
         "display" : "Referral to basic skills training program (procedure)"
       },
       {
         "system" : "http://snomed.info/sct",
-        "version" : "http://snomed.info/sct/731000124108/version/20230901",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
         "code" : "1254702005",
         "display" : "Assistance with application for adult learning center (procedure)"
       },
       {
         "system" : "http://snomed.info/sct",
-        "version" : "http://snomed.info/sct/731000124108/version/20230901",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
         "code" : "1258902006",
         "display" : "Education about tutoring program (procedure)"
       },
       {
         "system" : "http://snomed.info/sct",
-        "version" : "http://snomed.info/sct/731000124108/version/20230901",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
         "code" : "1259018009",
         "display" : "Education about adult learning center (procedure)"
       },
       {
         "system" : "http://snomed.info/sct",
-        "version" : "http://snomed.info/sct/731000124108/version/20230901",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
         "code" : "1259019001",
         "display" : "Evaluation of eligibility for adult learning center (procedure)"
       },
       {
         "system" : "http://snomed.info/sct",
-        "version" : "http://snomed.info/sct/731000124108/version/20230901",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
         "code" : "1268662008",
         "display" : "Coordination of resources to address social needs (procedure)"
       },
       {
         "system" : "http://snomed.info/sct",
-        "version" : "http://snomed.info/sct/731000124108/version/20230901",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
         "code" : "1268692004",
         "display" : "Assistance with application for vocational education program (procedure)"
       },
       {
         "system" : "http://snomed.info/sct",
-        "version" : "http://snomed.info/sct/731000124108/version/20230901",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
         "code" : "1268726004",
         "display" : "Education about peer support program (procedure)"
       },
       {
         "system" : "http://snomed.info/sct",
-        "version" : "http://snomed.info/sct/731000124108/version/20230901",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
         "code" : "1268727008",
         "display" : "Education about charitable organization (procedure)"
       },
       {
         "system" : "http://snomed.info/sct",
-        "version" : "http://snomed.info/sct/731000124108/version/20230901",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
         "code" : "1269404007",
         "display" : "Adjustment of clinical plan to accommodate social risk (procedure)"
       },
       {
         "system" : "http://snomed.info/sct",
-        "version" : "http://snomed.info/sct/731000124108/version/20230901",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
         "code" : "308440001",
         "display" : "Referral to social worker (procedure)"
       },
       {
         "system" : "http://snomed.info/sct",
-        "version" : "http://snomed.info/sct/731000124108/version/20230901",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
         "code" : "461481000124109",
         "display" : "Referral to peer support (procedure)"
       },
       {
         "system" : "http://snomed.info/sct",
-        "version" : "http://snomed.info/sct/731000124108/version/20230901",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
         "code" : "462481000124102",
         "display" : "Referral to Community Action Agency program (procedure)"
       },
       {
         "system" : "http://snomed.info/sct",
-        "version" : "http://snomed.info/sct/731000124108/version/20230901",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
         "code" : "462491000124104",
         "display" : "Referral to benefits enrollment assistance program (procedure)"
       },
       {
         "system" : "http://snomed.info/sct",
-        "version" : "http://snomed.info/sct/731000124108/version/20230901",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
         "code" : "464001000124109",
         "display" : "Referral to case manager (procedure)"
       },
       {
         "system" : "http://snomed.info/sct",
-        "version" : "http://snomed.info/sct/731000124108/version/20230901",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
         "code" : "464011000124107",
         "display" : "Referral to care manager (procedure)"
       },
       {
         "system" : "http://snomed.info/sct",
-        "version" : "http://snomed.info/sct/731000124108/version/20230901",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
         "code" : "464021000124104",
         "display" : "Referral to care navigator (procedure)"
       },
       {
         "system" : "http://snomed.info/sct",
-        "version" : "http://snomed.info/sct/731000124108/version/20230901",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
         "code" : "464131000124100",
         "display" : "Referral to community health worker (procedure)"
       },
       {
         "system" : "http://snomed.info/sct",
-        "version" : "http://snomed.info/sct/731000124108/version/20230901",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
         "code" : "464161000124109",
         "display" : "Referral to community resource network program (procedure)"
       },
       {
         "system" : "http://snomed.info/sct",
-        "version" : "http://snomed.info/sct/731000124108/version/20230901",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
         "code" : "464291000124105",
         "display" : "Education about community resource network program (procedure)"
       },
       {
         "system" : "http://snomed.info/sct",
-        "version" : "http://snomed.info/sct/731000124108/version/20230901",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
         "code" : "464301000124106",
         "display" : "Education about benefits enrollment assistance program (procedure)"
       },
       {
         "system" : "http://snomed.info/sct",
-        "version" : "http://snomed.info/sct/731000124108/version/20230901",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
         "code" : "464311000124109",
-        "display" : "Education about Community Action Agency program (procedure)"
+        "display" : "Education about Community Action Agency Program (procedure)"
       },
       {
         "system" : "http://snomed.info/sct",
-        "version" : "http://snomed.info/sct/731000124108/version/20230901",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
         "code" : "464611000124102",
         "display" : "Coordination of care team (procedure)"
       },
       {
         "system" : "http://snomed.info/sct",
-        "version" : "http://snomed.info/sct/731000124108/version/20230901",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
         "code" : "470231000124107",
         "display" : "Counseling for social determinant of health risk (procedure)"
       },
       {
         "system" : "http://snomed.info/sct",
-        "version" : "http://snomed.info/sct/731000124108/version/20230901",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
         "code" : "470591000124109",
         "display" : "Education about community development financial institution (procedure)"
       },
       {
         "system" : "http://snomed.info/sct",
-        "version" : "http://snomed.info/sct/731000124108/version/20230901",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
         "code" : "470601000124101",
         "display" : "Education about community development corporation (procedure)"
       },
       {
         "system" : "http://snomed.info/sct",
-        "version" : "http://snomed.info/sct/731000124108/version/20230901",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
         "code" : "470611000124103",
         "display" : "Education about area agency on aging program (procedure)"
       },
       {
         "system" : "http://snomed.info/sct",
-        "version" : "http://snomed.info/sct/731000124108/version/20230901",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
         "code" : "471111000124101",
         "display" : "Referral to community development financial institution (procedure)"
       },
       {
         "system" : "http://snomed.info/sct",
-        "version" : "http://snomed.info/sct/731000124108/version/20230901",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
         "code" : "471121000124109",
         "display" : "Referral to community development corporation (procedure)"
       },
       {
         "system" : "http://snomed.info/sct",
-        "version" : "http://snomed.info/sct/731000124108/version/20230901",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
         "code" : "471131000124107",
         "display" : "Referral to area agency on aging (procedure)"
       },
       {
         "system" : "http://snomed.info/sct",
-        "version" : "http://snomed.info/sct/731000124108/version/20230901",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
         "code" : "472151000124109",
         "display" : "Referral to medical legal partnership program (procedure)"
       },
       {
         "system" : "http://snomed.info/sct",
-        "version" : "http://snomed.info/sct/731000124108/version/20230901",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
         "code" : "472331000124100",
         "display" : "Education about medical legal partnership program (procedure)"
       },
       {
         "system" : "http://snomed.info/sct",
-        "version" : "http://snomed.info/sct/731000124108/version/20230901",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
         "code" : "551101000124107",
         "display" : "Referral to lawyer (procedure)"
       },
       {
         "system" : "http://snomed.info/sct",
-        "version" : "http://snomed.info/sct/731000124108/version/20230901",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
         "code" : "621381000124109",
         "display" : "Referral to general educational development program (procedure)"
       },
       {
         "system" : "http://snomed.info/sct",
-        "version" : "http://snomed.info/sct/731000124108/version/20230901",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
         "code" : "621391000124107",
         "display" : "Referral to English as Second Language Program (procedure)"
       },
       {
         "system" : "http://snomed.info/sct",
-        "version" : "http://snomed.info/sct/731000124108/version/20230901",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
         "code" : "651191000124106",
         "display" : "Education about high school completion program for attainment of diploma (procedure)"
       },
       {
         "system" : "http://snomed.info/sct",
-        "version" : "http://snomed.info/sct/731000124108/version/20230901",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
         "code" : "651311000124103",
-        "display" : "Education about General Educational Development program (procedure)"
+        "display" : "Education about General Educational Development Program (procedure)"
       },
       {
         "system" : "http://snomed.info/sct",
-        "version" : "http://snomed.info/sct/731000124108/version/20230901",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
         "code" : "651321000124106",
-        "display" : "Education about English as a Second Language program (procedure)"
+        "display" : "Education about English as a Second Language Program (procedure)"
       },
       {
         "system" : "http://snomed.info/sct",
-        "version" : "http://snomed.info/sct/731000124108/version/20230901",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
         "code" : "661061000124106",
         "display" : "Education about vocational education program (procedure)"
       },
       {
         "system" : "http://snomed.info/sct",
-        "version" : "http://snomed.info/sct/731000124108/version/20230901",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
         "code" : "661091000124103",
         "display" : "Education about Supported Education Program (procedure)"
       },
       {
         "system" : "http://snomed.info/sct",
-        "version" : "http://snomed.info/sct/731000124108/version/20230901",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
         "code" : "661181000124100",
         "display" : "Education about peer support specialist service (procedure)"
       },
       {
         "system" : "http://snomed.info/sct",
-        "version" : "http://snomed.info/sct/731000124108/version/20230901",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
         "code" : "661261000124103",
         "display" : "Education about early-college high school program (procedure)"
       },
       {
         "system" : "http://snomed.info/sct",
-        "version" : "http://snomed.info/sct/731000124108/version/20230901",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
         "code" : "661271000124105",
         "display" : "Education about digital literacy program (procedure)"
       },
       {
         "system" : "http://snomed.info/sct",
-        "version" : "http://snomed.info/sct/731000124108/version/20230901",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
         "code" : "661841000124103",
         "display" : "Assistance with application for high school completion program for attainment of diploma (procedure)"
       },
       {
         "system" : "http://snomed.info/sct",
-        "version" : "http://snomed.info/sct/731000124108/version/20230901",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
         "code" : "661881000124109",
-        "display" : "Assistance with application for General Educational Development program (procedure)"
+        "display" : "Assistance with application for General Educational Development Program (procedure)"
       },
       {
         "system" : "http://snomed.info/sct",
-        "version" : "http://snomed.info/sct/731000124108/version/20230901",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
         "code" : "661891000124107",
         "display" : "Assistance with application for English as a second language program (procedure)"
       },
       {
         "system" : "http://snomed.info/sct",
-        "version" : "http://snomed.info/sct/731000124108/version/20230901",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
         "code" : "662101000124103",
         "display" : "Assistance with application for digital literacy program (procedure)"
       },
       {
         "system" : "http://snomed.info/sct",
-        "version" : "http://snomed.info/sct/731000124108/version/20230901",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
         "code" : "662191000124105",
         "display" : "Assistance with application for early-college high school program (procedure)"
       },
       {
         "system" : "http://snomed.info/sct",
-        "version" : "http://snomed.info/sct/731000124108/version/20230901",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
         "code" : "662331000124108",
         "display" : "Evaluation of eligibility for English as a second language program (procedure)"
       },
       {
         "system" : "http://snomed.info/sct",
-        "version" : "http://snomed.info/sct/731000124108/version/20230901",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
         "code" : "662341000124103",
         "display" : "Evaluation of eligibility for high school completion program for attainment of diploma (procedure)"
       },
       {
         "system" : "http://snomed.info/sct",
-        "version" : "http://snomed.info/sct/731000124108/version/20230901",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
         "code" : "662411000124107",
-        "display" : "Evaluation of eligibility for General Educational Development program (procedure)"
+        "display" : "Evaluation of eligibility for General Educational Development Program (procedure)"
       },
       {
         "system" : "http://snomed.info/sct",
-        "version" : "http://snomed.info/sct/731000124108/version/20230901",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
         "code" : "662611000124109",
         "display" : "Evaluation of eligibility for early-college high school program (procedure)"
       },
       {
         "system" : "http://snomed.info/sct",
-        "version" : "http://snomed.info/sct/731000124108/version/20230901",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
         "code" : "662631000124103",
         "display" : "Evaluation of eligibility for vocational education program (procedure)"
       },
       {
         "system" : "http://snomed.info/sct",
-        "version" : "http://snomed.info/sct/731000124108/version/20230901",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
         "code" : "662721000124109",
         "display" : "Evaluation of eligibility for digital literacy program (procedure)"
       },
       {
         "system" : "http://snomed.info/sct",
-        "version" : "http://snomed.info/sct/731000124108/version/20230901",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
         "code" : "662901000124101",
         "display" : "Referral to high school completion program for attainment of diploma (procedure)"
       },
       {
         "system" : "http://snomed.info/sct",
-        "version" : "http://snomed.info/sct/731000124108/version/20230901",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
         "code" : "663071000124103",
         "display" : "Referral to Supported Education Program (procedure)"
       },
       {
         "system" : "http://snomed.info/sct",
-        "version" : "http://snomed.info/sct/731000124108/version/20230901",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
         "code" : "663141000124105",
         "display" : "Referral to vocational education program (procedure)"
       },
       {
         "system" : "http://snomed.info/sct",
-        "version" : "http://snomed.info/sct/731000124108/version/20230901",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
         "code" : "663211000124100",
         "display" : "Referral to peer support specialist (procedure)"
       },
       {
         "system" : "http://snomed.info/sct",
-        "version" : "http://snomed.info/sct/731000124108/version/20230901",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
         "code" : "663291000124105",
         "display" : "Referral to early-college high school program (procedure)"
       },
       {
         "system" : "http://snomed.info/sct",
-        "version" : "http://snomed.info/sct/731000124108/version/20230901",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
         "code" : "663301000124106",
         "display" : "Referral to digital literacy program (procedure)"
       },
       {
         "system" : "http://snomed.info/sct",
-        "version" : "http://snomed.info/sct/731000124108/version/20230901",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
         "code" : "710824005",
         "display" : "Assessment of health and social care needs (procedure)"
       },
       {
         "system" : "http://snomed.info/sct",
-        "version" : "http://snomed.info/sct/731000124108/version/20230901",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
         "code" : "711069006",
         "display" : "Coordination of care plan (procedure)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "761131000124106",
+        "display" : "Assistance with application for child financial support (procedure)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "761291000124101",
+        "display" : "Education about child financial support (procedure)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "761301000124100",
+        "display" : "Education about library educational programs (procedure)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "761401000124109",
+        "display" : "Provision of educational materials voucher (procedure)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "771171000124104",
+        "display" : "Education toward completion of learning objectives of early-college high school program (procedure)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "771181000124101",
+        "display" : "Education toward completion of learning objectives of high school completion program (procedure)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "771191000124103",
+        "display" : "Education toward completion of learning objectives of General Educational Development Program (procedure)"
       },
       {
         "system" : "http://www.ama-assn.org/go/cpt",
@@ -491,6 +539,42 @@
         "version" : "2024",
         "code" : "96161",
         "display" : "Administration of caregiver-focused health risk assessment instrument (eg, depression inventory) for the benefit of the patient, with scoring and documentation, per standardized instrument"
+      },
+      {
+        "system" : "http://www.nlm.nih.gov/research/umls/hcpcs",
+        "version" : "2024",
+        "code" : "G0019",
+        "display" : "Community health integration services performed by certified or trained auxiliary personnel, including a community health worker, under the direction of a physician or other practitioner; 60 minutes per calendar month, in the following activities to address social determinants of health (sdoh) need(s) that are significantly limiting the ability to diagnose or treat problem(s) addressed in an initiating visit: person-centered assessment, performed to better understand the individualized context of the intersection between the sdoh need(s) and the problem(s) addressed in the initiating visit. ++ conducting a person-centered assessment to understand patient's life story, strengths, needs, goals, preferences and desired outcomes, including understanding cultural and linguistic factors and including unmet sdoh needs (that are not separately billed). ++ facilitating patient-driven goal-setting and establishing an action plan. ++ providing tailored support to the patient as needed to accomplish the practitioner's treatment plan. practitioner, home-, and community-based care coordination. ++ coordinating receipt of needed services from healthcare practitioners, providers, and facilities; and from home- and community-based service providers, social service providers, and caregiver (if applicable). ++ communication with practitioners, home- and community-based service providers, hospitals, and skilled nursing facilities (or other health care facilities) regarding the patient's psychosocial strengths and needs, functional deficits, goals, preferences, and desired outcomes, including cultural and linguistic factors. ++ coordination of care transitions between and among health care practitioners and settings, including transitions involving referral to other clinicians; follow-up after an emergency department visit; or follow-up after discharges from hospitals, skilled nursing facilities or other health care facilities. ++ facilitating access to community-based social services (e.g., housing, utilities, transportation, food assistance) to address the sdoh need(s). health education- helping the patient contextualize health education provided by the patient's treatment team with the patient's individual needs, goals, and preferences, in the context of the sdoh need(s), and educating the patient on how to best participate in medical decision-making. building patient self-advocacy skills, so that the patient can interact with members of the health care team and related community-based services addressing the sdoh need(s), in ways that are more likely to promote personalized and effective diagnosis or treatment. health care access / health system navigation. ++ helping the patient access healthcare, including identifying appropriate practitioners or providers for clinical care and helping secure appointments with them. facilitating behavioral change as necessary for meeting diagnosis and treatment goals, including promoting patient motivation to participate in care and reach person-centered diagnosis or treatment goals. facilitating and providing social and emotional support to help the patient cope with the problem(s) addressed in the initiating visit, the sdoh need(s), and adjust daily routines to better meet diagnosis and treatment goals. leveraging lived experience when applicable to provide support, mentorship, or inspiration to meet treatment goals"
+      },
+      {
+        "system" : "http://www.nlm.nih.gov/research/umls/hcpcs",
+        "version" : "2024",
+        "code" : "G0022",
+        "display" : "Community health integration services, each additional 30 minutes per calendar month (list separately in addition to g0019)"
+      },
+      {
+        "system" : "http://www.nlm.nih.gov/research/umls/hcpcs",
+        "version" : "2024",
+        "code" : "G0023",
+        "display" : "Principal illness navigation services by certified or trained auxiliary personnel under the direction of a physician or other practitioner, including a patient navigator; 60 minutes per calendar month, in the following activities: person-centered assessment, performed to better understand the individual context of the serious, high-risk condition. ++ conducting a person-centered assessment to understand the patient's life story, strengths, needs, goals, preferences, and desired outcomes, including understanding cultural and linguistic factors and including unmet sdoh needs (that are not separately billed). ++ facilitating patient-driven goal setting and establishing an action plan. ++ providing tailored support as needed to accomplish the practitioner's treatment plan. identifying or referring patient (and caregiver or family, if applicable) to appropriate supportive services. practitioner, home, and community-based care coordination. ++ coordinating receipt of needed services from healthcare practitioners, providers, and facilities; home- and community-based service providers; and caregiver (if applicable). ++ communication with practitioners, home-, and community-based service providers, hospitals, and skilled nursing facilities (or other health care facilities) regarding the patient's psychosocial strengths and needs, functional deficits, goals, preferences, and desired outcomes, including cultural and linguistic factors. ++ coordination of care transitions between and among health care practitioners and settings, including transitions involving referral to other clinicians; follow-up after an emergency department visit; or follow-up after discharges from hospitals, skilled nursing facilities or other health care facilities. ++ facilitating access to community-based social services (e.g., housing, utilities, transportation, food assistance) as needed to address sdoh need(s). health education- helping the patient contextualize health education provided by the patient's treatment team with the patient's individual needs, goals, preferences, and sdoh need(s), and educating the patient (and caregiver if applicable) on how to best participate in medical decision-making. building patient self-advocacy skills, so that the patient can interact with members of the health care team and related community-based services (as needed), in ways that are more likely to promote personalized and effective treatment of their condition. health care access / health system navigation. ++ helping the patient access healthcare, including identifying appropriate practitioners or providers for clinical care, and helping secure appointments with them. ++ providing the patient with information/resources to consider participation in clinical trials or clinical research as applicable. facilitating behavioral change as necessary for meeting diagnosis and treatment goals, including promoting patient motivation to participate in care and reach person-centered diagnosis or treatment goals. facilitating and providing social and emotional support to help the patient cope with the condition, sdoh need(s), and adjust daily routines to better meet diagnosis and treatment goals. leverage knowledge of the serious, high-risk condition and/or lived experience when applicable to provide support, mentorship, or inspiration to meet treatment goals"
+      },
+      {
+        "system" : "http://www.nlm.nih.gov/research/umls/hcpcs",
+        "version" : "2024",
+        "code" : "G0024",
+        "display" : "Principal illness navigation services, additional 30 minutes per calendar month (list separately in addition to g0023)"
+      },
+      {
+        "system" : "http://www.nlm.nih.gov/research/umls/hcpcs",
+        "version" : "2024",
+        "code" : "G0136",
+        "display" : "Administration of a standardized, evidence-based social determinants of health risk assessment tool, 5-15 minutes"
+      },
+      {
+        "system" : "http://www.nlm.nih.gov/research/umls/hcpcs",
+        "version" : "2024",
+        "code" : "G0511",
+        "display" : "Rural health clinic or federally qualified health center (rhc or fqhc) only, general care management, 20 minutes or more of clinical staff time for chronic care management services or behavioral health integration services directed by an rhc or fqhc practitioner (physician, np, pa, or cnm), per calendar month"
       }
     ]
   }

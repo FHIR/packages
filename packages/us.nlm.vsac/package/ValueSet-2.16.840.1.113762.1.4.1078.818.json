@@ -1,0 +1,116 @@
+{
+  "resourceType" : "ValueSet",
+  "id" : "2.16.840.1.113762.1.4.1078.818",
+  "meta" : {
+    "versionId" : "7",
+    "lastUpdated" : "2024-01-31T01:08:33.000-05:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-valueset-cqfm",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
+  },
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "Optum Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2024-01-31"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2024-01-31"
+    }
+  ],
+  "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1078.818",
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113762.1.4.1078.818"
+    }
+  ],
+  "version" : "20240131",
+  "name" : "OsteoarthritisOfRightHipSCT",
+  "title" : "Osteoarthritis of right hip SCT",
+  "status" : "active",
+  "date" : "2024-01-31T01:08:33-05:00",
+  "publisher" : "Optum Steward",
+  "jurisdiction" : [
+    {
+      "coding" : [
+        {
+          "system" : "urn:iso:std:iso:3166",
+          "code" : "US"
+        }
+      ]
+    }
+  ],
+  "purpose" : "(Clinical Focus: Hip Osteoarthritis),(Data Element Scope: SNOMED CT),(Inclusion Criteria: Diagnosis codes indicating a diagnosis of right hip osteoarthritis),(Exclusion Criteria: Codes for osteoarthritis of left, bilateral, or unspecified hip)",
+  "compose" : {
+    "include" : [
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "filter" : [
+          {
+            "property" : "concept",
+            "op" : "is-a",
+            "value" : "323311000119107"
+          }
+        ]
+      }
+    ],
+    "exclude" : [
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "filter" : [
+          {
+            "property" : "concept",
+            "op" : "is-a",
+            "value" : "112991000119105"
+          }
+        ]
+      }
+    ]
+  },
+  "expansion" : {
+    "identifier" : "urn:uuid:2766a6be-a0d0-4ef9-952c-316929735f50",
+    "timestamp" : "2024-06-14T10:59:10-04:00",
+    "total" : 5,
+    "contains" : [
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "1074141000119108",
+        "display" : "Chondrocalcinosis of right hip (disorder)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "1074331000119102",
+        "display" : "Secondary osteoarthritis of right hip joint (disorder)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "16039631000119108",
+        "display" : "Chondromalacia of right hip (disorder)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "323171000119101",
+        "display" : "Osteoarthritis of right hip joint due to dysplasia (disorder)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "323311000119107",
+        "display" : "Osteoarthritis of right hip joint (disorder)"
+      }
+    ]
+  }
+}

@@ -2,25 +2,26 @@
   "resourceType" : "ValueSet",
   "id" : "2.16.840.1.113762.1.4.1021.32",
   "meta" : {
-    "versionId" : "19",
-    "lastUpdated" : "2022-03-16T01:02:14.000-04:00",
+    "versionId" : "25",
+    "lastUpdated" : "2024-02-15T01:10:30.000-05:00",
     "profile" : [
       "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-valueset-cqfm",
       "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
     ]
   },
   "extension" : [
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
-      "valueString" : "MD Partners Author"
+      "valueString" : "HL7 US Realm Program Management Author"
     },
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
-      "valueDate" : "2022-12-15"
+      "valueDate" : "2024-06-05"
     },
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
-      "valueDate" : "2022-03-16"
+      "valueDate" : "2024-02-15"
     }
   ],
   "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1021.32",
@@ -30,14 +31,13 @@
       "value" : "urn:oid:2.16.840.1.113762.1.4.1021.32"
     }
   ],
-  "version" : "20220316",
+  "version" : "20240215",
   "name" : "GenderIdentity",
   "title" : "Gender Identity",
   "status" : "active",
-  "experimental" : false,
-  "date" : "2022-03-16T01:02:14-04:00",
-  "publisher" : "ONC",
-  "description" : "Changed 2021-10-27 to grouping to include unknown and refused to answer. Also removed transgender codes.",
+  "date" : "2024-02-15T01:10:30-05:00",
+  "publisher" : "HL7 US Realm Program Management Steward",
+  "description" : "2024-02-14: New version to adjust null values and  allow DAR, and addition of non-binary in the contained snomed set",
   "jurisdiction" : [
     {
       "coding" : [
@@ -48,67 +48,84 @@
       ]
     }
   ],
-  "purpose" : "(Clinical Focus: Concepts that are used to describe the gender a person identifies as, plus unknown and refused to answer. These are not concepts used to describe a person's sexual orientation (who they are attracted to).),(Data Element Scope: gender identity),(Inclusion Criteria: Concepts that can represent a type of gender, plus unknown and refused to answer. This is not restricted to male and female.),(Exclusion Criteria: concepts used to describe a person's sexual orientation)",
+  "purpose" : "(Clinical Focus: Concepts that are used to describe the gender a person identifies as, plus unknown, other and Asked But Declined to Answer. These are not concepts used to describe a person's sexual orientation (who they are attracted to).),(Data Element Scope: gender identity),(Inclusion Criteria: Concepts that can represent a type of gender, plus unknown and refused to answer. This is not restricted to male and female.),(Exclusion Criteria: concepts used to describe a person's sexual orientation)",
   "compose" : {
     "include" : [
       {
         "valueSet" : [
-          "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1114.17"
+          "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1021.101"
         ]
       },
       {
         "valueSet" : [
-          "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1021.101"
+          "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1240.4"
+        ]
+      },
+      {
+        "valueSet" : [
+          "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1240.10"
         ]
       }
     ]
   },
   "expansion" : {
-    "identifier" : "urn:uuid:95178b44-efd2-452b-9b04-61b46edb792a",
-    "timestamp" : "2023-11-24T16:01:23-05:00",
-    "total" : 7,
+    "identifier" : "urn:uuid:5dac93ab-c968-4105-b8f6-df3a5e3a3a6d",
+    "timestamp" : "2024-06-14T09:15:42-04:00",
+    "total" : 9,
     "contains" : [
       {
         "system" : "http://snomed.info/sct",
-        "version" : "http://snomed.info/sct/731000124108/version/20230901",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "33791000087105",
+        "display" : "Identifies as nonbinary gender (finding)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
         "code" : "407376001",
         "display" : "Male-to-female transsexual (finding)"
       },
       {
         "system" : "http://snomed.info/sct",
-        "version" : "http://snomed.info/sct/731000124108/version/20230901",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
         "code" : "407377005",
         "display" : "Female-to-male transsexual (finding)"
       },
       {
         "system" : "http://snomed.info/sct",
-        "version" : "http://snomed.info/sct/731000124108/version/20230901",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
         "code" : "446131000124102",
         "display" : "Identifies as non-conforming gender (finding)"
       },
       {
         "system" : "http://snomed.info/sct",
-        "version" : "http://snomed.info/sct/731000124108/version/20230901",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
         "code" : "446141000124107",
         "display" : "Identifies as female gender (finding)"
       },
       {
         "system" : "http://snomed.info/sct",
-        "version" : "http://snomed.info/sct/731000124108/version/20230901",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
         "code" : "446151000124109",
         "display" : "Identifies as male gender (finding)"
       },
       {
         "system" : "http://terminology.hl7.org/CodeSystem/v3-NullFlavor",
         "version" : "2023-02-01",
-        "code" : "ASKU",
-        "display" : "asked but unknown"
+        "code" : "OTH",
+        "display" : "other"
       },
       {
         "system" : "http://terminology.hl7.org/CodeSystem/v3-NullFlavor",
         "version" : "2023-02-01",
-        "code" : "OTH",
-        "display" : "other"
+        "code" : "UNK",
+        "display" : "unknown"
+      },
+      {
+        "system" : "http://terminology.hl7.org/CodeSystem/data-absent-reason",
+        "version" : "0.1.0",
+        "code" : "asked-declined",
+        "display" : "Asked But Declined"
       }
     ]
   }

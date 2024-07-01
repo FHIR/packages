@@ -2,10 +2,11 @@
   "resourceType" : "ValueSet",
   "id" : "2.16.840.1.113762.1.4.1247.213",
   "meta" : {
-    "versionId" : "6",
-    "lastUpdated" : "2023-07-25T01:37:12.000-04:00",
+    "versionId" : "12",
+    "lastUpdated" : "2024-06-04T01:21:19.000-04:00",
     "profile" : [
       "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-valueset-cqfm",
       "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
     ]
   },
@@ -16,11 +17,11 @@
     },
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
-      "valueDate" : "2023-07-25"
+      "valueDate" : "2024-06-04"
     },
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
-      "valueDate" : "2023-07-25"
+      "valueDate" : "2024-06-04"
     }
   ],
   "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1247.213",
@@ -30,11 +31,11 @@
       "value" : "urn:oid:2.16.840.1.113762.1.4.1247.213"
     }
   ],
-  "version" : "20230725",
+  "version" : "20240604",
   "name" : "HealthInsuranceCoverageStatusDiagnosesSNOMEDCT",
   "title" : "Health Insurance Coverage Status Diagnoses SNOMED CT",
   "status" : "active",
-  "date" : "2023-07-25T01:37:12-04:00",
+  "date" : "2024-06-04T01:21:19-04:00",
   "publisher" : "The Gravity Project Steward",
   "jurisdiction" : [
     {
@@ -46,7 +47,7 @@
       ]
     }
   ],
-  "purpose" : "(Clinical Focus: <insert metadata>\n\nThe terms in this value set represent the diagnoses associated with health insurance coverage status as identified by the Gravity Project),(Data Element Scope: Supports the exchange of data for the Gravity SDOH Clinical Care FHIR implementation guide as well as other uses of this SDOH terms),(Inclusion Criteria: Includes SNOMED CT diagnoses that have been identified through the Gravity Project community consensus voting process),(Exclusion Criteria: N/A)",
+  "purpose" : "(Clinical Focus: This set of values represent diagnoses for Health Insurance Coverage Status as selected by the Gravity Project.),(Data Element Scope: In the FHIR Condition resource, these values may be used for Condition.code (e.g., for the SDOHCC Condition profile in the Gravity SDOH Clinical Care FHIR Implementation Guide).),(Inclusion Criteria: Includes SNOMED CT diagnoses for Health Insurance Coverage Status as selected by the Gravity Project.),(Exclusion Criteria: NA)",
   "compose" : {
     "include" : [
       {
@@ -55,21 +56,31 @@
           {
             "code" : "671211000124105",
             "display" : "Not enrolled in health insurance plan (finding)"
+          },
+          {
+            "code" : "761551000124109",
+            "display" : "Unable to obtain health insurance coverage due to limited financial resources (finding)"
           }
         ]
       }
     ]
   },
   "expansion" : {
-    "identifier" : "urn:uuid:bef8a7ff-ea7c-4db0-bba5-c3eb97d250c1",
-    "timestamp" : "2023-11-26T19:14:16-05:00",
-    "total" : 1,
+    "identifier" : "urn:uuid:1f1a38e5-730b-46ed-87ba-dcd1f9f7c9c5",
+    "timestamp" : "2024-06-14T14:57:54-04:00",
+    "total" : 2,
     "contains" : [
       {
         "system" : "http://snomed.info/sct",
-        "version" : "http://snomed.info/sct/731000124108/version/20230901",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
         "code" : "671211000124105",
         "display" : "Not enrolled in health insurance plan (finding)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "761551000124109",
+        "display" : "Unable to obtain health insurance coverage due to limited financial resources (finding)"
       }
     ]
   }

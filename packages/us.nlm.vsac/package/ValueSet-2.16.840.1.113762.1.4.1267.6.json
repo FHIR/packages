@@ -1,0 +1,96 @@
+{
+  "resourceType" : "ValueSet",
+  "id" : "2.16.840.1.113762.1.4.1267.6",
+  "meta" : {
+    "versionId" : "5",
+    "lastUpdated" : "2024-02-27T16:29:13.000-05:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-valueset-cqfm",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
+  },
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "HL7 US Realm Program Management Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2024-06-05"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2024-02-22"
+    }
+  ],
+  "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1267.6",
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113762.1.4.1267.6"
+    }
+  ],
+  "version" : "20240222",
+  "name" : "SmokingStatusType",
+  "title" : "Smoking Status Type",
+  "status" : "active",
+  "date" : "2024-02-22T01:11:38-05:00",
+  "publisher" : "HL7 US Realm Program Management Steward",
+  "jurisdiction" : [
+    {
+      "coding" : [
+        {
+          "system" : "urn:iso:std:iso:3166",
+          "code" : "US"
+        }
+      ]
+    }
+  ],
+  "purpose" : "(Clinical Focus: This grouped set contains concepts used to categorize smoking or tobacco use. Named \"Smoking Status Type\" suppporting the common clinical term \"Smoking Status\" that is used to gather both tobacco smoking information and broader tobacco or nicotine use, such as vaping and chew. It also contains concepts used to represent questions about Pack Years.),(Data Element Scope: The purpose is to represent concepts used to gather smoking information.),(Inclusion Criteria: LOINC codes for smoking  status and SNOMED CT codes for smoking Pack Years categorization of questions),(Exclusion Criteria: Codes not related to snoming catgorization or pack years)",
+  "compose" : {
+    "include" : [
+      {
+        "valueSet" : [
+          "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1267.4"
+        ]
+      },
+      {
+        "valueSet" : [
+          "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1267.5"
+        ]
+      }
+    ]
+  },
+  "expansion" : {
+    "identifier" : "urn:uuid:6579cfde-a889-4a03-9760-637d08ece0f8",
+    "timestamp" : "2024-06-14T15:12:09-04:00",
+    "total" : 4,
+    "contains" : [
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
+        "code" : "11367-0",
+        "display" : "History of Tobacco use"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "401201003",
+        "display" : "Cigarette pack-years (observable entity)"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
+        "code" : "72166-2",
+        "display" : "Tobacco smoking status"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "782516008",
+        "display" : "Number of calculated pack years for cumulative lifetime tobacco exposure (observable entity)"
+      }
+    ]
+  }
+}

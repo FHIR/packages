@@ -2,10 +2,11 @@
   "resourceType" : "ValueSet",
   "id" : "2.16.840.1.113762.1.4.1095.78",
   "meta" : {
-    "versionId" : "5",
-    "lastUpdated" : "2018-05-07T16:51:15.000-04:00",
+    "versionId" : "26",
+    "lastUpdated" : "2024-04-23T01:01:49.000-04:00",
     "profile" : [
       "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-valueset-cqfm",
       "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
     ]
   },
@@ -16,11 +17,11 @@
     },
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
-      "valueDate" : "2023-06-20"
+      "valueDate" : "2024-04-23"
     },
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
-      "valueDate" : "2018-05-07"
+      "valueDate" : "2024-04-23"
     }
   ],
   "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1095.78",
@@ -30,12 +31,11 @@
       "value" : "urn:oid:2.16.840.1.113762.1.4.1095.78"
     }
   ],
-  "version" : "20180425",
+  "version" : "20240423",
   "name" : "FoodAndNutritionRelatedHistoryLOINC",
   "title" : "Food and Nutrition Related History LOINC",
   "status" : "active",
-  "experimental" : false,
-  "date" : "2018-04-25T01:00:04-04:00",
+  "date" : "2024-04-23T01:01:49-04:00",
   "publisher" : "AND Steward",
   "jurisdiction" : [
     {
@@ -47,12 +47,20 @@
       ]
     }
   ],
-  "purpose" : "(Clinical Focus: Food and nutrition history of an individual as recorded by a nutrition professional as a component of a Nutrition Assessment.),(Data Element Scope: Food and nutrition related history includes the composition and adequacy of a patient's food and nutrient intake, meal and snack patterns, diets and food modifications, and their eating environment.),(Inclusion Criteria: Data included is nutrition history assessment data used to determine an individualized nutrition care plan by a nutrition professional.),(Exclusion Criteria: N/A)",
+  "purpose" : "(Clinical Focus: Food and nutrition history of an individual as recorded by a nutrition professional as a component of a Nutrition Assessment.),(Data Element Scope: Food and nutrition related history includes items such as, food and nutrient intake, meal and snack patterns, and their eating environment.),(Inclusion Criteria: Data included is nutrition history assessment data used to determine an individualized nutrition care plan by a nutrition professional.),(Exclusion Criteria: Excludes other aspects of nutrition assessment, such as, lab values, anthropometrics, client history. It also excludes nutrition diagnoses (problems) and nutrition intervention care planning.)",
   "compose" : {
     "include" : [
       {
         "system" : "http://loinc.org",
         "concept" : [
+          {
+            "code" : "35264-1",
+            "display" : "Calcium intake 24 hour"
+          },
+          {
+            "code" : "75283-2",
+            "display" : "Food and nutrition history panel"
+          },
           {
             "code" : "75284-0",
             "display" : "Food and nutrient intake panel"
@@ -60,6 +68,14 @@
           {
             "code" : "75285-7",
             "display" : "Comparative nutrition assessment standards panel"
+          },
+          {
+            "code" : "75287-3",
+            "display" : "Food and beverage intake panel"
+          },
+          {
+            "code" : "75294-9",
+            "display" : "Adequacy of breastmilk andor formula"
           },
           {
             "code" : "75296-4",
@@ -86,6 +102,10 @@
             "display" : "Nutrition assessment Narrative"
           },
           {
+            "code" : "80439-3",
+            "display" : "Alcohol intake panel"
+          },
+          {
             "code" : "80440-1",
             "display" : "Bioactive compound intake panel"
           },
@@ -96,6 +116,10 @@
           {
             "code" : "80442-7",
             "display" : "Breast milk intake panel"
+          },
+          {
+            "code" : "80443-5",
+            "display" : "Calorie intake panel"
           },
           {
             "code" : "80444-3",
@@ -114,32 +138,304 @@
             "display" : "Meal andor snack pattern panel"
           },
           {
+            "code" : "80448-4",
+            "display" : "Enteral tube flush volume 24 hour"
+          },
+          {
+            "code" : "80449-2",
+            "display" : "Adequacy of infant formula intake"
+          },
+          {
+            "code" : "80451-8",
+            "display" : "Beta glucan intake 24 hour Estimated"
+          },
+          {
+            "code" : "80452-6",
+            "display" : "Beta glucan intake 24 hour Measured"
+          },
+          {
+            "code" : "80453-4",
+            "display" : "Food intake panel"
+          },
+          {
             "code" : "80454-2",
             "display" : "Enteral tube nutritional intake panel"
+          },
+          {
+            "code" : "80455-9",
+            "display" : "Grain servings 24 hour Estimated"
+          },
+          {
+            "code" : "80456-7",
+            "display" : "Grain servings 24 hour Measured"
+          },
+          {
+            "code" : "80457-5",
+            "display" : "Fruit servings 24 hour Estimated"
+          },
+          {
+            "code" : "80458-3",
+            "display" : "Fruit servings 24 hour Measured"
+          },
+          {
+            "code" : "80459-1",
+            "display" : "Vegetable servings 24 hour Estimated"
+          },
+          {
+            "code" : "80460-9",
+            "display" : "Vegetable servings 24 hour Measured"
+          },
+          {
+            "code" : "80461-7",
+            "display" : "Dairy servings 24 hour Estimated"
+          },
+          {
+            "code" : "80462-5",
+            "display" : "Dairy servings 24 hour Measured"
+          },
+          {
+            "code" : "80463-3",
+            "display" : "Protein servings 24 hour Estimated"
+          },
+          {
+            "code" : "80464-1",
+            "display" : "Protein servings 24 hour Measured"
+          },
+          {
+            "code" : "80465-8",
+            "display" : "Oil servings 24 hour Estimated"
+          },
+          {
+            "code" : "80466-6",
+            "display" : "Oil servings 24 hour Measured"
+          },
+          {
+            "code" : "80467-4",
+            "display" : "Empty calorie servings 24 hour Estimated"
+          },
+          {
+            "code" : "80468-2",
+            "display" : "Empty calorie servings 24 hour Measured"
+          },
+          {
+            "code" : "80469-0",
+            "display" : "Infant formula intake 24 hour Measured"
+          },
+          {
+            "code" : "80470-8",
+            "display" : "Plant stanol ester intake 24 hour Estimated"
+          },
+          {
+            "code" : "80471-6",
+            "display" : "Plant stanol ester intake 24 hour Measured"
+          },
+          {
+            "code" : "80472-4",
+            "display" : "Psyllium intake 24 hour Estimated"
           },
           {
             "code" : "80473-2",
             "display" : "Psyllium intake 24 hour Measured"
           },
           {
+            "code" : "80474-0",
+            "display" : "Infant formula intake 24 hour Estimated"
+          },
+          {
             "code" : "80475-7",
             "display" : "Fluid intake enteral tube nutritional formula composition"
+          },
+          {
+            "code" : "80476-5",
+            "display" : "Enteral tube nutritional formula concentration [Energy/volume]"
+          },
+          {
+            "code" : "80480-7",
+            "display" : "Soy protein intake 24 hour Estimated"
+          },
+          {
+            "code" : "80481-5",
+            "display" : "Soy protein intake 24 hour Measured"
+          },
+          {
+            "code" : "80482-3",
+            "display" : "Breast milk feeding attempts 24 hour"
+          },
+          {
+            "code" : "80483-1",
+            "display" : "Breast milk intake volume 24 hour Estimated"
+          },
+          {
+            "code" : "80484-9",
+            "display" : "Breast milk intake volume 24 hour Measured"
+          },
+          {
+            "code" : "80486-4",
+            "display" : "Snacks 24 hour Estimated"
+          },
+          {
+            "code" : "80487-2",
+            "display" : "Snacks 24 hour Measured"
+          },
+          {
+            "code" : "80488-0",
+            "display" : "Infant formula feedings 24 hour"
+          },
+          {
+            "code" : "80489-8",
+            "display" : "Caffeine intake 24 hour Estimated"
+          },
+          {
+            "code" : "80490-6",
+            "display" : "Caffeine intake 24 hour Measured"
+          },
+          {
+            "code" : "80491-4",
+            "display" : "Meals 24 hour Estimated"
+          },
+          {
+            "code" : "80492-2",
+            "display" : "Meals 24 hour Measured"
+          },
+          {
+            "code" : "80494-8",
+            "display" : "Calorie intake 24 hour Measured"
+          },
+          {
+            "code" : "80899-8",
+            "display" : "Plant sterol ester intake 24 hour Estimated"
+          },
+          {
+            "code" : "80900-4",
+            "display" : "Plant sterol ester intake 24 hour Measured"
+          },
+          {
+            "code" : "80983-0",
+            "display" : "Chloride intake 24 hour Measured"
+          },
+          {
+            "code" : "80984-8",
+            "display" : "Fluoride intake 24 hour Measured"
+          },
+          {
+            "code" : "81003-6",
+            "display" : "Iodine intake 24 hour Estimated"
+          },
+          {
+            "code" : "81004-4",
+            "display" : "Iodine intake 24 hour Measured"
+          },
+          {
+            "code" : "81005-1",
+            "display" : "Magnesium intake 24 hour Estimated"
+          },
+          {
+            "code" : "81006-9",
+            "display" : "Magnesium intake 24 hour Measured"
+          },
+          {
+            "code" : "81007-7",
+            "display" : "Manganese intake 24 hour Estimated"
+          },
+          {
+            "code" : "81008-5",
+            "display" : "Manganese intake 24 hour Measured"
+          },
+          {
+            "code" : "81009-3",
+            "display" : "Potassium intake 24 hour Measured"
+          },
+          {
+            "code" : "81010-1",
+            "display" : "Potassium intake 24 hour Estimated"
+          },
+          {
+            "code" : "81011-9",
+            "display" : "Sodium intake 24 hour Estimated"
+          },
+          {
+            "code" : "81012-7",
+            "display" : "Sodium intake 24 hour Measured"
           },
           {
             "code" : "81013-5",
             "display" : "Alpha linolenate intake 24 hour Estimated"
           },
           {
+            "code" : "81014-3",
+            "display" : "Alpha linolenate intake 24 hour Measured"
+          },
+          {
             "code" : "81015-0",
             "display" : "Arginine intake 24 hour Estimated"
+          },
+          {
+            "code" : "81016-8",
+            "display" : "Arginine intake 24 hour Measured"
+          },
+          {
+            "code" : "81017-6",
+            "display" : "Vitamin B7 (Biotin) intake 24 hour Estimated"
+          },
+          {
+            "code" : "81018-4",
+            "display" : "Vitamin B7 (Biotin) intake 24 hour Measured"
+          },
+          {
+            "code" : "81019-2",
+            "display" : "Casein intake 24 hour Estimated"
+          },
+          {
+            "code" : "81020-0",
+            "display" : "Casein intake 24 hour Measured"
           },
           {
             "code" : "81021-8",
             "display" : "Cholesterol intake 24 hour Estimated"
           },
           {
+            "code" : "81022-6",
+            "display" : "Cholesterol intake 24 hour Measured"
+          },
+          {
+            "code" : "81023-4",
+            "display" : "Chromium intake 24 hour Estimated"
+          },
+          {
+            "code" : "81024-2",
+            "display" : "Chromium intake 24 hour Measured"
+          },
+          {
             "code" : "81025-9",
             "display" : "Complex carbohydrate intake 24 hour Estimated"
+          },
+          {
+            "code" : "81026-7",
+            "display" : "Complex carbohydrate intake 24 hour Measured"
+          },
+          {
+            "code" : "81027-5",
+            "display" : "Copper intake 24 hour Estimated"
+          },
+          {
+            "code" : "81028-3",
+            "display" : "Copper intake 24 hour Measured"
+          },
+          {
+            "code" : "81029-1",
+            "display" : "Eicosapentaenoate intake 24 hour Estimated"
+          },
+          {
+            "code" : "81030-9",
+            "display" : "Eicosapentaenoate intake 24 hour Measured"
+          },
+          {
+            "code" : "81031-7",
+            "display" : "Alpha-linoate+Linoleate intake 24 hour Estimated"
+          },
+          {
+            "code" : "81032-5",
+            "display" : "Days per week alcoholic drinks consumed"
           },
           {
             "code" : "81033-3",
@@ -150,116 +446,452 @@
             "display" : "Trans fat intake 24 hour Estimated"
           },
           {
+            "code" : "81035-8",
+            "display" : "Trans fat intake 24 hour Measured"
+          },
+          {
+            "code" : "81036-6",
+            "display" : "Polyunsaturated fat intake 24 hour Measured"
+          },
+          {
+            "code" : "81037-4",
+            "display" : "Docosahexaenoate (DHA) intake 24 hour Estimated"
+          },
+          {
+            "code" : "81038-2",
+            "display" : "Docosahexaenoate (DHA) intake 24 hour Measured"
+          },
+          {
             "code" : "81039-0",
             "display" : "Gluten intake 24 hour Estimated"
+          },
+          {
+            "code" : "81040-8",
+            "display" : "Gluten intake 24 hour Measured"
           },
           {
             "code" : "81041-6",
             "display" : "Isoleucine intake 24 hour Estimated"
           },
           {
+            "code" : "81042-4",
+            "display" : "Isoleucine intake 24 hour Measured"
+          },
+          {
             "code" : "81043-2",
             "display" : "Leucine intake 24 hour Estimated"
+          },
+          {
+            "code" : "81044-0",
+            "display" : "Leucine intake 24 hour Measured"
           },
           {
             "code" : "81045-7",
             "display" : "Threonine intake 24 hour Estimated"
           },
           {
+            "code" : "81046-5",
+            "display" : "Threonine intake 24 hour Measured"
+          },
+          {
             "code" : "81047-3",
             "display" : "Valine intake 24 hour Estimated"
+          },
+          {
+            "code" : "81048-1",
+            "display" : "Valine intake 24 hour Measured"
           },
           {
             "code" : "81049-9",
             "display" : "Sucrose intake 24 hour Estimated"
           },
           {
+            "code" : "81050-7",
+            "display" : "Sucrose intake 24 hour Measured"
+          },
+          {
             "code" : "81051-5",
             "display" : "Lactose intake 24 hour Estimated"
+          },
+          {
+            "code" : "81052-3",
+            "display" : "Lactose intake 24 hour Measured"
           },
           {
             "code" : "81053-1",
             "display" : "Galactose intake 24 hour Estimated"
           },
           {
+            "code" : "81054-9",
+            "display" : "Galactose intake 24 hour Measured"
+          },
+          {
+            "code" : "81055-6",
+            "display" : "Fructose intake 24 hour Estimated"
+          },
+          {
             "code" : "81056-4",
             "display" : "Fructose intake 24 hour Measured"
+          },
+          {
+            "code" : "81057-2",
+            "display" : "Fiber intake 24 hour Measured"
+          },
+          {
+            "code" : "81058-0",
+            "display" : "Soluble fiber intake 24 hour Estimated"
+          },
+          {
+            "code" : "81059-8",
+            "display" : "Soluble fiber intake 24 hour Measured"
+          },
+          {
+            "code" : "81060-6",
+            "display" : "Insoluble fiber intake 24 hour Estimated"
+          },
+          {
+            "code" : "81061-4",
+            "display" : "Insoluble fiber intake 24 hour Measured"
+          },
+          {
+            "code" : "81062-2",
+            "display" : "Vitamin B12 intake 24 hour Estimated"
+          },
+          {
+            "code" : "81063-0",
+            "display" : "Vitamin B12 intake 24 hour Measured"
+          },
+          {
+            "code" : "81064-8",
+            "display" : "Vitamin B6 intake 24 hour Estimated"
+          },
+          {
+            "code" : "81065-5",
+            "display" : "Vitamin B6 intake 24 hour Measured"
+          },
+          {
+            "code" : "81066-3",
+            "display" : "Vitamin B9 (Folate) intake 24 hour Estimated"
+          },
+          {
+            "code" : "81067-1",
+            "display" : "Vitamin B3 (Niacin) intake 24 hour Measured"
+          },
+          {
+            "code" : "81068-9",
+            "display" : "Vitamin B5 (Pantothenate) intake 24 hour Estimated"
+          },
+          {
+            "code" : "81069-7",
+            "display" : "Vitamin B5 (Pantothenate) intake 24 hour Measured"
+          },
+          {
+            "code" : "81070-5",
+            "display" : "Vitamin B2 (Riboflavin) intake 24 hour Estimated"
+          },
+          {
+            "code" : "81071-3",
+            "display" : "Vitamin B2 (Riboflavin) intake 24 hour Measured"
+          },
+          {
+            "code" : "81072-1",
+            "display" : "Vitamin A intake 24 hour Estimated"
+          },
+          {
+            "code" : "81073-9",
+            "display" : "Vitamin A intake 24 hour Measured"
+          },
+          {
+            "code" : "81074-7",
+            "display" : "Vitamin C intake 24 hour Estimated"
+          },
+          {
+            "code" : "81075-4",
+            "display" : "Vitamin C intake 24 hour Measured"
+          },
+          {
+            "code" : "81076-2",
+            "display" : "Vitamin E intake 24 hour Estimated"
+          },
+          {
+            "code" : "81077-0",
+            "display" : "Vitamin E intake 24 hour Measured"
+          },
+          {
+            "code" : "81078-8",
+            "display" : "Vitamin K intake 24 hour Estimated"
+          },
+          {
+            "code" : "81079-6",
+            "display" : "Vitamin K intake 24 hour Measured"
+          },
+          {
+            "code" : "81080-4",
+            "display" : "Chloride intake 24 hour Estimated"
+          },
+          {
+            "code" : "81081-2",
+            "display" : "Fluoride intake 24 hour Estimated"
+          },
+          {
+            "code" : "81082-0",
+            "display" : "Iron intake 24 hour Estimated"
+          },
+          {
+            "code" : "81083-8",
+            "display" : "Iron intake 24 hour Measured"
+          },
+          {
+            "code" : "81084-6",
+            "display" : "Molybdenum intake 24 hour Estimated"
+          },
+          {
+            "code" : "81085-3",
+            "display" : "Molybdenum intake 24 hour Measured"
+          },
+          {
+            "code" : "81086-1",
+            "display" : "Selenium intake 24 hour Measured"
+          },
+          {
+            "code" : "81087-9",
+            "display" : "Selenium intake 24 hour Estimated"
+          },
+          {
+            "code" : "81088-7",
+            "display" : "Zinc intake 24 hour Measured"
+          },
+          {
+            "code" : "81089-5",
+            "display" : "Zinc intake 24 hour Estimated"
+          },
+          {
+            "code" : "81126-5",
+            "display" : "Cobalt intake 24 hour Measured"
+          },
+          {
+            "code" : "81127-3",
+            "display" : "Cobalt intake 24 hour Estimated"
+          },
+          {
+            "code" : "81128-1",
+            "display" : "Alpha-linoate+Linoleate intake 24 hour Measured"
           },
           {
             "code" : "81129-9",
             "display" : "Glutamine intake 24 hour Estimated"
           },
           {
+            "code" : "81130-7",
+            "display" : "Glutamine intake 24 hour Measured"
+          },
+          {
             "code" : "81131-5",
             "display" : "Polyunsaturated fat intake 24 hour Estimated"
+          },
+          {
+            "code" : "81132-3",
+            "display" : "Phosphorus intake 24 hour Estimated"
+          },
+          {
+            "code" : "81133-1",
+            "display" : "Fiber intake 24 hour Estimated"
+          },
+          {
+            "code" : "81134-9",
+            "display" : "Vitamin B9 (Folate) intake 24 hour Measured"
+          },
+          {
+            "code" : "81135-6",
+            "display" : "Vitamin B3 (Niacin) intake 24 hour Estimated"
+          },
+          {
+            "code" : "81136-4",
+            "display" : "Saturated fat intake 24 hour Measured"
+          },
+          {
+            "code" : "81137-2",
+            "display" : "Calcium intake 24 hour Estimated"
           },
           {
             "code" : "81197-6",
             "display" : "Amino acid intake 24 hour Estimated"
           },
           {
+            "code" : "81198-4",
+            "display" : "Amino acid intake 24 hour Measured"
+          },
+          {
+            "code" : "81895-5",
+            "display" : "Macronutrient intake panel"
+          },
+          {
+            "code" : "81896-3",
+            "display" : "Fat intake panel"
+          },
+          {
             "code" : "81897-1",
             "display" : "Monounsaturated fat intake 24 hour Estimated"
+          },
+          {
+            "code" : "81899-7",
+            "display" : "Monounsaturated fat intake 24 hour Measured"
           },
           {
             "code" : "81900-3",
             "display" : "Omega-3 fatty acid intake 24 hour Estimated"
           },
           {
+            "code" : "81901-1",
+            "display" : "Omega-3 fatty acid intake 24 hour Measured"
+          },
+          {
             "code" : "81902-9",
             "display" : "Medium chain triglyceride intake 24 hour Estimated"
+          },
+          {
+            "code" : "81903-7",
+            "display" : "Medium chain triglyceride intake 24 hour Measured"
           },
           {
             "code" : "81904-5",
             "display" : "Protein intake panel"
           },
           {
+            "code" : "81905-2",
+            "display" : "High biological value protein intake 24 hour Estimated"
+          },
+          {
+            "code" : "81906-0",
+            "display" : "High biological value protein intake 24 hour Measured"
+          },
+          {
             "code" : "81908-6",
             "display" : "Whey intake 24 hour Estimated"
+          },
+          {
+            "code" : "81909-4",
+            "display" : "Whey intake 24 hour Measured"
+          },
+          {
+            "code" : "81910-2",
+            "display" : "Protein intake/Body weight 24 hour Estimated"
+          },
+          {
+            "code" : "81911-0",
+            "display" : "Protein intake/Body weight 24 hour Measured"
+          },
+          {
+            "code" : "81912-8",
+            "display" : "Amino acid intake panel"
           },
           {
             "code" : "81914-4",
             "display" : "Essential amino acid intake 24 hour Estimated"
           },
           {
+            "code" : "81915-1",
+            "display" : "Essential amino acid intake 24 hour Measured"
+          },
+          {
             "code" : "81916-9",
             "display" : "Histidine intake 24 hour Estimated"
+          },
+          {
+            "code" : "81917-7",
+            "display" : "Histidine intake 24 hour Measured"
           },
           {
             "code" : "81918-5",
             "display" : "Methionine intake 24 hour Estimated"
           },
           {
+            "code" : "81919-3",
+            "display" : "Methionine intake 24 hour Measured"
+          },
+          {
             "code" : "81920-1",
             "display" : "Lysine intake 24 hour Estimated"
+          },
+          {
+            "code" : "81921-9",
+            "display" : "Lysine intake 24 hour Measured"
           },
           {
             "code" : "81922-7",
             "display" : "Tryptophan intake 24 hour Estimated"
           },
           {
+            "code" : "81923-5",
+            "display" : "Tryptophan intake 24 hour Measured"
+          },
+          {
             "code" : "81924-3",
             "display" : "Phenylalanine intake 24 hour Estimated"
+          },
+          {
+            "code" : "81925-0",
+            "display" : "Phenylalanine intake 24 hour Measured"
           },
           {
             "code" : "81926-8",
             "display" : "Fiber intake panel"
           },
           {
+            "code" : "81927-6",
+            "display" : "Vitamin B1 (Thiamine) intake 24 hour Estimated"
+          },
+          {
+            "code" : "81928-4",
+            "display" : "Vitamin B1 (Thiamine) intake 24 hour Measured"
+          },
+          {
+            "code" : "81929-2",
+            "display" : "Vitamin D intake 24 hour Estimated"
+          },
+          {
+            "code" : "81930-0",
+            "display" : "Vitamin D intake 24 hour Measured"
+          },
+          {
             "code" : "81932-6",
             "display" : "Nonessential amino acid intake 24 hour Estimated"
+          },
+          {
+            "code" : "81933-4",
+            "display" : "Nonessential amino acid intake 24 hour Measured"
           },
           {
             "code" : "81934-2",
             "display" : "Homocysteine intake 24 hour Estimated"
           },
           {
+            "code" : "81935-9",
+            "display" : "Homocysteine intake 24 hour Measured"
+          },
+          {
             "code" : "81936-7",
             "display" : "Tyramine intake 24 hour Estimated"
           },
           {
+            "code" : "81937-5",
+            "display" : "Tyramine intake 24 hour Measured"
+          },
+          {
             "code" : "81938-3",
             "display" : "Tyrosine intake 24 hour Estimated"
+          },
+          {
+            "code" : "81939-1",
+            "display" : "Tyrosine intake 24 hour Measured"
+          },
+          {
+            "code" : "81940-9",
+            "display" : "Carbohydrate intake panel"
+          },
+          {
+            "code" : "81941-7",
+            "display" : "Micronutrient intake panel"
           },
           {
             "code" : "81942-5",
@@ -270,347 +902,1405 @@
             "display" : "Mineral AndOr trace element intake panel"
           },
           {
+            "code" : "81944-1",
+            "display" : "Boron intake 24 hour Estimated"
+          },
+          {
+            "code" : "81945-8",
+            "display" : "Boron intake 24 hour Measured"
+          },
+          {
+            "code" : "81946-6",
+            "display" : "Phosphorus intake 24 hour Measured"
+          },
+          {
+            "code" : "81947-4",
+            "display" : "Sulfate intake 24 hour Measured"
+          },
+          {
+            "code" : "81948-2",
+            "display" : "Sulfate intake 24 hour Estimated"
+          },
+          {
+            "code" : "81949-0",
+            "display" : "Multi-trace element supplement intake 24 hour"
+          },
+          {
+            "code" : "81950-8",
+            "display" : "Multivitamin andor mineral supplement intake 24 hour"
+          },
+          {
+            "code" : "81951-6",
+            "display" : "Fluid intake 24 hour Measured"
+          },
+          {
+            "code" : "81952-4",
+            "display" : "Fat intake 24 hour Measured"
+          },
+          {
+            "code" : "82156-1",
+            "display" : "Protein intake 24 hour Measured"
+          },
+          {
             "code" : "88121-9",
             "display" : "Hunger Vital Sign [HVS]"
+          },
+          {
+            "code" : "9060-5",
+            "display" : "Carbohydrate intake Measured"
           }
         ]
       }
     ]
   },
   "expansion" : {
-    "identifier" : "urn:uuid:9cc9cf10-6c7d-49e0-9eaf-3c63df289136",
-    "timestamp" : "2023-11-26T12:42:03-05:00",
-    "total" : 55,
+    "identifier" : "urn:uuid:1f6b1805-b8ae-43f3-8d1c-55a2517479c1",
+    "timestamp" : "2024-06-14T11:03:42-04:00",
+    "total" : 224,
     "contains" : [
       {
         "system" : "http://loinc.org",
-        "version" : "2.76",
+        "version" : "2.77",
+        "code" : "35264-1",
+        "display" : "Calcium intake 24 hour"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
+        "code" : "75283-2",
+        "display" : "Food and nutrition history panel"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
         "code" : "75284-0",
         "display" : "Food and nutrient intake panel"
       },
       {
         "system" : "http://loinc.org",
-        "version" : "2.76",
+        "version" : "2.77",
         "code" : "75285-7",
         "display" : "Comparative nutrition assessment standards panel"
       },
       {
         "system" : "http://loinc.org",
-        "version" : "2.76",
+        "version" : "2.77",
+        "code" : "75287-3",
+        "display" : "Food and beverage intake panel"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
+        "code" : "75294-9",
+        "display" : "Adequacy of breastmilk andor formula"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
         "code" : "75296-4",
         "display" : "Carbohydrate intake 24 hour Estimated"
       },
       {
         "system" : "http://loinc.org",
-        "version" : "2.76",
+        "version" : "2.77",
         "code" : "75297-2",
         "display" : "Fat intake 24 hour Estimated"
       },
       {
         "system" : "http://loinc.org",
-        "version" : "2.76",
+        "version" : "2.77",
         "code" : "75298-0",
         "display" : "Calorie intake 24 hour Estimated"
       },
       {
         "system" : "http://loinc.org",
-        "version" : "2.76",
+        "version" : "2.77",
         "code" : "75299-8",
         "display" : "Protein intake 24 hour Estimated"
       },
       {
         "system" : "http://loinc.org",
-        "version" : "2.76",
+        "version" : "2.77",
         "code" : "75301-2",
         "display" : "Fluid intake 24 hour Estimated"
       },
       {
         "system" : "http://loinc.org",
-        "version" : "2.76",
+        "version" : "2.77",
         "code" : "75303-8",
         "display" : "Nutrition assessment Narrative"
       },
       {
         "system" : "http://loinc.org",
-        "version" : "2.76",
+        "version" : "2.77",
+        "code" : "80439-3",
+        "display" : "Alcohol intake panel"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
         "code" : "80440-1",
         "display" : "Bioactive compound intake panel"
       },
       {
         "system" : "http://loinc.org",
-        "version" : "2.76",
+        "version" : "2.77",
         "code" : "80441-9",
         "display" : "Breast milk andor formula intake panel"
       },
       {
         "system" : "http://loinc.org",
-        "version" : "2.76",
+        "version" : "2.77",
         "code" : "80442-7",
         "display" : "Breast milk intake panel"
       },
       {
         "system" : "http://loinc.org",
-        "version" : "2.76",
+        "version" : "2.77",
+        "code" : "80443-5",
+        "display" : "Calorie intake panel"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
         "code" : "80444-3",
         "display" : "Fluid intake panel"
       },
       {
         "system" : "http://loinc.org",
-        "version" : "2.76",
+        "version" : "2.77",
         "code" : "80445-0",
         "display" : "Food amounts panel"
       },
       {
         "system" : "http://loinc.org",
-        "version" : "2.76",
+        "version" : "2.77",
         "code" : "80446-8",
         "display" : "Infant formula intake panel"
       },
       {
         "system" : "http://loinc.org",
-        "version" : "2.76",
+        "version" : "2.77",
         "code" : "80447-6",
         "display" : "Meal andor snack pattern panel"
       },
       {
         "system" : "http://loinc.org",
-        "version" : "2.76",
+        "version" : "2.77",
+        "code" : "80448-4",
+        "display" : "Enteral tube flush volume 24 hour"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
+        "code" : "80449-2",
+        "display" : "Adequacy of infant formula intake"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
+        "code" : "80451-8",
+        "display" : "Beta glucan intake 24 hour Estimated"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
+        "code" : "80452-6",
+        "display" : "Beta glucan intake 24 hour Measured"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
+        "code" : "80453-4",
+        "display" : "Food intake panel"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
         "code" : "80454-2",
         "display" : "Enteral tube nutritional intake panel"
       },
       {
         "system" : "http://loinc.org",
-        "version" : "2.76",
+        "version" : "2.77",
+        "code" : "80455-9",
+        "display" : "Grain servings 24 hour Estimated"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
+        "code" : "80456-7",
+        "display" : "Grain servings 24 hour Measured"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
+        "code" : "80457-5",
+        "display" : "Fruit servings 24 hour Estimated"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
+        "code" : "80458-3",
+        "display" : "Fruit servings 24 hour Measured"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
+        "code" : "80459-1",
+        "display" : "Vegetable servings 24 hour Estimated"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
+        "code" : "80460-9",
+        "display" : "Vegetable servings 24 hour Measured"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
+        "code" : "80461-7",
+        "display" : "Dairy servings 24 hour Estimated"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
+        "code" : "80462-5",
+        "display" : "Dairy servings 24 hour Measured"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
+        "code" : "80463-3",
+        "display" : "Protein servings 24 hour Estimated"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
+        "code" : "80464-1",
+        "display" : "Protein servings 24 hour Measured"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
+        "code" : "80465-8",
+        "display" : "Oil servings 24 hour Estimated"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
+        "code" : "80466-6",
+        "display" : "Oil servings 24 hour Measured"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
+        "code" : "80467-4",
+        "display" : "Empty calorie servings 24 hour Estimated"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
+        "code" : "80468-2",
+        "display" : "Empty calorie servings 24 hour Measured"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
+        "code" : "80469-0",
+        "display" : "Infant formula intake 24 hour Measured"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
+        "code" : "80470-8",
+        "display" : "Plant stanol ester intake 24 hour Estimated"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
+        "code" : "80471-6",
+        "display" : "Plant stanol ester intake 24 hour Measured"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
+        "code" : "80472-4",
+        "display" : "Psyllium intake 24 hour Estimated"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
         "code" : "80473-2",
         "display" : "Psyllium intake 24 hour Measured"
       },
       {
         "system" : "http://loinc.org",
-        "version" : "2.76",
+        "version" : "2.77",
+        "code" : "80474-0",
+        "display" : "Infant formula intake 24 hour Estimated"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
         "code" : "80475-7",
         "display" : "Fluid intake enteral tube nutritional formula composition"
       },
       {
         "system" : "http://loinc.org",
-        "version" : "2.76",
+        "version" : "2.77",
+        "code" : "80476-5",
+        "display" : "Enteral tube nutritional formula concentration [Energy/volume]"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
+        "code" : "80480-7",
+        "display" : "Soy protein intake 24 hour Estimated"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
+        "code" : "80481-5",
+        "display" : "Soy protein intake 24 hour Measured"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
+        "code" : "80482-3",
+        "display" : "Breast milk feeding attempts 24 hour"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
+        "code" : "80483-1",
+        "display" : "Breast milk intake volume 24 hour Estimated"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
+        "code" : "80484-9",
+        "display" : "Breast milk intake volume 24 hour Measured"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
+        "code" : "80486-4",
+        "display" : "Snacks 24 hour Estimated"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
+        "code" : "80487-2",
+        "display" : "Snacks 24 hour Measured"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
+        "code" : "80488-0",
+        "display" : "Infant formula feedings 24 hour"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
+        "code" : "80489-8",
+        "display" : "Caffeine intake 24 hour Estimated"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
+        "code" : "80490-6",
+        "display" : "Caffeine intake 24 hour Measured"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
+        "code" : "80491-4",
+        "display" : "Meals 24 hour Estimated"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
+        "code" : "80492-2",
+        "display" : "Meals 24 hour Measured"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
+        "code" : "80494-8",
+        "display" : "Calorie intake 24 hour Measured"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
+        "code" : "80899-8",
+        "display" : "Plant sterol ester intake 24 hour Estimated"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
+        "code" : "80900-4",
+        "display" : "Plant sterol ester intake 24 hour Measured"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
+        "code" : "80983-0",
+        "display" : "Chloride intake 24 hour Measured"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
+        "code" : "80984-8",
+        "display" : "Fluoride intake 24 hour Measured"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
+        "code" : "81003-6",
+        "display" : "Iodine intake 24 hour Estimated"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
+        "code" : "81004-4",
+        "display" : "Iodine intake 24 hour Measured"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
+        "code" : "81005-1",
+        "display" : "Magnesium intake 24 hour Estimated"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
+        "code" : "81006-9",
+        "display" : "Magnesium intake 24 hour Measured"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
+        "code" : "81007-7",
+        "display" : "Manganese intake 24 hour Estimated"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
+        "code" : "81008-5",
+        "display" : "Manganese intake 24 hour Measured"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
+        "code" : "81009-3",
+        "display" : "Potassium intake 24 hour Measured"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
+        "code" : "81010-1",
+        "display" : "Potassium intake 24 hour Estimated"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
+        "code" : "81011-9",
+        "display" : "Sodium intake 24 hour Estimated"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
+        "code" : "81012-7",
+        "display" : "Sodium intake 24 hour Measured"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
         "code" : "81013-5",
         "display" : "Alpha linolenate intake 24 hour Estimated"
       },
       {
         "system" : "http://loinc.org",
-        "version" : "2.76",
+        "version" : "2.77",
+        "code" : "81014-3",
+        "display" : "Alpha linolenate intake 24 hour Measured"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
         "code" : "81015-0",
         "display" : "Arginine intake 24 hour Estimated"
       },
       {
         "system" : "http://loinc.org",
-        "version" : "2.76",
+        "version" : "2.77",
+        "code" : "81016-8",
+        "display" : "Arginine intake 24 hour Measured"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
+        "code" : "81017-6",
+        "display" : "Vitamin B7 (Biotin) intake 24 hour Estimated"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
+        "code" : "81018-4",
+        "display" : "Vitamin B7 (Biotin) intake 24 hour Measured"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
+        "code" : "81019-2",
+        "display" : "Casein intake 24 hour Estimated"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
+        "code" : "81020-0",
+        "display" : "Casein intake 24 hour Measured"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
         "code" : "81021-8",
         "display" : "Cholesterol intake 24 hour Estimated"
       },
       {
         "system" : "http://loinc.org",
-        "version" : "2.76",
+        "version" : "2.77",
+        "code" : "81022-6",
+        "display" : "Cholesterol intake 24 hour Measured"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
+        "code" : "81023-4",
+        "display" : "Chromium intake 24 hour Estimated"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
+        "code" : "81024-2",
+        "display" : "Chromium intake 24 hour Measured"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
         "code" : "81025-9",
         "display" : "Complex carbohydrate intake 24 hour Estimated"
       },
       {
         "system" : "http://loinc.org",
-        "version" : "2.76",
+        "version" : "2.77",
+        "code" : "81026-7",
+        "display" : "Complex carbohydrate intake 24 hour Measured"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
+        "code" : "81027-5",
+        "display" : "Copper intake 24 hour Estimated"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
+        "code" : "81028-3",
+        "display" : "Copper intake 24 hour Measured"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
+        "code" : "81029-1",
+        "display" : "Eicosapentaenoate intake 24 hour Estimated"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
+        "code" : "81030-9",
+        "display" : "Eicosapentaenoate intake 24 hour Measured"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
+        "code" : "81031-7",
+        "display" : "Alpha-linoate+Linoleate intake 24 hour Estimated"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
+        "code" : "81032-5",
+        "display" : "Days per week alcoholic drinks consumed"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
         "code" : "81033-3",
         "display" : "Saturated fat intake 24 hour Estimated"
       },
       {
         "system" : "http://loinc.org",
-        "version" : "2.76",
+        "version" : "2.77",
         "code" : "81034-1",
         "display" : "Trans fat intake 24 hour Estimated"
       },
       {
         "system" : "http://loinc.org",
-        "version" : "2.76",
+        "version" : "2.77",
+        "code" : "81035-8",
+        "display" : "Trans fat intake 24 hour Measured"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
+        "code" : "81036-6",
+        "display" : "Polyunsaturated fat intake 24 hour Measured"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
+        "code" : "81037-4",
+        "display" : "Docosahexaenoate (DHA) intake 24 hour Estimated"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
+        "code" : "81038-2",
+        "display" : "Docosahexaenoate (DHA) intake 24 hour Measured"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
         "code" : "81039-0",
         "display" : "Gluten intake 24 hour Estimated"
       },
       {
         "system" : "http://loinc.org",
-        "version" : "2.76",
+        "version" : "2.77",
+        "code" : "81040-8",
+        "display" : "Gluten intake 24 hour Measured"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
         "code" : "81041-6",
         "display" : "Isoleucine intake 24 hour Estimated"
       },
       {
         "system" : "http://loinc.org",
-        "version" : "2.76",
+        "version" : "2.77",
+        "code" : "81042-4",
+        "display" : "Isoleucine intake 24 hour Measured"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
         "code" : "81043-2",
         "display" : "Leucine intake 24 hour Estimated"
       },
       {
         "system" : "http://loinc.org",
-        "version" : "2.76",
+        "version" : "2.77",
+        "code" : "81044-0",
+        "display" : "Leucine intake 24 hour Measured"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
         "code" : "81045-7",
         "display" : "Threonine intake 24 hour Estimated"
       },
       {
         "system" : "http://loinc.org",
-        "version" : "2.76",
+        "version" : "2.77",
+        "code" : "81046-5",
+        "display" : "Threonine intake 24 hour Measured"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
         "code" : "81047-3",
         "display" : "Valine intake 24 hour Estimated"
       },
       {
         "system" : "http://loinc.org",
-        "version" : "2.76",
+        "version" : "2.77",
+        "code" : "81048-1",
+        "display" : "Valine intake 24 hour Measured"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
         "code" : "81049-9",
         "display" : "Sucrose intake 24 hour Estimated"
       },
       {
         "system" : "http://loinc.org",
-        "version" : "2.76",
+        "version" : "2.77",
+        "code" : "81050-7",
+        "display" : "Sucrose intake 24 hour Measured"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
         "code" : "81051-5",
         "display" : "Lactose intake 24 hour Estimated"
       },
       {
         "system" : "http://loinc.org",
-        "version" : "2.76",
+        "version" : "2.77",
+        "code" : "81052-3",
+        "display" : "Lactose intake 24 hour Measured"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
         "code" : "81053-1",
         "display" : "Galactose intake 24 hour Estimated"
       },
       {
         "system" : "http://loinc.org",
-        "version" : "2.76",
+        "version" : "2.77",
+        "code" : "81054-9",
+        "display" : "Galactose intake 24 hour Measured"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
+        "code" : "81055-6",
+        "display" : "Fructose intake 24 hour Estimated"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
         "code" : "81056-4",
         "display" : "Fructose intake 24 hour Measured"
       },
       {
         "system" : "http://loinc.org",
-        "version" : "2.76",
+        "version" : "2.77",
+        "code" : "81057-2",
+        "display" : "Fiber intake 24 hour Measured"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
+        "code" : "81058-0",
+        "display" : "Soluble fiber intake 24 hour Estimated"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
+        "code" : "81059-8",
+        "display" : "Soluble fiber intake 24 hour Measured"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
+        "code" : "81060-6",
+        "display" : "Insoluble fiber intake 24 hour Estimated"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
+        "code" : "81061-4",
+        "display" : "Insoluble fiber intake 24 hour Measured"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
+        "code" : "81062-2",
+        "display" : "Vitamin B12 intake 24 hour Estimated"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
+        "code" : "81063-0",
+        "display" : "Vitamin B12 intake 24 hour Measured"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
+        "code" : "81064-8",
+        "display" : "Vitamin B6 intake 24 hour Estimated"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
+        "code" : "81065-5",
+        "display" : "Vitamin B6 intake 24 hour Measured"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
+        "code" : "81066-3",
+        "display" : "Vitamin B9 (Folate) intake 24 hour Estimated"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
+        "code" : "81067-1",
+        "display" : "Vitamin B3 (Niacin) intake 24 hour Measured"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
+        "code" : "81068-9",
+        "display" : "Vitamin B5 (Pantothenate) intake 24 hour Estimated"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
+        "code" : "81069-7",
+        "display" : "Vitamin B5 (Pantothenate) intake 24 hour Measured"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
+        "code" : "81070-5",
+        "display" : "Vitamin B2 (Riboflavin) intake 24 hour Estimated"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
+        "code" : "81071-3",
+        "display" : "Vitamin B2 (Riboflavin) intake 24 hour Measured"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
+        "code" : "81072-1",
+        "display" : "Vitamin A intake 24 hour Estimated"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
+        "code" : "81073-9",
+        "display" : "Vitamin A intake 24 hour Measured"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
+        "code" : "81074-7",
+        "display" : "Vitamin C intake 24 hour Estimated"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
+        "code" : "81075-4",
+        "display" : "Vitamin C intake 24 hour Measured"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
+        "code" : "81076-2",
+        "display" : "Vitamin E intake 24 hour Estimated"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
+        "code" : "81077-0",
+        "display" : "Vitamin E intake 24 hour Measured"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
+        "code" : "81078-8",
+        "display" : "Vitamin K intake 24 hour Estimated"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
+        "code" : "81079-6",
+        "display" : "Vitamin K intake 24 hour Measured"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
+        "code" : "81080-4",
+        "display" : "Chloride intake 24 hour Estimated"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
+        "code" : "81081-2",
+        "display" : "Fluoride intake 24 hour Estimated"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
+        "code" : "81082-0",
+        "display" : "Iron intake 24 hour Estimated"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
+        "code" : "81083-8",
+        "display" : "Iron intake 24 hour Measured"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
+        "code" : "81084-6",
+        "display" : "Molybdenum intake 24 hour Estimated"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
+        "code" : "81085-3",
+        "display" : "Molybdenum intake 24 hour Measured"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
+        "code" : "81086-1",
+        "display" : "Selenium intake 24 hour Measured"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
+        "code" : "81087-9",
+        "display" : "Selenium intake 24 hour Estimated"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
+        "code" : "81088-7",
+        "display" : "Zinc intake 24 hour Measured"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
+        "code" : "81089-5",
+        "display" : "Zinc intake 24 hour Estimated"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
+        "code" : "81126-5",
+        "display" : "Cobalt intake 24 hour Measured"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
+        "code" : "81127-3",
+        "display" : "Cobalt intake 24 hour Estimated"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
+        "code" : "81128-1",
+        "display" : "Alpha-linoate+Linoleate intake 24 hour Measured"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
         "code" : "81129-9",
         "display" : "Glutamine intake 24 hour Estimated"
       },
       {
         "system" : "http://loinc.org",
-        "version" : "2.76",
+        "version" : "2.77",
+        "code" : "81130-7",
+        "display" : "Glutamine intake 24 hour Measured"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
         "code" : "81131-5",
         "display" : "Polyunsaturated fat intake 24 hour Estimated"
       },
       {
         "system" : "http://loinc.org",
-        "version" : "2.76",
+        "version" : "2.77",
+        "code" : "81132-3",
+        "display" : "Phosphorus intake 24 hour Estimated"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
+        "code" : "81133-1",
+        "display" : "Fiber intake 24 hour Estimated"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
+        "code" : "81134-9",
+        "display" : "Vitamin B9 (Folate) intake 24 hour Measured"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
+        "code" : "81135-6",
+        "display" : "Vitamin B3 (Niacin) intake 24 hour Estimated"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
+        "code" : "81136-4",
+        "display" : "Saturated fat intake 24 hour Measured"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
+        "code" : "81137-2",
+        "display" : "Calcium intake 24 hour Estimated"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
         "code" : "81197-6",
         "display" : "Amino acid intake 24 hour Estimated"
       },
       {
         "system" : "http://loinc.org",
-        "version" : "2.76",
+        "version" : "2.77",
+        "code" : "81198-4",
+        "display" : "Amino acid intake 24 hour Measured"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
+        "code" : "81895-5",
+        "display" : "Macronutrient intake panel"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
+        "code" : "81896-3",
+        "display" : "Fat intake panel"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
         "code" : "81897-1",
         "display" : "Monounsaturated fat intake 24 hour Estimated"
       },
       {
         "system" : "http://loinc.org",
-        "version" : "2.76",
+        "version" : "2.77",
+        "code" : "81899-7",
+        "display" : "Monounsaturated fat intake 24 hour Measured"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
         "code" : "81900-3",
         "display" : "Omega-3 fatty acid intake 24 hour Estimated"
       },
       {
         "system" : "http://loinc.org",
-        "version" : "2.76",
+        "version" : "2.77",
+        "code" : "81901-1",
+        "display" : "Omega-3 fatty acid intake 24 hour Measured"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
         "code" : "81902-9",
         "display" : "Medium chain triglyceride intake 24 hour Estimated"
       },
       {
         "system" : "http://loinc.org",
-        "version" : "2.76",
+        "version" : "2.77",
+        "code" : "81903-7",
+        "display" : "Medium chain triglyceride intake 24 hour Measured"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
         "code" : "81904-5",
         "display" : "Protein intake panel"
       },
       {
         "system" : "http://loinc.org",
-        "version" : "2.76",
+        "version" : "2.77",
+        "code" : "81905-2",
+        "display" : "High biological value protein intake 24 hour Estimated"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
+        "code" : "81906-0",
+        "display" : "High biological value protein intake 24 hour Measured"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
         "code" : "81908-6",
         "display" : "Whey intake 24 hour Estimated"
       },
       {
         "system" : "http://loinc.org",
-        "version" : "2.76",
+        "version" : "2.77",
+        "code" : "81909-4",
+        "display" : "Whey intake 24 hour Measured"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
+        "code" : "81910-2",
+        "display" : "Protein intake/Body weight 24 hour Estimated"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
+        "code" : "81911-0",
+        "display" : "Protein intake/Body weight 24 hour Measured"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
+        "code" : "81912-8",
+        "display" : "Amino acid intake panel"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
         "code" : "81914-4",
         "display" : "Essential amino acid intake 24 hour Estimated"
       },
       {
         "system" : "http://loinc.org",
-        "version" : "2.76",
+        "version" : "2.77",
+        "code" : "81915-1",
+        "display" : "Essential amino acid intake 24 hour Measured"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
         "code" : "81916-9",
         "display" : "Histidine intake 24 hour Estimated"
       },
       {
         "system" : "http://loinc.org",
-        "version" : "2.76",
+        "version" : "2.77",
+        "code" : "81917-7",
+        "display" : "Histidine intake 24 hour Measured"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
         "code" : "81918-5",
         "display" : "Methionine intake 24 hour Estimated"
       },
       {
         "system" : "http://loinc.org",
-        "version" : "2.76",
+        "version" : "2.77",
+        "code" : "81919-3",
+        "display" : "Methionine intake 24 hour Measured"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
         "code" : "81920-1",
         "display" : "Lysine intake 24 hour Estimated"
       },
       {
         "system" : "http://loinc.org",
-        "version" : "2.76",
+        "version" : "2.77",
+        "code" : "81921-9",
+        "display" : "Lysine intake 24 hour Measured"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
         "code" : "81922-7",
         "display" : "Tryptophan intake 24 hour Estimated"
       },
       {
         "system" : "http://loinc.org",
-        "version" : "2.76",
+        "version" : "2.77",
+        "code" : "81923-5",
+        "display" : "Tryptophan intake 24 hour Measured"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
         "code" : "81924-3",
         "display" : "Phenylalanine intake 24 hour Estimated"
       },
       {
         "system" : "http://loinc.org",
-        "version" : "2.76",
+        "version" : "2.77",
+        "code" : "81925-0",
+        "display" : "Phenylalanine intake 24 hour Measured"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
         "code" : "81926-8",
         "display" : "Fiber intake panel"
       },
       {
         "system" : "http://loinc.org",
-        "version" : "2.76",
+        "version" : "2.77",
+        "code" : "81927-6",
+        "display" : "Vitamin B1 (Thiamine) intake 24 hour Estimated"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
+        "code" : "81928-4",
+        "display" : "Vitamin B1 (Thiamine) intake 24 hour Measured"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
+        "code" : "81929-2",
+        "display" : "Vitamin D intake 24 hour Estimated"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
+        "code" : "81930-0",
+        "display" : "Vitamin D intake 24 hour Measured"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
         "code" : "81932-6",
         "display" : "Nonessential amino acid intake 24 hour Estimated"
       },
       {
         "system" : "http://loinc.org",
-        "version" : "2.76",
+        "version" : "2.77",
+        "code" : "81933-4",
+        "display" : "Nonessential amino acid intake 24 hour Measured"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
         "code" : "81934-2",
         "display" : "Homocysteine intake 24 hour Estimated"
       },
       {
         "system" : "http://loinc.org",
-        "version" : "2.76",
+        "version" : "2.77",
+        "code" : "81935-9",
+        "display" : "Homocysteine intake 24 hour Measured"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
         "code" : "81936-7",
         "display" : "Tyramine intake 24 hour Estimated"
       },
       {
         "system" : "http://loinc.org",
-        "version" : "2.76",
+        "version" : "2.77",
+        "code" : "81937-5",
+        "display" : "Tyramine intake 24 hour Measured"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
         "code" : "81938-3",
         "display" : "Tyrosine intake 24 hour Estimated"
       },
       {
         "system" : "http://loinc.org",
-        "version" : "2.76",
+        "version" : "2.77",
+        "code" : "81939-1",
+        "display" : "Tyrosine intake 24 hour Measured"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
+        "code" : "81940-9",
+        "display" : "Carbohydrate intake panel"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
+        "code" : "81941-7",
+        "display" : "Micronutrient intake panel"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
         "code" : "81942-5",
         "display" : "Vitamin intake panel"
       },
       {
         "system" : "http://loinc.org",
-        "version" : "2.76",
+        "version" : "2.77",
         "code" : "81943-3",
         "display" : "Mineral AndOr trace element intake panel"
       },
       {
         "system" : "http://loinc.org",
-        "version" : "2.76",
+        "version" : "2.77",
+        "code" : "81944-1",
+        "display" : "Boron intake 24 hour Estimated"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
+        "code" : "81945-8",
+        "display" : "Boron intake 24 hour Measured"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
+        "code" : "81946-6",
+        "display" : "Phosphorus intake 24 hour Measured"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
+        "code" : "81947-4",
+        "display" : "Sulfate intake 24 hour Measured"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
+        "code" : "81948-2",
+        "display" : "Sulfate intake 24 hour Estimated"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
+        "code" : "81949-0",
+        "display" : "Multi-trace element supplement intake 24 hour"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
+        "code" : "81950-8",
+        "display" : "Multivitamin andor mineral supplement intake 24 hour"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
+        "code" : "81951-6",
+        "display" : "Fluid intake 24 hour Measured"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
+        "code" : "81952-4",
+        "display" : "Fat intake 24 hour Measured"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
+        "code" : "82156-1",
+        "display" : "Protein intake 24 hour Measured"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
         "code" : "88121-9",
         "display" : "Hunger Vital Sign [HVS]"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
+        "code" : "9060-5",
+        "display" : "Carbohydrate intake Measured"
       }
     ]
   }
