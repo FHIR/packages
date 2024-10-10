@@ -3,6 +3,14 @@
 This repository contains the source for a nunber of FHIR packages 
 the provide important implementation time support for FHIR implementers:
 
+## FHIR Foundation Project Statement
+
+* Maintainers: Grahame Grieve
+* Issues / Discussion: Use github issues
+* License: Creative Commons Public Domain or as otherwise stated
+* Contribution Policy: Make PRs. PRs have to build ok with the latest IG Publisher
+* Security Information: There should be no security issues here - it's all static content. Can report issues with the standard github repotring method 
+
 ## Core FHIR Packages 
 
 These packages are the master source for the FHIR NPM packages that 
