@@ -1,0 +1,81 @@
+{
+  "resourceType" : "ValueSet",
+  "id" : "2.16.840.1.113762.1.4.1221.216",
+  "meta" : {
+    "versionId" : "6",
+    "lastUpdated" : "2024-04-24T01:01:23.000-04:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-valueset-cqfm",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
+  },
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueContactDetail" : {
+        "name" : "NACHC Author"
+      }
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2024-04-24"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2024-04-24"
+    }
+  ],
+  "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1221.216",
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113762.1.4.1221.216"
+    }
+  ],
+  "version" : "20240424",
+  "name" : "Abortion1StTrimester",
+  "title" : "Abortion, 1st Trimester",
+  "status" : "active",
+  "date" : "2024-04-24T01:01:23-04:00",
+  "publisher" : "NACHC Steward",
+  "jurisdiction" : [
+    {
+      "coding" : [
+        {
+          "system" : "urn:iso:std:iso:3166",
+          "code" : "US"
+        }
+      ]
+    }
+  ],
+  "purpose" : "(Clinical Focus: The purpose of this value set is to represent the specific concept of surgical treatment for a missed abortion occurring in the first trimester of pregnancy (up to 13 completed weeks of gestation). A missed abortion refers to a pregnancy where the embryo/fetus stops developing but is not expelled from the uterus.),(Data Element Scope: This value set is intended for use with data elements related to obstetric procedures within electronic health records or clinical quality measures. The lone concept would belong to the Procedure semantic category.),(Inclusion Criteria: This value set solely includes the CPT code 59820 - \"Treatment of missed abortion, completed surgically; first trimester\". It covers the specific procedure of surgically evacuating the products of conception in cases of missed first trimester abortion.),(Exclusion Criteria: All other concepts related to induced or spontaneous abortion procedures in the first trimester are explicitly excluded from this very narrowly defined value set. Codes for medical (non-surgical) treatment of missed abortions are also excluded. The value set does not include any codes for second or third trimester missed abortion treatments.)",
+  "compose" : {
+    "include" : [
+      {
+        "system" : "http://www.ama-assn.org/go/cpt",
+        "version" : "2025",
+        "filter" : [
+          {
+            "property" : "concept",
+            "op" : "in",
+            "value" : "59820"
+          }
+        ]
+      }
+    ]
+  },
+  "expansion" : {
+    "identifier" : "urn:uuid:82e4f8c6-d52a-44d9-97ea-3eb8b92f42d7",
+    "timestamp" : "2024-11-08T22:02:25-05:00",
+    "total" : 1,
+    "contains" : [
+      {
+        "system" : "http://www.ama-assn.org/go/cpt",
+        "version" : "2025",
+        "code" : "59820",
+        "display" : "Treatment of missed abortion, completed surgically; first trimester"
+      }
+    ]
+  }
+}

@@ -1,0 +1,98 @@
+{
+  "resourceType" : "ValueSet",
+  "id" : "2.16.840.1.113762.1.4.1267.16",
+  "meta" : {
+    "versionId" : "8",
+    "lastUpdated" : "2024-10-05T01:00:42.000-04:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-valueset-cqfm",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
+  },
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueContactDetail" : {
+        "name" : "HL7 US Realm Program Management Author"
+      }
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2024-10-05"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2024-10-05"
+    }
+  ],
+  "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1267.16",
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113762.1.4.1267.16"
+    }
+  ],
+  "version" : "20241005",
+  "name" : "AnswerSetWithYesNoAndUnknowns",
+  "title" : "Answer Set with Yes No and Unknowns",
+  "status" : "active",
+  "date" : "2024-10-05T01:00:42-04:00",
+  "publisher" : "HL7 US Realm Program Management Steward",
+  "jurisdiction" : [
+    {
+      "coding" : [
+        {
+          "system" : "urn:iso:std:iso:3166",
+          "code" : "US"
+        }
+      ]
+    }
+  ],
+  "purpose" : "(Clinical Focus: This set of values includes concepts that represent yes or no answers, as well as concepts for when the answer is unknown or when the question was asked but remains unknown.),(Data Element Scope: The intent of this set of values is to allow for yes or no answers, as well as to capture situations where a value is expected but unknown, or when a source was asked but does not know the value.),(Inclusion Criteria: Includes \"unknown\" and \"asked-unknown\" codes from the HL7 Data Absent Reason code system and SNOMED CT qualifier codes for \"Yes\" and \"No\"),(Exclusion Criteria: NA)",
+  "compose" : {
+    "include" : [
+      {
+        "valueSet" : [
+          "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1267.14"
+        ]
+      },
+      {
+        "valueSet" : [
+          "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1267.15"
+        ]
+      }
+    ]
+  },
+  "expansion" : {
+    "identifier" : "urn:uuid:1b120a0a-4113-4859-bf38-b9cc19abb0d3",
+    "timestamp" : "2024-11-09T00:12:11-05:00",
+    "total" : 4,
+    "contains" : [
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240901",
+        "code" : "373066001",
+        "display" : "Yes (qualifier value)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240901",
+        "code" : "373067005",
+        "display" : "No (qualifier value)"
+      },
+      {
+        "system" : "http://terminology.hl7.org/CodeSystem/data-absent-reason",
+        "version" : "0.1.0",
+        "code" : "asked-unknown",
+        "display" : "Asked But Unknown"
+      },
+      {
+        "system" : "http://terminology.hl7.org/CodeSystem/data-absent-reason",
+        "version" : "0.1.0",
+        "code" : "unknown",
+        "display" : "Unknown"
+      }
+    ]
+  }
+}

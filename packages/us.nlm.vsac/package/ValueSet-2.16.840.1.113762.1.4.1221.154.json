@@ -1,0 +1,81 @@
+{
+  "resourceType" : "ValueSet",
+  "id" : "2.16.840.1.113762.1.4.1221.154",
+  "meta" : {
+    "versionId" : "5",
+    "lastUpdated" : "2024-04-23T01:01:49.000-04:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-valueset-cqfm",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
+  },
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueContactDetail" : {
+        "name" : "NACHC Author"
+      }
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2024-04-23"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2024-04-23"
+    }
+  ],
+  "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1221.154",
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113762.1.4.1221.154"
+    }
+  ],
+  "version" : "20240423",
+  "name" : "Abortion2NdTrimester",
+  "title" : "Abortion, 2nd Trimester",
+  "status" : "active",
+  "date" : "2024-04-23T01:01:49-04:00",
+  "publisher" : "NACHC Steward",
+  "jurisdiction" : [
+    {
+      "coding" : [
+        {
+          "system" : "urn:iso:std:iso:3166",
+          "code" : "US"
+        }
+      ]
+    }
+  ],
+  "purpose" : "(Clinical Focus: The purpose of this value set is to represent the specific concept of surgical treatment for a missed abortion occurring in the second trimester of pregnancy (14 to 27 completed weeks of gestation).),(Data Element Scope: This value set is intended for use with data elements related to obstetric procedures within electronic health records or clinical quality measures. The sole concept would belong to the Procedure semantic category.),(Inclusion Criteria: This value set includes only the concept describing the procedure code for \"Treatment of missed abortion, completed surgically; second trimester\". It covers the surgical evacuation of a missed abortion during the second trimester gestational period.),(Exclusion Criteria: All other concepts related to induced abortions, spontaneous abortions, or any first/third trimester procedures are explicitly excluded from this narrowly defined value set. Medical (non-surgical) treatments for missed second trimester abortions are also excluded. No concepts for reasons, methods, or associated conditions are incorporated.)",
+  "compose" : {
+    "include" : [
+      {
+        "system" : "http://www.ama-assn.org/go/cpt",
+        "version" : "2025",
+        "filter" : [
+          {
+            "property" : "concept",
+            "op" : "is-a",
+            "value" : "59821"
+          }
+        ]
+      }
+    ]
+  },
+  "expansion" : {
+    "identifier" : "urn:uuid:e43441d7-baf4-4bad-8d83-d0638fb363da",
+    "timestamp" : "2024-11-08T21:59:06-05:00",
+    "total" : 1,
+    "contains" : [
+      {
+        "system" : "http://www.ama-assn.org/go/cpt",
+        "version" : "2025",
+        "code" : "59821",
+        "display" : "Treatment of missed abortion, completed surgically; second trimester"
+      }
+    ]
+  }
+}

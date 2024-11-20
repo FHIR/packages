@@ -2,8 +2,8 @@
   "resourceType" : "ValueSet",
   "id" : "2.16.840.1.113762.1.4.1260.163",
   "meta" : {
-    "versionId" : "5",
-    "lastUpdated" : "2024-03-07T01:19:11.000-05:00",
+    "versionId" : "10",
+    "lastUpdated" : "2024-07-17T01:07:16.000-04:00",
     "profile" : [
       "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
       "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-valueset-cqfm",
@@ -13,15 +13,17 @@
   "extension" : [
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
-      "valueString" : "CancerLinQ Author"
+      "valueContactDetail" : {
+        "name" : "CancerLinQ Author"
+      }
     },
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
-      "valueDate" : "2024-03-07"
+      "valueDate" : "2024-07-17"
     },
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
-      "valueDate" : "2024-03-07"
+      "valueDate" : "2024-07-17"
     }
   ],
   "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1260.163",
@@ -31,11 +33,11 @@
       "value" : "urn:oid:2.16.840.1.113762.1.4.1260.163"
     }
   ],
-  "version" : "20240307",
-  "name" : "AdultDepressionScreeningAssessment",
-  "title" : "Adult depression screening assessment",
+  "version" : "20240717",
+  "name" : "AdultDepressionScreeningAssessmentLOINC",
+  "title" : "Adult depression screening assessment LOINC",
   "status" : "active",
-  "date" : "2024-03-07T01:19:11-05:00",
+  "date" : "2024-07-17T01:07:16-04:00",
   "publisher" : "CancerLinQ Steward",
   "jurisdiction" : [
     {
@@ -53,6 +55,18 @@
       {
         "system" : "http://loinc.org",
         "concept" : [
+          {
+            "code" : "100766-5",
+            "display" : "Center for Epidemiologic Studies Depression Scale panel [CES-D]"
+          },
+          {
+            "code" : "100787-1",
+            "display" : "Total Score CES-D"
+          },
+          {
+            "code" : "44249-1",
+            "display" : "PHQ-9 quick depression assessment panel [Reported.PHQ]"
+          },
           {
             "code" : "44261-6",
             "display" : "Patient Health Questionnaire 9 item (PHQ-9) total score [Reported]"
@@ -74,12 +88,24 @@
             "display" : "Geriatric depression scale (GDS) short version total"
           },
           {
+            "code" : "55757-9",
+            "display" : "Patient Health Questionnaire 2 item (PHQ-2) [Reported]"
+          },
+          {
             "code" : "55758-7",
             "display" : "Patient Health Questionnaire 2 item (PHQ-2) total score [Reported]"
           },
           {
+            "code" : "58120-7",
+            "display" : "Patient Health Questionnaire 2 item (PHQ-2) [PHQ.CMS]"
+          },
+          {
             "code" : "69723-5",
             "display" : "Patient Health Questionnaire (PHQ) [Reported]"
+          },
+          {
+            "code" : "69724-3",
+            "display" : "Patient Health Questionnaire 4 item (PHQ-4) [Reported]"
           },
           {
             "code" : "69729-2",
@@ -102,6 +128,18 @@
             "display" : "Depression scale [UPDRS]"
           },
           {
+            "code" : "89204-2",
+            "display" : "Patient Health Questionnaire-9: Modified for Teens total score [Reported.PHQ.Teen]"
+          },
+          {
+            "code" : "89205-9",
+            "display" : "Center for Epidemiologic Studies Depression Scale-Revised total score [CESD-R]"
+          },
+          {
+            "code" : "89207-5",
+            "display" : "Center for Epidemiologic Studies Depression Scale-Revised [CESD-R]"
+          },
+          {
             "code" : "89208-3",
             "display" : "Beck Depression Inventory Fast Screen total score [BDI]"
           },
@@ -116,6 +154,42 @@
           {
             "code" : "89211-7",
             "display" : "Beck Depression Inventory Fast Screen [BDI]"
+          },
+          {
+            "code" : "90221-3",
+            "display" : "Total score [CUDOS]"
+          },
+          {
+            "code" : "90222-1",
+            "display" : "Clinically Useful Depression Outcome Scale [CUDOS]"
+          },
+          {
+            "code" : "90853-3",
+            "display" : "Final score [DUKE-AD]"
+          },
+          {
+            "code" : "90854-1",
+            "display" : "Duke Anxiety Depression Scale [DUKE-AD]"
+          },
+          {
+            "code" : "91687-4",
+            "display" : "Adult self-report long form total score [MFQ]"
+          },
+          {
+            "code" : "91688-2",
+            "display" : "Mood and Feelings Questionnaire [MFQ] Adult self-report long form"
+          },
+          {
+            "code" : "93373-9",
+            "display" : "Columbia - suicide severity rating scale screener - recent [C-SSRS]"
+          },
+          {
+            "code" : "95875-1",
+            "display" : "Brief anxiety and depression scale [BADS]"
+          },
+          {
+            "code" : "99046-5",
+            "display" : "Total score [EPDS]"
           },
           {
             "code" : "LP149217-4",
@@ -134,121 +208,229 @@
     ]
   },
   "expansion" : {
-    "identifier" : "urn:uuid:9a6d9b27-4433-4e84-9281-47b7524861d9",
-    "timestamp" : "2024-06-14T15:08:10-04:00",
-    "total" : 19,
+    "identifier" : "urn:uuid:0e6b3349-d818-45db-b8d3-1f4b054a0382",
+    "timestamp" : "2024-11-08T23:44:08-05:00",
+    "total" : 37,
     "contains" : [
       {
         "system" : "http://loinc.org",
-        "version" : "2.77",
+        "version" : "2.78",
+        "code" : "100766-5",
+        "display" : "Center for Epidemiologic Studies Depression Scale panel [CES-D]"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.78",
+        "code" : "100787-1",
+        "display" : "Total Score CES-D"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.78",
+        "code" : "44249-1",
+        "display" : "PHQ-9 quick depression assessment panel [Reported.PHQ]"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.78",
         "code" : "44261-6",
         "display" : "Patient Health Questionnaire 9 item (PHQ-9) total score [Reported]"
       },
       {
         "system" : "http://loinc.org",
-        "version" : "2.77",
+        "version" : "2.78",
         "code" : "48542-5",
         "display" : "Geriatric depression scale (GDS) panel"
       },
       {
         "system" : "http://loinc.org",
-        "version" : "2.77",
+        "version" : "2.78",
         "code" : "48543-3",
         "display" : "Geriatric depression scale (GDS).short version panel"
       },
       {
         "system" : "http://loinc.org",
-        "version" : "2.77",
+        "version" : "2.78",
         "code" : "48544-1",
         "display" : "Geriatric depression scale (GDS) total"
       },
       {
         "system" : "http://loinc.org",
-        "version" : "2.77",
+        "version" : "2.78",
         "code" : "48545-8",
         "display" : "Geriatric depression scale (GDS) short version total"
       },
       {
         "system" : "http://loinc.org",
-        "version" : "2.77",
+        "version" : "2.78",
+        "code" : "55757-9",
+        "display" : "Patient Health Questionnaire 2 item (PHQ-2) [Reported]"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.78",
         "code" : "55758-7",
         "display" : "Patient Health Questionnaire 2 item (PHQ-2) total score [Reported]"
       },
       {
         "system" : "http://loinc.org",
-        "version" : "2.77",
+        "version" : "2.78",
+        "code" : "58120-7",
+        "display" : "Patient Health Questionnaire 2 item (PHQ-2) [PHQ.CMS]"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.78",
         "code" : "69723-5",
         "display" : "Patient Health Questionnaire (PHQ) [Reported]"
       },
       {
         "system" : "http://loinc.org",
-        "version" : "2.77",
+        "version" : "2.78",
+        "code" : "69724-3",
+        "display" : "Patient Health Questionnaire 4 item (PHQ-4) [Reported]"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.78",
         "code" : "69729-2",
         "display" : "Patient Health Questionnaire - Somatic, Anxiety, and Depressive Symptoms (PHQ-SADS) [Reported]"
       },
       {
         "system" : "http://loinc.org",
-        "version" : "2.77",
+        "version" : "2.78",
         "code" : "70272-0",
         "display" : "Patient Health Questionnaire 4 item (PHQ-4) total score [Reported]"
       },
       {
         "system" : "http://loinc.org",
-        "version" : "2.77",
+        "version" : "2.78",
         "code" : "71354-5",
         "display" : "Edinburgh Postnatal Depression Scale [EPDS]"
       },
       {
         "system" : "http://loinc.org",
-        "version" : "2.77",
+        "version" : "2.78",
         "code" : "73832-8",
         "display" : "Adult depression screening assessment"
       },
       {
         "system" : "http://loinc.org",
-        "version" : "2.77",
+        "version" : "2.78",
         "code" : "77688-0",
         "display" : "Depression scale [UPDRS]"
       },
       {
         "system" : "http://loinc.org",
-        "version" : "2.77",
+        "version" : "2.78",
+        "code" : "89204-2",
+        "display" : "Patient Health Questionnaire-9: Modified for Teens total score [Reported.PHQ.Teen]"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.78",
+        "code" : "89205-9",
+        "display" : "Center for Epidemiologic Studies Depression Scale-Revised total score [CESD-R]"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.78",
+        "code" : "89207-5",
+        "display" : "Center for Epidemiologic Studies Depression Scale-Revised [CESD-R]"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.78",
         "code" : "89208-3",
         "display" : "Beck Depression Inventory Fast Screen total score [BDI]"
       },
       {
         "system" : "http://loinc.org",
-        "version" : "2.77",
+        "version" : "2.78",
         "code" : "89209-1",
         "display" : "Beck Depression Inventory II total score [BDI]"
       },
       {
         "system" : "http://loinc.org",
-        "version" : "2.77",
+        "version" : "2.78",
         "code" : "89210-9",
         "display" : "Beck Depression Inventory II [BDI]"
       },
       {
         "system" : "http://loinc.org",
-        "version" : "2.77",
+        "version" : "2.78",
         "code" : "89211-7",
         "display" : "Beck Depression Inventory Fast Screen [BDI]"
       },
       {
         "system" : "http://loinc.org",
-        "version" : "2.77",
+        "version" : "2.78",
+        "code" : "90221-3",
+        "display" : "Total score [CUDOS]"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.78",
+        "code" : "90222-1",
+        "display" : "Clinically Useful Depression Outcome Scale [CUDOS]"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.78",
+        "code" : "90853-3",
+        "display" : "Final score [DUKE-AD]"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.78",
+        "code" : "90854-1",
+        "display" : "Duke Anxiety Depression Scale [DUKE-AD]"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.78",
+        "code" : "91687-4",
+        "display" : "Adult self-report long form total score [MFQ]"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.78",
+        "code" : "91688-2",
+        "display" : "Mood and Feelings Questionnaire [MFQ] Adult self-report long form"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.78",
+        "code" : "93373-9",
+        "display" : "Columbia - suicide severity rating scale screener - recent [C-SSRS]"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.78",
+        "code" : "95875-1",
+        "display" : "Brief anxiety and depression scale [BADS]"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.78",
+        "code" : "99046-5",
+        "display" : "Total score [EPDS]"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.78",
         "code" : "LP149217-4",
         "display" : "Edinburgh Postnatal Depression Scale"
       },
       {
         "system" : "http://loinc.org",
-        "version" : "2.77",
+        "version" : "2.78",
         "code" : "LP191511-7",
         "display" : "Depression scale"
       },
       {
         "system" : "http://loinc.org",
-        "version" : "2.77",
+        "version" : "2.78",
         "code" : "LP94997-1",
         "display" : "PHQ"
       }

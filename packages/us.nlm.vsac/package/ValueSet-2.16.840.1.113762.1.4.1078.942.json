@@ -1,0 +1,81 @@
+{
+  "resourceType" : "ValueSet",
+  "id" : "2.16.840.1.113762.1.4.1078.942",
+  "meta" : {
+    "versionId" : "5",
+    "lastUpdated" : "2024-10-24T01:02:54.000-04:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-valueset-cqfm",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
+  },
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueContactDetail" : {
+        "name" : "Optum Author"
+      }
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2024-10-24"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2024-10-24"
+    }
+  ],
+  "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1078.942",
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113762.1.4.1078.942"
+    }
+  ],
+  "version" : "20241024",
+  "name" : "CeliacDiseaseI10",
+  "title" : "Celiac disease I10",
+  "status" : "active",
+  "date" : "2024-10-24T01:02:54-04:00",
+  "publisher" : "Optum Steward",
+  "jurisdiction" : [
+    {
+      "coding" : [
+        {
+          "system" : "urn:iso:std:iso:3166",
+          "code" : "US"
+        }
+      ]
+    }
+  ],
+  "purpose" : "(Clinical Focus: Codes indicating a diagnosis of Celiac disease),(Data Element Scope: Note that this is a single ICD-10-CM code. While a value set of a single code is not best practice, this is needed for the ICD-10-CM + SNOMED CT grouping value set),(Inclusion Criteria: Single code: K90.0 Celiac disease),(Exclusion Criteria: N/A)",
+  "compose" : {
+    "include" : [
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2025",
+        "filter" : [
+          {
+            "property" : "concept",
+            "op" : "=",
+            "value" : "K90.0"
+          }
+        ]
+      }
+    ]
+  },
+  "expansion" : {
+    "identifier" : "urn:uuid:e6519efd-2c9a-4cf7-87d4-07d0418c2235",
+    "timestamp" : "2024-11-08T19:11:19-05:00",
+    "total" : 1,
+    "contains" : [
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2025",
+        "code" : "K90.0",
+        "display" : "Celiac disease"
+      }
+    ]
+  }
+}

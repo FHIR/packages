@@ -1,0 +1,98 @@
+{
+  "resourceType" : "ValueSet",
+  "id" : "2.16.840.1.113762.1.4.1221.153",
+  "meta" : {
+    "versionId" : "6",
+    "lastUpdated" : "2024-04-23T01:01:49.000-04:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-valueset-cqfm",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
+  },
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueContactDetail" : {
+        "name" : "NACHC Author"
+      }
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2024-04-23"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2024-04-23"
+    }
+  ],
+  "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1221.153",
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113762.1.4.1221.153"
+    }
+  ],
+  "version" : "20240423",
+  "name" : "Abortion2NdTrimester",
+  "title" : "Abortion, 2nd Trimester",
+  "status" : "active",
+  "date" : "2024-04-23T01:01:49-04:00",
+  "publisher" : "NACHC Steward",
+  "jurisdiction" : [
+    {
+      "coding" : [
+        {
+          "system" : "urn:iso:std:iso:3166",
+          "code" : "US"
+        }
+      ]
+    }
+  ],
+  "purpose" : "(Clinical Focus: The purpose of this value set is to represent concepts related to induced abortion procedures occurring during the second trimester of pregnancy, defined as 14 to 27 completed weeks of gestation. It covers induced termination procedures within the specified gestational age ranges.),(Data Element Scope: This value set is intended for use with data elements related to obstetric procedures and pregnancy termination within electronic health records or clinical quality measures. The included concepts would belong to the Procedure semantic category.),(Inclusion Criteria: This value set includes two concepts that explicitly describe induced abortion procedures in the late second trimester time periods of 17-24 weeks and 25-28 weeks gestation. No concepts for spontaneous abortions or missed abortions are incorporated.),(Exclusion Criteria: Any concepts related to induced abortions in the first or third trimesters are excluded from this value set. Treatment concepts for spontaneous/missed abortions are also excluded. The value set does not include any additional clinical details, methods, or indications for the induced abortion procedures covered. General concepts not specifying the gestational age range are omitted.)",
+  "compose" : {
+    "include" : [
+      {
+        "system" : "http://www.nlm.nih.gov/research/umls/hcpcs",
+        "version" : "2024",
+        "filter" : [
+          {
+            "property" : "concept",
+            "op" : "in",
+            "value" : "S2260"
+          }
+        ]
+      },
+      {
+        "system" : "http://www.nlm.nih.gov/research/umls/hcpcs",
+        "version" : "2024",
+        "filter" : [
+          {
+            "property" : "concept",
+            "op" : "in",
+            "value" : "S2265"
+          }
+        ]
+      }
+    ]
+  },
+  "expansion" : {
+    "identifier" : "urn:uuid:079fddf5-2dc7-45f5-a107-733066a7e66c",
+    "timestamp" : "2024-11-08T21:59:03-05:00",
+    "total" : 2,
+    "contains" : [
+      {
+        "system" : "http://www.nlm.nih.gov/research/umls/hcpcs",
+        "version" : "2024",
+        "code" : "S2260",
+        "display" : "Induced abortion, 17 to 24 weeks"
+      },
+      {
+        "system" : "http://www.nlm.nih.gov/research/umls/hcpcs",
+        "version" : "2024",
+        "code" : "S2265",
+        "display" : "Induced abortion, 25 to 28 weeks"
+      }
+    ]
+  }
+}

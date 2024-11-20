@@ -2,8 +2,8 @@
   "resourceType" : "ValueSet",
   "id" : "2.16.840.1.113883.3.3157.4050",
   "meta" : {
-    "versionId" : "23",
-    "lastUpdated" : "2023-12-21T17:43:03.000-05:00",
+    "versionId" : "31",
+    "lastUpdated" : "2024-09-06T09:16:37.000-04:00",
     "profile" : [
       "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
       "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-valueset-cqfm",
@@ -13,15 +13,17 @@
   "extension" : [
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
-      "valueString" : "Yale Author"
+      "valueContactDetail" : {
+        "name" : "Acumen OP Author"
+      }
     },
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
-      "valueDate" : "2024-02-21"
+      "valueDate" : "2024-07-26"
     },
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
-      "valueDate" : "2023-02-18"
+      "valueDate" : "2024-07-26"
     }
   ],
   "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.3157.4050",
@@ -31,12 +33,12 @@
       "value" : "urn:oid:2.16.840.1.113883.3.3157.4050"
     }
   ],
-  "version" : "20230218",
-  "name" : "InsertionOrReplacementOfMechanicalCirculatoryAssistDevice",
-  "title" : "Insertion or Replacement of Mechanical Circulatory Assist Device",
+  "version" : "20240726",
+  "name" : "InsertionReplacementOrRemovalOfMechanicalCirculatoryAssistDevice",
+  "title" : "Insertion, Replacement, or Removal of Mechanical Circulatory Assist Device",
   "status" : "active",
-  "date" : "2023-02-18T01:03:13-05:00",
-  "publisher" : "Yale",
+  "date" : "2024-07-26T01:07:22-04:00",
+  "publisher" : "Acumen OP Steward",
   "jurisdiction" : [
     {
       "coding" : [
@@ -54,8 +56,20 @@
         "system" : "http://www.ama-assn.org/go/cpt",
         "concept" : [
           {
+            "code" : "33968",
+            "display" : "Removal of intra-aortic balloon assist device, percutaneous"
+          },
+          {
             "code" : "33970",
             "display" : "Insertion of intra-aortic balloon assist device through the femoral artery, open approach"
+          },
+          {
+            "code" : "33971",
+            "display" : "Removal of intra-aortic balloon assist device including repair of femoral artery, with or without graft"
+          },
+          {
+            "code" : "33974",
+            "display" : "Removal of intra-aortic balloon assist device from the ascending aorta, including repair of the ascending aorta, with or without graft"
           },
           {
             "code" : "33975",
@@ -66,8 +80,20 @@
             "display" : "Insertion of ventricular assist device; extracorporeal, biventricular"
           },
           {
+            "code" : "33977",
+            "display" : "Removal of ventricular assist device; extracorporeal, single ventricle"
+          },
+          {
+            "code" : "33978",
+            "display" : "Removal of ventricular assist device; extracorporeal, biventricular"
+          },
+          {
             "code" : "33979",
             "display" : "Insertion of ventricular assist device, implantable intracorporeal, single ventricle"
+          },
+          {
+            "code" : "33980",
+            "display" : "Removal of ventricular assist device, implantable intracorporeal, single ventricle"
           },
           {
             "code" : "33981",
@@ -90,87 +116,143 @@
             "display" : "Insertion of ventricular assist device, percutaneous, including radiological supervision and interpretation; left heart, both arterial and venous access, with transseptal puncture"
           },
           {
+            "code" : "33992",
+            "display" : "Removal of percutaneous left heart ventricular assist device, arterial or arterial and venous cannula(s), at separate and distinct session from insertion"
+          },
+          {
             "code" : "33993",
             "display" : "Repositioning of percutaneous right or left heart ventricular assist device with imaging guidance at separate and distinct session from insertion"
           },
           {
             "code" : "33995",
             "display" : "Insertion of ventricular assist device, percutaneous, including radiological supervision and interpretation; right heart, venous access only"
+          },
+          {
+            "code" : "33997",
+            "display" : "Removal of percutaneous right heart ventricular assist device, venous cannula, at separate and distinct session from insertion"
           }
         ]
       }
     ]
   },
   "expansion" : {
-    "identifier" : "urn:uuid:8972d044-b66e-4840-95e2-7df6b3ae0ca1",
-    "timestamp" : "2024-06-14T16:04:33-04:00",
-    "total" : 11,
+    "identifier" : "urn:uuid:f56774bf-eb00-4984-b789-a4eb7fbdcaaa",
+    "timestamp" : "2024-11-09T01:03:00-05:00",
+    "total" : 19,
     "contains" : [
       {
         "system" : "http://www.ama-assn.org/go/cpt",
-        "version" : "2024",
+        "version" : "2025",
+        "code" : "33968",
+        "display" : "Removal of intra-aortic balloon assist device, percutaneous"
+      },
+      {
+        "system" : "http://www.ama-assn.org/go/cpt",
+        "version" : "2025",
         "code" : "33970",
         "display" : "Insertion of intra-aortic balloon assist device through the femoral artery, open approach"
       },
       {
         "system" : "http://www.ama-assn.org/go/cpt",
-        "version" : "2024",
+        "version" : "2025",
+        "code" : "33971",
+        "display" : "Removal of intra-aortic balloon assist device including repair of femoral artery, with or without graft"
+      },
+      {
+        "system" : "http://www.ama-assn.org/go/cpt",
+        "version" : "2025",
+        "code" : "33974",
+        "display" : "Removal of intra-aortic balloon assist device from the ascending aorta, including repair of the ascending aorta, with or without graft"
+      },
+      {
+        "system" : "http://www.ama-assn.org/go/cpt",
+        "version" : "2025",
         "code" : "33975",
         "display" : "Insertion of ventricular assist device; extracorporeal, single ventricle"
       },
       {
         "system" : "http://www.ama-assn.org/go/cpt",
-        "version" : "2024",
+        "version" : "2025",
         "code" : "33976",
         "display" : "Insertion of ventricular assist device; extracorporeal, biventricular"
       },
       {
         "system" : "http://www.ama-assn.org/go/cpt",
-        "version" : "2024",
+        "version" : "2025",
+        "code" : "33977",
+        "display" : "Removal of ventricular assist device; extracorporeal, single ventricle"
+      },
+      {
+        "system" : "http://www.ama-assn.org/go/cpt",
+        "version" : "2025",
+        "code" : "33978",
+        "display" : "Removal of ventricular assist device; extracorporeal, biventricular"
+      },
+      {
+        "system" : "http://www.ama-assn.org/go/cpt",
+        "version" : "2025",
         "code" : "33979",
         "display" : "Insertion of ventricular assist device, implantable intracorporeal, single ventricle"
       },
       {
         "system" : "http://www.ama-assn.org/go/cpt",
-        "version" : "2024",
+        "version" : "2025",
+        "code" : "33980",
+        "display" : "Removal of ventricular assist device, implantable intracorporeal, single ventricle"
+      },
+      {
+        "system" : "http://www.ama-assn.org/go/cpt",
+        "version" : "2025",
         "code" : "33981",
         "display" : "Replacement of extracorporeal ventricular assist device, single or biventricular, pump(s), single or each pump"
       },
       {
         "system" : "http://www.ama-assn.org/go/cpt",
-        "version" : "2024",
+        "version" : "2025",
         "code" : "33982",
         "display" : "Replacement of ventricular assist device pump(s); implantable intracorporeal, single ventricle, without cardiopulmonary bypass"
       },
       {
         "system" : "http://www.ama-assn.org/go/cpt",
-        "version" : "2024",
+        "version" : "2025",
         "code" : "33983",
         "display" : "Replacement of ventricular assist device pump(s); implantable intracorporeal, single ventricle, with cardiopulmonary bypass"
       },
       {
         "system" : "http://www.ama-assn.org/go/cpt",
-        "version" : "2024",
+        "version" : "2025",
         "code" : "33990",
         "display" : "Insertion of ventricular assist device, percutaneous, including radiological supervision and interpretation; left heart, arterial access only"
       },
       {
         "system" : "http://www.ama-assn.org/go/cpt",
-        "version" : "2024",
+        "version" : "2025",
         "code" : "33991",
         "display" : "Insertion of ventricular assist device, percutaneous, including radiological supervision and interpretation; left heart, both arterial and venous access, with transseptal puncture"
       },
       {
         "system" : "http://www.ama-assn.org/go/cpt",
-        "version" : "2024",
+        "version" : "2025",
+        "code" : "33992",
+        "display" : "Removal of percutaneous left heart ventricular assist device, arterial or arterial and venous cannula(s), at separate and distinct session from insertion"
+      },
+      {
+        "system" : "http://www.ama-assn.org/go/cpt",
+        "version" : "2025",
         "code" : "33993",
         "display" : "Repositioning of percutaneous right or left heart ventricular assist device with imaging guidance at separate and distinct session from insertion"
       },
       {
         "system" : "http://www.ama-assn.org/go/cpt",
-        "version" : "2024",
+        "version" : "2025",
         "code" : "33995",
         "display" : "Insertion of ventricular assist device, percutaneous, including radiological supervision and interpretation; right heart, venous access only"
+      },
+      {
+        "system" : "http://www.ama-assn.org/go/cpt",
+        "version" : "2025",
+        "code" : "33997",
+        "display" : "Removal of percutaneous right heart ventricular assist device, venous cannula, at separate and distinct session from insertion"
       }
     ]
   }
