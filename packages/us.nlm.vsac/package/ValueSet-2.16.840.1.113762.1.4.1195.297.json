@@ -3,88 +3,96 @@
   "id" : "2.16.840.1.113762.1.4.1195.297",
   "meta" : {
     "versionId" : "5",
-    "lastUpdated" : "2019-01-29T01:00:02.000-05:00",
-    "profile" : ["http://hl7.org/fhir/StructureDefinition/shareablevalueset",
-    "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"]
+    "lastUpdated" : "2023-12-21T17:43:03.000-05:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-valueset-cqfm",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "extension" : [{
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
-    "valueString" : "NJII Author"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
-    "valueDate" : "2022-12-15"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
-    "valueDate" : "2019-01-29"
-  }],
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "NJII Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2024-06-03"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2019-01-29"
+    }
+  ],
   "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1195.297",
-  "identifier" : [{
-    "system" : "urn:ietf:rfc:3986",
-    "value" : "urn:oid:2.16.840.1.113762.1.4.1195.297"
-  }],
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113762.1.4.1195.297"
+    }
+  ],
   "version" : "20190129",
   "name" : "HEDISLongActingOsteoporosisMedications",
   "title" : "HEDIS Long Acting Osteoporosis Medications",
-  "status" : "active",
+  "status" : "retired",
   "experimental" : false,
   "date" : "2019-01-29T01:00:02-05:00",
   "publisher" : "NJII Steward",
-  "jurisdiction" : [{
-    "extension" : [{
-      "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
-      "valueString" : "UNKNOWN"
-    }]
-  }],
+  "jurisdiction" : [
+    {
+      "coding" : [
+        {
+          "system" : "urn:iso:std:iso:3166",
+          "code" : "US"
+        }
+      ]
+    }
+  ],
   "purpose" : "(Clinical Focus: Denominator and Numerator criteria for Osteoporosis Management in Women STARSC12-HEDISOMW.),(Data Element Scope: HCPCS Codes),(Inclusion Criteria: As Defined within STARSC12-HEDISOMW.),(Exclusion Criteria: As Defined within STARSC12-HEDISOMW.)",
   "compose" : {
-    "include" : [{
-      "system" : "http://www.nlm.nih.gov/research/umls/hcpcs",
-      "concept" : [{
+    "include" : [
+      {
+        "system" : "http://www.nlm.nih.gov/research/umls/hcpcs",
+        "concept" : [
+          {
+            "code" : "J0897",
+            "display" : "Injection, denosumab, 1 mg"
+          },
+          {
+            "code" : "J1740",
+            "display" : "Injection, ibandronate sodium, 1 mg"
+          },
+          {
+            "code" : "J3489",
+            "display" : "Injection, zoledronic acid, 1 mg"
+          }
+        ]
+      }
+    ]
+  },
+  "expansion" : {
+    "identifier" : "urn:uuid:8115f1b7-e9c4-43a4-bb91-d5ebff4c635e",
+    "timestamp" : "2024-06-14T13:11:15-04:00",
+    "total" : 3,
+    "contains" : [
+      {
+        "system" : "http://www.nlm.nih.gov/research/umls/hcpcs",
+        "version" : "2024",
         "code" : "J0897",
         "display" : "Injection, denosumab, 1 mg"
       },
       {
+        "system" : "http://www.nlm.nih.gov/research/umls/hcpcs",
+        "version" : "2024",
         "code" : "J1740",
         "display" : "Injection, ibandronate sodium, 1 mg"
       },
       {
+        "system" : "http://www.nlm.nih.gov/research/umls/hcpcs",
+        "version" : "2024",
         "code" : "J3489",
         "display" : "Injection, zoledronic acid, 1 mg"
-      }]
-    }]
-  },
-  "expansion" : {
-    "identifier" : "urn:uuid:997ccbc5-7359-46d2-b71b-74497faf7ae5",
-    "timestamp" : "2023-09-26T10:45:27-04:00",
-    "total" : 3,
-    "offset" : 0,
-    "parameter" : [{
-      "name" : "count",
-      "valueInteger" : 1000
-    },
-    {
-      "name" : "offset",
-      "valueInteger" : 0
-    }],
-    "contains" : [{
-      "system" : "http://www.nlm.nih.gov/research/umls/hcpcs",
-      "version" : "2023",
-      "code" : "J0897",
-      "display" : "Injection, denosumab, 1 mg"
-    },
-    {
-      "system" : "http://www.nlm.nih.gov/research/umls/hcpcs",
-      "version" : "2023",
-      "code" : "J1740",
-      "display" : "Injection, ibandronate sodium, 1 mg"
-    },
-    {
-      "system" : "http://www.nlm.nih.gov/research/umls/hcpcs",
-      "version" : "2023",
-      "code" : "J3489",
-      "display" : "Injection, zoledronic acid, 1 mg"
-    }]
+      }
+    ]
   }
 }

@@ -3,81 +3,89 @@
   "id" : "2.16.840.1.113762.1.4.1146.1975",
   "meta" : {
     "versionId" : "7",
-    "lastUpdated" : "2023-01-25T01:08:07.000-05:00",
-    "profile" : ["http://hl7.org/fhir/StructureDefinition/shareablevalueset",
-    "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"]
+    "lastUpdated" : "2023-12-21T17:43:03.000-05:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-valueset-cqfm",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "extension" : [{
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
-    "valueString" : "CSTE Author"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-keyWord",
-    "valueString" : "Baylisascariasis,Trigger"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
-    "valueDate" : "2023-01-25"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
-    "valueDate" : "2023-01-25"
-  }],
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "CSTE Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-keyWord",
+      "valueString" : "Baylisascariasis,Trigger"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2024-06-05"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2023-01-25"
+    }
+  ],
   "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1146.1975",
-  "identifier" : [{
-    "system" : "urn:ietf:rfc:3986",
-    "value" : "urn:oid:2.16.840.1.113762.1.4.1146.1975"
-  }],
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113762.1.4.1146.1975"
+    }
+  ],
   "version" : "20230125",
   "name" : "BaylisascariasisOrganismOrSubstanceInLabResults",
   "title" : "Baylisascariasis (Organism or Substance in Lab Results)",
   "status" : "active",
   "date" : "2023-01-25T01:08:07-05:00",
   "publisher" : "CSTE Steward",
-  "jurisdiction" : [{
-    "extension" : [{
-      "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
-      "valueString" : "UNKNOWN"
-    }]
-  }],
+  "jurisdiction" : [
+    {
+      "coding" : [
+        {
+          "system" : "urn:iso:std:iso:3166",
+          "code" : "US"
+        }
+      ]
+    }
+  ],
   "purpose" : "(Clinical Focus: This set of values contains organisms relevant for reporting Baylisascariasis.),(Data Element Scope: Organism or substance names reported in laboratory results),(Inclusion Criteria: Baylisascariasis),(Exclusion Criteria: antibody)",
   "compose" : {
-    "include" : [{
-      "system" : "http://snomed.info/sct",
-      "concept" : [{
+    "include" : [
+      {
+        "system" : "http://snomed.info/sct",
+        "concept" : [
+          {
+            "code" : "15700002",
+            "display" : "Baylisascaris (organism)"
+          },
+          {
+            "code" : "59496007",
+            "display" : "Baylisascaris procyonis (organism)"
+          }
+        ]
+      }
+    ]
+  },
+  "expansion" : {
+    "identifier" : "urn:uuid:de9ac420-0e8a-459b-b20f-b7cffc78fb54",
+    "timestamp" : "2024-06-14T12:03:54-04:00",
+    "total" : 2,
+    "contains" : [
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
         "code" : "15700002",
         "display" : "Baylisascaris (organism)"
       },
       {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
         "code" : "59496007",
         "display" : "Baylisascaris procyonis (organism)"
-      }]
-    }]
-  },
-  "expansion" : {
-    "identifier" : "urn:uuid:3d5041a9-532e-4b26-81d6-538cf535dc55",
-    "timestamp" : "2023-09-26T08:07:45-04:00",
-    "total" : 2,
-    "offset" : 0,
-    "parameter" : [{
-      "name" : "count",
-      "valueInteger" : 1000
-    },
-    {
-      "name" : "offset",
-      "valueInteger" : 0
-    }],
-    "contains" : [{
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "15700002",
-      "display" : "Baylisascaris (organism)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "59496007",
-      "display" : "Baylisascaris procyonis (organism)"
-    }]
+      }
+    ]
   }
 }

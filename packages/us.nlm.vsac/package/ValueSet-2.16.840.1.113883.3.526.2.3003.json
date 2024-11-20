@@ -3,88 +3,96 @@
   "id" : "2.16.840.1.113883.3.526.2.3003",
   "meta" : {
     "versionId" : "8",
-    "lastUpdated" : "2019-12-24T01:00:18.000-05:00",
-    "profile" : ["http://hl7.org/fhir/StructureDefinition/shareablevalueset",
-    "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"]
+    "lastUpdated" : "2023-12-21T17:43:03.000-05:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-valueset-cqfm",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "extension" : [{
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
-    "valueString" : "American Medical Association Author"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
-    "valueDate" : "2022-12-15"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
-    "valueDate" : "2019-12-24"
-  }],
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "American Medical Association Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2024-03-25"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2019-12-24"
+    }
+  ],
   "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.526.2.3003",
-  "identifier" : [{
-    "system" : "urn:ietf:rfc:3986",
-    "value" : "urn:oid:2.16.840.1.113883.3.526.2.3003"
-  }],
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113883.3.526.2.3003"
+    }
+  ],
   "version" : "20191224",
   "name" : "FastingPlasmaGlucoseLabTestMassPerVolume",
   "title" : "Fasting Plasma Glucose Lab Test Mass Per Volume",
-  "status" : "active",
+  "status" : "retired",
   "experimental" : false,
   "date" : "2019-12-24T01:00:18-05:00",
   "publisher" : "American Medical Association Steward",
-  "jurisdiction" : [{
-    "extension" : [{
-      "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
-      "valueString" : "UNKNOWN"
-    }]
-  }],
+  "jurisdiction" : [
+    {
+      "coding" : [
+        {
+          "system" : "urn:iso:std:iso:3166",
+          "code" : "US"
+        }
+      ]
+    }
+  ],
   "purpose" : "(Clinical Focus: This value set contains concepts related to fasting plasma glucose lab tests with results in mass per volume.),(Data Element Scope: This value set may use QDM category Laboratory Test.),(Inclusion Criteria: Includes relevant concepts related to fasting plasma glucose tests with results in mass per volume.),(Exclusion Criteria: Does not include fasting plasma glucose tests with results in moles per volume.)",
   "compose" : {
-    "include" : [{
-      "system" : "http://loinc.org",
-      "concept" : [{
+    "include" : [
+      {
+        "system" : "http://loinc.org",
+        "concept" : [
+          {
+            "code" : "10450-5",
+            "display" : "Glucose [Mass/volume] in Serum or Plasma --10 hours fasting"
+          },
+          {
+            "code" : "1554-5",
+            "display" : "Glucose [Mass/volume] in Serum or Plasma --12 hours fasting"
+          },
+          {
+            "code" : "1558-6",
+            "display" : "Fasting glucose [Mass/volume] in Serum or Plasma"
+          }
+        ]
+      }
+    ]
+  },
+  "expansion" : {
+    "identifier" : "urn:uuid:fae46446-82e6-4c9a-b8ca-e4db8f64b187",
+    "timestamp" : "2024-06-14T17:35:58-04:00",
+    "total" : 3,
+    "contains" : [
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
         "code" : "10450-5",
         "display" : "Glucose [Mass/volume] in Serum or Plasma --10 hours fasting"
       },
       {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
         "code" : "1554-5",
         "display" : "Glucose [Mass/volume] in Serum or Plasma --12 hours fasting"
       },
       {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
         "code" : "1558-6",
         "display" : "Fasting glucose [Mass/volume] in Serum or Plasma"
-      }]
-    }]
-  },
-  "expansion" : {
-    "identifier" : "urn:uuid:04e1f7de-3c59-4b36-b4a3-09ea26063355",
-    "timestamp" : "2023-09-26T10:25:51-04:00",
-    "total" : 3,
-    "offset" : 0,
-    "parameter" : [{
-      "name" : "count",
-      "valueInteger" : 1000
-    },
-    {
-      "name" : "offset",
-      "valueInteger" : 0
-    }],
-    "contains" : [{
-      "system" : "http://loinc.org",
-      "version" : "2.74",
-      "code" : "10450-5",
-      "display" : "Glucose [Mass/volume] in Serum or Plasma --10 hours fasting"
-    },
-    {
-      "system" : "http://loinc.org",
-      "version" : "2.74",
-      "code" : "1554-5",
-      "display" : "Glucose [Mass/volume] in Serum or Plasma --12 hours fasting"
-    },
-    {
-      "system" : "http://loinc.org",
-      "version" : "2.74",
-      "code" : "1558-6",
-      "display" : "Fasting glucose [Mass/volume] in Serum or Plasma"
-    }]
+      }
+    ]
   }
 }

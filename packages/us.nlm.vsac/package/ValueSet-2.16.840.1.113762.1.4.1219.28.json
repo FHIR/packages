@@ -3,27 +3,34 @@
   "id" : "2.16.840.1.113762.1.4.1219.28",
   "meta" : {
     "versionId" : "8",
-    "lastUpdated" : "2022-03-15T01:04:14.000-04:00",
-    "profile" : ["http://hl7.org/fhir/StructureDefinition/shareablevalueset",
-    "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"]
+    "lastUpdated" : "2023-12-21T17:43:03.000-05:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-valueset-cqfm",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "extension" : [{
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
-    "valueString" : "CMS DRLS Author"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
-    "valueDate" : "2022-12-15"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
-    "valueDate" : "2022-03-15"
-  }],
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "CMS DRLS Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2024-01-02"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2022-03-15"
+    }
+  ],
   "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1219.28",
-  "identifier" : [{
-    "system" : "urn:ietf:rfc:3986",
-    "value" : "urn:oid:2.16.840.1.113762.1.4.1219.28"
-  }],
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113762.1.4.1219.28"
+    }
+  ],
   "version" : "20220315",
   "name" : "StationaryLiquidOxygenTherapyDevice",
   "title" : "Stationary Liquid Oxygen Therapy Device",
@@ -31,50 +38,51 @@
   "experimental" : false,
   "date" : "2022-03-15T01:04:14-04:00",
   "publisher" : "CMS DRLS Steward",
-  "jurisdiction" : [{
-    "extension" : [{
-      "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
-      "valueString" : "UNKNOWN"
-    }]
-  }],
+  "jurisdiction" : [
+    {
+      "coding" : [
+        {
+          "system" : "urn:iso:std:iso:3166",
+          "code" : "US"
+        }
+      ]
+    }
+  ],
   "purpose" : "(Clinical Focus: Liquid oxygen therapy devices for use in the home that are designed to remain in one place while operating.),(Data Element Scope: Stationary liquid oxygen therapy devices accepted by the US Centers for Medicare and Medicaid as valid for home use.),(Inclusion Criteria: Liquid oxygen therapy devices for use in the home that are designed to remain in one place while operating.),(Exclusion Criteria: Liquid oxygen therapy devices designed to allow a change in location while operating.)",
   "compose" : {
-    "include" : [{
-      "system" : "http://www.nlm.nih.gov/research/umls/hcpcs",
-      "concept" : [{
+    "include" : [
+      {
+        "system" : "http://www.nlm.nih.gov/research/umls/hcpcs",
+        "concept" : [
+          {
+            "code" : "E0439",
+            "display" : "Stationary liquid oxygen system, rental; includes container, contents, regulator, flowmeter, humidifier, nebulizer, cannula or mask, & tubing"
+          },
+          {
+            "code" : "E0442",
+            "display" : "Stationary oxygen contents, liquid, 1 month's supply = 1 unit"
+          }
+        ]
+      }
+    ]
+  },
+  "expansion" : {
+    "identifier" : "urn:uuid:7e4b2ca5-6823-4831-8a8e-8eb2b0dbbdc7",
+    "timestamp" : "2024-06-14T13:55:01-04:00",
+    "total" : 2,
+    "contains" : [
+      {
+        "system" : "http://www.nlm.nih.gov/research/umls/hcpcs",
+        "version" : "2024",
         "code" : "E0439",
         "display" : "Stationary liquid oxygen system, rental; includes container, contents, regulator, flowmeter, humidifier, nebulizer, cannula or mask, & tubing"
       },
       {
+        "system" : "http://www.nlm.nih.gov/research/umls/hcpcs",
+        "version" : "2024",
         "code" : "E0442",
         "display" : "Stationary oxygen contents, liquid, 1 month's supply = 1 unit"
-      }]
-    }]
-  },
-  "expansion" : {
-    "identifier" : "urn:uuid:1cdf3a81-b4db-4458-b400-b3e689bea66a",
-    "timestamp" : "2023-09-26T13:20:22-04:00",
-    "total" : 2,
-    "offset" : 0,
-    "parameter" : [{
-      "name" : "count",
-      "valueInteger" : 1000
-    },
-    {
-      "name" : "offset",
-      "valueInteger" : 0
-    }],
-    "contains" : [{
-      "system" : "http://www.nlm.nih.gov/research/umls/hcpcs",
-      "version" : "2023",
-      "code" : "E0439",
-      "display" : "Stationary liquid oxygen system, rental; includes container, contents, regulator, flowmeter, humidifier, nebulizer, cannula or mask, & tubing"
-    },
-    {
-      "system" : "http://www.nlm.nih.gov/research/umls/hcpcs",
-      "version" : "2023",
-      "code" : "E0442",
-      "display" : "Stationary oxygen contents, liquid, 1 month's supply = 1 unit"
-    }]
+      }
+    ]
   }
 }

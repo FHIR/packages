@@ -3,92 +3,100 @@
   "id" : "2.16.840.1.113762.1.4.1146.1638",
   "meta" : {
     "versionId" : "7",
-    "lastUpdated" : "2022-01-18T01:02:50.000-05:00",
-    "profile" : ["http://hl7.org/fhir/StructureDefinition/shareablevalueset",
-    "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"]
+    "lastUpdated" : "2023-12-21T17:43:03.000-05:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-valueset-cqfm",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "extension" : [{
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
-    "valueString" : "CSTE Author"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-keyWord",
-    "valueString" : "Trigger,Typhus_Fever"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
-    "valueDate" : "2022-12-15"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
-    "valueDate" : "2022-01-18"
-  }],
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "CSTE Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-keyWord",
+      "valueString" : "Trigger,Typhus_Fever"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2024-06-03"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2022-01-18"
+    }
+  ],
   "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1146.1638",
-  "identifier" : [{
-    "system" : "urn:ietf:rfc:3986",
-    "value" : "urn:oid:2.16.840.1.113762.1.4.1146.1638"
-  }],
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113762.1.4.1146.1638"
+    }
+  ],
   "version" : "20220118",
   "name" : "TyphusFeverOrganismOrSubstanceInLabResults",
   "title" : "Typhus Fever (Organism or Substance in Lab Results)",
-  "status" : "active",
+  "status" : "retired",
   "experimental" : false,
   "date" : "2022-01-18T01:02:50-05:00",
   "publisher" : "CSTE Steward",
-  "jurisdiction" : [{
-    "extension" : [{
-      "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
-      "valueString" : "UNKNOWN"
-    }]
-  }],
+  "jurisdiction" : [
+    {
+      "coding" : [
+        {
+          "system" : "urn:iso:std:iso:3166",
+          "code" : "US"
+        }
+      ]
+    }
+  ],
   "purpose" : "(Clinical Focus: This set of values contains organisms or substances relevant for reporting Typhus Fever),(Data Element Scope: Organism and or substance names reported in laboratory results),(Inclusion Criteria: Typhus Fever),(Exclusion Criteria: none)",
   "compose" : {
-    "include" : [{
-      "system" : "http://snomed.info/sct",
-      "concept" : [{
+    "include" : [
+      {
+        "system" : "http://snomed.info/sct",
+        "concept" : [
+          {
+            "code" : "415343008",
+            "display" : "Rickettsia, typhus group (organism)"
+          },
+          {
+            "code" : "708421002",
+            "display" : "Deoxyribonucleic acid of Rickettsia typhus group (substance)"
+          },
+          {
+            "code" : "79284001",
+            "display" : "Rickettsia typhi (organism)"
+          }
+        ]
+      }
+    ]
+  },
+  "expansion" : {
+    "identifier" : "urn:uuid:76995140-e08d-4bd9-aa83-2a5b17aa77c1",
+    "timestamp" : "2024-06-14T11:55:52-04:00",
+    "total" : 3,
+    "contains" : [
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
         "code" : "415343008",
         "display" : "Rickettsia, typhus group (organism)"
       },
       {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
         "code" : "708421002",
         "display" : "Deoxyribonucleic acid of Rickettsia typhus group (substance)"
       },
       {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
         "code" : "79284001",
         "display" : "Rickettsia typhi (organism)"
-      }]
-    }]
-  },
-  "expansion" : {
-    "identifier" : "urn:uuid:2aafe26f-208f-4433-a219-1f5098a44aab",
-    "timestamp" : "2023-09-26T13:43:54-04:00",
-    "total" : 3,
-    "offset" : 0,
-    "parameter" : [{
-      "name" : "count",
-      "valueInteger" : 1000
-    },
-    {
-      "name" : "offset",
-      "valueInteger" : 0
-    }],
-    "contains" : [{
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "415343008",
-      "display" : "Rickettsia, typhus group (organism)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "708421002",
-      "display" : "Deoxyribonucleic acid of Rickettsia typhus group (substance)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "79284001",
-      "display" : "Rickettsia typhi (organism)"
-    }]
+      }
+    ]
   }
 }

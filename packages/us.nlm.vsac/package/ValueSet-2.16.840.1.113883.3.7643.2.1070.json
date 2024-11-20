@@ -3,78 +3,86 @@
   "id" : "2.16.840.1.113883.3.7643.2.1070",
   "meta" : {
     "versionId" : "6",
-    "lastUpdated" : "2019-01-05T01:00:08.000-05:00",
-    "profile" : ["http://hl7.org/fhir/StructureDefinition/shareablevalueset",
-    "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"]
+    "lastUpdated" : "2023-12-21T17:43:03.000-05:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-valueset-cqfm",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "extension" : [{
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
-    "valueString" : "Oncology Nursing Society Author"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
-    "valueDate" : "2022-12-15"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
-    "valueDate" : "2019-01-05"
-  }],
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "Oncology Nursing Society Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2024-06-03"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2019-01-05"
+    }
+  ],
   "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.7643.2.1070",
-  "identifier" : [{
-    "system" : "urn:ietf:rfc:3986",
-    "value" : "urn:oid:2.16.840.1.113883.3.7643.2.1070"
-  }],
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113883.3.7643.2.1070"
+    }
+  ],
   "version" : "20190105",
   "name" : "HypothermiaNotDueToEnvironment",
   "title" : "Hypothermia Not Due To Environment",
-  "status" : "active",
+  "status" : "retired",
   "experimental" : false,
   "date" : "2019-01-05T01:00:08-05:00",
   "publisher" : "Oncology Nursing Society Steward",
-  "jurisdiction" : [{
-    "extension" : [{
-      "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
-      "valueString" : "UNKNOWN"
-    }]
-  }],
+  "jurisdiction" : [
+    {
+      "coding" : [
+        {
+          "system" : "urn:iso:std:iso:3166",
+          "code" : "US"
+        }
+      ]
+    }
+  ],
   "purpose" : "(Clinical Focus: This value set contains concepts related to a diagnosis of hypothermia.),(Data Element Scope: This value set would use the Diagnosis QDM category.),(Inclusion Criteria: This value set contains concepts related to hypothermia with either an undocumented cause or which could have been caused by a specific substance or drug.),(Exclusion Criteria: This value set excludes concepts that specify other causes of hypothermia.)",
   "compose" : {
-    "include" : [{
-      "system" : "http://hl7.org/fhir/sid/icd-9-cm",
-      "concept" : [{
+    "include" : [
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-9-cm",
+        "concept" : [
+          {
+            "code" : "780.65",
+            "display" : "Hypothermia not associated with low environmental temperature"
+          },
+          {
+            "code" : "991.6",
+            "display" : "Hypothermia"
+          }
+        ]
+      }
+    ]
+  },
+  "expansion" : {
+    "identifier" : "urn:uuid:c620cfc8-d6bd-4e60-b6d3-47f510bd2f0b",
+    "timestamp" : "2024-06-14T18:08:45-04:00",
+    "total" : 2,
+    "contains" : [
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-9-cm",
+        "version" : "2013",
         "code" : "780.65",
         "display" : "Hypothermia not associated with low environmental temperature"
       },
       {
+        "system" : "http://hl7.org/fhir/sid/icd-9-cm",
+        "version" : "2013",
         "code" : "991.6",
         "display" : "Hypothermia"
-      }]
-    }]
-  },
-  "expansion" : {
-    "identifier" : "urn:uuid:b5e4d20e-8d56-4352-9810-cda2dd6bbad6",
-    "timestamp" : "2023-09-26T11:01:51-04:00",
-    "total" : 2,
-    "offset" : 0,
-    "parameter" : [{
-      "name" : "count",
-      "valueInteger" : 1000
-    },
-    {
-      "name" : "offset",
-      "valueInteger" : 0
-    }],
-    "contains" : [{
-      "system" : "http://hl7.org/fhir/sid/icd-9-cm",
-      "version" : "2013",
-      "code" : "780.65",
-      "display" : "Hypothermia not associated with low environmental temperature"
-    },
-    {
-      "system" : "http://hl7.org/fhir/sid/icd-9-cm",
-      "version" : "2013",
-      "code" : "991.6",
-      "display" : "Hypothermia"
-    }]
+      }
+    ]
   }
 }

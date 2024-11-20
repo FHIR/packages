@@ -3,85 +3,95 @@
   "id" : "2.16.840.1.113762.1.4.1182.71",
   "meta" : {
     "versionId" : "6",
-    "lastUpdated" : "2022-03-02T18:03:44.000-05:00",
-    "profile" : ["http://hl7.org/fhir/StructureDefinition/shareablevalueset",
-    "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"]
+    "lastUpdated" : "2023-12-21T17:43:03.000-05:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-valueset-cqfm",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "extension" : [{
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
-    "valueString" : "Change Healthcare Author"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
-    "valueDate" : "2022-12-15"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
-    "valueDate" : "2022-03-02"
-  }],
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "Change Healthcare Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2024-06-03"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2018-06-23"
+    }
+  ],
   "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1182.71",
-  "identifier" : [{
-    "system" : "urn:ietf:rfc:3986",
-    "value" : "urn:oid:2.16.840.1.113762.1.4.1182.71"
-  }],
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113762.1.4.1182.71"
+    }
+  ],
   "version" : "20180623",
   "name" : "DischargeToLongTermCare",
   "title" : "Discharge to Long Term Care",
-  "status" : "active",
+  "status" : "retired",
   "experimental" : false,
   "date" : "2022-03-03T18:46:01-05:00",
   "publisher" : "Change Healthcare Steward",
-  "jurisdiction" : [{
-    "extension" : [{
-      "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
-      "valueString" : "UNKNOWN"
-    }]
-  }],
+  "jurisdiction" : [
+    {
+      "coding" : [
+        {
+          "system" : "urn:iso:std:iso:3166",
+          "code" : "US"
+        }
+      ]
+    }
+  ],
   "purpose" : "(Clinical Focus: Exclusionary criteria for multiple quality measures),(Data Element Scope: Identification of patients discharged to LT Care),(Inclusion Criteria: SNOMEDCT and patient discharge status codes  for LT Care),(Exclusion Criteria: n/a)",
   "compose" : {
-    "include" : [{
-      "valueSet" : ["http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1182.70"]
-    },
-    {
-      "valueSet" : ["http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1182.69"]
-    }]
+    "include" : [
+      {
+        "valueSet" : [
+          "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1182.70"
+        ]
+      },
+      {
+        "valueSet" : [
+          "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1182.69"
+        ]
+      }
+    ]
   },
   "expansion" : {
-    "identifier" : "urn:uuid:44d54a2a-07ae-43c7-ae87-3b78f3c17d77",
-    "timestamp" : "2023-09-26T10:07:43-04:00",
+    "identifier" : "urn:uuid:2a892bc6-79db-4096-80cd-32d84d7cd9ec",
+    "timestamp" : "2024-06-14T13:06:30-04:00",
     "total" : 4,
-    "offset" : 0,
-    "parameter" : [{
-      "name" : "count",
-      "valueInteger" : 1000
-    },
-    {
-      "name" : "offset",
-      "valueInteger" : 0
-    }],
-    "contains" : [{
-      "system" : "http://terminology.hl7.org/CodeSystem/v2-0112",
-      "version" : "2.5",
-      "code" : "03",
-      "display" : "Discharged/transferred to skilled nursing facility (SNF)"
-    },
-    {
-      "system" : "http://terminology.hl7.org/CodeSystem/v2-0112",
-      "version" : "2.5",
-      "code" : "04",
-      "display" : "Discharged/transferred to an intermediate care facility (ICF)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "19712007",
-      "display" : "Patient transfer, to another health care facility (procedure)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "417708006",
-      "display" : "Referral to long term care service (procedure)"
-    }]
+    "contains" : [
+      {
+        "system" : "http://terminology.hl7.org/CodeSystem/v2-0112",
+        "version" : "2.5",
+        "code" : "03",
+        "display" : "Discharged/transferred to skilled nursing facility (SNF)"
+      },
+      {
+        "system" : "http://terminology.hl7.org/CodeSystem/v2-0112",
+        "version" : "2.5",
+        "code" : "04",
+        "display" : "Discharged/transferred to an intermediate care facility (ICF)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "19712007",
+        "display" : "Patient transfer, to another health care facility (procedure)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "417708006",
+        "display" : "Referral to long term care service (procedure)"
+      }
+    ]
   }
 }

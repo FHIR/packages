@@ -3,102 +3,110 @@
   "id" : "2.16.840.1.113762.1.4.1146.221",
   "meta" : {
     "versionId" : "14",
-    "lastUpdated" : "2018-10-31T01:13:47.000-04:00",
-    "profile" : ["http://hl7.org/fhir/StructureDefinition/shareablevalueset",
-    "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"]
+    "lastUpdated" : "2023-12-21T17:43:03.000-05:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-valueset-cqfm",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "extension" : [{
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
-    "valueString" : "CSTE Author"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-keyWord",
-    "valueString" : "Ehrlichiosis,G_ZVD,Trigger"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
-    "valueDate" : "2022-12-15"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
-    "valueDate" : "2018-10-31"
-  }],
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "CSTE Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-keyWord",
+      "valueString" : "Ehrlichiosis,G_ZVD,Trigger"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2024-06-03"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2018-10-31"
+    }
+  ],
   "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1146.221",
-  "identifier" : [{
-    "system" : "urn:ietf:rfc:3986",
-    "value" : "urn:oid:2.16.840.1.113762.1.4.1146.221"
-  }],
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113762.1.4.1146.221"
+    }
+  ],
   "version" : "20181031",
   "name" : "EhrlichiosisDisordersICD10CM",
   "title" : "Ehrlichiosis (Disorders) (ICD10CM)",
-  "status" : "active",
+  "status" : "retired",
   "experimental" : false,
   "date" : "2018-10-31T01:00:09-04:00",
   "publisher" : "CSTE Steward",
-  "jurisdiction" : [{
-    "extension" : [{
-      "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
-      "valueString" : "UNKNOWN"
-    }]
-  }],
+  "jurisdiction" : [
+    {
+      "coding" : [
+        {
+          "system" : "urn:iso:std:iso:3166",
+          "code" : "US"
+        }
+      ]
+    }
+  ],
   "purpose" : "(Clinical Focus: This set of values contains diagnoses or problems that represent that the patient has Ehrlichiosis regardless of the clinical presentation of the condition),(Data Element Scope: Diagnoses or problems documented in a clinical record.),(Inclusion Criteria: Root1 = Ehrlichiosis; \nRoot1 children included = All;\n\nAdded leaf concepts: YES),(Exclusion Criteria: None)",
   "compose" : {
-    "include" : [{
-      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-      "concept" : [{
+    "include" : [
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "concept" : [
+          {
+            "code" : "A77.4",
+            "display" : "Ehrlichiosis"
+          },
+          {
+            "code" : "A77.40",
+            "display" : "Ehrlichiosis, unspecified"
+          },
+          {
+            "code" : "A77.41",
+            "display" : "Ehrlichiosis chafeensis [E. chafeensis]"
+          },
+          {
+            "code" : "A77.49",
+            "display" : "Other ehrlichiosis"
+          }
+        ]
+      }
+    ]
+  },
+  "expansion" : {
+    "identifier" : "urn:uuid:812fea0c-18e8-49db-8ffd-cf9f1dffc0b0",
+    "timestamp" : "2024-06-14T12:09:30-04:00",
+    "total" : 4,
+    "contains" : [
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2024",
         "code" : "A77.4",
         "display" : "Ehrlichiosis"
       },
       {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2024",
         "code" : "A77.40",
         "display" : "Ehrlichiosis, unspecified"
       },
       {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2024",
         "code" : "A77.41",
         "display" : "Ehrlichiosis chafeensis [E. chafeensis]"
       },
       {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2024",
         "code" : "A77.49",
         "display" : "Other ehrlichiosis"
-      }]
-    }]
-  },
-  "expansion" : {
-    "identifier" : "urn:uuid:9f65b8cf-22c1-4feb-bfaa-192b60ff53f3",
-    "timestamp" : "2023-09-26T10:14:53-04:00",
-    "total" : 4,
-    "offset" : 0,
-    "parameter" : [{
-      "name" : "count",
-      "valueInteger" : 1000
-    },
-    {
-      "name" : "offset",
-      "valueInteger" : 0
-    }],
-    "contains" : [{
-      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-      "version" : "2024",
-      "code" : "A77.4",
-      "display" : "Ehrlichiosis"
-    },
-    {
-      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-      "version" : "2024",
-      "code" : "A77.40",
-      "display" : "Ehrlichiosis, unspecified"
-    },
-    {
-      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-      "version" : "2024",
-      "code" : "A77.41",
-      "display" : "Ehrlichiosis chafeensis [E. chafeensis]"
-    },
-    {
-      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-      "version" : "2024",
-      "code" : "A77.49",
-      "display" : "Other ehrlichiosis"
-    }]
+      }
+    ]
   }
 }

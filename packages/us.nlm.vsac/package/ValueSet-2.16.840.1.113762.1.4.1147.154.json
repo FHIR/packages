@@ -3,138 +3,146 @@
   "id" : "2.16.840.1.113762.1.4.1147.154",
   "meta" : {
     "versionId" : "7",
-    "lastUpdated" : "2023-01-24T15:56:17.000-05:00",
-    "profile" : ["http://hl7.org/fhir/StructureDefinition/shareablevalueset",
-    "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"]
+    "lastUpdated" : "2024-02-22T15:40:25.000-05:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-valueset-cqfm",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "extension" : [{
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
-    "valueString" : "American Institutes for Research Author"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
-    "valueDate" : "2022-12-15"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
-    "valueDate" : "2023-01-24"
-  }],
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "Mathematica PSI Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2024-06-03"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2021-07-14"
+    }
+  ],
   "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1147.154",
-  "identifier" : [{
-    "system" : "urn:ietf:rfc:3986",
-    "value" : "urn:oid:2.16.840.1.113762.1.4.1147.154"
-  }],
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113762.1.4.1147.154"
+    }
+  ],
   "version" : "20210714",
   "name" : "CTAngiographyOfChest",
   "title" : "CT Angiography of Chest",
-  "status" : "active",
+  "status" : "retired",
   "experimental" : false,
   "date" : "2021-07-14T01:00:39-04:00",
-  "publisher" : "American Institutes for Research Steward",
-  "jurisdiction" : [{
-    "extension" : [{
-      "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
-      "valueString" : "UNKNOWN"
-    }]
-  }],
-  "purpose" : "(Clinical Focus: The purpose of this LOINC value set is to represent concepts for CT angiography of the chest.),(Data Element Scope: This value set may use a model element related to Diagnostic Study.),(Inclusion Criteria: Includes concepts that represent CT angiography of the chest.),(Exclusion Criteria: N/A)",
+  "publisher" : "Mathematica PSI Steward",
+  "jurisdiction" : [
+    {
+      "coding" : [
+        {
+          "system" : "urn:iso:std:iso:3166",
+          "code" : "US"
+        }
+      ]
+    }
+  ],
+  "purpose" : "(Clinical Focus: The purpose of this LOINC value set is to represent concepts for CT angiography of the chest.),(Data Element Scope: This value set may use a model element related to Diagnostic Study.),(Inclusion Criteria: Includes concepts that represent CT angiography of the chest with contrast.),(Exclusion Criteria: Excludes concepts that represent CT angiography of the chest without contrast.)",
   "compose" : {
-    "include" : [{
-      "system" : "http://loinc.org",
-      "concept" : [{
+    "include" : [
+      {
+        "system" : "http://loinc.org",
+        "concept" : [
+          {
+            "code" : "36147-7",
+            "display" : "CTA Pulmonary arteries W contrast IV"
+          },
+          {
+            "code" : "79077-4",
+            "display" : "CTA Pulmonary arteries for pulmonary embolus W contrast IV"
+          },
+          {
+            "code" : "83290-7",
+            "display" : "CTA Pulmonary arteries - bilateral and Pelvis veins and Lower extremity veins - bilateral for pulmonary embolus and deep vein thrombosis W contrast IV"
+          },
+          {
+            "code" : "87840-5",
+            "display" : "CTA Coronary arteries and Pulmonary arteries W contrast IV"
+          },
+          {
+            "code" : "87842-1",
+            "display" : "CTA Coronary arteries and Pulmonary arteries and Thoracic aorta W contrast IV"
+          },
+          {
+            "code" : "87848-8",
+            "display" : "CTA Pulmonary arteries - bilateral and Lower extremity veins - bilateral for pulmonary embolus and deep vein thrombosis W contrast IV"
+          },
+          {
+            "code" : "87849-6",
+            "display" : "CTA Pulmonary arteries - bilateral and Lower extremity veins - bilateral for pulmonary embolus and deep vein thrombosis"
+          },
+          {
+            "code" : "88322-3",
+            "display" : "CT Chest W contrast IV and CT angiogram Pulmonary arteries for pulmonary embolus W contrast IV"
+          }
+        ]
+      }
+    ]
+  },
+  "expansion" : {
+    "identifier" : "urn:uuid:7bb6558d-5d0a-4875-8455-ab8cd7d5bb32",
+    "timestamp" : "2024-06-14T12:27:59-04:00",
+    "total" : 8,
+    "contains" : [
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
         "code" : "36147-7",
         "display" : "CTA Pulmonary arteries W contrast IV"
       },
       {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
         "code" : "79077-4",
         "display" : "CTA Pulmonary arteries for pulmonary embolus W contrast IV"
       },
       {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
         "code" : "83290-7",
         "display" : "CTA Pulmonary arteries - bilateral and Pelvis veins and Lower extremity veins - bilateral for pulmonary embolus and deep vein thrombosis W contrast IV"
       },
       {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
         "code" : "87840-5",
         "display" : "CTA Coronary arteries and Pulmonary arteries W contrast IV"
       },
       {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
         "code" : "87842-1",
         "display" : "CTA Coronary arteries and Pulmonary arteries and Thoracic aorta W contrast IV"
       },
       {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
         "code" : "87848-8",
         "display" : "CTA Pulmonary arteries - bilateral and Lower extremity veins - bilateral for pulmonary embolus and deep vein thrombosis W contrast IV"
       },
       {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
         "code" : "87849-6",
         "display" : "CTA Pulmonary arteries - bilateral and Lower extremity veins - bilateral for pulmonary embolus and deep vein thrombosis"
       },
       {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
         "code" : "88322-3",
         "display" : "CT Chest W contrast IV and CT angiogram Pulmonary arteries for pulmonary embolus W contrast IV"
-      }]
-    }]
-  },
-  "expansion" : {
-    "identifier" : "urn:uuid:a64bcd22-ac17-4014-95ca-8d2fb3dd942e",
-    "timestamp" : "2023-09-26T09:52:51-04:00",
-    "total" : 8,
-    "offset" : 0,
-    "parameter" : [{
-      "name" : "count",
-      "valueInteger" : 1000
-    },
-    {
-      "name" : "offset",
-      "valueInteger" : 0
-    }],
-    "contains" : [{
-      "system" : "http://loinc.org",
-      "version" : "2.74",
-      "code" : "36147-7",
-      "display" : "CTA Pulmonary arteries W contrast IV"
-    },
-    {
-      "system" : "http://loinc.org",
-      "version" : "2.74",
-      "code" : "79077-4",
-      "display" : "CTA Pulmonary arteries for pulmonary embolus W contrast IV"
-    },
-    {
-      "system" : "http://loinc.org",
-      "version" : "2.74",
-      "code" : "83290-7",
-      "display" : "CTA Pulmonary arteries - bilateral and Pelvis veins and Lower extremity veins - bilateral for pulmonary embolus and deep vein thrombosis W contrast IV"
-    },
-    {
-      "system" : "http://loinc.org",
-      "version" : "2.74",
-      "code" : "87840-5",
-      "display" : "CTA Coronary arteries and Pulmonary arteries W contrast IV"
-    },
-    {
-      "system" : "http://loinc.org",
-      "version" : "2.74",
-      "code" : "87842-1",
-      "display" : "CTA Coronary arteries and Pulmonary arteries and Thoracic aorta W contrast IV"
-    },
-    {
-      "system" : "http://loinc.org",
-      "version" : "2.74",
-      "code" : "87848-8",
-      "display" : "CTA Pulmonary arteries - bilateral and Lower extremity veins - bilateral for pulmonary embolus and deep vein thrombosis W contrast IV"
-    },
-    {
-      "system" : "http://loinc.org",
-      "version" : "2.74",
-      "code" : "87849-6",
-      "display" : "CTA Pulmonary arteries - bilateral and Lower extremity veins - bilateral for pulmonary embolus and deep vein thrombosis"
-    },
-    {
-      "system" : "http://loinc.org",
-      "version" : "2.74",
-      "code" : "88322-3",
-      "display" : "CT Chest W contrast IV and CT angiogram Pulmonary arteries for pulmonary embolus W contrast IV"
-    }]
+      }
+    ]
   }
 }

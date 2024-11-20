@@ -3,85 +3,95 @@
   "id" : "2.16.840.1.113762.1.4.1204.21",
   "meta" : {
     "versionId" : "7",
-    "lastUpdated" : "2022-03-02T18:06:08.000-05:00",
-    "profile" : ["http://hl7.org/fhir/StructureDefinition/shareablevalueset",
-    "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"]
+    "lastUpdated" : "2023-12-21T17:43:03.000-05:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-valueset-cqfm",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "extension" : [{
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
-    "valueString" : "National EMS Quality Alliance Author"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
-    "valueDate" : "2022-12-15"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
-    "valueDate" : "2022-03-02"
-  }],
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "National EMS Quality Alliance Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2024-06-03"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2019-05-24"
+    }
+  ],
   "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1204.21",
-  "identifier" : [{
-    "system" : "urn:ietf:rfc:3986",
-    "value" : "urn:oid:2.16.840.1.113762.1.4.1204.21"
-  }],
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113762.1.4.1204.21"
+    }
+  ],
   "version" : "20190524",
   "name" : "RespiratoryRate",
   "title" : "Respiratory Rate",
-  "status" : "active",
+  "status" : "retired",
   "experimental" : false,
   "date" : "2022-03-03T18:46:01-05:00",
   "publisher" : "National EMS Quality Alliance Steward",
-  "jurisdiction" : [{
-    "extension" : [{
-      "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
-      "valueString" : "UNKNOWN"
-    }]
-  }],
+  "jurisdiction" : [
+    {
+      "coding" : [
+        {
+          "system" : "urn:iso:std:iso:3166",
+          "code" : "US"
+        }
+      ]
+    }
+  ],
   "purpose" : "(Clinical Focus: This set of values contains procedures that are performed to determine a patient's level of lung functioning.),(Data Element Scope: The intent of this data element is to identify patients in which a lung function test was performed, or a respiratory rate was obtained. Using the Quality Data Model, this particular element would map to the Assessment category.),(Inclusion Criteria: Include tests that yield a respiratory rate for a patient including lung function test and procedures to measure respiratory flow.),(Exclusion Criteria: None)",
   "compose" : {
-    "include" : [{
-      "valueSet" : ["http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1204.26"]
-    },
-    {
-      "valueSet" : ["http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1204.25"]
-    }]
+    "include" : [
+      {
+        "valueSet" : [
+          "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1204.26"
+        ]
+      },
+      {
+        "valueSet" : [
+          "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1204.25"
+        ]
+      }
+    ]
   },
   "expansion" : {
-    "identifier" : "urn:uuid:5838923b-693e-4ada-9212-b664bd3ddbde",
-    "timestamp" : "2023-09-26T12:57:22-04:00",
+    "identifier" : "urn:uuid:a683b897-f7cc-463d-be12-eab918bbee1b",
+    "timestamp" : "2024-06-14T13:30:31-04:00",
     "total" : 4,
-    "offset" : 0,
-    "parameter" : [{
-      "name" : "count",
-      "valueInteger" : 1000
-    },
-    {
-      "name" : "offset",
-      "valueInteger" : 0
-    }],
-    "contains" : [{
-      "system" : "http://loinc.org",
-      "version" : "2.74",
-      "code" : "11291-2",
-      "display" : "Respiratory rate at First encounter"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "165016006",
-      "display" : "Lung function testing done (situation)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "165034005",
-      "display" : "Respiratory flow rate measured (situation)"
-    },
-    {
-      "system" : "http://loinc.org",
-      "version" : "2.74",
-      "code" : "9279-1",
-      "display" : "Respiratory rate"
-    }]
+    "contains" : [
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
+        "code" : "11291-2",
+        "display" : "Respiratory rate at First encounter"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "165016006",
+        "display" : "Lung function testing done (situation)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "165034005",
+        "display" : "Respiratory flow rate measured (situation)"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
+        "code" : "9279-1",
+        "display" : "Respiratory rate"
+      }
+    ]
   }
 }

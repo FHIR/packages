@@ -2,98 +2,106 @@
   "resourceType" : "ValueSet",
   "id" : "2.16.840.1.113762.1.4.1095.92",
   "meta" : {
-    "versionId" : "5",
-    "lastUpdated" : "2023-02-15T01:02:57.000-05:00",
-    "profile" : ["http://hl7.org/fhir/StructureDefinition/shareablevalueset",
-    "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"]
+    "versionId" : "11",
+    "lastUpdated" : "2024-01-17T01:08:53.000-05:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-valueset-cqfm",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "extension" : [{
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
-    "valueString" : "AND Author"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
-    "valueDate" : "2023-02-15"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
-    "valueDate" : "2023-02-15"
-  }],
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "AND Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2024-01-17"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2024-01-17"
+    }
+  ],
   "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1095.92",
-  "identifier" : [{
-    "system" : "urn:ietf:rfc:3986",
-    "value" : "urn:oid:2.16.840.1.113762.1.4.1095.92"
-  }],
-  "version" : "20230215",
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113762.1.4.1095.92"
+    }
+  ],
+  "version" : "20240117",
   "name" : "MalnutritionRiskScreening",
   "title" : "Malnutrition Risk Screening",
   "status" : "active",
-  "date" : "2023-02-15T01:02:57-05:00",
+  "date" : "2024-01-17T01:08:53-05:00",
   "publisher" : "AND Steward",
-  "jurisdiction" : [{
-    "extension" : [{
-      "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
-      "valueString" : "UNKNOWN"
-    }]
-  }],
-  "purpose" : "(Clinical Focus: This set of values indicates that a malnutrition screening was done by the health care professional.),(Data Element Scope: Data elements included in this set indicate an individual has been screened for malnutrition.),(Inclusion Criteria: Malnutrition Risk Screening criteria from multiple terminologies are included.),(Exclusion Criteria: None.)",
+  "jurisdiction" : [
+    {
+      "coding" : [
+        {
+          "system" : "urn:iso:std:iso:3166",
+          "code" : "US"
+        }
+      ]
+    }
+  ],
+  "purpose" : "(Clinical Focus: This set of values indicates that a malnutrition screening was done by the health care professional.),(Data Element Scope: Data elements included in this set indicate an individual has been screened for malnutrition.),(Inclusion Criteria: Malnutrition Risk Screening tools and codes to indicate that a malnutrition risk screening was done.),(Exclusion Criteria: Nutrition assessment tools and codes to indicate that a nutrition assessment was done are excluded.)",
   "compose" : {
-    "include" : [{
-      "system" : "http://loinc.org",
-      "concept" : [{
-        "code" : "84291-4",
-        "display" : "Nutrition and dietetics Risk assessment and screening note"
+    "include" : [
+      {
+        "system" : "http://loinc.org",
+        "concept" : [
+          {
+            "code" : "101807-6",
+            "display" : "Malnutrition risk screen results indicator"
+          },
+          {
+            "code" : "98967-3",
+            "display" : "Nutritional Risk Screening 2002 panel"
+          },
+          {
+            "code" : "98968-1",
+            "display" : "Initial screening NRS_2002"
+          },
+          {
+            "code" : "98972-3",
+            "display" : "Final screening NRS_2002"
+          }
+        ]
+      }
+    ]
+  },
+  "expansion" : {
+    "identifier" : "urn:uuid:5b3c6729-260f-4e00-84af-6f0526d6fa76",
+    "timestamp" : "2024-06-14T11:04:07-04:00",
+    "total" : 4,
+    "contains" : [
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
+        "code" : "101807-6",
+        "display" : "Malnutrition risk screen results indicator"
       },
       {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
         "code" : "98967-3",
         "display" : "Nutritional Risk Screening 2002 panel"
       },
       {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
         "code" : "98968-1",
         "display" : "Initial screening NRS_2002"
       },
       {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
         "code" : "98972-3",
         "display" : "Final screening NRS_2002"
-      }]
-    }]
-  },
-  "expansion" : {
-    "identifier" : "urn:uuid:6e93ee42-0592-402a-a12b-f967b6d0c7e3",
-    "timestamp" : "2023-09-26T11:37:44-04:00",
-    "total" : 4,
-    "offset" : 0,
-    "parameter" : [{
-      "name" : "count",
-      "valueInteger" : 1000
-    },
-    {
-      "name" : "offset",
-      "valueInteger" : 0
-    }],
-    "contains" : [{
-      "system" : "http://loinc.org",
-      "version" : "2.74",
-      "code" : "84291-4",
-      "display" : "Nutrition and dietetics Risk assessment and screening note"
-    },
-    {
-      "system" : "http://loinc.org",
-      "version" : "2.74",
-      "code" : "98967-3",
-      "display" : "Nutritional Risk Screening 2002 panel"
-    },
-    {
-      "system" : "http://loinc.org",
-      "version" : "2.74",
-      "code" : "98968-1",
-      "display" : "Initial screening NRS_2002"
-    },
-    {
-      "system" : "http://loinc.org",
-      "version" : "2.74",
-      "code" : "98972-3",
-      "display" : "Final screening NRS_2002"
-    }]
+      }
+    ]
   }
 }

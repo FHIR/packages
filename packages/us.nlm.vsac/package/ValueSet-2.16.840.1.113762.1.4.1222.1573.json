@@ -2,74 +2,581 @@
   "resourceType" : "ValueSet",
   "id" : "2.16.840.1.113762.1.4.1222.1573",
   "meta" : {
-    "versionId" : "6",
-    "lastUpdated" : "2022-11-10T01:02:52.000-05:00",
-    "profile" : ["http://hl7.org/fhir/StructureDefinition/shareablevalueset",
-    "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"]
+    "versionId" : "12",
+    "lastUpdated" : "2024-05-07T01:01:25.000-04:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-valueset-cqfm",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "extension" : [{
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
-    "valueString" : "MCC eCare Plan Author"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-keyWord",
-    "valueString" : "MCC_IG"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
-    "valueDate" : "2022-12-15"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
-    "valueDate" : "2022-11-10"
-  }],
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "MCC eCare Plan Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-keyWord",
+      "valueString" : "MCC_IG"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2024-05-07"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2024-05-07"
+    }
+  ],
   "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1222.1573",
-  "identifier" : [{
-    "system" : "urn:ietf:rfc:3986",
-    "value" : "urn:oid:2.16.840.1.113762.1.4.1222.1573"
-  }],
-  "version" : "20221110",
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113762.1.4.1222.1573"
+    }
+  ],
+  "version" : "20240507",
   "name" : "CerebralSpinalFluidCSFAnalysis",
   "title" : "Cerebral Spinal Fluid (CSF) Analysis",
   "status" : "active",
-  "experimental" : false,
-  "date" : "2022-11-10T01:02:52-05:00",
+  "date" : "2024-05-07T01:01:25-04:00",
   "publisher" : "HL7 Patient Care WG Steward",
   "description" : "This value set may undergo changes until the HL7 Multiple Chronic Care FHIR IG is formally published in 2024.",
-  "jurisdiction" : [{
-    "extension" : [{
-      "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
-      "valueString" : "UNKNOWN"
-    }]
-  }],
-  "purpose" : "(Clinical Focus: This set of values contains laboratory observable panel code(s) for Cerebral Spinal Fluid (CSF) Analysis.),(Data Element Scope: The intent of this data element is to identify patients with a lab test performed on a source of Cerebral Spinal Fluid.),(Inclusion Criteria: Cerebral Spinal Fluid (CSF) analysis lab test, coded in LOINC, using panel codes. LOINC will need to be referenced for the individual laboratory observations associated with these panel code(s).),(Exclusion Criteria: Does not include any codes which do not represent Cerebral Spinal Fluid (CSF) analysis as defined in the inclusion criteria.)",
+  "jurisdiction" : [
+    {
+      "coding" : [
+        {
+          "system" : "urn:iso:std:iso:3166",
+          "code" : "US"
+        }
+      ]
+    }
+  ],
+  "purpose" : "(Clinical Focus: This set of values contains laboratory observable panel code(s) for Cerebral Spinal Fluid (CSF) Analysis.),(Data Element Scope: The intent of this data element is to identify patients with a lab test performed on a source of Cerebral Spinal Fluid.),(Inclusion Criteria: Cerebral Spinal Fluid (CSF) analysis lab test, coded in LOINC, using panel codes and test codes (individual laboratory observations) associated with these panel code(s).),(Exclusion Criteria: Does not include any codes which do not represent Cerebral Spinal Fluid (CSF) analysis as defined in the inclusion criteria.)",
   "compose" : {
-    "include" : [{
-      "system" : "http://loinc.org",
-      "concept" : [{
-        "code" : "29584-0",
-        "display" : "Differential panel - Cerebral spinal fluid"
-      }]
-    }]
+    "include" : [
+      {
+        "system" : "http://loinc.org",
+        "concept" : [
+          {
+            "code" : "19075-1",
+            "display" : "Cells Counted Total [#] in Cerebral spinal fluid"
+          },
+          {
+            "code" : "20504-7",
+            "display" : "Histiocytes/100 cells in Cerebral spinal fluid"
+          },
+          {
+            "code" : "20998-1",
+            "display" : "Cell Fractions/Differential [Interpretation] in Cerebral spinal fluid"
+          },
+          {
+            "code" : "26447-3",
+            "display" : "Blasts/100 leukocytes in Cerebral spinal fluid"
+          },
+          {
+            "code" : "26451-5",
+            "display" : "Eosinophils/100 leukocytes in Cerebral spinal fluid"
+          },
+          {
+            "code" : "26465-5",
+            "display" : "Leukocytes [#/volume] in Cerebral spinal fluid"
+          },
+          {
+            "code" : "26470-5",
+            "display" : "Leukocytes other [#/volume] in Cerebral spinal fluid"
+          },
+          {
+            "code" : "26472-1",
+            "display" : "Leukocytes other/100 leukocytes in Cerebral spinal fluid"
+          },
+          {
+            "code" : "26475-4",
+            "display" : "Lymphocytes [#/volume] in Cerebral spinal fluid"
+          },
+          {
+            "code" : "26479-6",
+            "display" : "Lymphocytes/100 leukocytes in Cerebral spinal fluid"
+          },
+          {
+            "code" : "26486-1",
+            "display" : "Monocytes/100 leukocytes in Cerebral spinal fluid"
+          },
+          {
+            "code" : "26489-5",
+            "display" : "Mononuclear cells [#/volume] in Cerebral spinal fluid"
+          },
+          {
+            "code" : "26492-9",
+            "display" : "Mononuclear cells/100 leukocytes in Cerebral spinal fluid"
+          },
+          {
+            "code" : "26500-9",
+            "display" : "Neutrophils [#/volume] in Cerebral spinal fluid"
+          },
+          {
+            "code" : "26506-6",
+            "display" : "Segmented neutrophils/100 leukocytes in Cerebral spinal fluid"
+          },
+          {
+            "code" : "26509-0",
+            "display" : "Band form neutrophils/100 leukocytes in Cerebral spinal fluid"
+          },
+          {
+            "code" : "26512-4",
+            "display" : "Neutrophils/100 leukocytes in Cerebral spinal fluid"
+          },
+          {
+            "code" : "26517-3",
+            "display" : "Polymorphonuclear cells/100 leukocytes in Cerebral spinal fluid"
+          },
+          {
+            "code" : "29584-0",
+            "display" : "Differential panel - Cerebral spinal fluid"
+          },
+          {
+            "code" : "30366-9",
+            "display" : "Metamyelocytes/100 leukocytes in Cerebral spinal fluid"
+          },
+          {
+            "code" : "30374-3",
+            "display" : "Basophils/100 leukocytes in Cerebral spinal fluid"
+          },
+          {
+            "code" : "30414-7",
+            "display" : "Abnormal lymphocytes/100 leukocytes in Cerebral spinal fluid"
+          },
+          {
+            "code" : "30416-2",
+            "display" : "Variant lymphocytes/100 leukocytes in Cerebral spinal fluid"
+          },
+          {
+            "code" : "30426-1",
+            "display" : "Macrophages/100 leukocytes in Cerebral spinal fluid"
+          },
+          {
+            "code" : "30429-5",
+            "display" : "Mesothelial cells/100 leukocytes in Cerebral spinal fluid"
+          },
+          {
+            "code" : "30436-0",
+            "display" : "Monocytes+Macrophages/100 leukocytes in Cerebral spinal fluid"
+          },
+          {
+            "code" : "30447-7",
+            "display" : "Myelocytes/100 leukocytes in Cerebral spinal fluid"
+          },
+          {
+            "code" : "30456-8",
+            "display" : "Nonhematic cells/100 leukocytes in Cerebral spinal fluid"
+          },
+          {
+            "code" : "30467-5",
+            "display" : "Promyelocytes/100 leukocytes in Cerebral spinal fluid"
+          },
+          {
+            "code" : "30468-3",
+            "display" : "Unidentified cells/100 leukocytes in Cerebral spinal fluid"
+          },
+          {
+            "code" : "33963-0",
+            "display" : "Granulocytes/100 leukocytes in Cerebral spinal fluid"
+          },
+          {
+            "code" : "34958-9",
+            "display" : "Eosinophils [#/volume] in Cerebral spinal fluid"
+          },
+          {
+            "code" : "34987-8",
+            "display" : "Unidentified cells [#/volume] in Cerebral spinal fluid"
+          },
+          {
+            "code" : "34995-1",
+            "display" : "Promyelocytes [#/volume] in Cerebral spinal fluid"
+          },
+          {
+            "code" : "35001-7",
+            "display" : "Polymorphonuclear cells [#/volume] in Cerebral spinal fluid"
+          },
+          {
+            "code" : "35007-4",
+            "display" : "Nonhematic cells [#/volume] in Cerebral spinal fluid"
+          },
+          {
+            "code" : "35011-6",
+            "display" : "Segmented neutrophils [#/volume] in Cerebral spinal fluid"
+          },
+          {
+            "code" : "35015-7",
+            "display" : "Band form neutrophils [#/volume] in Cerebral spinal fluid"
+          },
+          {
+            "code" : "35017-3",
+            "display" : "Myelocytes [#/volume] in Cerebral spinal fluid"
+          },
+          {
+            "code" : "35025-6",
+            "display" : "Monocytes+Macrophages [#/volume] in Cerebral spinal fluid"
+          },
+          {
+            "code" : "35026-4",
+            "display" : "Monocytes [#/volume] in Cerebral spinal fluid"
+          },
+          {
+            "code" : "35030-6",
+            "display" : "Metamyelocytes [#/volume] in Cerebral spinal fluid"
+          },
+          {
+            "code" : "35034-8",
+            "display" : "Mesothelial cells [#/volume] in Cerebral spinal fluid"
+          },
+          {
+            "code" : "35038-9",
+            "display" : "Macrophages [#/volume] in Cerebral spinal fluid"
+          },
+          {
+            "code" : "35043-9",
+            "display" : "Variant lymphocytes [#/volume] in Cerebral spinal fluid"
+          },
+          {
+            "code" : "35047-0",
+            "display" : "Abnormal lymphocytes [#/volume] in Cerebral spinal fluid"
+          },
+          {
+            "code" : "35056-1",
+            "display" : "Histiocytes [#/volume] in Cerebral spinal fluid"
+          },
+          {
+            "code" : "35059-5",
+            "display" : "Granulocytes [#/volume] in Cerebral spinal fluid"
+          },
+          {
+            "code" : "35068-6",
+            "display" : "Blasts [#/volume] in Cerebral spinal fluid"
+          },
+          {
+            "code" : "35072-8",
+            "display" : "Basophils [#/volume] in Cerebral spinal fluid"
+          },
+          {
+            "code" : "99060-6",
+            "display" : "Cerebroventricular lining cells/100 leukocytes in Cerebral spinal fluid"
+          }
+        ]
+      }
+    ]
   },
   "expansion" : {
-    "identifier" : "urn:uuid:528a9df4-7ebb-4a26-a586-ff370155528a",
-    "timestamp" : "2023-09-26T09:15:54-04:00",
-    "total" : 1,
-    "offset" : 0,
-    "parameter" : [{
-      "name" : "count",
-      "valueInteger" : 1000
-    },
-    {
-      "name" : "offset",
-      "valueInteger" : 0
-    }],
-    "contains" : [{
-      "system" : "http://loinc.org",
-      "version" : "2.74",
-      "code" : "29584-0",
-      "display" : "Differential panel - Cerebral spinal fluid"
-    }]
+    "identifier" : "urn:uuid:2c9687b9-0953-4fca-bc68-fcd6a9318948",
+    "timestamp" : "2024-06-14T14:17:33-04:00",
+    "total" : 51,
+    "contains" : [
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
+        "code" : "19075-1",
+        "display" : "Cells Counted Total [#] in Cerebral spinal fluid"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
+        "code" : "20504-7",
+        "display" : "Histiocytes/100 cells in Cerebral spinal fluid"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
+        "code" : "20998-1",
+        "display" : "Cell Fractions/Differential [Interpretation] in Cerebral spinal fluid"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
+        "code" : "26447-3",
+        "display" : "Blasts/100 leukocytes in Cerebral spinal fluid"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
+        "code" : "26451-5",
+        "display" : "Eosinophils/100 leukocytes in Cerebral spinal fluid"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
+        "code" : "26465-5",
+        "display" : "Leukocytes [#/volume] in Cerebral spinal fluid"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
+        "code" : "26470-5",
+        "display" : "Leukocytes other [#/volume] in Cerebral spinal fluid"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
+        "code" : "26472-1",
+        "display" : "Leukocytes other/100 leukocytes in Cerebral spinal fluid"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
+        "code" : "26475-4",
+        "display" : "Lymphocytes [#/volume] in Cerebral spinal fluid"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
+        "code" : "26479-6",
+        "display" : "Lymphocytes/100 leukocytes in Cerebral spinal fluid"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
+        "code" : "26486-1",
+        "display" : "Monocytes/100 leukocytes in Cerebral spinal fluid"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
+        "code" : "26489-5",
+        "display" : "Mononuclear cells [#/volume] in Cerebral spinal fluid"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
+        "code" : "26492-9",
+        "display" : "Mononuclear cells/100 leukocytes in Cerebral spinal fluid"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
+        "code" : "26500-9",
+        "display" : "Neutrophils [#/volume] in Cerebral spinal fluid"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
+        "code" : "26506-6",
+        "display" : "Segmented neutrophils/100 leukocytes in Cerebral spinal fluid"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
+        "code" : "26509-0",
+        "display" : "Band form neutrophils/100 leukocytes in Cerebral spinal fluid"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
+        "code" : "26512-4",
+        "display" : "Neutrophils/100 leukocytes in Cerebral spinal fluid"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
+        "code" : "26517-3",
+        "display" : "Polymorphonuclear cells/100 leukocytes in Cerebral spinal fluid"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
+        "code" : "29584-0",
+        "display" : "Differential panel - Cerebral spinal fluid"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
+        "code" : "30366-9",
+        "display" : "Metamyelocytes/100 leukocytes in Cerebral spinal fluid"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
+        "code" : "30374-3",
+        "display" : "Basophils/100 leukocytes in Cerebral spinal fluid"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
+        "code" : "30414-7",
+        "display" : "Abnormal lymphocytes/100 leukocytes in Cerebral spinal fluid"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
+        "code" : "30416-2",
+        "display" : "Variant lymphocytes/100 leukocytes in Cerebral spinal fluid"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
+        "code" : "30426-1",
+        "display" : "Macrophages/100 leukocytes in Cerebral spinal fluid"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
+        "code" : "30429-5",
+        "display" : "Mesothelial cells/100 leukocytes in Cerebral spinal fluid"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
+        "code" : "30436-0",
+        "display" : "Monocytes+Macrophages/100 leukocytes in Cerebral spinal fluid"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
+        "code" : "30447-7",
+        "display" : "Myelocytes/100 leukocytes in Cerebral spinal fluid"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
+        "code" : "30456-8",
+        "display" : "Nonhematic cells/100 leukocytes in Cerebral spinal fluid"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
+        "code" : "30467-5",
+        "display" : "Promyelocytes/100 leukocytes in Cerebral spinal fluid"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
+        "code" : "30468-3",
+        "display" : "Unidentified cells/100 leukocytes in Cerebral spinal fluid"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
+        "code" : "33963-0",
+        "display" : "Granulocytes/100 leukocytes in Cerebral spinal fluid"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
+        "code" : "34958-9",
+        "display" : "Eosinophils [#/volume] in Cerebral spinal fluid"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
+        "code" : "34987-8",
+        "display" : "Unidentified cells [#/volume] in Cerebral spinal fluid"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
+        "code" : "34995-1",
+        "display" : "Promyelocytes [#/volume] in Cerebral spinal fluid"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
+        "code" : "35001-7",
+        "display" : "Polymorphonuclear cells [#/volume] in Cerebral spinal fluid"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
+        "code" : "35007-4",
+        "display" : "Nonhematic cells [#/volume] in Cerebral spinal fluid"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
+        "code" : "35011-6",
+        "display" : "Segmented neutrophils [#/volume] in Cerebral spinal fluid"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
+        "code" : "35015-7",
+        "display" : "Band form neutrophils [#/volume] in Cerebral spinal fluid"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
+        "code" : "35017-3",
+        "display" : "Myelocytes [#/volume] in Cerebral spinal fluid"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
+        "code" : "35025-6",
+        "display" : "Monocytes+Macrophages [#/volume] in Cerebral spinal fluid"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
+        "code" : "35026-4",
+        "display" : "Monocytes [#/volume] in Cerebral spinal fluid"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
+        "code" : "35030-6",
+        "display" : "Metamyelocytes [#/volume] in Cerebral spinal fluid"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
+        "code" : "35034-8",
+        "display" : "Mesothelial cells [#/volume] in Cerebral spinal fluid"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
+        "code" : "35038-9",
+        "display" : "Macrophages [#/volume] in Cerebral spinal fluid"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
+        "code" : "35043-9",
+        "display" : "Variant lymphocytes [#/volume] in Cerebral spinal fluid"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
+        "code" : "35047-0",
+        "display" : "Abnormal lymphocytes [#/volume] in Cerebral spinal fluid"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
+        "code" : "35056-1",
+        "display" : "Histiocytes [#/volume] in Cerebral spinal fluid"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
+        "code" : "35059-5",
+        "display" : "Granulocytes [#/volume] in Cerebral spinal fluid"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
+        "code" : "35068-6",
+        "display" : "Blasts [#/volume] in Cerebral spinal fluid"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
+        "code" : "35072-8",
+        "display" : "Basophils [#/volume] in Cerebral spinal fluid"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
+        "code" : "99060-6",
+        "display" : "Cerebroventricular lining cells/100 leukocytes in Cerebral spinal fluid"
+      }
+    ]
   }
 }

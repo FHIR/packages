@@ -3,153 +3,161 @@
   "id" : "2.16.840.1.113762.1.4.1222.1016",
   "meta" : {
     "versionId" : "5",
-    "lastUpdated" : "2022-11-12T20:38:07.000-05:00",
-    "profile" : ["http://hl7.org/fhir/StructureDefinition/shareablevalueset",
-    "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"]
+    "lastUpdated" : "2023-12-21T17:43:03.000-05:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-valueset-cqfm",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "extension" : [{
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
-    "valueString" : "MCC eCare Plan Author"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-keyWord",
-    "valueString" : "MCC_IG"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
-    "valueDate" : "2022-12-15"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
-    "valueDate" : "2022-11-12"
-  }],
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "MCC eCare Plan Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-keyWord",
+      "valueString" : "MCC_IG"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2024-06-03"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2021-09-22"
+    }
+  ],
   "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1222.1016",
-  "identifier" : [{
-    "system" : "urn:ietf:rfc:3986",
-    "value" : "urn:oid:2.16.840.1.113762.1.4.1222.1016"
-  }],
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113762.1.4.1222.1016"
+    }
+  ],
   "version" : "20210922",
   "name" : "TobaccoUse",
   "title" : "Tobacco Use",
-  "status" : "active",
+  "status" : "retired",
   "experimental" : false,
   "date" : "2021-09-22T01:00:46-04:00",
   "publisher" : "HL7 Patient Care WG Steward",
   "description" : "This value set may undergo changes until the HL7 Multiple Chronic Care FHIR IG is formally published in 2024.",
-  "jurisdiction" : [{
-    "extension" : [{
-      "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
-      "valueString" : "UNKNOWN"
-    }]
-  }],
+  "jurisdiction" : [
+    {
+      "coding" : [
+        {
+          "system" : "urn:iso:std:iso:3166",
+          "code" : "US"
+        }
+      ]
+    }
+  ],
   "purpose" : "(Clinical Focus: This set of values addresses terms representing an observation of a person's tobacco use),(Data Element Scope: The intent of this set of values is to identify patients who have a/an documentation of the person's tobacco use patterns.),(Inclusion Criteria: Includes LOINC codes for Tobacco Use.),(Exclusion Criteria: Terms not representative of observable encoded terms that may have values indicating Tobacco Use.)",
   "compose" : {
-    "include" : [{
-      "system" : "http://loinc.org",
-      "version" : "2.74",
-      "filter" : [{
-        "property" : "concept",
-        "op" : "in",
-        "value" : "72166-2,96101-1,88030-2,8663-7,95529-4,67741-9,96847-9,96848-7,74010-0,45434-8,96842-0,88029-4,88031-0,64572-1"
-      }]
-    }]
+    "include" : [
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
+        "filter" : [
+          {
+            "property" : "concept",
+            "op" : "in",
+            "value" : "72166-2,96101-1,88030-2,8663-7,95529-4,67741-9,96847-9,96848-7,74010-0,45434-8,96842-0,88029-4,88031-0,64572-1"
+          }
+        ]
+      }
+    ]
   },
   "expansion" : {
-    "identifier" : "urn:uuid:2d3b583a-65be-4271-8a06-b7625c150684",
-    "timestamp" : "2023-09-26T13:32:47-04:00",
+    "identifier" : "urn:uuid:1b2b76aa-db0b-430d-8e6e-fe0294c5eb4f",
+    "timestamp" : "2024-06-14T14:01:36-04:00",
     "total" : 14,
-    "offset" : 0,
-    "parameter" : [{
-      "name" : "count",
-      "valueInteger" : 1000
-    },
-    {
-      "name" : "offset",
-      "valueInteger" : 0
-    }],
-    "contains" : [{
-      "system" : "http://loinc.org",
-      "version" : "2.74",
-      "code" : "45434-8",
-      "display" : "Use of tobacco products at least daily [Minimum Data Set]"
-    },
-    {
-      "system" : "http://loinc.org",
-      "version" : "2.74",
-      "code" : "64572-1",
-      "display" : "How often does your child use cigarettes, smokeless tobacco, snuff, or other tobacco products [PhenX]"
-    },
-    {
-      "system" : "http://loinc.org",
-      "version" : "2.74",
-      "code" : "67741-9",
-      "display" : "Smoking tobacco use duration"
-    },
-    {
-      "system" : "http://loinc.org",
-      "version" : "2.74",
-      "code" : "72166-2",
-      "display" : "Tobacco smoking status"
-    },
-    {
-      "system" : "http://loinc.org",
-      "version" : "2.74",
-      "code" : "74010-0",
-      "display" : "Date quit tobacco smoking"
-    },
-    {
-      "system" : "http://loinc.org",
-      "version" : "2.74",
-      "code" : "8663-7",
-      "display" : "Cigarettes smoked current (pack per day) - Reported"
-    },
-    {
-      "system" : "http://loinc.org",
-      "version" : "2.74",
-      "code" : "88029-4",
-      "display" : "Tobacco use duration"
-    },
-    {
-      "system" : "http://loinc.org",
-      "version" : "2.74",
-      "code" : "88030-2",
-      "display" : "Date quit smokeless tobacco"
-    },
-    {
-      "system" : "http://loinc.org",
-      "version" : "2.74",
-      "code" : "88031-0",
-      "display" : "Smokeless tobacco status"
-    },
-    {
-      "system" : "http://loinc.org",
-      "version" : "2.74",
-      "code" : "95529-4",
-      "display" : "Tobacco use in the past year"
-    },
-    {
-      "system" : "http://loinc.org",
-      "version" : "2.74",
-      "code" : "96101-1",
-      "display" : "Tobacco use frequency"
-    },
-    {
-      "system" : "http://loinc.org",
-      "version" : "2.74",
-      "code" : "96842-0",
-      "display" : "How often have you used any tobacco product in past 12 months"
-    },
-    {
-      "system" : "http://loinc.org",
-      "version" : "2.74",
-      "code" : "96847-9",
-      "display" : "Smoked more than 10 cigarettes per day in past 3 months"
-    },
-    {
-      "system" : "http://loinc.org",
-      "version" : "2.74",
-      "code" : "96848-7",
-      "display" : "Smoked cigarette within 30M after waking in past 3 months"
-    }]
+    "contains" : [
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
+        "code" : "45434-8",
+        "display" : "Use of tobacco products at least daily [Minimum Data Set]"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
+        "code" : "64572-1",
+        "display" : "How often does your child use cigarettes, smokeless tobacco, snuff, or other tobacco products [PhenX]"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
+        "code" : "67741-9",
+        "display" : "Smoking tobacco use duration"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
+        "code" : "72166-2",
+        "display" : "Tobacco smoking status"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
+        "code" : "74010-0",
+        "display" : "Date quit tobacco smoking"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
+        "code" : "8663-7",
+        "display" : "Cigarettes smoked current (pack per day) - Reported"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
+        "code" : "88029-4",
+        "display" : "Tobacco use duration"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
+        "code" : "88030-2",
+        "display" : "Date quit smokeless tobacco"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
+        "code" : "88031-0",
+        "display" : "Smokeless tobacco status"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
+        "code" : "95529-4",
+        "display" : "Tobacco use in the past year"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
+        "code" : "96101-1",
+        "display" : "Tobacco use frequency"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
+        "code" : "96842-0",
+        "display" : "How often have you used any tobacco product in past 12 months"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
+        "code" : "96847-9",
+        "display" : "Smoked more than 10 cigarettes per day in past 3 months"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
+        "code" : "96848-7",
+        "display" : "Smoked cigarette within 30M after waking in past 3 months"
+      }
+    ]
   }
 }

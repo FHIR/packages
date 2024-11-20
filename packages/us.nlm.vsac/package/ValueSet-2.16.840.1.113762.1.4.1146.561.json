@@ -3,82 +3,90 @@
   "id" : "2.16.840.1.113762.1.4.1146.561",
   "meta" : {
     "versionId" : "11",
-    "lastUpdated" : "2018-10-31T01:13:47.000-04:00",
-    "profile" : ["http://hl7.org/fhir/StructureDefinition/shareablevalueset",
-    "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"]
+    "lastUpdated" : "2023-12-21T17:43:03.000-05:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-valueset-cqfm",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "extension" : [{
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
-    "valueString" : "CSTE Author"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-keyWord",
-    "valueString" : "G_ZVD,Trigger,West_Nile"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
-    "valueDate" : "2022-12-15"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
-    "valueDate" : "2018-10-31"
-  }],
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "CSTE Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-keyWord",
+      "valueString" : "G_ZVD,Trigger,West_Nile"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2024-06-03"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2018-10-31"
+    }
+  ],
   "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1146.561",
-  "identifier" : [{
-    "system" : "urn:ietf:rfc:3986",
-    "value" : "urn:oid:2.16.840.1.113762.1.4.1146.561"
-  }],
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113762.1.4.1146.561"
+    }
+  ],
   "version" : "20181031",
   "name" : "WestNileVirusInfectionTestsForWestNileVirusAntigen",
   "title" : "West Nile Virus Infection (Tests for West Nile virus Antigen)",
-  "status" : "active",
+  "status" : "retired",
   "experimental" : false,
   "date" : "2018-10-31T01:00:09-04:00",
   "publisher" : "CSTE Steward",
-  "jurisdiction" : [{
-    "extension" : [{
-      "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
-      "valueString" : "UNKNOWN"
-    }]
-  }],
+  "jurisdiction" : [
+    {
+      "coding" : [
+        {
+          "system" : "urn:iso:std:iso:3166",
+          "code" : "US"
+        }
+      ]
+    }
+  ],
   "purpose" : "(Clinical Focus: This set of values contains codes for laboratory test names associated with detecting the presence of West Nile Virus antigen),(Data Element Scope: Laboratory tests names that were ordered or observed.),(Inclusion Criteria: component: West Nile virus antigen),(Exclusion Criteria: 50015-7\nWest Nile virus Ag [Presence] in Blood or Marrow from Donor)",
   "compose" : {
-    "include" : [{
-      "system" : "http://loinc.org",
-      "concept" : [{
+    "include" : [
+      {
+        "system" : "http://loinc.org",
+        "concept" : [
+          {
+            "code" : "32371-7",
+            "display" : "West Nile virus Ag [Presence] in Tissue by Immune stain"
+          },
+          {
+            "code" : "41643-8",
+            "display" : "West Nile virus Ag [Presence] in Unspecified specimen by Immunofluorescence"
+          }
+        ]
+      }
+    ]
+  },
+  "expansion" : {
+    "identifier" : "urn:uuid:c774d302-6151-4d40-ba82-e8ec3dac5247",
+    "timestamp" : "2024-06-14T12:17:58-04:00",
+    "total" : 2,
+    "contains" : [
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
         "code" : "32371-7",
         "display" : "West Nile virus Ag [Presence] in Tissue by Immune stain"
       },
       {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
         "code" : "41643-8",
-        "display" : "West Nile virus Ag [Presence] in Unspecified specimen by Immunofluorescence"
-      }]
-    }]
-  },
-  "expansion" : {
-    "identifier" : "urn:uuid:28032b99-27cd-4cd6-a141-5ff6e716491f",
-    "timestamp" : "2023-09-26T13:55:17-04:00",
-    "total" : 2,
-    "offset" : 0,
-    "parameter" : [{
-      "name" : "count",
-      "valueInteger" : 1000
-    },
-    {
-      "name" : "offset",
-      "valueInteger" : 0
-    }],
-    "contains" : [{
-      "system" : "http://loinc.org",
-      "version" : "2.74",
-      "code" : "32371-7",
-      "display" : "West Nile virus Ag [Presence] in Tissue by Immune stain"
-    },
-    {
-      "system" : "http://loinc.org",
-      "version" : "2.74",
-      "code" : "41643-8",
-      "display" : "West Nile virus Ag [Presence] in Specimen by Immunofluorescence"
-    }]
+        "display" : "West Nile virus Ag [Presence] in Specimen by Immunofluorescence"
+      }
+    ]
   }
 }

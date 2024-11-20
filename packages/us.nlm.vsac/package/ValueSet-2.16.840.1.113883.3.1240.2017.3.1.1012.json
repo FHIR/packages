@@ -3,98 +3,106 @@
   "id" : "2.16.840.1.113883.3.1240.2017.3.1.1012",
   "meta" : {
     "versionId" : "9",
-    "lastUpdated" : "2017-08-02T01:00:04.000-04:00",
-    "profile" : ["http://hl7.org/fhir/StructureDefinition/shareablevalueset",
-    "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"]
+    "lastUpdated" : "2023-12-21T17:43:03.000-05:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-valueset-cqfm",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "extension" : [{
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
-    "valueString" : "Mathematica-CHIT"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
-    "valueDate" : "2022-12-15"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
-    "valueDate" : "2017-08-02"
-  }],
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "Mathematica-CHIT"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2024-06-03"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2017-08-02"
+    }
+  ],
   "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.1240.2017.3.1.1012",
-  "identifier" : [{
-    "system" : "urn:ietf:rfc:3986",
-    "value" : "urn:oid:2.16.840.1.113883.3.1240.2017.3.1.1012"
-  }],
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113883.3.1240.2017.3.1.1012"
+    }
+  ],
   "version" : "20170802",
   "name" : "UncorrectedChartBasedVisualAcuityScreening",
   "title" : "Uncorrected Chart Based Visual Acuity Screening",
-  "status" : "active",
+  "status" : "retired",
   "experimental" : false,
   "date" : "2017-08-02T01:00:04-04:00",
   "publisher" : "Mathematica",
-  "jurisdiction" : [{
-    "extension" : [{
-      "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
-      "valueString" : "UNKNOWN"
-    }]
-  }],
+  "jurisdiction" : [
+    {
+      "coding" : [
+        {
+          "system" : "urn:iso:std:iso:3166",
+          "code" : "US"
+        }
+      ]
+    }
+  ],
   "purpose" : "(Clinical Focus: Uncorrected chart-based visual acuity screening),(Data Element Scope: Diagnostic Study),(Inclusion Criteria: Uncorrected chart-based visual acuity screening),(Exclusion Criteria: Corrected chart-based visual acuity screening, instrument-based visual acuity screening)",
   "compose" : {
-    "include" : [{
-      "system" : "http://loinc.org",
-      "concept" : [{
+    "include" : [
+      {
+        "system" : "http://loinc.org",
+        "concept" : [
+          {
+            "code" : "79878-5",
+            "display" : "Visual acuity uncorrected Right eye by ETDRS eye chart"
+          },
+          {
+            "code" : "79879-3",
+            "display" : "Visual acuity uncorrected Left eye by ETDRS eye chart"
+          },
+          {
+            "code" : "79882-7",
+            "display" : "Visual acuity uncorrected Right eye by Snellen eye chart"
+          },
+          {
+            "code" : "79883-5",
+            "display" : "Visual acuity uncorrected Left eye by Snellen eye chart"
+          }
+        ]
+      }
+    ]
+  },
+  "expansion" : {
+    "identifier" : "urn:uuid:1200190f-54b4-49ed-b49e-0ac215cf3a16",
+    "timestamp" : "2024-06-14T15:43:53-04:00",
+    "total" : 4,
+    "contains" : [
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
         "code" : "79878-5",
         "display" : "Visual acuity uncorrected Right eye by ETDRS eye chart"
       },
       {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
         "code" : "79879-3",
         "display" : "Visual acuity uncorrected Left eye by ETDRS eye chart"
       },
       {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
         "code" : "79882-7",
         "display" : "Visual acuity uncorrected Right eye by Snellen eye chart"
       },
       {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
         "code" : "79883-5",
         "display" : "Visual acuity uncorrected Left eye by Snellen eye chart"
-      }]
-    }]
-  },
-  "expansion" : {
-    "identifier" : "urn:uuid:24c4762c-d6a7-4f7e-b9ee-21e876c0d23d",
-    "timestamp" : "2023-09-26T13:44:39-04:00",
-    "total" : 4,
-    "offset" : 0,
-    "parameter" : [{
-      "name" : "count",
-      "valueInteger" : 1000
-    },
-    {
-      "name" : "offset",
-      "valueInteger" : 0
-    }],
-    "contains" : [{
-      "system" : "http://loinc.org",
-      "version" : "2.74",
-      "code" : "79878-5",
-      "display" : "Visual acuity uncorrected Right eye by ETDRS eye chart"
-    },
-    {
-      "system" : "http://loinc.org",
-      "version" : "2.74",
-      "code" : "79879-3",
-      "display" : "Visual acuity uncorrected Left eye by ETDRS eye chart"
-    },
-    {
-      "system" : "http://loinc.org",
-      "version" : "2.74",
-      "code" : "79882-7",
-      "display" : "Visual acuity uncorrected Right eye by Snellen eye chart"
-    },
-    {
-      "system" : "http://loinc.org",
-      "version" : "2.74",
-      "code" : "79883-5",
-      "display" : "Visual acuity uncorrected Left eye by Snellen eye chart"
-    }]
+      }
+    ]
   }
 }

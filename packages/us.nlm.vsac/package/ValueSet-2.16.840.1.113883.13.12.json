@@ -3,27 +3,34 @@
   "id" : "2.16.840.1.113883.13.12",
   "meta" : {
     "versionId" : "5",
-    "lastUpdated" : "2020-08-07T01:00:24.000-04:00",
-    "profile" : ["http://hl7.org/fhir/StructureDefinition/shareablevalueset",
-    "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"]
+    "lastUpdated" : "2023-12-21T17:43:03.000-05:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-valueset-cqfm",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "extension" : [{
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
-    "valueString" : "CDC NHSN Author"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
-    "valueDate" : "2022-12-15"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
-    "valueDate" : "2020-08-07"
-  }],
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "CDC NHSN Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2024-02-07"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2020-08-07"
+    }
+  ],
   "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.13.12",
-  "identifier" : [{
-    "system" : "urn:ietf:rfc:3986",
-    "value" : "urn:oid:2.16.840.1.113883.13.12"
-  }],
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113883.13.12"
+    }
+  ],
   "version" : "20200807",
   "name" : "NHSNOccasionOfDetectionCode",
   "title" : "NHSNOccasionOfDetectionCode",
@@ -31,70 +38,71 @@
   "experimental" : false,
   "date" : "2020-08-07T01:00:24-04:00",
   "publisher" : "CDC NHSN",
-  "jurisdiction" : [{
-    "extension" : [{
-      "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
-      "valueString" : "UNKNOWN"
-    }]
-  }],
+  "jurisdiction" : [
+    {
+      "coding" : [
+        {
+          "system" : "urn:iso:std:iso:3166",
+          "code" : "US"
+        }
+      ]
+    }
+  ],
   "purpose" : "(Clinical Focus: NHSN surveillance reporting:),(Data Element Scope: ),(Inclusion Criteria: ),(Exclusion Criteria: )",
   "compose" : {
-    "include" : [{
-      "system" : "https://www.cdc.gov/nhsn/cdaportal/terminology/codesystem/cdcnhsn.html",
-      "concept" : [{
+    "include" : [
+      {
+        "system" : "https://www.cdc.gov/nhsn/cdaportal/terminology/codesystem/cdcnhsn.html",
+        "concept" : [
+          {
+            "code" : "1505-7",
+            "display" : "Post-discharge surveillance"
+          },
+          {
+            "code" : "1510-7",
+            "display" : "Admission (during the stay in which the surgery was performed)"
+          },
+          {
+            "code" : "1516-4",
+            "display" : "Readmission to facility where procedure was performed"
+          },
+          {
+            "code" : "1517-2",
+            "display" : "Readmission to facility other than where procedure was performed"
+          }
+        ]
+      }
+    ]
+  },
+  "expansion" : {
+    "identifier" : "urn:uuid:fffa811a-e3a0-474e-8d1a-4e05c093e999",
+    "timestamp" : "2024-06-14T15:21:17-04:00",
+    "total" : 4,
+    "contains" : [
+      {
+        "system" : "https://www.cdc.gov/nhsn/cdaportal/terminology/codesystem/cdcnhsn.html",
+        "version" : "2023-04",
         "code" : "1505-7",
         "display" : "Post-discharge surveillance"
       },
       {
+        "system" : "https://www.cdc.gov/nhsn/cdaportal/terminology/codesystem/cdcnhsn.html",
+        "version" : "2023-04",
         "code" : "1510-7",
         "display" : "Admission (during the stay in which the surgery was performed)"
       },
       {
+        "system" : "https://www.cdc.gov/nhsn/cdaportal/terminology/codesystem/cdcnhsn.html",
+        "version" : "2023-04",
         "code" : "1516-4",
         "display" : "Readmission to facility where procedure was performed"
       },
       {
+        "system" : "https://www.cdc.gov/nhsn/cdaportal/terminology/codesystem/cdcnhsn.html",
+        "version" : "2023-04",
         "code" : "1517-2",
         "display" : "Readmission to facility other than where procedure was performed"
-      }]
-    }]
-  },
-  "expansion" : {
-    "identifier" : "urn:uuid:240e036b-ae67-4f51-9c22-bf393bd46724",
-    "timestamp" : "2023-09-26T12:02:46-04:00",
-    "total" : 4,
-    "offset" : 0,
-    "parameter" : [{
-      "name" : "count",
-      "valueInteger" : 1000
-    },
-    {
-      "name" : "offset",
-      "valueInteger" : 0
-    }],
-    "contains" : [{
-      "system" : "https://www.cdc.gov/nhsn/cdaportal/terminology/codesystem/cdcnhsn.html",
-      "version" : "2023-04",
-      "code" : "1505-7",
-      "display" : "Post-discharge surveillance"
-    },
-    {
-      "system" : "https://www.cdc.gov/nhsn/cdaportal/terminology/codesystem/cdcnhsn.html",
-      "version" : "2023-04",
-      "code" : "1510-7",
-      "display" : "Admission (during the stay in which the surgery was performed)"
-    },
-    {
-      "system" : "https://www.cdc.gov/nhsn/cdaportal/terminology/codesystem/cdcnhsn.html",
-      "version" : "2023-04",
-      "code" : "1516-4",
-      "display" : "Readmission to facility where procedure was performed"
-    },
-    {
-      "system" : "https://www.cdc.gov/nhsn/cdaportal/terminology/codesystem/cdcnhsn.html",
-      "version" : "2023-04",
-      "code" : "1517-2",
-      "display" : "Readmission to facility other than where procedure was performed"
-    }]
+      }
+    ]
   }
 }

@@ -2,293 +2,220 @@
   "resourceType" : "ValueSet",
   "id" : "2.16.840.1.113762.1.4.1146.329",
   "meta" : {
-    "versionId" : "34",
-    "lastUpdated" : "2021-01-21T01:00:32.000-05:00",
-    "profile" : ["http://hl7.org/fhir/StructureDefinition/shareablevalueset",
-    "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"]
+    "versionId" : "39",
+    "lastUpdated" : "2024-01-22T01:09:37.000-05:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-valueset-cqfm",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "extension" : [{
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
-    "valueString" : "CSTE Author"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-keyWord",
-    "valueString" : "G_Common"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
-    "valueDate" : "2022-12-15"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
-    "valueDate" : "2021-01-21"
-  }],
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "CSTE Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-keyWord",
+      "valueString" : "G_Common"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2024-01-22"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2024-01-22"
+    }
+  ],
   "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1146.329",
-  "identifier" : [{
-    "system" : "urn:ietf:rfc:3986",
-    "value" : "urn:oid:2.16.840.1.113762.1.4.1146.329"
-  }],
-  "version" : "20210121",
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113762.1.4.1146.329"
+    }
+  ],
+  "version" : "20240122",
   "name" : "ApneaSNOMED",
   "title" : "Apnea (SNOMED)",
   "status" : "active",
-  "experimental" : false,
-  "date" : "2021-01-21T01:00:32-05:00",
+  "date" : "2024-01-22T01:09:37-05:00",
   "publisher" : "CSTE Steward",
-  "jurisdiction" : [{
-    "extension" : [{
-      "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
-      "valueString" : "UNKNOWN"
-    }]
-  }],
+  "jurisdiction" : [
+    {
+      "coding" : [
+        {
+          "system" : "urn:iso:std:iso:3166",
+          "code" : "US"
+        }
+      ]
+    }
+  ],
   "purpose" : "(Clinical Focus: This set of values contains diagnoses or problems that represent that the patient has apnea regardless of the clinical presentation of the condition),(Data Element Scope: Diagnoses or problems documented in a clinical record.),(Inclusion Criteria: Root1 = Apnea (finding); \nRoot1 children included = Some;\n\nAdded leaf concepts: YES),(Exclusion Criteria: Child of root1 excluded = apnea (disorder))",
   "compose" : {
-    "include" : [{
-      "system" : "http://snomed.info/sct",
-      "concept" : [{
+    "include" : [
+      {
+        "system" : "http://snomed.info/sct",
+        "concept" : [
+          {
+            "code" : "1023001",
+            "display" : "Apnea (finding)"
+          },
+          {
+            "code" : "13094009",
+            "display" : "Apnea in newborn (finding)"
+          },
+          {
+            "code" : "14041005",
+            "display" : "Deglutition apnea (finding)"
+          },
+          {
+            "code" : "276544005",
+            "display" : "Apnea of prematurity (disorder)"
+          },
+          {
+            "code" : "276546007",
+            "display" : "Prolonged apnea of newborn (disorder)"
+          },
+          {
+            "code" : "276725001",
+            "display" : "Recurrent apnea of newborn (finding)"
+          },
+          {
+            "code" : "37952003",
+            "display" : "Initial apnea (finding)"
+          },
+          {
+            "code" : "416945002",
+            "display" : "Recurrent apnea (finding)"
+          },
+          {
+            "code" : "430335007",
+            "display" : "Primary apnea in the newborn (finding)"
+          },
+          {
+            "code" : "63214000",
+            "display" : "Vagal apnea (finding)"
+          },
+          {
+            "code" : "70073005",
+            "display" : "Perinatal apneic spells (disorder)"
+          },
+          {
+            "code" : "724229002",
+            "display" : "Apnea of infancy (disorder)"
+          },
+          {
+            "code" : "762287001",
+            "display" : "Mixed neonatal apnea (disorder)"
+          },
+          {
+            "code" : "90701007",
+            "display" : "Late apnea (finding)"
+          },
+          {
+            "code" : "95616002",
+            "display" : "Neonatal apneic attack (finding)"
+          }
+        ]
+      }
+    ]
+  },
+  "expansion" : {
+    "identifier" : "urn:uuid:37b47320-67e7-4022-bdc6-d13481cf7651",
+    "timestamp" : "2024-06-14T12:13:32-04:00",
+    "total" : 15,
+    "contains" : [
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
         "code" : "1023001",
         "display" : "Apnea (finding)"
       },
       {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
         "code" : "13094009",
-        "display" : "Apnea in the newborn (finding)"
+        "display" : "Apnea in newborn (finding)"
       },
       {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
         "code" : "14041005",
         "display" : "Deglutition apnea (finding)"
       },
       {
-        "code" : "230493001",
-        "display" : "Mixed sleep apnea (disorder)"
-      },
-      {
-        "code" : "230494007",
-        "display" : "Alveolar sleep apnea (disorder)"
-      },
-      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
         "code" : "276544005",
         "display" : "Apnea of prematurity (disorder)"
       },
       {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
         "code" : "276546007",
         "display" : "Prolonged apnea of newborn (disorder)"
       },
       {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
         "code" : "276725001",
         "display" : "Recurrent apnea of newborn (finding)"
       },
       {
-        "code" : "361208003",
-        "display" : "Primary sleep apnea of newborn (disorder)"
-      },
-      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
         "code" : "37952003",
         "display" : "Initial apnea (finding)"
       },
       {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
         "code" : "416945002",
         "display" : "Recurrent apnea (finding)"
       },
       {
-        "code" : "41975002",
-        "display" : "Insomnia with sleep apnea (disorder)"
-      },
-      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
         "code" : "430335007",
         "display" : "Primary apnea in the newborn (finding)"
       },
       {
-        "code" : "442164004",
-        "display" : "Organic sleep apnea (disorder)"
-      },
-      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
         "code" : "63214000",
         "display" : "Vagal apnea (finding)"
       },
       {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
         "code" : "70073005",
         "display" : "Perinatal apneic spells (disorder)"
       },
       {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
         "code" : "724229002",
         "display" : "Apnea of infancy (disorder)"
       },
       {
-        "code" : "73430006",
-        "display" : "Sleep apnea (disorder)"
-      },
-      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
         "code" : "762287001",
         "display" : "Mixed neonatal apnea (disorder)"
       },
       {
-        "code" : "789009003",
-        "display" : "Primary central sleep apnea of prematurity (disorder)"
-      },
-      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
         "code" : "90701007",
         "display" : "Late apnea (finding)"
       },
       {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
         "code" : "95616002",
         "display" : "Neonatal apneic attack (finding)"
-      },
-      {
-        "code" : "9741000119101",
-        "display" : "Primary central sleep apnea (disorder)"
-      }]
-    }]
-  },
-  "expansion" : {
-    "identifier" : "urn:uuid:659b409a-bc16-4871-8934-2e2d0465af1a",
-    "timestamp" : "2023-09-26T08:00:17-04:00",
-    "total" : 23,
-    "offset" : 0,
-    "parameter" : [{
-      "name" : "count",
-      "valueInteger" : 1000
-    },
-    {
-      "name" : "offset",
-      "valueInteger" : 0
-    }],
-    "contains" : [{
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "1023001",
-      "display" : "Apnea (finding)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "13094009",
-      "display" : "Apnea in newborn (finding)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "14041005",
-      "display" : "Deglutition apnea (finding)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "230493001",
-      "display" : "Mixed sleep apnea (disorder)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "230494007",
-      "display" : "Alveolar sleep apnea (disorder)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "276544005",
-      "display" : "Apnea of prematurity (disorder)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "276546007",
-      "display" : "Prolonged apnea of newborn (disorder)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "276725001",
-      "display" : "Recurrent apnea of newborn (finding)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "361208003",
-      "display" : "Primary sleep apnea of newborn (disorder)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "37952003",
-      "display" : "Initial apnea (finding)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "416945002",
-      "display" : "Recurrent apnea (finding)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "41975002",
-      "display" : "Insomnia with sleep apnea (disorder)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "430335007",
-      "display" : "Primary apnea in the newborn (finding)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "442164004",
-      "display" : "Organic sleep apnea (disorder)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "63214000",
-      "display" : "Vagal apnea (finding)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "70073005",
-      "display" : "Perinatal apneic spells (disorder)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "724229002",
-      "display" : "Apnea of infancy (disorder)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "73430006",
-      "display" : "Sleep apnea (disorder)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "762287001",
-      "display" : "Mixed neonatal apnea (disorder)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "789009003",
-      "display" : "Primary central sleep apnea of prematurity (disorder)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "90701007",
-      "display" : "Late apnea (finding)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "95616002",
-      "display" : "Neonatal apneic attack (finding)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "9741000119101",
-      "display" : "Primary central sleep apnea (disorder)"
-    }]
+      }
+    ]
   }
 }

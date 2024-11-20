@@ -3,148 +3,156 @@
   "id" : "2.16.840.1.113762.1.4.1138.762",
   "meta" : {
     "versionId" : "5",
-    "lastUpdated" : "2018-07-05T16:23:07.000-04:00",
-    "profile" : ["http://hl7.org/fhir/StructureDefinition/shareablevalueset",
-    "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"]
+    "lastUpdated" : "2023-12-21T17:43:03.000-05:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-valueset-cqfm",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "extension" : [{
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
-    "valueString" : "Change Healthcare Author"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
-    "valueDate" : "2022-12-15"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
-    "valueDate" : "2018-07-05"
-  }],
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "Change Healthcare Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2024-06-03"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2018-04-26"
+    }
+  ],
   "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1138.762",
-  "identifier" : [{
-    "system" : "urn:ietf:rfc:3986",
-    "value" : "urn:oid:2.16.840.1.113762.1.4.1138.762"
-  }],
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113762.1.4.1138.762"
+    }
+  ],
   "version" : "20180426",
   "name" : "OtherUrineProteinTests",
   "title" : "Other Urine Protein Tests",
-  "status" : "active",
+  "status" : "retired",
   "experimental" : false,
   "date" : "2018-04-26T01:00:04-04:00",
   "publisher" : "Change Healthcare Steward",
-  "jurisdiction" : [{
-    "extension" : [{
-      "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
-      "valueString" : "UNKNOWN"
-    }]
-  }],
+  "jurisdiction" : [
+    {
+      "coding" : [
+        {
+          "system" : "urn:iso:std:iso:3166",
+          "code" : "US"
+        }
+      ]
+    }
+  ],
   "purpose" : "(Clinical Focus: Diabetes Care),(Data Element Scope: CPT codes for urine protein tests),(Inclusion Criteria: Identification of diabetics receiving urine protein test via CPT codes),(Exclusion Criteria: n/a)",
   "compose" : {
-    "include" : [{
-      "system" : "http://www.ama-assn.org/go/cpt",
-      "concept" : [{
+    "include" : [
+      {
+        "system" : "http://www.ama-assn.org/go/cpt",
+        "concept" : [
+          {
+            "code" : "81000",
+            "display" : "Urinalysis, by dip stick or tablet reagent for bilirubin, glucose, hemoglobin, ketones, leukocytes, nitrite, pH, protein, specific gravity, urobilinogen, any number of these constituents; non-automated, with microscopy"
+          },
+          {
+            "code" : "81001",
+            "display" : "Urinalysis, by dip stick or tablet reagent for bilirubin, glucose, hemoglobin, ketones, leukocytes, nitrite, pH, protein, specific gravity, urobilinogen, any number of these constituents; automated, with microscopy"
+          },
+          {
+            "code" : "81002",
+            "display" : "Urinalysis, by dip stick or tablet reagent for bilirubin, glucose, hemoglobin, ketones, leukocytes, nitrite, pH, protein, specific gravity, urobilinogen, any number of these constituents; non-automated, without microscopy"
+          },
+          {
+            "code" : "81003",
+            "display" : "Urinalysis, by dip stick or tablet reagent for bilirubin, glucose, hemoglobin, ketones, leukocytes, nitrite, pH, protein, specific gravity, urobilinogen, any number of these constituents; automated, without microscopy"
+          },
+          {
+            "code" : "81005",
+            "display" : "Urinalysis; qualitative or semiquantitative, except immunoassays"
+          },
+          {
+            "code" : "82042",
+            "display" : "Albumin; other source, quantitative, each specimen"
+          },
+          {
+            "code" : "82043",
+            "display" : "Albumin; urine (eg, microalbumin), quantitative"
+          },
+          {
+            "code" : "82044",
+            "display" : "Albumin; urine (eg, microalbumin), semiquantitative (eg, reagent strip assay)"
+          },
+          {
+            "code" : "84156",
+            "display" : "Protein, total, except by refractometry; urine"
+          }
+        ]
+      }
+    ]
+  },
+  "expansion" : {
+    "identifier" : "urn:uuid:e9d2e2bc-b687-42ee-befa-835c623db75b",
+    "timestamp" : "2024-06-14T11:38:33-04:00",
+    "total" : 9,
+    "contains" : [
+      {
+        "system" : "http://www.ama-assn.org/go/cpt",
+        "version" : "2024",
         "code" : "81000",
         "display" : "Urinalysis, by dip stick or tablet reagent for bilirubin, glucose, hemoglobin, ketones, leukocytes, nitrite, pH, protein, specific gravity, urobilinogen, any number of these constituents; non-automated, with microscopy"
       },
       {
+        "system" : "http://www.ama-assn.org/go/cpt",
+        "version" : "2024",
         "code" : "81001",
         "display" : "Urinalysis, by dip stick or tablet reagent for bilirubin, glucose, hemoglobin, ketones, leukocytes, nitrite, pH, protein, specific gravity, urobilinogen, any number of these constituents; automated, with microscopy"
       },
       {
+        "system" : "http://www.ama-assn.org/go/cpt",
+        "version" : "2024",
         "code" : "81002",
         "display" : "Urinalysis, by dip stick or tablet reagent for bilirubin, glucose, hemoglobin, ketones, leukocytes, nitrite, pH, protein, specific gravity, urobilinogen, any number of these constituents; non-automated, without microscopy"
       },
       {
+        "system" : "http://www.ama-assn.org/go/cpt",
+        "version" : "2024",
         "code" : "81003",
         "display" : "Urinalysis, by dip stick or tablet reagent for bilirubin, glucose, hemoglobin, ketones, leukocytes, nitrite, pH, protein, specific gravity, urobilinogen, any number of these constituents; automated, without microscopy"
       },
       {
+        "system" : "http://www.ama-assn.org/go/cpt",
+        "version" : "2024",
         "code" : "81005",
         "display" : "Urinalysis; qualitative or semiquantitative, except immunoassays"
       },
       {
+        "system" : "http://www.ama-assn.org/go/cpt",
+        "version" : "2024",
         "code" : "82042",
         "display" : "Albumin; other source, quantitative, each specimen"
       },
       {
+        "system" : "http://www.ama-assn.org/go/cpt",
+        "version" : "2024",
         "code" : "82043",
         "display" : "Albumin; urine (eg, microalbumin), quantitative"
       },
       {
+        "system" : "http://www.ama-assn.org/go/cpt",
+        "version" : "2024",
         "code" : "82044",
         "display" : "Albumin; urine (eg, microalbumin), semiquantitative (eg, reagent strip assay)"
       },
       {
+        "system" : "http://www.ama-assn.org/go/cpt",
+        "version" : "2024",
         "code" : "84156",
         "display" : "Protein, total, except by refractometry; urine"
-      }]
-    }]
-  },
-  "expansion" : {
-    "identifier" : "urn:uuid:a0bcd3e7-7ef6-42fd-a606-7df865d1213d",
-    "timestamp" : "2023-09-26T12:20:16-04:00",
-    "total" : 9,
-    "offset" : 0,
-    "parameter" : [{
-      "name" : "count",
-      "valueInteger" : 1000
-    },
-    {
-      "name" : "offset",
-      "valueInteger" : 0
-    }],
-    "contains" : [{
-      "system" : "http://www.ama-assn.org/go/cpt",
-      "version" : "2023",
-      "code" : "81000",
-      "display" : "Urinalysis, by dip stick or tablet reagent for bilirubin, glucose, hemoglobin, ketones, leukocytes, nitrite, pH, protein, specific gravity, urobilinogen, any number of these constituents; non-automated, with microscopy"
-    },
-    {
-      "system" : "http://www.ama-assn.org/go/cpt",
-      "version" : "2023",
-      "code" : "81001",
-      "display" : "Urinalysis, by dip stick or tablet reagent for bilirubin, glucose, hemoglobin, ketones, leukocytes, nitrite, pH, protein, specific gravity, urobilinogen, any number of these constituents; automated, with microscopy"
-    },
-    {
-      "system" : "http://www.ama-assn.org/go/cpt",
-      "version" : "2023",
-      "code" : "81002",
-      "display" : "Urinalysis, by dip stick or tablet reagent for bilirubin, glucose, hemoglobin, ketones, leukocytes, nitrite, pH, protein, specific gravity, urobilinogen, any number of these constituents; non-automated, without microscopy"
-    },
-    {
-      "system" : "http://www.ama-assn.org/go/cpt",
-      "version" : "2023",
-      "code" : "81003",
-      "display" : "Urinalysis, by dip stick or tablet reagent for bilirubin, glucose, hemoglobin, ketones, leukocytes, nitrite, pH, protein, specific gravity, urobilinogen, any number of these constituents; automated, without microscopy"
-    },
-    {
-      "system" : "http://www.ama-assn.org/go/cpt",
-      "version" : "2023",
-      "code" : "81005",
-      "display" : "Urinalysis; qualitative or semiquantitative, except immunoassays"
-    },
-    {
-      "system" : "http://www.ama-assn.org/go/cpt",
-      "version" : "2023",
-      "code" : "82042",
-      "display" : "Albumin; other source, quantitative, each specimen"
-    },
-    {
-      "system" : "http://www.ama-assn.org/go/cpt",
-      "version" : "2023",
-      "code" : "82043",
-      "display" : "Albumin; urine (eg, microalbumin), quantitative"
-    },
-    {
-      "system" : "http://www.ama-assn.org/go/cpt",
-      "version" : "2023",
-      "code" : "82044",
-      "display" : "Albumin; urine (eg, microalbumin), semiquantitative (eg, reagent strip assay)"
-    },
-    {
-      "system" : "http://www.ama-assn.org/go/cpt",
-      "version" : "2023",
-      "code" : "84156",
-      "display" : "Protein, total, except by refractometry; urine"
-    }]
+      }
+    ]
   }
 }

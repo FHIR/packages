@@ -3,98 +3,106 @@
   "id" : "2.16.840.1.113762.1.4.1108.6",
   "meta" : {
     "versionId" : "5",
-    "lastUpdated" : "2018-05-05T01:06:49.000-04:00",
-    "profile" : ["http://hl7.org/fhir/StructureDefinition/shareablevalueset",
-    "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"]
+    "lastUpdated" : "2023-12-21T17:43:03.000-05:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-valueset-cqfm",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "extension" : [{
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
-    "valueString" : "Mathematica EP"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
-    "valueDate" : "2022-12-15"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
-    "valueDate" : "2018-05-05"
-  }],
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "Mathematica EP"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2024-06-03"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2018-05-05"
+    }
+  ],
   "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1108.6",
-  "identifier" : [{
-    "system" : "urn:ietf:rfc:3986",
-    "value" : "urn:oid:2.16.840.1.113762.1.4.1108.6"
-  }],
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113762.1.4.1108.6"
+    }
+  ],
   "version" : "20180505",
   "name" : "MildCognitiveImpairment",
   "title" : "Mild cognitive impairment",
-  "status" : "active",
+  "status" : "retired",
   "experimental" : false,
   "date" : "2018-05-05T01:00:04-04:00",
   "publisher" : "Mathematica",
-  "jurisdiction" : [{
-    "extension" : [{
-      "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
-      "valueString" : "UNKNOWN"
-    }]
-  }],
+  "jurisdiction" : [
+    {
+      "coding" : [
+        {
+          "system" : "urn:iso:std:iso:3166",
+          "code" : "US"
+        }
+      ]
+    }
+  ],
   "purpose" : "(Clinical Focus: ),(Data Element Scope: ),(Inclusion Criteria: ),(Exclusion Criteria: )",
   "compose" : {
-    "include" : [{
-      "system" : "http://snomed.info/sct",
-      "concept" : [{
+    "include" : [
+      {
+        "system" : "http://snomed.info/sct",
+        "concept" : [
+          {
+            "code" : "110352000",
+            "display" : "Minimal cognitive impairment (finding)"
+          },
+          {
+            "code" : "231448004",
+            "display" : "Age-associated memory impairment (disorder)"
+          },
+          {
+            "code" : "386805003",
+            "display" : "Mild cognitive disorder (disorder)"
+          },
+          {
+            "code" : "386806002",
+            "display" : "Impaired cognition (finding)"
+          }
+        ]
+      }
+    ]
+  },
+  "expansion" : {
+    "identifier" : "urn:uuid:62a3c72e-0ac3-4021-aeda-7092d47bd87c",
+    "timestamp" : "2024-06-14T11:14:58-04:00",
+    "total" : 4,
+    "contains" : [
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
         "code" : "110352000",
         "display" : "Minimal cognitive impairment (finding)"
       },
       {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
         "code" : "231448004",
         "display" : "Age-associated memory impairment (disorder)"
       },
       {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
         "code" : "386805003",
-        "display" : "Mild cognitive disorder (disorder)"
+        "display" : "Mild neurocognitive disorder (disorder)"
       },
       {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
         "code" : "386806002",
         "display" : "Impaired cognition (finding)"
-      }]
-    }]
-  },
-  "expansion" : {
-    "identifier" : "urn:uuid:44cc39ba-9c73-4438-af97-bfd267b0a656",
-    "timestamp" : "2023-09-26T11:49:48-04:00",
-    "total" : 4,
-    "offset" : 0,
-    "parameter" : [{
-      "name" : "count",
-      "valueInteger" : 1000
-    },
-    {
-      "name" : "offset",
-      "valueInteger" : 0
-    }],
-    "contains" : [{
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "110352000",
-      "display" : "Minimal cognitive impairment (finding)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "231448004",
-      "display" : "Age-associated memory impairment (disorder)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "386805003",
-      "display" : "Mild cognitive disorder (disorder)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "386806002",
-      "display" : "Impaired cognition (finding)"
-    }]
+      }
+    ]
   }
 }

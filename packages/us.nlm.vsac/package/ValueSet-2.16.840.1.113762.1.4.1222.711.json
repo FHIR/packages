@@ -3,216 +3,232 @@
   "id" : "2.16.840.1.113762.1.4.1222.711",
   "meta" : {
     "versionId" : "13",
-    "lastUpdated" : "2022-11-15T01:03:33.000-05:00",
-    "profile" : ["http://hl7.org/fhir/StructureDefinition/shareablevalueset",
-    "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"]
+    "lastUpdated" : "2023-12-21T17:43:03.000-05:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-valueset-cqfm",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "extension" : [{
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
-    "valueString" : "MCC eCare Plan Author"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-keyWord",
-    "valueString" : "MCC_IG"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
-    "valueDate" : "2022-12-15"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
-    "valueDate" : "2022-11-15"
-  }],
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "MCC eCare Plan Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-keyWord",
+      "valueString" : "MCC_IG"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2024-06-03"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2022-11-15"
+    }
+  ],
   "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1222.711",
-  "identifier" : [{
-    "system" : "urn:ietf:rfc:3986",
-    "value" : "urn:oid:2.16.840.1.113762.1.4.1222.711"
-  }],
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113762.1.4.1222.711"
+    }
+  ],
   "version" : "20221115",
   "name" : "FallRisk",
   "title" : "Fall Risk",
-  "status" : "active",
+  "status" : "retired",
   "experimental" : false,
   "date" : "2022-11-15T01:03:33-05:00",
   "publisher" : "HL7 Patient Care WG Steward",
   "description" : "This value set may undergo changes until the HL7 Multiple Chronic Care FHIR IG is formally published in 2024.",
-  "jurisdiction" : [{
-    "extension" : [{
-      "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
-      "valueString" : "UNKNOWN"
-    }]
-  }],
+  "jurisdiction" : [
+    {
+      "coding" : [
+        {
+          "system" : "urn:iso:std:iso:3166",
+          "code" : "US"
+        }
+      ]
+    }
+  ],
   "purpose" : "(Clinical Focus: This set of values addresses terms representing an observation indicating fall risk.),(Data Element Scope: The intent of this set of values is to identify patients who have a/an assessment of the person's fall risk.),(Inclusion Criteria: Includes LOINC codes for Fall Risk.),(Exclusion Criteria: Terms not representative of observable encoded terms that may have values indicating Fall Risk.)",
   "compose" : {
-    "include" : [{
-      "system" : "http://loinc.org",
-      "version" : "2.74",
-      "filter" : [{
-        "property" : "concept",
-        "op" : "in",
-        "value" : "91380-6,52552-7,42553-8,68254-2,83280-8,92379-7,77698-9,54851-1,45937-0,81227-1,54853-7,54852-9,45936-2,54850-3,57271-9,58176-9,97878-3,45908-1,100256-7,57254-5,58175-1"
-      }]
-    }],
-    "exclude" : [{
-      "system" : "http://loinc.org",
-      "version" : "2.74",
-      "filter" : [{
-        "property" : "concept",
-        "op" : "=",
-        "value" : "54849-5"
-      }]
-    },
-    {
-      "system" : "http://loinc.org",
-      "version" : "2.74",
-      "filter" : [{
-        "property" : "concept",
-        "op" : "=",
-        "value" : "59453-1"
-      }]
-    },
-    {
-      "system" : "http://loinc.org",
-      "version" : "2.74",
-      "filter" : [{
-        "property" : "concept",
-        "op" : "=",
-        "value" : "81227-1"
-      }]
-    }]
+    "include" : [
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
+        "filter" : [
+          {
+            "property" : "concept",
+            "op" : "in",
+            "value" : "91380-6,52552-7,42553-8,68254-2,83280-8,92379-7,77698-9,54851-1,45937-0,81227-1,54853-7,54852-9,45936-2,54850-3,57271-9,58176-9,97878-3,45908-1,100256-7,57254-5,58175-1"
+          }
+        ]
+      }
+    ],
+    "exclude" : [
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
+        "filter" : [
+          {
+            "property" : "concept",
+            "op" : "=",
+            "value" : "54849-5"
+          }
+        ]
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
+        "filter" : [
+          {
+            "property" : "concept",
+            "op" : "=",
+            "value" : "59453-1"
+          }
+        ]
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
+        "filter" : [
+          {
+            "property" : "concept",
+            "op" : "=",
+            "value" : "81227-1"
+          }
+        ]
+      }
+    ]
   },
   "expansion" : {
-    "identifier" : "urn:uuid:ab02f0ae-f0bb-460c-8000-e05fc53fa6c9",
-    "timestamp" : "2023-09-26T10:25:03-04:00",
+    "identifier" : "urn:uuid:3d73d013-83c1-4902-b52b-25d29d7470f0",
+    "timestamp" : "2024-06-14T14:27:59-04:00",
     "total" : 20,
-    "offset" : 0,
-    "parameter" : [{
-      "name" : "count",
-      "valueInteger" : 1000
-    },
-    {
-      "name" : "offset",
-      "valueInteger" : 0
-    }],
-    "contains" : [{
-      "system" : "http://loinc.org",
-      "version" : "2.74",
-      "code" : "100256-7",
-      "display" : "Fallen in last 6 months"
-    },
-    {
-      "system" : "http://loinc.org",
-      "version" : "2.74",
-      "code" : "42553-8",
-      "display" : "Event description fall MERSTH"
-    },
-    {
-      "system" : "http://loinc.org",
-      "version" : "2.74",
-      "code" : "45908-1",
-      "display" : "Falls trigger [Minimum Data Set]"
-    },
-    {
-      "system" : "http://loinc.org",
-      "version" : "2.74",
-      "code" : "45936-2",
-      "display" : "Resident assessment protocol 11--Falls - triggered [Minimum Data Set]"
-    },
-    {
-      "system" : "http://loinc.org",
-      "version" : "2.74",
-      "code" : "45937-0",
-      "display" : "Resident assessment protocol 11--Falls - proceed with care [Minimum Data Set]"
-    },
-    {
-      "system" : "http://loinc.org",
-      "version" : "2.74",
-      "code" : "52552-7",
-      "display" : "Falls in the past year"
-    },
-    {
-      "system" : "http://loinc.org",
-      "version" : "2.74",
-      "code" : "54850-3",
-      "display" : "Fall one or more times in the last month prior to admission [CMS Assessment]"
-    },
-    {
-      "system" : "http://loinc.org",
-      "version" : "2.74",
-      "code" : "54851-1",
-      "display" : "Fall one or more times in the last 2 to 6 months prior to admission [CMS Assessment]"
-    },
-    {
-      "system" : "http://loinc.org",
-      "version" : "2.74",
-      "code" : "54852-9",
-      "display" : "Any fracture related to a fall in the 6 months prior to admission [CMS Assessment]"
-    },
-    {
-      "system" : "http://loinc.org",
-      "version" : "2.74",
-      "code" : "54853-7",
-      "display" : "Has the patient had any falls since admission or prior assessment [CMS Assessment]"
-    },
-    {
-      "system" : "http://loinc.org",
-      "version" : "2.74",
-      "code" : "57254-5",
-      "display" : "Standardized fall risk assessment was conducted [CMS Assessment]"
-    },
-    {
-      "system" : "http://loinc.org",
-      "version" : "2.74",
-      "code" : "57271-9",
-      "display" : "Plan of care includes fall prevention interventions [CMS Assessment]"
-    },
-    {
-      "system" : "http://loinc.org",
-      "version" : "2.74",
-      "code" : "58175-1",
-      "display" : "Falls - care area triggered [MDSv3]"
-    },
-    {
-      "system" : "http://loinc.org",
-      "version" : "2.74",
-      "code" : "58176-9",
-      "display" : "Falls - addressed in care plan [MDSv3]"
-    },
-    {
-      "system" : "http://loinc.org",
-      "version" : "2.74",
-      "code" : "68254-2",
-      "display" : "I fall down easily in the past 7 days [NeuroQol.Peds]"
-    },
-    {
-      "system" : "http://loinc.org",
-      "version" : "2.74",
-      "code" : "77698-9",
-      "display" : "Fall scale [UPDRS]"
-    },
-    {
-      "system" : "http://loinc.org",
-      "version" : "2.74",
-      "code" : "83280-8",
-      "display" : "Has the patient had any falls since admission [CMS Assessment]"
-    },
-    {
-      "system" : "http://loinc.org",
-      "version" : "2.74",
-      "code" : "91380-6",
-      "display" : "Number of falls in the past 3 months - Reported"
-    },
-    {
-      "system" : "http://loinc.org",
-      "version" : "2.74",
-      "code" : "92379-7",
-      "display" : "Current level of confidence I can get in and out of bed without falling [PROMIS]"
-    },
-    {
-      "system" : "http://loinc.org",
-      "version" : "2.74",
-      "code" : "97878-3",
-      "display" : "Worried about falling"
-    }]
+    "contains" : [
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
+        "code" : "100256-7",
+        "display" : "Fallen in last 6 months"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
+        "code" : "42553-8",
+        "display" : "Event description fall MERSTH"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
+        "code" : "45908-1",
+        "display" : "Falls trigger [Minimum Data Set]"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
+        "code" : "45936-2",
+        "display" : "Resident assessment protocol 11--Falls - triggered [Minimum Data Set]"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
+        "code" : "45937-0",
+        "display" : "Resident assessment protocol 11--Falls - proceed with care [Minimum Data Set]"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
+        "code" : "52552-7",
+        "display" : "Falls in the past year"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
+        "code" : "54850-3",
+        "display" : "Fall one or more times in the last month prior to admission [CMS Assessment]"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
+        "code" : "54851-1",
+        "display" : "Fall one or more times in the last 2 to 6 months prior to admission [CMS Assessment]"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
+        "code" : "54852-9",
+        "display" : "Any fracture related to a fall in the 6 months prior to admission [CMS Assessment]"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
+        "code" : "54853-7",
+        "display" : "Has the patient had any falls since admission or prior assessment [CMS Assessment]"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
+        "code" : "57254-5",
+        "display" : "Standardized fall risk assessment was conducted during assessment period [CMS Assessment]"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
+        "code" : "57271-9",
+        "display" : "Plan of care includes fall prevention interventions during assessment period [CMS Assessment]"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
+        "code" : "58175-1",
+        "display" : "Falls - care area triggered [MDSv3]"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
+        "code" : "58176-9",
+        "display" : "Falls - addressed in care plan [MDSv3]"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
+        "code" : "68254-2",
+        "display" : "I fall down easily in the past 7 days [NeuroQol.Peds]"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
+        "code" : "77698-9",
+        "display" : "Fall scale [UPDRS]"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
+        "code" : "83280-8",
+        "display" : "Has the patient had any falls since admission [CMS Assessment]"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
+        "code" : "91380-6",
+        "display" : "Number of falls in the past 3 months - Reported"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
+        "code" : "92379-7",
+        "display" : "Current level of confidence I can get in and out of bed without falling [PROMIS]"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
+        "code" : "97878-3",
+        "display" : "Worried about falling"
+      }
+    ]
   }
 }

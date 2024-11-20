@@ -3,27 +3,34 @@
   "id" : "2.16.840.1.113883.3.526.2.1528",
   "meta" : {
     "versionId" : "25",
-    "lastUpdated" : "2021-02-10T01:02:26.000-05:00",
-    "profile" : ["http://hl7.org/fhir/StructureDefinition/shareablevalueset",
-    "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"]
+    "lastUpdated" : "2023-12-21T17:43:03.000-05:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-valueset-cqfm",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "extension" : [{
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
-    "valueString" : "American Academy of Ophthalmology Author"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
-    "valueDate" : "2023-02-15"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
-    "valueDate" : "2021-02-10"
-  }],
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "American Academy of Ophthalmology Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2024-03-13"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2021-02-10"
+    }
+  ],
   "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.526.2.1528",
-  "identifier" : [{
-    "system" : "urn:ietf:rfc:3986",
-    "value" : "urn:oid:2.16.840.1.113883.3.526.2.1528"
-  }],
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113883.3.526.2.1528"
+    }
+  ],
   "version" : "20210210",
   "name" : "CataractSurgery",
   "title" : "Cataract Surgery",
@@ -31,120 +38,121 @@
   "experimental" : false,
   "date" : "2021-02-10T01:02:26-05:00",
   "publisher" : "American Academy of Ophthalmology Steward",
-  "jurisdiction" : [{
-    "extension" : [{
-      "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
-      "valueString" : "UNKNOWN"
-    }]
-  }],
+  "jurisdiction" : [
+    {
+      "coding" : [
+        {
+          "system" : "urn:iso:std:iso:3166",
+          "code" : "US"
+        }
+      ]
+    }
+  ],
   "purpose" : "(Clinical Focus: The purpose of this value set is to represent concepts of procedures for cataract surgery.),(Data Element Scope: This value set may use a model element related to Procedure.),(Inclusion Criteria: Includes concepts that represent a procedure for cataract surgery.),(Exclusion Criteria: No exclusions.)",
   "compose" : {
-    "include" : [{
-      "system" : "http://www.ama-assn.org/go/cpt",
-      "concept" : [{
+    "include" : [
+      {
+        "system" : "http://www.ama-assn.org/go/cpt",
+        "concept" : [
+          {
+            "code" : "66840",
+            "display" : "Removal of lens material; aspiration technique, 1 or more stages"
+          },
+          {
+            "code" : "66850",
+            "display" : "Removal of lens material; phacofragmentation technique (mechanical or ultrasonic) (eg, phacoemulsification), with aspiration"
+          },
+          {
+            "code" : "66852",
+            "display" : "Removal of lens material; pars plana approach, with or without vitrectomy"
+          },
+          {
+            "code" : "66920",
+            "display" : "Removal of lens material; intracapsular"
+          },
+          {
+            "code" : "66930",
+            "display" : "Removal of lens material; intracapsular, for dislocated lens"
+          },
+          {
+            "code" : "66940",
+            "display" : "Removal of lens material; extracapsular (other than 66840, 66850, 66852)"
+          },
+          {
+            "code" : "66982",
+            "display" : "Extracapsular cataract removal with insertion of intraocular lens prosthesis (1-stage procedure), manual or mechanical technique (eg, irrigation and aspiration or phacoemulsification), complex, requiring devices or techniques not generally used in routine cataract surgery (eg, iris expansion device, suture support for intraocular lens, or primary posterior capsulorrhexis) or performed on patients in the amblyogenic developmental stage; without endoscopic cyclophotocoagulation"
+          },
+          {
+            "code" : "66983",
+            "display" : "Intracapsular cataract extraction with insertion of intraocular lens prosthesis (1 stage procedure)"
+          },
+          {
+            "code" : "66984",
+            "display" : "Extracapsular cataract removal with insertion of intraocular lens prosthesis (1 stage procedure), manual or mechanical technique (eg, irrigation and aspiration or phacoemulsification); without endoscopic cyclophotocoagulation"
+          }
+        ]
+      }
+    ]
+  },
+  "expansion" : {
+    "identifier" : "urn:uuid:abdb0765-5be2-4737-b3da-d1e1840d7118",
+    "timestamp" : "2024-06-14T17:29:25-04:00",
+    "total" : 9,
+    "contains" : [
+      {
+        "system" : "http://www.ama-assn.org/go/cpt",
+        "version" : "2024",
         "code" : "66840",
         "display" : "Removal of lens material; aspiration technique, 1 or more stages"
       },
       {
+        "system" : "http://www.ama-assn.org/go/cpt",
+        "version" : "2024",
         "code" : "66850",
         "display" : "Removal of lens material; phacofragmentation technique (mechanical or ultrasonic) (eg, phacoemulsification), with aspiration"
       },
       {
+        "system" : "http://www.ama-assn.org/go/cpt",
+        "version" : "2024",
         "code" : "66852",
         "display" : "Removal of lens material; pars plana approach, with or without vitrectomy"
       },
       {
+        "system" : "http://www.ama-assn.org/go/cpt",
+        "version" : "2024",
         "code" : "66920",
         "display" : "Removal of lens material; intracapsular"
       },
       {
+        "system" : "http://www.ama-assn.org/go/cpt",
+        "version" : "2024",
         "code" : "66930",
         "display" : "Removal of lens material; intracapsular, for dislocated lens"
       },
       {
+        "system" : "http://www.ama-assn.org/go/cpt",
+        "version" : "2024",
         "code" : "66940",
         "display" : "Removal of lens material; extracapsular (other than 66840, 66850, 66852)"
       },
       {
+        "system" : "http://www.ama-assn.org/go/cpt",
+        "version" : "2024",
         "code" : "66982",
         "display" : "Extracapsular cataract removal with insertion of intraocular lens prosthesis (1-stage procedure), manual or mechanical technique (eg, irrigation and aspiration or phacoemulsification), complex, requiring devices or techniques not generally used in routine cataract surgery (eg, iris expansion device, suture support for intraocular lens, or primary posterior capsulorrhexis) or performed on patients in the amblyogenic developmental stage; without endoscopic cyclophotocoagulation"
       },
       {
+        "system" : "http://www.ama-assn.org/go/cpt",
+        "version" : "2024",
         "code" : "66983",
         "display" : "Intracapsular cataract extraction with insertion of intraocular lens prosthesis (1 stage procedure)"
       },
       {
+        "system" : "http://www.ama-assn.org/go/cpt",
+        "version" : "2024",
         "code" : "66984",
         "display" : "Extracapsular cataract removal with insertion of intraocular lens prosthesis (1 stage procedure), manual or mechanical technique (eg, irrigation and aspiration or phacoemulsification); without endoscopic cyclophotocoagulation"
-      }]
-    }]
-  },
-  "expansion" : {
-    "identifier" : "urn:uuid:4025e304-fe1d-4d33-a49a-232ca5b77160",
-    "timestamp" : "2023-09-26T09:14:23-04:00",
-    "total" : 9,
-    "offset" : 0,
-    "parameter" : [{
-      "name" : "count",
-      "valueInteger" : 1000
-    },
-    {
-      "name" : "offset",
-      "valueInteger" : 0
-    }],
-    "contains" : [{
-      "system" : "http://www.ama-assn.org/go/cpt",
-      "version" : "2023",
-      "code" : "66840",
-      "display" : "Removal of lens material; aspiration technique, 1 or more stages"
-    },
-    {
-      "system" : "http://www.ama-assn.org/go/cpt",
-      "version" : "2023",
-      "code" : "66850",
-      "display" : "Removal of lens material; phacofragmentation technique (mechanical or ultrasonic) (eg, phacoemulsification), with aspiration"
-    },
-    {
-      "system" : "http://www.ama-assn.org/go/cpt",
-      "version" : "2023",
-      "code" : "66852",
-      "display" : "Removal of lens material; pars plana approach, with or without vitrectomy"
-    },
-    {
-      "system" : "http://www.ama-assn.org/go/cpt",
-      "version" : "2023",
-      "code" : "66920",
-      "display" : "Removal of lens material; intracapsular"
-    },
-    {
-      "system" : "http://www.ama-assn.org/go/cpt",
-      "version" : "2023",
-      "code" : "66930",
-      "display" : "Removal of lens material; intracapsular, for dislocated lens"
-    },
-    {
-      "system" : "http://www.ama-assn.org/go/cpt",
-      "version" : "2023",
-      "code" : "66940",
-      "display" : "Removal of lens material; extracapsular (other than 66840, 66850, 66852)"
-    },
-    {
-      "system" : "http://www.ama-assn.org/go/cpt",
-      "version" : "2023",
-      "code" : "66982",
-      "display" : "Extracapsular cataract removal with insertion of intraocular lens prosthesis (1-stage procedure), manual or mechanical technique (eg, irrigation and aspiration or phacoemulsification), complex, requiring devices or techniques not generally used in routine cataract surgery (eg, iris expansion device, suture support for intraocular lens, or primary posterior capsulorrhexis) or performed on patients in the amblyogenic developmental stage; without endoscopic cyclophotocoagulation"
-    },
-    {
-      "system" : "http://www.ama-assn.org/go/cpt",
-      "version" : "2023",
-      "code" : "66983",
-      "display" : "Intracapsular cataract extraction with insertion of intraocular lens prosthesis (1 stage procedure)"
-    },
-    {
-      "system" : "http://www.ama-assn.org/go/cpt",
-      "version" : "2023",
-      "code" : "66984",
-      "display" : "Extracapsular cataract removal with insertion of intraocular lens prosthesis (1 stage procedure), manual or mechanical technique (eg, irrigation and aspiration or phacoemulsification); without endoscopic cyclophotocoagulation"
-    }]
+      }
+    ]
   }
 }

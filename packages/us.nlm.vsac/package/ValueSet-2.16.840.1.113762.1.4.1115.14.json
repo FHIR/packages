@@ -3,27 +3,34 @@
   "id" : "2.16.840.1.113762.1.4.1115.14",
   "meta" : {
     "versionId" : "5",
-    "lastUpdated" : "2022-08-16T01:02:24.000-04:00",
-    "profile" : ["http://hl7.org/fhir/StructureDefinition/shareablevalueset",
-    "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"]
+    "lastUpdated" : "2023-12-21T17:43:03.000-05:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-valueset-cqfm",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "extension" : [{
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
-    "valueString" : "ADVault Author"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
-    "valueDate" : "2022-12-15"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
-    "valueDate" : "2022-08-16"
-  }],
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "ADVault Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2024-02-28"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2022-08-16"
+    }
+  ],
   "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1115.14",
-  "identifier" : [{
-    "system" : "urn:ietf:rfc:3986",
-    "value" : "urn:oid:2.16.840.1.113762.1.4.1115.14"
-  }],
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113762.1.4.1115.14"
+    }
+  ],
   "version" : "20220816",
   "name" : "PADIClauseTypeVS",
   "title" : "PADIClauseTypeVS",
@@ -32,60 +39,61 @@
   "date" : "2022-08-16T01:02:24-04:00",
   "publisher" : "ADVault",
   "description" : "This value set aligns with http://hl7.org/fhir/us/pacio-adi/ValueSet/PADIClauseTypeVS",
-  "jurisdiction" : [{
-    "extension" : [{
-      "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
-      "valueString" : "UNKNOWN"
-    }]
-  }],
+  "jurisdiction" : [
+    {
+      "coding" : [
+        {
+          "system" : "urn:iso:std:iso:3166",
+          "code" : "US"
+        }
+      ]
+    }
+  ],
   "purpose" : "(Clinical Focus: Used to represent the type of clause included.),(Data Element Scope: ),(Inclusion Criteria: ),(Exclusion Criteria: )",
   "compose" : {
-    "include" : [{
-      "system" : "http://loinc.org",
-      "concept" : [{
+    "include" : [
+      {
+        "system" : "http://loinc.org",
+        "concept" : [
+          {
+            "code" : "81368-3",
+            "display" : "Statement of witness [Reported]"
+          },
+          {
+            "code" : "81381-6",
+            "display" : "Administrative information associated with this personal advance care plan"
+          },
+          {
+            "code" : "81382-4",
+            "display" : "Statement of document creator [Reported]"
+          }
+        ]
+      }
+    ]
+  },
+  "expansion" : {
+    "identifier" : "urn:uuid:63477dfa-2342-4faf-a294-d29a0f0ce666",
+    "timestamp" : "2024-06-14T11:20:23-04:00",
+    "total" : 3,
+    "contains" : [
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
         "code" : "81368-3",
         "display" : "Statement of witness [Reported]"
       },
       {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
         "code" : "81381-6",
         "display" : "Administrative information associated with this personal advance care plan"
       },
       {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
         "code" : "81382-4",
         "display" : "Statement of document creator [Reported]"
-      }]
-    }]
-  },
-  "expansion" : {
-    "identifier" : "urn:uuid:fd15d3c1-0af1-4466-a75e-bb581d9f3c63",
-    "timestamp" : "2023-09-26T12:21:29-04:00",
-    "total" : 3,
-    "offset" : 0,
-    "parameter" : [{
-      "name" : "count",
-      "valueInteger" : 1000
-    },
-    {
-      "name" : "offset",
-      "valueInteger" : 0
-    }],
-    "contains" : [{
-      "system" : "http://loinc.org",
-      "version" : "2.74",
-      "code" : "81368-3",
-      "display" : "Statement of witness [Reported]"
-    },
-    {
-      "system" : "http://loinc.org",
-      "version" : "2.74",
-      "code" : "81381-6",
-      "display" : "Administrative information associated with this personal advance care plan"
-    },
-    {
-      "system" : "http://loinc.org",
-      "version" : "2.74",
-      "code" : "81382-4",
-      "display" : "Statement of document creator [Reported]"
-    }]
+      }
+    ]
   }
 }

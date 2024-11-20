@@ -3,74 +3,80 @@
   "id" : "2.16.840.1.113762.1.4.1195.293",
   "meta" : {
     "versionId" : "5",
-    "lastUpdated" : "2019-01-29T01:00:02.000-05:00",
-    "profile" : ["http://hl7.org/fhir/StructureDefinition/shareablevalueset",
-    "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"]
+    "lastUpdated" : "2023-12-21T17:43:03.000-05:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-valueset-cqfm",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "extension" : [{
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
-    "valueString" : "NJII Author"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
-    "valueDate" : "2022-12-15"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
-    "valueDate" : "2019-01-29"
-  }],
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "NJII Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2024-06-03"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2019-01-29"
+    }
+  ],
   "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1195.293",
-  "identifier" : [{
-    "system" : "urn:ietf:rfc:3986",
-    "value" : "urn:oid:2.16.840.1.113762.1.4.1195.293"
-  }],
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113762.1.4.1195.293"
+    }
+  ],
   "version" : "20190129",
   "name" : "HEDISObservationValueSet",
   "title" : "HEDIS Observation Value Set",
-  "status" : "active",
+  "status" : "retired",
   "experimental" : false,
   "date" : "2019-01-29T01:00:02-05:00",
   "publisher" : "NJII Steward",
-  "jurisdiction" : [{
-    "extension" : [{
-      "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
-      "valueString" : "UNKNOWN"
-    }]
-  }],
+  "jurisdiction" : [
+    {
+      "coding" : [
+        {
+          "system" : "urn:iso:std:iso:3166",
+          "code" : "US"
+        }
+      ]
+    }
+  ],
   "purpose" : "(Clinical Focus: Denominator and Numerator criteria for Osteoporosis Management in Women STARSC12-HEDISOMW.),(Data Element Scope: CPT Codes),(Inclusion Criteria: As Defined within STARSC12-HEDISOMW.),(Exclusion Criteria: As Defined within STARSC12-HEDISOMW.)",
   "compose" : {
-    "include" : [{
-      "system" : "http://www.ama-assn.org/go/cpt",
-      "concept" : [{
-        "code" : "99217",
-        "display" : "Observation care discharge day management (This code is to be utilized to report all services provided to a patient on discharge from outpatient hospital \"observation status\" if the discharge is on other than the initial date of \"observation status.\" To report services to a patient designated as \"observation status\" or \"inpatient status\" and discharged on the same date, use the codes for Observation or Inpatient Care Services [including Admission and Discharge Services, 99234-99236 as appropriate.])"
-      },
+    "include" : [
       {
-        "code" : "99218",
-        "display" : "Initial observation care, per day, for the evaluation and management of a patient which requires these 3 key components: A detailed or comprehensive history; A detailed or comprehensive examination; and Medical decision making that is straightforward or of low complexity. Counseling and/or coordination of care with other physicians, other qualified health care professionals, or agencies are provided consistent with the nature of the problem(s) and the patient's and/or family's needs. Usually, the problem(s) requiring admission to outpatient hospital \"observation status\" are of low severity. Typically, 30 minutes are spent at the bedside and on the patient's hospital floor or unit."
-      },
-      {
-        "code" : "99219",
-        "display" : "Initial observation care, per day, for the evaluation and management of a patient, which requires these 3 key components: A comprehensive history; A comprehensive examination; and Medical decision making of moderate complexity. Counseling and/or coordination of care with other physicians, other qualified health care professionals, or agencies are provided consistent with the nature of the problem(s) and the patient's and/or family's needs. Usually, the problem(s) requiring admission to outpatient hospital \"observation status\" are of moderate severity. Typically, 50 minutes are spent at the bedside and on the patient's hospital floor or unit."
-      },
-      {
-        "code" : "99220",
-        "display" : "Initial observation care, per day, for the evaluation and management of a patient, which requires these 3 key components: A comprehensive history; A comprehensive examination; and Medical decision making of high complexity. Counseling and/or coordination of care with other physicians, other qualified health care professionals, or agencies are provided consistent with the nature of the problem(s) and the patient's and/or family's needs. Usually, the problem(s) requiring admission to outpatient hospital \"observation status\" are of high severity. Typically, 70 minutes are spent at the bedside and on the patient's hospital floor or unit."
-      }]
-    }]
+        "system" : "http://www.ama-assn.org/go/cpt",
+        "concept" : [
+          {
+            "code" : "99217",
+            "display" : "Observation care discharge day management (This code is to be utilized to report all services provided to a patient on discharge from outpatient hospital \"observation status\" if the discharge is on other than the initial date of \"observation status.\" To report services to a patient designated as \"observation status\" or \"inpatient status\" and discharged on the same date, use the codes for Observation or Inpatient Care Services [including Admission and Discharge Services, 99234-99236 as appropriate.])"
+          },
+          {
+            "code" : "99218",
+            "display" : "Initial observation care, per day, for the evaluation and management of a patient which requires these 3 key components: A detailed or comprehensive history; A detailed or comprehensive examination; and Medical decision making that is straightforward or of low complexity. Counseling and/or coordination of care with other physicians, other qualified health care professionals, or agencies are provided consistent with the nature of the problem(s) and the patient's and/or family's needs. Usually, the problem(s) requiring admission to outpatient hospital \"observation status\" are of low severity. Typically, 30 minutes are spent at the bedside and on the patient's hospital floor or unit."
+          },
+          {
+            "code" : "99219",
+            "display" : "Initial observation care, per day, for the evaluation and management of a patient, which requires these 3 key components: A comprehensive history; A comprehensive examination; and Medical decision making of moderate complexity. Counseling and/or coordination of care with other physicians, other qualified health care professionals, or agencies are provided consistent with the nature of the problem(s) and the patient's and/or family's needs. Usually, the problem(s) requiring admission to outpatient hospital \"observation status\" are of moderate severity. Typically, 50 minutes are spent at the bedside and on the patient's hospital floor or unit."
+          },
+          {
+            "code" : "99220",
+            "display" : "Initial observation care, per day, for the evaluation and management of a patient, which requires these 3 key components: A comprehensive history; A comprehensive examination; and Medical decision making of high complexity. Counseling and/or coordination of care with other physicians, other qualified health care professionals, or agencies are provided consistent with the nature of the problem(s) and the patient's and/or family's needs. Usually, the problem(s) requiring admission to outpatient hospital \"observation status\" are of high severity. Typically, 70 minutes are spent at the bedside and on the patient's hospital floor or unit."
+          }
+        ]
+      }
+    ]
   },
   "expansion" : {
-    "identifier" : "urn:uuid:7a4eaeab-8c02-4ece-98d1-9a88d55660ad",
-    "timestamp" : "2023-09-26T10:45:28-04:00",
-    "total" : 0,
-    "offset" : 0,
-    "parameter" : [{
-      "name" : "count",
-      "valueInteger" : 1000
-    },
-    {
-      "name" : "offset",
-      "valueInteger" : 0
-    }]
+    "identifier" : "urn:uuid:3a78b133-2c2d-49b5-bcea-6d3a8be77d3d",
+    "timestamp" : "2024-06-14T13:11:10-04:00",
+    "total" : 0
   }
 }

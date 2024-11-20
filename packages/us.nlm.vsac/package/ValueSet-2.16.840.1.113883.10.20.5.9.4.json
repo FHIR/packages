@@ -3,27 +3,34 @@
   "id" : "2.16.840.1.113883.10.20.5.9.4",
   "meta" : {
     "versionId" : "5",
-    "lastUpdated" : "2020-09-15T18:03:44.000-04:00",
-    "profile" : ["http://hl7.org/fhir/StructureDefinition/shareablevalueset",
-    "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"]
+    "lastUpdated" : "2023-12-21T17:43:03.000-05:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-valueset-cqfm",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "extension" : [{
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
-    "valueString" : "CDC NHSN Author"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
-    "valueDate" : "2022-12-15"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
-    "valueDate" : "2020-09-15"
-  }],
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "CDC NHSN Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2024-02-07"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2020-04-25"
+    }
+  ],
   "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.10.20.5.9.4",
-  "identifier" : [{
-    "system" : "urn:ietf:rfc:3986",
-    "value" : "urn:oid:2.16.840.1.113883.10.20.5.9.4"
-  }],
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113883.10.20.5.9.4"
+    }
+  ],
   "version" : "20200425",
   "name" : "NHSNDrugSusceptibilityTestMethod",
   "title" : "NHSNDrugSusceptibilityTestMethod",
@@ -31,60 +38,61 @@
   "experimental" : false,
   "date" : "2020-04-25T01:00:20-04:00",
   "publisher" : "CDC NHSN",
-  "jurisdiction" : [{
-    "extension" : [{
-      "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
-      "valueString" : "UNKNOWN"
-    }]
-  }],
+  "jurisdiction" : [
+    {
+      "coding" : [
+        {
+          "system" : "urn:iso:std:iso:3166",
+          "code" : "US"
+        }
+      ]
+    }
+  ],
   "purpose" : "(Clinical Focus: NHSN surveillance reporting: This value set contains codes describing the drug susceptibility test method.),(Data Element Scope: Code identifying the type of drug susceptibility observation.),(Inclusion Criteria: ),(Exclusion Criteria: )",
   "compose" : {
-    "include" : [{
-      "system" : "http://loinc.org",
-      "concept" : [{
+    "include" : [
+      {
+        "system" : "http://loinc.org",
+        "concept" : [
+          {
+            "code" : "49589-5",
+            "display" : "Bacterial susceptibility panel by Gradient strip"
+          },
+          {
+            "code" : "50545-3",
+            "display" : "Bacterial susceptibility panel by Minimum inhibitory concentration (MIC)"
+          },
+          {
+            "code" : "50546-1",
+            "display" : "Bacterial susceptibility panel by Disk diffusion (KB)"
+          }
+        ]
+      }
+    ]
+  },
+  "expansion" : {
+    "identifier" : "urn:uuid:69e7109f-3036-421a-9009-e2b2b3522252",
+    "timestamp" : "2024-06-14T15:18:58-04:00",
+    "total" : 3,
+    "contains" : [
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
         "code" : "49589-5",
         "display" : "Bacterial susceptibility panel by Gradient strip"
       },
       {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
         "code" : "50545-3",
         "display" : "Bacterial susceptibility panel by Minimum inhibitory concentration (MIC)"
       },
       {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
         "code" : "50546-1",
         "display" : "Bacterial susceptibility panel by Disk diffusion (KB)"
-      }]
-    }]
-  },
-  "expansion" : {
-    "identifier" : "urn:uuid:a35e25fd-aef8-44f0-9cf3-03a50d19cfda",
-    "timestamp" : "2023-09-26T12:02:18-04:00",
-    "total" : 3,
-    "offset" : 0,
-    "parameter" : [{
-      "name" : "count",
-      "valueInteger" : 1000
-    },
-    {
-      "name" : "offset",
-      "valueInteger" : 0
-    }],
-    "contains" : [{
-      "system" : "http://loinc.org",
-      "version" : "2.74",
-      "code" : "49589-5",
-      "display" : "Bacterial susceptibility panel by Gradient strip"
-    },
-    {
-      "system" : "http://loinc.org",
-      "version" : "2.74",
-      "code" : "50545-3",
-      "display" : "Bacterial susceptibility panel by Minimum inhibitory concentration (MIC)"
-    },
-    {
-      "system" : "http://loinc.org",
-      "version" : "2.74",
-      "code" : "50546-1",
-      "display" : "Bacterial susceptibility panel by Disk diffusion (KB)"
-    }]
+      }
+    ]
   }
 }

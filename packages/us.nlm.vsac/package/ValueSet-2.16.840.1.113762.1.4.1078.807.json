@@ -1,0 +1,96 @@
+{
+  "resourceType" : "ValueSet",
+  "id" : "2.16.840.1.113762.1.4.1078.807",
+  "meta" : {
+    "versionId" : "6",
+    "lastUpdated" : "2024-01-31T01:08:33.000-05:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-valueset-cqfm",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
+  },
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "Optum Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2024-01-31"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2024-01-31"
+    }
+  ],
+  "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1078.807",
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113762.1.4.1078.807"
+    }
+  ],
+  "version" : "20240131",
+  "name" : "OsteoarthritisOfLeftKneeI10",
+  "title" : "Osteoarthritis of left knee I10",
+  "status" : "active",
+  "date" : "2024-01-31T01:08:33-05:00",
+  "publisher" : "Optum Steward",
+  "jurisdiction" : [
+    {
+      "coding" : [
+        {
+          "system" : "urn:iso:std:iso:3166",
+          "code" : "US"
+        }
+      ]
+    }
+  ],
+  "purpose" : "(Clinical Focus: Knee Osteoarthritis),(Data Element Scope: ICD-10-CM),(Inclusion Criteria: Diagnosis codes indicating a diagnosis of left knee osteoarthritis),(Exclusion Criteria: Codes for osteoarthritis of right, bilateral, or unspecified knee)",
+  "compose" : {
+    "include" : [
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2024",
+        "filter" : [
+          {
+            "property" : "concept",
+            "op" : "=",
+            "value" : "M17.12"
+          }
+        ]
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2024",
+        "filter" : [
+          {
+            "property" : "concept",
+            "op" : "=",
+            "value" : "M17.32"
+          }
+        ]
+      }
+    ]
+  },
+  "expansion" : {
+    "identifier" : "urn:uuid:ace61552-a2b3-4982-b9a6-4689b5592b03",
+    "timestamp" : "2024-06-14T10:58:53-04:00",
+    "total" : 2,
+    "contains" : [
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2024",
+        "code" : "M17.12",
+        "display" : "Unilateral primary osteoarthritis, left knee"
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2024",
+        "code" : "M17.32",
+        "display" : "Unilateral post-traumatic osteoarthritis, left knee"
+      }
+    ]
+  }
+}

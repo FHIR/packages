@@ -3,82 +3,90 @@
   "id" : "2.16.840.1.113762.1.4.1146.1344",
   "meta" : {
     "versionId" : "7",
-    "lastUpdated" : "2021-05-26T01:03:55.000-04:00",
-    "profile" : ["http://hl7.org/fhir/StructureDefinition/shareablevalueset",
-    "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"]
+    "lastUpdated" : "2023-12-21T17:43:03.000-05:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-valueset-cqfm",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "extension" : [{
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
-    "valueString" : "CSTE Author"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-keyWord",
-    "valueString" : "Ricin,Trigger"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
-    "valueDate" : "2022-12-15"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
-    "valueDate" : "2021-05-26"
-  }],
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "CSTE Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-keyWord",
+      "valueString" : "Ricin,Trigger"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2024-06-03"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2021-05-26"
+    }
+  ],
   "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1146.1344",
-  "identifier" : [{
-    "system" : "urn:ietf:rfc:3986",
-    "value" : "urn:oid:2.16.840.1.113762.1.4.1146.1344"
-  }],
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113762.1.4.1146.1344"
+    }
+  ],
   "version" : "20210526",
   "name" : "RicinPoisoningTestsForRicinAntibody",
   "title" : "Ricin Poisoning (Tests for Ricin Antibody)",
-  "status" : "active",
+  "status" : "retired",
   "experimental" : false,
   "date" : "2021-05-26T01:03:55-04:00",
   "publisher" : "CSTE Steward",
-  "jurisdiction" : [{
-    "extension" : [{
-      "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
-      "valueString" : "UNKNOWN"
-    }]
-  }],
+  "jurisdiction" : [
+    {
+      "coding" : [
+        {
+          "system" : "urn:iso:std:iso:3166",
+          "code" : "US"
+        }
+      ]
+    }
+  ],
   "purpose" : "(Clinical Focus: This set of values contains codes for laboratory test names associated with detecting the presence of Ricin by antibody test.),(Data Element Scope: Laboratory tests names that were ordered or observed.),(Inclusion Criteria: Ricin),(Exclusion Criteria: Other test types)",
   "compose" : {
-    "include" : [{
-      "system" : "http://loinc.org",
-      "concept" : [{
+    "include" : [
+      {
+        "system" : "http://loinc.org",
+        "concept" : [
+          {
+            "code" : "41639-6",
+            "display" : "Ricin toxin IgM Ab [Presence] in Serum by Immunofluorescence"
+          },
+          {
+            "code" : "41640-4",
+            "display" : "Ricin toxin IgG Ab [Presence] in Serum by Immunofluorescence"
+          }
+        ]
+      }
+    ]
+  },
+  "expansion" : {
+    "identifier" : "urn:uuid:64498d53-91cb-4c5b-ba78-dea60adcc755",
+    "timestamp" : "2024-06-14T11:48:50-04:00",
+    "total" : 2,
+    "contains" : [
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
         "code" : "41639-6",
         "display" : "Ricin toxin IgM Ab [Presence] in Serum by Immunofluorescence"
       },
       {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
         "code" : "41640-4",
         "display" : "Ricin toxin IgG Ab [Presence] in Serum by Immunofluorescence"
-      }]
-    }]
-  },
-  "expansion" : {
-    "identifier" : "urn:uuid:d6ca2ee5-b6eb-42d2-bc6b-c20f459d4e19",
-    "timestamp" : "2023-09-26T12:59:20-04:00",
-    "total" : 2,
-    "offset" : 0,
-    "parameter" : [{
-      "name" : "count",
-      "valueInteger" : 1000
-    },
-    {
-      "name" : "offset",
-      "valueInteger" : 0
-    }],
-    "contains" : [{
-      "system" : "http://loinc.org",
-      "version" : "2.74",
-      "code" : "41639-6",
-      "display" : "Ricin toxin IgM Ab [Presence] in Serum by Immunofluorescence"
-    },
-    {
-      "system" : "http://loinc.org",
-      "version" : "2.74",
-      "code" : "41640-4",
-      "display" : "Ricin toxin IgG Ab [Presence] in Serum by Immunofluorescence"
-    }]
+      }
+    ]
   }
 }

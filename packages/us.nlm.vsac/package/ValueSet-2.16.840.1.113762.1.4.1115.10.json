@@ -2,168 +2,186 @@
   "resourceType" : "ValueSet",
   "id" : "2.16.840.1.113762.1.4.1115.10",
   "meta" : {
-    "versionId" : "22",
-    "lastUpdated" : "2023-08-15T01:01:06.000-04:00",
-    "profile" : ["http://hl7.org/fhir/StructureDefinition/shareablevalueset",
-    "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"]
+    "versionId" : "31",
+    "lastUpdated" : "2024-02-17T01:10:27.000-05:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-valueset-cqfm",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "extension" : [{
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
-    "valueString" : "ADVault Author"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
-    "valueDate" : "2023-08-15"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
-    "valueDate" : "2023-08-15"
-  }],
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "ADVault Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2024-02-17"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2024-02-17"
+    }
+  ],
   "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1115.10",
-  "identifier" : [{
-    "system" : "urn:ietf:rfc:3986",
-    "value" : "urn:oid:2.16.840.1.113762.1.4.1115.10"
-  }],
-  "version" : "20230815",
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113762.1.4.1115.10"
+    }
+  ],
+  "version" : "20240217",
   "name" : "CareExperiencePreferencesAtEndOfLifeLOINC",
   "title" : "Care Experience Preferences at End of Life LOINC",
   "status" : "active",
-  "date" : "2023-08-15T01:01:06-04:00",
+  "date" : "2024-02-17T01:10:27-05:00",
   "publisher" : "ADVault",
-  "jurisdiction" : [{
-    "extension" : [{
-      "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
-      "valueString" : "UNKNOWN"
-    }]
-  }],
+  "jurisdiction" : [
+    {
+      "coding" : [
+        {
+          "system" : "urn:iso:std:iso:3166",
+          "code" : "US"
+        }
+      ]
+    }
+  ],
   "purpose" : "(Clinical Focus: This value set includes concepts representing an individual's care experience preferences at end of life which can be expressed by the individual in his or her advance care plan.),(Data Element Scope: The intent of this value set is to identify personal care experience preferences that may be relevant and could be considered by clinicians when making a treatment/care plan for the person.),(Inclusion Criteria: Include care experience preferences that would be held by the individual (but may also be held by the clinician).),(Exclusion Criteria: Do not include care experience preferences that only would be held by a clinician caring for the patient.)",
   "compose" : {
-    "include" : [{
-      "system" : "http://loinc.org",
-      "concept" : [{
+    "include" : [
+      {
+        "system" : "http://loinc.org",
+        "concept" : [
+          {
+            "code" : "75775-7",
+            "display" : "Decision to inform doctors and nurses about the role religion, faith, culture, or spirituality play in my life [Reported]"
+          },
+          {
+            "code" : "75780-7",
+            "display" : "Preferred location to spend final days if possible to choose [Reported]"
+          },
+          {
+            "code" : "75793-0",
+            "display" : "Other directives that have not otherwise been documented [Reported]"
+          },
+          {
+            "code" : "81359-2",
+            "display" : "Near death thoughts and feelings to be shared [Reported]"
+          },
+          {
+            "code" : "81360-0",
+            "display" : "My likes and joys [Reported]"
+          },
+          {
+            "code" : "81361-8",
+            "display" : "Things that make me laugh [Reported]"
+          },
+          {
+            "code" : "81362-6",
+            "display" : "My dislikes and fears [Reported]"
+          },
+          {
+            "code" : "81363-4",
+            "display" : "Things that matter to me [Reported]"
+          },
+          {
+            "code" : "81364-2",
+            "display" : "Religious or cultural beliefs [Reported]"
+          },
+          {
+            "code" : "81365-9",
+            "display" : "Religious or cultural affiliation contact to notify [Reported]"
+          },
+          {
+            "code" : "81366-7",
+            "display" : "Unfinished business [Reported]"
+          },
+          {
+            "code" : "95541-9",
+            "display" : "Care experience preference"
+          }
+        ]
+      }
+    ]
+  },
+  "expansion" : {
+    "identifier" : "urn:uuid:3ff44a83-0aff-43a7-b529-df486b07e560",
+    "timestamp" : "2024-06-14T11:20:17-04:00",
+    "total" : 12,
+    "contains" : [
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
         "code" : "75775-7",
         "display" : "Decision to inform doctors and nurses about the role religion, faith, culture, or spirituality play in my life [Reported]"
       },
       {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
+        "code" : "75780-7",
+        "display" : "Preferred location to spend final days if possible to choose [Reported]"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
         "code" : "75793-0",
         "display" : "Other directives that have not otherwise been documented [Reported]"
       },
       {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
         "code" : "81359-2",
         "display" : "Near death thoughts and feelings to be shared [Reported]"
       },
       {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
         "code" : "81360-0",
         "display" : "My likes and joys [Reported]"
       },
       {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
         "code" : "81361-8",
         "display" : "Things that make me laugh [Reported]"
       },
       {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
         "code" : "81362-6",
         "display" : "My dislikes and fears [Reported]"
       },
       {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
         "code" : "81363-4",
         "display" : "Things that matter to me [Reported]"
       },
       {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
         "code" : "81364-2",
         "display" : "Religious or cultural beliefs [Reported]"
       },
       {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
         "code" : "81365-9",
         "display" : "Religious or cultural affiliation contact to notify [Reported]"
       },
       {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
         "code" : "81366-7",
         "display" : "Unfinished business [Reported]"
       },
       {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
         "code" : "95541-9",
         "display" : "Care experience preference"
-      }]
-    }]
-  },
-  "expansion" : {
-    "identifier" : "urn:uuid:8b297c79-93e4-420c-87c6-8cef3aa04913",
-    "timestamp" : "2023-09-26T09:12:48-04:00",
-    "total" : 11,
-    "offset" : 0,
-    "parameter" : [{
-      "name" : "count",
-      "valueInteger" : 1000
-    },
-    {
-      "name" : "offset",
-      "valueInteger" : 0
-    }],
-    "contains" : [{
-      "system" : "http://loinc.org",
-      "version" : "2.74",
-      "code" : "75775-7",
-      "display" : "Decision to inform doctors and nurses about the role religion, faith, culture, or spirituality play in my life [Reported]"
-    },
-    {
-      "system" : "http://loinc.org",
-      "version" : "2.74",
-      "code" : "75793-0",
-      "display" : "Other directives that have not otherwise been documented [Reported]"
-    },
-    {
-      "system" : "http://loinc.org",
-      "version" : "2.74",
-      "code" : "81359-2",
-      "display" : "Near death thoughts and feelings to be shared [Reported]"
-    },
-    {
-      "system" : "http://loinc.org",
-      "version" : "2.74",
-      "code" : "81360-0",
-      "display" : "My likes and joys [Reported]"
-    },
-    {
-      "system" : "http://loinc.org",
-      "version" : "2.74",
-      "code" : "81361-8",
-      "display" : "Things that make me laugh [Reported]"
-    },
-    {
-      "system" : "http://loinc.org",
-      "version" : "2.74",
-      "code" : "81362-6",
-      "display" : "My dislikes and fears [Reported]"
-    },
-    {
-      "system" : "http://loinc.org",
-      "version" : "2.74",
-      "code" : "81363-4",
-      "display" : "Things that matter to me [Reported]"
-    },
-    {
-      "system" : "http://loinc.org",
-      "version" : "2.74",
-      "code" : "81364-2",
-      "display" : "Religious or cultural beliefs [Reported]"
-    },
-    {
-      "system" : "http://loinc.org",
-      "version" : "2.74",
-      "code" : "81365-9",
-      "display" : "Religious or cultural affiliation contact to notify [Reported]"
-    },
-    {
-      "system" : "http://loinc.org",
-      "version" : "2.74",
-      "code" : "81366-7",
-      "display" : "Unfinished business [Reported]"
-    },
-    {
-      "system" : "http://loinc.org",
-      "version" : "2.74",
-      "code" : "95541-9",
-      "display" : "Care experience preference"
-    }]
+      }
+    ]
   }
 }

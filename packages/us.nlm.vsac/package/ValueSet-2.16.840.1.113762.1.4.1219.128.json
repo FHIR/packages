@@ -3,27 +3,34 @@
   "id" : "2.16.840.1.113762.1.4.1219.128",
   "meta" : {
     "versionId" : "5",
-    "lastUpdated" : "2022-03-15T01:04:14.000-04:00",
-    "profile" : ["http://hl7.org/fhir/StructureDefinition/shareablevalueset",
-    "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"]
+    "lastUpdated" : "2023-12-21T17:43:03.000-05:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-valueset-cqfm",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "extension" : [{
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
-    "valueString" : "CMS DRLS Author"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
-    "valueDate" : "2022-12-15"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
-    "valueDate" : "2022-03-15"
-  }],
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "CMS DRLS Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2024-01-02"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2022-03-15"
+    }
+  ],
   "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1219.128",
-  "identifier" : [{
-    "system" : "urn:ietf:rfc:3986",
-    "value" : "urn:oid:2.16.840.1.113762.1.4.1219.128"
-  }],
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113762.1.4.1219.128"
+    }
+  ],
   "version" : "20220315",
   "name" : "RespiratoryAssistDevice",
   "title" : "Respiratory Assist Device",
@@ -31,50 +38,51 @@
   "experimental" : false,
   "date" : "2022-03-15T01:04:14-04:00",
   "publisher" : "CMS DRLS Steward",
-  "jurisdiction" : [{
-    "extension" : [{
-      "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
-      "valueString" : "UNKNOWN"
-    }]
-  }],
+  "jurisdiction" : [
+    {
+      "coding" : [
+        {
+          "system" : "urn:iso:std:iso:3166",
+          "code" : "US"
+        }
+      ]
+    }
+  ],
   "purpose" : "(Clinical Focus: Respiratory assist devices, with and without backup rate.),(Data Element Scope: Respiratory assist devices specified by the US Centers for Medicare and Medicaid Services.),(Inclusion Criteria: Respiratory assist devices, with and without backup rate.),(Exclusion Criteria: No exclusions.)",
   "compose" : {
-    "include" : [{
-      "system" : "http://www.nlm.nih.gov/research/umls/hcpcs",
-      "concept" : [{
+    "include" : [
+      {
+        "system" : "http://www.nlm.nih.gov/research/umls/hcpcs",
+        "concept" : [
+          {
+            "code" : "E0470",
+            "display" : "Respiratory assist device, bi-level pressure capability, without backup rate feature, used with noninvasive interface, e.g., nasal or facial mask (intermittent assist device with continuous positive airway pressure device)"
+          },
+          {
+            "code" : "E0471",
+            "display" : "Respiratory assist device, bi-level pressure capability, with back-up rate feature, used with noninvasive interface, e.g., nasal or facial mask (intermittent assist device with continuous positive airway pressure device)"
+          }
+        ]
+      }
+    ]
+  },
+  "expansion" : {
+    "identifier" : "urn:uuid:317efb5e-1260-445d-8c87-4304222da888",
+    "timestamp" : "2024-06-14T13:40:35-04:00",
+    "total" : 2,
+    "contains" : [
+      {
+        "system" : "http://www.nlm.nih.gov/research/umls/hcpcs",
+        "version" : "2024",
         "code" : "E0470",
         "display" : "Respiratory assist device, bi-level pressure capability, without backup rate feature, used with noninvasive interface, e.g., nasal or facial mask (intermittent assist device with continuous positive airway pressure device)"
       },
       {
+        "system" : "http://www.nlm.nih.gov/research/umls/hcpcs",
+        "version" : "2024",
         "code" : "E0471",
         "display" : "Respiratory assist device, bi-level pressure capability, with back-up rate feature, used with noninvasive interface, e.g., nasal or facial mask (intermittent assist device with continuous positive airway pressure device)"
-      }]
-    }]
-  },
-  "expansion" : {
-    "identifier" : "urn:uuid:246d24a0-158b-4159-8e41-f6f9cf61f37f",
-    "timestamp" : "2023-09-26T12:56:46-04:00",
-    "total" : 2,
-    "offset" : 0,
-    "parameter" : [{
-      "name" : "count",
-      "valueInteger" : 1000
-    },
-    {
-      "name" : "offset",
-      "valueInteger" : 0
-    }],
-    "contains" : [{
-      "system" : "http://www.nlm.nih.gov/research/umls/hcpcs",
-      "version" : "2023",
-      "code" : "E0470",
-      "display" : "Respiratory assist device, bi-level pressure capability, without backup rate feature, used with noninvasive interface, e.g., nasal or facial mask (intermittent assist device with continuous positive airway pressure device)"
-    },
-    {
-      "system" : "http://www.nlm.nih.gov/research/umls/hcpcs",
-      "version" : "2023",
-      "code" : "E0471",
-      "display" : "Respiratory assist device, bi-level pressure capability, with back-up rate feature, used with noninvasive interface, e.g., nasal or facial mask (intermittent assist device with continuous positive airway pressure device)"
-    }]
+      }
+    ]
   }
 }

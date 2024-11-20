@@ -3,71 +3,79 @@
   "id" : "2.16.840.1.113762.1.4.1222.1051",
   "meta" : {
     "versionId" : "5",
-    "lastUpdated" : "2021-09-24T01:11:48.000-04:00",
-    "profile" : ["http://hl7.org/fhir/StructureDefinition/shareablevalueset",
-    "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"]
+    "lastUpdated" : "2023-12-21T17:43:03.000-05:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-valueset-cqfm",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "extension" : [{
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
-    "valueString" : "MCC eCare Plan Author"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
-    "valueDate" : "2022-12-15"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
-    "valueDate" : "2021-09-24"
-  }],
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "MCC eCare Plan Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2024-05-20"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2021-09-24"
+    }
+  ],
   "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1222.1051",
-  "identifier" : [{
-    "system" : "urn:ietf:rfc:3986",
-    "value" : "urn:oid:2.16.840.1.113762.1.4.1222.1051"
-  }],
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113762.1.4.1222.1051"
+    }
+  ],
   "version" : "20210924",
   "name" : "DesireToBeWorking",
   "title" : "Desire to Be Working",
-  "status" : "active",
+  "status" : "retired",
   "experimental" : false,
-  "date" : "2021-09-24T01:11:48-04:00",
+  "date" : "2024-05-20T14:48:09-04:00",
   "publisher" : "HL7 Patient Care WG Steward",
   "description" : "Indication of whether the person want to be working (Business ID: Entry 115499)",
-  "jurisdiction" : [{
-    "extension" : [{
-      "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
-      "valueString" : "UNKNOWN"
-    }]
-  }],
+  "jurisdiction" : [
+    {
+      "coding" : [
+        {
+          "system" : "urn:iso:std:iso:3166",
+          "code" : "US"
+        }
+      ]
+    }
+  ],
   "purpose" : "(Clinical Focus: This set of values addresses terms representing Desire to Be Working.),(Data Element Scope: The intent of this set of values is to identify patients who have a/an indication of whether the person want to be working.),(Inclusion Criteria: Includes LOINC codes for Desire to Be Working.),(Exclusion Criteria: Terms not representative of observable encoded terms that may have values indicating Desire to Be Working.)",
   "compose" : {
-    "include" : [{
-      "system" : "http://loinc.org",
-      "version" : "2.74",
-      "filter" : [{
-        "property" : "concept",
-        "op" : "in",
-        "value" : "63511-0"
-      }]
-    }]
+    "include" : [
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
+        "filter" : [
+          {
+            "property" : "concept",
+            "op" : "in",
+            "value" : "63511-0"
+          }
+        ]
+      }
+    ]
   },
   "expansion" : {
-    "identifier" : "urn:uuid:2e1aecf1-bdd9-4aa5-93cb-8aadda20d472",
-    "timestamp" : "2023-09-26T10:00:08-04:00",
+    "identifier" : "urn:uuid:bc673b09-87f7-495f-a841-dfdb560caad5",
+    "timestamp" : "2024-06-14T14:02:25-04:00",
     "total" : 1,
-    "offset" : 0,
-    "parameter" : [{
-      "name" : "count",
-      "valueInteger" : 1000
-    },
-    {
-      "name" : "offset",
-      "valueInteger" : 0
-    }],
-    "contains" : [{
-      "system" : "http://loinc.org",
-      "version" : "2.74",
-      "code" : "63511-0",
-      "display" : "Are you working now, looking for work, retired, keeping house, a student, or what [PhenX]"
-    }]
+    "contains" : [
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
+        "code" : "63511-0",
+        "display" : "Are you working now, looking for work, retired, keeping house, a student, or what [PhenX]"
+      }
+    ]
   }
 }

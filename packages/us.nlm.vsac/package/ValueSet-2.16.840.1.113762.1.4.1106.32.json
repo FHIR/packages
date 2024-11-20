@@ -3,98 +3,106 @@
   "id" : "2.16.840.1.113762.1.4.1106.32",
   "meta" : {
     "versionId" : "5",
-    "lastUpdated" : "2020-10-23T01:00:49.000-04:00",
-    "profile" : ["http://hl7.org/fhir/StructureDefinition/shareablevalueset",
-    "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"]
+    "lastUpdated" : "2023-12-21T17:43:03.000-05:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-valueset-cqfm",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "extension" : [{
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
-    "valueString" : "ACEP/AMA-PCPI Author"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
-    "valueDate" : "2022-12-15"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
-    "valueDate" : "2020-10-23"
-  }],
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "ACEP/AMA-PCPI Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2024-06-03"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2020-10-23"
+    }
+  ],
   "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1106.32",
-  "identifier" : [{
-    "system" : "urn:ietf:rfc:3986",
-    "value" : "urn:oid:2.16.840.1.113762.1.4.1106.32"
-  }],
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113762.1.4.1106.32"
+    }
+  ],
   "version" : "20201023",
   "name" : "KUBXRayAbdomenPelvis",
   "title" : "KUB X ray Abdomen Pelvis",
-  "status" : "active",
+  "status" : "retired",
   "experimental" : false,
   "date" : "2020-10-23T01:00:49-04:00",
   "publisher" : "ACEP/AMA-PCPI Steward",
-  "jurisdiction" : [{
-    "extension" : [{
-      "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
-      "valueString" : "UNKNOWN"
-    }]
-  }],
+  "jurisdiction" : [
+    {
+      "coding" : [
+        {
+          "system" : "urn:iso:std:iso:3166",
+          "code" : "US"
+        }
+      ]
+    }
+  ],
   "purpose" : "(Clinical Focus: ),(Data Element Scope: ),(Inclusion Criteria: ),(Exclusion Criteria: )",
   "compose" : {
-    "include" : [{
-      "system" : "http://www.ama-assn.org/go/cpt",
-      "concept" : [{
+    "include" : [
+      {
+        "system" : "http://www.ama-assn.org/go/cpt",
+        "concept" : [
+          {
+            "code" : "74018",
+            "display" : "Radiologic examination, abdomen; 1 view"
+          },
+          {
+            "code" : "74019",
+            "display" : "Radiologic examination, abdomen; 2 views"
+          },
+          {
+            "code" : "74021",
+            "display" : "Radiologic examination, abdomen; 3 or more views"
+          },
+          {
+            "code" : "74022",
+            "display" : "Radiologic examination, complete acute abdomen series, including 2 or more views of the abdomen (eg, supine, erect, decubitus), and a single view chest"
+          }
+        ]
+      }
+    ]
+  },
+  "expansion" : {
+    "identifier" : "urn:uuid:63b1a83c-dd6f-4d7c-b9e6-5a5a2d61cf14",
+    "timestamp" : "2024-06-14T11:11:23-04:00",
+    "total" : 4,
+    "contains" : [
+      {
+        "system" : "http://www.ama-assn.org/go/cpt",
+        "version" : "2024",
         "code" : "74018",
         "display" : "Radiologic examination, abdomen; 1 view"
       },
       {
+        "system" : "http://www.ama-assn.org/go/cpt",
+        "version" : "2024",
         "code" : "74019",
         "display" : "Radiologic examination, abdomen; 2 views"
       },
       {
+        "system" : "http://www.ama-assn.org/go/cpt",
+        "version" : "2024",
         "code" : "74021",
         "display" : "Radiologic examination, abdomen; 3 or more views"
       },
       {
+        "system" : "http://www.ama-assn.org/go/cpt",
+        "version" : "2024",
         "code" : "74022",
         "display" : "Radiologic examination, complete acute abdomen series, including 2 or more views of the abdomen (eg, supine, erect, decubitus), and a single view chest"
-      }]
-    }]
-  },
-  "expansion" : {
-    "identifier" : "urn:uuid:1e602912-ed9f-4c36-88c8-1df68332f14b",
-    "timestamp" : "2023-09-26T11:20:15-04:00",
-    "total" : 4,
-    "offset" : 0,
-    "parameter" : [{
-      "name" : "count",
-      "valueInteger" : 1000
-    },
-    {
-      "name" : "offset",
-      "valueInteger" : 0
-    }],
-    "contains" : [{
-      "system" : "http://www.ama-assn.org/go/cpt",
-      "version" : "2023",
-      "code" : "74018",
-      "display" : "Radiologic examination, abdomen; 1 view"
-    },
-    {
-      "system" : "http://www.ama-assn.org/go/cpt",
-      "version" : "2023",
-      "code" : "74019",
-      "display" : "Radiologic examination, abdomen; 2 views"
-    },
-    {
-      "system" : "http://www.ama-assn.org/go/cpt",
-      "version" : "2023",
-      "code" : "74021",
-      "display" : "Radiologic examination, abdomen; 3 or more views"
-    },
-    {
-      "system" : "http://www.ama-assn.org/go/cpt",
-      "version" : "2023",
-      "code" : "74022",
-      "display" : "Radiologic examination, complete acute abdomen series, including 2 or more views of the abdomen (eg, supine, erect, decubitus), and a single view chest"
-    }]
+      }
+    ]
   }
 }

@@ -3,27 +3,34 @@
   "id" : "1.3.6.1.4.1.6997.4.1.2.265.9.31104.1.1.999.275",
   "meta" : {
     "versionId" : "4",
-    "lastUpdated" : "2017-03-04T01:00:02.000-05:00",
-    "profile" : ["http://hl7.org/fhir/StructureDefinition/shareablevalueset",
-    "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"]
+    "lastUpdated" : "2023-12-21T17:43:03.000-05:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-valueset-cqfm",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "extension" : [{
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
-    "valueString" : "ECRI Author"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
-    "valueDate" : "2022-12-15"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
-    "valueDate" : "2017-03-04"
-  }],
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "ECRI Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2024-05-06"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2017-03-04"
+    }
+  ],
   "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/1.3.6.1.4.1.6997.4.1.2.265.9.31104.1.1.999.275",
-  "identifier" : [{
-    "system" : "urn:ietf:rfc:3986",
-    "value" : "urn:oid:1.3.6.1.4.1.6997.4.1.2.265.9.31104.1.1.999.275"
-  }],
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:1.3.6.1.4.1.6997.4.1.2.265.9.31104.1.1.999.275"
+    }
+  ],
   "version" : "20170304",
   "name" : "DermatologicDiseasesOfTheEar",
   "title" : "Dermatologic Diseases of the Ear",
@@ -31,50 +38,51 @@
   "experimental" : false,
   "date" : "2017-03-04T01:00:02-05:00",
   "publisher" : "ECRI Steward",
-  "jurisdiction" : [{
-    "extension" : [{
-      "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
-      "valueString" : "UNKNOWN"
-    }]
-  }],
+  "jurisdiction" : [
+    {
+      "coding" : [
+        {
+          "system" : "urn:iso:std:iso:3166",
+          "code" : "US"
+        }
+      ]
+    }
+  ],
   "purpose" : "(Clinical Focus: This value set encodes a Exclusion Criterion defining the concept dermatologic diseases of the ear canal for the AAO-HNSF guideline on Cerumen Impaction),(Data Element Scope: This valueset is intended to work with the data element type, Condition/Diagnosis/Problem),(Inclusion Criteria: Search terms included: dermatologic ^canal -root -lymphoma -hering -malignant ^dermatol* +eczema ^ear -procedure -drum -structure -middle -hemangioma -adenofibroma -naso -loss +auditory),(Exclusion Criteria: None)",
   "compose" : {
-    "include" : [{
-      "system" : "http://snomed.info/sct",
-      "concept" : [{
+    "include" : [
+      {
+        "system" : "http://snomed.info/sct",
+        "concept" : [
+          {
+            "code" : "427348001",
+            "display" : "Chronic eczema of external auditory canal (disorder)"
+          },
+          {
+            "code" : "95812002",
+            "display" : "Eczema of external auditory canal (disorder)"
+          }
+        ]
+      }
+    ]
+  },
+  "expansion" : {
+    "identifier" : "urn:uuid:f5936a26-1e00-48fe-9665-d7311f186065",
+    "timestamp" : "2024-06-14T08:37:19-04:00",
+    "total" : 2,
+    "contains" : [
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
         "code" : "427348001",
         "display" : "Chronic eczema of external auditory canal (disorder)"
       },
       {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
         "code" : "95812002",
         "display" : "Eczema of external auditory canal (disorder)"
-      }]
-    }]
-  },
-  "expansion" : {
-    "identifier" : "urn:uuid:4c991e50-2da0-4cce-ab71-cd9d9b75f72e",
-    "timestamp" : "2023-09-26T10:00:03-04:00",
-    "total" : 2,
-    "offset" : 0,
-    "parameter" : [{
-      "name" : "count",
-      "valueInteger" : 1000
-    },
-    {
-      "name" : "offset",
-      "valueInteger" : 0
-    }],
-    "contains" : [{
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "427348001",
-      "display" : "Chronic eczema of external auditory canal (disorder)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "95812002",
-      "display" : "Eczema of external auditory canal (disorder)"
-    }]
+      }
+    ]
   }
 }

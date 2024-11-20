@@ -3,234 +3,256 @@
   "id" : "2.16.840.1.113762.1.4.1222.1413",
   "meta" : {
     "versionId" : "8",
-    "lastUpdated" : "2022-06-08T01:03:01.000-04:00",
-    "profile" : ["http://hl7.org/fhir/StructureDefinition/shareablevalueset",
-    "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"]
+    "lastUpdated" : "2023-12-21T17:43:03.000-05:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-valueset-cqfm",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "extension" : [{
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
-    "valueString" : "MCC eCare Plan Author"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-keyWord",
-    "valueString" : "MCC_IG"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
-    "valueDate" : "2022-12-15"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
-    "valueDate" : "2022-06-08"
-  }],
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "MCC eCare Plan Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-keyWord",
+      "valueString" : "MCC_IG"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2024-06-03"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2022-06-08"
+    }
+  ],
   "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1222.1413",
-  "identifier" : [{
-    "system" : "urn:ietf:rfc:3986",
-    "value" : "urn:oid:2.16.840.1.113762.1.4.1222.1413"
-  }],
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113762.1.4.1222.1413"
+    }
+  ],
   "version" : "20220608",
   "name" : "SinonasalCongestion",
   "title" : "Sinonasal Congestion",
-  "status" : "active",
+  "status" : "retired",
   "experimental" : false,
   "date" : "2022-06-08T01:03:01-04:00",
   "publisher" : "HL7 Patient Care WG Steward",
   "description" : "\"This value set may undergo changes until the HL7 Multiple Chronic Care FHIR IG is formally published in 2024.\"",
-  "jurisdiction" : [{
-    "extension" : [{
-      "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
-      "valueString" : "UNKNOWN"
-    }]
-  }],
+  "jurisdiction" : [
+    {
+      "coding" : [
+        {
+          "system" : "urn:iso:std:iso:3166",
+          "code" : "US"
+        }
+      ]
+    }
+  ],
   "purpose" : "(Clinical Focus: This set of values reflect patients experiencing nasal congestion or sinus congestion.),(Data Element Scope: The intent of this value set is to identify patients with Sinonasal Congestion.),(Inclusion Criteria: Includes Sinonasal Congestion related SNOMED CT codes from Findings hierarchy.),(Exclusion Criteria: Excludes Sinonasal Congestion related SNOMED CT codes from Disorder of body system (disorder) hierarchy.)",
   "compose" : {
-    "include" : [{
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "filter" : [{
-        "property" : "concept",
-        "op" : "is-a",
-        "value" : "68235000"
-      }]
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "filter" : [{
-        "property" : "concept",
-        "op" : "is-a",
-        "value" : "271745005"
-      }]
-    }],
-    "exclude" : [{
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "filter" : [{
-        "property" : "concept",
-        "op" : "is-a",
-        "value" : "64572001"
-      }]
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "filter" : [{
-        "property" : "concept",
-        "op" : "=",
-        "value" : "301201004"
-      }]
-    }]
+    "include" : [
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "filter" : [
+          {
+            "property" : "concept",
+            "op" : "is-a",
+            "value" : "68235000"
+          }
+        ]
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "filter" : [
+          {
+            "property" : "concept",
+            "op" : "is-a",
+            "value" : "271745005"
+          }
+        ]
+      }
+    ],
+    "exclude" : [
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "filter" : [
+          {
+            "property" : "concept",
+            "op" : "is-a",
+            "value" : "64572001"
+          }
+        ]
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "filter" : [
+          {
+            "property" : "concept",
+            "op" : "=",
+            "value" : "301201004"
+          }
+        ]
+      }
+    ]
   },
   "expansion" : {
-    "identifier" : "urn:uuid:46235439-a0c1-475f-baca-e52bfb839197",
-    "timestamp" : "2023-09-26T13:12:04-04:00",
-    "total" : 23,
-    "offset" : 0,
-    "parameter" : [{
-      "name" : "count",
-      "valueInteger" : 1000
-    },
-    {
-      "name" : "offset",
-      "valueInteger" : 0
-    }],
-    "contains" : [{
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "162402004",
-      "display" : "Blocked sinuses (finding)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "249369003",
-      "display" : "Sinus catarrh (finding)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "249370002",
-      "display" : "Maxillary sinus finding (finding)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "249371003",
-      "display" : "Expanded maxillary sinus (finding)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "249373000",
-      "display" : "Frontoethmoidal sinus finding (finding)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "249374006",
-      "display" : "Expanded frontal sinus (finding)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "249375007",
-      "display" : "Defect in wall of frontal sinus (finding)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "271745005",
-      "display" : "Facial sinus finding (finding)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "271746006",
-      "display" : "Translucency of maxillary sinus (finding)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "277238004",
-      "display" : "Tenderness over maxillary sinus (finding)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "277239007",
-      "display" : "Swelling over maxillary sinus (finding)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "277240009",
-      "display" : "Erythema over maxillary sinus (finding)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "277241008",
-      "display" : "Tenderness over frontal sinus (finding)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "277242001",
-      "display" : "Swelling over frontal sinus (finding)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "277243006",
-      "display" : "Erythema over frontal sinus (finding)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "301202006",
-      "display" : "Nasal sinus problem (finding)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "301356002",
-      "display" : "Maxillary sinus pain (finding)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "301357006",
-      "display" : "Frontal sinus pain (finding)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "306940003",
-      "display" : "Discharge in middle meatus (finding)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "470756000",
-      "display" : "Antrolith of maxillary sinus (finding)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "4969004",
-      "display" : "Sinus headache (finding)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "68235000",
-      "display" : "Nasal congestion (finding)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "93751000119100",
-      "display" : "Mass of nasal sinus (finding)"
-    }]
+    "identifier" : "urn:uuid:4f497d9a-338e-4319-86a8-065657d8cbd5",
+    "timestamp" : "2024-06-14T14:11:41-04:00",
+    "total" : 24,
+    "contains" : [
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "1264052006",
+        "display" : "Sensation of nasal sinus pressure (finding)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "162402004",
+        "display" : "Blocked sinuses (finding)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "249369003",
+        "display" : "Sinus catarrh (finding)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "249370002",
+        "display" : "Maxillary sinus finding (finding)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "249371003",
+        "display" : "Expanded maxillary sinus (finding)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "249373000",
+        "display" : "Frontoethmoidal sinus finding (finding)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "249374006",
+        "display" : "Expanded frontal sinus (finding)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "249375007",
+        "display" : "Defect in wall of frontal sinus (finding)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "271745005",
+        "display" : "Facial sinus finding (finding)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "271746006",
+        "display" : "Translucency of maxillary sinus (finding)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "277238004",
+        "display" : "Tenderness over maxillary sinus (finding)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "277239007",
+        "display" : "Swelling over maxillary sinus (finding)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "277240009",
+        "display" : "Erythema over maxillary sinus (finding)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "277241008",
+        "display" : "Tenderness over frontal sinus (finding)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "277242001",
+        "display" : "Swelling over frontal sinus (finding)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "277243006",
+        "display" : "Erythema over frontal sinus (finding)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "301202006",
+        "display" : "Nasal sinus problem (finding)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "301356002",
+        "display" : "Maxillary sinus pain (finding)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "301357006",
+        "display" : "Frontal sinus pain (finding)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "306940003",
+        "display" : "Discharge in middle meatus (finding)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "470756000",
+        "display" : "Antrolith of maxillary sinus (finding)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "4969004",
+        "display" : "Sinus headache (finding)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "68235000",
+        "display" : "Nasal congestion (finding)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "93751000119100",
+        "display" : "Mass of nasal sinus (finding)"
+      }
+    ]
   }
 }

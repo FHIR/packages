@@ -3,81 +3,89 @@
   "id" : "2.16.840.1.113762.1.4.1146.1974",
   "meta" : {
     "versionId" : "7",
-    "lastUpdated" : "2023-01-25T01:08:07.000-05:00",
-    "profile" : ["http://hl7.org/fhir/StructureDefinition/shareablevalueset",
-    "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"]
+    "lastUpdated" : "2023-12-21T17:43:03.000-05:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-valueset-cqfm",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "extension" : [{
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
-    "valueString" : "CSTE Author"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-keyWord",
-    "valueString" : "Baylisascariasis,Trigger"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
-    "valueDate" : "2023-01-25"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
-    "valueDate" : "2023-01-25"
-  }],
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "CSTE Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-keyWord",
+      "valueString" : "Baylisascariasis,Trigger"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2024-06-05"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2023-01-25"
+    }
+  ],
   "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1146.1974",
-  "identifier" : [{
-    "system" : "urn:ietf:rfc:3986",
-    "value" : "urn:oid:2.16.840.1.113762.1.4.1146.1974"
-  }],
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113762.1.4.1146.1974"
+    }
+  ],
   "version" : "20230125",
   "name" : "BaylisascariasisDisordersSNOMED",
   "title" : "Baylisascariasis (Disorders) (SNOMED)",
   "status" : "active",
   "date" : "2023-01-25T01:08:07-05:00",
   "publisher" : "CSTE Steward",
-  "jurisdiction" : [{
-    "extension" : [{
-      "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
-      "valueString" : "UNKNOWN"
-    }]
-  }],
+  "jurisdiction" : [
+    {
+      "coding" : [
+        {
+          "system" : "urn:iso:std:iso:3166",
+          "code" : "US"
+        }
+      ]
+    }
+  ],
   "purpose" : "(Clinical Focus: This set of values contains diagnoses or problems that represent that the patient has Baylisascariasis regardless of the clinical presentation of the clinical presentation of the condition.),(Data Element Scope: Diagnoses or problems documented in a clinical record.),(Inclusion Criteria: Baylisascariasis),(Exclusion Criteria: none)",
   "compose" : {
-    "include" : [{
-      "system" : "http://snomed.info/sct",
-      "concept" : [{
+    "include" : [
+      {
+        "system" : "http://snomed.info/sct",
+        "concept" : [
+          {
+            "code" : "91156005",
+            "display" : "Infection caused by Baylisascaris (disorder)"
+          },
+          {
+            "code" : "93614002",
+            "display" : "Infection caused by Baylisascaris procyonis (disorder)"
+          }
+        ]
+      }
+    ]
+  },
+  "expansion" : {
+    "identifier" : "urn:uuid:b2ebfdca-e062-4223-b07a-4556b9900770",
+    "timestamp" : "2024-06-14T12:03:53-04:00",
+    "total" : 2,
+    "contains" : [
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
         "code" : "91156005",
         "display" : "Infection caused by Baylisascaris (disorder)"
       },
       {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
         "code" : "93614002",
         "display" : "Infection caused by Baylisascaris procyonis (disorder)"
-      }]
-    }]
-  },
-  "expansion" : {
-    "identifier" : "urn:uuid:ba71494c-a1fa-4f45-a277-88ba99e27859",
-    "timestamp" : "2023-09-26T08:07:44-04:00",
-    "total" : 2,
-    "offset" : 0,
-    "parameter" : [{
-      "name" : "count",
-      "valueInteger" : 1000
-    },
-    {
-      "name" : "offset",
-      "valueInteger" : 0
-    }],
-    "contains" : [{
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "91156005",
-      "display" : "Infection caused by Baylisascaris (disorder)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "93614002",
-      "display" : "Infection caused by Baylisascaris procyonis (disorder)"
-    }]
+      }
+    ]
   }
 }

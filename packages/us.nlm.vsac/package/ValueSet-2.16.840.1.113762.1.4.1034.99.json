@@ -3,71 +3,79 @@
   "id" : "2.16.840.1.113762.1.4.1034.99",
   "meta" : {
     "versionId" : "13",
-    "lastUpdated" : "2020-10-30T16:59:47.000-04:00",
-    "profile" : ["http://hl7.org/fhir/StructureDefinition/shareablevalueset",
-    "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"]
+    "lastUpdated" : "2023-12-21T17:43:03.000-05:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-valueset-cqfm",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "extension" : [{
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
-    "valueString" : "American Academy of Neurology Author"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
-    "valueDate" : "2022-12-15"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
-    "valueDate" : "2020-10-30"
-  }],
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "American Academy of Neurology Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2024-06-03"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2020-08-20"
+    }
+  ],
   "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1034.99",
-  "identifier" : [{
-    "system" : "urn:ietf:rfc:3986",
-    "value" : "urn:oid:2.16.840.1.113762.1.4.1034.99"
-  }],
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113762.1.4.1034.99"
+    }
+  ],
   "version" : "20200820",
   "name" : "MultipleSclerosisICD10CM",
   "title" : "Multiple Sclerosis (ICD10CM)",
-  "status" : "active",
+  "status" : "retired",
   "experimental" : false,
   "date" : "2020-08-20T01:00:47-04:00",
   "publisher" : "American Academy of Neurology Steward",
   "description" : "This value set includes ICD10CM diagnostic codes for multiple sclerosis (MS).",
-  "jurisdiction" : [{
-    "extension" : [{
-      "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
-      "valueString" : "UNKNOWN"
-    }]
-  }],
+  "jurisdiction" : [
+    {
+      "coding" : [
+        {
+          "system" : "urn:iso:std:iso:3166",
+          "code" : "US"
+        }
+      ]
+    }
+  ],
   "purpose" : "(Clinical Focus: This set of values contains ICD10CM diagnostic codes for multiple sclerosis (MS).),(Data Element Scope: The intent of this value set is to identify patients diagnosed with MS. Using the Quality Data Model this element would map to the Diagnosis category.),(Inclusion Criteria: Does include ICD10CM codes for MS),(Exclusion Criteria: Excludes all other demyelinating diseases of the central nervous system.)",
   "compose" : {
-    "include" : [{
-      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-      "version" : "2024",
-      "filter" : [{
-        "property" : "concept",
-        "op" : "is-a",
-        "value" : "G35"
-      }]
-    }]
+    "include" : [
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2024",
+        "filter" : [
+          {
+            "property" : "concept",
+            "op" : "is-a",
+            "value" : "G35"
+          }
+        ]
+      }
+    ]
   },
   "expansion" : {
-    "identifier" : "urn:uuid:83875f14-c388-4bae-8a99-b7b8dc42d6a6",
-    "timestamp" : "2023-09-26T11:55:10-04:00",
+    "identifier" : "urn:uuid:c241e3a0-edc3-46d7-9c05-655b85bc8501",
+    "timestamp" : "2024-06-14T10:24:11-04:00",
     "total" : 1,
-    "offset" : 0,
-    "parameter" : [{
-      "name" : "count",
-      "valueInteger" : 1000
-    },
-    {
-      "name" : "offset",
-      "valueInteger" : 0
-    }],
-    "contains" : [{
-      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-      "version" : "2024",
-      "code" : "G35",
-      "display" : "Multiple sclerosis"
-    }]
+    "contains" : [
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2024",
+        "code" : "G35",
+        "display" : "Multiple sclerosis"
+      }
+    ]
   }
 }

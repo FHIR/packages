@@ -2,79 +2,86 @@
   "resourceType" : "ValueSet",
   "id" : "2.16.840.1.113883.3.464.1003.125.11.1011",
   "meta" : {
-    "versionId" : "14",
-    "lastUpdated" : "2021-01-12T15:36:25.000-05:00",
-    "profile" : ["http://hl7.org/fhir/StructureDefinition/shareablevalueset",
-    "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"]
+    "versionId" : "24",
+    "lastUpdated" : "2024-02-10T01:11:25.000-05:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-valueset-cqfm",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "extension" : [{
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
-    "valueString" : "NCQA PHEMUR Author"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
-    "valueDate" : "2023-02-15"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
-    "valueDate" : "2021-01-12"
-  }],
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "NCQA PHEMUR Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2024-02-10"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2024-02-10"
+    }
+  ],
   "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.125.11.1011",
-  "identifier" : [{
-    "system" : "urn:ietf:rfc:3986",
-    "value" : "urn:oid:2.16.840.1.113883.3.464.1003.125.11.1011"
-  }],
-  "version" : "20170504",
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113883.3.464.1003.125.11.1011"
+    }
+  ],
+  "version" : "20240210",
   "name" : "FluorideVarnishApplicationForChildren",
   "title" : "Fluoride Varnish Application for Children",
   "status" : "active",
-  "experimental" : false,
-  "date" : "2017-05-04T01:00:13-04:00",
+  "date" : "2024-02-10T01:11:25-05:00",
   "publisher" : "NCQA PHEMUR",
-  "jurisdiction" : [{
-    "extension" : [{
-      "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
-      "valueString" : "UNKNOWN"
-    }]
-  }],
+  "jurisdiction" : [
+    {
+      "coding" : [
+        {
+          "system" : "urn:iso:std:iso:3166",
+          "code" : "US"
+        }
+      ]
+    }
+  ],
   "purpose" : "(Clinical Focus: The purpose of this value set is to represent concepts for fluoride varnish applications.),(Data Element Scope: This value set may use a model element related to Procedure.),(Inclusion Criteria: Includes concepts that represent fluoride varnish applications.),(Exclusion Criteria: No exclusions.)",
   "compose" : {
-    "include" : [{
-      "system" : "http://www.ada.org/cdt",
-      "concept" : [{
+    "include" : [
+      {
+        "system" : "http://www.ada.org/cdt",
+        "concept" : [
+          {
+            "code" : "D1206",
+            "display" : "topical application of fluoride varnish"
+          },
+          {
+            "code" : "D1208",
+            "display" : "topical application of fluoride - excluding varnish"
+          }
+        ]
+      }
+    ]
+  },
+  "expansion" : {
+    "identifier" : "urn:uuid:afe4fddf-d091-4dc1-bf9b-4f996de487f1",
+    "timestamp" : "2024-06-14T17:09:01-04:00",
+    "total" : 2,
+    "contains" : [
+      {
+        "system" : "http://www.ada.org/cdt",
+        "version" : "2023",
         "code" : "D1206",
         "display" : "topical application of fluoride varnish"
       },
       {
+        "system" : "http://www.ada.org/cdt",
+        "version" : "2023",
         "code" : "D1208",
         "display" : "topical application of fluoride - excluding varnish"
-      }]
-    }]
-  },
-  "expansion" : {
-    "identifier" : "urn:uuid:73329dfd-2505-4c22-b53b-b54d11a3a000",
-    "timestamp" : "2023-09-26T10:29:37-04:00",
-    "total" : 2,
-    "offset" : 0,
-    "parameter" : [{
-      "name" : "count",
-      "valueInteger" : 1000
-    },
-    {
-      "name" : "offset",
-      "valueInteger" : 0
-    }],
-    "contains" : [{
-      "system" : "http://www.ada.org/cdt",
-      "version" : "2023",
-      "code" : "D1206",
-      "display" : "topical application of fluoride varnish"
-    },
-    {
-      "system" : "http://www.ada.org/cdt",
-      "version" : "2023",
-      "code" : "D1208",
-      "display" : "topical application of fluoride - excluding varnish"
-    }]
+      }
+    ]
   }
 }

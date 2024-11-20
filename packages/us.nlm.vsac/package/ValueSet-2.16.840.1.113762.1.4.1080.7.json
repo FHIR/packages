@@ -3,27 +3,34 @@
   "id" : "2.16.840.1.113762.1.4.1080.7",
   "meta" : {
     "versionId" : "18",
-    "lastUpdated" : "2022-02-19T01:07:29.000-05:00",
-    "profile" : ["http://hl7.org/fhir/StructureDefinition/shareablevalueset",
-    "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"]
+    "lastUpdated" : "2023-12-21T17:43:03.000-05:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-valueset-cqfm",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "extension" : [{
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
-    "valueString" : "MNCM Author"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
-    "valueDate" : "2023-01-25"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
-    "valueDate" : "2022-02-19"
-  }],
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "MNCM Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2024-04-01"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2022-02-19"
+    }
+  ],
   "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1080.7",
-  "identifier" : [{
-    "system" : "urn:ietf:rfc:3986",
-    "value" : "urn:oid:2.16.840.1.113762.1.4.1080.7"
-  }],
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113762.1.4.1080.7"
+    }
+  ],
   "version" : "20220219",
   "name" : "ContactOrOfficeVisit",
   "title" : "Contact or Office Visit",
@@ -31,60 +38,61 @@
   "experimental" : false,
   "date" : "2022-02-19T01:07:29-05:00",
   "publisher" : "MNCM Steward",
-  "jurisdiction" : [{
-    "extension" : [{
-      "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
-      "valueString" : "UNKNOWN"
-    }]
-  }],
+  "jurisdiction" : [
+    {
+      "coding" : [
+        {
+          "system" : "urn:iso:std:iso:3166",
+          "code" : "US"
+        }
+      ]
+    }
+  ],
   "purpose" : "(Clinical Focus: The purpose of this value set is to represent concepts for contact and office visits for new and established patients; including in-person, telephone, online, and other visit types related to depression encounters.),(Data Element Scope: This value set may use a model element related to Encounter.),(Inclusion Criteria: Includes concepts that represent an encounter for outpatient contact and office visits in which a patient may be evaluated for depression.),(Exclusion Criteria: Excludes concepts that represent an encounter for inpatient visits, except for psychiatry and psychotherapy visits, which are not specific to setting.)",
   "compose" : {
-    "include" : [{
-      "system" : "http://www.nlm.nih.gov/research/umls/hcpcs",
-      "concept" : [{
+    "include" : [
+      {
+        "system" : "http://www.nlm.nih.gov/research/umls/hcpcs",
+        "concept" : [
+          {
+            "code" : "G0402",
+            "display" : "Initial preventive physical examination; face-to-face visit, services limited to new beneficiary during the first 12 months of medicare enrollment"
+          },
+          {
+            "code" : "G0438",
+            "display" : "Annual wellness visit; includes a personalized prevention plan of service (pps), initial visit"
+          },
+          {
+            "code" : "G0439",
+            "display" : "Annual wellness visit, includes a personalized prevention plan of service (pps), subsequent visit"
+          }
+        ]
+      }
+    ]
+  },
+  "expansion" : {
+    "identifier" : "urn:uuid:611f5477-afcb-473b-8307-068d0d8cb742",
+    "timestamp" : "2024-06-14T11:01:44-04:00",
+    "total" : 3,
+    "contains" : [
+      {
+        "system" : "http://www.nlm.nih.gov/research/umls/hcpcs",
+        "version" : "2024",
         "code" : "G0402",
         "display" : "Initial preventive physical examination; face-to-face visit, services limited to new beneficiary during the first 12 months of medicare enrollment"
       },
       {
+        "system" : "http://www.nlm.nih.gov/research/umls/hcpcs",
+        "version" : "2024",
         "code" : "G0438",
         "display" : "Annual wellness visit; includes a personalized prevention plan of service (pps), initial visit"
       },
       {
+        "system" : "http://www.nlm.nih.gov/research/umls/hcpcs",
+        "version" : "2024",
         "code" : "G0439",
         "display" : "Annual wellness visit, includes a personalized prevention plan of service (pps), subsequent visit"
-      }]
-    }]
-  },
-  "expansion" : {
-    "identifier" : "urn:uuid:94ff4e87-d584-4c99-8eb3-394509c24093",
-    "timestamp" : "2023-09-26T09:35:08-04:00",
-    "total" : 3,
-    "offset" : 0,
-    "parameter" : [{
-      "name" : "count",
-      "valueInteger" : 1000
-    },
-    {
-      "name" : "offset",
-      "valueInteger" : 0
-    }],
-    "contains" : [{
-      "system" : "http://www.nlm.nih.gov/research/umls/hcpcs",
-      "version" : "2023",
-      "code" : "G0402",
-      "display" : "Initial preventive physical examination; face-to-face visit, services limited to new beneficiary during the first 12 months of medicare enrollment"
-    },
-    {
-      "system" : "http://www.nlm.nih.gov/research/umls/hcpcs",
-      "version" : "2023",
-      "code" : "G0438",
-      "display" : "Annual wellness visit; includes a personalized prevention plan of service (pps), initial visit"
-    },
-    {
-      "system" : "http://www.nlm.nih.gov/research/umls/hcpcs",
-      "version" : "2023",
-      "code" : "G0439",
-      "display" : "Annual wellness visit, includes a personalized prevention plan of service (pps), subsequent visit"
-    }]
+      }
+    ]
   }
 }

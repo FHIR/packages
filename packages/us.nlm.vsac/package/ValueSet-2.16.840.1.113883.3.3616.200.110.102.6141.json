@@ -3,78 +3,86 @@
   "id" : "2.16.840.1.113883.3.3616.200.110.102.6141",
   "meta" : {
     "versionId" : "5",
-    "lastUpdated" : "2020-08-18T10:21:27.000-04:00",
-    "profile" : ["http://hl7.org/fhir/StructureDefinition/shareablevalueset",
-    "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"]
+    "lastUpdated" : "2023-12-21T17:43:03.000-05:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-valueset-cqfm",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "extension" : [{
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
-    "valueString" : "Clinical Architecture"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
-    "valueDate" : "2023-06-21"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
-    "valueDate" : "2020-08-18"
-  }],
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "Clinical Architecture"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2023-06-21"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2020-07-10"
+    }
+  ],
   "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.3616.200.110.102.6141",
-  "identifier" : [{
-    "system" : "urn:ietf:rfc:3986",
-    "value" : "urn:oid:2.16.840.1.113883.3.3616.200.110.102.6141"
-  }],
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113883.3.3616.200.110.102.6141"
+    }
+  ],
   "version" : "20200710",
   "name" : "COVID19SNOMEDValueSetForHistoryOfGuillainBarreSyndrome",
   "title" : "COVID19 SNOMED Value Set for History of Guillain Barre Syndrome",
-  "status" : "active",
+  "status" : "retired",
   "experimental" : false,
   "date" : "2023-06-21T18:16:37-04:00",
   "publisher" : "Clinical Architecture",
-  "jurisdiction" : [{
-    "extension" : [{
-      "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
-      "valueString" : "UNKNOWN"
-    }]
-  }],
+  "jurisdiction" : [
+    {
+      "coding" : [
+        {
+          "system" : "urn:iso:std:iso:3166",
+          "code" : "US"
+        }
+      ]
+    }
+  ],
   "purpose" : "(Clinical Focus: This set of values contains terms related to personal history of Guillain-Barre and is listed on the CDC SARS-CoV-2 hospitalization surveillance case report form.),(Data Element Scope: ),(Inclusion Criteria: Includes personal history of Guillain-Barre.),(Exclusion Criteria: )",
   "compose" : {
-    "include" : [{
-      "system" : "http://snomed.info/sct",
-      "concept" : [{
+    "include" : [
+      {
+        "system" : "http://snomed.info/sct",
+        "concept" : [
+          {
+            "code" : "128731000119101",
+            "display" : "History of Guillain Barre syndrome (situation)"
+          },
+          {
+            "code" : "455301000124100",
+            "display" : "History of Guillain-Barre syndrome due to influenza immunization (situation)"
+          }
+        ]
+      }
+    ]
+  },
+  "expansion" : {
+    "identifier" : "urn:uuid:6576dc2b-1287-4b23-90b7-0e4e21368e9e",
+    "timestamp" : "2024-06-14T16:22:56-04:00",
+    "total" : 2,
+    "contains" : [
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
         "code" : "128731000119101",
         "display" : "History of Guillain Barre syndrome (situation)"
       },
       {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
         "code" : "455301000124100",
         "display" : "History of Guillain-Barre syndrome due to influenza immunization (situation)"
-      }]
-    }]
-  },
-  "expansion" : {
-    "identifier" : "urn:uuid:d5c7123e-de0f-4f95-af29-d373e4fad59b",
-    "timestamp" : "2023-09-26T09:47:48-04:00",
-    "total" : 2,
-    "offset" : 0,
-    "parameter" : [{
-      "name" : "count",
-      "valueInteger" : 1000
-    },
-    {
-      "name" : "offset",
-      "valueInteger" : 0
-    }],
-    "contains" : [{
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "128731000119101",
-      "display" : "History of Guillain Barre syndrome (situation)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "455301000124100",
-      "display" : "History of Guillain-Barre syndrome due to influenza immunization (situation)"
-    }]
+      }
+    ]
   }
 }

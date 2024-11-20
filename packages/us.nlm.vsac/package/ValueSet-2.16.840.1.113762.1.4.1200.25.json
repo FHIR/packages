@@ -3,78 +3,86 @@
   "id" : "2.16.840.1.113762.1.4.1200.25",
   "meta" : {
     "versionId" : "4",
-    "lastUpdated" : "2020-11-22T07:02:22.000-05:00",
-    "profile" : ["http://hl7.org/fhir/StructureDefinition/shareablevalueset",
-    "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"]
+    "lastUpdated" : "2023-12-21T17:43:03.000-05:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-valueset-cqfm",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "extension" : [{
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
-    "valueString" : "Cliniwiz Author"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
-    "valueDate" : "2022-12-15"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
-    "valueDate" : "2020-11-22"
-  }],
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "Cliniwiz Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2024-06-03"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2020-11-22"
+    }
+  ],
   "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1200.25",
-  "identifier" : [{
-    "system" : "urn:ietf:rfc:3986",
-    "value" : "urn:oid:2.16.840.1.113762.1.4.1200.25"
-  }],
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113762.1.4.1200.25"
+    }
+  ],
   "version" : "20201122",
   "name" : "HemodynamicallyUnstable",
   "title" : "Hemodynamically Unstable",
-  "status" : "active",
+  "status" : "retired",
   "experimental" : false,
   "date" : "2020-11-22T07:02:22-05:00",
   "publisher" : "Cliniwiz Steward",
-  "jurisdiction" : [{
-    "extension" : [{
-      "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
-      "valueString" : "UNKNOWN"
-    }]
-  }],
+  "jurisdiction" : [
+    {
+      "coding" : [
+        {
+          "system" : "urn:iso:std:iso:3166",
+          "code" : "US"
+        }
+      ]
+    }
+  ],
   "purpose" : "(Clinical Focus: ),(Data Element Scope: ),(Inclusion Criteria: ),(Exclusion Criteria: )",
   "compose" : {
-    "include" : [{
-      "system" : "http://www.nlm.nih.gov/research/umls",
-      "concept" : [{
+    "include" : [
+      {
+        "system" : "http://www.nlm.nih.gov/research/umls",
+        "concept" : [
+          {
+            "code" : "C0020683",
+            "display" : "Hypovolemic Shock"
+          },
+          {
+            "code" : "C0546884",
+            "display" : "Hypovolemia"
+          }
+        ]
+      }
+    ]
+  },
+  "expansion" : {
+    "identifier" : "urn:uuid:a99578c6-ec83-4d77-b0a8-1dfba63edb3c",
+    "timestamp" : "2024-06-14T13:24:46-04:00",
+    "total" : 2,
+    "contains" : [
+      {
+        "system" : "http://www.nlm.nih.gov/research/umls",
+        "version" : "2023AB",
         "code" : "C0020683",
         "display" : "Hypovolemic Shock"
       },
       {
+        "system" : "http://www.nlm.nih.gov/research/umls",
+        "version" : "2023AB",
         "code" : "C0546884",
         "display" : "Hypovolemia"
-      }]
-    }]
-  },
-  "expansion" : {
-    "identifier" : "urn:uuid:60eb6be0-17c7-4be3-bb3a-67db7595c37f",
-    "timestamp" : "2023-09-26T10:46:46-04:00",
-    "total" : 2,
-    "offset" : 0,
-    "parameter" : [{
-      "name" : "count",
-      "valueInteger" : 1000
-    },
-    {
-      "name" : "offset",
-      "valueInteger" : 0
-    }],
-    "contains" : [{
-      "system" : "http://www.nlm.nih.gov/research/umls",
-      "version" : "2023AA",
-      "code" : "C0020683",
-      "display" : "Hypovolemic Shock"
-    },
-    {
-      "system" : "http://www.nlm.nih.gov/research/umls",
-      "version" : "2023AA",
-      "code" : "C0546884",
-      "display" : "Hypovolemia"
-    }]
+      }
+    ]
   }
 }

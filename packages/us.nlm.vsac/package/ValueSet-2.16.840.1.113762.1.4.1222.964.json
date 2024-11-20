@@ -3,105 +3,113 @@
   "id" : "2.16.840.1.113762.1.4.1222.964",
   "meta" : {
     "versionId" : "5",
-    "lastUpdated" : "2022-11-12T17:17:59.000-05:00",
-    "profile" : ["http://hl7.org/fhir/StructureDefinition/shareablevalueset",
-    "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"]
+    "lastUpdated" : "2023-12-21T17:43:03.000-05:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-valueset-cqfm",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "extension" : [{
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
-    "valueString" : "MCC eCare Plan Author"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-keyWord",
-    "valueString" : "MCC_IG"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
-    "valueDate" : "2022-12-15"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
-    "valueDate" : "2022-11-12"
-  }],
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "MCC eCare Plan Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-keyWord",
+      "valueString" : "MCC_IG"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2024-06-03"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2021-09-22"
+    }
+  ],
   "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1222.964",
-  "identifier" : [{
-    "system" : "urn:ietf:rfc:3986",
-    "value" : "urn:oid:2.16.840.1.113762.1.4.1222.964"
-  }],
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113762.1.4.1222.964"
+    }
+  ],
   "version" : "20210922",
   "name" : "MedicationManagementADLOrIADL",
   "title" : "Medication Management (ADL or IADL)",
-  "status" : "active",
+  "status" : "retired",
   "experimental" : false,
   "date" : "2021-09-22T01:00:54-04:00",
   "publisher" : "HL7 Patient Care WG Steward",
   "description" : "This value set may undergo changes until the HL7 Multiple Chronic Care FHIR IG is formally published in 2024.",
-  "jurisdiction" : [{
-    "extension" : [{
-      "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
-      "valueString" : "UNKNOWN"
-    }]
-  }],
+  "jurisdiction" : [
+    {
+      "coding" : [
+        {
+          "system" : "urn:iso:std:iso:3166",
+          "code" : "US"
+        }
+      ]
+    }
+  ],
   "purpose" : "(Clinical Focus: This set of values addresses terms representing an observation of medication management (ADL/IADL) ability.),(Data Element Scope: The intent of this set of values is to identify patients who have a/an assessment of the person's ability to manage medications as an adl/iadl.),(Inclusion Criteria: Includes LOINC codes for Medication Management (ADL or IADL).),(Exclusion Criteria: Terms not representative of observable encoded terms that may have values indicating Medication Management (ADL or IADL).)",
   "compose" : {
-    "include" : [{
-      "system" : "http://loinc.org",
-      "version" : "2.74",
-      "filter" : [{
-        "property" : "concept",
-        "op" : "in",
-        "value" : "94984-2,94983-4,94971-9,94985-9,94972-7,94970-1"
-      }]
-    }]
+    "include" : [
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
+        "filter" : [
+          {
+            "property" : "concept",
+            "op" : "in",
+            "value" : "94984-2,94983-4,94971-9,94985-9,94972-7,94970-1"
+          }
+        ]
+      }
+    ]
   },
   "expansion" : {
-    "identifier" : "urn:uuid:f2a43750-e33a-4d9f-ad88-9e133d48f5cf",
-    "timestamp" : "2023-09-26T11:43:15-04:00",
+    "identifier" : "urn:uuid:95772fb3-1623-421e-9a4c-c446173e19a4",
+    "timestamp" : "2024-06-14T14:35:59-04:00",
     "total" : 6,
-    "offset" : 0,
-    "parameter" : [{
-      "name" : "count",
-      "valueInteger" : 1000
-    },
-    {
-      "name" : "offset",
-      "valueInteger" : 0
-    }],
-    "contains" : [{
-      "system" : "http://loinc.org",
-      "version" : "2.74",
-      "code" : "94970-1",
-      "display" : "Medication management.oral medications - most dependent performance during the past month [CMS Assessment]"
-    },
-    {
-      "system" : "http://loinc.org",
-      "version" : "2.74",
-      "code" : "94971-9",
-      "display" : "Medication management.inhalant/mist medications - most dependent performance during the past month [CMS Assessment]"
-    },
-    {
-      "system" : "http://loinc.org",
-      "version" : "2.74",
-      "code" : "94972-7",
-      "display" : "Medication management.injectable medications - most dependent performance during the past month [CMS Assessment]"
-    },
-    {
-      "system" : "http://loinc.org",
-      "version" : "2.74",
-      "code" : "94983-4",
-      "display" : "Medication management.oral medications - usual functional ability during assessment period [CMS Assessment]"
-    },
-    {
-      "system" : "http://loinc.org",
-      "version" : "2.74",
-      "code" : "94984-2",
-      "display" : "Medication management.inhalant/mist medications - usual functional ability during assessment period [CMS Assessment]"
-    },
-    {
-      "system" : "http://loinc.org",
-      "version" : "2.74",
-      "code" : "94985-9",
-      "display" : "Medication management.injectable medications - usual functional ability during assessment period [CMS Assessment]"
-    }]
+    "contains" : [
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
+        "code" : "94970-1",
+        "display" : "Medication management.oral medications - most dependent performance during the past month [CMS Assessment]"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
+        "code" : "94971-9",
+        "display" : "Medication management.inhalant/mist medications - most dependent performance during the past month [CMS Assessment]"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
+        "code" : "94972-7",
+        "display" : "Medication management.injectable medications - most dependent performance during the past month [CMS Assessment]"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
+        "code" : "94983-4",
+        "display" : "Medication management.oral medications - usual functional ability during assessment period [CMS Assessment]"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
+        "code" : "94984-2",
+        "display" : "Medication management.inhalant/mist medications - usual functional ability during assessment period [CMS Assessment]"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
+        "code" : "94985-9",
+        "display" : "Medication management.injectable medications - usual functional ability during assessment period [CMS Assessment]"
+      }
+    ]
   }
 }

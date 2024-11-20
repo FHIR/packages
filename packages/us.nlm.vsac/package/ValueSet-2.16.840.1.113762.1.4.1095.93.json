@@ -2,208 +2,136 @@
   "resourceType" : "ValueSet",
   "id" : "2.16.840.1.113762.1.4.1095.93",
   "meta" : {
-    "versionId" : "5",
-    "lastUpdated" : "2023-02-15T01:02:57.000-05:00",
-    "profile" : ["http://hl7.org/fhir/StructureDefinition/shareablevalueset",
-    "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"]
+    "versionId" : "12",
+    "lastUpdated" : "2024-01-17T01:08:53.000-05:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-valueset-cqfm",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "extension" : [{
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
-    "valueString" : "AND Author"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
-    "valueDate" : "2023-02-15"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
-    "valueDate" : "2023-02-15"
-  }],
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "AND Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2024-01-17"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2024-01-17"
+    }
+  ],
   "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1095.93",
-  "identifier" : [{
-    "system" : "urn:ietf:rfc:3986",
-    "value" : "urn:oid:2.16.840.1.113762.1.4.1095.93"
-  }],
-  "version" : "20230215",
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113762.1.4.1095.93"
+    }
+  ],
+  "version" : "20240117",
   "name" : "NutritionCarePlan",
   "title" : "Nutrition Care Plan",
   "status" : "active",
-  "date" : "2023-02-15T01:02:57-05:00",
+  "date" : "2024-01-17T01:08:53-05:00",
   "publisher" : "AND Steward",
-  "jurisdiction" : [{
-    "extension" : [{
-      "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
-      "valueString" : "UNKNOWN"
-    }]
-  }],
-  "purpose" : "(Clinical Focus: A Nutrition Care Plan includes assessment, intervention and nutrition diagnosis data which identify an individuals plan.),(Data Element Scope: Data elements include those used to assess patient's nutritional status and recommend interventions for optimal nutrition care.),(Inclusion Criteria: Data elements are those used by a nutrition and dietetics professional to create a nutrition care plan.),(Exclusion Criteria: N/A)",
+  "jurisdiction" : [
+    {
+      "coding" : [
+        {
+          "system" : "urn:iso:std:iso:3166",
+          "code" : "US"
+        }
+      ]
+    }
+  ],
+  "purpose" : "(Clinical Focus: Data supporting that an plan of care for nutrition was completed.),(Data Element Scope: Nutrition intervention (procedure or regime/therapy) data elements for optimal nutrition care.),(Inclusion Criteria: Data elements to indicate nutrition and dietetics professional created a nutrition care plan.),(Exclusion Criteria: Nutrition screening, assessment, or diagnosis data elements.)",
   "compose" : {
-    "include" : [{
-      "system" : "http://snomed.info/sct",
-      "concept" : [{
-        "code" : "182922004",
-        "display" : "Dietary regime (regime/therapy)"
+    "include" : [
+      {
+        "system" : "http://snomed.info/sct",
+        "concept" : [
+          {
+            "code" : "1279742004",
+            "display" : "Development of nutrition care plan (procedure)"
+          },
+          {
+            "code" : "386372009",
+            "display" : "Nutrition management (regime/therapy)"
+          },
+          {
+            "code" : "386373004",
+            "display" : "Nutrition therapy (regime/therapy)"
+          },
+          {
+            "code" : "410172000",
+            "display" : "Nutrition care management (procedure)"
+          },
+          {
+            "code" : "410175003",
+            "display" : "Dietary regime management (procedure)"
+          },
+          {
+            "code" : "413315001",
+            "display" : "Nutrition / feeding management (regime/therapy)"
+          },
+          {
+            "code" : "445101000124100",
+            "display" : "Collaborating in nutrition therapy (procedure)"
+          }
+        ]
+      }
+    ]
+  },
+  "expansion" : {
+    "identifier" : "urn:uuid:d146e526-8bdf-4e39-8d8f-03e480501f75",
+    "timestamp" : "2024-06-14T11:04:09-04:00",
+    "total" : 7,
+    "contains" : [
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "1279742004",
+        "display" : "Development of nutrition care plan (procedure)"
       },
       {
-        "code" : "225372007",
-        "display" : "Total parenteral nutrition (regime/therapy)"
-      },
-      {
-        "code" : "229912004",
-        "display" : "Enteral feeding (regime/therapy)"
-      },
-      {
-        "code" : "384760004",
-        "display" : "Feeding and dietary regime (regime/therapy)"
-      },
-      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
         "code" : "386372009",
         "display" : "Nutrition management (regime/therapy)"
       },
       {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
         "code" : "386373004",
         "display" : "Nutrition therapy (regime/therapy)"
       },
       {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
         "code" : "410172000",
         "display" : "Nutrition care management (procedure)"
       },
       {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
         "code" : "410175003",
         "display" : "Dietary regime management (procedure)"
       },
       {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
         "code" : "413315001",
         "display" : "Nutrition / feeding management (regime/therapy)"
       },
       {
-        "code" : "418995006",
-        "display" : "Feeding regime (regime/therapy)"
-      },
-      {
-        "code" : "435691000124100",
-        "display" : "Diet modified for specific foods or ingredients (regime/therapy)"
-      },
-      {
-        "code" : "441041000124100",
-        "display" : "Counseling about nutrition (regime/therapy)"
-      },
-      {
-        "code" : "448556005",
-        "display" : "Oral nutritional support (regime/therapy)"
-      },
-      {
-        "code" : "61310001",
-        "display" : "Nutrition education (procedure)"
-      },
-      {
-        "code" : "709564003",
-        "display" : "Restricting oral intake (regime/therapy)"
-      }]
-    }]
-  },
-  "expansion" : {
-    "identifier" : "urn:uuid:c6a3816e-4547-4de6-8364-911a517ce07b",
-    "timestamp" : "2023-09-26T12:10:24-04:00",
-    "total" : 15,
-    "offset" : 0,
-    "parameter" : [{
-      "name" : "count",
-      "valueInteger" : 1000
-    },
-    {
-      "name" : "offset",
-      "valueInteger" : 0
-    }],
-    "contains" : [{
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "182922004",
-      "display" : "Dietary regime (regime/therapy)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "225372007",
-      "display" : "Total parenteral nutrition (regime/therapy)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "229912004",
-      "display" : "Enteral feeding (regime/therapy)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "384760004",
-      "display" : "Feeding and dietary regime (regime/therapy)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "386372009",
-      "display" : "Nutrition management (regime/therapy)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "386373004",
-      "display" : "Nutrition therapy (regime/therapy)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "410172000",
-      "display" : "Nutrition care management (procedure)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "410175003",
-      "display" : "Dietary regime management (procedure)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "413315001",
-      "display" : "Nutrition / feeding management (regime/therapy)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "418995006",
-      "display" : "Feeding regime (regime/therapy)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "435691000124100",
-      "display" : "Diet modified for specific foods or ingredients (regime/therapy)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "441041000124100",
-      "display" : "Counseling about nutrition (regime/therapy)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "448556005",
-      "display" : "Oral nutritional support (regime/therapy)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "61310001",
-      "display" : "Nutrition education (procedure)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "709564003",
-      "display" : "Restricting oral intake (regime/therapy)"
-    }]
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "445101000124100",
+        "display" : "Collaborating in nutrition therapy (procedure)"
+      }
+    ]
   }
 }

@@ -3,75 +3,83 @@
   "id" : "2.16.840.1.113762.1.4.1222.978",
   "meta" : {
     "versionId" : "5",
-    "lastUpdated" : "2022-11-12T18:29:11.000-05:00",
-    "profile" : ["http://hl7.org/fhir/StructureDefinition/shareablevalueset",
-    "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"]
+    "lastUpdated" : "2023-12-21T17:43:03.000-05:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-valueset-cqfm",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "extension" : [{
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
-    "valueString" : "MCC eCare Plan Author"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-keyWord",
-    "valueString" : "MCC_IG"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
-    "valueDate" : "2022-12-15"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
-    "valueDate" : "2022-11-12"
-  }],
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "MCC eCare Plan Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-keyWord",
+      "valueString" : "MCC_IG"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2024-06-03"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2021-09-22"
+    }
+  ],
   "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1222.978",
-  "identifier" : [{
-    "system" : "urn:ietf:rfc:3986",
-    "value" : "urn:oid:2.16.840.1.113762.1.4.1222.978"
-  }],
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113762.1.4.1222.978"
+    }
+  ],
   "version" : "20210922",
   "name" : "PhysicalActivityLevelDevice",
   "title" : "Physical Activity Level,  Device",
-  "status" : "active",
+  "status" : "retired",
   "experimental" : false,
   "date" : "2021-09-22T01:00:56-04:00",
   "publisher" : "HL7 Patient Care WG Steward",
   "description" : "This value set may undergo changes until the HL7 Multiple Chronic Care FHIR IG is formally published in 2024.",
-  "jurisdiction" : [{
-    "extension" : [{
-      "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
-      "valueString" : "UNKNOWN"
-    }]
-  }],
+  "jurisdiction" : [
+    {
+      "coding" : [
+        {
+          "system" : "urn:iso:std:iso:3166",
+          "code" : "US"
+        }
+      ]
+    }
+  ],
   "purpose" : "(Clinical Focus: This set of values addresses terms representing an observation of physical activity level measured by a device.),(Data Element Scope: The intent of this set of values is to identify the person's level of physical activity as identified by a device (e.g., fitbit, apple watch, etc).),(Inclusion Criteria: Includes LOINC codes for Physical Activity Level  as measured by a Device.),(Exclusion Criteria: Terms not representative of observable encoded terms that may have values indicating Physical Activity Level as measured by a Device.)",
   "compose" : {
-    "include" : [{
-      "system" : "http://loinc.org",
-      "version" : "2.74",
-      "filter" : [{
-        "property" : "concept",
-        "op" : "in",
-        "value" : "80493-0"
-      }]
-    }]
+    "include" : [
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
+        "filter" : [
+          {
+            "property" : "concept",
+            "op" : "in",
+            "value" : "80493-0"
+          }
+        ]
+      }
+    ]
   },
   "expansion" : {
-    "identifier" : "urn:uuid:ea6eba44-7773-4313-a1c3-c5f4617f8348",
-    "timestamp" : "2023-09-26T12:31:45-04:00",
+    "identifier" : "urn:uuid:56fd5b7b-2cab-4be5-adcf-9aa6bb8a9581",
+    "timestamp" : "2024-06-14T14:36:16-04:00",
     "total" : 1,
-    "offset" : 0,
-    "parameter" : [{
-      "name" : "count",
-      "valueInteger" : 1000
-    },
-    {
-      "name" : "offset",
-      "valueInteger" : 0
-    }],
-    "contains" : [{
-      "system" : "http://loinc.org",
-      "version" : "2.74",
-      "code" : "80493-0",
-      "display" : "Activity level [Acceleration]"
-    }]
+    "contains" : [
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
+        "code" : "80493-0",
+        "display" : "Activity level [Acceleration]"
+      }
+    ]
   }
 }

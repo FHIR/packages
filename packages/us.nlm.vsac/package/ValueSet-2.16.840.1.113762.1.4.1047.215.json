@@ -3,79 +3,87 @@
   "id" : "2.16.840.1.113762.1.4.1047.215",
   "meta" : {
     "versionId" : "15",
-    "lastUpdated" : "2018-07-11T01:12:58.000-04:00",
-    "profile" : ["http://hl7.org/fhir/StructureDefinition/shareablevalueset",
-    "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"]
+    "lastUpdated" : "2023-12-21T17:43:03.000-05:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-valueset-cqfm",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "extension" : [{
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
-    "valueString" : "Oncology Nursing Society Author"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
-    "valueDate" : "2022-12-15"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
-    "valueDate" : "2018-07-11"
-  }],
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "Oncology Nursing Society Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2024-06-03"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2018-07-11"
+    }
+  ],
   "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1047.215",
-  "identifier" : [{
-    "system" : "urn:ietf:rfc:3986",
-    "value" : "urn:oid:2.16.840.1.113762.1.4.1047.215"
-  }],
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113762.1.4.1047.215"
+    }
+  ],
   "version" : "20180711",
   "name" : "TreatmentCompleted",
   "title" : "Treatment Completed",
-  "status" : "active",
+  "status" : "retired",
   "experimental" : false,
   "date" : "2018-07-11T01:00:01-04:00",
   "publisher" : "Oncology Nursing Society Steward",
   "description" : "ONS measure set",
-  "jurisdiction" : [{
-    "extension" : [{
-      "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
-      "valueString" : "UNKNOWN"
-    }]
-  }],
+  "jurisdiction" : [
+    {
+      "coding" : [
+        {
+          "system" : "urn:iso:std:iso:3166",
+          "code" : "US"
+        }
+      ]
+    }
+  ],
   "purpose" : "(Clinical Focus: This set of values is intended to indicate that a chemotherapy cycle or treatment has been completed.),(Data Element Scope: Intended to indicate the procedure of chemotherapy has been performed.),(Inclusion Criteria: Included values to indicate that treatment is complete.),(Exclusion Criteria: Excludes the period prior to and during treatment administration.)",
   "compose" : {
-    "include" : [{
-      "system" : "http://snomed.info/sct",
-      "concept" : [{
+    "include" : [
+      {
+        "system" : "http://snomed.info/sct",
+        "concept" : [
+          {
+            "code" : "182992009",
+            "display" : "Treatment completed (situation)"
+          },
+          {
+            "code" : "413737006",
+            "display" : "Cancer hospital treatment completed (situation)"
+          }
+        ]
+      }
+    ]
+  },
+  "expansion" : {
+    "identifier" : "urn:uuid:036ca158-3bd0-42dc-9e67-29cf9a9f497e",
+    "timestamp" : "2024-06-14T10:28:56-04:00",
+    "total" : 2,
+    "contains" : [
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
         "code" : "182992009",
         "display" : "Treatment completed (situation)"
       },
       {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
         "code" : "413737006",
         "display" : "Cancer hospital treatment completed (situation)"
-      }]
-    }]
-  },
-  "expansion" : {
-    "identifier" : "urn:uuid:90136dff-a16f-4dd3-882c-5f09b24e03c7",
-    "timestamp" : "2023-09-26T13:40:54-04:00",
-    "total" : 2,
-    "offset" : 0,
-    "parameter" : [{
-      "name" : "count",
-      "valueInteger" : 1000
-    },
-    {
-      "name" : "offset",
-      "valueInteger" : 0
-    }],
-    "contains" : [{
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "182992009",
-      "display" : "Treatment completed (situation)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "413737006",
-      "display" : "Cancer hospital treatment completed (situation)"
-    }]
+      }
+    ]
   }
 }

@@ -3,99 +3,107 @@
   "id" : "2.16.840.1.113883.3.666.5.2092",
   "meta" : {
     "versionId" : "12",
-    "lastUpdated" : "2014-07-07T01:00:01.000-04:00",
-    "profile" : ["http://hl7.org/fhir/StructureDefinition/shareablevalueset",
-    "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"]
+    "lastUpdated" : "2023-12-21T17:43:03.000-05:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-valueset-cqfm",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "extension" : [{
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
-    "valueString" : "Lantana Author"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
-    "valueDate" : "2022-12-15"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
-    "valueDate" : "2014-07-07"
-  }],
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "Lantana Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2024-06-03"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2014-07-07"
+    }
+  ],
   "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.666.5.2092",
-  "identifier" : [{
-    "system" : "urn:ietf:rfc:3986",
-    "value" : "urn:oid:2.16.840.1.113883.3.666.5.2092"
-  }],
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113883.3.666.5.2092"
+    }
+  ],
   "version" : "20140707",
   "name" : "WhiteBloodCellsCount",
   "title" : "White blood cells count",
-  "status" : "active",
+  "status" : "retired",
   "experimental" : false,
   "date" : "2014-07-07T01:00:01-04:00",
   "publisher" : "Lantana",
   "description" : "Measure 0500",
-  "jurisdiction" : [{
-    "extension" : [{
-      "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
-      "valueString" : "UNKNOWN"
-    }]
-  }],
+  "jurisdiction" : [
+    {
+      "coding" : [
+        {
+          "system" : "urn:iso:std:iso:3166",
+          "code" : "US"
+        }
+      ]
+    }
+  ],
   "purpose" : "(Clinical Focus: This set of values contains lab tests commonly used for a blood, serum or plasma white blood cells count test.),(Data Element Scope: The intent of this data element is to identify patients with a lab test performed on a source of blood, serum or plasma for white blood cells. Using the Quality Data Model, this particular element would map to the Laboratory Test category.),(Inclusion Criteria: Include LOINC White blood cells count lab tests using the source of blood, serum or plasma with a reporting scale of number per volume.),(Exclusion Criteria: Exclude codes that do not meet the inclusion criteria.)",
   "compose" : {
-    "include" : [{
-      "system" : "http://loinc.org",
-      "concept" : [{
+    "include" : [
+      {
+        "system" : "http://loinc.org",
+        "concept" : [
+          {
+            "code" : "26464-8",
+            "display" : "Leukocytes [#/volume] in Blood"
+          },
+          {
+            "code" : "49498-9",
+            "display" : "Leukocytes [#/volume] in Blood by Estimate"
+          },
+          {
+            "code" : "6690-2",
+            "display" : "Leukocytes [#/volume] in Blood by Automated count"
+          },
+          {
+            "code" : "804-5",
+            "display" : "Leukocytes [#/volume] in Blood by Manual count"
+          }
+        ]
+      }
+    ]
+  },
+  "expansion" : {
+    "identifier" : "urn:uuid:73ce40cb-b347-488e-8e74-5776ffa8df95",
+    "timestamp" : "2024-06-14T17:55:57-04:00",
+    "total" : 4,
+    "contains" : [
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
         "code" : "26464-8",
         "display" : "Leukocytes [#/volume] in Blood"
       },
       {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
         "code" : "49498-9",
         "display" : "Leukocytes [#/volume] in Blood by Estimate"
       },
       {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
         "code" : "6690-2",
         "display" : "Leukocytes [#/volume] in Blood by Automated count"
       },
       {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
         "code" : "804-5",
         "display" : "Leukocytes [#/volume] in Blood by Manual count"
-      }]
-    }]
-  },
-  "expansion" : {
-    "identifier" : "urn:uuid:05dd9b87-970a-4e6b-bbd3-bbd504776095",
-    "timestamp" : "2023-09-26T13:55:41-04:00",
-    "total" : 4,
-    "offset" : 0,
-    "parameter" : [{
-      "name" : "count",
-      "valueInteger" : 1000
-    },
-    {
-      "name" : "offset",
-      "valueInteger" : 0
-    }],
-    "contains" : [{
-      "system" : "http://loinc.org",
-      "version" : "2.74",
-      "code" : "26464-8",
-      "display" : "Leukocytes [#/volume] in Blood"
-    },
-    {
-      "system" : "http://loinc.org",
-      "version" : "2.74",
-      "code" : "49498-9",
-      "display" : "Leukocytes [#/volume] in Blood by Estimate"
-    },
-    {
-      "system" : "http://loinc.org",
-      "version" : "2.74",
-      "code" : "6690-2",
-      "display" : "Leukocytes [#/volume] in Blood by Automated count"
-    },
-    {
-      "system" : "http://loinc.org",
-      "version" : "2.74",
-      "code" : "804-5",
-      "display" : "Leukocytes [#/volume] in Blood by Manual count"
-    }]
+      }
+    ]
   }
 }

@@ -2,73 +2,100 @@
   "resourceType" : "ValueSet",
   "id" : "2.16.840.1.113762.1.4.1029.254",
   "meta" : {
-    "versionId" : "10",
-    "lastUpdated" : "2021-05-14T14:48:22.000-04:00",
-    "profile" : ["http://hl7.org/fhir/StructureDefinition/shareablevalueset",
-    "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"]
+    "versionId" : "16",
+    "lastUpdated" : "2024-02-10T01:11:25.000-05:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-valueset-cqfm",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "extension" : [{
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
-    "valueString" : "Joint Commission Author"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-keyWord",
-    "valueString" : "PC-07"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
-    "valueDate" : "2023-02-14"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
-    "valueDate" : "2021-05-14"
-  }],
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "Joint Commission Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-keyWord",
+      "valueString" : "PC-07"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2024-02-10"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2024-02-10"
+    }
+  ],
   "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1029.254",
-  "identifier" : [{
-    "system" : "urn:ietf:rfc:3986",
-    "value" : "urn:oid:2.16.840.1.113762.1.4.1029.254"
-  }],
-  "version" : "20210314",
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113762.1.4.1029.254"
+    }
+  ],
+  "version" : "20240210",
   "name" : "Ventilation",
   "title" : "Ventilation",
   "status" : "active",
-  "experimental" : false,
-  "date" : "2021-03-14T18:00:16-04:00",
+  "date" : "2024-02-10T01:11:25-05:00",
   "publisher" : "Joint Commission",
-  "jurisdiction" : [{
-    "extension" : [{
-      "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
-      "valueString" : "UNKNOWN"
-    }]
-  }],
+  "jurisdiction" : [
+    {
+      "coding" : [
+        {
+          "system" : "urn:iso:std:iso:3166",
+          "code" : "US"
+        }
+      ]
+    }
+  ],
   "purpose" : "(Clinical Focus: The purpose of this value set is to represent concepts of procedures for ventilation.),(Data Element Scope: This value set may use a model element related to\u00a0procedure.),(Inclusion Criteria: Includes concepts that represent procedures of a ventilation.),(Exclusion Criteria: No exclusions.)",
   "compose" : {
-    "include" : [{
-      "system" : "http://snomed.info/sct",
-      "concept" : [{
-        "code" : "47545007",
-        "display" : "Continuous positive airway pressure ventilation treatment (regime/therapy)"
-      }]
-    }]
+    "include" : [
+      {
+        "system" : "http://snomed.info/sct",
+        "concept" : [
+          {
+            "code" : "1186678006",
+            "display" : "Continuous positive airway pressure with an assured constant airway pressure adjunct (regime/therapy)"
+          },
+          {
+            "code" : "448134000",
+            "display" : "Continuous positive airway pressure to nonventilated lung (regime/therapy)"
+          },
+          {
+            "code" : "47545007",
+            "display" : "Continuous positive airway pressure ventilation treatment (regime/therapy)"
+          }
+        ]
+      }
+    ]
   },
   "expansion" : {
-    "identifier" : "urn:uuid:84dd65c7-b1f9-4d23-8d99-77f84da8cc46",
-    "timestamp" : "2023-09-26T13:51:08-04:00",
-    "total" : 1,
-    "offset" : 0,
-    "parameter" : [{
-      "name" : "count",
-      "valueInteger" : 1000
-    },
-    {
-      "name" : "offset",
-      "valueInteger" : 0
-    }],
-    "contains" : [{
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "47545007",
-      "display" : "Continuous positive airway pressure ventilation treatment (regime/therapy)"
-    }]
+    "identifier" : "urn:uuid:db665d28-2502-4a12-ab7d-81fcaa90a03d",
+    "timestamp" : "2024-06-14T09:23:18-04:00",
+    "total" : 3,
+    "contains" : [
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "1186678006",
+        "display" : "Continuous positive airway pressure with an assured constant airway pressure adjunct (regime/therapy)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "448134000",
+        "display" : "Continuous positive airway pressure to nonventilated lung (regime/therapy)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "47545007",
+        "display" : "Continuous positive airway pressure ventilation treatment (regime/therapy)"
+      }
+    ]
   }
 }

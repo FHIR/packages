@@ -3,78 +3,90 @@
   "id" : "2.16.840.1.113762.1.4.1046.114",
   "meta" : {
     "versionId" : "12",
-    "lastUpdated" : "2015-11-05T01:00:01.000-05:00",
-    "profile" : ["http://hl7.org/fhir/StructureDefinition/shareablevalueset",
-    "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"]
+    "lastUpdated" : "2023-12-21T17:43:03.000-05:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-valueset-cqfm",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "extension" : [{
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
-    "valueString" : "Lantana Author"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
-    "valueDate" : "2022-12-15"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
-    "valueDate" : "2015-11-05"
-  }],
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "Lantana Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-keyWord",
+      "valueString" : "Not_In_Use"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2024-06-03"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2015-11-05"
+    }
+  ],
   "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1046.114",
-  "identifier" : [{
-    "system" : "urn:ietf:rfc:3986",
-    "value" : "urn:oid:2.16.840.1.113762.1.4.1046.114"
-  }],
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113762.1.4.1046.114"
+    }
+  ],
   "version" : "20151105",
   "name" : "GlasgowComaScoreEyeOpening",
   "title" : "Glasgow Coma Score Eye Opening",
-  "status" : "active",
+  "status" : "retired",
   "experimental" : false,
   "date" : "2015-11-05T01:00:01-05:00",
   "publisher" : "Joint Commission",
-  "jurisdiction" : [{
-    "extension" : [{
-      "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
-      "valueString" : "UNKNOWN"
-    }]
-  }],
+  "jurisdiction" : [
+    {
+      "coding" : [
+        {
+          "system" : "urn:iso:std:iso:3166",
+          "code" : "US"
+        }
+      ]
+    }
+  ],
   "purpose" : "(Clinical Focus: This set of values is part of a neurological assessment tool-the Glasgow Coma Score Eye Opening.  The person performing the physical exam determines based on clinical judgment and Glasgow Coma Score parameters at what level the eye opening is currently.),(Data Element Scope: The intent of this data element is to identify patients who have had physical exam performed which includes the Glasgow Coma Score Eye Opening.  Using the Quality Data Model, this element maps to the Physical, Exam: Performed datatype.),(Inclusion Criteria: This value set includes concepts that identify Glasgow Coma Score Eye Component for the best eye response score by a patient.),(Exclusion Criteria: None)",
   "compose" : {
-    "include" : [{
-      "system" : "http://loinc.org",
-      "concept" : [{
+    "include" : [
+      {
+        "system" : "http://loinc.org",
+        "concept" : [
+          {
+            "code" : "11324-1",
+            "display" : "Glasgow coma score eye opening at First encounter"
+          },
+          {
+            "code" : "9267-6",
+            "display" : "Glasgow coma score eye opening"
+          }
+        ]
+      }
+    ]
+  },
+  "expansion" : {
+    "identifier" : "urn:uuid:7717fc8c-54d4-4526-a99c-54c1ebf7800d",
+    "timestamp" : "2024-06-14T10:27:16-04:00",
+    "total" : 2,
+    "contains" : [
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
         "code" : "11324-1",
         "display" : "Glasgow coma score eye opening at First encounter"
       },
       {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
         "code" : "9267-6",
         "display" : "Glasgow coma score eye opening"
-      }]
-    }]
-  },
-  "expansion" : {
-    "identifier" : "urn:uuid:ce735afc-fdd6-441b-851f-6f2d35dc4bcf",
-    "timestamp" : "2023-09-26T10:37:35-04:00",
-    "total" : 2,
-    "offset" : 0,
-    "parameter" : [{
-      "name" : "count",
-      "valueInteger" : 1000
-    },
-    {
-      "name" : "offset",
-      "valueInteger" : 0
-    }],
-    "contains" : [{
-      "system" : "http://loinc.org",
-      "version" : "2.74",
-      "code" : "11324-1",
-      "display" : "Glasgow coma score eye opening at First encounter"
-    },
-    {
-      "system" : "http://loinc.org",
-      "version" : "2.74",
-      "code" : "9267-6",
-      "display" : "Glasgow coma score eye opening"
-    }]
+      }
+    ]
   }
 }

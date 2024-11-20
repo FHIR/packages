@@ -2,126 +2,133 @@
   "resourceType" : "ValueSet",
   "id" : "2.16.840.1.113762.1.4.1247.121",
   "meta" : {
-    "versionId" : "5",
-    "lastUpdated" : "2022-07-02T01:02:41.000-04:00",
-    "profile" : ["http://hl7.org/fhir/StructureDefinition/shareablevalueset",
-    "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"]
+    "versionId" : "11",
+    "lastUpdated" : "2024-06-04T01:21:19.000-04:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-valueset-cqfm",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "extension" : [{
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
-    "valueString" : "The Gravity Project Author"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
-    "valueDate" : "2022-12-15"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
-    "valueDate" : "2022-07-02"
-  }],
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "The Gravity Project Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2024-06-04"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2024-06-04"
+    }
+  ],
   "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1247.121",
-  "identifier" : [{
-    "system" : "urn:ietf:rfc:3986",
-    "value" : "urn:oid:2.16.840.1.113762.1.4.1247.121"
-  }],
-  "version" : "20220702",
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113762.1.4.1247.121"
+    }
+  ],
+  "version" : "20240604",
   "name" : "HealthInsuranceCoverageStatusGoals",
   "title" : "Health Insurance Coverage Status Goals",
   "status" : "active",
-  "experimental" : false,
-  "date" : "2022-07-02T01:02:41-04:00",
+  "date" : "2024-06-04T01:21:19-04:00",
   "publisher" : "The Gravity Project Steward",
   "description" : "There are currently no existing domain specific LOINC codes for Health Insurance Coverage Status. That value set will be added to this group once it is available.",
-  "jurisdiction" : [{
-    "extension" : [{
-      "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
-      "valueString" : "UNKNOWN"
-    }]
-  }],
-  "purpose" : "(Clinical Focus: <insert metadata> The value sets in this group represent the goals associated with Health Insurance Coverage Status as identified by the Gravity Project),(Data Element Scope: Supports the Gravity SDOH Clinical Care FHIR Implementation Guide for the exchange of goal.description),(Inclusion Criteria: Includes SNOMED CT goals that have been identified through the Gravity Project community consensus voting process),(Exclusion Criteria: N/A)",
+  "jurisdiction" : [
+    {
+      "coding" : [
+        {
+          "system" : "urn:iso:std:iso:3166",
+          "code" : "US"
+        }
+      ]
+    }
+  ],
+  "purpose" : "(Clinical Focus: This set of values represent goals for Health Insurance Coverage Status as selected by the Gravity Project.),(Data Element Scope: In the FHIR Goal resource, these values may be used for Goal.description (e.g., for the SDOHCC Goal profile in the Gravity SDOH Clinical Care FHIR Implementation Guide).),(Inclusion Criteria: Includes SNOMED CT goals for Health Insurance Coverage Status as selected by the Gravity Project.),(Exclusion Criteria: NA)",
   "compose" : {
-    "include" : [{
-      "valueSet" : ["http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1247.111"]
-    }]
+    "include" : [
+      {
+        "valueSet" : [
+          "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1247.111"
+        ]
+      }
+    ]
   },
   "expansion" : {
-    "identifier" : "urn:uuid:0f592bc0-520a-4a89-a2dc-0bb6d73c79a8",
-    "timestamp" : "2023-09-26T10:42:39-04:00",
+    "identifier" : "urn:uuid:0e33e115-ae50-428e-bb43-4b20af6e5cfe",
+    "timestamp" : "2024-06-14T14:55:35-04:00",
     "total" : 11,
-    "offset" : 0,
-    "parameter" : [{
-      "name" : "count",
-      "valueInteger" : 1000
-    },
-    {
-      "name" : "offset",
-      "valueInteger" : 0
-    }],
-    "contains" : [{
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "185952002",
-      "display" : "Private health insurance held (finding)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "432681000124109",
-      "display" : "Enrolled in Department of Veterans Affairs health insurance coverage (finding)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "432691000124107",
-      "display" : "Enrolled in employee group health insurance coverage (finding)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "433641000124108",
-      "display" : "Enrolled in Medicaid health insurance coverage (finding)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "433651000124105",
-      "display" : "Enrolled in Medicare advantage health insurance coverage (finding)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "433661000124107",
-      "display" : "Enrolled in Medicare health insurance coverage (finding)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "671181000124106",
-      "display" : "Enrolled in Indian Health Service coverage (finding)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "671191000124109",
-      "display" : "Enrolled in Children's Health Insurance Program (finding)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "671231000124104",
-      "display" : "Enrolled in Medicare drug plan (finding)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "671241000124109",
-      "display" : "Enrolled in Tricare health insurance (finding)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "671251000124106",
-      "display" : "Enrolled in Medigap health insurance (finding)"
-    }]
+    "contains" : [
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "185952002",
+        "display" : "Private health insurance held (finding)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "432681000124109",
+        "display" : "Enrolled in Department of Veterans Affairs health insurance coverage (finding)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "432691000124107",
+        "display" : "Enrolled in employee group health insurance coverage (finding)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "433641000124108",
+        "display" : "Enrolled in Medicaid health insurance coverage (finding)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "433651000124105",
+        "display" : "Enrolled in Medicare advantage health insurance coverage (finding)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "433661000124107",
+        "display" : "Enrolled in Medicare health insurance coverage (finding)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "671181000124106",
+        "display" : "Enrolled in Indian Health Service coverage (finding)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "671191000124109",
+        "display" : "Enrolled in Children's Health Insurance Program (finding)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "671231000124104",
+        "display" : "Enrolled in Medicare drug plan (finding)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "671241000124109",
+        "display" : "Enrolled in Tricare health insurance (finding)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "671251000124106",
+        "display" : "Enrolled in Medigap health insurance (finding)"
+      }
+    ]
   }
 }

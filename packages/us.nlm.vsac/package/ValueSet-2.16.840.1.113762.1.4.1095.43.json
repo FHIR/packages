@@ -2,86 +2,179 @@
   "resourceType" : "ValueSet",
   "id" : "2.16.840.1.113762.1.4.1095.43",
   "meta" : {
-    "versionId" : "12",
-    "lastUpdated" : "2022-03-01T01:02:29.000-05:00",
-    "profile" : ["http://hl7.org/fhir/StructureDefinition/shareablevalueset",
-    "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"]
+    "versionId" : "20",
+    "lastUpdated" : "2024-01-17T01:08:53.000-05:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-valueset-cqfm",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "extension" : [{
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
-    "valueString" : "AND Author"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
-    "valueDate" : "2022-12-15"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
-    "valueDate" : "2022-03-01"
-  }],
-  "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1095.43",
-  "identifier" : [{
-    "system" : "urn:ietf:rfc:3986",
-    "value" : "urn:oid:2.16.840.1.113762.1.4.1095.43"
-  }],
-  "version" : "20220216",
-  "name" : "NutritionalStatusSeverelyMalnourished",
-  "title" : "Nutritional Status Severely Malnourished",
-  "status" : "active",
-  "experimental" : false,
-  "date" : "2022-03-07T11:14:02-05:00",
-  "publisher" : "AND Steward",
-  "jurisdiction" : [{
-    "extension" : [{
-      "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
-      "valueString" : "UNKNOWN"
-    }]
-  }],
-  "purpose" : "(Clinical Focus: Malnutrition assessment of a patient based upon clinically relevant criteria indicates that an individual is severely malnourished.),(Data Element Scope: This set of values indicates that a nutritional diagnosis was completed by a health care professional.),(Inclusion Criteria: Malnutrition codes from extensional sets which represent an individual is severely malnourished.),(Exclusion Criteria: All other terminologies related to severe malnutrition except those in the extensional sets for severe malnutrition.)",
-  "compose" : {
-    "include" : [{
-      "valueSet" : ["http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1095.42"]
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "AND Author"
     },
     {
-      "valueSet" : ["http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1095.41"]
-    }]
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2024-01-17"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2024-01-17"
+    }
+  ],
+  "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1095.43",
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113762.1.4.1095.43"
+    }
+  ],
+  "version" : "20240117",
+  "name" : "NutritionAssessmentStatusFindingOfSeverelyMalnourished",
+  "title" : "Nutrition Assessment Status Finding of Severely Malnourished",
+  "status" : "active",
+  "date" : "2024-01-17T01:08:53-05:00",
+  "publisher" : "AND Steward",
+  "jurisdiction" : [
+    {
+      "coding" : [
+        {
+          "system" : "urn:iso:std:iso:3166",
+          "code" : "US"
+        }
+      ]
+    }
+  ],
+  "purpose" : "(Clinical Focus: Malnutrition assessment of a patient based upon clinically relevant criteria indicates that an individual is severely malnourished.),(Data Element Scope: This set of values indicates that an individual is severely malnourished.),(Inclusion Criteria: Terms related to severely malnourished are included.),(Exclusion Criteria: Nutrition screening data and/or data indicating that an individual is not, mildly, or moderately malnourished.)",
+  "compose" : {
+    "include" : [
+      {
+        "valueSet" : [
+          "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1095.97"
+        ]
+      },
+      {
+        "valueSet" : [
+          "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1095.42"
+        ]
+      }
+    ]
   },
   "expansion" : {
-    "identifier" : "urn:uuid:522ae193-6254-45e3-8fb9-6e69d9701bf7",
-    "timestamp" : "2023-09-26T12:11:04-04:00",
-    "total" : 4,
-    "offset" : 0,
-    "parameter" : [{
-      "name" : "count",
-      "valueInteger" : 1000
-    },
-    {
-      "name" : "offset",
-      "valueInteger" : 0
-    }],
-    "contains" : [{
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "102635008",
-      "display" : "Acute nutritional deficiency (finding)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "272588001",
-      "display" : "Malnutrition (calorie) (disorder)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "371597004",
-      "display" : "Emaciated (finding)"
-    },
-    {
-      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-      "version" : "2024",
-      "code" : "E43",
-      "display" : "Unspecified severe protein-calorie malnutrition"
-    }]
+    "identifier" : "urn:uuid:61f9f041-0279-4b4b-b4f7-adbb29a68eca",
+    "timestamp" : "2024-06-14T11:02:26-04:00",
+    "total" : 18,
+    "contains" : [
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "102635008",
+        "display" : "Acute nutritional deficiency (finding)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "129588001",
+        "display" : "Adult failure to thrive syndrome (disorder)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "238108007",
+        "display" : "Cachexia (finding)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "272588001",
+        "display" : "Malnutrition (calorie) (disorder)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "281583001",
+        "display" : "Nutritional wasting (disorder)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "288517002",
+        "display" : "Wasting disease (disorder)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "371597004",
+        "display" : "Emaciated (finding)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "441951000124102",
+        "display" : "Starvation-related malnutrition (disorder)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "54840006",
+        "display" : "Failure to thrive (disorder)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "56882008",
+        "display" : "Anorexia nervosa (disorder)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "722959000",
+        "display" : "Anorexia nervosa co-occurrent with dangerously low body weight (disorder)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "722960005",
+        "display" : "Anorexia nervosa co-occurrent with significantly low body weight (disorder)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "723917005",
+        "display" : "Dangerously low body weight co-occurrent and due to anorexia nervosa of restricting type (disorder)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "723919008",
+        "display" : "Significantly low body weight co-occurrent and due to anorexia nervosa of restricting type (disorder)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "772791006",
+        "display" : "Sarcopenia (disorder)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "77675002",
+        "display" : "Anorexia nervosa, restricting type (disorder)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "788876001",
+        "display" : "Cachexia due to malignant neoplastic disease (finding)"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
+        "code" : "LA33705-7",
+        "display" : "Severely malnourished"
+      }
+    ]
   }
 }

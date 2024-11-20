@@ -3,77 +3,85 @@
   "id" : "2.16.840.1.113883.3.464.1003.1204",
   "meta" : {
     "versionId" : "5",
-    "lastUpdated" : "2023-07-21T01:01:06.000-04:00",
-    "profile" : ["http://hl7.org/fhir/StructureDefinition/shareablevalueset",
-    "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"]
+    "lastUpdated" : "2023-12-21T17:43:03.000-05:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-valueset-cqfm",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "extension" : [{
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
-    "valueString" : "NCQA PHEMUR Author"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
-    "valueDate" : "2023-07-21"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
-    "valueDate" : "2023-07-21"
-  }],
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "NCQA PHEMUR Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2023-07-21"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2023-07-21"
+    }
+  ],
   "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.1204",
-  "identifier" : [{
-    "system" : "urn:ietf:rfc:3986",
-    "value" : "urn:oid:2.16.840.1.113883.3.464.1003.1204"
-  }],
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113883.3.464.1003.1204"
+    }
+  ],
   "version" : "20230721",
   "name" : "MonofilamentTests",
   "title" : "Monofilament Tests",
   "status" : "active",
   "date" : "2023-07-21T01:01:07-04:00",
   "publisher" : "NCQA PHEMUR",
-  "jurisdiction" : [{
-    "extension" : [{
-      "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
-      "valueString" : "UNKNOWN"
-    }]
-  }],
-  "purpose" : "(Clinical Focus: ),(Data Element Scope: ),(Inclusion Criteria: ),(Exclusion Criteria: )",
+  "jurisdiction" : [
+    {
+      "coding" : [
+        {
+          "system" : "urn:iso:std:iso:3166",
+          "code" : "US"
+        }
+      ]
+    }
+  ],
+  "purpose" : "(Clinical Focus: The purpose of this value set is to represent concepts for Monofilament Tests of the foot.),(Data Element Scope: This value set may use a model element related to Procedure.),(Inclusion Criteria: Includes concepts that represent Monofilament Tests of the foot.),(Exclusion Criteria: No Exclusions.)",
   "compose" : {
-    "include" : [{
-      "system" : "http://snomed.info/sct",
-      "concept" : [{
+    "include" : [
+      {
+        "system" : "http://snomed.info/sct",
+        "concept" : [
+          {
+            "code" : "134388005",
+            "display" : "Monofilament foot sensation test (procedure)"
+          },
+          {
+            "code" : "446982000",
+            "display" : "Assessment using Semmes-Weinstein monofilament test (procedure)"
+          }
+        ]
+      }
+    ]
+  },
+  "expansion" : {
+    "identifier" : "urn:uuid:67b3be3a-ee99-46ad-8cc4-731b2e0e3d74",
+    "timestamp" : "2024-06-14T17:06:46-04:00",
+    "total" : 2,
+    "contains" : [
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
         "code" : "134388005",
         "display" : "Monofilament foot sensation test (procedure)"
       },
       {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
         "code" : "446982000",
         "display" : "Assessment using Semmes-Weinstein monofilament test (procedure)"
-      }]
-    }]
-  },
-  "expansion" : {
-    "identifier" : "urn:uuid:e4cced02-5e56-49da-bfab-59d5a6c7e87b",
-    "timestamp" : "2023-09-26T11:52:01-04:00",
-    "total" : 2,
-    "offset" : 0,
-    "parameter" : [{
-      "name" : "count",
-      "valueInteger" : 1000
-    },
-    {
-      "name" : "offset",
-      "valueInteger" : 0
-    }],
-    "contains" : [{
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "134388005",
-      "display" : "Monofilament foot sensation test (procedure)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "446982000",
-      "display" : "Assessment using Semmes-Weinstein monofilament test (procedure)"
-    }]
+      }
+    ]
   }
 }

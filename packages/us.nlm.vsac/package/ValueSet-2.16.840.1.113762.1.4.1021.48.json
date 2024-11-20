@@ -2,109 +2,116 @@
   "resourceType" : "ValueSet",
   "id" : "2.16.840.1.113762.1.4.1021.48",
   "meta" : {
-    "versionId" : "6",
-    "lastUpdated" : "2019-06-06T01:00:10.000-04:00",
-    "profile" : ["http://hl7.org/fhir/StructureDefinition/shareablevalueset",
-    "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"]
+    "versionId" : "13",
+    "lastUpdated" : "2024-06-06T01:23:01.000-04:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-valueset-cqfm",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "extension" : [{
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
-    "valueString" : "MD Partners Author"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
-    "valueDate" : "2022-12-15"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
-    "valueDate" : "2019-06-06"
-  }],
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "HL7 US Realm Program Management Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2024-06-06"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2024-06-06"
+    }
+  ],
   "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1021.48",
-  "identifier" : [{
-    "system" : "urn:ietf:rfc:3986",
-    "value" : "urn:oid:2.16.840.1.113762.1.4.1021.48"
-  }],
-  "version" : "20190606",
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113762.1.4.1021.48"
+    }
+  ],
+  "version" : "20240606",
   "name" : "ImplantableDeviceStatus",
   "title" : "Implantable Device Status",
   "status" : "active",
-  "experimental" : false,
-  "date" : "2019-06-06T01:00:10-04:00",
-  "publisher" : "MD Partners Steward",
-  "jurisdiction" : [{
-    "extension" : [{
-      "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
-      "valueString" : "UNKNOWN"
-    }]
-  }],
+  "date" : "2024-06-06T01:23:01-04:00",
+  "publisher" : "HL7 US Realm Program Management Steward",
+  "jurisdiction" : [
+    {
+      "coding" : [
+        {
+          "system" : "urn:iso:std:iso:3166",
+          "code" : "US"
+        }
+      ]
+    }
+  ],
   "purpose" : "(Clinical Focus: Implantable Device statuses are necessary for safe management of device use in clinical settings.),(Data Element Scope: Data identifies if the device is implanted and if so, the state of function or malfunctioning.),(Inclusion Criteria: Status types for implantable devices),(Exclusion Criteria: Device status designations for other devices that are not/were not implanted in patients.)",
   "compose" : {
-    "include" : [{
-      "system" : "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
-      "concept" : [{
+    "include" : [
+      {
+        "system" : "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+        "concept" : [
+          {
+            "code" : "C114146",
+            "display" : "Explanted Medical Device"
+          },
+          {
+            "code" : "C118639",
+            "display" : "Device Remains Implanted"
+          },
+          {
+            "code" : "C122711",
+            "display" : "Medical Device Malfunction"
+          },
+          {
+            "code" : "C154407",
+            "display" : "Inactive"
+          },
+          {
+            "code" : "C45329",
+            "display" : "Active"
+          }
+        ]
+      }
+    ]
+  },
+  "expansion" : {
+    "identifier" : "urn:uuid:41007783-ac40-4d8f-ad3b-ad4afdec19c0",
+    "timestamp" : "2024-06-14T09:15:56-04:00",
+    "total" : 5,
+    "contains" : [
+      {
+        "system" : "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+        "version" : "2024-03",
         "code" : "C114146",
         "display" : "Explanted Medical Device"
       },
       {
+        "system" : "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+        "version" : "2024-03",
         "code" : "C118639",
         "display" : "Device Remains Implanted"
       },
       {
+        "system" : "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+        "version" : "2024-03",
         "code" : "C122711",
         "display" : "Medical Device Malfunction"
       },
       {
+        "system" : "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+        "version" : "2024-03",
         "code" : "C154407",
         "display" : "Inactive"
       },
       {
+        "system" : "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+        "version" : "2024-03",
         "code" : "C45329",
         "display" : "Active"
-      }]
-    }]
-  },
-  "expansion" : {
-    "identifier" : "urn:uuid:5e96cdaa-05f4-40c6-9f8c-b7b6f0c56107",
-    "timestamp" : "2023-09-26T11:05:17-04:00",
-    "total" : 5,
-    "offset" : 0,
-    "parameter" : [{
-      "name" : "count",
-      "valueInteger" : 1000
-    },
-    {
-      "name" : "offset",
-      "valueInteger" : 0
-    }],
-    "contains" : [{
-      "system" : "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
-      "version" : "2023-03",
-      "code" : "C114146",
-      "display" : "Explanted Medical Device"
-    },
-    {
-      "system" : "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
-      "version" : "2023-03",
-      "code" : "C118639",
-      "display" : "Device Remains Implanted"
-    },
-    {
-      "system" : "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
-      "version" : "2023-03",
-      "code" : "C122711",
-      "display" : "Medical Device Malfunction"
-    },
-    {
-      "system" : "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
-      "version" : "2023-03",
-      "code" : "C154407",
-      "display" : "Inactive"
-    },
-    {
-      "system" : "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
-      "version" : "2023-03",
-      "code" : "C45329",
-      "display" : "Active"
-    }]
+      }
+    ]
   }
 }

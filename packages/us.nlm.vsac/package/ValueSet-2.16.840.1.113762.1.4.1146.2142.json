@@ -3,31 +3,38 @@
   "id" : "2.16.840.1.113762.1.4.1146.2142",
   "meta" : {
     "versionId" : "7",
-    "lastUpdated" : "2023-01-22T01:03:33.000-05:00",
-    "profile" : ["http://hl7.org/fhir/StructureDefinition/shareablevalueset",
-    "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"]
+    "lastUpdated" : "2023-12-21T17:43:03.000-05:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-valueset-cqfm",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "extension" : [{
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
-    "valueString" : "CSTE Author"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-keyWord",
-    "valueString" : "Trigger,Tuberculosis"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
-    "valueDate" : "2023-01-22"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
-    "valueDate" : "2023-01-22"
-  }],
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "CSTE Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-keyWord",
+      "valueString" : "Trigger,Tuberculosis"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2024-06-05"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2023-01-22"
+    }
+  ],
   "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1146.2142",
-  "identifier" : [{
-    "system" : "urn:ietf:rfc:3986",
-    "value" : "urn:oid:2.16.840.1.113762.1.4.1146.2142"
-  }],
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113762.1.4.1146.2142"
+    }
+  ],
   "version" : "20230122",
   "name" : "TuberculosisLinezolidRXNORM",
   "title" : "Tuberculosis (Linezolid) (RXNORM)",
@@ -35,120 +42,121 @@
   "date" : "2023-01-22T01:03:33-05:00",
   "publisher" : "CSTE Steward",
   "description" : "All prescribable medication formulations represented using either a \"generic\" or \"brand-specific\" concept. This includes RxNorm codes whose Term Type is SCD (semantic clinical drug), or SBD (semantic brand drug). GPCK (generic pack), BPCK (brand pack), SCDG (semantic clinical drug group), SBDG (semantic brand drug group), SCDF (semantic clinical drug form), IN (ingredient) or SBDF (semantic brand drug form) are NOT included in this value set. This value set does not include oral administration concepts, only concepts for medications administered specifically for overdose (injection, nasal).",
-  "jurisdiction" : [{
-    "extension" : [{
-      "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
-      "valueString" : "UNKNOWN"
-    }]
-  }],
+  "jurisdiction" : [
+    {
+      "coding" : [
+        {
+          "system" : "urn:iso:std:iso:3166",
+          "code" : "US"
+        }
+      ]
+    }
+  ],
   "purpose" : "(Clinical Focus: This set of values contains codes for prescribable medications for Linezolid),(Data Element Scope: Medications that were administered, ordered or prescribed.),(Inclusion Criteria: Linezolid),(Exclusion Criteria: SBDG (semantic brand drug group), SCDF (semantic clinical drug form), or SBDF (semantic brand drug form).)",
   "compose" : {
-    "include" : [{
-      "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "concept" : [{
+    "include" : [
+      {
+        "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "concept" : [
+          {
+            "code" : "1662278",
+            "display" : "100 ML linezolid 2 MG/ML Injection"
+          },
+          {
+            "code" : "1662280",
+            "display" : "100 ML linezolid 2 MG/ML Injection [Zyvox]"
+          },
+          {
+            "code" : "1662285",
+            "display" : "300 ML linezolid 2 MG/ML Injection"
+          },
+          {
+            "code" : "1662286",
+            "display" : "300 ML linezolid 2 MG/ML Injection [Zyvox]"
+          },
+          {
+            "code" : "262091",
+            "display" : "linezolid 600 MG Oral Tablet [Zyvox]"
+          },
+          {
+            "code" : "311345",
+            "display" : "linezolid 20 MG/ML Oral Suspension"
+          },
+          {
+            "code" : "311347",
+            "display" : "linezolid 600 MG Oral Tablet"
+          },
+          {
+            "code" : "314079",
+            "display" : "linezolid 400 MG Oral Tablet"
+          },
+          {
+            "code" : "581614",
+            "display" : "linezolid 20 MG/ML Oral Suspension [Zyvox]"
+          }
+        ]
+      }
+    ]
+  },
+  "expansion" : {
+    "identifier" : "urn:uuid:78644812-c4d9-46e4-97b5-b589ad1e9182",
+    "timestamp" : "2024-06-14T12:08:01-04:00",
+    "total" : 9,
+    "contains" : [
+      {
+        "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "version" : "05062024",
         "code" : "1662278",
         "display" : "100 ML linezolid 2 MG/ML Injection"
       },
       {
+        "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "version" : "05062024",
         "code" : "1662280",
         "display" : "100 ML linezolid 2 MG/ML Injection [Zyvox]"
       },
       {
+        "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "version" : "05062024",
         "code" : "1662285",
         "display" : "300 ML linezolid 2 MG/ML Injection"
       },
       {
+        "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "version" : "05062024",
         "code" : "1662286",
         "display" : "300 ML linezolid 2 MG/ML Injection [Zyvox]"
       },
       {
+        "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "version" : "05062024",
         "code" : "262091",
         "display" : "linezolid 600 MG Oral Tablet [Zyvox]"
       },
       {
+        "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "version" : "05062024",
         "code" : "311345",
         "display" : "linezolid 20 MG/ML Oral Suspension"
       },
       {
+        "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "version" : "05062024",
         "code" : "311347",
         "display" : "linezolid 600 MG Oral Tablet"
       },
       {
+        "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "version" : "05062024",
         "code" : "314079",
         "display" : "linezolid 400 MG Oral Tablet"
       },
       {
+        "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "version" : "05062024",
         "code" : "581614",
         "display" : "linezolid 20 MG/ML Oral Suspension [Zyvox]"
-      }]
-    }]
-  },
-  "expansion" : {
-    "identifier" : "urn:uuid:5ca09ea8-d620-404d-8218-f1683e8c03c9",
-    "timestamp" : "2023-09-26T13:42:53-04:00",
-    "total" : 9,
-    "offset" : 0,
-    "parameter" : [{
-      "name" : "count",
-      "valueInteger" : 1000
-    },
-    {
-      "name" : "offset",
-      "valueInteger" : 0
-    }],
-    "contains" : [{
-      "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version" : "09052023",
-      "code" : "1662278",
-      "display" : "100 ML linezolid 2 MG/ML Injection"
-    },
-    {
-      "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version" : "09052023",
-      "code" : "1662280",
-      "display" : "100 ML linezolid 2 MG/ML Injection [Zyvox]"
-    },
-    {
-      "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version" : "09052023",
-      "code" : "1662285",
-      "display" : "300 ML linezolid 2 MG/ML Injection"
-    },
-    {
-      "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version" : "09052023",
-      "code" : "1662286",
-      "display" : "300 ML linezolid 2 MG/ML Injection [Zyvox]"
-    },
-    {
-      "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version" : "09052023",
-      "code" : "262091",
-      "display" : "linezolid 600 MG Oral Tablet [Zyvox]"
-    },
-    {
-      "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version" : "09052023",
-      "code" : "311345",
-      "display" : "linezolid 20 MG/ML Oral Suspension"
-    },
-    {
-      "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version" : "09052023",
-      "code" : "311347",
-      "display" : "linezolid 600 MG Oral Tablet"
-    },
-    {
-      "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version" : "09052023",
-      "code" : "314079",
-      "display" : "linezolid 400 MG Oral Tablet"
-    },
-    {
-      "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version" : "09052023",
-      "code" : "581614",
-      "display" : "linezolid 20 MG/ML Oral Suspension [Zyvox]"
-    }]
+      }
+    ]
   }
 }

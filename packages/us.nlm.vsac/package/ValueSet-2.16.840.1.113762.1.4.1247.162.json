@@ -2,118 +2,136 @@
   "resourceType" : "ValueSet",
   "id" : "2.16.840.1.113762.1.4.1247.162",
   "meta" : {
-    "versionId" : "10",
-    "lastUpdated" : "2023-07-25T01:37:12.000-04:00",
-    "profile" : ["http://hl7.org/fhir/StructureDefinition/shareablevalueset",
-    "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"]
+    "versionId" : "14",
+    "lastUpdated" : "2024-05-01T13:37:54.000-04:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-valueset-cqfm",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "extension" : [{
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
-    "valueString" : "The Gravity Project Author"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
-    "valueDate" : "2023-07-25"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
-    "valueDate" : "2023-07-25"
-  }],
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "The Gravity Project Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2023-12-05"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2023-12-05"
+    }
+  ],
   "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1247.162",
-  "identifier" : [{
-    "system" : "urn:ietf:rfc:3986",
-    "value" : "urn:oid:2.16.840.1.113762.1.4.1247.162"
-  }],
-  "version" : "20230725",
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113762.1.4.1247.162"
+    }
+  ],
+  "version" : "20231205",
   "name" : "TransportationInsecurityGoalsSNOMEDCT",
   "title" : "Transportation Insecurity Goals SNOMED CT",
   "status" : "active",
-  "date" : "2023-07-25T01:37:12-04:00",
+  "date" : "2023-12-05T01:09:25-05:00",
   "publisher" : "The Gravity Project Steward",
-  "jurisdiction" : [{
-    "extension" : [{
-      "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
-      "valueString" : "UNKNOWN"
-    }]
-  }],
-  "purpose" : "(Clinical Focus: <insert metadata>\n\nThe terms in this value set represent the goals associated with transportation insecurity as identified by the Gravity Project),(Data Element Scope: Supports the exchange of data for the Gravity SDOH Clinical Care FHIR implementation guide as well as other uses of this SDOH terms.),(Inclusion Criteria: Includes SNOMED CT goals that have been identified through the Gravity Project community consensus voting process),(Exclusion Criteria: N/A)",
+  "jurisdiction" : [
+    {
+      "coding" : [
+        {
+          "system" : "urn:iso:std:iso:3166",
+          "code" : "US"
+        }
+      ]
+    }
+  ],
+  "purpose" : "(Clinical Focus: This set of values represent goals for Transportation Insecurity as selected by the Gravity Project.),(Data Element Scope: In the FHIR Goal resource, these values may be used for Goal.description (e.g., for the SDOHCC Goal profile in the Gravity SDOH Clinical Care FHIR Implementation Guide).),(Inclusion Criteria: Includes SNOMED CT goals for Transportation Insecurity as selected by the Gravity Project.),(Exclusion Criteria: NA)",
   "compose" : {
-    "include" : [{
-      "system" : "http://snomed.info/sct",
-      "concept" : [{
+    "include" : [
+      {
+        "system" : "http://snomed.info/sct",
+        "concept" : [
+          {
+            "code" : "1268687001",
+            "display" : "Feels transportation time to destination is acceptable (finding)"
+          },
+          {
+            "code" : "611271000124109",
+            "display" : "Transportation security (finding)"
+          },
+          {
+            "code" : "611461000124101",
+            "display" : "Able to afford transportation related expense (finding)"
+          },
+          {
+            "code" : "611491000124109",
+            "display" : "Has transportation that meets individual's cognitive needs (finding)"
+          },
+          {
+            "code" : "611501000124101",
+            "display" : "Has transportation that meets individual's functional needs (finding)"
+          },
+          {
+            "code" : "611511000124103",
+            "display" : "Has transportation to access community resources (finding)"
+          },
+          {
+            "code" : "611521000124106",
+            "display" : "Has transportation to access health care (finding)"
+          }
+        ]
+      }
+    ]
+  },
+  "expansion" : {
+    "identifier" : "urn:uuid:fbeaa416-4172-4b68-bf4d-d618f2c471b9",
+    "timestamp" : "2024-06-14T14:56:35-04:00",
+    "total" : 7,
+    "contains" : [
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "1268687001",
+        "display" : "Feels transportation time to destination is acceptable (finding)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
         "code" : "611271000124109",
         "display" : "Transportation security (finding)"
       },
       {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
         "code" : "611461000124101",
-        "display" : "Able to afford transportation-related expense (finding)"
+        "display" : "Able to afford transportation related expense (finding)"
       },
       {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
         "code" : "611491000124109",
-        "display" : "Has transportation that meets individual's cognitive needs (finding)"
+        "display" : "Has transportation that meets cognitive needs (finding)"
       },
       {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
         "code" : "611501000124101",
-        "display" : "Has transportation that meets individual's functional needs (finding)"
+        "display" : "Has transportation that meets functional needs (finding)"
       },
       {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
         "code" : "611511000124103",
         "display" : "Has transportation to access community resources (finding)"
       },
       {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
         "code" : "611521000124106",
         "display" : "Has transportation to access health care (finding)"
-      }]
-    }]
-  },
-  "expansion" : {
-    "identifier" : "urn:uuid:c2bab2e5-8abb-47d2-b358-375f6b88ae40",
-    "timestamp" : "2023-09-26T13:37:04-04:00",
-    "total" : 6,
-    "offset" : 0,
-    "parameter" : [{
-      "name" : "count",
-      "valueInteger" : 1000
-    },
-    {
-      "name" : "offset",
-      "valueInteger" : 0
-    }],
-    "contains" : [{
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "611271000124109",
-      "display" : "Transportation security (finding)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "611461000124101",
-      "display" : "Able to afford transportation-related expense (finding)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "611491000124109",
-      "display" : "Has transportation that meets individual's cognitive needs (finding)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "611501000124101",
-      "display" : "Has transportation that meets individual's functional needs (finding)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "611511000124103",
-      "display" : "Has transportation to access community resources (finding)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "611521000124106",
-      "display" : "Has transportation to access health care (finding)"
-    }]
+      }
+    ]
   }
 }

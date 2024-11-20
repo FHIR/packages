@@ -3,77 +3,85 @@
   "id" : "2.16.840.1.113762.1.4.1078.416",
   "meta" : {
     "versionId" : "9",
-    "lastUpdated" : "2023-08-08T09:09:18.000-04:00",
-    "profile" : ["http://hl7.org/fhir/StructureDefinition/shareablevalueset",
-    "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"]
+    "lastUpdated" : "2023-12-21T17:43:03.000-05:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-valueset-cqfm",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "extension" : [{
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
-    "valueString" : "Optum Author"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
-    "valueDate" : "2023-03-23"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
-    "valueDate" : "2023-08-08"
-  }],
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "Optum Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2023-03-23"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2023-03-23"
+    }
+  ],
   "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1078.416",
-  "identifier" : [{
-    "system" : "urn:ietf:rfc:3986",
-    "value" : "urn:oid:2.16.840.1.113762.1.4.1078.416"
-  }],
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113762.1.4.1078.416"
+    }
+  ],
   "version" : "20230323",
   "name" : "NonHDLCholesterol",
   "title" : "Non HDL Cholesterol",
   "status" : "active",
   "date" : "2023-03-23T01:02:49-04:00",
   "publisher" : "Optum Steward",
-  "jurisdiction" : [{
-    "extension" : [{
-      "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
-      "valueString" : "UNKNOWN"
-    }]
-  }],
+  "jurisdiction" : [
+    {
+      "coding" : [
+        {
+          "system" : "urn:iso:std:iso:3166",
+          "code" : "US"
+        }
+      ]
+    }
+  ],
   "purpose" : "(Clinical Focus: Codes representing non-HDL cholesterol),(Data Element Scope: OBSERVATION:),(Inclusion Criteria: LOINC codes for serum, plasma, or blood),(Exclusion Criteria: Codes for measurement in other body fluids)",
   "compose" : {
-    "include" : [{
-      "system" : "http://loinc.org",
-      "concept" : [{
+    "include" : [
+      {
+        "system" : "http://loinc.org",
+        "concept" : [
+          {
+            "code" : "43396-1",
+            "display" : "Cholesterol non HDL [Mass/volume] in Serum or Plasma"
+          },
+          {
+            "code" : "70204-3",
+            "display" : "Cholesterol non HDL [Moles/volume] in Serum or Plasma"
+          }
+        ]
+      }
+    ]
+  },
+  "expansion" : {
+    "identifier" : "urn:uuid:2ff64af1-9eed-442b-90d6-fe014f92bf6c",
+    "timestamp" : "2024-06-14T10:47:19-04:00",
+    "total" : 2,
+    "contains" : [
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
         "code" : "43396-1",
         "display" : "Cholesterol non HDL [Mass/volume] in Serum or Plasma"
       },
       {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
         "code" : "70204-3",
         "display" : "Cholesterol non HDL [Moles/volume] in Serum or Plasma"
-      }]
-    }]
-  },
-  "expansion" : {
-    "identifier" : "urn:uuid:5502aba1-08ce-4f55-8c22-2720900ad7eb",
-    "timestamp" : "2023-09-26T12:05:06-04:00",
-    "total" : 2,
-    "offset" : 0,
-    "parameter" : [{
-      "name" : "count",
-      "valueInteger" : 1000
-    },
-    {
-      "name" : "offset",
-      "valueInteger" : 0
-    }],
-    "contains" : [{
-      "system" : "http://loinc.org",
-      "version" : "2.74",
-      "code" : "43396-1",
-      "display" : "Cholesterol non HDL [Mass/volume] in Serum or Plasma"
-    },
-    {
-      "system" : "http://loinc.org",
-      "version" : "2.74",
-      "code" : "70204-3",
-      "display" : "Cholesterol non HDL [Moles/volume] in Serum or Plasma"
-    }]
+      }
+    ]
   }
 }

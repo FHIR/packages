@@ -3,79 +3,87 @@
   "id" : "2.16.840.1.113883.3.67.1.101.1.315",
   "meta" : {
     "versionId" : "1",
-    "lastUpdated" : "2017-06-09T01:00:04.000-04:00",
-    "profile" : ["http://hl7.org/fhir/StructureDefinition/shareablevalueset",
-    "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"]
+    "lastUpdated" : "2023-12-21T17:43:03.000-05:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-valueset-cqfm",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "extension" : [{
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
-    "valueString" : "Mathematica-CHIT"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
-    "valueDate" : "2022-12-15"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
-    "valueDate" : "2017-06-09"
-  }],
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "Mathematica-CHIT"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2024-06-03"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2017-06-09"
+    }
+  ],
   "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.67.1.101.1.315",
-  "identifier" : [{
-    "system" : "urn:ietf:rfc:3986",
-    "value" : "urn:oid:2.16.840.1.113883.3.67.1.101.1.315"
-  }],
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113883.3.67.1.101.1.315"
+    }
+  ],
   "version" : "20170609",
   "name" : "ADHD",
   "title" : "ADHD",
-  "status" : "active",
+  "status" : "retired",
   "experimental" : false,
   "date" : "2017-06-09T01:00:04-04:00",
   "publisher" : "Mathematica",
   "description" : "ADHD ICD-9",
-  "jurisdiction" : [{
-    "extension" : [{
-      "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
-      "valueString" : "UNKNOWN"
-    }]
-  }],
+  "jurisdiction" : [
+    {
+      "coding" : [
+        {
+          "system" : "urn:iso:std:iso:3166",
+          "code" : "US"
+        }
+      ]
+    }
+  ],
   "purpose" : "(Clinical Focus: ),(Data Element Scope: ),(Inclusion Criteria: ),(Exclusion Criteria: )",
   "compose" : {
-    "include" : [{
-      "system" : "http://hl7.org/fhir/sid/icd-9-cm",
-      "concept" : [{
-        "code" : "314.00",
-        "display" : "Attention Deficiet Disorder without mention of Hyperactivity"
-      },
+    "include" : [
       {
-        "code" : "314.01",
-        "display" : "Attention Deficiet Disorder with Hyperactivity"
-      }]
-    }]
+        "system" : "http://hl7.org/fhir/sid/icd-9-cm",
+        "concept" : [
+          {
+            "code" : "314.00",
+            "display" : "Attention Deficiet Disorder without mention of Hyperactivity"
+          },
+          {
+            "code" : "314.01",
+            "display" : "Attention Deficiet Disorder with Hyperactivity"
+          }
+        ]
+      }
+    ]
   },
   "expansion" : {
-    "identifier" : "urn:uuid:0e09bc0b-2239-46c6-8122-98a6f5111c3f",
-    "timestamp" : "2023-09-26T07:42:03-04:00",
+    "identifier" : "urn:uuid:5f7e4129-519c-4001-8825-56016c35ee7d",
+    "timestamp" : "2024-06-14T18:05:50-04:00",
     "total" : 2,
-    "offset" : 0,
-    "parameter" : [{
-      "name" : "count",
-      "valueInteger" : 1000
-    },
-    {
-      "name" : "offset",
-      "valueInteger" : 0
-    }],
-    "contains" : [{
-      "system" : "http://hl7.org/fhir/sid/icd-9-cm",
-      "version" : "2013",
-      "code" : "314.00",
-      "display" : "Attention deficit disorder without mention of hyperactivity"
-    },
-    {
-      "system" : "http://hl7.org/fhir/sid/icd-9-cm",
-      "version" : "2013",
-      "code" : "314.01",
-      "display" : "Attention deficit disorder with hyperactivity"
-    }]
+    "contains" : [
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-9-cm",
+        "version" : "2013",
+        "code" : "314.00",
+        "display" : "Attention deficit disorder without mention of hyperactivity"
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-9-cm",
+        "version" : "2013",
+        "code" : "314.01",
+        "display" : "Attention deficit disorder with hyperactivity"
+      }
+    ]
   }
 }

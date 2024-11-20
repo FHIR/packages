@@ -3,81 +3,89 @@
   "id" : "2.16.840.1.113762.1.4.1146.2200",
   "meta" : {
     "versionId" : "6",
-    "lastUpdated" : "2023-06-02T01:03:51.000-04:00",
-    "profile" : ["http://hl7.org/fhir/StructureDefinition/shareablevalueset",
-    "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"]
+    "lastUpdated" : "2023-12-21T17:43:03.000-05:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-valueset-cqfm",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "extension" : [{
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
-    "valueString" : "CSTE Author"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-keyWord",
-    "valueString" : "G_Common"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
-    "valueDate" : "2023-06-02"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
-    "valueDate" : "2023-06-02"
-  }],
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "CSTE Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-keyWord",
+      "valueString" : "G_Common"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2024-06-05"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2023-06-02"
+    }
+  ],
   "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1146.2200",
-  "identifier" : [{
-    "system" : "urn:ietf:rfc:3986",
-    "value" : "urn:oid:2.16.840.1.113762.1.4.1146.2200"
-  }],
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113762.1.4.1146.2200"
+    }
+  ],
   "version" : "20230602",
   "name" : "OrganismsTestsByAnimalInoculationMethod",
   "title" : "Organisms (Tests by Animal Inoculation Method)",
   "status" : "active",
   "date" : "2023-06-02T01:03:51-04:00",
   "publisher" : "CSTE Steward",
-  "jurisdiction" : [{
-    "extension" : [{
-      "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
-      "valueString" : "UNKNOWN"
-    }]
-  }],
+  "jurisdiction" : [
+    {
+      "coding" : [
+        {
+          "system" : "urn:iso:std:iso:3166",
+          "code" : "US"
+        }
+      ]
+    }
+  ],
   "purpose" : "(Clinical Focus: This set of values contains codes for laboratory test names associated with detecting the presence of organisms by Animal Inoculation Method),(Data Element Scope: Laboratory tests names that were ordered or observed.),(Inclusion Criteria: bacteria, virus, fungus),(Exclusion Criteria: none)",
   "compose" : {
-    "include" : [{
-      "system" : "http://loinc.org",
-      "concept" : [{
+    "include" : [
+      {
+        "system" : "http://loinc.org",
+        "concept" : [
+          {
+            "code" : "10667-4",
+            "display" : "Fungus identified in Specimen by Animal inoculation"
+          },
+          {
+            "code" : "20877-7",
+            "display" : "Bacteria identified in Isolate by Animal inoculation"
+          }
+        ]
+      }
+    ]
+  },
+  "expansion" : {
+    "identifier" : "urn:uuid:b21f510c-af8b-4948-8b31-d29a80dd7de5",
+    "timestamp" : "2024-06-14T12:09:17-04:00",
+    "total" : 2,
+    "contains" : [
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
         "code" : "10667-4",
         "display" : "Fungus identified in Specimen by Animal inoculation"
       },
       {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
         "code" : "20877-7",
         "display" : "Bacteria identified in Isolate by Animal inoculation"
-      }]
-    }]
-  },
-  "expansion" : {
-    "identifier" : "urn:uuid:485b1ba1-f965-4e60-8426-95cb3d23c205",
-    "timestamp" : "2023-09-26T12:16:41-04:00",
-    "total" : 2,
-    "offset" : 0,
-    "parameter" : [{
-      "name" : "count",
-      "valueInteger" : 1000
-    },
-    {
-      "name" : "offset",
-      "valueInteger" : 0
-    }],
-    "contains" : [{
-      "system" : "http://loinc.org",
-      "version" : "2.74",
-      "code" : "10667-4",
-      "display" : "Fungus identified in Specimen by Animal inoculation"
-    },
-    {
-      "system" : "http://loinc.org",
-      "version" : "2.74",
-      "code" : "20877-7",
-      "display" : "Bacteria identified in Isolate by Animal inoculation"
-    }]
+      }
+    ]
   }
 }

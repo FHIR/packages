@@ -3,79 +3,87 @@
   "id" : "2.16.840.1.113762.1.4.1049.2",
   "meta" : {
     "versionId" : "29",
-    "lastUpdated" : "2016-05-10T01:00:00.000-04:00",
-    "profile" : ["http://hl7.org/fhir/StructureDefinition/shareablevalueset",
-    "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"]
+    "lastUpdated" : "2023-12-21T17:43:03.000-05:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-valueset-cqfm",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "extension" : [{
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
-    "valueString" : "NDNQI Author"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
-    "valueDate" : "2022-12-15"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
-    "valueDate" : "2016-05-10"
-  }],
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "NDNQI Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2024-06-03"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2016-05-10"
+    }
+  ],
   "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1049.2",
-  "identifier" : [{
-    "system" : "urn:ietf:rfc:3986",
-    "value" : "urn:oid:2.16.840.1.113762.1.4.1049.2"
-  }],
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113762.1.4.1049.2"
+    }
+  ],
   "version" : "20160510",
   "name" : "PressureUlcerRiskAssessment_LOINC",
   "title" : "Pressure Ulcer Risk Assessment_LOINC",
-  "status" : "active",
+  "status" : "retired",
   "experimental" : false,
   "date" : "2016-05-10T01:00:00-04:00",
   "publisher" : "American Nurses Association Steward",
   "description" : "Pressure Ulcer Risk Assessment, LOINC, Created for NDNQI Pressure Ulcer Risk measure.",
-  "jurisdiction" : [{
-    "extension" : [{
-      "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
-      "valueString" : "UNKNOWN"
-    }]
-  }],
+  "jurisdiction" : [
+    {
+      "coding" : [
+        {
+          "system" : "urn:iso:std:iso:3166",
+          "code" : "US"
+        }
+      ]
+    }
+  ],
   "purpose" : "(Clinical Focus: This set of values includes codes on neonatal pressure ulcer risk using NSRAS. Documentation on the NSRAS panel indicates that pressure ulcer risk was performed.),(Data Element Scope: Using the Quality Data Model, this data element will map to \"Risk Category/Assessment\"),(Inclusion Criteria: Use of the NSRAS scale or evaluation of pressure ulcer risk using the NSRAS.),(Exclusion Criteria: Other than NSRAS scale)",
   "compose" : {
-    "include" : [{
-      "system" : "http://loinc.org",
-      "concept" : [{
+    "include" : [
+      {
+        "system" : "http://loinc.org",
+        "concept" : [
+          {
+            "code" : "73782-5",
+            "display" : "Neonatal pressure ulcer risk evaluation [NSRAS]"
+          },
+          {
+            "code" : "73790-8",
+            "display" : "Neonatal skin risk assessment scale panel [NSRAS]"
+          }
+        ]
+      }
+    ]
+  },
+  "expansion" : {
+    "identifier" : "urn:uuid:261fe7a6-e4c8-473b-8e6d-d023b55a8569",
+    "timestamp" : "2024-06-14T10:33:59-04:00",
+    "total" : 2,
+    "contains" : [
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
         "code" : "73782-5",
         "display" : "Neonatal pressure ulcer risk evaluation [NSRAS]"
       },
       {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
         "code" : "73790-8",
         "display" : "Neonatal skin risk assessment scale panel [NSRAS]"
-      }]
-    }]
-  },
-  "expansion" : {
-    "identifier" : "urn:uuid:978b357c-8ba9-4e18-99c4-4d355ff4e4ac",
-    "timestamp" : "2023-09-26T12:41:26-04:00",
-    "total" : 2,
-    "offset" : 0,
-    "parameter" : [{
-      "name" : "count",
-      "valueInteger" : 1000
-    },
-    {
-      "name" : "offset",
-      "valueInteger" : 0
-    }],
-    "contains" : [{
-      "system" : "http://loinc.org",
-      "version" : "2.74",
-      "code" : "73782-5",
-      "display" : "Neonatal pressure ulcer risk evaluation [NSRAS]"
-    },
-    {
-      "system" : "http://loinc.org",
-      "version" : "2.74",
-      "code" : "73790-8",
-      "display" : "Neonatal skin risk assessment scale panel [NSRAS]"
-    }]
+      }
+    ]
   }
 }

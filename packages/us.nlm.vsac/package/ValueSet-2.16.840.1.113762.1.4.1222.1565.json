@@ -3,96 +3,108 @@
   "id" : "2.16.840.1.113762.1.4.1222.1565",
   "meta" : {
     "versionId" : "6",
-    "lastUpdated" : "2022-08-27T01:02:45.000-04:00",
-    "profile" : ["http://hl7.org/fhir/StructureDefinition/shareablevalueset",
-    "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"]
+    "lastUpdated" : "2023-12-21T17:43:03.000-05:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-valueset-cqfm",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "extension" : [{
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
-    "valueString" : "MCC eCare Plan Author"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-keyWord",
-    "valueString" : "MCC"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
-    "valueDate" : "2022-12-15"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
-    "valueDate" : "2022-08-27"
-  }],
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "MCC eCare Plan Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-keyWord",
+      "valueString" : "MCC_IG"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2024-06-03"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2022-08-27"
+    }
+  ],
   "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1222.1565",
-  "identifier" : [{
-    "system" : "urn:ietf:rfc:3986",
-    "value" : "urn:oid:2.16.840.1.113762.1.4.1222.1565"
-  }],
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113762.1.4.1222.1565"
+    }
+  ],
   "version" : "20220827",
   "name" : "PregnancyICD10",
   "title" : "Pregnancy ICD10",
-  "status" : "active",
+  "status" : "retired",
   "experimental" : false,
   "date" : "2022-08-27T01:02:45-04:00",
   "publisher" : "HL7 Patient Care WG Steward",
   "description" : "\"This value set may undergo changes until the HL7 Multiple Chronic Care FHIR IG is formally published in 2024.\"",
-  "jurisdiction" : [{
-    "extension" : [{
-      "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
-      "valueString" : "UNKNOWN"
-    }]
-  }],
+  "jurisdiction" : [
+    {
+      "coding" : [
+        {
+          "system" : "urn:iso:std:iso:3166",
+          "code" : "US"
+        }
+      ]
+    }
+  ],
   "purpose" : "(Clinical Focus: This set of values contains ICD-10-CM concepts for the pregnant state.),(Data Element Scope: The intent of this set of values is to identify patient currently pregnant.),(Inclusion Criteria: Includes ICD-10-CM Pregnancy concepts.),(Exclusion Criteria: Exclude ICD10 codes for complications related to pregnancy.)",
   "compose" : {
-    "include" : [{
-      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-      "version" : "2024",
-      "filter" : [{
-        "property" : "concept",
-        "op" : "is-a",
-        "value" : "Z33"
-      }]
-    }],
-    "exclude" : [{
-      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-      "version" : "2024",
-      "filter" : [{
-        "property" : "concept",
-        "op" : "=",
-        "value" : "Z33.2"
-      }]
-    }]
+    "include" : [
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2024",
+        "filter" : [
+          {
+            "property" : "concept",
+            "op" : "is-a",
+            "value" : "Z33"
+          }
+        ]
+      }
+    ],
+    "exclude" : [
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2024",
+        "filter" : [
+          {
+            "property" : "concept",
+            "op" : "=",
+            "value" : "Z33.2"
+          }
+        ]
+      }
+    ]
   },
   "expansion" : {
-    "identifier" : "urn:uuid:147782c7-3c13-4c2c-adc1-a2a7da735c85",
-    "timestamp" : "2023-09-26T12:38:52-04:00",
+    "identifier" : "urn:uuid:d0c0c681-4f09-4c0a-900b-dff025abd69e",
+    "timestamp" : "2024-06-14T14:17:22-04:00",
     "total" : 3,
-    "offset" : 0,
-    "parameter" : [{
-      "name" : "count",
-      "valueInteger" : 1000
-    },
-    {
-      "name" : "offset",
-      "valueInteger" : 0
-    }],
-    "contains" : [{
-      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-      "version" : "2024",
-      "code" : "Z33",
-      "display" : "Pregnant state"
-    },
-    {
-      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-      "version" : "2024",
-      "code" : "Z33.1",
-      "display" : "Pregnant state, incidental"
-    },
-    {
-      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-      "version" : "2024",
-      "code" : "Z33.3",
-      "display" : "Pregnant state, gestational carrier"
-    }]
+    "contains" : [
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2024",
+        "code" : "Z33",
+        "display" : "Pregnant state"
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2024",
+        "code" : "Z33.1",
+        "display" : "Pregnant state, incidental"
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2024",
+        "code" : "Z33.3",
+        "display" : "Pregnant state, gestational carrier"
+      }
+    ]
   }
 }

@@ -3,79 +3,87 @@
   "id" : "2.16.840.1.113883.13.190.5.24",
   "meta" : {
     "versionId" : "2",
-    "lastUpdated" : "2015-01-31T01:00:02.000-05:00",
-    "profile" : ["http://hl7.org/fhir/StructureDefinition/shareablevalueset",
-    "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"]
+    "lastUpdated" : "2023-12-21T17:43:03.000-05:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-valueset-cqfm",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "extension" : [{
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
-    "valueString" : "Mathematica-CCDE"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
-    "valueDate" : "2022-12-15"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
-    "valueDate" : "2015-01-31"
-  }],
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "Mathematica-CCDE"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2024-06-03"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2015-01-31"
+    }
+  ],
   "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.13.190.5.24",
-  "identifier" : [{
-    "system" : "urn:ietf:rfc:3986",
-    "value" : "urn:oid:2.16.840.1.113883.13.190.5.24"
-  }],
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113883.13.190.5.24"
+    }
+  ],
   "version" : "20150131",
   "name" : "FirstHeartRateRecorded",
   "title" : "First Heart Rate Recorded",
-  "status" : "active",
+  "status" : "retired",
   "experimental" : false,
   "date" : "2015-01-31T01:00:02-05:00",
   "publisher" : "Yale",
   "description" : "Yale Mortality de novo measures",
-  "jurisdiction" : [{
-    "extension" : [{
-      "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
-      "valueString" : "UNKNOWN"
-    }]
-  }],
+  "jurisdiction" : [
+    {
+      "coding" : [
+        {
+          "system" : "urn:iso:std:iso:3166",
+          "code" : "US"
+        }
+      ]
+    }
+  ],
   "purpose" : "(Clinical Focus: ),(Data Element Scope: ),(Inclusion Criteria: ),(Exclusion Criteria: )",
   "compose" : {
-    "include" : [{
-      "system" : "http://snomed.info/sct",
-      "concept" : [{
-        "code" : "364075005",
-        "display" : "Heart rate (observable entity) Â\u00a0Â\u00a0Â\u00a0"
-      },
+    "include" : [
       {
-        "code" : "399017001",
-        "display" : "Heart rate on admission (observable entity)"
-      }]
-    }]
+        "system" : "http://snomed.info/sct",
+        "concept" : [
+          {
+            "code" : "364075005",
+            "display" : "Heart rate (observable entity) Â\u00a0Â\u00a0Â\u00a0"
+          },
+          {
+            "code" : "399017001",
+            "display" : "Heart rate on admission (observable entity)"
+          }
+        ]
+      }
+    ]
   },
   "expansion" : {
-    "identifier" : "urn:uuid:464e90fa-f0d8-4cc3-8b4e-7aab8fd31d45",
-    "timestamp" : "2023-09-26T10:28:52-04:00",
+    "identifier" : "urn:uuid:b8d6e605-618d-4640-a41b-53b76b3c4b71",
+    "timestamp" : "2024-06-14T15:21:40-04:00",
     "total" : 2,
-    "offset" : 0,
-    "parameter" : [{
-      "name" : "count",
-      "valueInteger" : 1000
-    },
-    {
-      "name" : "offset",
-      "valueInteger" : 0
-    }],
-    "contains" : [{
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "364075005",
-      "display" : "Heart rate (observable entity)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "399017001",
-      "display" : "Heart rate on admission (observable entity)"
-    }]
+    "contains" : [
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "364075005",
+        "display" : "Heart rate (observable entity)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "399017001",
+        "display" : "Heart rate on admission (observable entity)"
+      }
+    ]
   }
 }

@@ -3,78 +3,86 @@
   "id" : "2.16.840.1.113883.3.666.5.978",
   "meta" : {
     "versionId" : "1",
-    "lastUpdated" : "2012-10-25T12:28:31.000-04:00",
-    "profile" : ["http://hl7.org/fhir/StructureDefinition/shareablevalueset",
-    "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"]
+    "lastUpdated" : "2023-12-21T17:43:03.000-05:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-valueset-cqfm",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "extension" : [{
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
-    "valueString" : "Lantana Author"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
-    "valueDate" : "2022-12-15"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
-    "valueDate" : "2012-10-25"
-  }],
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "Lantana Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2024-06-03"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2012-10-25"
+    }
+  ],
   "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.666.5.978",
-  "identifier" : [{
-    "system" : "urn:ietf:rfc:3986",
-    "value" : "urn:oid:2.16.840.1.113883.3.666.5.978"
-  }],
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113883.3.666.5.978"
+    }
+  ],
   "version" : "20121025",
   "name" : "HospitalMeasuresLymphoma",
   "title" : "Hospital Measures-Lymphoma",
-  "status" : "active",
+  "status" : "retired",
   "experimental" : false,
   "date" : "2012-10-25T12:28:31-04:00",
   "publisher" : "Lantana",
-  "jurisdiction" : [{
-    "extension" : [{
-      "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
-      "valueString" : "UNKNOWN"
-    }]
-  }],
+  "jurisdiction" : [
+    {
+      "coding" : [
+        {
+          "system" : "urn:iso:std:iso:3166",
+          "code" : "US"
+        }
+      ]
+    }
+  ],
   "purpose" : "(Clinical Focus: ),(Data Element Scope: ),(Inclusion Criteria: ),(Exclusion Criteria: )",
   "compose" : {
-    "include" : [{
-      "system" : "http://hl7.org/fhir/sid/icd-9-cm",
-      "concept" : [{
+    "include" : [
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-9-cm",
+        "concept" : [
+          {
+            "code" : "202.80",
+            "display" : "Other malignant lymphomas, unspecified site, extranodal and solid organ sites"
+          },
+          {
+            "code" : "202.90",
+            "display" : "Other and unspecified malignant neoplasms of lymphoid and histiocytic tissue, unspecified site, extranodal and solid organ sites"
+          }
+        ]
+      }
+    ]
+  },
+  "expansion" : {
+    "identifier" : "urn:uuid:a9ffc037-75c2-4688-a4e2-a172eb617acf",
+    "timestamp" : "2024-06-14T18:04:46-04:00",
+    "total" : 2,
+    "contains" : [
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-9-cm",
+        "version" : "2013",
         "code" : "202.80",
         "display" : "Other malignant lymphomas, unspecified site, extranodal and solid organ sites"
       },
       {
+        "system" : "http://hl7.org/fhir/sid/icd-9-cm",
+        "version" : "2013",
         "code" : "202.90",
         "display" : "Other and unspecified malignant neoplasms of lymphoid and histiocytic tissue, unspecified site, extranodal and solid organ sites"
-      }]
-    }]
-  },
-  "expansion" : {
-    "identifier" : "urn:uuid:4f60c420-224d-44ce-82e2-1c00a8e79d26",
-    "timestamp" : "2023-09-26T10:57:01-04:00",
-    "total" : 2,
-    "offset" : 0,
-    "parameter" : [{
-      "name" : "count",
-      "valueInteger" : 1000
-    },
-    {
-      "name" : "offset",
-      "valueInteger" : 0
-    }],
-    "contains" : [{
-      "system" : "http://hl7.org/fhir/sid/icd-9-cm",
-      "version" : "2013",
-      "code" : "202.80",
-      "display" : "Other malignant lymphomas, unspecified site, extranodal and solid organ sites"
-    },
-    {
-      "system" : "http://hl7.org/fhir/sid/icd-9-cm",
-      "version" : "2013",
-      "code" : "202.90",
-      "display" : "Other and unspecified malignant neoplasms of lymphoid and histiocytic tissue, unspecified site, extranodal and solid organ sites"
-    }]
+      }
+    ]
   }
 }

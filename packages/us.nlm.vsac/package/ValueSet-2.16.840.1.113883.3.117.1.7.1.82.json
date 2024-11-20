@@ -3,138 +3,150 @@
   "id" : "2.16.840.1.113883.3.117.1.7.1.82",
   "meta" : {
     "versionId" : "23",
-    "lastUpdated" : "2019-02-26T22:31:14.000-05:00",
-    "profile" : ["http://hl7.org/fhir/StructureDefinition/shareablevalueset",
-    "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"]
+    "lastUpdated" : "2023-12-21T17:43:03.000-05:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-valueset-cqfm",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "extension" : [{
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
-    "valueString" : "TJC EH Author"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
-    "valueDate" : "2022-12-15"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
-    "valueDate" : "2019-02-26"
-  }],
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "TJC EH Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-keyWord",
+      "valueString" : "Not_In_Use"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2024-06-03"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2017-07-25"
+    }
+  ],
   "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.117.1.7.1.82",
-  "identifier" : [{
-    "system" : "urn:ietf:rfc:3986",
-    "value" : "urn:oid:2.16.840.1.113883.3.117.1.7.1.82"
-  }],
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113883.3.117.1.7.1.82"
+    }
+  ],
   "version" : "20170725",
   "name" : "DischargeToHomeOrPoliceCustody",
   "title" : "Discharge To Home Or Police Custody",
-  "status" : "active",
+  "status" : "retired",
   "experimental" : false,
   "date" : "2017-07-25T01:00:04-04:00",
   "publisher" : "TJC EH Steward",
-  "jurisdiction" : [{
-    "extension" : [{
-      "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
-      "valueString" : "UNKNOWN"
-    }]
-  }],
+  "jurisdiction" : [
+    {
+      "coding" : [
+        {
+          "system" : "urn:iso:std:iso:3166",
+          "code" : "US"
+        }
+      ]
+    }
+  ],
   "purpose" : "(Clinical Focus: This value set contains concepts that represent procedures used to represent the discharge of a patient to home or police custody.),(Data Element Scope: This value set may use the Quality Data Model (QDM) attribute related to Discharge Disposition. The intent of this data element is to identify the final place or setting to which the patient was discharged on the day of discharge from a particular inpatient encounter. This particular value set intends to identify patients who were discharged to home or police custody. ),(Inclusion Criteria: Includes only relevant concepts associated with identifying a patient's discharge destination as either a home setting or police custody.),(Exclusion Criteria: Excludes discharge concepts that identify a patient's discharge status as to anywhere else other than home or police custody.)",
   "compose" : {
-    "include" : [{
-      "system" : "http://snomed.info/sct",
-      "concept" : [{
+    "include" : [
+      {
+        "system" : "http://snomed.info/sct",
+        "concept" : [
+          {
+            "code" : "10161009",
+            "display" : "Patient discharge, to home, with assistance (procedure)"
+          },
+          {
+            "code" : "306689006",
+            "display" : "Discharge to home (procedure)"
+          },
+          {
+            "code" : "306690002",
+            "display" : "Discharge to relative's home (procedure)"
+          },
+          {
+            "code" : "306691003",
+            "display" : "Discharge to residential home (procedure)"
+          },
+          {
+            "code" : "306692005",
+            "display" : "Discharge to private residential home (procedure)"
+          },
+          {
+            "code" : "306705005",
+            "display" : "Discharge to police custody (procedure)"
+          },
+          {
+            "code" : "65537008",
+            "display" : "Patient discharge, to home, routine (procedure)"
+          },
+          {
+            "code" : "86400002",
+            "display" : "Patient discharge, to home, ambulatory (procedure)"
+          }
+        ]
+      }
+    ]
+  },
+  "expansion" : {
+    "identifier" : "urn:uuid:a1904f0e-d2e3-4c28-85d1-0d832516a4ff",
+    "timestamp" : "2024-06-14T15:43:05-04:00",
+    "total" : 8,
+    "contains" : [
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
         "code" : "10161009",
         "display" : "Patient discharge, to home, with assistance (procedure)"
       },
       {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
         "code" : "306689006",
         "display" : "Discharge to home (procedure)"
       },
       {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
         "code" : "306690002",
         "display" : "Discharge to relative's home (procedure)"
       },
       {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
         "code" : "306691003",
         "display" : "Discharge to residential home (procedure)"
       },
       {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
         "code" : "306692005",
         "display" : "Discharge to private residential home (procedure)"
       },
       {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
         "code" : "306705005",
         "display" : "Discharge to police custody (procedure)"
       },
       {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
         "code" : "65537008",
         "display" : "Patient discharge, to home, routine (procedure)"
       },
       {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
         "code" : "86400002",
         "display" : "Patient discharge, to home, ambulatory (procedure)"
-      }]
-    }]
-  },
-  "expansion" : {
-    "identifier" : "urn:uuid:55e15f7b-3fd1-4520-a0a8-71b2edff239b",
-    "timestamp" : "2023-09-26T10:07:42-04:00",
-    "total" : 8,
-    "offset" : 0,
-    "parameter" : [{
-      "name" : "count",
-      "valueInteger" : 1000
-    },
-    {
-      "name" : "offset",
-      "valueInteger" : 0
-    }],
-    "contains" : [{
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "10161009",
-      "display" : "Patient discharge, to home, with assistance (procedure)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "306689006",
-      "display" : "Discharge to home (procedure)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "306690002",
-      "display" : "Discharge to relative's home (procedure)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "306691003",
-      "display" : "Discharge to residential home (procedure)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "306692005",
-      "display" : "Discharge to private residential home (procedure)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "306705005",
-      "display" : "Discharge to police custody (procedure)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "65537008",
-      "display" : "Patient discharge, to home, routine (procedure)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "86400002",
-      "display" : "Patient discharge, to home, ambulatory (procedure)"
-    }]
+      }
+    ]
   }
 }

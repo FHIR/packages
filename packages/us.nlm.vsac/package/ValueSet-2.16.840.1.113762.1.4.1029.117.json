@@ -3,79 +3,91 @@
   "id" : "2.16.840.1.113762.1.4.1029.117",
   "meta" : {
     "versionId" : "8",
-    "lastUpdated" : "2018-03-02T01:00:06.000-05:00",
-    "profile" : ["http://hl7.org/fhir/StructureDefinition/shareablevalueset",
-    "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"]
+    "lastUpdated" : "2023-12-21T17:43:03.000-05:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-valueset-cqfm",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "extension" : [{
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
-    "valueString" : "Joint Commission Author"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
-    "valueDate" : "2022-12-15"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
-    "valueDate" : "2018-03-02"
-  }],
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "Joint Commission Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-keyWord",
+      "valueString" : "Not_In_Use"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2024-04-02"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2018-03-02"
+    }
+  ],
   "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1029.117",
-  "identifier" : [{
-    "system" : "urn:ietf:rfc:3986",
-    "value" : "urn:oid:2.16.840.1.113762.1.4.1029.117"
-  }],
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113762.1.4.1029.117"
+    }
+  ],
   "version" : "20180302",
   "name" : "InadequateHomeEnvironment",
   "title" : "Inadequate Home Environment",
-  "status" : "active",
+  "status" : "retired",
   "experimental" : false,
   "date" : "2018-03-02T01:00:06-05:00",
   "publisher" : "Joint Commission",
   "description" : "NOTE:  VALUE SET UNDER DEVELOPMENT AS MEASURE TESTING IS ONGOING.",
-  "jurisdiction" : [{
-    "extension" : [{
-      "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
-      "valueString" : "UNKNOWN"
-    }]
-  }],
+  "jurisdiction" : [
+    {
+      "coding" : [
+        {
+          "system" : "urn:iso:std:iso:3166",
+          "code" : "US"
+        }
+      ]
+    }
+  ],
   "purpose" : "(Clinical Focus: Identification of inadequate home environment that may be unsafe for patient.),(Data Element Scope: The intent of this data element is to identify inadequate home environment for safe and effective rehabilitation.  Using the Quality Data Model, this particular element will map to the \"Assessment Performed\" datatype.),(Inclusion Criteria: Inadequate home setting or social support for home rehabilitation.),(Exclusion Criteria: None.)",
   "compose" : {
-    "include" : [{
-      "system" : "http://snomed.info/sct",
-      "concept" : [{
+    "include" : [
+      {
+        "system" : "http://snomed.info/sct",
+        "concept" : [
+          {
+            "code" : "160721001",
+            "display" : "Housing unsuited to needs (finding)"
+          },
+          {
+            "code" : "25622003",
+            "display" : "Support system deficit (finding)"
+          }
+        ]
+      }
+    ]
+  },
+  "expansion" : {
+    "identifier" : "urn:uuid:7a4e2cb0-d7e2-42e5-aa25-681319521133",
+    "timestamp" : "2024-06-14T09:18:30-04:00",
+    "total" : 2,
+    "contains" : [
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
         "code" : "160721001",
         "display" : "Housing unsuited to needs (finding)"
       },
       {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
         "code" : "25622003",
         "display" : "Support system deficit (finding)"
-      }]
-    }]
-  },
-  "expansion" : {
-    "identifier" : "urn:uuid:1b17ab59-abd0-4a39-99c0-e97752865070",
-    "timestamp" : "2023-09-26T11:05:26-04:00",
-    "total" : 2,
-    "offset" : 0,
-    "parameter" : [{
-      "name" : "count",
-      "valueInteger" : 1000
-    },
-    {
-      "name" : "offset",
-      "valueInteger" : 0
-    }],
-    "contains" : [{
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "160721001",
-      "display" : "Housing unsuited to needs (finding)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "25622003",
-      "display" : "Support system deficit (finding)"
-    }]
+      }
+    ]
   }
 }

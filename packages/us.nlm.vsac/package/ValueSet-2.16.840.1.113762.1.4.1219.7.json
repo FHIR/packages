@@ -3,27 +3,34 @@
   "id" : "2.16.840.1.113762.1.4.1219.7",
   "meta" : {
     "versionId" : "5",
-    "lastUpdated" : "2022-03-15T01:04:14.000-04:00",
-    "profile" : ["http://hl7.org/fhir/StructureDefinition/shareablevalueset",
-    "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"]
+    "lastUpdated" : "2023-12-21T17:43:03.000-05:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-valueset-cqfm",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "extension" : [{
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
-    "valueString" : "CMS DRLS Author"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
-    "valueDate" : "2022-12-15"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
-    "valueDate" : "2022-03-15"
-  }],
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "CMS DRLS Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2024-01-02"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2022-03-15"
+    }
+  ],
   "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1219.7",
-  "identifier" : [{
-    "system" : "urn:ietf:rfc:3986",
-    "value" : "urn:oid:2.16.840.1.113762.1.4.1219.7"
-  }],
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113762.1.4.1219.7"
+    }
+  ],
   "version" : "20220315",
   "name" : "HypoxemiaDisorderICD10CM",
   "title" : "Hypoxemia Disorder ICD10CM",
@@ -31,75 +38,78 @@
   "experimental" : false,
   "date" : "2022-03-15T01:04:14-04:00",
   "publisher" : "CMS DRLS Steward",
-  "jurisdiction" : [{
-    "extension" : [{
-      "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
-      "valueString" : "UNKNOWN"
-    }]
-  }],
+  "jurisdiction" : [
+    {
+      "coding" : [
+        {
+          "system" : "urn:iso:std:iso:3166",
+          "code" : "US"
+        }
+      ]
+    }
+  ],
   "purpose" : "(Clinical Focus: Hypoxemia),(Data Element Scope: Hypoxemia that may require medical equipment such as oxygen therapy,as defined by U.S. Centers for Medicare and Medicaid.),(Inclusion Criteria: Hypoxemia and respiratory failure with hypoxemia),(Exclusion Criteria: No exclusions.)",
   "compose" : {
-    "include" : [{
-      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-      "version" : "2024",
-      "filter" : [{
-        "property" : "concept",
-        "op" : "=",
-        "value" : "R09.02"
-      }]
-    },
-    {
-      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-      "version" : "2024",
-      "filter" : [{
-        "property" : "concept",
-        "op" : "is-a",
-        "value" : "J96.0"
-      }]
-    }]
+    "include" : [
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2024",
+        "filter" : [
+          {
+            "property" : "concept",
+            "op" : "=",
+            "value" : "R09.02"
+          }
+        ]
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2024",
+        "filter" : [
+          {
+            "property" : "concept",
+            "op" : "is-a",
+            "value" : "J96.0"
+          }
+        ]
+      }
+    ]
   },
   "expansion" : {
-    "identifier" : "urn:uuid:7a56fe14-9dfe-4046-8638-13a5f71d804a",
-    "timestamp" : "2023-09-26T11:02:22-04:00",
+    "identifier" : "urn:uuid:c6893a4d-1502-4b79-af78-ce044879acd9",
+    "timestamp" : "2024-06-14T13:56:11-04:00",
     "total" : 5,
-    "offset" : 0,
-    "parameter" : [{
-      "name" : "count",
-      "valueInteger" : 1000
-    },
-    {
-      "name" : "offset",
-      "valueInteger" : 0
-    }],
-    "contains" : [{
-      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-      "version" : "2024",
-      "code" : "J96.0",
-      "display" : "Acute respiratory failure"
-    },
-    {
-      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-      "version" : "2024",
-      "code" : "J96.00",
-      "display" : "Acute respiratory failure, unspecified whether with hypoxia or hypercapnia"
-    },
-    {
-      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-      "version" : "2024",
-      "code" : "J96.01",
-      "display" : "Acute respiratory failure with hypoxia"
-    },
-    {
-      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-      "version" : "2024",
-      "code" : "J96.02",
-      "display" : "Acute respiratory failure with hypercapnia"
-    },
-    {
-      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-      "version" : "2024",
-      "code" : "R09.02",
-      "display" : "Hypoxemia"
-    }]
+    "contains" : [
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2024",
+        "code" : "J96.0",
+        "display" : "Acute respiratory failure"
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2024",
+        "code" : "J96.00",
+        "display" : "Acute respiratory failure, unspecified whether with hypoxia or hypercapnia"
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2024",
+        "code" : "J96.01",
+        "display" : "Acute respiratory failure with hypoxia"
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2024",
+        "code" : "J96.02",
+        "display" : "Acute respiratory failure with hypercapnia"
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2024",
+        "code" : "R09.02",
+        "display" : "Hypoxemia"
+      }
+    ]
   }
 }

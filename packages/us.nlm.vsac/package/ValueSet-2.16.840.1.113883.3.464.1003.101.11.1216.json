@@ -3,208 +3,216 @@
   "id" : "2.16.840.1.113883.3.464.1003.101.11.1216",
   "meta" : {
     "versionId" : "25",
-    "lastUpdated" : "2017-05-04T01:00:13.000-04:00",
-    "profile" : ["http://hl7.org/fhir/StructureDefinition/shareablevalueset",
-    "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"]
+    "lastUpdated" : "2024-02-01T15:08:06.000-05:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-valueset-cqfm",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "extension" : [{
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
-    "valueString" : "NCQA PHEMUR Author"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
-    "valueDate" : "2022-12-15"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
-    "valueDate" : "2017-05-04"
-  }],
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "HRSA - HAB Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2024-02-07"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2017-05-04"
+    }
+  ],
   "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.101.11.1216",
-  "identifier" : [{
-    "system" : "urn:ietf:rfc:3986",
-    "value" : "urn:oid:2.16.840.1.113883.3.464.1003.101.11.1216"
-  }],
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113883.3.464.1003.101.11.1216"
+    }
+  ],
   "version" : "20170504",
   "name" : "FaceToFaceInteraction",
   "title" : "Face-to-Face Interaction",
   "status" : "active",
   "experimental" : false,
   "date" : "2017-05-04T01:00:13-04:00",
-  "publisher" : "NCQA PHEMUR",
-  "jurisdiction" : [{
-    "extension" : [{
-      "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
-      "valueString" : "UNKNOWN"
-    }]
-  }],
+  "publisher" : "HRSA - HAB",
+  "jurisdiction" : [
+    {
+      "coding" : [
+        {
+          "system" : "urn:iso:std:iso:3166",
+          "code" : "US"
+        }
+      ]
+    }
+  ],
   "purpose" : "(Clinical Focus: This value set indentifies patients who have had a face-to-face interaction with a member of their medical care team.),(Data Element Scope: This value set was intended to map to the QDM data type of encounter.),(Inclusion Criteria: Includes both initial and follow up visits. Includes home visits, inpatient and outpatient visits, and nursing facility visits.),(Exclusion Criteria: Excludes visits that are not performed in-person, including telehealth services.)",
   "compose" : {
-    "include" : [{
-      "system" : "http://snomed.info/sct",
-      "concept" : [{
+    "include" : [
+      {
+        "system" : "http://snomed.info/sct",
+        "concept" : [
+          {
+            "code" : "12843005",
+            "display" : "Subsequent hospital visit by physician (procedure)"
+          },
+          {
+            "code" : "18170008",
+            "display" : "Subsequent nursing facility visit (procedure)"
+          },
+          {
+            "code" : "185349003",
+            "display" : "Encounter for check up (procedure)"
+          },
+          {
+            "code" : "185463005",
+            "display" : "Visit out of hours (procedure)"
+          },
+          {
+            "code" : "185465003",
+            "display" : "Weekend visit (procedure)"
+          },
+          {
+            "code" : "19681004",
+            "display" : "Nursing evaluation of patient and report (procedure)"
+          },
+          {
+            "code" : "207195004",
+            "display" : "History and physical examination with evaluation and management of nursing facility patient (procedure)"
+          },
+          {
+            "code" : "270427003",
+            "display" : "Patient-initiated encounter (procedure)"
+          },
+          {
+            "code" : "270430005",
+            "display" : "Provider-initiated encounter (procedure)"
+          },
+          {
+            "code" : "308335008",
+            "display" : "Patient encounter procedure (procedure)"
+          },
+          {
+            "code" : "390906007",
+            "display" : "Follow-up encounter (procedure)"
+          },
+          {
+            "code" : "406547006",
+            "display" : "Urgent follow-up (procedure)"
+          },
+          {
+            "code" : "439708006",
+            "display" : "Home visit (procedure)"
+          },
+          {
+            "code" : "87790002",
+            "display" : "Follow-up inpatient consultation visit (procedure)"
+          },
+          {
+            "code" : "90526000",
+            "display" : "Initial evaluation and management of healthy individual (procedure)"
+          }
+        ]
+      }
+    ]
+  },
+  "expansion" : {
+    "identifier" : "urn:uuid:2d06d91f-0f66-420d-8a6c-685bbba91156",
+    "timestamp" : "2024-06-14T16:33:17-04:00",
+    "total" : 15,
+    "contains" : [
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
         "code" : "12843005",
         "display" : "Subsequent hospital visit by physician (procedure)"
       },
       {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
         "code" : "18170008",
         "display" : "Subsequent nursing facility visit (procedure)"
       },
       {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
         "code" : "185349003",
         "display" : "Encounter for check up (procedure)"
       },
       {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
         "code" : "185463005",
         "display" : "Visit out of hours (procedure)"
       },
       {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
         "code" : "185465003",
         "display" : "Weekend visit (procedure)"
       },
       {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
         "code" : "19681004",
         "display" : "Nursing evaluation of patient and report (procedure)"
       },
       {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
         "code" : "207195004",
         "display" : "History and physical examination with evaluation and management of nursing facility patient (procedure)"
       },
       {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
         "code" : "270427003",
         "display" : "Patient-initiated encounter (procedure)"
       },
       {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
         "code" : "270430005",
         "display" : "Provider-initiated encounter (procedure)"
       },
       {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
         "code" : "308335008",
         "display" : "Patient encounter procedure (procedure)"
       },
       {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
         "code" : "390906007",
         "display" : "Follow-up encounter (procedure)"
       },
       {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
         "code" : "406547006",
         "display" : "Urgent follow-up (procedure)"
       },
       {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
         "code" : "439708006",
         "display" : "Home visit (procedure)"
       },
       {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
         "code" : "87790002",
         "display" : "Follow-up inpatient consultation visit (procedure)"
       },
       {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
         "code" : "90526000",
         "display" : "Initial evaluation and management of healthy individual (procedure)"
-      }]
-    }]
-  },
-  "expansion" : {
-    "identifier" : "urn:uuid:415bd9c5-8563-4a64-b621-b6325bc3017b",
-    "timestamp" : "2023-09-26T10:24:56-04:00",
-    "total" : 15,
-    "offset" : 0,
-    "parameter" : [{
-      "name" : "count",
-      "valueInteger" : 1000
-    },
-    {
-      "name" : "offset",
-      "valueInteger" : 0
-    }],
-    "contains" : [{
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "12843005",
-      "display" : "Subsequent hospital visit by physician (procedure)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "18170008",
-      "display" : "Subsequent nursing facility visit (procedure)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "185349003",
-      "display" : "Encounter for check up (procedure)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "185463005",
-      "display" : "Visit out of hours (procedure)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "185465003",
-      "display" : "Weekend visit (procedure)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "19681004",
-      "display" : "Nursing evaluation of patient and report (procedure)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "207195004",
-      "display" : "History and physical examination with evaluation and management of nursing facility patient (procedure)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "270427003",
-      "display" : "Patient-initiated encounter (procedure)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "270430005",
-      "display" : "Provider-initiated encounter (procedure)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "308335008",
-      "display" : "Patient encounter procedure (procedure)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "390906007",
-      "display" : "Follow-up encounter (procedure)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "406547006",
-      "display" : "Urgent follow-up (procedure)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "439708006",
-      "display" : "Home visit (procedure)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "87790002",
-      "display" : "Follow-up inpatient consultation visit (procedure)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "90526000",
-      "display" : "Initial evaluation and management of healthy individual (procedure)"
-    }]
+      }
+    ]
   }
 }

@@ -3,89 +3,97 @@
   "id" : "2.16.840.1.113762.1.4.1045.9",
   "meta" : {
     "versionId" : "10",
-    "lastUpdated" : "2015-03-19T10:37:42.000-04:00",
-    "profile" : ["http://hl7.org/fhir/StructureDefinition/shareablevalueset",
-    "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"]
+    "lastUpdated" : "2023-12-21T17:43:03.000-05:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-valueset-cqfm",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "extension" : [{
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
-    "valueString" : "Lantana EH Author"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
-    "valueDate" : "2022-12-15"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
-    "valueDate" : "2015-03-19"
-  }],
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "Lantana EH Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2024-06-03"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2014-07-07"
+    }
+  ],
   "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1045.9",
-  "identifier" : [{
-    "system" : "urn:ietf:rfc:3986",
-    "value" : "urn:oid:2.16.840.1.113762.1.4.1045.9"
-  }],
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113762.1.4.1045.9"
+    }
+  ],
   "version" : "20140707",
   "name" : "BloodCultures",
   "title" : "Blood Cultures",
-  "status" : "active",
+  "status" : "retired",
   "experimental" : false,
   "date" : "2014-07-07T01:00:01-04:00",
   "publisher" : "Lantana EH Steward",
   "description" : "SNOMED-CT",
-  "jurisdiction" : [{
-    "extension" : [{
-      "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
-      "valueString" : "UNKNOWN"
-    }]
-  }],
+  "jurisdiction" : [
+    {
+      "coding" : [
+        {
+          "system" : "urn:iso:std:iso:3166",
+          "code" : "US"
+        }
+      ]
+    }
+  ],
   "purpose" : "(Clinical Focus: This set of values represents the procedure blood culture.),(Data Element Scope: The intent of this data element is to identify the procedure blood culture. Using the Quality Data Model, this element maps to the Procedure category.),(Inclusion Criteria: Include SNOMEDCT codes that identify the blood culture procedure.),(Exclusion Criteria: Exclude codes that do not meet the inclusion criteria.)",
   "compose" : {
-    "include" : [{
-      "system" : "http://snomed.info/sct",
-      "concept" : [{
+    "include" : [
+      {
+        "system" : "http://snomed.info/sct",
+        "concept" : [
+          {
+            "code" : "30088009",
+            "display" : "Blood culture (procedure)"
+          },
+          {
+            "code" : "409611004",
+            "display" : "Aerobic blood culture (procedure)"
+          },
+          {
+            "code" : "409612006",
+            "display" : "Anaerobic blood culture (procedure)"
+          }
+        ]
+      }
+    ]
+  },
+  "expansion" : {
+    "identifier" : "urn:uuid:b05df372-e617-4851-b4b4-a214897d6f3c",
+    "timestamp" : "2024-06-14T10:27:07-04:00",
+    "total" : 3,
+    "contains" : [
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
         "code" : "30088009",
         "display" : "Blood culture (procedure)"
       },
       {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
         "code" : "409611004",
         "display" : "Aerobic blood culture (procedure)"
       },
       {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
         "code" : "409612006",
         "display" : "Anaerobic blood culture (procedure)"
-      }]
-    }]
-  },
-  "expansion" : {
-    "identifier" : "urn:uuid:05b77f41-3d79-4a5d-aa96-9760b18f25de",
-    "timestamp" : "2023-09-26T08:13:11-04:00",
-    "total" : 3,
-    "offset" : 0,
-    "parameter" : [{
-      "name" : "count",
-      "valueInteger" : 1000
-    },
-    {
-      "name" : "offset",
-      "valueInteger" : 0
-    }],
-    "contains" : [{
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "30088009",
-      "display" : "Blood culture (procedure)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "409611004",
-      "display" : "Aerobic blood culture (procedure)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "409612006",
-      "display" : "Anaerobic blood culture (procedure)"
-    }]
+      }
+    ]
   }
 }

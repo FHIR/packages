@@ -3,209 +3,217 @@
   "id" : "2.16.840.1.113762.1.4.1182.356",
   "meta" : {
     "versionId" : "5",
-    "lastUpdated" : "2019-11-14T01:00:18.000-05:00",
-    "profile" : ["http://hl7.org/fhir/StructureDefinition/shareablevalueset",
-    "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"]
+    "lastUpdated" : "2023-12-21T17:43:03.000-05:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-valueset-cqfm",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "extension" : [{
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
-    "valueString" : "Change Healthcare Author"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
-    "valueDate" : "2022-12-15"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
-    "valueDate" : "2019-11-14"
-  }],
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "Change Healthcare Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2024-06-03"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2019-11-14"
+    }
+  ],
   "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1182.356",
-  "identifier" : [{
-    "system" : "urn:ietf:rfc:3986",
-    "value" : "urn:oid:2.16.840.1.113762.1.4.1182.356"
-  }],
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113762.1.4.1182.356"
+    }
+  ],
   "version" : "20191114",
   "name" : "CarotidIntervention",
   "title" : "Carotid Intervention",
-  "status" : "active",
+  "status" : "retired",
   "experimental" : false,
   "date" : "2019-11-14T01:00:18-05:00",
   "publisher" : "Change Healthcare Steward",
   "description" : "This value set created to 2019 MSSP ACO PREV-13 variable name CAROTID_CODE.  \nReplace PCPI's 2.16.840.1.113883.3.117.1.7.1.204 representation.",
-  "jurisdiction" : [{
-    "extension" : [{
-      "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
-      "valueString" : "UNKNOWN"
-    }]
-  }],
+  "jurisdiction" : [
+    {
+      "coding" : [
+        {
+          "system" : "urn:iso:std:iso:3166",
+          "code" : "US"
+        }
+      ]
+    }
+  ],
   "purpose" : "(Clinical Focus: This value set contains concepts that represent carotid intervention surgical procedures),(Data Element Scope: ClaimProcedures, ClaimItem.service, Procedure, Encounter.Condition, Condition, Observation),(Inclusion Criteria: Includes only relevant concepts associated with representing carotid intervention surgical procedures.),(Exclusion Criteria: No exclusions.)",
   "compose" : {
-    "include" : [{
-      "system" : "http://hl7.org/fhir/sid/icd-9-cm",
-      "concept" : [{
+    "include" : [
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-9-cm",
+        "concept" : [
+          {
+            "code" : "00.61",
+            "display" : "Percutaneous angioplasty of extracranial vessel(s)"
+          },
+          {
+            "code" : "00.62",
+            "display" : "Percutaneous angioplasty of intracranial vessel(s)"
+          },
+          {
+            "code" : "00.63",
+            "display" : "Percutaneous insertion of carotid artery stent(s)"
+          },
+          {
+            "code" : "00.64",
+            "display" : "Percutaneous insertion of other extracranial artery stent(s)"
+          },
+          {
+            "code" : "00.65",
+            "display" : "Percutaneous insertion of intracranial vascular stent(s)"
+          },
+          {
+            "code" : "38.02",
+            "display" : "Incision of vessel, other vessels of head and neck"
+          },
+          {
+            "code" : "38.12",
+            "display" : "Endarterectomy, other vessels of head and neck"
+          },
+          {
+            "code" : "38.22",
+            "display" : "Percutaneous angioscopy"
+          },
+          {
+            "code" : "38.3",
+            "display" : "Resection of vessel with anastomosis"
+          },
+          {
+            "code" : "38.31",
+            "display" : "Resection of vessel with anastomosis, intracranial vessels"
+          },
+          {
+            "code" : "38.32",
+            "display" : "Resection of vessel with anastomosis, other vessels of head and neck"
+          },
+          {
+            "code" : "38.42",
+            "display" : "Resection of vessel with replacement, other vessels of head and neck"
+          },
+          {
+            "code" : "39.22",
+            "display" : "Aorta-subclavian-carotid bypass"
+          },
+          {
+            "code" : "39.28",
+            "display" : "Extracranial-intracranial (EC-IC) vascular bypass"
+          },
+          {
+            "code" : "88.41",
+            "display" : "Arteriography of cerebral arteries"
+          }
+        ]
+      }
+    ]
+  },
+  "expansion" : {
+    "identifier" : "urn:uuid:92fa7a34-620a-48bb-ae47-6023545205da",
+    "timestamp" : "2024-06-14T13:04:53-04:00",
+    "total" : 15,
+    "contains" : [
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-9-cm",
+        "version" : "2013",
         "code" : "00.61",
         "display" : "Percutaneous angioplasty of extracranial vessel(s)"
       },
       {
+        "system" : "http://hl7.org/fhir/sid/icd-9-cm",
+        "version" : "2013",
         "code" : "00.62",
         "display" : "Percutaneous angioplasty of intracranial vessel(s)"
       },
       {
+        "system" : "http://hl7.org/fhir/sid/icd-9-cm",
+        "version" : "2013",
         "code" : "00.63",
         "display" : "Percutaneous insertion of carotid artery stent(s)"
       },
       {
+        "system" : "http://hl7.org/fhir/sid/icd-9-cm",
+        "version" : "2013",
         "code" : "00.64",
         "display" : "Percutaneous insertion of other extracranial artery stent(s)"
       },
       {
+        "system" : "http://hl7.org/fhir/sid/icd-9-cm",
+        "version" : "2013",
         "code" : "00.65",
         "display" : "Percutaneous insertion of intracranial vascular stent(s)"
       },
       {
+        "system" : "http://hl7.org/fhir/sid/icd-9-cm",
+        "version" : "2013",
         "code" : "38.02",
         "display" : "Incision of vessel, other vessels of head and neck"
       },
       {
+        "system" : "http://hl7.org/fhir/sid/icd-9-cm",
+        "version" : "2013",
         "code" : "38.12",
         "display" : "Endarterectomy, other vessels of head and neck"
       },
       {
+        "system" : "http://hl7.org/fhir/sid/icd-9-cm",
+        "version" : "2013",
         "code" : "38.22",
         "display" : "Percutaneous angioscopy"
       },
       {
+        "system" : "http://hl7.org/fhir/sid/icd-9-cm",
+        "version" : "2013",
         "code" : "38.3",
         "display" : "Resection of vessel with anastomosis"
       },
       {
+        "system" : "http://hl7.org/fhir/sid/icd-9-cm",
+        "version" : "2013",
         "code" : "38.31",
         "display" : "Resection of vessel with anastomosis, intracranial vessels"
       },
       {
+        "system" : "http://hl7.org/fhir/sid/icd-9-cm",
+        "version" : "2013",
         "code" : "38.32",
         "display" : "Resection of vessel with anastomosis, other vessels of head and neck"
       },
       {
+        "system" : "http://hl7.org/fhir/sid/icd-9-cm",
+        "version" : "2013",
         "code" : "38.42",
         "display" : "Resection of vessel with replacement, other vessels of head and neck"
       },
       {
+        "system" : "http://hl7.org/fhir/sid/icd-9-cm",
+        "version" : "2013",
         "code" : "39.22",
         "display" : "Aorta-subclavian-carotid bypass"
       },
       {
+        "system" : "http://hl7.org/fhir/sid/icd-9-cm",
+        "version" : "2013",
         "code" : "39.28",
         "display" : "Extracranial-intracranial (EC-IC) vascular bypass"
       },
       {
+        "system" : "http://hl7.org/fhir/sid/icd-9-cm",
+        "version" : "2013",
         "code" : "88.41",
         "display" : "Arteriography of cerebral arteries"
-      }]
-    }]
-  },
-  "expansion" : {
-    "identifier" : "urn:uuid:ce699596-86b5-4862-b136-5914e50e429f",
-    "timestamp" : "2023-09-26T09:13:30-04:00",
-    "total" : 15,
-    "offset" : 0,
-    "parameter" : [{
-      "name" : "count",
-      "valueInteger" : 1000
-    },
-    {
-      "name" : "offset",
-      "valueInteger" : 0
-    }],
-    "contains" : [{
-      "system" : "http://hl7.org/fhir/sid/icd-9-cm",
-      "version" : "2013",
-      "code" : "00.61",
-      "display" : "Percutaneous angioplasty of extracranial vessel(s)"
-    },
-    {
-      "system" : "http://hl7.org/fhir/sid/icd-9-cm",
-      "version" : "2013",
-      "code" : "00.62",
-      "display" : "Percutaneous angioplasty of intracranial vessel(s)"
-    },
-    {
-      "system" : "http://hl7.org/fhir/sid/icd-9-cm",
-      "version" : "2013",
-      "code" : "00.63",
-      "display" : "Percutaneous insertion of carotid artery stent(s)"
-    },
-    {
-      "system" : "http://hl7.org/fhir/sid/icd-9-cm",
-      "version" : "2013",
-      "code" : "00.64",
-      "display" : "Percutaneous insertion of other extracranial artery stent(s)"
-    },
-    {
-      "system" : "http://hl7.org/fhir/sid/icd-9-cm",
-      "version" : "2013",
-      "code" : "00.65",
-      "display" : "Percutaneous insertion of intracranial vascular stent(s)"
-    },
-    {
-      "system" : "http://hl7.org/fhir/sid/icd-9-cm",
-      "version" : "2013",
-      "code" : "38.02",
-      "display" : "Incision of vessel, other vessels of head and neck"
-    },
-    {
-      "system" : "http://hl7.org/fhir/sid/icd-9-cm",
-      "version" : "2013",
-      "code" : "38.12",
-      "display" : "Endarterectomy, other vessels of head and neck"
-    },
-    {
-      "system" : "http://hl7.org/fhir/sid/icd-9-cm",
-      "version" : "2013",
-      "code" : "38.22",
-      "display" : "Percutaneous angioscopy"
-    },
-    {
-      "system" : "http://hl7.org/fhir/sid/icd-9-cm",
-      "version" : "2013",
-      "code" : "38.3",
-      "display" : "Resection of vessel with anastomosis"
-    },
-    {
-      "system" : "http://hl7.org/fhir/sid/icd-9-cm",
-      "version" : "2013",
-      "code" : "38.31",
-      "display" : "Resection of vessel with anastomosis, intracranial vessels"
-    },
-    {
-      "system" : "http://hl7.org/fhir/sid/icd-9-cm",
-      "version" : "2013",
-      "code" : "38.32",
-      "display" : "Resection of vessel with anastomosis, other vessels of head and neck"
-    },
-    {
-      "system" : "http://hl7.org/fhir/sid/icd-9-cm",
-      "version" : "2013",
-      "code" : "38.42",
-      "display" : "Resection of vessel with replacement, other vessels of head and neck"
-    },
-    {
-      "system" : "http://hl7.org/fhir/sid/icd-9-cm",
-      "version" : "2013",
-      "code" : "39.22",
-      "display" : "Aorta-subclavian-carotid bypass"
-    },
-    {
-      "system" : "http://hl7.org/fhir/sid/icd-9-cm",
-      "version" : "2013",
-      "code" : "39.28",
-      "display" : "Extracranial-intracranial (EC-IC) vascular bypass"
-    },
-    {
-      "system" : "http://hl7.org/fhir/sid/icd-9-cm",
-      "version" : "2013",
-      "code" : "88.41",
-      "display" : "Arteriography of cerebral arteries"
-    }]
+      }
+    ]
   }
 }

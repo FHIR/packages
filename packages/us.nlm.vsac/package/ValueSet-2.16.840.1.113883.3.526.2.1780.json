@@ -3,27 +3,34 @@
   "id" : "2.16.840.1.113883.3.526.2.1780",
   "meta" : {
     "versionId" : "14",
-    "lastUpdated" : "2022-01-11T14:16:44.000-05:00",
-    "profile" : ["http://hl7.org/fhir/StructureDefinition/shareablevalueset",
-    "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"]
+    "lastUpdated" : "2023-12-21T17:43:03.000-05:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-valueset-cqfm",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "extension" : [{
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
-    "valueString" : "Mathematica EP"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
-    "valueDate" : "2023-01-30"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
-    "valueDate" : "2022-01-11"
-  }],
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "Mathematica EP"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2024-03-14"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2021-02-19"
+    }
+  ],
   "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.526.2.1780",
-  "identifier" : [{
-    "system" : "urn:ietf:rfc:3986",
-    "value" : "urn:oid:2.16.840.1.113883.3.526.2.1780"
-  }],
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113883.3.526.2.1780"
+    }
+  ],
   "version" : "20210219",
   "name" : "PsychVisitForFamilyPsychotherapy",
   "title" : "Psych Visit for Family Psychotherapy",
@@ -31,60 +38,61 @@
   "experimental" : false,
   "date" : "2021-02-19T01:00:28-05:00",
   "publisher" : "Mathematica",
-  "jurisdiction" : [{
-    "extension" : [{
-      "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
-      "valueString" : "UNKNOWN"
-    }]
-  }],
+  "jurisdiction" : [
+    {
+      "coding" : [
+        {
+          "system" : "urn:iso:std:iso:3166",
+          "code" : "US"
+        }
+      ]
+    }
+  ],
   "purpose" : "(Clinical Focus: The purpose of this value set is to represent concepts for family psychotherapy.),(Data Element Scope: This value set may use a model element related to Encounter.),(Inclusion Criteria: Includes concepts that represent family psychotherapy.),(Exclusion Criteria: Excludes concepts for group psychotherapy or individual psychotherapy.)",
   "compose" : {
-    "include" : [{
-      "system" : "http://snomed.info/sct",
-      "concept" : [{
+    "include" : [
+      {
+        "system" : "http://snomed.info/sct",
+        "concept" : [
+          {
+            "code" : "108313002",
+            "display" : "Family psychotherapy procedure (regime/therapy)"
+          },
+          {
+            "code" : "302247005",
+            "display" : "Narrative family psychotherapy (regime/therapy)"
+          },
+          {
+            "code" : "361229007",
+            "display" : "Structural family psychotherapy (regime/therapy)"
+          }
+        ]
+      }
+    ]
+  },
+  "expansion" : {
+    "identifier" : "urn:uuid:186a49e3-a70a-4d73-b935-c31d951d4b68",
+    "timestamp" : "2024-06-14T17:34:51-04:00",
+    "total" : 3,
+    "contains" : [
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
         "code" : "108313002",
         "display" : "Family psychotherapy procedure (regime/therapy)"
       },
       {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
         "code" : "302247005",
         "display" : "Narrative family psychotherapy (regime/therapy)"
       },
       {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
         "code" : "361229007",
         "display" : "Structural family psychotherapy (regime/therapy)"
-      }]
-    }]
-  },
-  "expansion" : {
-    "identifier" : "urn:uuid:a5ff78f7-96e4-4a32-af50-0b63d182a543",
-    "timestamp" : "2023-09-26T12:47:14-04:00",
-    "total" : 3,
-    "offset" : 0,
-    "parameter" : [{
-      "name" : "count",
-      "valueInteger" : 1000
-    },
-    {
-      "name" : "offset",
-      "valueInteger" : 0
-    }],
-    "contains" : [{
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "108313002",
-      "display" : "Family psychotherapy procedure (regime/therapy)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "302247005",
-      "display" : "Narrative family psychotherapy (regime/therapy)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "361229007",
-      "display" : "Structural family psychotherapy (regime/therapy)"
-    }]
+      }
+    ]
   }
 }

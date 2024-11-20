@@ -2,139 +2,147 @@
   "resourceType" : "ValueSet",
   "id" : "2.16.840.1.113883.11.20.9.69.4",
   "meta" : {
-    "versionId" : "22",
-    "lastUpdated" : "2023-06-27T01:00:46.000-04:00",
-    "profile" : ["http://hl7.org/fhir/StructureDefinition/shareablevalueset",
-    "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"]
+    "versionId" : "28",
+    "lastUpdated" : "2024-02-17T01:10:27.000-05:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-valueset-cqfm",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "extension" : [{
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
-    "valueString" : "ADVault Author"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
-    "valueDate" : "2023-06-27"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
-    "valueDate" : "2023-06-27"
-  }],
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "ADVault Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2024-02-17"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2024-02-17"
+    }
+  ],
   "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.11.20.9.69.4",
-  "identifier" : [{
-    "system" : "urn:ietf:rfc:3986",
-    "value" : "urn:oid:2.16.840.1.113883.11.20.9.69.4"
-  }],
-  "version" : "20230627",
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113883.11.20.9.69.4"
+    }
+  ],
+  "version" : "20240217",
   "name" : "AdvanceDirectivesCategories",
   "title" : "Advance Directives Categories",
   "status" : "active",
-  "date" : "2023-06-27T01:00:46-04:00",
+  "date" : "2024-02-17T01:10:27-05:00",
   "publisher" : "ADVault",
-  "description" : "Categories of content in an advance directive. This list is not exhaustive.",
-  "jurisdiction" : [{
-    "extension" : [{
-      "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
-      "valueString" : "UNKNOWN"
-    }]
-  }],
-  "purpose" : "(Clinical Focus: Categories of Advance Directives.),(Data Element Scope: Concepts represent different categories of Advance Directive statements.),(Inclusion Criteria: Includes concepts from LOINC that indicate a category (or kind) of advance directive that may be specified in a standard advance directive document.),(Exclusion Criteria: )",
+  "description" : "Categories of advance directive documents.",
+  "jurisdiction" : [
+    {
+      "coding" : [
+        {
+          "system" : "urn:iso:std:iso:3166",
+          "code" : "US"
+        }
+      ]
+    }
+  ],
+  "purpose" : "(Clinical Focus: Categories of advance directive documents.),(Data Element Scope: Used for concepts that type or categorize documents and document reference indexing for search and retrieval.),(Inclusion Criteria: Includes concepts from LOINC that indicate a category (or type) of advance directive that may be specified in a standard advance directive document.),(Exclusion Criteria: )",
   "compose" : {
-    "include" : [{
-      "system" : "http://loinc.org",
-      "concept" : [{
+    "include" : [
+      {
+        "system" : "http://loinc.org",
+        "concept" : [
+          {
+            "code" : "100821-8",
+            "display" : "National POLST form: portable medical order panel"
+          },
+          {
+            "code" : "42348-3",
+            "display" : "Advance directives"
+          },
+          {
+            "code" : "64298-3",
+            "display" : "Power of attorney"
+          },
+          {
+            "code" : "81334-5",
+            "display" : "Patient Personal advance care plan"
+          },
+          {
+            "code" : "84095-9",
+            "display" : "Do not resuscitate"
+          },
+          {
+            "code" : "86533-7",
+            "display" : "Patient Living will"
+          },
+          {
+            "code" : "92664-2",
+            "display" : "Power of attorney and Living will"
+          },
+          {
+            "code" : "93037-0",
+            "display" : "Portable medical order form"
+          }
+        ]
+      }
+    ]
+  },
+  "expansion" : {
+    "identifier" : "urn:uuid:8e863fd1-8a14-4c7d-a405-2ffcfcffc199",
+    "timestamp" : "2024-06-14T15:20:42-04:00",
+    "total" : 8,
+    "contains" : [
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
         "code" : "100821-8",
         "display" : "National POLST form: portable medical order panel"
       },
       {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
         "code" : "42348-3",
         "display" : "Advance directives"
       },
       {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
         "code" : "64298-3",
         "display" : "Power of attorney"
       },
       {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
         "code" : "81334-5",
         "display" : "Patient Personal advance care plan"
       },
       {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
         "code" : "84095-9",
         "display" : "Do not resuscitate"
       },
       {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
         "code" : "86533-7",
         "display" : "Patient Living will"
       },
       {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
         "code" : "92664-2",
         "display" : "Power of attorney and Living will"
       },
       {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
         "code" : "93037-0",
         "display" : "Portable medical order form"
-      }]
-    }]
-  },
-  "expansion" : {
-    "identifier" : "urn:uuid:3bd7495d-3cd7-479a-b529-a1beda36ec1a",
-    "timestamp" : "2023-09-26T07:43:53-04:00",
-    "total" : 8,
-    "offset" : 0,
-    "parameter" : [{
-      "name" : "count",
-      "valueInteger" : 1000
-    },
-    {
-      "name" : "offset",
-      "valueInteger" : 0
-    }],
-    "contains" : [{
-      "system" : "http://loinc.org",
-      "version" : "2.74",
-      "code" : "100821-8",
-      "display" : "National POLST form: portable medical order panel"
-    },
-    {
-      "system" : "http://loinc.org",
-      "version" : "2.74",
-      "code" : "42348-3",
-      "display" : "Advance directives"
-    },
-    {
-      "system" : "http://loinc.org",
-      "version" : "2.74",
-      "code" : "64298-3",
-      "display" : "Power of attorney"
-    },
-    {
-      "system" : "http://loinc.org",
-      "version" : "2.74",
-      "code" : "81334-5",
-      "display" : "Patient Personal advance care plan"
-    },
-    {
-      "system" : "http://loinc.org",
-      "version" : "2.74",
-      "code" : "84095-9",
-      "display" : "Do not resuscitate"
-    },
-    {
-      "system" : "http://loinc.org",
-      "version" : "2.74",
-      "code" : "86533-7",
-      "display" : "Patient Living will"
-    },
-    {
-      "system" : "http://loinc.org",
-      "version" : "2.74",
-      "code" : "92664-2",
-      "display" : "Power of attorney and Living will"
-    },
-    {
-      "system" : "http://loinc.org",
-      "version" : "2.74",
-      "code" : "93037-0",
-      "display" : "Portable medical order form"
-    }]
+      }
+    ]
   }
 }

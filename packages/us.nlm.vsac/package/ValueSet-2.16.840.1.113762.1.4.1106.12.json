@@ -3,89 +3,97 @@
   "id" : "2.16.840.1.113762.1.4.1106.12",
   "meta" : {
     "versionId" : "5",
-    "lastUpdated" : "2020-10-11T01:00:24.000-04:00",
-    "profile" : ["http://hl7.org/fhir/StructureDefinition/shareablevalueset",
-    "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"]
+    "lastUpdated" : "2023-12-21T17:43:03.000-05:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-valueset-cqfm",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "extension" : [{
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
-    "valueString" : "ACEP/AMA-PCPI Author"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
-    "valueDate" : "2022-12-15"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
-    "valueDate" : "2020-10-11"
-  }],
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "ACEP/AMA-PCPI Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2024-06-03"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2020-10-11"
+    }
+  ],
   "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1106.12",
-  "identifier" : [{
-    "system" : "urn:ietf:rfc:3986",
-    "value" : "urn:oid:2.16.840.1.113762.1.4.1106.12"
-  }],
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113762.1.4.1106.12"
+    }
+  ],
   "version" : "20201011",
   "name" : "HeadCT",
   "title" : "Head CT",
-  "status" : "active",
+  "status" : "retired",
   "experimental" : false,
   "date" : "2020-10-11T01:00:24-04:00",
   "publisher" : "ACEP/AMA-PCPI Steward",
   "description" : "CPT Codes To be added to OID 2.16.840.1.113883.17.4077.3.1008",
-  "jurisdiction" : [{
-    "extension" : [{
-      "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
-      "valueString" : "UNKNOWN"
-    }]
-  }],
+  "jurisdiction" : [
+    {
+      "coding" : [
+        {
+          "system" : "urn:iso:std:iso:3166",
+          "code" : "US"
+        }
+      ]
+    }
+  ],
   "purpose" : "(Clinical Focus: ),(Data Element Scope: ),(Inclusion Criteria: ),(Exclusion Criteria: )",
   "compose" : {
-    "include" : [{
-      "system" : "http://www.ama-assn.org/go/cpt",
-      "concept" : [{
+    "include" : [
+      {
+        "system" : "http://www.ama-assn.org/go/cpt",
+        "concept" : [
+          {
+            "code" : "70450",
+            "display" : "Computed tomography, head or brain; without contrast material"
+          },
+          {
+            "code" : "70460",
+            "display" : "Computed tomography, head or brain; with contrast material(s)"
+          },
+          {
+            "code" : "70470",
+            "display" : "Computed tomography, head or brain; without contrast material, followed by contrast material(s) and further sections"
+          }
+        ]
+      }
+    ]
+  },
+  "expansion" : {
+    "identifier" : "urn:uuid:6fe73a1b-9f4f-48a7-a3ba-6ee50bed2792",
+    "timestamp" : "2024-06-14T11:10:24-04:00",
+    "total" : 3,
+    "contains" : [
+      {
+        "system" : "http://www.ama-assn.org/go/cpt",
+        "version" : "2024",
         "code" : "70450",
         "display" : "Computed tomography, head or brain; without contrast material"
       },
       {
+        "system" : "http://www.ama-assn.org/go/cpt",
+        "version" : "2024",
         "code" : "70460",
         "display" : "Computed tomography, head or brain; with contrast material(s)"
       },
       {
+        "system" : "http://www.ama-assn.org/go/cpt",
+        "version" : "2024",
         "code" : "70470",
         "display" : "Computed tomography, head or brain; without contrast material, followed by contrast material(s) and further sections"
-      }]
-    }]
-  },
-  "expansion" : {
-    "identifier" : "urn:uuid:13ac5025-d005-4c21-9ae5-d20df135c39e",
-    "timestamp" : "2023-09-26T10:41:50-04:00",
-    "total" : 3,
-    "offset" : 0,
-    "parameter" : [{
-      "name" : "count",
-      "valueInteger" : 1000
-    },
-    {
-      "name" : "offset",
-      "valueInteger" : 0
-    }],
-    "contains" : [{
-      "system" : "http://www.ama-assn.org/go/cpt",
-      "version" : "2023",
-      "code" : "70450",
-      "display" : "Computed tomography, head or brain; without contrast material"
-    },
-    {
-      "system" : "http://www.ama-assn.org/go/cpt",
-      "version" : "2023",
-      "code" : "70460",
-      "display" : "Computed tomography, head or brain; with contrast material(s)"
-    },
-    {
-      "system" : "http://www.ama-assn.org/go/cpt",
-      "version" : "2023",
-      "code" : "70470",
-      "display" : "Computed tomography, head or brain; without contrast material, followed by contrast material(s) and further sections"
-    }]
+      }
+    ]
   }
 }

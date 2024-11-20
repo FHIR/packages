@@ -3,108 +3,116 @@
   "id" : "2.16.840.1.113762.1.4.1116.277",
   "meta" : {
     "versionId" : "3",
-    "lastUpdated" : "2023-04-03T16:09:03.000-04:00",
-    "profile" : ["http://hl7.org/fhir/StructureDefinition/shareablevalueset",
-    "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"]
+    "lastUpdated" : "2023-12-21T17:43:03.000-05:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-valueset-cqfm",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "extension" : [{
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
-    "valueString" : "CancerLinQ Author"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
-    "valueDate" : "2022-12-15"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
-    "valueDate" : "2023-04-03"
-  }],
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "CancerLinQ Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2024-06-03"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2015-12-01"
+    }
+  ],
   "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1116.277",
-  "identifier" : [{
-    "system" : "urn:ietf:rfc:3986",
-    "value" : "urn:oid:2.16.840.1.113762.1.4.1116.277"
-  }],
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113762.1.4.1116.277"
+    }
+  ],
   "version" : "20151201",
   "name" : "TobaccoUseAssessment",
   "title" : "Tobacco Use Assessment",
-  "status" : "active",
+  "status" : "retired",
   "experimental" : false,
   "date" : "2015-12-01T01:00:03-05:00",
   "publisher" : "CancerLinQ Steward",
-  "jurisdiction" : [{
-    "extension" : [{
-      "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
-      "valueString" : "UNKNOWN"
-    }]
-  }],
+  "jurisdiction" : [
+    {
+      "coding" : [
+        {
+          "system" : "urn:iso:std:iso:3166",
+          "code" : "US"
+        }
+      ]
+    }
+  ],
   "purpose" : "(Clinical Focus: ),(Data Element Scope: ),(Inclusion Criteria: ),(Exclusion Criteria: )",
   "compose" : {
-    "include" : [{
-      "system" : "http://loinc.org",
-      "concept" : [{
+    "include" : [
+      {
+        "system" : "http://loinc.org",
+        "concept" : [
+          {
+            "code" : "11367-0",
+            "display" : "History of tobacco use"
+          },
+          {
+            "code" : "39240-7",
+            "display" : "Tobacco use CPHS"
+          },
+          {
+            "code" : "68535-4",
+            "display" : "Have you used tobacco in the last 30 days [SAMHSA]"
+          },
+          {
+            "code" : "68536-2",
+            "display" : "Have you used smokeless tobacco product in the last 30 days [SAMHSA]"
+          },
+          {
+            "code" : "72166-2",
+            "display" : "Tobacco smoking status NHIS"
+          }
+        ]
+      }
+    ]
+  },
+  "expansion" : {
+    "identifier" : "urn:uuid:cb4f608a-2f21-43bd-9db5-3a5ef9e93dc0",
+    "timestamp" : "2024-06-14T11:25:23-04:00",
+    "total" : 5,
+    "contains" : [
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
         "code" : "11367-0",
-        "display" : "History of tobacco use"
+        "display" : "History of Tobacco use"
       },
       {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
         "code" : "39240-7",
-        "display" : "Tobacco use CPHS"
+        "display" : "Tobacco use status CPHS"
       },
       {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
         "code" : "68535-4",
         "display" : "Have you used tobacco in the last 30 days [SAMHSA]"
       },
       {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
         "code" : "68536-2",
         "display" : "Have you used smokeless tobacco product in the last 30 days [SAMHSA]"
       },
       {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
         "code" : "72166-2",
-        "display" : "Tobacco smoking status NHIS"
-      }]
-    }]
-  },
-  "expansion" : {
-    "identifier" : "urn:uuid:9db1216f-8e23-4044-b586-7e9cdbbdfb5c",
-    "timestamp" : "2023-09-26T13:32:59-04:00",
-    "total" : 5,
-    "offset" : 0,
-    "parameter" : [{
-      "name" : "count",
-      "valueInteger" : 1000
-    },
-    {
-      "name" : "offset",
-      "valueInteger" : 0
-    }],
-    "contains" : [{
-      "system" : "http://loinc.org",
-      "version" : "2.74",
-      "code" : "11367-0",
-      "display" : "History of Tobacco use"
-    },
-    {
-      "system" : "http://loinc.org",
-      "version" : "2.74",
-      "code" : "39240-7",
-      "display" : "Tobacco use status CPHS"
-    },
-    {
-      "system" : "http://loinc.org",
-      "version" : "2.74",
-      "code" : "68535-4",
-      "display" : "Have you used tobacco in the last 30 days [SAMHSA]"
-    },
-    {
-      "system" : "http://loinc.org",
-      "version" : "2.74",
-      "code" : "68536-2",
-      "display" : "Have you used smokeless tobacco product in the last 30 days [SAMHSA]"
-    },
-    {
-      "system" : "http://loinc.org",
-      "version" : "2.74",
-      "code" : "72166-2",
-      "display" : "Tobacco smoking status"
-    }]
+        "display" : "Tobacco smoking status"
+      }
+    ]
   }
 }

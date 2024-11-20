@@ -3,79 +3,87 @@
   "id" : "2.16.840.1.113762.1.4.1034.230",
   "meta" : {
     "versionId" : "6",
-    "lastUpdated" : "2022-04-22T01:02:25.000-04:00",
-    "profile" : ["http://hl7.org/fhir/StructureDefinition/shareablevalueset",
-    "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"]
+    "lastUpdated" : "2023-12-21T17:43:03.000-05:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-valueset-cqfm",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "extension" : [{
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
-    "valueString" : "American Academy of Neurology Author"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
-    "valueDate" : "2022-12-15"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
-    "valueDate" : "2022-04-22"
-  }],
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "American Academy of Neurology Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2024-06-03"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2022-04-22"
+    }
+  ],
   "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1034.230",
-  "identifier" : [{
-    "system" : "urn:ietf:rfc:3986",
-    "value" : "urn:oid:2.16.840.1.113762.1.4.1034.230"
-  }],
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113762.1.4.1034.230"
+    }
+  ],
   "version" : "20220422",
   "name" : "ApathyICD10CM",
   "title" : "Apathy (ICD10CM)",
-  "status" : "active",
+  "status" : "retired",
   "experimental" : false,
   "date" : "2022-04-22T01:02:25-04:00",
   "publisher" : "American Academy of Neurology Steward",
   "description" : "This value set contains ICD10CM concepts for apathy, including anhedonia.",
-  "jurisdiction" : [{
-    "extension" : [{
-      "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
-      "valueString" : "UNKNOWN"
-    }]
-  }],
+  "jurisdiction" : [
+    {
+      "coding" : [
+        {
+          "system" : "urn:iso:std:iso:3166",
+          "code" : "US"
+        }
+      ]
+    }
+  ],
   "purpose" : "(Clinical Focus: This value set contains ICD10CM concepts for apathy, including anhedonia.),(Data Element Scope: The intent of this data element is to identify people diagnosed with apathy. This element may map to \"Diagnosis\" Category of the Quality Data Model.),(Inclusion Criteria: Includes apathy, demoralization, and anhedonia.),(Exclusion Criteria: Excludes mental disorders in which apathy, demoralization, and anhedonia play a significant role (e.g., depressive disorders).)",
   "compose" : {
-    "include" : [{
-      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-      "concept" : [{
+    "include" : [
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "concept" : [
+          {
+            "code" : "R45.3",
+            "display" : "Demoralization and apathy"
+          },
+          {
+            "code" : "R45.84",
+            "display" : "Anhedonia"
+          }
+        ]
+      }
+    ]
+  },
+  "expansion" : {
+    "identifier" : "urn:uuid:ccf19bb9-07f4-457e-9471-cc347c2ac26d",
+    "timestamp" : "2024-06-14T10:18:05-04:00",
+    "total" : 2,
+    "contains" : [
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2024",
         "code" : "R45.3",
         "display" : "Demoralization and apathy"
       },
       {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2024",
         "code" : "R45.84",
         "display" : "Anhedonia"
-      }]
-    }]
-  },
-  "expansion" : {
-    "identifier" : "urn:uuid:92407598-8068-4c38-95be-fb9bde051a88",
-    "timestamp" : "2023-09-26T08:00:04-04:00",
-    "total" : 2,
-    "offset" : 0,
-    "parameter" : [{
-      "name" : "count",
-      "valueInteger" : 1000
-    },
-    {
-      "name" : "offset",
-      "valueInteger" : 0
-    }],
-    "contains" : [{
-      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-      "version" : "2024",
-      "code" : "R45.3",
-      "display" : "Demoralization and apathy"
-    },
-    {
-      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-      "version" : "2024",
-      "code" : "R45.84",
-      "display" : "Anhedonia"
-    }]
+      }
+    ]
   }
 }

@@ -3,97 +3,105 @@
   "id" : "2.16.840.1.113762.1.4.1047.408",
   "meta" : {
     "versionId" : "10",
-    "lastUpdated" : "2016-12-23T01:00:03.000-05:00",
-    "profile" : ["http://hl7.org/fhir/StructureDefinition/shareablevalueset",
-    "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"]
+    "lastUpdated" : "2023-12-21T17:43:03.000-05:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-valueset-cqfm",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "extension" : [{
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
-    "valueString" : "Oncology Nursing Society Author"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
-    "valueDate" : "2022-12-15"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
-    "valueDate" : "2016-12-23"
-  }],
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "Oncology Nursing Society Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2024-06-03"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2016-12-23"
+    }
+  ],
   "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1047.408",
-  "identifier" : [{
-    "system" : "urn:ietf:rfc:3986",
-    "value" : "urn:oid:2.16.840.1.113762.1.4.1047.408"
-  }],
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113762.1.4.1047.408"
+    }
+  ],
   "version" : "20161223",
   "name" : "NeuropathyInducingTherapy",
   "title" : "Neuropathy Inducing Therapy",
-  "status" : "active",
+  "status" : "retired",
   "experimental" : false,
   "date" : "2016-12-23T01:00:03-05:00",
   "publisher" : "Oncology Nursing Society Steward",
   "description" : "ONS measure set",
-  "jurisdiction" : [{
-    "extension" : [{
-      "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
-      "valueString" : "UNKNOWN"
-    }]
-  }],
+  "jurisdiction" : [
+    {
+      "coding" : [
+        {
+          "system" : "urn:iso:std:iso:3166",
+          "code" : "US"
+        }
+      ]
+    }
+  ],
   "purpose" : "(Clinical Focus: This set of values contain treatments of breast cancer that have a side effect of Neuropathy.),(Data Element Scope: This data element would map to the QDM Medication category.),(Inclusion Criteria: Breast cancer treatments that have a side effect of Neuropathy.),(Exclusion Criteria: Treatments not used for breast cancer that have a side effect of Neuropathy..)",
   "compose" : {
-    "include" : [{
-      "system" : "http://snomed.info/sct",
-      "concept" : [{
-        "code" : "105863000",
-        "display" : "Platinum AND/OR platinum compound (substance)"
-      },
+    "include" : [
       {
-        "code" : "409199002",
-        "display" : "Antineoplastic vinca alkaloid (product)"
-      },
+        "system" : "http://snomed.info/sct",
+        "concept" : [
+          {
+            "code" : "105863000",
+            "display" : "Platinum AND/OR platinum compound (substance)"
+          },
+          {
+            "code" : "409199002",
+            "display" : "Antineoplastic vinca alkaloid (product)"
+          },
+          {
+            "code" : "418965003",
+            "display" : "Taxane derivative (substance)"
+          },
+          {
+            "code" : "61864009",
+            "display" : "Vinca alkaloid (substance)"
+          },
+          {
+            "code" : "84847000",
+            "display" : "Platinum (substance)"
+          }
+        ]
+      }
+    ]
+  },
+  "expansion" : {
+    "identifier" : "urn:uuid:76a48033-1fcc-4514-a315-67001e2059ea",
+    "timestamp" : "2024-06-14T10:30:41-04:00",
+    "total" : 3,
+    "contains" : [
       {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
         "code" : "418965003",
         "display" : "Taxane derivative (substance)"
       },
       {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
         "code" : "61864009",
         "display" : "Vinca alkaloid (substance)"
       },
       {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
         "code" : "84847000",
         "display" : "Platinum (substance)"
-      }]
-    }]
-  },
-  "expansion" : {
-    "identifier" : "urn:uuid:00c521b2-762f-4441-95cd-a3a8782cdb42",
-    "timestamp" : "2023-09-26T12:01:31-04:00",
-    "total" : 3,
-    "offset" : 0,
-    "parameter" : [{
-      "name" : "count",
-      "valueInteger" : 1000
-    },
-    {
-      "name" : "offset",
-      "valueInteger" : 0
-    }],
-    "contains" : [{
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "418965003",
-      "display" : "Taxane derivative (substance)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "61864009",
-      "display" : "Vinca alkaloid (substance)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "84847000",
-      "display" : "Platinum (substance)"
-    }]
+      }
+    ]
   }
 }

@@ -3,27 +3,34 @@
   "id" : "2.16.840.1.113762.1.4.1219.72",
   "meta" : {
     "versionId" : "7",
-    "lastUpdated" : "2022-03-15T01:04:14.000-04:00",
-    "profile" : ["http://hl7.org/fhir/StructureDefinition/shareablevalueset",
-    "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"]
+    "lastUpdated" : "2023-12-21T17:43:03.000-05:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-valueset-cqfm",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "extension" : [{
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
-    "valueString" : "CMS DRLS Author"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
-    "valueDate" : "2022-12-15"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
-    "valueDate" : "2022-03-15"
-  }],
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "CMS DRLS Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2024-01-02"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2022-03-15"
+    }
+  ],
   "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1219.72",
-  "identifier" : [{
-    "system" : "urn:ietf:rfc:3986",
-    "value" : "urn:oid:2.16.840.1.113762.1.4.1219.72"
-  }],
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113762.1.4.1219.72"
+    }
+  ],
   "version" : "20220315",
   "name" : "PortableCompressedGasOxygenTherapyDevice",
   "title" : "Portable Compressed Gas Oxygen Therapy Device",
@@ -31,60 +38,61 @@
   "experimental" : false,
   "date" : "2022-03-15T01:04:14-04:00",
   "publisher" : "CMS DRLS Steward",
-  "jurisdiction" : [{
-    "extension" : [{
-      "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
-      "valueString" : "UNKNOWN"
-    }]
-  }],
+  "jurisdiction" : [
+    {
+      "coding" : [
+        {
+          "system" : "urn:iso:std:iso:3166",
+          "code" : "US"
+        }
+      ]
+    }
+  ],
   "purpose" : "(Clinical Focus: Oxygen concentrator therapy devices for home use home that are designed to allow a change in location while operating.),(Data Element Scope: Portable oxygen concentrator therapy devices accepted by the US Centers for Medicare and Medicaid as valid for home use.),(Inclusion Criteria: Oxygen concentrator therapy devices for home use home that are designed to allow a change in location while operating.),(Exclusion Criteria: Oxygen concentrator therapy devices designed to remain in one place while operating.)",
   "compose" : {
-    "include" : [{
-      "system" : "http://www.nlm.nih.gov/research/umls/hcpcs",
-      "concept" : [{
+    "include" : [
+      {
+        "system" : "http://www.nlm.nih.gov/research/umls/hcpcs",
+        "concept" : [
+          {
+            "code" : "E0431",
+            "display" : "Portable gaseous oxygen system, rental; includes portable container, regulator, flowmeter, humidifier, cannula or mask, and tubing"
+          },
+          {
+            "code" : "E0443",
+            "display" : "Portable oxygen contents, gaseous, 1 month's supply = 1 unit"
+          },
+          {
+            "code" : "K0738",
+            "display" : "Portable gaseous oxygen system, rental; home compressor used to fill portable oxygen cylinders; includes portable containers, regulator, flowmeter, humidifier, cannula or mask, and tubing"
+          }
+        ]
+      }
+    ]
+  },
+  "expansion" : {
+    "identifier" : "urn:uuid:59e9f5ba-af5c-436e-98c0-0b961219ce4d",
+    "timestamp" : "2024-06-14T13:56:15-04:00",
+    "total" : 3,
+    "contains" : [
+      {
+        "system" : "http://www.nlm.nih.gov/research/umls/hcpcs",
+        "version" : "2024",
         "code" : "E0431",
         "display" : "Portable gaseous oxygen system, rental; includes portable container, regulator, flowmeter, humidifier, cannula or mask, and tubing"
       },
       {
+        "system" : "http://www.nlm.nih.gov/research/umls/hcpcs",
+        "version" : "2024",
         "code" : "E0443",
         "display" : "Portable oxygen contents, gaseous, 1 month's supply = 1 unit"
       },
       {
+        "system" : "http://www.nlm.nih.gov/research/umls/hcpcs",
+        "version" : "2024",
         "code" : "K0738",
         "display" : "Portable gaseous oxygen system, rental; home compressor used to fill portable oxygen cylinders; includes portable containers, regulator, flowmeter, humidifier, cannula or mask, and tubing"
-      }]
-    }]
-  },
-  "expansion" : {
-    "identifier" : "urn:uuid:624dc18d-2e98-4d9f-aac7-e10fb2367cea",
-    "timestamp" : "2023-09-26T12:35:15-04:00",
-    "total" : 3,
-    "offset" : 0,
-    "parameter" : [{
-      "name" : "count",
-      "valueInteger" : 1000
-    },
-    {
-      "name" : "offset",
-      "valueInteger" : 0
-    }],
-    "contains" : [{
-      "system" : "http://www.nlm.nih.gov/research/umls/hcpcs",
-      "version" : "2023",
-      "code" : "E0431",
-      "display" : "Portable gaseous oxygen system, rental; includes portable container, regulator, flowmeter, humidifier, cannula or mask, and tubing"
-    },
-    {
-      "system" : "http://www.nlm.nih.gov/research/umls/hcpcs",
-      "version" : "2023",
-      "code" : "E0443",
-      "display" : "Portable oxygen contents, gaseous, 1 month's supply = 1 unit"
-    },
-    {
-      "system" : "http://www.nlm.nih.gov/research/umls/hcpcs",
-      "version" : "2023",
-      "code" : "K0738",
-      "display" : "Portable gaseous oxygen system, rental; home compressor used to fill portable oxygen cylinders; includes portable containers, regulator, flowmeter, humidifier, cannula or mask, and tubing"
-    }]
+      }
+    ]
   }
 }

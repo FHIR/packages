@@ -3,78 +3,86 @@
   "id" : "2.16.840.1.113883.3.1257.1.1821",
   "meta" : {
     "versionId" : "14",
-    "lastUpdated" : "2017-05-04T01:00:13.000-04:00",
-    "profile" : ["http://hl7.org/fhir/StructureDefinition/shareablevalueset",
-    "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"]
+    "lastUpdated" : "2023-12-21T17:43:03.000-05:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-valueset-cqfm",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "extension" : [{
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
-    "valueString" : "CQAIMH Author"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
-    "valueDate" : "2022-12-15"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
-    "valueDate" : "2017-05-04"
-  }],
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "CQAIMH Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2024-06-03"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2017-05-04"
+    }
+  ],
   "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.1257.1.1821",
-  "identifier" : [{
-    "system" : "urn:ietf:rfc:3986",
-    "value" : "urn:oid:2.16.840.1.113883.3.1257.1.1821"
-  }],
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113883.3.1257.1.1821"
+    }
+  ],
   "version" : "20170504",
   "name" : "BHAssessmentForAlcoholOrOtherDrugsCPT",
   "title" : "BH Assessment for alcohol or other drugs CPT",
-  "status" : "active",
+  "status" : "retired",
   "experimental" : false,
   "date" : "2017-05-04T01:00:13-04:00",
   "publisher" : "CQAIMH Steward",
-  "jurisdiction" : [{
-    "extension" : [{
-      "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
-      "valueString" : "UNKNOWN"
-    }]
-  }],
+  "jurisdiction" : [
+    {
+      "coding" : [
+        {
+          "system" : "urn:iso:std:iso:3166",
+          "code" : "US"
+        }
+      ]
+    }
+  ],
   "purpose" : "(Clinical Focus: Under development),(Data Element Scope: Under development),(Inclusion Criteria: Under development),(Exclusion Criteria: Under development)",
   "compose" : {
-    "include" : [{
-      "system" : "http://www.ama-assn.org/go/cpt",
-      "concept" : [{
+    "include" : [
+      {
+        "system" : "http://www.ama-assn.org/go/cpt",
+        "concept" : [
+          {
+            "code" : "99408",
+            "display" : "Alcohol and/or substance (other than tobacco) abuse structured screening (eg, AUDIT, DAST), and brief intervention (SBI) services; 15 to 30 minutes"
+          },
+          {
+            "code" : "99409",
+            "display" : "Alcohol and/or substance (other than tobacco) abuse structured screening (eg, AUDIT, DAST), and brief intervention (SBI) services; greater than 30 minutes"
+          }
+        ]
+      }
+    ]
+  },
+  "expansion" : {
+    "identifier" : "urn:uuid:2f456b5d-6e7e-4cfc-886f-ac09cf78a1f1",
+    "timestamp" : "2024-06-14T15:45:35-04:00",
+    "total" : 2,
+    "contains" : [
+      {
+        "system" : "http://www.ama-assn.org/go/cpt",
+        "version" : "2024",
         "code" : "99408",
         "display" : "Alcohol and/or substance (other than tobacco) abuse structured screening (eg, AUDIT, DAST), and brief intervention (SBI) services; 15 to 30 minutes"
       },
       {
+        "system" : "http://www.ama-assn.org/go/cpt",
+        "version" : "2024",
         "code" : "99409",
         "display" : "Alcohol and/or substance (other than tobacco) abuse structured screening (eg, AUDIT, DAST), and brief intervention (SBI) services; greater than 30 minutes"
-      }]
-    }]
-  },
-  "expansion" : {
-    "identifier" : "urn:uuid:0b537f85-b599-499b-b8c0-ff0e4af7efe1",
-    "timestamp" : "2023-09-26T08:09:29-04:00",
-    "total" : 2,
-    "offset" : 0,
-    "parameter" : [{
-      "name" : "count",
-      "valueInteger" : 1000
-    },
-    {
-      "name" : "offset",
-      "valueInteger" : 0
-    }],
-    "contains" : [{
-      "system" : "http://www.ama-assn.org/go/cpt",
-      "version" : "2023",
-      "code" : "99408",
-      "display" : "Alcohol and/or substance (other than tobacco) abuse structured screening (eg, AUDIT, DAST), and brief intervention (SBI) services; 15 to 30 minutes"
-    },
-    {
-      "system" : "http://www.ama-assn.org/go/cpt",
-      "version" : "2023",
-      "code" : "99409",
-      "display" : "Alcohol and/or substance (other than tobacco) abuse structured screening (eg, AUDIT, DAST), and brief intervention (SBI) services; greater than 30 minutes"
-    }]
+      }
+    ]
   }
 }

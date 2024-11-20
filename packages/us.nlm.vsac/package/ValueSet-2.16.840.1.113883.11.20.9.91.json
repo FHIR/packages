@@ -3,178 +3,192 @@
   "id" : "2.16.840.1.113883.11.20.9.91",
   "meta" : {
     "versionId" : "20",
-    "lastUpdated" : "2023-07-15T01:01:22.000-04:00",
-    "profile" : ["http://hl7.org/fhir/StructureDefinition/shareablevalueset",
-    "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"]
+    "lastUpdated" : "2024-04-26T15:43:42.000-04:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-valueset-cqfm",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "extension" : [{
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
-    "valueString" : "HL7 Structured Documents WG"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
-    "valueDate" : "2023-07-15"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
-    "valueDate" : "2023-07-15"
-  }],
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "HL7 US Realm Program Management Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2024-06-06"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2023-07-15"
+    }
+  ],
   "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.11.20.9.91",
-  "identifier" : [{
-    "system" : "urn:ietf:rfc:3986",
-    "value" : "urn:oid:2.16.840.1.113883.11.20.9.91"
-  }],
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113883.11.20.9.91"
+    }
+  ],
   "version" : "20230715",
   "name" : "RhoDImmuneGlobulin",
   "title" : "Rho(D) Immune Globulin",
   "status" : "active",
   "date" : "2023-07-15T01:01:22-04:00",
-  "publisher" : "HL7 Terminology",
+  "publisher" : "HL7 US Realm Program Management Steward",
   "description" : "This value set contains Rho(D) Immune Globulin medication codes. It is an intensional value set containing codes from RxNorm derived from 35465 | Globulin.",
-  "jurisdiction" : [{
-    "extension" : [{
-      "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
-      "valueString" : "UNKNOWN"
-    }]
-  }],
+  "jurisdiction" : [
+    {
+      "coding" : [
+        {
+          "system" : "urn:iso:std:iso:3166",
+          "code" : "US"
+        }
+      ]
+    }
+  ],
   "purpose" : "(Clinical Focus: This value set contains Rho(D) Immune Globulin medication codes.),(Data Element Scope: This data element represents the medication D Immune Globulin.),(Inclusion Criteria: Includes codes from RxNorm derived from 35465 | Globulin.),(Exclusion Criteria: None.)",
   "compose" : {
-    "include" : [{
-      "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version" : "09052023",
-      "filter" : [{
-        "property" : "concept",
-        "op" : "in",
-        "value" : "1117765,351100,1790379,1790513,1790508,1790383,1117759,1790382,898578,1790512,731380,351251,731381,1790353,1790506,898572,731383,1790374"
-      }]
-    }],
-    "exclude" : [{
-      "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version" : "09052023",
-      "filter" : [{
-        "property" : "concept",
-        "op" : "=",
-        "value" : "351100"
-      }]
-    },
-    {
-      "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version" : "09052023",
-      "filter" : [{
-        "property" : "concept",
-        "op" : "=",
-        "value" : "351251"
-      }]
-    }]
+    "include" : [
+      {
+        "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "version" : "05062024",
+        "filter" : [
+          {
+            "property" : "concept",
+            "op" : "in",
+            "value" : "1117765,351100,1790379,1790513,1790508,1790383,1117759,1790382,898578,1790512,731380,351251,731381,1790353,1790506,898572,731383,1790374"
+          }
+        ]
+      }
+    ],
+    "exclude" : [
+      {
+        "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "version" : "05062024",
+        "filter" : [
+          {
+            "property" : "concept",
+            "op" : "=",
+            "value" : "351100"
+          }
+        ]
+      },
+      {
+        "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "version" : "05062024",
+        "filter" : [
+          {
+            "property" : "concept",
+            "op" : "=",
+            "value" : "351251"
+          }
+        ]
+      }
+    ]
   },
   "expansion" : {
-    "identifier" : "urn:uuid:c043447f-3e76-4c75-9b64-7e7d75e6bcd8",
-    "timestamp" : "2023-09-26T12:59:17-04:00",
+    "identifier" : "urn:uuid:1bf21815-d957-4ad3-8db7-8e6f062001a2",
+    "timestamp" : "2024-06-14T15:21:11-04:00",
     "total" : 16,
-    "offset" : 0,
-    "parameter" : [{
-      "name" : "count",
-      "valueInteger" : 1000
-    },
-    {
-      "name" : "offset",
-      "valueInteger" : 0
-    }],
-    "contains" : [{
-      "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version" : "09052023",
-      "code" : "1117759",
-      "display" : "2 ML Rho(D) immune globulin, human 750 UNT/ML Prefilled Syringe"
-    },
-    {
-      "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version" : "09052023",
-      "code" : "1117765",
-      "display" : "2 ML Rho(D) immune globulin, human 750 UNT/ML Prefilled Syringe [Rhophylac]"
-    },
-    {
-      "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version" : "09052023",
-      "code" : "1790353",
-      "display" : "Rho(D) immune globulin, human 250 UNT Prefilled Syringe"
-    },
-    {
-      "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version" : "09052023",
-      "code" : "1790374",
-      "display" : "2.2 ML Rho(D) immune globulin, human 1136 UNT/ML Injection"
-    },
-    {
-      "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version" : "09052023",
-      "code" : "1790379",
-      "display" : "2.2 ML Rho(D) immune globulin, human 1136 UNT/ML Injection [WinRho]"
-    },
-    {
-      "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version" : "09052023",
-      "code" : "1790382",
-      "display" : "4.4 ML Rho(D) immune globulin, human 1136 UNT/ML Injection"
-    },
-    {
-      "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version" : "09052023",
-      "code" : "1790383",
-      "display" : "4.4 ML Rho(D) immune globulin, human 1136 UNT/ML Injection [WinRho]"
-    },
-    {
-      "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version" : "09052023",
-      "code" : "1790506",
-      "display" : "1.3 ML Rho(D) immune globulin, human 1154 UNT/ML Injection"
-    },
-    {
-      "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version" : "09052023",
-      "code" : "1790508",
-      "display" : "1.3 ML Rho(D) immune globulin, human 1154 UNT/ML Injection [WinRho]"
-    },
-    {
-      "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version" : "09052023",
-      "code" : "1790512",
-      "display" : "13 ML Rho(D) immune globulin, human 1154 UNT/ML Injection"
-    },
-    {
-      "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version" : "09052023",
-      "code" : "1790513",
-      "display" : "13 ML Rho(D) immune globulin, human 1154 UNT/ML Injection [WinRho]"
-    },
-    {
-      "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version" : "09052023",
-      "code" : "731380",
-      "display" : "Rho(D) immune globulin, human 250 UNT Prefilled Syringe [MICRhoGAM]"
-    },
-    {
-      "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version" : "09052023",
-      "code" : "731381",
-      "display" : "Rho(D) immune globulin, human 1500 UNT Prefilled Syringe"
-    },
-    {
-      "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version" : "09052023",
-      "code" : "731383",
-      "display" : "Rho(D) immune globulin, human 1500 UNT Prefilled Syringe [RhoGAM]"
-    },
-    {
-      "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version" : "09052023",
-      "code" : "898572",
-      "display" : "Rho(D) immune globulin, human 250 UNT Prefilled Syringe [HyperRHO]"
-    },
-    {
-      "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version" : "09052023",
-      "code" : "898578",
-      "display" : "Rho(D) immune globulin, human 1500 UNT Prefilled Syringe [HyperRHO]"
-    }]
+    "contains" : [
+      {
+        "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "version" : "05062024",
+        "code" : "1117759",
+        "display" : "2 ML Rho(D) immune globulin, human 750 UNT/ML Prefilled Syringe"
+      },
+      {
+        "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "version" : "05062024",
+        "code" : "1117765",
+        "display" : "2 ML Rho(D) immune globulin, human 750 UNT/ML Prefilled Syringe [Rhophylac]"
+      },
+      {
+        "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "version" : "05062024",
+        "code" : "1790353",
+        "display" : "Rho(D) immune globulin, human 250 UNT Prefilled Syringe"
+      },
+      {
+        "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "version" : "05062024",
+        "code" : "1790374",
+        "display" : "2.2 ML Rho(D) immune globulin, human 1136 UNT/ML Injection"
+      },
+      {
+        "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "version" : "05062024",
+        "code" : "1790379",
+        "display" : "2.2 ML Rho(D) immune globulin, human 1136 UNT/ML Injection [WinRho]"
+      },
+      {
+        "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "version" : "05062024",
+        "code" : "1790382",
+        "display" : "4.4 ML Rho(D) immune globulin, human 1136 UNT/ML Injection"
+      },
+      {
+        "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "version" : "05062024",
+        "code" : "1790383",
+        "display" : "4.4 ML Rho(D) immune globulin, human 1136 UNT/ML Injection [WinRho]"
+      },
+      {
+        "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "version" : "05062024",
+        "code" : "1790506",
+        "display" : "1.3 ML Rho(D) immune globulin, human 1154 UNT/ML Injection"
+      },
+      {
+        "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "version" : "05062024",
+        "code" : "1790508",
+        "display" : "1.3 ML Rho(D) immune globulin, human 1154 UNT/ML Injection [WinRho]"
+      },
+      {
+        "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "version" : "05062024",
+        "code" : "1790512",
+        "display" : "13 ML Rho(D) immune globulin, human 1154 UNT/ML Injection"
+      },
+      {
+        "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "version" : "05062024",
+        "code" : "1790513",
+        "display" : "13 ML Rho(D) immune globulin, human 1154 UNT/ML Injection [WinRho]"
+      },
+      {
+        "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "version" : "05062024",
+        "code" : "731380",
+        "display" : "Rho(D) immune globulin, human 250 UNT Prefilled Syringe [MICRhoGAM]"
+      },
+      {
+        "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "version" : "05062024",
+        "code" : "731381",
+        "display" : "Rho(D) immune globulin, human 1500 UNT Prefilled Syringe"
+      },
+      {
+        "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "version" : "05062024",
+        "code" : "731383",
+        "display" : "Rho(D) immune globulin, human 1500 UNT Prefilled Syringe [RhoGAM]"
+      },
+      {
+        "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "version" : "05062024",
+        "code" : "898572",
+        "display" : "Rho(D) immune globulin, human 250 UNT Prefilled Syringe [HyperRHO]"
+      },
+      {
+        "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "version" : "05062024",
+        "code" : "898578",
+        "display" : "Rho(D) immune globulin, human 1500 UNT Prefilled Syringe [HyperRHO]"
+      }
+    ]
   }
 }

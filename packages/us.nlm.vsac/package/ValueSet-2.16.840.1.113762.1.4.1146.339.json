@@ -3,83 +3,91 @@
   "id" : "2.16.840.1.113762.1.4.1146.339",
   "meta" : {
     "versionId" : "15",
-    "lastUpdated" : "2019-12-27T01:00:20.000-05:00",
-    "profile" : ["http://hl7.org/fhir/StructureDefinition/shareablevalueset",
-    "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"]
+    "lastUpdated" : "2023-12-21T17:43:03.000-05:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-valueset-cqfm",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "extension" : [{
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
-    "valueString" : "CSTE Author"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-keyWord",
-    "valueString" : "G_Vaccine,Meds,Tetanus,Trigger"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
-    "valueDate" : "2022-12-15"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
-    "valueDate" : "2019-12-27"
-  }],
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "CSTE Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-keyWord",
+      "valueString" : "G_Vaccine,Meds,Tetanus,Trigger"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2024-06-03"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2019-12-27"
+    }
+  ],
   "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1146.339",
-  "identifier" : [{
-    "system" : "urn:ietf:rfc:3986",
-    "value" : "urn:oid:2.16.840.1.113762.1.4.1146.339"
-  }],
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113762.1.4.1146.339"
+    }
+  ],
   "version" : "20191227",
   "name" : "TetanusTetanusImmuneGlobulinRXNORM",
   "title" : "Tetanus (Tetanus Immune Globulin) (RXNORM)",
-  "status" : "active",
+  "status" : "retired",
   "experimental" : false,
   "date" : "2019-12-27T01:00:20-05:00",
   "publisher" : "CSTE Steward",
   "description" : "All prescribable medication formulations represented using either a \"generic\" or \"brand-specific\" concept. This includes RxNorm codes whose Term Type is SCD (semantic clinical drug), SBD (semantic brand drug),  GPCK (generic pack), or BPCK (brand pack).\nSCDG (semantic clinical drug group), SBDG (semantic brand drug group), SCDF (semantic clinical drug form), IN (ingredient) or SBDF (semantic brand drug form) are NOT included in this value set.",
-  "jurisdiction" : [{
-    "extension" : [{
-      "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
-      "valueString" : "UNKNOWN"
-    }]
-  }],
+  "jurisdiction" : [
+    {
+      "coding" : [
+        {
+          "system" : "urn:iso:std:iso:3166",
+          "code" : "US"
+        }
+      ]
+    }
+  ],
   "purpose" : "(Clinical Focus: This set of values contains codes for prescribable medications for Tetanus immune globulin.),(Data Element Scope: This set of values contains codes for prescribable medications for Tetanus immune globulin.),(Inclusion Criteria: Tetanus immune globulin),(Exclusion Criteria: none)",
   "compose" : {
-    "include" : [{
-      "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "concept" : [{
-        "code" : "1087391",
-        "display" : "1 ML Tetanus immune globulin, human 250 UNT/ML Prefilled Syringe"
-      },
+    "include" : [
       {
-        "code" : "1087395",
-        "display" : "1 ML Tetanus immune globulin, human 250 UNT/ML Prefilled Syringe [Hypertet]"
-      }]
-    }]
+        "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "concept" : [
+          {
+            "code" : "1087391",
+            "display" : "1 ML Tetanus immune globulin, human 250 UNT/ML Prefilled Syringe"
+          },
+          {
+            "code" : "1087395",
+            "display" : "1 ML Tetanus immune globulin, human 250 UNT/ML Prefilled Syringe [Hypertet]"
+          }
+        ]
+      }
+    ]
   },
   "expansion" : {
-    "identifier" : "urn:uuid:4589435c-dfbb-4519-863e-7f9854b9a396",
-    "timestamp" : "2023-09-26T13:30:18-04:00",
+    "identifier" : "urn:uuid:773b5255-37ba-4c95-93f8-956a52174c19",
+    "timestamp" : "2024-06-14T12:13:43-04:00",
     "total" : 2,
-    "offset" : 0,
-    "parameter" : [{
-      "name" : "count",
-      "valueInteger" : 1000
-    },
-    {
-      "name" : "offset",
-      "valueInteger" : 0
-    }],
-    "contains" : [{
-      "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version" : "09052023",
-      "code" : "1087391",
-      "display" : "1 ML tetanus immune globulin, human 250 UNT/ML Prefilled Syringe"
-    },
-    {
-      "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version" : "09052023",
-      "code" : "1087395",
-      "display" : "1 ML tetanus immune globulin, human 250 UNT/ML Prefilled Syringe [Hypertet]"
-    }]
+    "contains" : [
+      {
+        "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "version" : "05062024",
+        "code" : "1087391",
+        "display" : "1 ML tetanus immune globulin, human 250 UNT/ML Prefilled Syringe"
+      },
+      {
+        "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "version" : "05062024",
+        "code" : "1087395",
+        "display" : "1 ML tetanus immune globulin, human 250 UNT/ML Prefilled Syringe [Hypertet]"
+      }
+    ]
   }
 }

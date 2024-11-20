@@ -3,88 +3,96 @@
   "id" : "2.16.840.1.113762.1.4.1181.30",
   "meta" : {
     "versionId" : "5",
-    "lastUpdated" : "2019-07-10T01:00:18.000-04:00",
-    "profile" : ["http://hl7.org/fhir/StructureDefinition/shareablevalueset",
-    "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"]
+    "lastUpdated" : "2023-12-21T17:43:03.000-05:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-valueset-cqfm",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "extension" : [{
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
-    "valueString" : "HSPC Author"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
-    "valueDate" : "2022-12-15"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
-    "valueDate" : "2019-07-10"
-  }],
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "HSPC Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2024-06-03"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2019-07-10"
+    }
+  ],
   "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1181.30",
-  "identifier" : [{
-    "system" : "urn:ietf:rfc:3986",
-    "value" : "urn:oid:2.16.840.1.113762.1.4.1181.30"
-  }],
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113762.1.4.1181.30"
+    }
+  ],
   "version" : "20190710",
   "name" : "BodySideReferenceSet",
   "title" : "Body side reference set",
-  "status" : "active",
+  "status" : "retired",
   "experimental" : false,
   "date" : "2019-07-10T01:00:18-04:00",
   "publisher" : "HSPC Steward",
-  "jurisdiction" : [{
-    "extension" : [{
-      "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
-      "valueString" : "UNKNOWN"
-    }]
-  }],
+  "jurisdiction" : [
+    {
+      "coding" : [
+        {
+          "system" : "urn:iso:std:iso:3166",
+          "code" : "US"
+        }
+      ]
+    }
+  ],
   "purpose" : "(Clinical Focus: Body side value set as defined by the Clinical Information Modeling Initiative.),(Data Element Scope: This reference set contains concepts used to result the body side of a condition or measurement. This reference set is used to result LOINC code 20228-3 \"Anatomic part Laterality\", resulting the SNOMED CT concept: Body side reference set (foundation metadata concept) 23881000205102.),(Inclusion Criteria: ),(Exclusion Criteria: )",
   "compose" : {
-    "include" : [{
-      "system" : "http://snomed.info/sct",
-      "concept" : [{
+    "include" : [
+      {
+        "system" : "http://snomed.info/sct",
+        "concept" : [
+          {
+            "code" : "24028007",
+            "display" : "Right (qualifier value)"
+          },
+          {
+            "code" : "51440002",
+            "display" : "Right and left (qualifier value)"
+          },
+          {
+            "code" : "7771000",
+            "display" : "Left (qualifier value)"
+          }
+        ]
+      }
+    ]
+  },
+  "expansion" : {
+    "identifier" : "urn:uuid:90d1edf6-e17e-4caa-8e32-161f73315a7c",
+    "timestamp" : "2024-06-14T12:39:58-04:00",
+    "total" : 3,
+    "contains" : [
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
         "code" : "24028007",
         "display" : "Right (qualifier value)"
       },
       {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
         "code" : "51440002",
         "display" : "Right and left (qualifier value)"
       },
       {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
         "code" : "7771000",
         "display" : "Left (qualifier value)"
-      }]
-    }]
-  },
-  "expansion" : {
-    "identifier" : "urn:uuid:e14dc528-3838-4631-a509-a8bf18c616a6",
-    "timestamp" : "2023-09-26T08:50:41-04:00",
-    "total" : 3,
-    "offset" : 0,
-    "parameter" : [{
-      "name" : "count",
-      "valueInteger" : 1000
-    },
-    {
-      "name" : "offset",
-      "valueInteger" : 0
-    }],
-    "contains" : [{
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "24028007",
-      "display" : "Right (qualifier value)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "51440002",
-      "display" : "Right and left (qualifier value)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "7771000",
-      "display" : "Left (qualifier value)"
-    }]
+      }
+    ]
   }
 }

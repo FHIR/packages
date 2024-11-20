@@ -3,178 +3,186 @@
   "id" : "2.16.840.1.113883.3.67.1.101.1.277",
   "meta" : {
     "versionId" : "19",
-    "lastUpdated" : "2017-05-04T01:00:13.000-04:00",
-    "profile" : ["http://hl7.org/fhir/StructureDefinition/shareablevalueset",
-    "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"]
+    "lastUpdated" : "2023-12-21T17:43:03.000-05:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-valueset-cqfm",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "extension" : [{
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
-    "valueString" : "Optum Author"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
-    "valueDate" : "2022-12-15"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
-    "valueDate" : "2017-05-04"
-  }],
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "Optum Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2024-06-03"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2017-05-04"
+    }
+  ],
   "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.67.1.101.1.277",
-  "identifier" : [{
-    "system" : "urn:ietf:rfc:3986",
-    "value" : "urn:oid:2.16.840.1.113883.3.67.1.101.1.277"
-  }],
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113883.3.67.1.101.1.277"
+    }
+  ],
   "version" : "20170504",
   "name" : "Delivery",
   "title" : "Delivery",
-  "status" : "active",
+  "status" : "retired",
   "experimental" : false,
   "date" : "2017-05-04T01:00:13-04:00",
   "publisher" : "Optum Steward",
-  "jurisdiction" : [{
-    "extension" : [{
-      "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
-      "valueString" : "UNKNOWN"
-    }]
-  }],
+  "jurisdiction" : [
+    {
+      "coding" : [
+        {
+          "system" : "urn:iso:std:iso:3166",
+          "code" : "US"
+        }
+      ]
+    }
+  ],
   "purpose" : "(Clinical Focus: This set of values contain codes commonly used in the outpatient setting to identify patients who had a live birth or delivery.),(Data Element Scope: The intent of this data element is identify patients who had a live birth or delivery.  Using the Quality Data Model, this particular element would map to the \"Procedure, Performed\" element.),(Inclusion Criteria: The codes used in this value set can be reasonably used to identify patients who had a live birth or delivery.),(Exclusion Criteria: None)",
   "compose" : {
-    "include" : [{
-      "system" : "http://www.ama-assn.org/go/cpt",
-      "concept" : [{
+    "include" : [
+      {
+        "system" : "http://www.ama-assn.org/go/cpt",
+        "concept" : [
+          {
+            "code" : "59400",
+            "display" : "Routine obstetric care including antepartum care, vaginal delivery (with or without episiotomy, and/or forceps) and postpartum care"
+          },
+          {
+            "code" : "59409",
+            "display" : "Vaginal delivery only (with or without episiotomy and/or forceps)"
+          },
+          {
+            "code" : "59410",
+            "display" : "Vaginal delivery only (with or without episiotomy and/or forceps); including postpartum care"
+          },
+          {
+            "code" : "59510",
+            "display" : "Routine obstetric care including antepartum care, cesarean delivery, and postpartum care"
+          },
+          {
+            "code" : "59514",
+            "display" : "Cesarean delivery only"
+          },
+          {
+            "code" : "59515",
+            "display" : "Cesarean delivery only; including postpartum care"
+          },
+          {
+            "code" : "59610",
+            "display" : "Routine obstetric care including antepartum care, vaginal delivery (with or without episiotomy, and/or forceps) and postpartum care, after previous cesarean delivery"
+          },
+          {
+            "code" : "59612",
+            "display" : "Vaginal delivery only, after previous cesarean delivery (with or without episiotomy and/or forceps)"
+          },
+          {
+            "code" : "59614",
+            "display" : "Vaginal delivery only, after previous cesarean delivery (with or without episiotomy and/or forceps); including postpartum care"
+          },
+          {
+            "code" : "59618",
+            "display" : "Routine obstetric care including antepartum care, cesarean delivery, and postpartum care, following attempted vaginal delivery after previous cesarean delivery"
+          },
+          {
+            "code" : "59620",
+            "display" : "Cesarean delivery only, following attempted vaginal delivery after previous cesarean delivery"
+          },
+          {
+            "code" : "59622",
+            "display" : "Cesarean delivery only, following attempted vaginal delivery after previous cesarean delivery; including postpartum care"
+          }
+        ]
+      }
+    ]
+  },
+  "expansion" : {
+    "identifier" : "urn:uuid:bc836680-e465-4b0f-b21a-407e2bb003ae",
+    "timestamp" : "2024-06-14T18:05:43-04:00",
+    "total" : 12,
+    "contains" : [
+      {
+        "system" : "http://www.ama-assn.org/go/cpt",
+        "version" : "2024",
         "code" : "59400",
         "display" : "Routine obstetric care including antepartum care, vaginal delivery (with or without episiotomy, and/or forceps) and postpartum care"
       },
       {
+        "system" : "http://www.ama-assn.org/go/cpt",
+        "version" : "2024",
         "code" : "59409",
         "display" : "Vaginal delivery only (with or without episiotomy and/or forceps)"
       },
       {
+        "system" : "http://www.ama-assn.org/go/cpt",
+        "version" : "2024",
         "code" : "59410",
         "display" : "Vaginal delivery only (with or without episiotomy and/or forceps); including postpartum care"
       },
       {
+        "system" : "http://www.ama-assn.org/go/cpt",
+        "version" : "2024",
         "code" : "59510",
         "display" : "Routine obstetric care including antepartum care, cesarean delivery, and postpartum care"
       },
       {
+        "system" : "http://www.ama-assn.org/go/cpt",
+        "version" : "2024",
         "code" : "59514",
         "display" : "Cesarean delivery only"
       },
       {
+        "system" : "http://www.ama-assn.org/go/cpt",
+        "version" : "2024",
         "code" : "59515",
         "display" : "Cesarean delivery only; including postpartum care"
       },
       {
+        "system" : "http://www.ama-assn.org/go/cpt",
+        "version" : "2024",
         "code" : "59610",
         "display" : "Routine obstetric care including antepartum care, vaginal delivery (with or without episiotomy, and/or forceps) and postpartum care, after previous cesarean delivery"
       },
       {
+        "system" : "http://www.ama-assn.org/go/cpt",
+        "version" : "2024",
         "code" : "59612",
         "display" : "Vaginal delivery only, after previous cesarean delivery (with or without episiotomy and/or forceps)"
       },
       {
+        "system" : "http://www.ama-assn.org/go/cpt",
+        "version" : "2024",
         "code" : "59614",
         "display" : "Vaginal delivery only, after previous cesarean delivery (with or without episiotomy and/or forceps); including postpartum care"
       },
       {
+        "system" : "http://www.ama-assn.org/go/cpt",
+        "version" : "2024",
         "code" : "59618",
         "display" : "Routine obstetric care including antepartum care, cesarean delivery, and postpartum care, following attempted vaginal delivery after previous cesarean delivery"
       },
       {
+        "system" : "http://www.ama-assn.org/go/cpt",
+        "version" : "2024",
         "code" : "59620",
         "display" : "Cesarean delivery only, following attempted vaginal delivery after previous cesarean delivery"
       },
       {
+        "system" : "http://www.ama-assn.org/go/cpt",
+        "version" : "2024",
         "code" : "59622",
         "display" : "Cesarean delivery only, following attempted vaginal delivery after previous cesarean delivery; including postpartum care"
-      }]
-    }]
-  },
-  "expansion" : {
-    "identifier" : "urn:uuid:5db0d4bc-46eb-4f9e-b57d-e27eeaded493",
-    "timestamp" : "2023-09-26T09:57:25-04:00",
-    "total" : 12,
-    "offset" : 0,
-    "parameter" : [{
-      "name" : "count",
-      "valueInteger" : 1000
-    },
-    {
-      "name" : "offset",
-      "valueInteger" : 0
-    }],
-    "contains" : [{
-      "system" : "http://www.ama-assn.org/go/cpt",
-      "version" : "2023",
-      "code" : "59400",
-      "display" : "Routine obstetric care including antepartum care, vaginal delivery (with or without episiotomy, and/or forceps) and postpartum care"
-    },
-    {
-      "system" : "http://www.ama-assn.org/go/cpt",
-      "version" : "2023",
-      "code" : "59409",
-      "display" : "Vaginal delivery only (with or without episiotomy and/or forceps)"
-    },
-    {
-      "system" : "http://www.ama-assn.org/go/cpt",
-      "version" : "2023",
-      "code" : "59410",
-      "display" : "Vaginal delivery only (with or without episiotomy and/or forceps); including postpartum care"
-    },
-    {
-      "system" : "http://www.ama-assn.org/go/cpt",
-      "version" : "2023",
-      "code" : "59510",
-      "display" : "Routine obstetric care including antepartum care, cesarean delivery, and postpartum care"
-    },
-    {
-      "system" : "http://www.ama-assn.org/go/cpt",
-      "version" : "2023",
-      "code" : "59514",
-      "display" : "Cesarean delivery only"
-    },
-    {
-      "system" : "http://www.ama-assn.org/go/cpt",
-      "version" : "2023",
-      "code" : "59515",
-      "display" : "Cesarean delivery only; including postpartum care"
-    },
-    {
-      "system" : "http://www.ama-assn.org/go/cpt",
-      "version" : "2023",
-      "code" : "59610",
-      "display" : "Routine obstetric care including antepartum care, vaginal delivery (with or without episiotomy, and/or forceps) and postpartum care, after previous cesarean delivery"
-    },
-    {
-      "system" : "http://www.ama-assn.org/go/cpt",
-      "version" : "2023",
-      "code" : "59612",
-      "display" : "Vaginal delivery only, after previous cesarean delivery (with or without episiotomy and/or forceps)"
-    },
-    {
-      "system" : "http://www.ama-assn.org/go/cpt",
-      "version" : "2023",
-      "code" : "59614",
-      "display" : "Vaginal delivery only, after previous cesarean delivery (with or without episiotomy and/or forceps); including postpartum care"
-    },
-    {
-      "system" : "http://www.ama-assn.org/go/cpt",
-      "version" : "2023",
-      "code" : "59618",
-      "display" : "Routine obstetric care including antepartum care, cesarean delivery, and postpartum care, following attempted vaginal delivery after previous cesarean delivery"
-    },
-    {
-      "system" : "http://www.ama-assn.org/go/cpt",
-      "version" : "2023",
-      "code" : "59620",
-      "display" : "Cesarean delivery only, following attempted vaginal delivery after previous cesarean delivery"
-    },
-    {
-      "system" : "http://www.ama-assn.org/go/cpt",
-      "version" : "2023",
-      "code" : "59622",
-      "display" : "Cesarean delivery only, following attempted vaginal delivery after previous cesarean delivery; including postpartum care"
-    }]
+      }
+    ]
   }
 }

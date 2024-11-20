@@ -3,31 +3,38 @@
   "id" : "2.16.840.1.113762.1.4.1096.146",
   "meta" : {
     "versionId" : "13",
-    "lastUpdated" : "2021-03-31T01:00:26.000-04:00",
-    "profile" : ["http://hl7.org/fhir/StructureDefinition/shareablevalueset",
-    "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"]
+    "lastUpdated" : "2023-12-21T17:43:03.000-05:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-valueset-cqfm",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "extension" : [{
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
-    "valueString" : "PharmacyHIT Author"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-keyWord",
-    "valueString" : "Active"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
-    "valueDate" : "2022-12-23"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
-    "valueDate" : "2021-03-31"
-  }],
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "PharmacyHIT Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-keyWord",
+      "valueString" : "Active"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2024-04-01"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2021-03-31"
+    }
+  ],
   "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1096.146",
-  "identifier" : [{
-    "system" : "urn:ietf:rfc:3986",
-    "value" : "urn:oid:2.16.840.1.113762.1.4.1096.146"
-  }],
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113762.1.4.1096.146"
+    }
+  ],
   "version" : "20210331",
   "name" : "FindingsRelatedToMedicationManagementImmunizations",
   "title" : "Findings Related to Medication Management, Immunizations",
@@ -35,130 +42,131 @@
   "experimental" : false,
   "date" : "2021-03-31T01:00:26-04:00",
   "publisher" : "PharmacyHIT",
-  "jurisdiction" : [{
-    "extension" : [{
-      "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
-      "valueString" : "UNKNOWN"
-    }]
-  }],
+  "jurisdiction" : [
+    {
+      "coding" : [
+        {
+          "system" : "urn:iso:std:iso:3166",
+          "code" : "US"
+        }
+      ]
+    }
+  ],
   "purpose" : "(Clinical Focus: This set of values contains codes that document the status of immunizations for a patient, whether up-to-date based on the current recommended vaccination schedule.),(Data Element Scope: Datatype: Individual Characteristic\n\nThe intent of this data element is to document the status of immunizations for a patient, whether up-to-date based on the current recommended vaccination schedule.),(Inclusion Criteria: Any code that documents the status of immunizations for a patient, whether up-to-date based on the current recommended vaccination schedule.),(Exclusion Criteria: Any code is not related to the status of immunizations for a patient.)",
   "compose" : {
-    "include" : [{
-      "system" : "http://snomed.info/sct",
-      "concept" : [{
+    "include" : [
+      {
+        "system" : "http://snomed.info/sct",
+        "concept" : [
+          {
+            "code" : "171258008",
+            "display" : "Up-to-date with immunizations (finding)"
+          },
+          {
+            "code" : "171259000",
+            "display" : "Not up to date with immunizations (finding)"
+          },
+          {
+            "code" : "171278000",
+            "display" : "Immunization status unknown (finding)"
+          },
+          {
+            "code" : "171279008",
+            "display" : "Immunization due (finding)"
+          },
+          {
+            "code" : "275983007",
+            "display" : "Influenza immunization advised (finding)"
+          },
+          {
+            "code" : "310373003",
+            "display" : "Immunization advised (finding)"
+          },
+          {
+            "code" : "442101005",
+            "display" : "Medically fit for immunization (finding)"
+          },
+          {
+            "code" : "454241000124106",
+            "display" : "Immunization series complete (finding)"
+          },
+          {
+            "code" : "591000119102",
+            "display" : "Vaccine refused by patient (situation)"
+          },
+          {
+            "code" : "921000119109",
+            "display" : "Vaccine refused by parent (situation)"
+          }
+        ]
+      }
+    ]
+  },
+  "expansion" : {
+    "identifier" : "urn:uuid:a6b03c76-9878-4e22-b598-12ab04a61acb",
+    "timestamp" : "2024-06-14T11:05:18-04:00",
+    "total" : 10,
+    "contains" : [
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
         "code" : "171258008",
         "display" : "Up-to-date with immunizations (finding)"
       },
       {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
         "code" : "171259000",
         "display" : "Not up to date with immunizations (finding)"
       },
       {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
         "code" : "171278000",
         "display" : "Immunization status unknown (finding)"
       },
       {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
         "code" : "171279008",
         "display" : "Immunization due (finding)"
       },
       {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
         "code" : "275983007",
         "display" : "Influenza immunization advised (finding)"
       },
       {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
         "code" : "310373003",
         "display" : "Immunization advised (finding)"
       },
       {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
         "code" : "442101005",
         "display" : "Medically fit for immunization (finding)"
       },
       {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
         "code" : "454241000124106",
         "display" : "Immunization series complete (finding)"
       },
       {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
         "code" : "591000119102",
-        "display" : "Vaccine refused by patient (situation)"
+        "display" : "Vaccine declined by patient (situation)"
       },
       {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
         "code" : "921000119109",
-        "display" : "Vaccine refused by parent (situation)"
-      }]
-    }]
-  },
-  "expansion" : {
-    "identifier" : "urn:uuid:1bcbf131-cf6f-488e-bf88-f27de96c0fe1",
-    "timestamp" : "2023-09-26T10:28:39-04:00",
-    "total" : 10,
-    "offset" : 0,
-    "parameter" : [{
-      "name" : "count",
-      "valueInteger" : 1000
-    },
-    {
-      "name" : "offset",
-      "valueInteger" : 0
-    }],
-    "contains" : [{
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "171258008",
-      "display" : "Up-to-date with immunizations (finding)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "171259000",
-      "display" : "Not up to date with immunizations (finding)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "171278000",
-      "display" : "Immunization status unknown (finding)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "171279008",
-      "display" : "Immunization due (finding)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "275983007",
-      "display" : "Influenza immunization advised (finding)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "310373003",
-      "display" : "Immunization advised (finding)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "442101005",
-      "display" : "Medically fit for immunization (finding)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "454241000124106",
-      "display" : "Immunization series complete (finding)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "591000119102",
-      "display" : "Vaccine declined by patient (situation)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "921000119109",
-      "display" : "Vaccine declined by parent (situation)"
-    }]
+        "display" : "Vaccine declined by parent (situation)"
+      }
+    ]
   }
 }

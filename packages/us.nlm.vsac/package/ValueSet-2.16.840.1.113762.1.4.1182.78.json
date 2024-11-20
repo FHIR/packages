@@ -3,80 +3,90 @@
   "id" : "2.16.840.1.113762.1.4.1182.78",
   "meta" : {
     "versionId" : "5",
-    "lastUpdated" : "2018-07-20T01:10:17.000-04:00",
-    "profile" : ["http://hl7.org/fhir/StructureDefinition/shareablevalueset",
-    "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"]
+    "lastUpdated" : "2023-12-21T17:43:03.000-05:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-valueset-cqfm",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "extension" : [{
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
-    "valueString" : "Change Healthcare Author"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
-    "valueDate" : "2022-12-15"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
-    "valueDate" : "2018-07-20"
-  }],
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "Change Healthcare Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2024-06-03"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2018-07-20"
+    }
+  ],
   "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1182.78",
-  "identifier" : [{
-    "system" : "urn:ietf:rfc:3986",
-    "value" : "urn:oid:2.16.840.1.113762.1.4.1182.78"
-  }],
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113762.1.4.1182.78"
+    }
+  ],
   "version" : "20180720",
   "name" : "DiastolicBloodPressureGreaterThanEqualTo90",
   "title" : "Diastolic Blood Pressure Greater Than Equal To 90",
-  "status" : "active",
+  "status" : "retired",
   "experimental" : false,
   "date" : "2018-07-20T01:00:04-04:00",
   "publisher" : "Change Healthcare Steward",
   "description" : "This value set are the administrative billing codes that represent only a diastolic blood pressure reading >= 90.  There are not codes that include both a diastolic reading and a systolic reading.",
-  "jurisdiction" : [{
-    "extension" : [{
-      "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
-      "valueString" : "UNKNOWN"
-    }]
-  }],
+  "jurisdiction" : [
+    {
+      "coding" : [
+        {
+          "system" : "urn:iso:std:iso:3166",
+          "code" : "US"
+        }
+      ]
+    }
+  ],
   "purpose" : "(Clinical Focus: Diastolic blood pressure),(Data Element Scope: Representative diastolic blood pressure >= 90),(Inclusion Criteria: Administrative billing codes representative diastolic blood pressure >= 90),(Exclusion Criteria: Administrative billing codes representative of systolic blood pressure or diastolic blood pressure < 90)",
   "compose" : {
-    "include" : [{
-      "valueSet" : ["http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1182.77"]
-    },
-    {
-      "valueSet" : ["http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1138.419"]
-    }]
+    "include" : [
+      {
+        "valueSet" : [
+          "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1182.77"
+        ]
+      },
+      {
+        "valueSet" : [
+          "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1138.419"
+        ]
+      }
+    ]
   },
   "expansion" : {
-    "identifier" : "urn:uuid:807376a2-f4b1-420a-97e6-16532d0a5af9",
-    "timestamp" : "2023-09-26T10:05:23-04:00",
+    "identifier" : "urn:uuid:ba868176-0937-4681-957c-c1ee3b2ef317",
+    "timestamp" : "2024-06-14T13:06:37-04:00",
     "total" : 3,
-    "offset" : 0,
-    "parameter" : [{
-      "name" : "count",
-      "valueInteger" : 1000
-    },
-    {
-      "name" : "offset",
-      "valueInteger" : 0
-    }],
-    "contains" : [{
-      "system" : "http://www.ama-assn.org/go/cpt",
-      "version" : "2023",
-      "code" : "3080F",
-      "display" : "Most recent diastolic blood pressure greater than or equal to 90 mm Hg (HTN, CKD, CAD) (DM)"
-    },
-    {
-      "system" : "http://www.nlm.nih.gov/research/umls/hcpcs",
-      "version" : "2023",
-      "code" : "3080F",
-      "display" : "Most recent diastolic blood pressure greater than or equal to 90 mm hg (htn, ckd, cad) (dm)"
-    },
-    {
-      "system" : "http://www.nlm.nih.gov/research/umls/hcpcs",
-      "version" : "2023",
-      "code" : "G8755",
-      "display" : "Most recent diastolic blood pressure >= 90 mmhg"
-    }]
+    "contains" : [
+      {
+        "system" : "http://www.ama-assn.org/go/cpt",
+        "version" : "2024",
+        "code" : "3080F",
+        "display" : "Most recent diastolic blood pressure greater than or equal to 90 mm Hg (HTN, CKD, CAD) (DM)"
+      },
+      {
+        "system" : "http://www.nlm.nih.gov/research/umls/hcpcs",
+        "version" : "2024",
+        "code" : "3080F",
+        "display" : "Most recent diastolic blood pressure greater than or equal to 90 mm hg (htn, ckd, cad) (dm)"
+      },
+      {
+        "system" : "http://www.nlm.nih.gov/research/umls/hcpcs",
+        "version" : "2024",
+        "code" : "G8755",
+        "display" : "Most recent diastolic blood pressure >= 90 mmhg"
+      }
+    ]
   }
 }

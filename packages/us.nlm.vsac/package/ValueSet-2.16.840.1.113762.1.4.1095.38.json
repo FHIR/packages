@@ -2,109 +2,116 @@
   "resourceType" : "ValueSet",
   "id" : "2.16.840.1.113762.1.4.1095.38",
   "meta" : {
-    "versionId" : "13",
-    "lastUpdated" : "2023-02-11T01:02:55.000-05:00",
-    "profile" : ["http://hl7.org/fhir/StructureDefinition/shareablevalueset",
-    "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"]
+    "versionId" : "24",
+    "lastUpdated" : "2024-02-21T01:24:22.000-05:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-valueset-cqfm",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "extension" : [{
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
-    "valueString" : "AND Author"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
-    "valueDate" : "2023-02-11"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
-    "valueDate" : "2023-02-11"
-  }],
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "AND Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2024-02-21"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2024-02-21"
+    }
+  ],
   "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1095.38",
-  "identifier" : [{
-    "system" : "urn:ietf:rfc:3986",
-    "value" : "urn:oid:2.16.840.1.113762.1.4.1095.38"
-  }],
-  "version" : "20230211",
-  "name" : "MalnutritionScreeningAtRiskResult",
-  "title" : "Malnutrition Screening At Risk Result",
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113762.1.4.1095.38"
+    }
+  ],
+  "version" : "20240221",
+  "name" : "MalnutritionScreeningFindingOfAtRiskResult",
+  "title" : "Malnutrition Screening Finding of At Risk Result",
   "status" : "active",
-  "date" : "2023-02-11T01:02:55-05:00",
+  "date" : "2024-02-21T01:24:22-05:00",
   "publisher" : "AND Steward",
-  "description" : "Modified original value set of similar concept with the purpose to be used for the malnutrition eCQM instead of 3 separate values",
-  "jurisdiction" : [{
-    "extension" : [{
-      "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
-      "valueString" : "UNKNOWN"
-    }]
-  }],
-  "purpose" : "(Clinical Focus: This set of values indicates that a patient was found to be at risk for malnutrition after completing a malnutrition screening done by the health care professional.),(Data Element Scope: Data included in this set represent that an individual has been evaluated to be at risk for malnutrition.),(Inclusion Criteria: Malnutrition At Risk criteria from the SNOMED-CT terminology are included.),(Exclusion Criteria: Malnutrition At Risk criteria from other terminologies than SNOMED-CT.)",
+  "jurisdiction" : [
+    {
+      "coding" : [
+        {
+          "system" : "urn:iso:std:iso:3166",
+          "code" : "US"
+        }
+      ]
+    }
+  ],
+  "purpose" : "(Clinical Focus: Malnutrition screening result of at risk for malnutrition.),(Data Element Scope: Result finding that indicates a patient is at risk for malnutrition.),(Inclusion Criteria: Positive at risk finding for malnutrition.),(Exclusion Criteria: Not at risk finding for malnutrition.)",
   "compose" : {
-    "include" : [{
-      "system" : "http://snomed.info/sct",
-      "concept" : [{
+    "include" : [
+      {
+        "system" : "http://snomed.info/sct",
+        "concept" : [
+          {
+            "code" : "129689002",
+            "display" : "At increased risk for nutritional problem (finding)"
+          },
+          {
+            "code" : "129845004",
+            "display" : "At risk for imbalanced nutrition, less than body requirements (finding)"
+          },
+          {
+            "code" : "700361001",
+            "display" : "Predicted inadequate nutrient intake (finding)"
+          },
+          {
+            "code" : "704358009",
+            "display" : "At increased risk of nutritional deficit (finding)"
+          },
+          {
+            "code" : "704361005",
+            "display" : "At risk of deficient food intake (finding)"
+          }
+        ]
+      }
+    ]
+  },
+  "expansion" : {
+    "identifier" : "urn:uuid:68aafe10-405f-41da-ae87-e1dc8f0c4746",
+    "timestamp" : "2024-06-14T11:02:19-04:00",
+    "total" : 5,
+    "contains" : [
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
         "code" : "129689002",
-        "display" : "At risk for nutritional problem (finding)"
+        "display" : "At increased risk for nutritional problem (finding)"
       },
       {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
         "code" : "129845004",
         "display" : "At risk for imbalanced nutrition, less than body requirements (finding)"
       },
       {
-        "code" : "445421000124101",
-        "display" : "At risk for inadequate intake of multiple nutrients (finding)"
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "700361001",
+        "display" : "Predicted inadequate nutrient intake (finding)"
       },
       {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
         "code" : "704358009",
-        "display" : "At risk of nutritional deficit (finding)"
+        "display" : "At increased risk of nutritional deficit (finding)"
       },
       {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
         "code" : "704361005",
         "display" : "At risk of deficient food intake (finding)"
-      }]
-    }]
-  },
-  "expansion" : {
-    "identifier" : "urn:uuid:0b991b4b-cabc-42f4-86d0-ff366b446de7",
-    "timestamp" : "2023-09-26T11:37:47-04:00",
-    "total" : 5,
-    "offset" : 0,
-    "parameter" : [{
-      "name" : "count",
-      "valueInteger" : 1000
-    },
-    {
-      "name" : "offset",
-      "valueInteger" : 0
-    }],
-    "contains" : [{
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "129689002",
-      "display" : "At risk for nutritional problem (finding)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "129845004",
-      "display" : "At risk for imbalanced nutrition, less than body requirements (finding)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "445421000124101",
-      "display" : "At risk for inadequate intake of multiple nutrients (finding)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "704358009",
-      "display" : "At risk of nutritional deficit (finding)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "704361005",
-      "display" : "At risk of deficient food intake (finding)"
-    }]
+      }
+    ]
   }
 }

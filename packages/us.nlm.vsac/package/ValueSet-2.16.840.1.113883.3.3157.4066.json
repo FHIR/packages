@@ -3,27 +3,34 @@
   "id" : "2.16.840.1.113883.3.3157.4066",
   "meta" : {
     "versionId" : "6",
-    "lastUpdated" : "2022-05-12T01:02:28.000-04:00",
-    "profile" : ["http://hl7.org/fhir/StructureDefinition/shareablevalueset",
-    "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"]
+    "lastUpdated" : "2023-12-21T17:43:03.000-05:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-valueset-cqfm",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "extension" : [{
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
-    "valueString" : "Lewin EH Author"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
-    "valueDate" : "2022-12-15"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
-    "valueDate" : "2022-05-12"
-  }],
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "Lewin EH Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2024-04-22"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2022-05-12"
+    }
+  ],
   "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.3157.4066",
-  "identifier" : [{
-    "system" : "urn:ietf:rfc:3986",
-    "value" : "urn:oid:2.16.840.1.113883.3.3157.4066"
-  }],
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113883.3.3157.4066"
+    }
+  ],
   "version" : "20220512",
   "name" : "DiagnosticDBTStudy",
   "title" : "Diagnostic DBT Study",
@@ -32,51 +39,54 @@
   "date" : "2022-05-12T01:02:29-04:00",
   "publisher" : "Lewin EH Steward",
   "description" : "This value set is associated with the \"Breast Cancer Screening Recall Rates\" measure used in the Centers for Medicare & Medicaid Services (CMS) Hospital Outpatient Quality Reporting (OQR) Program. It is also referred to as \"OP-39.\"",
-  "jurisdiction" : [{
-    "extension" : [{
-      "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
-      "valueString" : "UNKNOWN"
-    }]
-  }],
+  "jurisdiction" : [
+    {
+      "coding" : [
+        {
+          "system" : "urn:iso:std:iso:3166",
+          "code" : "US"
+        }
+      ]
+    }
+  ],
   "purpose" : "(Clinical Focus: This set of values contains CPT and HCPCS codes associated with screening studies used to identify breast cancer in men and women.),(Data Element Scope: The intent of this data element is to identify patients who underwent a diagnostic digital breast tomosynthesis (DBT).),(Inclusion Criteria: CPT and HCPCS codes that identify breast diagnostic imaging studies performed using DBT are captured in this value set.),(Exclusion Criteria: Codes not associated with breast diagnostic are excluded from this value set. Similarly, codes from alternative terminologies other than CPT or HCPCS are excluded from this value set.)",
   "compose" : {
-    "include" : [{
-      "valueSet" : ["http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.3157.4064"]
-    },
-    {
-      "valueSet" : ["http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.3157.4065"]
-    }]
+    "include" : [
+      {
+        "valueSet" : [
+          "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.3157.4064"
+        ]
+      },
+      {
+        "valueSet" : [
+          "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.3157.4065"
+        ]
+      }
+    ]
   },
   "expansion" : {
-    "identifier" : "urn:uuid:6d728b3e-97a3-4a33-8a11-3291bd90b3b8",
-    "timestamp" : "2023-09-26T10:04:29-04:00",
+    "identifier" : "urn:uuid:6e75353f-761e-4aa3-ac2b-916ce4d8c88b",
+    "timestamp" : "2024-06-14T16:07:03-04:00",
     "total" : 3,
-    "offset" : 0,
-    "parameter" : [{
-      "name" : "count",
-      "valueInteger" : 1000
-    },
-    {
-      "name" : "offset",
-      "valueInteger" : 0
-    }],
-    "contains" : [{
-      "system" : "http://www.ama-assn.org/go/cpt",
-      "version" : "2023",
-      "code" : "77061",
-      "display" : "Diagnostic digital breast tomosynthesis; unilateral"
-    },
-    {
-      "system" : "http://www.ama-assn.org/go/cpt",
-      "version" : "2023",
-      "code" : "77062",
-      "display" : "Diagnostic digital breast tomosynthesis; bilateral"
-    },
-    {
-      "system" : "http://www.nlm.nih.gov/research/umls/hcpcs",
-      "version" : "2023",
-      "code" : "G0279",
-      "display" : "Diagnostic digital breast tomosynthesis, unilateral or bilateral (list separately in addition to 77065 or 77066)"
-    }]
+    "contains" : [
+      {
+        "system" : "http://www.ama-assn.org/go/cpt",
+        "version" : "2024",
+        "code" : "77061",
+        "display" : "Diagnostic digital breast tomosynthesis; unilateral"
+      },
+      {
+        "system" : "http://www.ama-assn.org/go/cpt",
+        "version" : "2024",
+        "code" : "77062",
+        "display" : "Diagnostic digital breast tomosynthesis; bilateral"
+      },
+      {
+        "system" : "http://www.nlm.nih.gov/research/umls/hcpcs",
+        "version" : "2024",
+        "code" : "G0279",
+        "display" : "Diagnostic digital breast tomosynthesis, unilateral or bilateral (list separately in addition to 77065 or 77066)"
+      }
+    ]
   }
 }

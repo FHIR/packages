@@ -3,99 +3,107 @@
   "id" : "2.16.840.1.113762.1.4.1045.90",
   "meta" : {
     "versionId" : "11",
-    "lastUpdated" : "2014-07-07T01:00:01.000-04:00",
-    "profile" : ["http://hl7.org/fhir/StructureDefinition/shareablevalueset",
-    "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"]
+    "lastUpdated" : "2023-12-21T17:43:03.000-05:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-valueset-cqfm",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "extension" : [{
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
-    "valueString" : "Lantana Author"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
-    "valueDate" : "2022-12-15"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
-    "valueDate" : "2014-07-07"
-  }],
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "Lantana Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2024-06-03"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2014-07-07"
+    }
+  ],
   "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1045.90",
-  "identifier" : [{
-    "system" : "urn:ietf:rfc:3986",
-    "value" : "urn:oid:2.16.840.1.113762.1.4.1045.90"
-  }],
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113762.1.4.1045.90"
+    }
+  ],
   "version" : "20140707",
   "name" : "SepticShock",
   "title" : "Septic Shock",
-  "status" : "active",
+  "status" : "retired",
   "experimental" : false,
   "date" : "2014-07-07T01:00:01-04:00",
   "publisher" : "Lantana",
   "description" : "Measure 0500",
-  "jurisdiction" : [{
-    "extension" : [{
-      "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
-      "valueString" : "UNKNOWN"
-    }]
-  }],
+  "jurisdiction" : [
+    {
+      "coding" : [
+        {
+          "system" : "urn:iso:std:iso:3166",
+          "code" : "US"
+        }
+      ]
+    }
+  ],
   "purpose" : "(Clinical Focus: This set of values identifies patients with septic shock.),(Data Element Scope: The intent of this data element is to identify patients with a diagnosis of septic shock. Using the Quality Data Model, this particular element would map to the Diagnosis category.),(Inclusion Criteria: Include ICD 10 CM codes that identify septic shock and severe sepsis with septic shock.),(Exclusion Criteria: Exclude codes that do not meet the inclusion criteria.)",
   "compose" : {
-    "include" : [{
-      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-      "concept" : [{
+    "include" : [
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "concept" : [
+          {
+            "code" : "O08.3",
+            "display" : "Shock following ectopic and molar pregnancy"
+          },
+          {
+            "code" : "R65.21",
+            "display" : "Severe sepsis with septic shock"
+          },
+          {
+            "code" : "T81.12XA",
+            "display" : "Postprocedural septic shock, initial encounter"
+          },
+          {
+            "code" : "T81.12XD",
+            "display" : "Postprocedural septic shock, subsequent encounter"
+          }
+        ]
+      }
+    ]
+  },
+  "expansion" : {
+    "identifier" : "urn:uuid:9e0ac219-b1f2-454c-bcb7-209c305ec5c3",
+    "timestamp" : "2024-06-14T10:27:08-04:00",
+    "total" : 4,
+    "contains" : [
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2024",
         "code" : "O08.3",
         "display" : "Shock following ectopic and molar pregnancy"
       },
       {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2024",
         "code" : "R65.21",
         "display" : "Severe sepsis with septic shock"
       },
       {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2024",
         "code" : "T81.12XA",
         "display" : "Postprocedural septic shock, initial encounter"
       },
       {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2024",
         "code" : "T81.12XD",
         "display" : "Postprocedural septic shock, subsequent encounter"
-      }]
-    }]
-  },
-  "expansion" : {
-    "identifier" : "urn:uuid:36153421-9fc3-4ca9-bbbf-e6ea65585a32",
-    "timestamp" : "2023-09-26T13:07:51-04:00",
-    "total" : 4,
-    "offset" : 0,
-    "parameter" : [{
-      "name" : "count",
-      "valueInteger" : 1000
-    },
-    {
-      "name" : "offset",
-      "valueInteger" : 0
-    }],
-    "contains" : [{
-      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-      "version" : "2024",
-      "code" : "O08.3",
-      "display" : "Shock following ectopic and molar pregnancy"
-    },
-    {
-      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-      "version" : "2024",
-      "code" : "R65.21",
-      "display" : "Severe sepsis with septic shock"
-    },
-    {
-      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-      "version" : "2024",
-      "code" : "T81.12XA",
-      "display" : "Postprocedural septic shock, initial encounter"
-    },
-    {
-      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-      "version" : "2024",
-      "code" : "T81.12XD",
-      "display" : "Postprocedural septic shock, subsequent encounter"
-    }]
+      }
+    ]
   }
 }

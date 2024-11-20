@@ -3,27 +3,34 @@
   "id" : "2.16.840.1.113883.3.464.1003.101.11.1260",
   "meta" : {
     "versionId" : "5",
-    "lastUpdated" : "2021-01-18T12:57:11.000-05:00",
-    "profile" : ["http://hl7.org/fhir/StructureDefinition/shareablevalueset",
-    "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"]
+    "lastUpdated" : "2023-12-21T17:43:03.000-05:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-valueset-cqfm",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "extension" : [{
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
-    "valueString" : "NCQA PHEMUR Author"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
-    "valueDate" : "2022-12-15"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
-    "valueDate" : "2021-01-18"
-  }],
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "NCQA PHEMUR Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2024-02-14"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2018-03-10"
+    }
+  ],
   "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.101.11.1260",
-  "identifier" : [{
-    "system" : "urn:ietf:rfc:3986",
-    "value" : "urn:oid:2.16.840.1.113883.3.464.1003.101.11.1260"
-  }],
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113883.3.464.1003.101.11.1260"
+    }
+  ],
   "version" : "20180310",
   "name" : "TelephoneVisits",
   "title" : "Telephone Visits",
@@ -31,90 +38,91 @@
   "experimental" : false,
   "date" : "2018-03-10T01:00:08-05:00",
   "publisher" : "NCQA PHEMUR",
-  "jurisdiction" : [{
-    "extension" : [{
-      "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
-      "valueString" : "UNKNOWN"
-    }]
-  }],
+  "jurisdiction" : [
+    {
+      "coding" : [
+        {
+          "system" : "urn:iso:std:iso:3166",
+          "code" : "US"
+        }
+      ]
+    }
+  ],
   "purpose" : "(Clinical Focus: The purpose of this value set is to represent concepts for encounters for telephone visits.),(Data Element Scope: This value set may use a model element related to Encounter.),(Inclusion Criteria: Includes concepts that represent an encounter for assessment, evaluation and management services to a patient by telephone.),(Exclusion Criteria: Excludes concepts that represent an encounter for telephone assessment, evaluation and management services that last for less than five minutes.)",
   "compose" : {
-    "include" : [{
-      "system" : "http://www.ama-assn.org/go/cpt",
-      "concept" : [{
+    "include" : [
+      {
+        "system" : "http://www.ama-assn.org/go/cpt",
+        "concept" : [
+          {
+            "code" : "98966",
+            "display" : "Telephone assessment and management service provided by a qualified nonphysician health care professional to an established patient, parent, or guardian not originating from a related assessment and management service provided within the previous 7 days nor leading to an assessment and management service or procedure within the next 24 hours or soonest available appointment; 5-10 minutes of medical discussion"
+          },
+          {
+            "code" : "98967",
+            "display" : "Telephone assessment and management service provided by a qualified nonphysician health care professional to an established patient, parent, or guardian not originating from a related assessment and management service provided within the previous 7 days nor leading to an assessment and management service or procedure within the next 24 hours or soonest available appointment; 11-20 minutes of medical discussion"
+          },
+          {
+            "code" : "98968",
+            "display" : "Telephone assessment and management service provided by a qualified nonphysician health care professional to an established patient, parent, or guardian not originating from a related assessment and management service provided within the previous 7 days nor leading to an assessment and management service or procedure within the next 24 hours or soonest available appointment; 21-30 minutes of medical discussion"
+          },
+          {
+            "code" : "99441",
+            "display" : "Telephone evaluation and management service by a physician or other qualified health care professional who may report evaluation and management services provided to an established patient, parent, or guardian not originating from a related E/M service provided within the previous 7 days nor leading to an E/M service or procedure within the next 24 hours or soonest available appointment; 5-10 minutes of medical discussion"
+          },
+          {
+            "code" : "99442",
+            "display" : "Telephone evaluation and management service by a physician or other qualified health care professional who may report evaluation and management services provided to an established patient, parent, or guardian not originating from a related E/M service provided within the previous 7 days nor leading to an E/M service or procedure within the next 24 hours or soonest available appointment; 11-20 minutes of medical discussion"
+          },
+          {
+            "code" : "99443",
+            "display" : "Telephone evaluation and management service by a physician or other qualified health care professional who may report evaluation and management services provided to an established patient, parent, or guardian not originating from a related E/M service provided within the previous 7 days nor leading to an E/M service or procedure within the next 24 hours or soonest available appointment; 21-30 minutes of medical discussion"
+          }
+        ]
+      }
+    ]
+  },
+  "expansion" : {
+    "identifier" : "urn:uuid:f8c68ecb-9332-4998-99f4-d72d5f97298c",
+    "timestamp" : "2024-06-14T16:33:31-04:00",
+    "total" : 6,
+    "contains" : [
+      {
+        "system" : "http://www.ama-assn.org/go/cpt",
+        "version" : "2024",
         "code" : "98966",
         "display" : "Telephone assessment and management service provided by a qualified nonphysician health care professional to an established patient, parent, or guardian not originating from a related assessment and management service provided within the previous 7 days nor leading to an assessment and management service or procedure within the next 24 hours or soonest available appointment; 5-10 minutes of medical discussion"
       },
       {
+        "system" : "http://www.ama-assn.org/go/cpt",
+        "version" : "2024",
         "code" : "98967",
         "display" : "Telephone assessment and management service provided by a qualified nonphysician health care professional to an established patient, parent, or guardian not originating from a related assessment and management service provided within the previous 7 days nor leading to an assessment and management service or procedure within the next 24 hours or soonest available appointment; 11-20 minutes of medical discussion"
       },
       {
+        "system" : "http://www.ama-assn.org/go/cpt",
+        "version" : "2024",
         "code" : "98968",
         "display" : "Telephone assessment and management service provided by a qualified nonphysician health care professional to an established patient, parent, or guardian not originating from a related assessment and management service provided within the previous 7 days nor leading to an assessment and management service or procedure within the next 24 hours or soonest available appointment; 21-30 minutes of medical discussion"
       },
       {
+        "system" : "http://www.ama-assn.org/go/cpt",
+        "version" : "2024",
         "code" : "99441",
         "display" : "Telephone evaluation and management service by a physician or other qualified health care professional who may report evaluation and management services provided to an established patient, parent, or guardian not originating from a related E/M service provided within the previous 7 days nor leading to an E/M service or procedure within the next 24 hours or soonest available appointment; 5-10 minutes of medical discussion"
       },
       {
+        "system" : "http://www.ama-assn.org/go/cpt",
+        "version" : "2024",
         "code" : "99442",
         "display" : "Telephone evaluation and management service by a physician or other qualified health care professional who may report evaluation and management services provided to an established patient, parent, or guardian not originating from a related E/M service provided within the previous 7 days nor leading to an E/M service or procedure within the next 24 hours or soonest available appointment; 11-20 minutes of medical discussion"
       },
       {
+        "system" : "http://www.ama-assn.org/go/cpt",
+        "version" : "2024",
         "code" : "99443",
         "display" : "Telephone evaluation and management service by a physician or other qualified health care professional who may report evaluation and management services provided to an established patient, parent, or guardian not originating from a related E/M service provided within the previous 7 days nor leading to an E/M service or procedure within the next 24 hours or soonest available appointment; 21-30 minutes of medical discussion"
-      }]
-    }]
-  },
-  "expansion" : {
-    "identifier" : "urn:uuid:dad14565-5d79-426a-9457-2a8029cfb0b9",
-    "timestamp" : "2023-09-26T13:29:10-04:00",
-    "total" : 6,
-    "offset" : 0,
-    "parameter" : [{
-      "name" : "count",
-      "valueInteger" : 1000
-    },
-    {
-      "name" : "offset",
-      "valueInteger" : 0
-    }],
-    "contains" : [{
-      "system" : "http://www.ama-assn.org/go/cpt",
-      "version" : "2023",
-      "code" : "98966",
-      "display" : "Telephone assessment and management service provided by a qualified nonphysician health care professional to an established patient, parent, or guardian not originating from a related assessment and management service provided within the previous 7 days nor leading to an assessment and management service or procedure within the next 24 hours or soonest available appointment; 5-10 minutes of medical discussion"
-    },
-    {
-      "system" : "http://www.ama-assn.org/go/cpt",
-      "version" : "2023",
-      "code" : "98967",
-      "display" : "Telephone assessment and management service provided by a qualified nonphysician health care professional to an established patient, parent, or guardian not originating from a related assessment and management service provided within the previous 7 days nor leading to an assessment and management service or procedure within the next 24 hours or soonest available appointment; 11-20 minutes of medical discussion"
-    },
-    {
-      "system" : "http://www.ama-assn.org/go/cpt",
-      "version" : "2023",
-      "code" : "98968",
-      "display" : "Telephone assessment and management service provided by a qualified nonphysician health care professional to an established patient, parent, or guardian not originating from a related assessment and management service provided within the previous 7 days nor leading to an assessment and management service or procedure within the next 24 hours or soonest available appointment; 21-30 minutes of medical discussion"
-    },
-    {
-      "system" : "http://www.ama-assn.org/go/cpt",
-      "version" : "2023",
-      "code" : "99441",
-      "display" : "Telephone evaluation and management service by a physician or other qualified health care professional who may report evaluation and management services provided to an established patient, parent, or guardian not originating from a related E/M service provided within the previous 7 days nor leading to an E/M service or procedure within the next 24 hours or soonest available appointment; 5-10 minutes of medical discussion"
-    },
-    {
-      "system" : "http://www.ama-assn.org/go/cpt",
-      "version" : "2023",
-      "code" : "99442",
-      "display" : "Telephone evaluation and management service by a physician or other qualified health care professional who may report evaluation and management services provided to an established patient, parent, or guardian not originating from a related E/M service provided within the previous 7 days nor leading to an E/M service or procedure within the next 24 hours or soonest available appointment; 11-20 minutes of medical discussion"
-    },
-    {
-      "system" : "http://www.ama-assn.org/go/cpt",
-      "version" : "2023",
-      "code" : "99443",
-      "display" : "Telephone evaluation and management service by a physician or other qualified health care professional who may report evaluation and management services provided to an established patient, parent, or guardian not originating from a related E/M service provided within the previous 7 days nor leading to an E/M service or procedure within the next 24 hours or soonest available appointment; 21-30 minutes of medical discussion"
-    }]
+      }
+    ]
   }
 }

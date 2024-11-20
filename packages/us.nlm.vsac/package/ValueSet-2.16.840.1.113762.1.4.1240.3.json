@@ -3,85 +3,101 @@
   "id" : "2.16.840.1.113762.1.4.1240.3",
   "meta" : {
     "versionId" : "10",
-    "lastUpdated" : "2023-06-28T01:00:46.000-04:00",
-    "profile" : ["http://hl7.org/fhir/StructureDefinition/shareablevalueset",
-    "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"]
+    "lastUpdated" : "2024-04-26T15:45:20.000-04:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-valueset-cqfm",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "extension" : [{
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
-    "valueString" : "HL7 C-CDA"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
-    "valueDate" : "2023-06-28"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
-    "valueDate" : "2023-06-28"
-  }],
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "HL7 US Realm Program Management Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2024-06-05"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2023-06-28"
+    }
+  ],
   "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1240.3",
-  "identifier" : [{
-    "system" : "urn:ietf:rfc:3986",
-    "value" : "urn:oid:2.16.840.1.113762.1.4.1240.3"
-  }],
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113762.1.4.1240.3"
+    }
+  ],
   "version" : "20230628",
   "name" : "Sex",
   "title" : "Sex",
   "status" : "active",
   "date" : "2023-06-28T01:00:46-04:00",
-  "publisher" : "HL7 C-CDA",
+  "publisher" : "HL7 US Realm Program Management Steward",
   "description" : "Created specifically to support United States USCDI v3 data element \"Sex\"",
-  "jurisdiction" : [{
-    "extension" : [{
-      "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
-      "valueString" : "UNKNOWN"
-    }]
-  }],
-  "purpose" : "(Clinical Focus: This grouped value set contains codes for the terms Male, Female, Patient Sex Unknown, and to represent when a person declined to provide this information. These are used for documentation of a person’s sex.),(Data Element Scope: A data element used for general documentation of sex representation),(Inclusion Criteria: The general codes selected.),(Exclusion Criteria: Sex or gender related concepts that are more detailed or specific in nature.)",
-  "compose" : {
-    "include" : [{
-      "valueSet" : ["http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1099.53"]
-    },
+  "jurisdiction" : [
     {
-      "valueSet" : ["http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1240.4"]
-    }]
+      "coding" : [
+        {
+          "system" : "urn:iso:std:iso:3166",
+          "code" : "US"
+        }
+      ]
+    }
+  ],
+  "purpose" : "(Clinical Focus: This grouped set contains codes for the terms Male, Female, Patient Sex Unknown, and Identifies as Binary. It includes an HL7 term to represent when a person declined to provide this information\nNote that this term has a SNOMED CT synonym of \"Fluctuating between male and female, or identifying as either having a gender that is in-between or beyond the two categories or as having no gender, either permanently or some of the time.\" which aligns with the concept of \"X\" that is an allowable term on passports and many states birth certificates.),(Data Element Scope: A data element used for general documentation of sex representation),(Inclusion Criteria: The general codes selected.),(Exclusion Criteria: Sex or gender related concepts that are more detailed or specific in nature.)",
+  "compose" : {
+    "include" : [
+      {
+        "valueSet" : [
+          "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1099.53"
+        ]
+      },
+      {
+        "valueSet" : [
+          "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1240.4"
+        ]
+      }
+    ]
   },
   "expansion" : {
-    "identifier" : "urn:uuid:a2852c7a-7579-4307-b36a-69ac29485d49",
-    "timestamp" : "2023-09-26T13:10:24-04:00",
-    "total" : 4,
-    "offset" : 0,
-    "parameter" : [{
-      "name" : "count",
-      "valueInteger" : 1000
-    },
-    {
-      "name" : "offset",
-      "valueInteger" : 0
-    }],
-    "contains" : [{
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "184115007",
-      "display" : "Patient sex unknown (finding)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "248152002",
-      "display" : "Female (finding)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "248153007",
-      "display" : "Male (finding)"
-    },
-    {
-      "system" : "http://terminology.hl7.org/CodeSystem/data-absent-reason",
-      "version" : "0.1.0",
-      "code" : "asked-declined",
-      "display" : "Asked But Declined"
-    }]
+    "identifier" : "urn:uuid:b0056723-1982-4da6-90a1-2b141ff7bc03",
+    "timestamp" : "2024-06-14T14:54:55-04:00",
+    "total" : 5,
+    "contains" : [
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "184115007",
+        "display" : "Patient sex unknown (finding)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "248152002",
+        "display" : "Female (finding)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "248153007",
+        "display" : "Male (finding)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "33791000087105",
+        "display" : "Identifies as nonbinary gender (finding)"
+      },
+      {
+        "system" : "http://terminology.hl7.org/CodeSystem/data-absent-reason",
+        "version" : "0.1.0",
+        "code" : "asked-declined",
+        "display" : "Asked But Declined"
+      }
+    ]
   }
 }

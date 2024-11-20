@@ -3,128 +3,136 @@
   "id" : "2.16.840.1.113883.3.526.2.1600",
   "meta" : {
     "versionId" : "17",
-    "lastUpdated" : "2021-01-15T13:03:58.000-05:00",
-    "profile" : ["http://hl7.org/fhir/StructureDefinition/shareablevalueset",
-    "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"]
+    "lastUpdated" : "2023-12-21T17:43:03.000-05:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-valueset-cqfm",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "extension" : [{
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
-    "valueString" : "American Academy of Ophthalmology Author"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
-    "valueDate" : "2022-12-15"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
-    "valueDate" : "2021-01-15"
-  }],
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "American Academy of Ophthalmology Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2024-06-03"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2017-05-04"
+    }
+  ],
   "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.526.2.1600",
-  "identifier" : [{
-    "system" : "urn:ietf:rfc:3986",
-    "value" : "urn:oid:2.16.840.1.113883.3.526.2.1600"
-  }],
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113883.3.526.2.1600"
+    }
+  ],
   "version" : "20170504",
   "name" : "RetinalRepairProcedures",
   "title" : "Retinal Repair Procedures",
-  "status" : "active",
+  "status" : "retired",
   "experimental" : false,
   "date" : "2017-05-04T01:00:13-04:00",
   "publisher" : "American Academy of Ophthalmology Steward",
-  "jurisdiction" : [{
-    "extension" : [{
-      "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
-      "valueString" : "UNKNOWN"
-    }]
-  }],
+  "jurisdiction" : [
+    {
+      "coding" : [
+        {
+          "system" : "urn:iso:std:iso:3166",
+          "code" : "US"
+        }
+      ]
+    }
+  ],
   "purpose" : "(Clinical Focus: This value set contains concepts that represent retinal repair procedures.),(Data Element Scope: This value set may use the Quality Data Model (QDM) category related to Procedure.),(Inclusion Criteria: Includes only relevant concepts associated with procedures for repairing the retina, including reattachment, scleroplasty and repositioning.),(Exclusion Criteria: No exclusions.)",
   "compose" : {
-    "include" : [{
-      "system" : "http://www.ama-assn.org/go/cpt",
-      "concept" : [{
+    "include" : [
+      {
+        "system" : "http://www.ama-assn.org/go/cpt",
+        "concept" : [
+          {
+            "code" : "67101",
+            "display" : "Repair of retinal detachment, 1 or more sessions; cryotherapy or diathermy, including drainage of subretinal fluid, when performed"
+          },
+          {
+            "code" : "67105",
+            "display" : "Repair of retinal detachment, 1 or more sessions; photocoagulation, including drainage of subretinal fluid, when performed"
+          },
+          {
+            "code" : "67107",
+            "display" : "Repair of retinal detachment; scleral buckling (such as lamellar scleral dissection, imbrication or encircling procedure), including, when performed, implant, cryotherapy, photocoagulation, and drainage of subretinal fluid"
+          },
+          {
+            "code" : "67108",
+            "display" : "Repair of retinal detachment; with vitrectomy, any method, including, when performed, air or gas tamponade, focal endolaser photocoagulation, cryotherapy, drainage of subretinal fluid, scleral buckling, and/or removal of lens by same technique"
+          },
+          {
+            "code" : "67110",
+            "display" : "Repair of retinal detachment; by injection of air or other gas (eg, pneumatic retinopexy)"
+          },
+          {
+            "code" : "67141",
+            "display" : "Prophylaxis of retinal detachment (eg, retinal break, lattice degeneration) without drainage, 1 or more sessions; cryotherapy, diathermy"
+          },
+          {
+            "code" : "67145",
+            "display" : "Prophylaxis of retinal detachment (eg, retinal break, lattice degeneration) without drainage, 1 or more sessions; photocoagulation (laser or xenon arc)"
+          }
+        ]
+      }
+    ]
+  },
+  "expansion" : {
+    "identifier" : "urn:uuid:70cac5c6-ab1c-4935-a6f3-ea022885b8eb",
+    "timestamp" : "2024-06-14T17:31:01-04:00",
+    "total" : 7,
+    "contains" : [
+      {
+        "system" : "http://www.ama-assn.org/go/cpt",
+        "version" : "2024",
         "code" : "67101",
-        "display" : "Repair of retinal detachment, 1 or more sessions; cryotherapy or diathermy, including drainage of subretinal fluid, when performed"
+        "display" : "Repair of retinal detachment, including drainage of subretinal fluid when performed; cryotherapy"
       },
       {
+        "system" : "http://www.ama-assn.org/go/cpt",
+        "version" : "2024",
         "code" : "67105",
-        "display" : "Repair of retinal detachment, 1 or more sessions; photocoagulation, including drainage of subretinal fluid, when performed"
+        "display" : "Repair of retinal detachment, including drainage of subretinal fluid when performed; photocoagulation"
       },
       {
+        "system" : "http://www.ama-assn.org/go/cpt",
+        "version" : "2024",
         "code" : "67107",
         "display" : "Repair of retinal detachment; scleral buckling (such as lamellar scleral dissection, imbrication or encircling procedure), including, when performed, implant, cryotherapy, photocoagulation, and drainage of subretinal fluid"
       },
       {
+        "system" : "http://www.ama-assn.org/go/cpt",
+        "version" : "2024",
         "code" : "67108",
         "display" : "Repair of retinal detachment; with vitrectomy, any method, including, when performed, air or gas tamponade, focal endolaser photocoagulation, cryotherapy, drainage of subretinal fluid, scleral buckling, and/or removal of lens by same technique"
       },
       {
+        "system" : "http://www.ama-assn.org/go/cpt",
+        "version" : "2024",
         "code" : "67110",
         "display" : "Repair of retinal detachment; by injection of air or other gas (eg, pneumatic retinopexy)"
       },
       {
+        "system" : "http://www.ama-assn.org/go/cpt",
+        "version" : "2024",
         "code" : "67141",
-        "display" : "Prophylaxis of retinal detachment (eg, retinal break, lattice degeneration) without drainage, 1 or more sessions; cryotherapy, diathermy"
+        "display" : "Prophylaxis of retinal detachment (eg, retinal break, lattice degeneration) without drainage; cryotherapy, diathermy"
       },
       {
+        "system" : "http://www.ama-assn.org/go/cpt",
+        "version" : "2024",
         "code" : "67145",
-        "display" : "Prophylaxis of retinal detachment (eg, retinal break, lattice degeneration) without drainage, 1 or more sessions; photocoagulation (laser or xenon arc)"
-      }]
-    }]
-  },
-  "expansion" : {
-    "identifier" : "urn:uuid:113c3c81-9d21-4f2f-b8ec-484f209546ef",
-    "timestamp" : "2023-09-26T12:58:02-04:00",
-    "total" : 7,
-    "offset" : 0,
-    "parameter" : [{
-      "name" : "count",
-      "valueInteger" : 1000
-    },
-    {
-      "name" : "offset",
-      "valueInteger" : 0
-    }],
-    "contains" : [{
-      "system" : "http://www.ama-assn.org/go/cpt",
-      "version" : "2023",
-      "code" : "67101",
-      "display" : "Repair of retinal detachment, including drainage of subretinal fluid when performed; cryotherapy"
-    },
-    {
-      "system" : "http://www.ama-assn.org/go/cpt",
-      "version" : "2023",
-      "code" : "67105",
-      "display" : "Repair of retinal detachment, including drainage of subretinal fluid when performed; photocoagulation"
-    },
-    {
-      "system" : "http://www.ama-assn.org/go/cpt",
-      "version" : "2023",
-      "code" : "67107",
-      "display" : "Repair of retinal detachment; scleral buckling (such as lamellar scleral dissection, imbrication or encircling procedure), including, when performed, implant, cryotherapy, photocoagulation, and drainage of subretinal fluid"
-    },
-    {
-      "system" : "http://www.ama-assn.org/go/cpt",
-      "version" : "2023",
-      "code" : "67108",
-      "display" : "Repair of retinal detachment; with vitrectomy, any method, including, when performed, air or gas tamponade, focal endolaser photocoagulation, cryotherapy, drainage of subretinal fluid, scleral buckling, and/or removal of lens by same technique"
-    },
-    {
-      "system" : "http://www.ama-assn.org/go/cpt",
-      "version" : "2023",
-      "code" : "67110",
-      "display" : "Repair of retinal detachment; by injection of air or other gas (eg, pneumatic retinopexy)"
-    },
-    {
-      "system" : "http://www.ama-assn.org/go/cpt",
-      "version" : "2023",
-      "code" : "67141",
-      "display" : "Prophylaxis of retinal detachment (eg, retinal break, lattice degeneration) without drainage; cryotherapy, diathermy"
-    },
-    {
-      "system" : "http://www.ama-assn.org/go/cpt",
-      "version" : "2023",
-      "code" : "67145",
-      "display" : "Prophylaxis of retinal detachment (eg, retinal break, lattice degeneration) without drainage; photocoagulation"
-    }]
+        "display" : "Prophylaxis of retinal detachment (eg, retinal break, lattice degeneration) without drainage; photocoagulation"
+      }
+    ]
   }
 }

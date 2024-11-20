@@ -3,82 +3,90 @@
   "id" : "2.16.840.1.113762.1.4.1146.1377",
   "meta" : {
     "versionId" : "6",
-    "lastUpdated" : "2021-05-26T01:04:16.000-04:00",
-    "profile" : ["http://hl7.org/fhir/StructureDefinition/shareablevalueset",
-    "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"]
+    "lastUpdated" : "2023-12-21T17:43:03.000-05:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-valueset-cqfm",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "extension" : [{
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
-    "valueString" : "CSTE Author"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-keyWord",
-    "valueString" : "Japanese_Encephalitis,Trigger"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
-    "valueDate" : "2022-12-15"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
-    "valueDate" : "2021-05-26"
-  }],
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "CSTE Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-keyWord",
+      "valueString" : "Japanese_Encephalitis,Trigger"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2024-06-03"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2021-05-26"
+    }
+  ],
   "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1146.1377",
-  "identifier" : [{
-    "system" : "urn:ietf:rfc:3986",
-    "value" : "urn:oid:2.16.840.1.113762.1.4.1146.1377"
-  }],
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113762.1.4.1146.1377"
+    }
+  ],
   "version" : "20210526",
   "name" : "JapaneseEncephalitisVirusDiseaseTestsForJapaneseEncephalitisVirusNucleicAcid",
   "title" : "Japanese Encephalitis Virus Disease (Tests for Japanese Encephalitis Virus Nucleic Acid)",
-  "status" : "active",
+  "status" : "retired",
   "experimental" : false,
   "date" : "2021-05-26T01:04:16-04:00",
   "publisher" : "CSTE Steward",
-  "jurisdiction" : [{
-    "extension" : [{
-      "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
-      "valueString" : "UNKNOWN"
-    }]
-  }],
+  "jurisdiction" : [
+    {
+      "coding" : [
+        {
+          "system" : "urn:iso:std:iso:3166",
+          "code" : "US"
+        }
+      ]
+    }
+  ],
   "purpose" : "(Clinical Focus: This set of values contains codes for laboratory test names associated with detecting the presence of Japanese Encephalitis Virus by Nucleic Acid testing),(Data Element Scope: Laboratory tests names that were ordered or observed.),(Inclusion Criteria: Japanese Encephalitis Virus Nucleic Acid),(Exclusion Criteria: other types of testing)",
   "compose" : {
-    "include" : [{
-      "system" : "http://loinc.org",
-      "concept" : [{
+    "include" : [
+      {
+        "system" : "http://loinc.org",
+        "concept" : [
+          {
+            "code" : "51666-6",
+            "display" : "Japanese encephalitis virus RNA [Presence] in Specimen by NAA with probe detection"
+          },
+          {
+            "code" : "7936-8",
+            "display" : "Japanese encephalitis virus RNA [Presence] in Serum by NAA with probe detection"
+          }
+        ]
+      }
+    ]
+  },
+  "expansion" : {
+    "identifier" : "urn:uuid:e1a4d73c-b49d-40a1-99f9-484d0c53e4e4",
+    "timestamp" : "2024-06-14T11:49:38-04:00",
+    "total" : 2,
+    "contains" : [
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
         "code" : "51666-6",
         "display" : "Japanese encephalitis virus RNA [Presence] in Specimen by NAA with probe detection"
       },
       {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
         "code" : "7936-8",
         "display" : "Japanese encephalitis virus RNA [Presence] in Serum by NAA with probe detection"
-      }]
-    }]
-  },
-  "expansion" : {
-    "identifier" : "urn:uuid:2d95fa7a-4912-434f-851a-126d8540df8b",
-    "timestamp" : "2023-09-26T11:17:22-04:00",
-    "total" : 2,
-    "offset" : 0,
-    "parameter" : [{
-      "name" : "count",
-      "valueInteger" : 1000
-    },
-    {
-      "name" : "offset",
-      "valueInteger" : 0
-    }],
-    "contains" : [{
-      "system" : "http://loinc.org",
-      "version" : "2.74",
-      "code" : "51666-6",
-      "display" : "Japanese encephalitis virus RNA [Presence] in Specimen by NAA with probe detection"
-    },
-    {
-      "system" : "http://loinc.org",
-      "version" : "2.74",
-      "code" : "7936-8",
-      "display" : "Japanese encephalitis virus RNA [Presence] in Serum by NAA with probe detection"
-    }]
+      }
+    ]
   }
 }

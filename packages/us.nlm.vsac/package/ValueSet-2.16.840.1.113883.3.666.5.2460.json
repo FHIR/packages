@@ -3,79 +3,87 @@
   "id" : "2.16.840.1.113883.3.666.5.2460",
   "meta" : {
     "versionId" : "12",
-    "lastUpdated" : "2014-06-30T01:00:02.000-04:00",
-    "profile" : ["http://hl7.org/fhir/StructureDefinition/shareablevalueset",
-    "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"]
+    "lastUpdated" : "2023-12-21T17:43:03.000-05:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-valueset-cqfm",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "extension" : [{
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
-    "valueString" : "Lantana Author"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
-    "valueDate" : "2022-12-15"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
-    "valueDate" : "2014-06-30"
-  }],
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "Lantana Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2024-06-03"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2014-06-30"
+    }
+  ],
   "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.666.5.2460",
-  "identifier" : [{
-    "system" : "urn:ietf:rfc:3986",
-    "value" : "urn:oid:2.16.840.1.113883.3.666.5.2460"
-  }],
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113883.3.666.5.2460"
+    }
+  ],
   "version" : "20140630",
   "name" : "InfluenzaVaccineAdministrationICD10PCS",
   "title" : "Influenza Vaccine Administration ICD10PCS",
-  "status" : "active",
+  "status" : "retired",
   "experimental" : false,
   "date" : "2014-06-30T01:00:02-04:00",
   "publisher" : "Lantana",
   "description" : "Created for 1659 Influenza immunization measure",
-  "jurisdiction" : [{
-    "extension" : [{
-      "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
-      "valueString" : "UNKNOWN"
-    }]
-  }],
+  "jurisdiction" : [
+    {
+      "coding" : [
+        {
+          "system" : "urn:iso:std:iso:3166",
+          "code" : "US"
+        }
+      ]
+    }
+  ],
   "purpose" : "(Clinical Focus: This set of values identifies patients who are administered the influenza vaccination.),(Data Element Scope: The intent of this data element is to represent the procedure of administering the influenza vaccine.  Using the Quality Data Model, this data element maps to the Procedure category.),(Inclusion Criteria: Only include codes  which represent the procedure of administering a vaccine.   Codes used are to be ICD 10PCS codes only.),(Exclusion Criteria: Exclude codes that do not meet the inclusion criteria.)",
   "compose" : {
-    "include" : [{
-      "system" : "http://www.cms.gov/Medicare/Coding/ICD10",
-      "concept" : [{
+    "include" : [
+      {
+        "system" : "http://www.cms.gov/Medicare/Coding/ICD10",
+        "concept" : [
+          {
+            "code" : "3E0134Z",
+            "display" : "Introduction of Serum, Toxoid and Vaccine into Subcutaneous Tissue, Percutaneous Approach"
+          },
+          {
+            "code" : "3E0234Z",
+            "display" : "Introduction of Serum, Toxoid and Vaccine into Muscle, Percutaneous Approach"
+          }
+        ]
+      }
+    ]
+  },
+  "expansion" : {
+    "identifier" : "urn:uuid:efa618f8-b051-4675-894b-88978709f211",
+    "timestamp" : "2024-06-14T17:59:32-04:00",
+    "total" : 2,
+    "contains" : [
+      {
+        "system" : "http://www.cms.gov/Medicare/Coding/ICD10",
+        "version" : "2024",
         "code" : "3E0134Z",
         "display" : "Introduction of Serum, Toxoid and Vaccine into Subcutaneous Tissue, Percutaneous Approach"
       },
       {
+        "system" : "http://www.cms.gov/Medicare/Coding/ICD10",
+        "version" : "2024",
         "code" : "3E0234Z",
         "display" : "Introduction of Serum, Toxoid and Vaccine into Muscle, Percutaneous Approach"
-      }]
-    }]
-  },
-  "expansion" : {
-    "identifier" : "urn:uuid:c987bbd0-61cd-4e2b-8004-bb0e95b061af",
-    "timestamp" : "2023-09-26T11:08:29-04:00",
-    "total" : 2,
-    "offset" : 0,
-    "parameter" : [{
-      "name" : "count",
-      "valueInteger" : 1000
-    },
-    {
-      "name" : "offset",
-      "valueInteger" : 0
-    }],
-    "contains" : [{
-      "system" : "http://www.cms.gov/Medicare/Coding/ICD10",
-      "version" : "2024",
-      "code" : "3E0134Z",
-      "display" : "Introduction of Serum, Toxoid and Vaccine into Subcutaneous Tissue, Percutaneous Approach"
-    },
-    {
-      "system" : "http://www.cms.gov/Medicare/Coding/ICD10",
-      "version" : "2024",
-      "code" : "3E0234Z",
-      "display" : "Introduction of Serum, Toxoid and Vaccine into Muscle, Percutaneous Approach"
-    }]
+      }
+    ]
   }
 }

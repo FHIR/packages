@@ -3,77 +3,85 @@
   "id" : "2.16.840.1.113883.3.3616.200.110.102.5086",
   "meta" : {
     "versionId" : "6",
-    "lastUpdated" : "2022-12-13T01:02:36.000-05:00",
-    "profile" : ["http://hl7.org/fhir/StructureDefinition/shareablevalueset",
-    "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"]
+    "lastUpdated" : "2023-12-21T17:43:03.000-05:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-valueset-cqfm",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "extension" : [{
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
-    "valueString" : "Clinical Architecture"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
-    "valueDate" : "2023-06-21"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
-    "valueDate" : "2022-12-13"
-  }],
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "Clinical Architecture"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2023-06-21"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2022-12-13"
+    }
+  ],
   "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.3616.200.110.102.5086",
-  "identifier" : [{
-    "system" : "urn:ietf:rfc:3986",
-    "value" : "urn:oid:2.16.840.1.113883.3.3616.200.110.102.5086"
-  }],
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113883.3.3616.200.110.102.5086"
+    }
+  ],
   "version" : "20221213",
   "name" : "OxygenSaturationSaO2BldA",
   "title" : "Oxygen Saturation (SaO2), BldA",
-  "status" : "active",
+  "status" : "retired",
   "date" : "2023-06-21T18:16:37-04:00",
   "publisher" : "Clinical Architecture",
-  "jurisdiction" : [{
-    "extension" : [{
-      "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
-      "valueString" : "UNKNOWN"
-    }]
-  }],
+  "jurisdiction" : [
+    {
+      "coding" : [
+        {
+          "system" : "urn:iso:std:iso:3166",
+          "code" : "US"
+        }
+      ]
+    }
+  ],
   "purpose" : "(Clinical Focus: This set of values contains terms related to oxygen saturation, given in decimal form, from arterial blood.),(Data Element Scope: ),(Inclusion Criteria: Includes oxygen saturation, as well as calculated method type, property of mass decimal fraction, and results in decimal fractions without units from arterial blood.),(Exclusion Criteria: Excludes arterial blood gas panel, and oxygen saturation levels in property (i.e., mass fraction) or method type (i.e., pulse oximetry) not listed under inclusion criteria.)",
   "compose" : {
-    "include" : [{
-      "system" : "http://loinc.org",
-      "concept" : [{
+    "include" : [
+      {
+        "system" : "http://loinc.org",
+        "concept" : [
+          {
+            "code" : "71843-7",
+            "display" : "Oxygen saturation [Pure mass fraction] Calculated from oxygen partial pressure in Arterial blood"
+          },
+          {
+            "code" : "71852-8",
+            "display" : "Oxygen saturation [Pure mass fraction] in Arterial blood"
+          }
+        ]
+      }
+    ]
+  },
+  "expansion" : {
+    "identifier" : "urn:uuid:c356449e-a77a-4e26-a586-9b9fdba54bf6",
+    "timestamp" : "2024-06-14T16:18:54-04:00",
+    "total" : 2,
+    "contains" : [
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
         "code" : "71843-7",
         "display" : "Oxygen saturation [Pure mass fraction] Calculated from oxygen partial pressure in Arterial blood"
       },
       {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
         "code" : "71852-8",
         "display" : "Oxygen saturation [Pure mass fraction] in Arterial blood"
-      }]
-    }]
-  },
-  "expansion" : {
-    "identifier" : "urn:uuid:73bd9c83-bbc3-4104-8f11-a364642b02a7",
-    "timestamp" : "2023-09-26T12:21:11-04:00",
-    "total" : 2,
-    "offset" : 0,
-    "parameter" : [{
-      "name" : "count",
-      "valueInteger" : 1000
-    },
-    {
-      "name" : "offset",
-      "valueInteger" : 0
-    }],
-    "contains" : [{
-      "system" : "http://loinc.org",
-      "version" : "2.74",
-      "code" : "71843-7",
-      "display" : "Oxygen saturation [Pure mass fraction] Calculated from oxygen partial pressure in Arterial blood"
-    },
-    {
-      "system" : "http://loinc.org",
-      "version" : "2.74",
-      "code" : "71852-8",
-      "display" : "Oxygen saturation [Pure mass fraction] in Arterial blood"
-    }]
+      }
+    ]
   }
 }

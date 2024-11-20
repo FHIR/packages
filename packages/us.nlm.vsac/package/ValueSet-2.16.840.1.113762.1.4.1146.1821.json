@@ -3,82 +3,90 @@
   "id" : "2.16.840.1.113762.1.4.1146.1821",
   "meta" : {
     "versionId" : "5",
-    "lastUpdated" : "2022-06-02T01:04:20.000-04:00",
-    "profile" : ["http://hl7.org/fhir/StructureDefinition/shareablevalueset",
-    "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"]
+    "lastUpdated" : "2023-12-21T17:43:03.000-05:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-valueset-cqfm",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "extension" : [{
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
-    "valueString" : "CSTE Author"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-keyWord",
-    "valueString" : "G_Common,Nucleic_Acid,Organisms"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
-    "valueDate" : "2022-12-15"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
-    "valueDate" : "2022-06-02"
-  }],
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "CSTE Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-keyWord",
+      "valueString" : "G_Common,Nucleic_Acid,Organisms"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2024-06-03"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2022-06-02"
+    }
+  ],
   "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1146.1821",
-  "identifier" : [{
-    "system" : "urn:ietf:rfc:3986",
-    "value" : "urn:oid:2.16.840.1.113762.1.4.1146.1821"
-  }],
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113762.1.4.1146.1821"
+    }
+  ],
   "version" : "20220602",
   "name" : "OrganismsTestsForNucleicAcidInBlood",
   "title" : "Organisms (Tests for Nucleic Acid in Blood)",
-  "status" : "active",
+  "status" : "retired",
   "experimental" : false,
   "date" : "2022-06-02T01:04:20-04:00",
   "publisher" : "CSTE Steward",
-  "jurisdiction" : [{
-    "extension" : [{
-      "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
-      "valueString" : "UNKNOWN"
-    }]
-  }],
+  "jurisdiction" : [
+    {
+      "coding" : [
+        {
+          "system" : "urn:iso:std:iso:3166",
+          "code" : "US"
+        }
+      ]
+    }
+  ],
   "purpose" : "(Clinical Focus: This set of values contains codes for laboratory test names associated with detecting the presence of an unspecified organism’s nucleic acid in blood by any method),(Data Element Scope: Laboratory tests names that were ordered or observed),(Inclusion Criteria: ),(Exclusion Criteria: )",
   "compose" : {
-    "include" : [{
-      "system" : "http://loinc.org",
-      "concept" : [{
+    "include" : [
+      {
+        "system" : "http://loinc.org",
+        "concept" : [
+          {
+            "code" : "40972-2",
+            "display" : "XXX microorganism DNA [Presence] in Serum or Plasma by NAA with probe detection"
+          },
+          {
+            "code" : "62201-9",
+            "display" : "XXX microorganism DNA [Identifier] in Serum or Plasma by NAA with probe detection"
+          }
+        ]
+      }
+    ]
+  },
+  "expansion" : {
+    "identifier" : "urn:uuid:4af9e100-d228-49d1-a5e7-65971c73e46f",
+    "timestamp" : "2024-06-14T12:00:07-04:00",
+    "total" : 2,
+    "contains" : [
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
         "code" : "40972-2",
         "display" : "XXX microorganism DNA [Presence] in Serum or Plasma by NAA with probe detection"
       },
       {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
         "code" : "62201-9",
         "display" : "XXX microorganism DNA [Identifier] in Serum or Plasma by NAA with probe detection"
-      }]
-    }]
-  },
-  "expansion" : {
-    "identifier" : "urn:uuid:7b842be2-5311-4cb1-b0ce-fb8912998b9c",
-    "timestamp" : "2023-09-26T12:16:57-04:00",
-    "total" : 2,
-    "offset" : 0,
-    "parameter" : [{
-      "name" : "count",
-      "valueInteger" : 1000
-    },
-    {
-      "name" : "offset",
-      "valueInteger" : 0
-    }],
-    "contains" : [{
-      "system" : "http://loinc.org",
-      "version" : "2.74",
-      "code" : "40972-2",
-      "display" : "XXX microorganism DNA [Presence] in Serum or Plasma by NAA with probe detection"
-    },
-    {
-      "system" : "http://loinc.org",
-      "version" : "2.74",
-      "code" : "62201-9",
-      "display" : "XXX microorganism DNA [Identifier] in Serum or Plasma by NAA with probe detection"
-    }]
+      }
+    ]
   }
 }

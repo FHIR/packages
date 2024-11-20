@@ -3,202 +3,210 @@
   "id" : "2.16.840.1.113762.1.4.1146.494",
   "meta" : {
     "versionId" : "16",
-    "lastUpdated" : "2021-05-27T01:01:49.000-04:00",
-    "profile" : ["http://hl7.org/fhir/StructureDefinition/shareablevalueset",
-    "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"]
+    "lastUpdated" : "2024-05-30T15:26:29.000-04:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-valueset-cqfm",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "extension" : [{
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
-    "valueString" : "CSTE Author"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-keyWord",
-    "valueString" : "Ehrlichiosis,G_ZVD,Trigger"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
-    "valueDate" : "2022-12-15"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
-    "valueDate" : "2021-05-27"
-  }],
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "CSTE Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-keyWord",
+      "valueString" : "Ehrlichiosis,G_ZVD,Trigger"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2024-06-03"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2021-05-27"
+    }
+  ],
   "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1146.494",
-  "identifier" : [{
-    "system" : "urn:ietf:rfc:3986",
-    "value" : "urn:oid:2.16.840.1.113762.1.4.1146.494"
-  }],
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113762.1.4.1146.494"
+    }
+  ],
   "version" : "20210527",
   "name" : "EhrlichiosisOrganismOrSubstanceInLabResults",
   "title" : "Ehrlichiosis (Organism or Substance in Lab Results)",
-  "status" : "active",
+  "status" : "retired",
   "experimental" : false,
   "date" : "2021-05-27T01:01:49-04:00",
   "publisher" : "CSTE Steward",
-  "jurisdiction" : [{
-    "extension" : [{
-      "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
-      "valueString" : "UNKNOWN"
-    }]
-  }],
+  "jurisdiction" : [
+    {
+      "coding" : [
+        {
+          "system" : "urn:iso:std:iso:3166",
+          "code" : "US"
+        }
+      ]
+    }
+  ],
   "purpose" : "(Clinical Focus: This set of values contains organisms and or substances relevant for reporting Ehrlichiosis.),(Data Element Scope: Organism and or substance names reported in laboratory results),(Inclusion Criteria: root concept = Ehrlichia (organism)\nchildren included = all;  \nAlso Ehrlichia substances (nucleic acid and antigen)),(Exclusion Criteria: Anaplasma)",
   "compose" : {
-    "include" : [{
-      "system" : "http://snomed.info/sct",
-      "concept" : [{
+    "include" : [
+      {
+        "system" : "http://snomed.info/sct",
+        "concept" : [
+          {
+            "code" : "16336005",
+            "display" : "Ehrlichia ondiri (organism)"
+          },
+          {
+            "code" : "243360008",
+            "display" : "Ehrlichia ewingii (organism)"
+          },
+          {
+            "code" : "27334000",
+            "display" : "Genus Ehrlichia (organism)"
+          },
+          {
+            "code" : "312329009",
+            "display" : "Ehrlichia muris (organism)"
+          },
+          {
+            "code" : "421964005",
+            "display" : "Ehrlichia ruminantium (organism)"
+          },
+          {
+            "code" : "467101000124102",
+            "display" : "Ehrlichia muris eauclairensis (organism)"
+          },
+          {
+            "code" : "59250001",
+            "display" : "Ehrlichia chaffeensis (organism)"
+          },
+          {
+            "code" : "708235003",
+            "display" : "Deoxyribonucleic acid of Ehrlichia chaffeensis (substance)"
+          },
+          {
+            "code" : "708236002",
+            "display" : "Deoxyribonucleic acid of Ehrlichia ewingii (substance)"
+          },
+          {
+            "code" : "708237006",
+            "display" : "Deoxyribonucleic acid of Ehrlichia (substance)"
+          },
+          {
+            "code" : "709384000",
+            "display" : "Antigen of Ehrlichia chaffeensis (substance)"
+          },
+          {
+            "code" : "72834004",
+            "display" : "Ehrlichia ovina (organism)"
+          },
+          {
+            "code" : "76548005",
+            "display" : "Ehrlichia bovis (organism)"
+          },
+          {
+            "code" : "87643008",
+            "display" : "Ehrlichia canis (organism)"
+          }
+        ]
+      }
+    ]
+  },
+  "expansion" : {
+    "identifier" : "urn:uuid:07653896-bfb4-419b-95b5-96e98a572b09",
+    "timestamp" : "2024-06-14T12:16:42-04:00",
+    "total" : 14,
+    "contains" : [
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
         "code" : "16336005",
         "display" : "Ehrlichia ondiri (organism)"
       },
       {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
         "code" : "243360008",
         "display" : "Ehrlichia ewingii (organism)"
       },
       {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
         "code" : "27334000",
         "display" : "Genus Ehrlichia (organism)"
       },
       {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
         "code" : "312329009",
         "display" : "Ehrlichia muris (organism)"
       },
       {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
         "code" : "421964005",
         "display" : "Ehrlichia ruminantium (organism)"
       },
       {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
         "code" : "467101000124102",
-        "display" : "Ehrlichia muris eauclairensis (organism)"
+        "display" : "Ehrlichia muris subspecies eauclairensis (organism)"
       },
       {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
         "code" : "59250001",
         "display" : "Ehrlichia chaffeensis (organism)"
       },
       {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
         "code" : "708235003",
         "display" : "Deoxyribonucleic acid of Ehrlichia chaffeensis (substance)"
       },
       {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
         "code" : "708236002",
         "display" : "Deoxyribonucleic acid of Ehrlichia ewingii (substance)"
       },
       {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
         "code" : "708237006",
         "display" : "Deoxyribonucleic acid of Ehrlichia (substance)"
       },
       {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
         "code" : "709384000",
         "display" : "Antigen of Ehrlichia chaffeensis (substance)"
       },
       {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
         "code" : "72834004",
         "display" : "Ehrlichia ovina (organism)"
       },
       {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
         "code" : "76548005",
         "display" : "Ehrlichia bovis (organism)"
       },
       {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
         "code" : "87643008",
         "display" : "Ehrlichia canis (organism)"
-      }]
-    }]
-  },
-  "expansion" : {
-    "identifier" : "urn:uuid:6e1a8bdf-1fe1-44ad-9219-192da46b3371",
-    "timestamp" : "2023-09-26T10:14:57-04:00",
-    "total" : 14,
-    "offset" : 0,
-    "parameter" : [{
-      "name" : "count",
-      "valueInteger" : 1000
-    },
-    {
-      "name" : "offset",
-      "valueInteger" : 0
-    }],
-    "contains" : [{
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "16336005",
-      "display" : "Ehrlichia ondiri (organism)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "243360008",
-      "display" : "Ehrlichia ewingii (organism)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "27334000",
-      "display" : "Genus Ehrlichia (organism)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "312329009",
-      "display" : "Ehrlichia muris (organism)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "421964005",
-      "display" : "Ehrlichia ruminantium (organism)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "467101000124102",
-      "display" : "Ehrlichia muris subspecies eauclairensis (organism)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "59250001",
-      "display" : "Ehrlichia chaffeensis (organism)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "708235003",
-      "display" : "Deoxyribonucleic acid of Ehrlichia chaffeensis (substance)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "708236002",
-      "display" : "Deoxyribonucleic acid of Ehrlichia ewingii (substance)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "708237006",
-      "display" : "Deoxyribonucleic acid of Ehrlichia (substance)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "709384000",
-      "display" : "Antigen of Ehrlichia chaffeensis (substance)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "72834004",
-      "display" : "Ehrlichia ovina (organism)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "76548005",
-      "display" : "Ehrlichia bovis (organism)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "87643008",
-      "display" : "Ehrlichia canis (organism)"
-    }]
+      }
+    ]
   }
 }

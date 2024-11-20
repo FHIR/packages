@@ -3,89 +3,97 @@
   "id" : "2.16.840.1.113762.1.4.1248.105",
   "meta" : {
     "versionId" : "6",
-    "lastUpdated" : "2022-11-08T10:54:33.000-05:00",
-    "profile" : ["http://hl7.org/fhir/StructureDefinition/shareablevalueset",
-    "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"]
+    "lastUpdated" : "2024-02-22T15:25:55.000-05:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-valueset-cqfm",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "extension" : [{
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
-    "valueString" : "American Institutes for Research Author"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
-    "valueDate" : "2022-12-15"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
-    "valueDate" : "2022-11-08"
-  }],
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "Mathematica PSI Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2024-01-08"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2022-05-07"
+    }
+  ],
   "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1248.105",
-  "identifier" : [{
-    "system" : "urn:ietf:rfc:3986",
-    "value" : "urn:oid:2.16.840.1.113762.1.4.1248.105"
-  }],
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113762.1.4.1248.105"
+    }
+  ],
   "version" : "20220507",
   "name" : "MechanicalVentilationProcedures",
   "title" : "Mechanical Ventilation Procedures",
   "status" : "active",
   "experimental" : false,
   "date" : "2022-05-07T01:02:27-04:00",
-  "publisher" : "American Institutes for Research Steward",
+  "publisher" : "Mathematica PSI Steward",
   "description" : "ICD10PCS",
-  "jurisdiction" : [{
-    "extension" : [{
-      "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
-      "valueString" : "UNKNOWN"
-    }]
-  }],
+  "jurisdiction" : [
+    {
+      "coding" : [
+        {
+          "system" : "urn:iso:std:iso:3166",
+          "code" : "US"
+        }
+      ]
+    }
+  ],
   "purpose" : "(Clinical Focus: The purpose of this value set is to represent concepts for respiratory mechanical ventilation),(Data Element Scope: This value set may use a model element related to Procedure),(Inclusion Criteria: Includes concepts that represent respiratory mechanical ventilation),(Exclusion Criteria: Excludes concepts that represent CPAP (continuous positive airway pressure))",
   "compose" : {
-    "include" : [{
-      "system" : "http://www.cms.gov/Medicare/Coding/ICD10",
-      "concept" : [{
+    "include" : [
+      {
+        "system" : "http://www.cms.gov/Medicare/Coding/ICD10",
+        "concept" : [
+          {
+            "code" : "5A1935Z",
+            "display" : "Respiratory Ventilation, Less than 24 Consecutive Hours"
+          },
+          {
+            "code" : "5A1945Z",
+            "display" : "Respiratory Ventilation, 24-96 Consecutive Hours"
+          },
+          {
+            "code" : "5A1955Z",
+            "display" : "Respiratory Ventilation, Greater than 96 Consecutive Hours"
+          }
+        ]
+      }
+    ]
+  },
+  "expansion" : {
+    "identifier" : "urn:uuid:38c22dce-7a6e-42f4-9edd-e0ba273dc970",
+    "timestamp" : "2024-06-14T15:00:47-04:00",
+    "total" : 3,
+    "contains" : [
+      {
+        "system" : "http://www.cms.gov/Medicare/Coding/ICD10",
+        "version" : "2024",
         "code" : "5A1935Z",
         "display" : "Respiratory Ventilation, Less than 24 Consecutive Hours"
       },
       {
+        "system" : "http://www.cms.gov/Medicare/Coding/ICD10",
+        "version" : "2024",
         "code" : "5A1945Z",
         "display" : "Respiratory Ventilation, 24-96 Consecutive Hours"
       },
       {
+        "system" : "http://www.cms.gov/Medicare/Coding/ICD10",
+        "version" : "2024",
         "code" : "5A1955Z",
         "display" : "Respiratory Ventilation, Greater than 96 Consecutive Hours"
-      }]
-    }]
-  },
-  "expansion" : {
-    "identifier" : "urn:uuid:4d2c9d34-fb58-4e2f-abc7-ecb41bb31488",
-    "timestamp" : "2023-09-26T11:40:32-04:00",
-    "total" : 3,
-    "offset" : 0,
-    "parameter" : [{
-      "name" : "count",
-      "valueInteger" : 1000
-    },
-    {
-      "name" : "offset",
-      "valueInteger" : 0
-    }],
-    "contains" : [{
-      "system" : "http://www.cms.gov/Medicare/Coding/ICD10",
-      "version" : "2024",
-      "code" : "5A1935Z",
-      "display" : "Respiratory Ventilation, Less than 24 Consecutive Hours"
-    },
-    {
-      "system" : "http://www.cms.gov/Medicare/Coding/ICD10",
-      "version" : "2024",
-      "code" : "5A1945Z",
-      "display" : "Respiratory Ventilation, 24-96 Consecutive Hours"
-    },
-    {
-      "system" : "http://www.cms.gov/Medicare/Coding/ICD10",
-      "version" : "2024",
-      "code" : "5A1955Z",
-      "display" : "Respiratory Ventilation, Greater than 96 Consecutive Hours"
-    }]
+      }
+    ]
   }
 }

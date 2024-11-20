@@ -2,119 +2,97 @@
   "resourceType" : "ValueSet",
   "id" : "2.16.840.1.113762.1.4.1099.59",
   "meta" : {
-    "versionId" : "5",
-    "lastUpdated" : "2023-09-06T01:01:41.000-04:00",
-    "profile" : ["http://hl7.org/fhir/StructureDefinition/shareablevalueset",
-    "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"]
+    "versionId" : "15",
+    "lastUpdated" : "2024-05-08T09:56:55.000-04:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-valueset-cqfm",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "extension" : [{
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
-    "valueString" : "HL7 Structured Documents WG"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
-    "valueDate" : "2023-09-06"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
-    "valueDate" : "2023-09-06"
-  }],
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "HL7 US Realm Program Management Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2024-06-05"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2024-03-28"
+    }
+  ],
   "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1099.59",
-  "identifier" : [{
-    "system" : "urn:ietf:rfc:3986",
-    "value" : "urn:oid:2.16.840.1.113762.1.4.1099.59"
-  }],
-  "version" : "20230906",
-  "name" : "MedicationAdherence",
-  "title" : "Medication Adherence",
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113762.1.4.1099.59"
+    }
+  ],
+  "version" : "20240328",
+  "name" : "MedicationAdherenceSCT",
+  "title" : "Medication Adherence SCT",
   "status" : "active",
-  "date" : "2023-09-06T01:01:41-04:00",
-  "publisher" : "HL7 C-CDA",
+  "date" : "2024-03-28T01:10:45-04:00",
+  "publisher" : "HL7 US Realm Program Management Steward",
   "description" : "This value set may change until publication of USCDI V4 representation in US Core and C-CDA is published in 2024",
-  "jurisdiction" : [{
-    "extension" : [{
-      "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
-      "valueString" : "UNKNOWN"
-    }]
-  }],
+  "jurisdiction" : [
+    {
+      "coding" : [
+        {
+          "system" : "urn:iso:std:iso:3166",
+          "code" : "US"
+        }
+      ]
+    }
+  ],
   "purpose" : "(Clinical Focus: This set of values contains terms representing whether a medication has been consumed according to instructions.),(Data Element Scope: The intent of this set of values is identify the degree of adherence to prescribed medication instructions.),(Inclusion Criteria: Includes selected basic adherence terms from the 414059009 | Drug therapy compliance observations (finding) hierarchy.),(Exclusion Criteria: Other terms from the 414059009 | Drug therapy compliance observations (finding) hierarchy.)",
   "compose" : {
-    "include" : [{
-      "system" : "http://snomed.info/sct",
-      "concept" : [{
+    "include" : [
+      {
+        "system" : "http://snomed.info/sct",
+        "concept" : [
+          {
+            "code" : "1156699004",
+            "display" : "Complies with drug therapy (finding)"
+          },
+          {
+            "code" : "702565001",
+            "display" : "Non-compliance of drug therapy (finding)"
+          },
+          {
+            "code" : "715036001",
+            "display" : "Does not take medication (finding)"
+          }
+        ]
+      }
+    ]
+  },
+  "expansion" : {
+    "identifier" : "urn:uuid:ad2adb3f-b764-4a20-9f8e-2cb166b6cc4b",
+    "timestamp" : "2024-06-14T11:09:12-04:00",
+    "total" : 3,
+    "contains" : [
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
         "code" : "1156699004",
         "display" : "Complies with drug therapy (finding)"
       },
       {
-        "code" : "261665006",
-        "display" : "Unknown (qualifier value)"
-      },
-      {
-        "code" : "275927006",
-        "display" : "Drugs - total non-compliance (finding)"
-      },
-      {
-        "code" : "275928001",
-        "display" : "Drugs - partial non-compliance (finding)"
-      },
-      {
-        "code" : "457831000124109",
-        "display" : "Medication therapy compliance variable (finding)"
-      },
-      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
         "code" : "702565001",
         "display" : "Non-compliance of drug therapy (finding)"
-      }]
-    }]
-  },
-  "expansion" : {
-    "identifier" : "urn:uuid:c5da3a47-8ade-472a-a74d-eff2be159d8e",
-    "timestamp" : "2023-09-26T11:42:04-04:00",
-    "total" : 6,
-    "offset" : 0,
-    "parameter" : [{
-      "name" : "count",
-      "valueInteger" : 1000
-    },
-    {
-      "name" : "offset",
-      "valueInteger" : 0
-    }],
-    "contains" : [{
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "1156699004",
-      "display" : "Complies with drug therapy (finding)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "261665006",
-      "display" : "Unknown (qualifier value)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "275927006",
-      "display" : "Drugs - total non-compliance (finding)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "275928001",
-      "display" : "Drugs - partial non-compliance (finding)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "457831000124109",
-      "display" : "Medication therapy compliance variable (finding)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "702565001",
-      "display" : "Non-compliance of drug therapy (finding)"
-    }]
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "715036001",
+        "display" : "Does not take medication (finding)"
+      }
+    ]
   }
 }

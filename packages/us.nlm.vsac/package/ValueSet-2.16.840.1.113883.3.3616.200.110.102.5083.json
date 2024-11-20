@@ -3,78 +3,86 @@
   "id" : "2.16.840.1.113883.3.3616.200.110.102.5083",
   "meta" : {
     "versionId" : "5",
-    "lastUpdated" : "2022-07-15T01:02:56.000-04:00",
-    "profile" : ["http://hl7.org/fhir/StructureDefinition/shareablevalueset",
-    "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"]
+    "lastUpdated" : "2023-12-21T17:43:03.000-05:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-valueset-cqfm",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "extension" : [{
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
-    "valueString" : "Clinical Architecture"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
-    "valueDate" : "2023-06-21"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
-    "valueDate" : "2022-07-15"
-  }],
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "Clinical Architecture"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2023-06-21"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2022-07-15"
+    }
+  ],
   "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.3616.200.110.102.5083",
-  "identifier" : [{
-    "system" : "urn:ietf:rfc:3986",
-    "value" : "urn:oid:2.16.840.1.113883.3.3616.200.110.102.5083"
-  }],
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113883.3.3616.200.110.102.5083"
+    }
+  ],
   "version" : "20220715",
   "name" : "SARSCoronavirus2VariantsQualitativeResultsAllSources",
   "title" : "SARS Coronavirus 2 Variants, Qualitative Results, All Sources",
-  "status" : "active",
+  "status" : "retired",
   "experimental" : false,
   "date" : "2023-06-21T18:16:37-04:00",
   "publisher" : "Clinical Architecture",
-  "jurisdiction" : [{
-    "extension" : [{
-      "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
-      "valueString" : "UNKNOWN"
-    }]
-  }],
+  "jurisdiction" : [
+    {
+      "coding" : [
+        {
+          "system" : "urn:iso:std:iso:3166",
+          "code" : "US"
+        }
+      ]
+    }
+  ],
   "purpose" : "(Clinical Focus: This set of values contains terms related to detection of variant SARS coronavirus 2 (SARS-CoV-2) strains in various specimens by sequencing methods.),(Data Element Scope: ),(Inclusion Criteria: Includes detection of variant SARS coronavirus 2 (SARS-CoV-2) strains in various specimens by sequencing methods, with results provided on a qualitative scale.),(Exclusion Criteria: Excludes non-variant SARS-CoV-2.)",
   "compose" : {
-    "include" : [{
-      "system" : "http://loinc.org",
-      "concept" : [{
+    "include" : [
+      {
+        "system" : "http://loinc.org",
+        "concept" : [
+          {
+            "code" : "100156-9",
+            "display" : "SARS-CoV-2 (COVID-19) variant [Type] in Specimen by NAA with probe detection"
+          },
+          {
+            "code" : "96741-4",
+            "display" : "SARS-CoV-2 (COVID-19) variant [Type] in Specimen by Sequencing"
+          }
+        ]
+      }
+    ]
+  },
+  "expansion" : {
+    "identifier" : "urn:uuid:60771420-7dac-431a-aa5c-1622d527831b",
+    "timestamp" : "2024-06-14T16:18:50-04:00",
+    "total" : 2,
+    "contains" : [
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
         "code" : "100156-9",
         "display" : "SARS-CoV-2 (COVID-19) variant [Type] in Specimen by NAA with probe detection"
       },
       {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
         "code" : "96741-4",
         "display" : "SARS-CoV-2 (COVID-19) variant [Type] in Specimen by Sequencing"
-      }]
-    }]
-  },
-  "expansion" : {
-    "identifier" : "urn:uuid:2809cec1-7cea-4718-9c96-7ffc216d2e17",
-    "timestamp" : "2023-09-26T13:03:04-04:00",
-    "total" : 2,
-    "offset" : 0,
-    "parameter" : [{
-      "name" : "count",
-      "valueInteger" : 1000
-    },
-    {
-      "name" : "offset",
-      "valueInteger" : 0
-    }],
-    "contains" : [{
-      "system" : "http://loinc.org",
-      "version" : "2.74",
-      "code" : "100156-9",
-      "display" : "SARS-CoV-2 (COVID-19) variant [Type] in Specimen by NAA with probe detection"
-    },
-    {
-      "system" : "http://loinc.org",
-      "version" : "2.74",
-      "code" : "96741-4",
-      "display" : "SARS-CoV-2 (COVID-19) variant [Type] in Specimen by Sequencing"
-    }]
+      }
+    ]
   }
 }

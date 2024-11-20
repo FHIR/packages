@@ -2,66 +2,73 @@
   "resourceType" : "ValueSet",
   "id" : "2.16.840.1.113762.1.4.1247.30",
   "meta" : {
-    "versionId" : "7",
-    "lastUpdated" : "2022-03-02T18:06:18.000-05:00",
-    "profile" : ["http://hl7.org/fhir/StructureDefinition/shareablevalueset",
-    "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"]
+    "versionId" : "13",
+    "lastUpdated" : "2024-06-04T11:46:03.000-04:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-valueset-cqfm",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "extension" : [{
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
-    "valueString" : "The Gravity Project Author"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
-    "valueDate" : "2022-12-15"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
-    "valueDate" : "2022-03-02"
-  }],
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "The Gravity Project Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2024-06-04"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2024-06-04"
+    }
+  ],
   "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1247.30",
-  "identifier" : [{
-    "system" : "urn:ietf:rfc:3986",
-    "value" : "urn:oid:2.16.840.1.113762.1.4.1247.30"
-  }],
-  "version" : "20211113",
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113762.1.4.1247.30"
+    }
+  ],
+  "version" : "20240604",
   "name" : "FinancialInsecurityGoals",
   "title" : "Financial Insecurity Goals",
   "status" : "active",
-  "experimental" : false,
-  "date" : "2022-03-03T18:46:01-05:00",
+  "date" : "2024-06-04T01:21:19-04:00",
   "publisher" : "The Gravity Project Steward",
-  "description" : "There are currently no existing domain specific LOINC codes for financial insecurity That value set will be added to this group once it is available.",
-  "jurisdiction" : [{
-    "extension" : [{
-      "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
-      "valueString" : "UNKNOWN"
-    }]
-  }],
-  "purpose" : "(Clinical Focus: <insert metadata>\n\nThe terms in this value set represent the goals associated with financial insecurity as identified by the Gravity Project),(Data Element Scope: Supports the Gravity SDOH Clinical Care FHIR Implementation guide for the exchange of goal.description.),(Inclusion Criteria: Includes SNOMED CT goals that have been identified through the Gravity Project community consensus voting process),(Exclusion Criteria: N/A)",
+  "description" : "There are currently no existing domain specific LOINC codes for Financial Insecurity. That value set will be added to this group once it is available.",
+  "jurisdiction" : [
+    {
+      "coding" : [
+        {
+          "system" : "urn:iso:std:iso:3166",
+          "code" : "US"
+        }
+      ]
+    }
+  ],
+  "purpose" : "(Clinical Focus: This set of values represent goals for Financial Insecurity as selected by the Gravity Project.),(Data Element Scope: In the FHIR Goal resource, these values may be used for Goal.description (e.g., for the SDOHCC Goal profile in the Gravity SDOH Clinical Care FHIR Implementation Guide).),(Inclusion Criteria: Includes SNOMED CT goals for Financial Insecurity as selected by the Gravity Project.),(Exclusion Criteria: NA)",
   "compose" : {
-    "include" : [{
-      "valueSet" : ["http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1247.29"]
-    }]
+    "include" : [
+      {
+        "valueSet" : [
+          "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1247.29"
+        ]
+      }
+    ]
   },
   "expansion" : {
-    "identifier" : "urn:uuid:859b0714-0c94-46ab-b920-6bd2d01f9907",
-    "timestamp" : "2023-09-26T10:27:43-04:00",
+    "identifier" : "urn:uuid:184255a0-9516-42c5-b6f5-b6d568edea50",
+    "timestamp" : "2024-06-14T14:58:47-04:00",
     "total" : 1,
-    "offset" : 0,
-    "parameter" : [{
-      "name" : "count",
-      "valueInteger" : 1000
-    },
-    {
-      "name" : "offset",
-      "valueInteger" : 0
-    }],
-    "contains" : [{
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "224165005",
-      "display" : "Financially secure (finding)"
-    }]
+    "contains" : [
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "224165005",
+        "display" : "Financially secure (finding)"
+      }
+    ]
   }
 }

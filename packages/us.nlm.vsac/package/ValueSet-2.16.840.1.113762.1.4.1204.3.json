@@ -3,148 +3,156 @@
   "id" : "2.16.840.1.113762.1.4.1204.3",
   "meta" : {
     "versionId" : "6",
-    "lastUpdated" : "2019-05-24T01:00:11.000-04:00",
-    "profile" : ["http://hl7.org/fhir/StructureDefinition/shareablevalueset",
-    "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"]
+    "lastUpdated" : "2023-12-21T17:43:03.000-05:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-valueset-cqfm",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "extension" : [{
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
-    "valueString" : "National EMS Quality Alliance Author"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
-    "valueDate" : "2022-12-15"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
-    "valueDate" : "2019-05-24"
-  }],
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "National EMS Quality Alliance Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2024-06-03"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2019-05-24"
+    }
+  ],
   "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1204.3",
-  "identifier" : [{
-    "system" : "urn:ietf:rfc:3986",
-    "value" : "urn:oid:2.16.840.1.113762.1.4.1204.3"
-  }],
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113762.1.4.1204.3"
+    }
+  ],
   "version" : "20190524",
   "name" : "EMSResponse",
   "title" : "EMS Response",
-  "status" : "active",
+  "status" : "retired",
   "experimental" : false,
   "date" : "2019-05-24T01:00:11-04:00",
   "publisher" : "National EMS Quality Alliance Steward",
-  "jurisdiction" : [{
-    "extension" : [{
-      "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
-      "valueString" : "UNKNOWN"
-    }]
-  }],
+  "jurisdiction" : [
+    {
+      "coding" : [
+        {
+          "system" : "urn:iso:std:iso:3166",
+          "code" : "US"
+        }
+      ]
+    }
+  ],
   "purpose" : "(Clinical Focus: This value set contains patient care encounters where Emergency Medical Services respond to patients in need are responsible for the care of the patient.),(Data Element Scope: The intent of this value set is to identify patient encounters in which Emergency Medical Services responded and provided care. Using the Quality Data Model, this particular element would map to the Encounter category.),(Inclusion Criteria: Include EMS responses and EMS physician management encounters.),(Exclusion Criteria: None)",
   "compose" : {
-    "include" : [{
-      "system" : "http://loinc.org",
-      "concept" : [{
+    "include" : [
+      {
+        "system" : "http://loinc.org",
+        "concept" : [
+          {
+            "code" : "67664-3",
+            "display" : "EMS response Narrative NEMSIS"
+          },
+          {
+            "code" : "77157-6",
+            "display" : "EMS Response mode descriptors NEMSIS"
+          },
+          {
+            "code" : "88675-4",
+            "display" : "EMS physician responsible for management at scene"
+          },
+          {
+            "code" : "LA18019-2",
+            "display" : "Other EMS professional - not part of dispatched response"
+          },
+          {
+            "code" : "LA18691-8",
+            "display" : "Other EMS responder (air)"
+          },
+          {
+            "code" : "LA18692-6",
+            "display" : "Other EMS responder (ground)"
+          },
+          {
+            "code" : "LP133603-3",
+            "display" : "EMS response"
+          },
+          {
+            "code" : "LP189977-4",
+            "display" : "EMS response"
+          },
+          {
+            "code" : "LP266014-2",
+            "display" : "EMS physician responsible for management at scene"
+          }
+        ]
+      }
+    ]
+  },
+  "expansion" : {
+    "identifier" : "urn:uuid:bc7dbfa1-21cc-4071-9afc-985406c65acf",
+    "timestamp" : "2024-06-14T13:30:42-04:00",
+    "total" : 9,
+    "contains" : [
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
         "code" : "67664-3",
         "display" : "EMS response Narrative NEMSIS"
       },
       {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
         "code" : "77157-6",
         "display" : "EMS Response mode descriptors NEMSIS"
       },
       {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
         "code" : "88675-4",
         "display" : "EMS physician responsible for management at scene"
       },
       {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
         "code" : "LA18019-2",
         "display" : "Other EMS professional - not part of dispatched response"
       },
       {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
         "code" : "LA18691-8",
         "display" : "Other EMS responder (air)"
       },
       {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
         "code" : "LA18692-6",
         "display" : "Other EMS responder (ground)"
       },
       {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
         "code" : "LP133603-3",
         "display" : "EMS response"
       },
       {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
         "code" : "LP189977-4",
         "display" : "EMS response"
       },
       {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
         "code" : "LP266014-2",
         "display" : "EMS physician responsible for management at scene"
-      }]
-    }]
-  },
-  "expansion" : {
-    "identifier" : "urn:uuid:8290bac2-3e6f-44a3-91f3-ab8fbc50355a",
-    "timestamp" : "2023-09-26T10:16:45-04:00",
-    "total" : 9,
-    "offset" : 0,
-    "parameter" : [{
-      "name" : "count",
-      "valueInteger" : 1000
-    },
-    {
-      "name" : "offset",
-      "valueInteger" : 0
-    }],
-    "contains" : [{
-      "system" : "http://loinc.org",
-      "version" : "2.74",
-      "code" : "67664-3",
-      "display" : "EMS response Narrative NEMSIS"
-    },
-    {
-      "system" : "http://loinc.org",
-      "version" : "2.74",
-      "code" : "77157-6",
-      "display" : "EMS Response mode descriptors NEMSIS"
-    },
-    {
-      "system" : "http://loinc.org",
-      "version" : "2.74",
-      "code" : "88675-4",
-      "display" : "EMS physician responsible for management at scene"
-    },
-    {
-      "system" : "http://loinc.org",
-      "version" : "2.74",
-      "code" : "LA18019-2",
-      "display" : "Other EMS professional - not part of dispatched response"
-    },
-    {
-      "system" : "http://loinc.org",
-      "version" : "2.74",
-      "code" : "LA18691-8",
-      "display" : "Other EMS responder (air)"
-    },
-    {
-      "system" : "http://loinc.org",
-      "version" : "2.74",
-      "code" : "LA18692-6",
-      "display" : "Other EMS responder (ground)"
-    },
-    {
-      "system" : "http://loinc.org",
-      "version" : "2.74",
-      "code" : "LP133603-3",
-      "display" : "EMS response"
-    },
-    {
-      "system" : "http://loinc.org",
-      "version" : "2.74",
-      "code" : "LP189977-4",
-      "display" : "EMS response"
-    },
-    {
-      "system" : "http://loinc.org",
-      "version" : "2.74",
-      "code" : "LP266014-2",
-      "display" : "EMS physician responsible for management at scene"
-    }]
+      }
+    ]
   }
 }

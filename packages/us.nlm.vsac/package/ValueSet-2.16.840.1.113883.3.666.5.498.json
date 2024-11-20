@@ -3,79 +3,87 @@
   "id" : "2.16.840.1.113883.3.666.5.498",
   "meta" : {
     "versionId" : "11",
-    "lastUpdated" : "2014-06-30T01:00:02.000-04:00",
-    "profile" : ["http://hl7.org/fhir/StructureDefinition/shareablevalueset",
-    "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"]
+    "lastUpdated" : "2023-12-21T17:43:03.000-05:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-valueset-cqfm",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "extension" : [{
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
-    "valueString" : "Lantana Author"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
-    "valueDate" : "2022-12-15"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
-    "valueDate" : "2014-06-30"
-  }],
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "Lantana Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2024-06-03"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2014-06-30"
+    }
+  ],
   "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.666.5.498",
-  "identifier" : [{
-    "system" : "urn:ietf:rfc:3986",
-    "value" : "urn:oid:2.16.840.1.113883.3.666.5.498"
-  }],
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113883.3.666.5.498"
+    }
+  ],
   "version" : "20140630",
   "name" : "InfluenzaVaccineAdministrationSNOMEDCT",
   "title" : "Influenza Vaccine Administration SNOMED CT",
-  "status" : "active",
+  "status" : "retired",
   "experimental" : false,
   "date" : "2014-06-30T01:00:02-04:00",
   "publisher" : "Lantana",
   "description" : "Developed by OFMQ for Immunization measures",
-  "jurisdiction" : [{
-    "extension" : [{
-      "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
-      "valueString" : "UNKNOWN"
-    }]
-  }],
+  "jurisdiction" : [
+    {
+      "coding" : [
+        {
+          "system" : "urn:iso:std:iso:3166",
+          "code" : "US"
+        }
+      ]
+    }
+  ],
   "purpose" : "(Clinical Focus: This set of values identifies patients who are administered the influenza vaccination.),(Data Element Scope: The intent of this data element is to represent the procedure of administering the influenza vaccine.  Using the Quality Data Model, this data element maps to the Procedure category.),(Inclusion Criteria: Only include codes which represent the procedure of administering a vaccine.  Codes used are to be SNOMED-CT  codes only.),(Exclusion Criteria: Exclude codes that do not meet the inclusion criteria.)",
   "compose" : {
-    "include" : [{
-      "system" : "http://snomed.info/sct",
-      "concept" : [{
+    "include" : [
+      {
+        "system" : "http://snomed.info/sct",
+        "concept" : [
+          {
+            "code" : "33879002",
+            "display" : "Administration of vaccine to produce active immunity (procedure)"
+          },
+          {
+            "code" : "86198006",
+            "display" : "Influenza vaccination (procedure)"
+          }
+        ]
+      }
+    ]
+  },
+  "expansion" : {
+    "identifier" : "urn:uuid:2ba2732e-08f8-4687-8413-17ace4d61a94",
+    "timestamp" : "2024-06-14T18:00:43-04:00",
+    "total" : 2,
+    "contains" : [
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
         "code" : "33879002",
         "display" : "Administration of vaccine to produce active immunity (procedure)"
       },
       {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
         "code" : "86198006",
-        "display" : "Influenza vaccination (procedure)"
-      }]
-    }]
-  },
-  "expansion" : {
-    "identifier" : "urn:uuid:e27f62dc-da86-40c1-b593-bbe9abe7a520",
-    "timestamp" : "2023-09-26T11:08:32-04:00",
-    "total" : 2,
-    "offset" : 0,
-    "parameter" : [{
-      "name" : "count",
-      "valueInteger" : 1000
-    },
-    {
-      "name" : "offset",
-      "valueInteger" : 0
-    }],
-    "contains" : [{
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "33879002",
-      "display" : "Administration of vaccine to produce active immunity (procedure)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "86198006",
-      "display" : "Administration of vaccine product containing only Influenza virus antigen (procedure)"
-    }]
+        "display" : "Administration of vaccine product containing only Influenza virus antigen (procedure)"
+      }
+    ]
   }
 }

@@ -3,64 +3,72 @@
   "id" : "2.16.840.1.113883.3.464.1003.195.12.1002",
   "meta" : {
     "versionId" : "20",
-    "lastUpdated" : "2022-03-02T18:02:48.000-05:00",
-    "profile" : ["http://hl7.org/fhir/StructureDefinition/shareablevalueset",
-    "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"]
+    "lastUpdated" : "2023-12-21T17:43:03.000-05:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-valueset-cqfm",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "extension" : [{
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
-    "valueString" : "NCQA PHEMUR Author"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
-    "valueDate" : "2022-12-15"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
-    "valueDate" : "2022-03-02"
-  }],
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "NCQA PHEMUR Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2024-06-03"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2017-05-04"
+    }
+  ],
   "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.195.12.1002",
-  "identifier" : [{
-    "system" : "urn:ietf:rfc:3986",
-    "value" : "urn:oid:2.16.840.1.113883.3.464.1003.195.12.1002"
-  }],
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113883.3.464.1003.195.12.1002"
+    }
+  ],
   "version" : "20170504",
   "name" : "NegativeFinding",
   "title" : "Negative Finding",
-  "status" : "active",
+  "status" : "retired",
   "experimental" : false,
   "date" : "2022-03-03T18:46:01-05:00",
   "publisher" : "NCQA PHEMUR",
-  "jurisdiction" : [{
-    "extension" : [{
-      "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
-      "valueString" : "UNKNOWN"
-    }]
-  }],
+  "jurisdiction" : [
+    {
+      "coding" : [
+        {
+          "system" : "urn:iso:std:iso:3166",
+          "code" : "US"
+        }
+      ]
+    }
+  ],
   "purpose" : "(Clinical Focus: This value set contains concepts that represent a negative finding. ),(Data Element Scope: This value set may use the Quality Data Model (QDM) attribute related to Result. ),(Inclusion Criteria: Includes only relevant concepts associated with identifying a negative finding for an exam.),(Exclusion Criteria: No exclusions.)",
   "compose" : {
-    "include" : [{
-      "valueSet" : ["http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.195.11.1002"]
-    }]
+    "include" : [
+      {
+        "valueSet" : [
+          "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.195.11.1002"
+        ]
+      }
+    ]
   },
   "expansion" : {
-    "identifier" : "urn:uuid:9aa21fd8-dec1-4fe2-a701-ed567cc74b1f",
-    "timestamp" : "2023-09-26T11:58:22-04:00",
+    "identifier" : "urn:uuid:d24c6ec1-7dee-4aac-a93c-40687c1850cf",
+    "timestamp" : "2024-06-14T17:09:38-04:00",
     "total" : 1,
-    "offset" : 0,
-    "parameter" : [{
-      "name" : "count",
-      "valueInteger" : 1000
-    },
-    {
-      "name" : "offset",
-      "valueInteger" : 0
-    }],
-    "contains" : [{
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "442225006",
-      "display" : "Negative measurement finding (finding)"
-    }]
+    "contains" : [
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "442225006",
+        "display" : "Not detected by measurement (finding)"
+      }
+    ]
   }
 }

@@ -2,98 +2,176 @@
   "resourceType" : "ValueSet",
   "id" : "2.16.840.1.113762.1.4.1095.44",
   "meta" : {
-    "versionId" : "16",
-    "lastUpdated" : "2023-02-15T01:02:57.000-05:00",
-    "profile" : ["http://hl7.org/fhir/StructureDefinition/shareablevalueset",
-    "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"]
+    "versionId" : "23",
+    "lastUpdated" : "2024-01-17T01:08:53.000-05:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-valueset-cqfm",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "extension" : [{
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
-    "valueString" : "AND Author"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
-    "valueDate" : "2023-02-15"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
-    "valueDate" : "2023-02-15"
-  }],
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "AND Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2024-01-17"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2024-01-17"
+    }
+  ],
   "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1095.44",
-  "identifier" : [{
-    "system" : "urn:ietf:rfc:3986",
-    "value" : "urn:oid:2.16.840.1.113762.1.4.1095.44"
-  }],
-  "version" : "20230215",
-  "name" : "NutritionAssessmentStatusModeratelyMalnourished",
-  "title" : "Nutrition Assessment Status Moderately Malnourished",
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113762.1.4.1095.44"
+    }
+  ],
+  "version" : "20240117",
+  "name" : "NutritionAssessmentStatusFindingOfModeratelyMalnourished",
+  "title" : "Nutrition Assessment Status Finding of Moderately Malnourished",
   "status" : "active",
-  "date" : "2023-02-15T01:02:57-05:00",
+  "date" : "2024-01-17T01:08:53-05:00",
   "publisher" : "AND Steward",
-  "jurisdiction" : [{
-    "extension" : [{
-      "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
-      "valueString" : "UNKNOWN"
-    }]
-  }],
-  "purpose" : "(Clinical Focus: Malnutrition assessment of a patient based upon clinically relevant criteria indicates that an individual is moderately malnourished.),(Data Element Scope: This set of values indicates that an individual is moderately malnourished.),(Inclusion Criteria: Malnutrition codes from SNOMED-CT terminology set which represent an individual is moderately malnourished.),(Exclusion Criteria: All other terminologies related to moderate malnutrition except SNOMED-CT are excluded.)",
+  "jurisdiction" : [
+    {
+      "coding" : [
+        {
+          "system" : "urn:iso:std:iso:3166",
+          "code" : "US"
+        }
+      ]
+    }
+  ],
+  "purpose" : "(Clinical Focus: Malnutrition assessment of a patient based upon clinically relevant criteria indicates that an individual is moderately malnourished.),(Data Element Scope: This set of values indicates that an individual is moderately malnourished.),(Inclusion Criteria: Terms related to moderately malnourished are included.),(Exclusion Criteria: Nutrition screening data and/or data indicating that an individual is not, mildly, or severely malnourished.)",
   "compose" : {
-    "include" : [{
-      "system" : "http://snomed.info/sct",
-      "concept" : [{
+    "include" : [
+      {
+        "system" : "http://snomed.info/sct",
+        "concept" : [
+          {
+            "code" : "102636009",
+            "display" : "Chronic nutritional deficiency (finding)"
+          },
+          {
+            "code" : "190606006",
+            "display" : "Moderate protein energy malnutrition (disorder)"
+          },
+          {
+            "code" : "238107002",
+            "display" : "Deficiency of macronutrients (disorder)"
+          },
+          {
+            "code" : "238111008",
+            "display" : "Deficiency of micronutrients (disorder)"
+          },
+          {
+            "code" : "2492009",
+            "display" : "Nutritional disorder (disorder)"
+          },
+          {
+            "code" : "285588004",
+            "display" : "Nutrition deficiency due to insufficient food (disorder)"
+          },
+          {
+            "code" : "441961000124100",
+            "display" : "Acute disease or injury-related malnutrition (disorder)"
+          },
+          {
+            "code" : "441971000124107",
+            "display" : "Chronic disease-related malnutrition (disorder)"
+          },
+          {
+            "code" : "448765001",
+            "display" : "Unintentional weight loss (finding)"
+          },
+          {
+            "code" : "65404009",
+            "display" : "Undernutrition (disorder)"
+          },
+          {
+            "code" : "70241007",
+            "display" : "Nutritional deficiency disorder (disorder)"
+          }
+        ]
+      }
+    ]
+  },
+  "expansion" : {
+    "identifier" : "urn:uuid:ce3cf5b7-2d32-4ab1-9118-e491042ca4e9",
+    "timestamp" : "2024-06-14T11:02:27-04:00",
+    "total" : 11,
+    "contains" : [
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
         "code" : "102636009",
         "display" : "Chronic nutritional deficiency (finding)"
       },
       {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
         "code" : "190606006",
         "display" : "Moderate protein energy malnutrition (disorder)"
       },
       {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "238107002",
+        "display" : "Deficiency of macronutrients (disorder)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "238111008",
+        "display" : "Deficiency of micronutrients (disorder)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "2492009",
+        "display" : "Nutritional disorder (disorder)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "285588004",
+        "display" : "Nutrition deficiency due to insufficient food (disorder)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "441961000124100",
+        "display" : "Acute disease or injury-related malnutrition (disorder)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "441971000124107",
+        "display" : "Chronic disease-related malnutrition (disorder)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
         "code" : "448765001",
         "display" : "Unintentional weight loss (finding)"
       },
       {
-        "code" : "698859001",
-        "display" : "Impaired nutrient utilization (finding)"
-      }]
-    }]
-  },
-  "expansion" : {
-    "identifier" : "urn:uuid:ad1e13a6-c62c-4536-a864-b18ca31c624d",
-    "timestamp" : "2023-09-26T12:10:19-04:00",
-    "total" : 4,
-    "offset" : 0,
-    "parameter" : [{
-      "name" : "count",
-      "valueInteger" : 1000
-    },
-    {
-      "name" : "offset",
-      "valueInteger" : 0
-    }],
-    "contains" : [{
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "102636009",
-      "display" : "Chronic nutritional deficiency (finding)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "190606006",
-      "display" : "Moderate protein energy malnutrition (disorder)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "448765001",
-      "display" : "Unintentional weight loss (finding)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "698859001",
-      "display" : "Impaired nutrient utilization (finding)"
-    }]
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "65404009",
+        "display" : "Undernutrition (disorder)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "70241007",
+        "display" : "Nutritional deficiency disorder (disorder)"
+      }
+    ]
   }
 }

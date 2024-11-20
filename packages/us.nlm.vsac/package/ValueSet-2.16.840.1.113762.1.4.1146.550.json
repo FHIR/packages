@@ -2,113 +2,130 @@
   "resourceType" : "ValueSet",
   "id" : "2.16.840.1.113762.1.4.1146.550",
   "meta" : {
-    "versionId" : "11",
-    "lastUpdated" : "2019-12-27T01:00:20.000-05:00",
-    "profile" : ["http://hl7.org/fhir/StructureDefinition/shareablevalueset",
-    "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"]
+    "versionId" : "16",
+    "lastUpdated" : "2024-01-23T01:10:32.000-05:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-valueset-cqfm",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "extension" : [{
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
-    "valueString" : "CSTE Author"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-keyWord",
-    "valueString" : "G_STI,Syphilis,Trigger"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
-    "valueDate" : "2022-12-15"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
-    "valueDate" : "2019-12-27"
-  }],
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "CSTE Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-keyWord",
+      "valueString" : "G_STI,Syphilis,Trigger"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2024-01-23"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2024-01-23"
+    }
+  ],
   "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1146.550",
-  "identifier" : [{
-    "system" : "urn:ietf:rfc:3986",
-    "value" : "urn:oid:2.16.840.1.113762.1.4.1146.550"
-  }],
-  "version" : "20191227",
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113762.1.4.1146.550"
+    }
+  ],
+  "version" : "20240123",
   "name" : "SyphilisTestsForTreponemaPallidumNucleicAcid",
   "title" : "Syphilis (Tests for Treponema pallidum Nucleic Acid)",
   "status" : "active",
-  "experimental" : false,
-  "date" : "2019-12-27T01:00:20-05:00",
+  "date" : "2024-01-23T01:10:32-05:00",
   "publisher" : "CSTE Steward",
-  "jurisdiction" : [{
-    "extension" : [{
-      "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
-      "valueString" : "UNKNOWN"
-    }]
-  }],
+  "jurisdiction" : [
+    {
+      "coding" : [
+        {
+          "system" : "urn:iso:std:iso:3166",
+          "code" : "US"
+        }
+      ]
+    }
+  ],
   "purpose" : "(Clinical Focus: This set of values contains codes for laboratory test names associated with detecting the presence of Treponema pallidum Nucleic Acid),(Data Element Scope: Laboratory tests names that were ordered or observed.),(Inclusion Criteria: component: Treponema pallidum DNA, PolA gene),(Exclusion Criteria: none)",
   "compose" : {
-    "include" : [{
-      "system" : "http://loinc.org",
-      "concept" : [{
-        "code" : "41163-7",
-        "display" : "Treponema pallidum DNA [Presence] in Unspecified specimen by NAA with probe detection"
+    "include" : [
+      {
+        "system" : "http://loinc.org",
+        "concept" : [
+          {
+            "code" : "103199-6",
+            "display" : "Treponema pallidum DNA [Presence] in Urine by Probe with amplification"
+          },
+          {
+            "code" : "41163-7",
+            "display" : "Treponema pallidum DNA [Presence] in Specimen by NAA with probe detection"
+          },
+          {
+            "code" : "49799-0",
+            "display" : "Treponema pallidum DNA [Presence] in Cerebral spinal fluid by NAA with probe detection"
+          },
+          {
+            "code" : "53605-2",
+            "display" : "Treponema pallidum DNA [Presence] in Blood by NAA with probe detection"
+          },
+          {
+            "code" : "76766-5",
+            "display" : "Treponema pallidum polA gene [Presence] in Genital specimen by NAA with probe detection"
+          },
+          {
+            "code" : "91846-6",
+            "display" : "Treponema pallidum DNA [Presence] in Genital specimen by NAA with probe detection"
+          }
+        ]
+      }
+    ]
+  },
+  "expansion" : {
+    "identifier" : "urn:uuid:09e7a74c-5662-4dfa-b7f6-2cba97ac2c55",
+    "timestamp" : "2024-06-14T12:17:43-04:00",
+    "total" : 6,
+    "contains" : [
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
+        "code" : "103199-6",
+        "display" : "Treponema pallidum DNA [Presence] in Urine by Probe with amplification"
       },
       {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
+        "code" : "41163-7",
+        "display" : "Treponema pallidum DNA [Presence] in Specimen by NAA with probe detection"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
         "code" : "49799-0",
         "display" : "Treponema pallidum DNA [Presence] in Cerebral spinal fluid by NAA with probe detection"
       },
       {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
         "code" : "53605-2",
         "display" : "Treponema pallidum DNA [Presence] in Blood by NAA with probe detection"
       },
       {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
         "code" : "76766-5",
         "display" : "Treponema pallidum polA gene [Presence] in Genital specimen by NAA with probe detection"
       },
       {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
         "code" : "91846-6",
         "display" : "Treponema pallidum DNA [Presence] in Genital specimen by NAA with probe detection"
-      }]
-    }]
-  },
-  "expansion" : {
-    "identifier" : "urn:uuid:315264b5-638c-4f74-8402-5f793a5b8934",
-    "timestamp" : "2023-09-26T13:26:16-04:00",
-    "total" : 5,
-    "offset" : 0,
-    "parameter" : [{
-      "name" : "count",
-      "valueInteger" : 1000
-    },
-    {
-      "name" : "offset",
-      "valueInteger" : 0
-    }],
-    "contains" : [{
-      "system" : "http://loinc.org",
-      "version" : "2.74",
-      "code" : "41163-7",
-      "display" : "Treponema pallidum DNA [Presence] in Specimen by NAA with probe detection"
-    },
-    {
-      "system" : "http://loinc.org",
-      "version" : "2.74",
-      "code" : "49799-0",
-      "display" : "Treponema pallidum DNA [Presence] in Cerebral spinal fluid by NAA with probe detection"
-    },
-    {
-      "system" : "http://loinc.org",
-      "version" : "2.74",
-      "code" : "53605-2",
-      "display" : "Treponema pallidum DNA [Presence] in Blood by NAA with probe detection"
-    },
-    {
-      "system" : "http://loinc.org",
-      "version" : "2.74",
-      "code" : "76766-5",
-      "display" : "Treponema pallidum polA gene [Presence] in Genital specimen by NAA with probe detection"
-    },
-    {
-      "system" : "http://loinc.org",
-      "version" : "2.74",
-      "code" : "91846-6",
-      "display" : "Treponema pallidum DNA [Presence] in Genital specimen by NAA with probe detection"
-    }]
+      }
+    ]
   }
 }

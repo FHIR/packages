@@ -3,27 +3,34 @@
   "id" : "2.16.840.1.113762.1.4.1178.26",
   "meta" : {
     "versionId" : "5",
-    "lastUpdated" : "2022-07-16T01:02:12.000-04:00",
-    "profile" : ["http://hl7.org/fhir/StructureDefinition/shareablevalueset",
-    "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"]
+    "lastUpdated" : "2023-12-21T17:43:03.000-05:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-valueset-cqfm",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "extension" : [{
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
-    "valueString" : "AHA Author"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
-    "valueDate" : "2023-02-07"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
-    "valueDate" : "2022-07-16"
-  }],
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "AHA Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2024-01-11"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2022-07-16"
+    }
+  ],
   "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1178.26",
-  "identifier" : [{
-    "system" : "urn:ietf:rfc:3986",
-    "value" : "urn:oid:2.16.840.1.113762.1.4.1178.26"
-  }],
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113762.1.4.1178.26"
+    }
+  ],
   "version" : "20220716",
   "name" : "NYHAFunctionalClassification",
   "title" : "NYHA Functional Classification",
@@ -31,60 +38,61 @@
   "experimental" : false,
   "date" : "2022-07-16T01:02:12-04:00",
   "publisher" : "AHA Steward",
-  "jurisdiction" : [{
-    "extension" : [{
-      "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
-      "valueString" : "UNKNOWN"
-    }]
-  }],
+  "jurisdiction" : [
+    {
+      "coding" : [
+        {
+          "system" : "urn:iso:std:iso:3166",
+          "code" : "US"
+        }
+      ]
+    }
+  ],
   "purpose" : "(Clinical Focus: This value set contains concepts that represent concepts for the New York Heart Association (NYHA) Functional Classification.),(Data Element Scope: This value set may use a model element related to Assessment.),(Inclusion Criteria: Includes concepts that represent New York Heart Association Functional Classification only.),(Exclusion Criteria: No exclusions.)",
   "compose" : {
-    "include" : [{
-      "system" : "http://loinc.org",
-      "concept" : [{
+    "include" : [
+      {
+        "system" : "http://loinc.org",
+        "concept" : [
+          {
+            "code" : "88020-3",
+            "display" : "Functional capacity NYHA"
+          },
+          {
+            "code" : "88021-1",
+            "display" : "Objective assessment of cardiovascular disease NYHA"
+          },
+          {
+            "code" : "93124-6",
+            "display" : "New York Heart Association Functional Classification panel"
+          }
+        ]
+      }
+    ]
+  },
+  "expansion" : {
+    "identifier" : "urn:uuid:ad54beee-9f34-4f30-b054-2e28a3b11381",
+    "timestamp" : "2024-06-14T12:37:51-04:00",
+    "total" : 3,
+    "contains" : [
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
         "code" : "88020-3",
         "display" : "Functional capacity NYHA"
       },
       {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
         "code" : "88021-1",
         "display" : "Objective assessment of cardiovascular disease NYHA"
       },
       {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
         "code" : "93124-6",
         "display" : "New York Heart Association Functional Classification panel"
-      }]
-    }]
-  },
-  "expansion" : {
-    "identifier" : "urn:uuid:fb0a3419-673c-4458-b0b7-bad96b35d373",
-    "timestamp" : "2023-09-26T12:11:05-04:00",
-    "total" : 3,
-    "offset" : 0,
-    "parameter" : [{
-      "name" : "count",
-      "valueInteger" : 1000
-    },
-    {
-      "name" : "offset",
-      "valueInteger" : 0
-    }],
-    "contains" : [{
-      "system" : "http://loinc.org",
-      "version" : "2.74",
-      "code" : "88020-3",
-      "display" : "Functional capacity NYHA"
-    },
-    {
-      "system" : "http://loinc.org",
-      "version" : "2.74",
-      "code" : "88021-1",
-      "display" : "Objective assessment of cardiovascular disease NYHA"
-    },
-    {
-      "system" : "http://loinc.org",
-      "version" : "2.74",
-      "code" : "93124-6",
-      "display" : "New York Heart Association Functional Classification panel"
-    }]
+      }
+    ]
   }
 }

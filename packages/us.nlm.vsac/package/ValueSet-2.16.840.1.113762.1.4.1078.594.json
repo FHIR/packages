@@ -3,87 +3,95 @@
   "id" : "2.16.840.1.113762.1.4.1078.594",
   "meta" : {
     "versionId" : "5",
-    "lastUpdated" : "2023-09-13T01:01:11.000-04:00",
-    "profile" : ["http://hl7.org/fhir/StructureDefinition/shareablevalueset",
-    "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"]
+    "lastUpdated" : "2023-12-21T17:43:03.000-05:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-valueset-cqfm",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "extension" : [{
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
-    "valueString" : "Optum Author"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
-    "valueDate" : "2023-09-14"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
-    "valueDate" : "2023-09-13"
-  }],
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "Optum Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2023-09-14"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2023-09-13"
+    }
+  ],
   "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1078.594",
-  "identifier" : [{
-    "system" : "urn:ietf:rfc:3986",
-    "value" : "urn:oid:2.16.840.1.113762.1.4.1078.594"
-  }],
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113762.1.4.1078.594"
+    }
+  ],
   "version" : "20230913",
   "name" : "IntoleranceToARBSCT",
   "title" : "Intolerance to ARB SCT",
   "status" : "active",
   "date" : "2023-09-13T01:01:11-04:00",
   "publisher" : "Optum Steward",
-  "jurisdiction" : [{
-    "extension" : [{
-      "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
-      "valueString" : "UNKNOWN"
-    }]
-  }],
+  "jurisdiction" : [
+    {
+      "coding" : [
+        {
+          "system" : "urn:iso:std:iso:3166",
+          "code" : "US"
+        }
+      ]
+    }
+  ],
   "purpose" : "(Clinical Focus: The purpose of this value set is to represent concepts of diagnoses of intolerance to  angiotensin II receptor blockers (ARB).),(Data Element Scope: This value set may use a model element related to Diagnosis.),(Inclusion Criteria: Includes concepts that represent a diagnosis of intolerance to ARB.),(Exclusion Criteria: None)",
   "compose" : {
-    "include" : [{
-      "system" : "http://snomed.info/sct",
-      "concept" : [{
+    "include" : [
+      {
+        "system" : "http://snomed.info/sct",
+        "concept" : [
+          {
+            "code" : "293513003",
+            "display" : "Adverse reaction caused by losartan (disorder)"
+          },
+          {
+            "code" : "407565004",
+            "display" : "Angiotensin II receptor antagonist not tolerated (situation)"
+          },
+          {
+            "code" : "407590002",
+            "display" : "Angiotensin II receptor antagonist adverse reaction (disorder)"
+          }
+        ]
+      }
+    ]
+  },
+  "expansion" : {
+    "identifier" : "urn:uuid:6c5132ba-f16a-4aaa-8347-b2c2c9291f08",
+    "timestamp" : "2024-06-14T10:52:34-04:00",
+    "total" : 3,
+    "contains" : [
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
         "code" : "293513003",
         "display" : "Adverse reaction caused by losartan (disorder)"
       },
       {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
         "code" : "407565004",
         "display" : "Angiotensin II receptor antagonist not tolerated (situation)"
       },
       {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
         "code" : "407590002",
         "display" : "Angiotensin II receptor antagonist adverse reaction (disorder)"
-      }]
-    }]
-  },
-  "expansion" : {
-    "identifier" : "urn:uuid:330c77e3-3543-4838-bf82-4aabdd8109af",
-    "timestamp" : "2023-09-26T11:12:48-04:00",
-    "total" : 3,
-    "offset" : 0,
-    "parameter" : [{
-      "name" : "count",
-      "valueInteger" : 1000
-    },
-    {
-      "name" : "offset",
-      "valueInteger" : 0
-    }],
-    "contains" : [{
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "293513003",
-      "display" : "Adverse reaction caused by losartan (disorder)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "407565004",
-      "display" : "Angiotensin II receptor antagonist not tolerated (situation)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "407590002",
-      "display" : "Angiotensin II receptor antagonist adverse reaction (disorder)"
-    }]
+      }
+    ]
   }
 }

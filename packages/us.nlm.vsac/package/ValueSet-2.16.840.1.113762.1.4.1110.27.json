@@ -3,78 +3,90 @@
   "id" : "2.16.840.1.113762.1.4.1110.27",
   "meta" : {
     "versionId" : "14",
-    "lastUpdated" : "2019-03-25T13:44:49.000-04:00",
-    "profile" : ["http://hl7.org/fhir/StructureDefinition/shareablevalueset",
-    "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"]
+    "lastUpdated" : "2023-12-21T17:43:03.000-05:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-valueset-cqfm",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "extension" : [{
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
-    "valueString" : "TJC EH Author"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
-    "valueDate" : "2022-12-15"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
-    "valueDate" : "2019-03-25"
-  }],
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "TJC EH Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-keyWord",
+      "valueString" : "Not_In_Use"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2024-06-03"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2018-07-27"
+    }
+  ],
   "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1110.27",
-  "identifier" : [{
-    "system" : "urn:ietf:rfc:3986",
-    "value" : "urn:oid:2.16.840.1.113762.1.4.1110.27"
-  }],
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113762.1.4.1110.27"
+    }
+  ],
   "version" : "20180727",
   "name" : "TobaccoUseStatus",
   "title" : "Tobacco Use Status",
-  "status" : "active",
+  "status" : "retired",
   "experimental" : false,
   "date" : "2018-07-27T01:00:04-04:00",
   "publisher" : "TJC EH Steward",
-  "jurisdiction" : [{
-    "extension" : [{
-      "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
-      "valueString" : "UNKNOWN"
-    }]
-  }],
+  "jurisdiction" : [
+    {
+      "coding" : [
+        {
+          "system" : "urn:iso:std:iso:3166",
+          "code" : "US"
+        }
+      ]
+    }
+  ],
   "purpose" : "(Clinical Focus: This value set contains codes or concepts that identify both smoking and smokeless tobacco use status.),(Data Element Scope: This value set may use Quality Data Model (QDM) category related to Assessment, Performed. The intent of this data element is to combine both smoking and smokeless tobacco status screening questions into one value set.),(Inclusion Criteria: Includes only relevant concepts associated with LOINC codes identifying both smoking and smokeless tobacco status screening questions.),(Exclusion Criteria: No exclusions.)",
   "compose" : {
-    "include" : [{
-      "system" : "http://loinc.org",
-      "concept" : [{
-        "code" : "72166-2",
-        "display" : "Tobacco smoking status NHIS"
-      },
+    "include" : [
       {
-        "code" : "88031-0",
-        "display" : "Smokeless tobacco status"
-      }]
-    }]
+        "system" : "http://loinc.org",
+        "concept" : [
+          {
+            "code" : "72166-2",
+            "display" : "Tobacco smoking status NHIS"
+          },
+          {
+            "code" : "88031-0",
+            "display" : "Smokeless tobacco status"
+          }
+        ]
+      }
+    ]
   },
   "expansion" : {
-    "identifier" : "urn:uuid:5003c715-9e72-43a5-820d-57c4688faf8a",
-    "timestamp" : "2023-09-26T13:33:25-04:00",
+    "identifier" : "urn:uuid:aed67971-d305-4d61-88e7-52d0969288ec",
+    "timestamp" : "2024-06-14T11:15:32-04:00",
     "total" : 2,
-    "offset" : 0,
-    "parameter" : [{
-      "name" : "count",
-      "valueInteger" : 1000
-    },
-    {
-      "name" : "offset",
-      "valueInteger" : 0
-    }],
-    "contains" : [{
-      "system" : "http://loinc.org",
-      "version" : "2.74",
-      "code" : "72166-2",
-      "display" : "Tobacco smoking status"
-    },
-    {
-      "system" : "http://loinc.org",
-      "version" : "2.74",
-      "code" : "88031-0",
-      "display" : "Smokeless tobacco status"
-    }]
+    "contains" : [
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
+        "code" : "72166-2",
+        "display" : "Tobacco smoking status"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
+        "code" : "88031-0",
+        "display" : "Smokeless tobacco status"
+      }
+    ]
   }
 }

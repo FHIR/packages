@@ -3,69 +3,77 @@
   "id" : "2.16.840.1.113762.1.4.1182.119",
   "meta" : {
     "versionId" : "11",
-    "lastUpdated" : "2019-10-24T01:00:18.000-04:00",
-    "profile" : ["http://hl7.org/fhir/StructureDefinition/shareablevalueset",
-    "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"]
+    "lastUpdated" : "2023-12-21T17:43:03.000-05:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-valueset-cqfm",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "extension" : [{
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
-    "valueString" : "Change Healthcare Author"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
-    "valueDate" : "2022-12-15"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
-    "valueDate" : "2019-10-24"
-  }],
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "Change Healthcare Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2024-06-03"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2019-10-24"
+    }
+  ],
   "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1182.119",
-  "identifier" : [{
-    "system" : "urn:ietf:rfc:3986",
-    "value" : "urn:oid:2.16.840.1.113762.1.4.1182.119"
-  }],
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113762.1.4.1182.119"
+    }
+  ],
   "version" : "20191024",
   "name" : "AcuteInpatient",
   "title" : "Acute Inpatient",
-  "status" : "active",
+  "status" : "retired",
   "experimental" : false,
   "date" : "2019-10-24T01:00:18-04:00",
   "publisher" : "Change Healthcare Steward",
   "description" : "**Using UMLS code system as proxy for UBREV codes.\n**\nThis value set created for the purpose of identifying an acute inpatient stay for use in MSSP ACO readmission or preventable admission measures.\n\nPlease note that use of this value set is not limited to MSSP ACO measures.",
-  "jurisdiction" : [{
-    "extension" : [{
-      "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
-      "valueString" : "UNKNOWN"
-    }]
-  }],
+  "jurisdiction" : [
+    {
+      "coding" : [
+        {
+          "system" : "urn:iso:std:iso:3166",
+          "code" : "US"
+        }
+      ]
+    }
+  ],
   "purpose" : "(Clinical Focus: This value set created for the purpose of identifying an acute inpatient stay for use in MSSP ACO readmission or preventable admission measures.),(Data Element Scope: ClaimProcedure, ClaimItem.service, ClaimItem.revenue, Encounter.hospitalization, Procedure),(Inclusion Criteria: Acute inpatient stay via procedure or revenue billing codes),(Exclusion Criteria: Non-acute inpatient stay)",
   "compose" : {
-    "include" : [{
-      "system" : "http://www.nlm.nih.gov/research/umls",
-      "concept" : [{
-        "code" : "C0683846",
-        "display" : "room and board"
-      }]
-    }]
+    "include" : [
+      {
+        "system" : "http://www.nlm.nih.gov/research/umls",
+        "concept" : [
+          {
+            "code" : "C0683846",
+            "display" : "room and board"
+          }
+        ]
+      }
+    ]
   },
   "expansion" : {
-    "identifier" : "urn:uuid:df3ab73a-4257-4915-833c-c3682bf9c8e3",
-    "timestamp" : "2023-09-26T07:39:44-04:00",
+    "identifier" : "urn:uuid:577f5bc4-dd56-42f3-8e5e-3f579366fec1",
+    "timestamp" : "2024-06-14T12:41:27-04:00",
     "total" : 1,
-    "offset" : 0,
-    "parameter" : [{
-      "name" : "count",
-      "valueInteger" : 1000
-    },
-    {
-      "name" : "offset",
-      "valueInteger" : 0
-    }],
-    "contains" : [{
-      "system" : "http://www.nlm.nih.gov/research/umls",
-      "version" : "2023AA",
-      "code" : "C0683846",
-      "display" : "room and board"
-    }]
+    "contains" : [
+      {
+        "system" : "http://www.nlm.nih.gov/research/umls",
+        "version" : "2023AB",
+        "code" : "C0683846",
+        "display" : "room and board"
+      }
+    ]
   }
 }

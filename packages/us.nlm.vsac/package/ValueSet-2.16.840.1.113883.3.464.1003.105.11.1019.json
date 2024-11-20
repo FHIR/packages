@@ -3,27 +3,34 @@
   "id" : "2.16.840.1.113883.3.464.1003.105.11.1019",
   "meta" : {
     "versionId" : "19",
-    "lastUpdated" : "2023-01-23T12:55:20.000-05:00",
-    "profile" : ["http://hl7.org/fhir/StructureDefinition/shareablevalueset",
-    "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"]
+    "lastUpdated" : "2023-12-21T17:43:03.000-05:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-valueset-cqfm",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "extension" : [{
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
-    "valueString" : "NCQA PHEMUR Author"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
-    "valueDate" : "2022-12-15"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
-    "valueDate" : "2023-01-23"
-  }],
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "NCQA PHEMUR Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2024-02-14"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2017-05-04"
+    }
+  ],
   "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.105.11.1019",
-  "identifier" : [{
-    "system" : "urn:ietf:rfc:3986",
-    "value" : "urn:oid:2.16.840.1.113883.3.464.1003.105.11.1019"
-  }],
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113883.3.464.1003.105.11.1019"
+    }
+  ],
   "version" : "20170504",
   "name" : "MajorDepression",
   "title" : "Major Depression",
@@ -31,150 +38,151 @@
   "experimental" : false,
   "date" : "2017-05-04T01:00:13-04:00",
   "publisher" : "NCQA PHEMUR",
-  "jurisdiction" : [{
-    "extension" : [{
-      "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
-      "valueString" : "UNKNOWN"
-    }]
-  }],
+  "jurisdiction" : [
+    {
+      "coding" : [
+        {
+          "system" : "urn:iso:std:iso:3166",
+          "code" : "US"
+        }
+      ]
+    }
+  ],
   "purpose" : "(Clinical Focus: The purpose of this value set is to represent concepts for a diagnosis of major depression.),(Data Element Scope: This value set may use a model element related to Diagnosis.),(Inclusion Criteria: Includes concepts that represent a diagnosis of major depression including mild, moderate, and severe, with or without psychotic features. Includes major depression during pregnancy and major depression in partial remission.),(Exclusion Criteria: Excludes concepts that represent a diagnosis of major depression in remission or depression not specified as \"major depression.\")",
   "compose" : {
-    "include" : [{
-      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-      "concept" : [{
+    "include" : [
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "concept" : [
+          {
+            "code" : "F32.0",
+            "display" : "Major depressive disorder, single episode, mild"
+          },
+          {
+            "code" : "F32.1",
+            "display" : "Major depressive disorder, single episode, moderate"
+          },
+          {
+            "code" : "F32.2",
+            "display" : "Major depressive disorder, single episode, severe without psychotic features"
+          },
+          {
+            "code" : "F32.3",
+            "display" : "Major depressive disorder, single episode, severe with psychotic features"
+          },
+          {
+            "code" : "F32.4",
+            "display" : "Major depressive disorder, single episode, in partial remission"
+          },
+          {
+            "code" : "F32.9",
+            "display" : "Major depressive disorder, single episode, unspecified"
+          },
+          {
+            "code" : "F33.0",
+            "display" : "Major depressive disorder, recurrent, mild"
+          },
+          {
+            "code" : "F33.1",
+            "display" : "Major depressive disorder, recurrent, moderate"
+          },
+          {
+            "code" : "F33.2",
+            "display" : "Major depressive disorder, recurrent severe without psychotic features"
+          },
+          {
+            "code" : "F33.3",
+            "display" : "Major depressive disorder, recurrent, severe with psychotic symptoms"
+          },
+          {
+            "code" : "F33.41",
+            "display" : "Major depressive disorder, recurrent, in partial remission"
+          },
+          {
+            "code" : "F33.9",
+            "display" : "Major depressive disorder, recurrent, unspecified"
+          }
+        ]
+      }
+    ]
+  },
+  "expansion" : {
+    "identifier" : "urn:uuid:b9340c03-772f-4a11-927a-e7dbb9fe6c40",
+    "timestamp" : "2024-06-14T16:40:01-04:00",
+    "total" : 12,
+    "contains" : [
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2024",
         "code" : "F32.0",
         "display" : "Major depressive disorder, single episode, mild"
       },
       {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2024",
         "code" : "F32.1",
         "display" : "Major depressive disorder, single episode, moderate"
       },
       {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2024",
         "code" : "F32.2",
         "display" : "Major depressive disorder, single episode, severe without psychotic features"
       },
       {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2024",
         "code" : "F32.3",
         "display" : "Major depressive disorder, single episode, severe with psychotic features"
       },
       {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2024",
         "code" : "F32.4",
         "display" : "Major depressive disorder, single episode, in partial remission"
       },
       {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2024",
         "code" : "F32.9",
         "display" : "Major depressive disorder, single episode, unspecified"
       },
       {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2024",
         "code" : "F33.0",
         "display" : "Major depressive disorder, recurrent, mild"
       },
       {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2024",
         "code" : "F33.1",
         "display" : "Major depressive disorder, recurrent, moderate"
       },
       {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2024",
         "code" : "F33.2",
         "display" : "Major depressive disorder, recurrent severe without psychotic features"
       },
       {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2024",
         "code" : "F33.3",
         "display" : "Major depressive disorder, recurrent, severe with psychotic symptoms"
       },
       {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2024",
         "code" : "F33.41",
         "display" : "Major depressive disorder, recurrent, in partial remission"
       },
       {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2024",
         "code" : "F33.9",
         "display" : "Major depressive disorder, recurrent, unspecified"
-      }]
-    }]
-  },
-  "expansion" : {
-    "identifier" : "urn:uuid:1ae4833a-4564-4b7a-8bcf-9629c43c75cd",
-    "timestamp" : "2023-09-26T11:32:43-04:00",
-    "total" : 12,
-    "offset" : 0,
-    "parameter" : [{
-      "name" : "count",
-      "valueInteger" : 1000
-    },
-    {
-      "name" : "offset",
-      "valueInteger" : 0
-    }],
-    "contains" : [{
-      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-      "version" : "2024",
-      "code" : "F32.0",
-      "display" : "Major depressive disorder, single episode, mild"
-    },
-    {
-      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-      "version" : "2024",
-      "code" : "F32.1",
-      "display" : "Major depressive disorder, single episode, moderate"
-    },
-    {
-      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-      "version" : "2024",
-      "code" : "F32.2",
-      "display" : "Major depressive disorder, single episode, severe without psychotic features"
-    },
-    {
-      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-      "version" : "2024",
-      "code" : "F32.3",
-      "display" : "Major depressive disorder, single episode, severe with psychotic features"
-    },
-    {
-      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-      "version" : "2024",
-      "code" : "F32.4",
-      "display" : "Major depressive disorder, single episode, in partial remission"
-    },
-    {
-      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-      "version" : "2024",
-      "code" : "F32.9",
-      "display" : "Major depressive disorder, single episode, unspecified"
-    },
-    {
-      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-      "version" : "2024",
-      "code" : "F33.0",
-      "display" : "Major depressive disorder, recurrent, mild"
-    },
-    {
-      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-      "version" : "2024",
-      "code" : "F33.1",
-      "display" : "Major depressive disorder, recurrent, moderate"
-    },
-    {
-      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-      "version" : "2024",
-      "code" : "F33.2",
-      "display" : "Major depressive disorder, recurrent severe without psychotic features"
-    },
-    {
-      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-      "version" : "2024",
-      "code" : "F33.3",
-      "display" : "Major depressive disorder, recurrent, severe with psychotic symptoms"
-    },
-    {
-      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-      "version" : "2024",
-      "code" : "F33.41",
-      "display" : "Major depressive disorder, recurrent, in partial remission"
-    },
-    {
-      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-      "version" : "2024",
-      "code" : "F33.9",
-      "display" : "Major depressive disorder, recurrent, unspecified"
-    }]
+      }
+    ]
   }
 }

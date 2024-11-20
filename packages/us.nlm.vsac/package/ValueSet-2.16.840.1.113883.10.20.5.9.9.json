@@ -3,27 +3,34 @@
   "id" : "2.16.840.1.113883.10.20.5.9.9",
   "meta" : {
     "versionId" : "5",
-    "lastUpdated" : "2020-09-15T09:57:32.000-04:00",
-    "profile" : ["http://hl7.org/fhir/StructureDefinition/shareablevalueset",
-    "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"]
+    "lastUpdated" : "2023-12-21T17:43:03.000-05:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-valueset-cqfm",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "extension" : [{
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
-    "valueString" : "CDC NHSN Author"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
-    "valueDate" : "2022-12-15"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
-    "valueDate" : "2020-09-15"
-  }],
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "CDC NHSN Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2024-02-07"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2020-08-07"
+    }
+  ],
   "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.10.20.5.9.9",
-  "identifier" : [{
-    "system" : "urn:ietf:rfc:3986",
-    "value" : "urn:oid:2.16.840.1.113883.10.20.5.9.9"
-  }],
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113883.10.20.5.9.9"
+    }
+  ],
   "version" : "20200807",
   "name" : "CodesForAntimicrobialUsagePharmacyAUPSummaryData",
   "title" : "Codes for Antimicrobial Usage, Pharmacy (AUP) Summary Data",
@@ -31,60 +38,61 @@
   "experimental" : false,
   "date" : "2020-08-07T01:00:27-04:00",
   "publisher" : "CDC NHSN",
-  "jurisdiction" : [{
-    "extension" : [{
-      "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
-      "valueString" : "UNKNOWN"
-    }]
-  }],
+  "jurisdiction" : [
+    {
+      "coding" : [
+        {
+          "system" : "urn:iso:std:iso:3166",
+          "code" : "US"
+        }
+      ]
+    }
+  ],
   "purpose" : "(Clinical Focus: NHSN surveillance reporting: monthly reporting denominators for antimicrobial usage),(Data Element Scope: Code identifying the type of observation.),(Inclusion Criteria: ),(Exclusion Criteria: )",
   "compose" : {
-    "include" : [{
-      "system" : "https://www.cdc.gov/nhsn/cdaportal/terminology/codesystem/cdcnhsn.html",
-      "concept" : [{
+    "include" : [
+      {
+        "system" : "https://www.cdc.gov/nhsn/cdaportal/terminology/codesystem/cdcnhsn.html",
+        "concept" : [
+          {
+            "code" : "1862-2",
+            "display" : "Number of admissions"
+          },
+          {
+            "code" : "2524-7",
+            "display" : "Number of therapy days"
+          },
+          {
+            "code" : "2525-4",
+            "display" : "Number of patient-present days"
+          }
+        ]
+      }
+    ]
+  },
+  "expansion" : {
+    "identifier" : "urn:uuid:ced180b6-f132-4c2a-a0e8-b12fb35ab493",
+    "timestamp" : "2024-06-14T15:19:06-04:00",
+    "total" : 3,
+    "contains" : [
+      {
+        "system" : "https://www.cdc.gov/nhsn/cdaportal/terminology/codesystem/cdcnhsn.html",
+        "version" : "2023-04",
         "code" : "1862-2",
         "display" : "Number of admissions"
       },
       {
+        "system" : "https://www.cdc.gov/nhsn/cdaportal/terminology/codesystem/cdcnhsn.html",
+        "version" : "2023-04",
         "code" : "2524-7",
         "display" : "Number of therapy days"
       },
       {
+        "system" : "https://www.cdc.gov/nhsn/cdaportal/terminology/codesystem/cdcnhsn.html",
+        "version" : "2023-04",
         "code" : "2525-4",
         "display" : "Number of patient-present days"
-      }]
-    }]
-  },
-  "expansion" : {
-    "identifier" : "urn:uuid:37e4ec0f-00a1-4d43-93df-87cc5ebec59e",
-    "timestamp" : "2023-09-26T09:26:45-04:00",
-    "total" : 3,
-    "offset" : 0,
-    "parameter" : [{
-      "name" : "count",
-      "valueInteger" : 1000
-    },
-    {
-      "name" : "offset",
-      "valueInteger" : 0
-    }],
-    "contains" : [{
-      "system" : "https://www.cdc.gov/nhsn/cdaportal/terminology/codesystem/cdcnhsn.html",
-      "version" : "2023-04",
-      "code" : "1862-2",
-      "display" : "Number of admissions"
-    },
-    {
-      "system" : "https://www.cdc.gov/nhsn/cdaportal/terminology/codesystem/cdcnhsn.html",
-      "version" : "2023-04",
-      "code" : "2524-7",
-      "display" : "Number of therapy days"
-    },
-    {
-      "system" : "https://www.cdc.gov/nhsn/cdaportal/terminology/codesystem/cdcnhsn.html",
-      "version" : "2023-04",
-      "code" : "2525-4",
-      "display" : "Number of patient-present days"
-    }]
+      }
+    ]
   }
 }

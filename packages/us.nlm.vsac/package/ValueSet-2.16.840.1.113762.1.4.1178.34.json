@@ -2,79 +2,96 @@
   "resourceType" : "ValueSet",
   "id" : "2.16.840.1.113762.1.4.1178.34",
   "meta" : {
-    "versionId" : "12",
-    "lastUpdated" : "2022-07-16T01:02:12.000-04:00",
-    "profile" : ["http://hl7.org/fhir/StructureDefinition/shareablevalueset",
-    "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"]
+    "versionId" : "18",
+    "lastUpdated" : "2024-02-02T01:09:11.000-05:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-valueset-cqfm",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "extension" : [{
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
-    "valueString" : "AHA Author"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
-    "valueDate" : "2023-01-20"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
-    "valueDate" : "2022-07-16"
-  }],
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "AHA Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2024-02-02"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2024-02-02"
+    }
+  ],
   "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1178.34",
-  "identifier" : [{
-    "system" : "urn:ietf:rfc:3986",
-    "value" : "urn:oid:2.16.840.1.113762.1.4.1178.34"
-  }],
-  "version" : "20220716",
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113762.1.4.1178.34"
+    }
+  ],
+  "version" : "20240202",
   "name" : "AllergyToMRATherapy",
   "title" : "Allergy to MRA Therapy",
   "status" : "active",
-  "experimental" : false,
-  "date" : "2022-07-16T01:02:12-04:00",
+  "date" : "2024-02-02T01:09:11-05:00",
   "publisher" : "AHA Steward",
-  "jurisdiction" : [{
-    "extension" : [{
-      "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
-      "valueString" : "UNKNOWN"
-    }]
-  }],
-  "purpose" : "(Clinical Focus: The purpose of this value set is to represent concepts of diagnosis of allergy to an mineralocorticoid receptor antagonist (MRA) therapy.),(Data Element Scope: This value set may use a model element related to Diagnosis.),(Inclusion Criteria: Includes concepts that represent a diagnosis of allergy to mineralocorticoid receptor antagonist (MRA) therapy.),(Exclusion Criteria: No exclusions.)",
+  "jurisdiction" : [
+    {
+      "coding" : [
+        {
+          "system" : "urn:iso:std:iso:3166",
+          "code" : "US"
+        }
+      ]
+    }
+  ],
+  "purpose" : "(Clinical Focus: The purpose of this value set is to represent concepts for the condition of allergy to an mineralocorticoid receptor antagonist (MRA) therapy.),(Data Element Scope: This value set may use a model element related to Diagnosis.),(Inclusion Criteria: Includes concepts that represent a diagnosis of allergy to mineralocorticoid receptor antagonist (MRA) therapy.),(Exclusion Criteria: No exclusions.)",
   "compose" : {
-    "include" : [{
-      "system" : "http://snomed.info/sct",
-      "concept" : [{
+    "include" : [
+      {
+        "system" : "http://snomed.info/sct",
+        "concept" : [
+          {
+            "code" : "295007000",
+            "display" : "Allergy to aldosterone receptor antagonist (finding)"
+          },
+          {
+            "code" : "295009002",
+            "display" : "Allergy to spironolactone (finding)"
+          },
+          {
+            "code" : "470181000124100",
+            "display" : "Allergy to eplerenone (finding)"
+          }
+        ]
+      }
+    ]
+  },
+  "expansion" : {
+    "identifier" : "urn:uuid:79548ce9-2e3e-47c7-b2d9-d99d88ff1bfb",
+    "timestamp" : "2024-06-14T12:38:01-04:00",
+    "total" : 3,
+    "contains" : [
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "295007000",
+        "display" : "Allergy to aldosterone receptor antagonist (finding)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
         "code" : "295009002",
         "display" : "Allergy to spironolactone (finding)"
       },
       {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
         "code" : "470181000124100",
         "display" : "Allergy to eplerenone (finding)"
-      }]
-    }]
-  },
-  "expansion" : {
-    "identifier" : "urn:uuid:a6fed2d7-9b5b-4d7b-9ca7-602dace51fed",
-    "timestamp" : "2023-09-26T07:48:44-04:00",
-    "total" : 2,
-    "offset" : 0,
-    "parameter" : [{
-      "name" : "count",
-      "valueInteger" : 1000
-    },
-    {
-      "name" : "offset",
-      "valueInteger" : 0
-    }],
-    "contains" : [{
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "295009002",
-      "display" : "Allergy to spironolactone (finding)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "470181000124100",
-      "display" : "Allergy to eplerenone (finding)"
-    }]
+      }
+    ]
   }
 }

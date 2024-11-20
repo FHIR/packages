@@ -3,83 +3,99 @@
   "id" : "2.16.840.1.113762.1.4.1029.41",
   "meta" : {
     "versionId" : "8",
-    "lastUpdated" : "2016-05-12T01:52:58.000-04:00",
-    "profile" : ["http://hl7.org/fhir/StructureDefinition/shareablevalueset",
-    "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"]
+    "lastUpdated" : "2023-12-21T17:43:03.000-05:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-valueset-cqfm",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "extension" : [{
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
-    "valueString" : "Joint Commission Author"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
-    "valueDate" : "2022-12-15"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
-    "valueDate" : "2016-05-12"
-  }],
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "Joint Commission Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-keyWord",
+      "valueString" : "Not_In_Use"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2024-06-03"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2016-05-12"
+    }
+  ],
   "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1029.41",
-  "identifier" : [{
-    "system" : "urn:ietf:rfc:3986",
-    "value" : "urn:oid:2.16.840.1.113762.1.4.1029.41"
-  }],
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113762.1.4.1029.41"
+    }
+  ],
   "version" : "20160512",
   "name" : "CardiogenicShock",
   "title" : "Cardiogenic Shock",
-  "status" : "active",
+  "status" : "retired",
   "experimental" : false,
   "date" : "2016-05-12T01:52:58-04:00",
   "publisher" : "Joint Commission",
   "description" : "for use with MTM project (2016)",
-  "jurisdiction" : [{
-    "extension" : [{
-      "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
-      "valueString" : "UNKNOWN"
-    }]
-  }],
+  "jurisdiction" : [
+    {
+      "coding" : [
+        {
+          "system" : "urn:iso:std:iso:3166",
+          "code" : "US"
+        }
+      ]
+    }
+  ],
   "purpose" : "(Clinical Focus: This grouping value set contains diagnoses for cardiogenic shock.),(Data Element Scope: The intent of this data element is to identify patients in cardiogenic shock. Using the Quality Data Model, this particular element will map to the \"Diagnosis\" category.),(Inclusion Criteria: Codes representing a grouping of ICD-9, ICD-10, and SNOMED-CT for the diagnosis of cardiogenic shock.),(Exclusion Criteria: Exclude codes for septic, hypovolemic, and anaphylactic shock.)",
   "compose" : {
-    "include" : [{
-      "valueSet" : ["http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1029.42"]
-    },
-    {
-      "valueSet" : ["http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1029.43"]
-    },
-    {
-      "valueSet" : ["http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1029.44"]
-    }]
+    "include" : [
+      {
+        "valueSet" : [
+          "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1029.42"
+        ]
+      },
+      {
+        "valueSet" : [
+          "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1029.43"
+        ]
+      },
+      {
+        "valueSet" : [
+          "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1029.44"
+        ]
+      }
+    ]
   },
   "expansion" : {
-    "identifier" : "urn:uuid:6be430b1-5b95-43ef-a7ec-67d402c8eec5",
-    "timestamp" : "2023-09-26T09:12:17-04:00",
+    "identifier" : "urn:uuid:50313a25-d5b1-4b83-8a60-5cd22b48bddd",
+    "timestamp" : "2024-06-14T09:26:48-04:00",
     "total" : 3,
-    "offset" : 0,
-    "parameter" : [{
-      "name" : "count",
-      "valueInteger" : 1000
-    },
-    {
-      "name" : "offset",
-      "valueInteger" : 0
-    }],
-    "contains" : [{
-      "system" : "http://hl7.org/fhir/sid/icd-9-cm",
-      "version" : "2013",
-      "code" : "785.51",
-      "display" : "Cardiogenic shock"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "89138009",
-      "display" : "Cardiogenic shock (disorder)"
-    },
-    {
-      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-      "version" : "2024",
-      "code" : "R57.0",
-      "display" : "Cardiogenic shock"
-    }]
+    "contains" : [
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-9-cm",
+        "version" : "2013",
+        "code" : "785.51",
+        "display" : "Cardiogenic shock"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "89138009",
+        "display" : "Cardiogenic shock (disorder)"
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2024",
+        "code" : "R57.0",
+        "display" : "Cardiogenic shock"
+      }
+    ]
   }
 }

@@ -3,198 +3,206 @@
   "id" : "2.16.840.1.113762.1.4.1196.512",
   "meta" : {
     "versionId" : "20",
-    "lastUpdated" : "2021-09-09T01:01:05.000-04:00",
-    "profile" : ["http://hl7.org/fhir/StructureDefinition/shareablevalueset",
-    "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"]
+    "lastUpdated" : "2023-12-21T17:43:03.000-05:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-valueset-cqfm",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "extension" : [{
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
-    "valueString" : "NHLBI Implementation Science and Health Care Innovation Author"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
-    "valueDate" : "2022-12-15"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
-    "valueDate" : "2021-09-09"
-  }],
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "NHLBI Implementation Science and Health Care Innovation Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2024-06-03"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2021-09-09"
+    }
+  ],
   "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1196.512",
-  "identifier" : [{
-    "system" : "urn:ietf:rfc:3986",
-    "value" : "urn:oid:2.16.840.1.113762.1.4.1196.512"
-  }],
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113762.1.4.1196.512"
+    }
+  ],
   "version" : "20210909",
   "name" : "LowDoseICSLABAPreparationsInChildren5To11YearsOfAge",
   "title" : "Low Dose ICS LABA Preparations in Children 5 to 11 Years of Age",
-  "status" : "active",
+  "status" : "retired",
   "experimental" : false,
   "date" : "2021-09-09T01:01:05-04:00",
   "publisher" : "NHLBI Implementation Science and Health Care Innovation Steward",
-  "jurisdiction" : [{
-    "extension" : [{
-      "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
-      "valueString" : "UNKNOWN"
-    }]
-  }],
+  "jurisdiction" : [
+    {
+      "coding" : [
+        {
+          "system" : "urn:iso:std:iso:3166",
+          "code" : "US"
+        }
+      ]
+    }
+  ],
   "purpose" : "(Clinical Focus: This valueset contains preparation that are an oral inhaled corticosteroid (ICS) medication in combination with a long-acting beta agonist (LABA) medication used for low-dose maintenance controller therapy in asthmatic children ages 5 to 11 years.),(Data Element Scope: FHIR MedicationStatement.medicationCodeableConcept, MedicationRequest.medicationCodeableConcept),(Inclusion Criteria: Includes oral ICS-LABA combo inhaler preparations that might typically and reasonably be used to treat asthmatics ages 5-11 years within the low-dose range (based upon ICS component) as per the NHLBI NAEPP EPR3 Guidelines for the Diagnosis and Management of Asthma (2007).  Use of an ICS preparation for maintenance therapy in an atypical fashion (greater or fewer inhalations per day than is typical or expected) may not align with the partitioning of an ICS preparation into this dose-ranged valueset.  The utility of this approach has not been clinically validated, but the rationale comes from observations of inconsistency and lack of usability of structured dosage information for inhaled medications in CDA and FHIR data across vendor systems and implementations.),(Exclusion Criteria: Excludes withdrawn preparations and retired codes (although they may still be available from pharmacies until supplies are exhausted).  Excludes preparations with a small dose-number size (~14 inhalations or fewer) that would not be prescribed for maintenance therapy.)",
   "compose" : {
-    "include" : [{
-      "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "concept" : [{
+    "include" : [
+      {
+        "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "concept" : [
+          {
+            "code" : "1246288",
+            "display" : "120 ACTUAT budesonide 0.08 MG/ACTUAT / formoterol fumarate 0.0045 MG/ACTUAT Metered Dose Inhaler"
+          },
+          {
+            "code" : "1246290",
+            "display" : "120 ACTUAT budesonide 0.08 MG/ACTUAT / formoterol fumarate 0.0045 MG/ACTUAT Metered Dose Inhaler [Symbicort]"
+          },
+          {
+            "code" : "1246314",
+            "display" : "60 ACTUAT budesonide 0.08 MG/ACTUAT / formoterol fumarate 0.0045 MG/ACTUAT Metered Dose Inhaler"
+          },
+          {
+            "code" : "1246315",
+            "display" : "60 ACTUAT budesonide 0.08 MG/ACTUAT / formoterol fumarate 0.0045 MG/ACTUAT Metered Dose Inhaler [Symbicort]"
+          },
+          {
+            "code" : "1918209",
+            "display" : "60 ACTUAT fluticasone propionate 0.055 MG/ACTUAT / salmeterol 0.014 MG/ACTUAT Dry Powder Inhaler"
+          },
+          {
+            "code" : "1918211",
+            "display" : "60 ACTUAT fluticasone propionate 0.055 MG/ACTUAT / salmeterol 0.014 MG/ACTUAT Dry Powder Inhaler [AirDuo]"
+          },
+          {
+            "code" : "2196590",
+            "display" : "120 ACTUAT formoterol fumarate 0.005 MG/ACTUAT / mometasone furoate 0.05 MG/ACTUAT Metered Dose Inhaler"
+          },
+          {
+            "code" : "2196592",
+            "display" : "120 ACTUAT formoterol fumarate 0.005 MG/ACTUAT / mometasone furoate 0.05 MG/ACTUAT Metered Dose Inhaler [Dulera]"
+          },
+          {
+            "code" : "2395829",
+            "display" : "Sensor 60 ACTUAT fluticasone propionate 0.055 MG/ACTUAT / salmeterol 0.014 MG/ACTUAT Dry Powder Inhaler"
+          },
+          {
+            "code" : "2395831",
+            "display" : "Sensor 60 ACTUAT fluticasone propionate 0.055 MG/ACTUAT / salmeterol 0.014 MG/ACTUAT Dry Powder Inhaler [AirDuo]"
+          },
+          {
+            "code" : "896231",
+            "display" : "60 ACTUAT fluticasone propionate 0.045 MG/ACTUAT / salmeterol 0.021 MG/ACTUAT Metered Dose Inhaler"
+          },
+          {
+            "code" : "896235",
+            "display" : "60 ACTUAT fluticasone propionate 0.045 MG/ACTUAT / salmeterol 0.021 MG/ACTUAT Metered Dose Inhaler [Advair]"
+          },
+          {
+            "code" : "896236",
+            "display" : "120 ACTUAT fluticasone propionate 0.045 MG/ACTUAT / salmeterol 0.021 MG/ACTUAT Metered Dose Inhaler"
+          },
+          {
+            "code" : "896237",
+            "display" : "120 ACTUAT fluticasone propionate 0.045 MG/ACTUAT / salmeterol 0.021 MG/ACTUAT Metered Dose Inhaler [Advair]"
+          }
+        ]
+      }
+    ]
+  },
+  "expansion" : {
+    "identifier" : "urn:uuid:32585e90-0ced-49ba-b006-b2fcb90afca4",
+    "timestamp" : "2024-06-14T13:17:27-04:00",
+    "total" : 14,
+    "contains" : [
+      {
+        "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "version" : "05062024",
         "code" : "1246288",
         "display" : "120 ACTUAT budesonide 0.08 MG/ACTUAT / formoterol fumarate 0.0045 MG/ACTUAT Metered Dose Inhaler"
       },
       {
+        "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "version" : "05062024",
         "code" : "1246290",
         "display" : "120 ACTUAT budesonide 0.08 MG/ACTUAT / formoterol fumarate 0.0045 MG/ACTUAT Metered Dose Inhaler [Symbicort]"
       },
       {
+        "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "version" : "05062024",
         "code" : "1246314",
         "display" : "60 ACTUAT budesonide 0.08 MG/ACTUAT / formoterol fumarate 0.0045 MG/ACTUAT Metered Dose Inhaler"
       },
       {
+        "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "version" : "05062024",
         "code" : "1246315",
         "display" : "60 ACTUAT budesonide 0.08 MG/ACTUAT / formoterol fumarate 0.0045 MG/ACTUAT Metered Dose Inhaler [Symbicort]"
       },
       {
+        "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "version" : "05062024",
         "code" : "1918209",
         "display" : "60 ACTUAT fluticasone propionate 0.055 MG/ACTUAT / salmeterol 0.014 MG/ACTUAT Dry Powder Inhaler"
       },
       {
+        "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "version" : "05062024",
         "code" : "1918211",
         "display" : "60 ACTUAT fluticasone propionate 0.055 MG/ACTUAT / salmeterol 0.014 MG/ACTUAT Dry Powder Inhaler [AirDuo]"
       },
       {
+        "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "version" : "05062024",
         "code" : "2196590",
         "display" : "120 ACTUAT formoterol fumarate 0.005 MG/ACTUAT / mometasone furoate 0.05 MG/ACTUAT Metered Dose Inhaler"
       },
       {
+        "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "version" : "05062024",
         "code" : "2196592",
         "display" : "120 ACTUAT formoterol fumarate 0.005 MG/ACTUAT / mometasone furoate 0.05 MG/ACTUAT Metered Dose Inhaler [Dulera]"
       },
       {
+        "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "version" : "05062024",
         "code" : "2395829",
         "display" : "Sensor 60 ACTUAT fluticasone propionate 0.055 MG/ACTUAT / salmeterol 0.014 MG/ACTUAT Dry Powder Inhaler"
       },
       {
+        "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "version" : "05062024",
         "code" : "2395831",
         "display" : "Sensor 60 ACTUAT fluticasone propionate 0.055 MG/ACTUAT / salmeterol 0.014 MG/ACTUAT Dry Powder Inhaler [AirDuo]"
       },
       {
+        "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "version" : "05062024",
         "code" : "896231",
         "display" : "60 ACTUAT fluticasone propionate 0.045 MG/ACTUAT / salmeterol 0.021 MG/ACTUAT Metered Dose Inhaler"
       },
       {
+        "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "version" : "05062024",
         "code" : "896235",
         "display" : "60 ACTUAT fluticasone propionate 0.045 MG/ACTUAT / salmeterol 0.021 MG/ACTUAT Metered Dose Inhaler [Advair]"
       },
       {
+        "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "version" : "05062024",
         "code" : "896236",
         "display" : "120 ACTUAT fluticasone propionate 0.045 MG/ACTUAT / salmeterol 0.021 MG/ACTUAT Metered Dose Inhaler"
       },
       {
+        "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "version" : "05062024",
         "code" : "896237",
         "display" : "120 ACTUAT fluticasone propionate 0.045 MG/ACTUAT / salmeterol 0.021 MG/ACTUAT Metered Dose Inhaler [Advair]"
-      }]
-    }]
-  },
-  "expansion" : {
-    "identifier" : "urn:uuid:93f28dca-d9f9-434a-ab15-0cd3ed0e94c7",
-    "timestamp" : "2023-09-26T11:28:09-04:00",
-    "total" : 14,
-    "offset" : 0,
-    "parameter" : [{
-      "name" : "count",
-      "valueInteger" : 1000
-    },
-    {
-      "name" : "offset",
-      "valueInteger" : 0
-    }],
-    "contains" : [{
-      "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version" : "09052023",
-      "code" : "1246288",
-      "display" : "120 ACTUAT budesonide 0.08 MG/ACTUAT / formoterol fumarate 0.0045 MG/ACTUAT Metered Dose Inhaler"
-    },
-    {
-      "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version" : "09052023",
-      "code" : "1246290",
-      "display" : "120 ACTUAT budesonide 0.08 MG/ACTUAT / formoterol fumarate 0.0045 MG/ACTUAT Metered Dose Inhaler [Symbicort]"
-    },
-    {
-      "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version" : "09052023",
-      "code" : "1246314",
-      "display" : "60 ACTUAT budesonide 0.08 MG/ACTUAT / formoterol fumarate 0.0045 MG/ACTUAT Metered Dose Inhaler"
-    },
-    {
-      "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version" : "09052023",
-      "code" : "1246315",
-      "display" : "60 ACTUAT budesonide 0.08 MG/ACTUAT / formoterol fumarate 0.0045 MG/ACTUAT Metered Dose Inhaler [Symbicort]"
-    },
-    {
-      "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version" : "09052023",
-      "code" : "1918209",
-      "display" : "60 ACTUAT fluticasone propionate 0.055 MG/ACTUAT / salmeterol 0.014 MG/ACTUAT Dry Powder Inhaler"
-    },
-    {
-      "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version" : "09052023",
-      "code" : "1918211",
-      "display" : "60 ACTUAT fluticasone propionate 0.055 MG/ACTUAT / salmeterol 0.014 MG/ACTUAT Dry Powder Inhaler [AirDuo]"
-    },
-    {
-      "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version" : "09052023",
-      "code" : "2196590",
-      "display" : "120 ACTUAT formoterol fumarate 0.005 MG/ACTUAT / mometasone furoate 0.05 MG/ACTUAT Metered Dose Inhaler"
-    },
-    {
-      "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version" : "09052023",
-      "code" : "2196592",
-      "display" : "120 ACTUAT formoterol fumarate 0.005 MG/ACTUAT / mometasone furoate 0.05 MG/ACTUAT Metered Dose Inhaler [Dulera]"
-    },
-    {
-      "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version" : "09052023",
-      "code" : "2395829",
-      "display" : "Sensor 60 ACTUAT fluticasone propionate 0.055 MG/ACTUAT / salmeterol 0.014 MG/ACTUAT Dry Powder Inhaler"
-    },
-    {
-      "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version" : "09052023",
-      "code" : "2395831",
-      "display" : "Sensor 60 ACTUAT fluticasone propionate 0.055 MG/ACTUAT / salmeterol 0.014 MG/ACTUAT Dry Powder Inhaler [AirDuo]"
-    },
-    {
-      "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version" : "09052023",
-      "code" : "896231",
-      "display" : "60 ACTUAT fluticasone propionate 0.045 MG/ACTUAT / salmeterol 0.021 MG/ACTUAT Metered Dose Inhaler"
-    },
-    {
-      "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version" : "09052023",
-      "code" : "896235",
-      "display" : "60 ACTUAT fluticasone propionate 0.045 MG/ACTUAT / salmeterol 0.021 MG/ACTUAT Metered Dose Inhaler [Advair]"
-    },
-    {
-      "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version" : "09052023",
-      "code" : "896236",
-      "display" : "120 ACTUAT fluticasone propionate 0.045 MG/ACTUAT / salmeterol 0.021 MG/ACTUAT Metered Dose Inhaler"
-    },
-    {
-      "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version" : "09052023",
-      "code" : "896237",
-      "display" : "120 ACTUAT fluticasone propionate 0.045 MG/ACTUAT / salmeterol 0.021 MG/ACTUAT Metered Dose Inhaler [Advair]"
-    }]
+      }
+    ]
   }
 }

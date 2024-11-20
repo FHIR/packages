@@ -3,27 +3,34 @@
   "id" : "2.16.840.1.113762.1.4.1196.158",
   "meta" : {
     "versionId" : "6",
-    "lastUpdated" : "2019-08-29T05:00:24.000-04:00",
-    "profile" : ["http://hl7.org/fhir/StructureDefinition/shareablevalueset",
-    "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"]
+    "lastUpdated" : "2023-12-21T17:43:03.000-05:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-valueset-cqfm",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "extension" : [{
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
-    "valueString" : "Elimu Informatics Author"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
-    "valueDate" : "2022-12-15"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
-    "valueDate" : "2019-08-29"
-  }],
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "Elimu Informatics Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2024-02-14"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2019-08-29"
+    }
+  ],
   "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1196.158",
-  "identifier" : [{
-    "system" : "urn:ietf:rfc:3986",
-    "value" : "urn:oid:2.16.840.1.113762.1.4.1196.158"
-  }],
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113762.1.4.1196.158"
+    }
+  ],
   "version" : "20190829",
   "name" : "MultipleMyelomaRegimenDrugs",
   "title" : "Multiple Myeloma Regimen Drugs",
@@ -32,105 +39,108 @@
   "date" : "2019-08-29T05:00:24-04:00",
   "publisher" : "Elimu Informatics Steward",
   "description" : "All drug components for the treatment of multiple myeloma across all regimens from NCCR 2019",
-  "jurisdiction" : [{
-    "extension" : [{
-      "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
-      "valueString" : "UNKNOWN"
-    }]
-  }],
+  "jurisdiction" : [
+    {
+      "coding" : [
+        {
+          "system" : "urn:iso:std:iso:3166",
+          "code" : "US"
+        }
+      ]
+    }
+  ],
   "purpose" : "(Clinical Focus: Multiple Myeloma chemo  regimen drugs),(Data Element Scope: SCDGs only.),(Inclusion Criteria: All routed medication proxy for the specified regimen components (SCDG as a proxy for routed drug).),(Exclusion Criteria: None.)",
   "compose" : {
-    "include" : [{
-      "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version" : "09052023",
-      "filter" : [{
-        "property" : "concept",
-        "op" : "in",
-        "value" : "1154535,1154531"
-      }]
-    },
-    {
-      "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version" : "09052023",
-      "filter" : [{
-        "property" : "concept",
-        "op" : "in",
-        "value" : "1154535,1154531,1163075,1156182,1160774,1302968,1721949,1160009,1726108,1369715"
-      }]
-    }]
+    "include" : [
+      {
+        "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "version" : "05062024",
+        "filter" : [
+          {
+            "property" : "concept",
+            "op" : "in",
+            "value" : "1154535,1154531"
+          }
+        ]
+      },
+      {
+        "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "version" : "05062024",
+        "filter" : [
+          {
+            "property" : "concept",
+            "op" : "in",
+            "value" : "1154535,1154531,1163075,1156182,1160774,1302968,1721949,1160009,1726108,1369715"
+          }
+        ]
+      }
+    ]
   },
   "expansion" : {
-    "identifier" : "urn:uuid:e30a50f0-090b-4544-a028-268cd1be3cdd",
-    "timestamp" : "2023-09-26T11:55:02-04:00",
+    "identifier" : "urn:uuid:b4da317b-00b6-4277-b1df-f2006559dac8",
+    "timestamp" : "2024-06-14T13:16:15-04:00",
     "total" : 10,
-    "offset" : 0,
-    "parameter" : [{
-      "name" : "count",
-      "valueInteger" : 1000
-    },
-    {
-      "name" : "offset",
-      "valueInteger" : 0
-    }],
-    "contains" : [{
-      "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version" : "09052023",
-      "code" : "1154531",
-      "display" : "dexamethasone Injectable Product"
-    },
-    {
-      "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version" : "09052023",
-      "code" : "1154535",
-      "display" : "dexamethasone Oral Product"
-    },
-    {
-      "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version" : "09052023",
-      "code" : "1156182",
-      "display" : "cyclophosphamide Oral Product"
-    },
-    {
-      "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version" : "09052023",
-      "code" : "1160009",
-      "display" : "bendamustine Injectable Product"
-    },
-    {
-      "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version" : "09052023",
-      "code" : "1160774",
-      "display" : "doxorubicin Injectable Product"
-    },
-    {
-      "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version" : "09052023",
-      "code" : "1163075",
-      "display" : "bortezomib Injectable Product"
-    },
-    {
-      "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version" : "09052023",
-      "code" : "1302968",
-      "display" : "carfilzomib Injectable Product"
-    },
-    {
-      "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version" : "09052023",
-      "code" : "1369715",
-      "display" : "pomalidomide Oral Product"
-    },
-    {
-      "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version" : "09052023",
-      "code" : "1721949",
-      "display" : "daratumumab Injectable Product"
-    },
-    {
-      "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version" : "09052023",
-      "code" : "1726108",
-      "display" : "elotuzumab Injectable Product"
-    }]
+    "contains" : [
+      {
+        "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "version" : "05062024",
+        "code" : "1154531",
+        "display" : "dexamethasone Injectable Product"
+      },
+      {
+        "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "version" : "05062024",
+        "code" : "1154535",
+        "display" : "dexamethasone Oral Product"
+      },
+      {
+        "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "version" : "05062024",
+        "code" : "1156182",
+        "display" : "cyclophosphamide Oral Product"
+      },
+      {
+        "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "version" : "05062024",
+        "code" : "1160009",
+        "display" : "bendamustine Injectable Product"
+      },
+      {
+        "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "version" : "05062024",
+        "code" : "1160774",
+        "display" : "doxorubicin Injectable Product"
+      },
+      {
+        "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "version" : "05062024",
+        "code" : "1163075",
+        "display" : "bortezomib Injectable Product"
+      },
+      {
+        "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "version" : "05062024",
+        "code" : "1302968",
+        "display" : "carfilzomib Injectable Product"
+      },
+      {
+        "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "version" : "05062024",
+        "code" : "1369715",
+        "display" : "pomalidomide Oral Product"
+      },
+      {
+        "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "version" : "05062024",
+        "code" : "1721949",
+        "display" : "daratumumab Injectable Product"
+      },
+      {
+        "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "version" : "05062024",
+        "code" : "1726108",
+        "display" : "elotuzumab Injectable Product"
+      }
+    ]
   }
 }

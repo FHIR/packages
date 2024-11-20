@@ -3,31 +3,38 @@
   "id" : "2.16.840.1.113762.1.4.1146.1078",
   "meta" : {
     "versionId" : "16",
-    "lastUpdated" : "2023-01-22T01:03:33.000-05:00",
-    "profile" : ["http://hl7.org/fhir/StructureDefinition/shareablevalueset",
-    "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"]
+    "lastUpdated" : "2023-12-21T17:43:03.000-05:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-valueset-cqfm",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "extension" : [{
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
-    "valueString" : "CSTE Author"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-keyWord",
-    "valueString" : "Meds,Opioid,Trigger"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
-    "valueDate" : "2023-01-22"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
-    "valueDate" : "2023-01-22"
-  }],
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "CSTE Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-keyWord",
+      "valueString" : "Meds,Opioid,Trigger"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2024-06-05"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2023-01-22"
+    }
+  ],
   "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1146.1078",
-  "identifier" : [{
-    "system" : "urn:ietf:rfc:3986",
-    "value" : "urn:oid:2.16.840.1.113762.1.4.1146.1078"
-  }],
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113762.1.4.1146.1078"
+    }
+  ],
   "version" : "20230122",
   "name" : "OpioidOverdoseAndPoisoningNaloxoneRxNorm",
   "title" : "Opioid Overdose and Poisoning (Naloxone) (RxNorm)",
@@ -35,218 +42,213 @@
   "date" : "2023-01-22T01:03:33-05:00",
   "publisher" : "CSTE Steward",
   "description" : "All prescribable medication formulations represented using either a \"generic\" or \"brand-specific\" concept. This includes RxNorm codes whose Term Type is SCD (semantic clinical drug), or SBD (semantic brand drug). GPCK (generic pack), BPCK (brand pack), SCDG (semantic clinical drug group), SBDG (semantic brand drug group), SCDF (semantic clinical drug form), IN (ingredient) or SBDF (semantic brand drug form) are NOT included in this value set. This value set does not include oral administration concepts, only concepts for medications administered specifically for overdose (injection, nasal).",
-  "jurisdiction" : [{
-    "extension" : [{
-      "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
-      "valueString" : "UNKNOWN"
-    }]
-  }],
+  "jurisdiction" : [
+    {
+      "coding" : [
+        {
+          "system" : "urn:iso:std:iso:3166",
+          "code" : "US"
+        }
+      ]
+    }
+  ],
   "purpose" : "(Clinical Focus: This set of values contains codes for prescribable medications for Opioid Overdose or Poisoning),(Data Element Scope: Medications that were administered, ordered or prescribed.),(Inclusion Criteria: Naloxone),(Exclusion Criteria: SBDG (semantic brand drug group), SCDF (semantic clinical drug form), or SBDF (semantic brand drug form).\nOral administration)",
   "compose" : {
-    "include" : [{
-      "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "concept" : [{
+    "include" : [
+      {
+        "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "concept" : [
+          {
+            "code" : "1191212",
+            "display" : "naloxone hydrochloride 0.02 MG/ML Injectable Solution"
+          },
+          {
+            "code" : "1191222",
+            "display" : "naloxone hydrochloride 0.4 MG/ML Injectable Solution"
+          },
+          {
+            "code" : "1191228",
+            "display" : "naloxone hydrochloride 1 MG/ML Injectable Solution"
+          },
+          {
+            "code" : "1191234",
+            "display" : "1 ML naloxone hydrochloride 0.4 MG/ML Cartridge"
+          },
+          {
+            "code" : "1191245",
+            "display" : "2 ML naloxone hydrochloride 0.4 MG/ML Prefilled Syringe"
+          },
+          {
+            "code" : "1191250",
+            "display" : "2 ML naloxone hydrochloride 1 MG/ML Prefilled Syringe"
+          },
+          {
+            "code" : "1495293",
+            "display" : "0.4 ML naloxone hydrochloride 1 MG/ML Auto-Injector"
+          },
+          {
+            "code" : "1495298",
+            "display" : "0.4 ML naloxone hydrochloride 1 MG/ML Auto-Injector [Evzio]"
+          },
+          {
+            "code" : "1659929",
+            "display" : "1 ML naloxone hydrochloride 0.4 MG/ML Injection"
+          },
+          {
+            "code" : "1725059",
+            "display" : "naloxone hydrochloride 40 MG/ML Nasal Spray"
+          },
+          {
+            "code" : "1725064",
+            "display" : "naloxone hydrochloride 40 MG/ML Nasal Spray [Narcan]"
+          },
+          {
+            "code" : "1855730",
+            "display" : "0.4 ML naloxone hydrochloride 5 MG/ML Auto-Injector"
+          },
+          {
+            "code" : "1855732",
+            "display" : "0.4 ML naloxone hydrochloride 5 MG/ML Auto-Injector [Evzio]"
+          },
+          {
+            "code" : "1870933",
+            "display" : "naloxone hydrochloride 20 MG/ML Nasal Spray"
+          },
+          {
+            "code" : "1870935",
+            "display" : "naloxone hydrochloride 20 MG/ML Nasal Spray [Narcan]"
+          },
+          {
+            "code" : "2540703",
+            "display" : "naloxone hydrochloride 80 MG/ML Nasal Spray"
+          },
+          {
+            "code" : "2540709",
+            "display" : "naloxone hydrochloride 80 MG/ML Nasal Spray [Kloxxado]"
+          },
+          {
+            "code" : "2589612",
+            "display" : "0.5 ML naloxone hydrochloride 10 MG/ML Prefilled Syringe"
+          },
+          {
+            "code" : "2589618",
+            "display" : "0.5 ML naloxone hydrochloride 10 MG/ML Prefilled Syringe [Zimhi]"
+          },
+          {
+            "code" : "2596175",
+            "display" : "0.4 ML naloxone hydrochloride 25 MG/ML Auto-Injector"
+          }
+        ]
+      }
+    ]
+  },
+  "expansion" : {
+    "identifier" : "urn:uuid:3e0a0dd1-6f7e-4489-ae56-a86092591b11",
+    "timestamp" : "2024-06-14T11:42:23-04:00",
+    "total" : 17,
+    "contains" : [
+      {
+        "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "version" : "05062024",
         "code" : "1191212",
         "display" : "naloxone hydrochloride 0.02 MG/ML Injectable Solution"
       },
       {
+        "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "version" : "05062024",
         "code" : "1191222",
         "display" : "naloxone hydrochloride 0.4 MG/ML Injectable Solution"
       },
       {
+        "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "version" : "05062024",
         "code" : "1191228",
         "display" : "naloxone hydrochloride 1 MG/ML Injectable Solution"
       },
       {
+        "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "version" : "05062024",
         "code" : "1191234",
         "display" : "1 ML naloxone hydrochloride 0.4 MG/ML Cartridge"
       },
       {
-        "code" : "1191245",
-        "display" : "2 ML naloxone hydrochloride 0.4 MG/ML Prefilled Syringe"
-      },
-      {
+        "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "version" : "05062024",
         "code" : "1191250",
         "display" : "2 ML naloxone hydrochloride 1 MG/ML Prefilled Syringe"
       },
       {
+        "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "version" : "05062024",
         "code" : "1495293",
         "display" : "0.4 ML naloxone hydrochloride 1 MG/ML Auto-Injector"
       },
       {
-        "code" : "1495298",
-        "display" : "0.4 ML naloxone hydrochloride 1 MG/ML Auto-Injector [Evzio]"
-      },
-      {
+        "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "version" : "05062024",
         "code" : "1659929",
         "display" : "1 ML naloxone hydrochloride 0.4 MG/ML Injection"
       },
       {
+        "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "version" : "05062024",
         "code" : "1725059",
         "display" : "naloxone hydrochloride 40 MG/ML Nasal Spray"
       },
       {
+        "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "version" : "05062024",
         "code" : "1725064",
         "display" : "naloxone hydrochloride 40 MG/ML Nasal Spray [Narcan]"
       },
       {
+        "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "version" : "05062024",
         "code" : "1855730",
         "display" : "0.4 ML naloxone hydrochloride 5 MG/ML Auto-Injector"
       },
       {
-        "code" : "1855732",
-        "display" : "0.4 ML naloxone hydrochloride 5 MG/ML Auto-Injector [Evzio]"
-      },
-      {
+        "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "version" : "05062024",
         "code" : "1870933",
         "display" : "naloxone hydrochloride 20 MG/ML Nasal Spray"
       },
       {
+        "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "version" : "05062024",
         "code" : "1870935",
         "display" : "naloxone hydrochloride 20 MG/ML Nasal Spray [Narcan]"
       },
       {
+        "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "version" : "05062024",
         "code" : "2540703",
         "display" : "naloxone hydrochloride 80 MG/ML Nasal Spray"
       },
       {
+        "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "version" : "05062024",
         "code" : "2540709",
         "display" : "naloxone hydrochloride 80 MG/ML Nasal Spray [Kloxxado]"
       },
       {
+        "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "version" : "05062024",
         "code" : "2589612",
         "display" : "0.5 ML naloxone hydrochloride 10 MG/ML Prefilled Syringe"
       },
       {
+        "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "version" : "05062024",
         "code" : "2589618",
         "display" : "0.5 ML naloxone hydrochloride 10 MG/ML Prefilled Syringe [Zimhi]"
       },
       {
+        "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "version" : "05062024",
         "code" : "2596175",
         "display" : "0.4 ML naloxone hydrochloride 25 MG/ML Auto-Injector"
-      }]
-    }]
-  },
-  "expansion" : {
-    "identifier" : "urn:uuid:f4cd1e2c-ee58-45c7-b67b-5f7ce68a5050",
-    "timestamp" : "2023-09-26T12:14:23-04:00",
-    "total" : 18,
-    "offset" : 0,
-    "parameter" : [{
-      "name" : "count",
-      "valueInteger" : 1000
-    },
-    {
-      "name" : "offset",
-      "valueInteger" : 0
-    }],
-    "contains" : [{
-      "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version" : "09052023",
-      "code" : "1191212",
-      "display" : "naloxone hydrochloride 0.02 MG/ML Injectable Solution"
-    },
-    {
-      "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version" : "09052023",
-      "code" : "1191222",
-      "display" : "naloxone hydrochloride 0.4 MG/ML Injectable Solution"
-    },
-    {
-      "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version" : "09052023",
-      "code" : "1191228",
-      "display" : "naloxone hydrochloride 1 MG/ML Injectable Solution"
-    },
-    {
-      "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version" : "09052023",
-      "code" : "1191234",
-      "display" : "1 ML naloxone hydrochloride 0.4 MG/ML Cartridge"
-    },
-    {
-      "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version" : "09052023",
-      "code" : "1191250",
-      "display" : "2 ML naloxone hydrochloride 1 MG/ML Prefilled Syringe"
-    },
-    {
-      "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version" : "09052023",
-      "code" : "1495293",
-      "display" : "0.4 ML naloxone hydrochloride 1 MG/ML Auto-Injector"
-    },
-    {
-      "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version" : "09052023",
-      "code" : "1659929",
-      "display" : "1 ML naloxone hydrochloride 0.4 MG/ML Injection"
-    },
-    {
-      "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version" : "09052023",
-      "code" : "1725059",
-      "display" : "naloxone hydrochloride 40 MG/ML Nasal Spray"
-    },
-    {
-      "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version" : "09052023",
-      "code" : "1725064",
-      "display" : "naloxone hydrochloride 40 MG/ML Nasal Spray [Narcan]"
-    },
-    {
-      "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version" : "09052023",
-      "code" : "1855730",
-      "display" : "0.4 ML naloxone hydrochloride 5 MG/ML Auto-Injector"
-    },
-    {
-      "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version" : "09052023",
-      "code" : "1855732",
-      "display" : "0.4 ML naloxone hydrochloride 5 MG/ML Auto-Injector [Evzio]"
-    },
-    {
-      "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version" : "09052023",
-      "code" : "1870933",
-      "display" : "naloxone hydrochloride 20 MG/ML Nasal Spray"
-    },
-    {
-      "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version" : "09052023",
-      "code" : "1870935",
-      "display" : "naloxone hydrochloride 20 MG/ML Nasal Spray [Narcan]"
-    },
-    {
-      "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version" : "09052023",
-      "code" : "2540703",
-      "display" : "naloxone hydrochloride 80 MG/ML Nasal Spray"
-    },
-    {
-      "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version" : "09052023",
-      "code" : "2540709",
-      "display" : "naloxone hydrochloride 80 MG/ML Nasal Spray [Kloxxado]"
-    },
-    {
-      "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version" : "09052023",
-      "code" : "2589612",
-      "display" : "0.5 ML naloxone hydrochloride 10 MG/ML Prefilled Syringe"
-    },
-    {
-      "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version" : "09052023",
-      "code" : "2589618",
-      "display" : "0.5 ML naloxone hydrochloride 10 MG/ML Prefilled Syringe [Zimhi]"
-    },
-    {
-      "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version" : "09052023",
-      "code" : "2596175",
-      "display" : "0.4 ML naloxone hydrochloride 25 MG/ML Auto-Injector"
-    }]
+      }
+    ]
   }
 }

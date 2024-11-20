@@ -2,78 +2,96 @@
   "resourceType" : "ValueSet",
   "id" : "2.16.840.1.113762.1.4.1247.215",
   "meta" : {
-    "versionId" : "6",
-    "lastUpdated" : "2023-07-25T01:37:12.000-04:00",
-    "profile" : ["http://hl7.org/fhir/StructureDefinition/shareablevalueset",
-    "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"]
+    "versionId" : "12",
+    "lastUpdated" : "2024-06-04T01:21:19.000-04:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-valueset-cqfm",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "extension" : [{
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
-    "valueString" : "The Gravity Project Author"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
-    "valueDate" : "2023-07-25"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
-    "valueDate" : "2023-07-25"
-  }],
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "The Gravity Project Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2024-06-04"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2024-06-04"
+    }
+  ],
   "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1247.215",
-  "identifier" : [{
-    "system" : "urn:ietf:rfc:3986",
-    "value" : "urn:oid:2.16.840.1.113762.1.4.1247.215"
-  }],
-  "version" : "20230725",
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113762.1.4.1247.215"
+    }
+  ],
+  "version" : "20240604",
   "name" : "VeteranStatusGoalsSNOMEDCT",
   "title" : "Veteran Status Goals SNOMED CT",
   "status" : "active",
-  "date" : "2023-07-25T01:37:12-04:00",
+  "date" : "2024-06-04T01:21:19-04:00",
   "publisher" : "The Gravity Project Steward",
-  "jurisdiction" : [{
-    "extension" : [{
-      "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
-      "valueString" : "UNKNOWN"
-    }]
-  }],
-  "purpose" : "(Clinical Focus: <insert metadata>\n\nThe terms in this value set represent the goals associated with Veteran Status as identified by the Gravity Project),(Data Element Scope: Supports the exchange of data for the Gravity SDOH Clinical Care FHIR implementation guide as well as other uses of these SDOH terms.),(Inclusion Criteria: Includes SNOMED CT goals that have been identified through the Gravity Project community consensus voting process),(Exclusion Criteria: N/A)",
+  "jurisdiction" : [
+    {
+      "coding" : [
+        {
+          "system" : "urn:iso:std:iso:3166",
+          "code" : "US"
+        }
+      ]
+    }
+  ],
+  "purpose" : "(Clinical Focus: This set of values represent goals for Veteran Status as selected by the Gravity Project.),(Data Element Scope: In the FHIR Goal resource, these values may be used for Goal.description (e.g., for the SDOHCC Goal profile in the Gravity SDOH Clinical Care FHIR Implementation Guide).),(Inclusion Criteria: Includes SNOMED CT goals for Veteran Status as selected by the Gravity Project.),(Exclusion Criteria: NA)",
   "compose" : {
-    "include" : [{
-      "system" : "http://snomed.info/sct",
-      "concept" : [{
+    "include" : [
+      {
+        "system" : "http://snomed.info/sct",
+        "concept" : [
+          {
+            "code" : "671221000124102",
+            "display" : "Eligible for Veterans Affairs benefits (finding)"
+          },
+          {
+            "code" : "671481000124104",
+            "display" : "Honorable discharge from military service (finding)"
+          },
+          {
+            "code" : "761361000124104",
+            "display" : "Eligible for Department of Veterans Affairs National Cemetery Administration burial and memorial benefits (finding)"
+          }
+        ]
+      }
+    ]
+  },
+  "expansion" : {
+    "identifier" : "urn:uuid:ac86f006-6862-44a7-9c8d-273f6e91477d",
+    "timestamp" : "2024-06-14T14:57:56-04:00",
+    "total" : 3,
+    "contains" : [
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
         "code" : "671221000124102",
         "display" : "Eligible for Veterans Affairs benefits (finding)"
       },
       {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
         "code" : "671481000124104",
         "display" : "Honorable discharge from military service (finding)"
-      }]
-    }]
-  },
-  "expansion" : {
-    "identifier" : "urn:uuid:a38e201d-6285-41d0-a410-4f1ad2d6a0b6",
-    "timestamp" : "2023-09-26T13:51:43-04:00",
-    "total" : 2,
-    "offset" : 0,
-    "parameter" : [{
-      "name" : "count",
-      "valueInteger" : 1000
-    },
-    {
-      "name" : "offset",
-      "valueInteger" : 0
-    }],
-    "contains" : [{
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "671221000124102",
-      "display" : "Eligible for Veterans Affairs benefits (finding)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "671481000124104",
-      "display" : "Honorable discharge from military service (finding)"
-    }]
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "761361000124104",
+        "display" : "Eligible for Department of Veterans Affairs National Cemetery Administration burial and memorial benefits (finding)"
+      }
+    ]
   }
 }

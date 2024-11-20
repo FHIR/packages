@@ -3,82 +3,90 @@
   "id" : "2.16.840.1.113762.1.4.1146.1497",
   "meta" : {
     "versionId" : "6",
-    "lastUpdated" : "2022-01-18T01:03:00.000-05:00",
-    "profile" : ["http://hl7.org/fhir/StructureDefinition/shareablevalueset",
-    "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"]
+    "lastUpdated" : "2024-01-21T16:12:26.000-05:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-valueset-cqfm",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "extension" : [{
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
-    "valueString" : "CSTE Author"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-keyWord",
-    "valueString" : "C_Diff,Trigger"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
-    "valueDate" : "2022-12-15"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
-    "valueDate" : "2022-01-18"
-  }],
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "CSTE Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-keyWord",
+      "valueString" : "Not_Used"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2024-06-03"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2022-01-18"
+    }
+  ],
   "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1146.1497",
-  "identifier" : [{
-    "system" : "urn:ietf:rfc:3986",
-    "value" : "urn:oid:2.16.840.1.113762.1.4.1146.1497"
-  }],
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113762.1.4.1146.1497"
+    }
+  ],
   "version" : "20220118",
-  "name" : "CDiffInfectionTestsForCDiffToxinInStoolByUnspecifiedMethod",
-  "title" : "C. diff infection (Tests for C diff Toxin\u00a0in Stool\u00a0by\u00a0Unspecified Method)",
-  "status" : "active",
+  "name" : "NU_CDiffInfectionTestsForCDiffToxinInStoolByUnspecifiedMethod",
+  "title" : "NU_C. diff infection (Tests for C diff Toxin\u00a0in Stool\u00a0by\u00a0Unspecified Method)",
+  "status" : "retired",
   "experimental" : false,
   "date" : "2022-01-18T01:03:00-05:00",
   "publisher" : "CSTE Steward",
-  "jurisdiction" : [{
-    "extension" : [{
-      "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
-      "valueString" : "UNKNOWN"
-    }]
-  }],
+  "jurisdiction" : [
+    {
+      "coding" : [
+        {
+          "system" : "urn:iso:std:iso:3166",
+          "code" : "US"
+        }
+      ]
+    }
+  ],
   "purpose" : "(Clinical Focus: This set of values contains codes for laboratory test names associated with detecting the presence of C diff in Stool by unspecified Method),(Data Element Scope: Laboratory tests names that were ordered or observed.),(Inclusion Criteria: C diff),(Exclusion Criteria: none)",
   "compose" : {
-    "include" : [{
-      "system" : "http://loinc.org",
-      "concept" : [{
+    "include" : [
+      {
+        "system" : "http://loinc.org",
+        "concept" : [
+          {
+            "code" : "10895-1",
+            "display" : "Clostridioides difficile toxin B [Presence] in Stool"
+          },
+          {
+            "code" : "34713-8",
+            "display" : "Clostridioides difficile toxin A+B [Presence] in Stool"
+          }
+        ]
+      }
+    ]
+  },
+  "expansion" : {
+    "identifier" : "urn:uuid:8a95a17a-8d07-4a7a-be1f-9a2505e26102",
+    "timestamp" : "2024-06-14T11:52:46-04:00",
+    "total" : 2,
+    "contains" : [
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
         "code" : "10895-1",
         "display" : "Clostridioides difficile toxin B [Presence] in Stool"
       },
       {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
         "code" : "34713-8",
         "display" : "Clostridioides difficile toxin A+B [Presence] in Stool"
-      }]
-    }]
-  },
-  "expansion" : {
-    "identifier" : "urn:uuid:eb2dc3d3-d032-4930-b5b8-1918564a09ae",
-    "timestamp" : "2023-09-26T08:56:07-04:00",
-    "total" : 2,
-    "offset" : 0,
-    "parameter" : [{
-      "name" : "count",
-      "valueInteger" : 1000
-    },
-    {
-      "name" : "offset",
-      "valueInteger" : 0
-    }],
-    "contains" : [{
-      "system" : "http://loinc.org",
-      "version" : "2.74",
-      "code" : "10895-1",
-      "display" : "Clostridioides difficile toxin B [Presence] in Stool"
-    },
-    {
-      "system" : "http://loinc.org",
-      "version" : "2.74",
-      "code" : "34713-8",
-      "display" : "Clostridioides difficile toxin A+B [Presence] in Stool"
-    }]
+      }
+    ]
   }
 }

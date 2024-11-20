@@ -3,78 +3,86 @@
   "id" : "2.16.840.1.113883.3.464.1003.199.11.1108",
   "meta" : {
     "versionId" : "7",
-    "lastUpdated" : "2021-03-25T13:14:35.000-04:00",
-    "profile" : ["http://hl7.org/fhir/StructureDefinition/shareablevalueset",
-    "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"]
+    "lastUpdated" : "2024-01-30T18:19:05.000-05:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-valueset-cqfm",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "extension" : [{
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
-    "valueString" : "NCQA PHEMUR Author"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
-    "valueDate" : "2022-12-15"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
-    "valueDate" : "2021-03-25"
-  }],
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "NCQA PHEMUR Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2024-02-14"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2021-02-24"
+    }
+  ],
   "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.199.11.1108",
-  "identifier" : [{
-    "system" : "urn:ietf:rfc:3986",
-    "value" : "urn:oid:2.16.840.1.113883.3.464.1003.199.11.1108"
-  }],
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113883.3.464.1003.199.11.1108"
+    }
+  ],
   "version" : "20210224",
-  "name" : "LAIVProcedure",
-  "title" : "LAIV Procedure",
+  "name" : "InfluenzaVirusLAIVVaccineAdministered",
+  "title" : "Influenza Virus LAIV Vaccine Administered",
   "status" : "active",
   "experimental" : false,
   "date" : "2021-02-24T01:00:28-05:00",
   "publisher" : "NCQA PHEMUR",
-  "jurisdiction" : [{
-    "extension" : [{
-      "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
-      "valueString" : "UNKNOWN"
-    }]
-  }],
+  "jurisdiction" : [
+    {
+      "coding" : [
+        {
+          "system" : "urn:iso:std:iso:3166",
+          "code" : "US"
+        }
+      ]
+    }
+  ],
   "purpose" : "(Clinical Focus: The purpose of this value set is to represent administration of live attenuated influenza vaccine.),(Data Element Scope: This value set may use a model element related to Procedure.),(Inclusion Criteria: Includes concepts that represent procedures for live attenuated influenza vaccination (quadrivalent and trivalent).),(Exclusion Criteria: Excludes concepts that represent procedures for recombinant or inactivated influenza vaccination.)",
   "compose" : {
-    "include" : [{
-      "system" : "http://www.ama-assn.org/go/cpt",
-      "concept" : [{
+    "include" : [
+      {
+        "system" : "http://www.ama-assn.org/go/cpt",
+        "concept" : [
+          {
+            "code" : "90660",
+            "display" : "Influenza virus vaccine, trivalent, live (LAIV3), for intranasal use"
+          },
+          {
+            "code" : "90672",
+            "display" : "Influenza virus vaccine, quadrivalent, live (LAIV4), for intranasal use"
+          }
+        ]
+      }
+    ]
+  },
+  "expansion" : {
+    "identifier" : "urn:uuid:367def59-5776-4846-b6b5-c077aded2e96",
+    "timestamp" : "2024-06-14T17:24:32-04:00",
+    "total" : 2,
+    "contains" : [
+      {
+        "system" : "http://www.ama-assn.org/go/cpt",
+        "version" : "2024",
         "code" : "90660",
         "display" : "Influenza virus vaccine, trivalent, live (LAIV3), for intranasal use"
       },
       {
+        "system" : "http://www.ama-assn.org/go/cpt",
+        "version" : "2024",
         "code" : "90672",
         "display" : "Influenza virus vaccine, quadrivalent, live (LAIV4), for intranasal use"
-      }]
-    }]
-  },
-  "expansion" : {
-    "identifier" : "urn:uuid:bd91bf8c-adce-43f3-bedb-6a43ea5c59e3",
-    "timestamp" : "2023-09-26T11:21:03-04:00",
-    "total" : 2,
-    "offset" : 0,
-    "parameter" : [{
-      "name" : "count",
-      "valueInteger" : 1000
-    },
-    {
-      "name" : "offset",
-      "valueInteger" : 0
-    }],
-    "contains" : [{
-      "system" : "http://www.ama-assn.org/go/cpt",
-      "version" : "2023",
-      "code" : "90660",
-      "display" : "Influenza virus vaccine, trivalent, live (LAIV3), for intranasal use"
-    },
-    {
-      "system" : "http://www.ama-assn.org/go/cpt",
-      "version" : "2023",
-      "code" : "90672",
-      "display" : "Influenza virus vaccine, quadrivalent, live (LAIV4), for intranasal use"
-    }]
+      }
+    ]
   }
 }

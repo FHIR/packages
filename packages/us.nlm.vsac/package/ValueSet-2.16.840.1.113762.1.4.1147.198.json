@@ -3,78 +3,86 @@
   "id" : "2.16.840.1.113762.1.4.1147.198",
   "meta" : {
     "versionId" : "7",
-    "lastUpdated" : "2022-04-15T01:02:23.000-04:00",
-    "profile" : ["http://hl7.org/fhir/StructureDefinition/shareablevalueset",
-    "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"]
+    "lastUpdated" : "2024-02-22T15:25:56.000-05:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-valueset-cqfm",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "extension" : [{
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
-    "valueString" : "American Institutes for Research Author"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
-    "valueDate" : "2022-12-15"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
-    "valueDate" : "2022-04-15"
-  }],
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "Mathematica PSI Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2024-01-08"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2022-04-15"
+    }
+  ],
   "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1147.198",
-  "identifier" : [{
-    "system" : "urn:ietf:rfc:3986",
-    "value" : "urn:oid:2.16.840.1.113762.1.4.1147.198"
-  }],
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113762.1.4.1147.198"
+    }
+  ],
   "version" : "20220415",
   "name" : "NotPresentOnAdmissionOrDocumentationInsufficientToDetermine",
   "title" : "Not Present On Admission or Documentation Insufficient to Determine",
   "status" : "active",
   "experimental" : false,
   "date" : "2022-04-15T01:02:23-04:00",
-  "publisher" : "American Institutes for Research Steward",
-  "jurisdiction" : [{
-    "extension" : [{
-      "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
-      "valueString" : "UNKNOWN"
-    }]
-  }],
+  "publisher" : "Mathematica PSI Steward",
+  "jurisdiction" : [
+    {
+      "coding" : [
+        {
+          "system" : "urn:iso:std:iso:3166",
+          "code" : "US"
+        }
+      ]
+    }
+  ],
   "purpose" : "(Clinical Focus: The purpose of this value set is to represent concepts for indicating a diagnosis is not present on admission (N) or Documentation insufficient to determine if the condition was present at the time of inpatient admission (U).),(Data Element Scope: This value set may use a model element related to Encounter diagnosis.),(Inclusion Criteria: Includes PresentOnAdmission concepts that represent diagnosis is not present on admission (N) or Documentation insufficient to determine if the condition was present at the time of inpatient admission (U).),(Exclusion Criteria: N/A)",
   "compose" : {
-    "include" : [{
-      "system" : "https://www.cms.gov/Medicare/Medicare-Fee-for-Service-Payment/HospitalAcqCond/Coding",
-      "concept" : [{
+    "include" : [
+      {
+        "system" : "https://www.cms.gov/Medicare/Medicare-Fee-for-Service-Payment/HospitalAcqCond/Coding",
+        "concept" : [
+          {
+            "code" : "N",
+            "display" : "Diagnosis was not present at time of inpatient admission"
+          },
+          {
+            "code" : "U",
+            "display" : "Documentation insufficient to determine if the condition was present at the time of inpatient admission"
+          }
+        ]
+      }
+    ]
+  },
+  "expansion" : {
+    "identifier" : "urn:uuid:571460bc-8410-4d60-ab46-155f9f5a87f6",
+    "timestamp" : "2024-06-14T12:29:35-04:00",
+    "total" : 2,
+    "contains" : [
+      {
+        "system" : "https://www.cms.gov/Medicare/Medicare-Fee-for-Service-Payment/HospitalAcqCond/Coding",
+        "version" : "2021",
         "code" : "N",
         "display" : "Diagnosis was not present at time of inpatient admission"
       },
       {
+        "system" : "https://www.cms.gov/Medicare/Medicare-Fee-for-Service-Payment/HospitalAcqCond/Coding",
+        "version" : "2021",
         "code" : "U",
         "display" : "Documentation insufficient to determine if the condition was present at the time of inpatient admission"
-      }]
-    }]
-  },
-  "expansion" : {
-    "identifier" : "urn:uuid:6ae7fdc2-c971-4f9d-95c7-5d12cd2b2c4d",
-    "timestamp" : "2023-09-26T12:07:58-04:00",
-    "total" : 2,
-    "offset" : 0,
-    "parameter" : [{
-      "name" : "count",
-      "valueInteger" : 1000
-    },
-    {
-      "name" : "offset",
-      "valueInteger" : 0
-    }],
-    "contains" : [{
-      "system" : "https://www.cms.gov/Medicare/Medicare-Fee-for-Service-Payment/HospitalAcqCond/Coding",
-      "version" : "2021",
-      "code" : "N",
-      "display" : "Diagnosis was not present at time of inpatient admission"
-    },
-    {
-      "system" : "https://www.cms.gov/Medicare/Medicare-Fee-for-Service-Payment/HospitalAcqCond/Coding",
-      "version" : "2021",
-      "code" : "U",
-      "display" : "Documentation insufficient to determine if the condition was present at the time of inpatient admission"
-    }]
+      }
+    ]
   }
 }

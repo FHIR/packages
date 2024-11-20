@@ -2,94 +2,97 @@
   "resourceType" : "ValueSet",
   "id" : "2.16.840.1.113883.3.88.12.3221.6.8",
   "meta" : {
-    "versionId" : "16",
-    "lastUpdated" : "2021-10-15T01:01:43.000-04:00",
-    "profile" : ["http://hl7.org/fhir/StructureDefinition/shareablevalueset",
-    "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"]
+    "versionId" : "23",
+    "lastUpdated" : "2024-06-06T01:23:01.000-04:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-valueset-cqfm",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "extension" : [{
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
-    "valueString" : "HL7 Structured Documents WG"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-keyWord",
-    "valueString" : "C-CDA,CCDAr1_1,CCDAr21"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
-    "valueDate" : "2022-12-15"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
-    "valueDate" : "2021-10-15"
-  }],
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "HL7 US Realm Program Management Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2024-06-06"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2024-06-06"
+    }
+  ],
   "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.88.12.3221.6.8",
-  "identifier" : [{
-    "system" : "urn:ietf:rfc:3986",
-    "value" : "urn:oid:2.16.840.1.113883.3.88.12.3221.6.8"
-  }],
-  "version" : "20211015",
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113883.3.88.12.3221.6.8"
+    }
+  ],
+  "version" : "20240606",
   "name" : "Severity",
   "title" : "Severity",
   "status" : "active",
-  "experimental" : false,
-  "date" : "2021-10-15T01:01:43-04:00",
-  "publisher" : "HL7 Terminology",
+  "date" : "2024-06-06T01:23:01-04:00",
+  "publisher" : "HL7 US Realm Program Management Steward",
   "description" : "renamed value set, removed codes, added mapping. Changes based on DSTU C-CDA R2.1 comment 835\n2021-10-14 Renamed to generalize usefulness for QRDA, and simplified Clinical Focus per SD meeting. https://jira.hl7.org/browse/CDA-20076",
-  "jurisdiction" : [{
-    "extension" : [{
-      "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
-      "valueString" : "UNKNOWN"
-    }]
-  }],
+  "jurisdiction" : [
+    {
+      "coding" : [
+        {
+          "system" : "urn:iso:std:iso:3166",
+          "code" : "US"
+        }
+      ]
+    }
+  ],
   "purpose" : "(Clinical Focus: This is a description of the level of seriousness.),(Data Element Scope: ),(Inclusion Criteria: Three severities (map fatal to severe, moderate to severe to severe, mild to moderate to moderate)),(Exclusion Criteria: )",
   "compose" : {
-    "include" : [{
-      "system" : "http://snomed.info/sct",
-      "concept" : [{
+    "include" : [
+      {
+        "system" : "http://snomed.info/sct",
+        "concept" : [
+          {
+            "code" : "24484000",
+            "display" : "Severe (severity modifier) (qualifier value)"
+          },
+          {
+            "code" : "255604002",
+            "display" : "Mild (qualifier value)"
+          },
+          {
+            "code" : "6736007",
+            "display" : "Moderate (severity modifier) (qualifier value)"
+          }
+        ]
+      }
+    ]
+  },
+  "expansion" : {
+    "identifier" : "urn:uuid:6c98b027-5c55-46bc-88e1-9d0178c03dbd",
+    "timestamp" : "2024-06-14T18:12:01-04:00",
+    "total" : 3,
+    "contains" : [
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
         "code" : "24484000",
         "display" : "Severe (severity modifier) (qualifier value)"
       },
       {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
         "code" : "255604002",
         "display" : "Mild (qualifier value)"
       },
       {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
         "code" : "6736007",
         "display" : "Moderate (severity modifier) (qualifier value)"
-      }]
-    }]
-  },
-  "expansion" : {
-    "identifier" : "urn:uuid:14a1ad75-2f6e-44da-a617-eb5484210ad5",
-    "timestamp" : "2023-09-26T13:10:22-04:00",
-    "total" : 3,
-    "offset" : 0,
-    "parameter" : [{
-      "name" : "count",
-      "valueInteger" : 1000
-    },
-    {
-      "name" : "offset",
-      "valueInteger" : 0
-    }],
-    "contains" : [{
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "24484000",
-      "display" : "Severe (severity modifier) (qualifier value)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "255604002",
-      "display" : "Mild (qualifier value)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "6736007",
-      "display" : "Moderate (severity modifier) (qualifier value)"
-    }]
+      }
+    ]
   }
 }

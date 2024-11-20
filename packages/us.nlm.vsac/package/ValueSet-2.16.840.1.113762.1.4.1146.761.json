@@ -3,82 +3,90 @@
   "id" : "2.16.840.1.113762.1.4.1146.761",
   "meta" : {
     "versionId" : "13",
-    "lastUpdated" : "2022-01-19T01:02:18.000-05:00",
-    "profile" : ["http://hl7.org/fhir/StructureDefinition/shareablevalueset",
-    "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"]
+    "lastUpdated" : "2023-12-21T17:43:03.000-05:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-valueset-cqfm",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "extension" : [{
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
-    "valueString" : "CSTE Author"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-keyWord",
-    "valueString" : "G_Vaccine,Mumps,Trigger"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
-    "valueDate" : "2022-12-15"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
-    "valueDate" : "2022-01-19"
-  }],
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "CSTE Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-keyWord",
+      "valueString" : "G_Vaccine,Mumps,Trigger"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2024-06-03"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2022-01-19"
+    }
+  ],
   "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1146.761",
-  "identifier" : [{
-    "system" : "urn:ietf:rfc:3986",
-    "value" : "urn:oid:2.16.840.1.113762.1.4.1146.761"
-  }],
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113762.1.4.1146.761"
+    }
+  ],
   "version" : "20220119",
   "name" : "MumpsTestPanelsForMumpsVirusNucleicAcid",
   "title" : "Mumps (Test Panels for mumps virus Nucleic Acid)",
-  "status" : "active",
+  "status" : "retired",
   "experimental" : false,
   "date" : "2022-01-19T01:02:18-05:00",
   "publisher" : "CSTE Steward",
-  "jurisdiction" : [{
-    "extension" : [{
-      "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
-      "valueString" : "UNKNOWN"
-    }]
-  }],
+  "jurisdiction" : [
+    {
+      "coding" : [
+        {
+          "system" : "urn:iso:std:iso:3166",
+          "code" : "US"
+        }
+      ]
+    }
+  ],
   "purpose" : "(Clinical Focus: This set of values contains test panel codes for laboratory test names associated with detecting the presence of Mumps virus nucleic acid),(Data Element Scope: Laboratory tests names that were ordered or observed.),(Inclusion Criteria: VSAC query: Mumps panel probe\n\nLOINC search: \"Mumps nucleic acid panel\"),(Exclusion Criteria: none)",
   "compose" : {
-    "include" : [{
-      "system" : "http://loinc.org",
-      "concept" : [{
+    "include" : [
+      {
+        "system" : "http://loinc.org",
+        "concept" : [
+          {
+            "code" : "85808-4",
+            "display" : "Mumps virus RNA and SH gene panel - Specimen by NAA with probe detection"
+          },
+          {
+            "code" : "93750-8",
+            "display" : "Mumps virus RNA and N gene panel - Specimen"
+          }
+        ]
+      }
+    ]
+  },
+  "expansion" : {
+    "identifier" : "urn:uuid:32a98a45-b501-4838-9962-5b4ba459d89c",
+    "timestamp" : "2024-06-14T12:21:43-04:00",
+    "total" : 2,
+    "contains" : [
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
         "code" : "85808-4",
         "display" : "Mumps virus RNA and SH gene panel - Specimen by NAA with probe detection"
       },
       {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
         "code" : "93750-8",
         "display" : "Mumps virus RNA and N gene panel - Specimen"
-      }]
-    }]
-  },
-  "expansion" : {
-    "identifier" : "urn:uuid:a5ad0184-e5f2-4cad-956f-0bb81cc8f7a5",
-    "timestamp" : "2023-09-26T11:55:36-04:00",
-    "total" : 2,
-    "offset" : 0,
-    "parameter" : [{
-      "name" : "count",
-      "valueInteger" : 1000
-    },
-    {
-      "name" : "offset",
-      "valueInteger" : 0
-    }],
-    "contains" : [{
-      "system" : "http://loinc.org",
-      "version" : "2.74",
-      "code" : "85808-4",
-      "display" : "Mumps virus RNA and SH gene panel - Specimen by NAA with probe detection"
-    },
-    {
-      "system" : "http://loinc.org",
-      "version" : "2.74",
-      "code" : "93750-8",
-      "display" : "Mumps virus RNA and N gene panel - Specimen"
-    }]
+      }
+    ]
   }
 }

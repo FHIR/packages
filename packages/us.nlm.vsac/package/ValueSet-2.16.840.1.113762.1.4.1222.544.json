@@ -3,71 +3,82 @@
   "id" : "2.16.840.1.113762.1.4.1222.544",
   "meta" : {
     "versionId" : "5",
-    "lastUpdated" : "2021-09-12T01:00:58.000-04:00",
-    "profile" : ["http://hl7.org/fhir/StructureDefinition/shareablevalueset",
-    "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"]
+    "lastUpdated" : "2024-01-12T08:53:37.000-05:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-valueset-cqfm",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "extension" : [{
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
-    "valueString" : "MCC eCare Plan Author"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
-    "valueDate" : "2022-12-15"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
-    "valueDate" : "2021-09-12"
-  }],
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "MCC eCare Plan Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-keyWord",
+      "valueString" : "MCC_IG"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2024-06-03"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2021-09-12"
+    }
+  ],
   "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1222.544",
-  "identifier" : [{
-    "system" : "urn:ietf:rfc:3986",
-    "value" : "urn:oid:2.16.840.1.113762.1.4.1222.544"
-  }],
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113762.1.4.1222.544"
+    }
+  ],
   "version" : "20210912",
-  "name" : "DupuytrenSContracture",
+  "name" : "DupuytrensContracture",
   "title" : "Dupuytren's Contracture",
-  "status" : "active",
+  "status" : "retired",
   "experimental" : false,
   "date" : "2021-09-12T01:00:58-04:00",
   "publisher" : "HL7 Patient Care WG Steward",
-  "description" : "Documented diagnosis of Dupuytren's Contracture (Business ID: Entry 1663970)",
-  "jurisdiction" : [{
-    "extension" : [{
-      "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
-      "valueString" : "UNKNOWN"
-    }]
-  }],
+  "jurisdiction" : [
+    {
+      "coding" : [
+        {
+          "system" : "urn:iso:std:iso:3166",
+          "code" : "US"
+        }
+      ]
+    }
+  ],
   "purpose" : "(Clinical Focus: This set of values addresses terms representing Dupuytren's Contracture.),(Data Element Scope: The intent of this set of values is to identify patients who have a/an documented diagnosis of dupuytren's contracture.),(Inclusion Criteria: Includes ICD10CM codes for Dupuytren's Contracture.),(Exclusion Criteria: Terms not representative of observable encoded terms that may have values indicating Dupuytren's Contracture.)",
   "compose" : {
-    "include" : [{
-      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-      "version" : "2024",
-      "filter" : [{
-        "property" : "concept",
-        "op" : "is-a",
-        "value" : "M72.0"
-      }]
-    }]
+    "include" : [
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2024",
+        "filter" : [
+          {
+            "property" : "concept",
+            "op" : "is-a",
+            "value" : "M72.0"
+          }
+        ]
+      }
+    ]
   },
   "expansion" : {
-    "identifier" : "urn:uuid:e8d98f8b-7900-48d8-8247-22dd258bb1a6",
-    "timestamp" : "2023-09-26T10:11:36-04:00",
+    "identifier" : "urn:uuid:5c9511ec-7628-48fd-88ff-e611d4c11102",
+    "timestamp" : "2024-06-14T14:23:04-04:00",
     "total" : 1,
-    "offset" : 0,
-    "parameter" : [{
-      "name" : "count",
-      "valueInteger" : 1000
-    },
-    {
-      "name" : "offset",
-      "valueInteger" : 0
-    }],
-    "contains" : [{
-      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-      "version" : "2024",
-      "code" : "M72.0",
-      "display" : "Palmar fascial fibromatosis [Dupuytren]"
-    }]
+    "contains" : [
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2024",
+        "code" : "M72.0",
+        "display" : "Palmar fascial fibromatosis [Dupuytren]"
+      }
+    ]
   }
 }

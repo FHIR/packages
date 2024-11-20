@@ -3,116 +3,133 @@
   "id" : "2.16.840.1.113762.1.4.1222.752",
   "meta" : {
     "versionId" : "5",
-    "lastUpdated" : "2021-09-15T01:01:30.000-04:00",
-    "profile" : ["http://hl7.org/fhir/StructureDefinition/shareablevalueset",
-    "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"]
+    "lastUpdated" : "2024-01-18T16:26:47.000-05:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-valueset-cqfm",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "extension" : [{
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
-    "valueString" : "MCC eCare Plan Author"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
-    "valueDate" : "2022-12-15"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
-    "valueDate" : "2021-09-15"
-  }],
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "MCC eCare Plan Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-keyWord",
+      "valueString" : "MCC_IG"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2024-06-03"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2021-09-15"
+    }
+  ],
   "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1222.752",
-  "identifier" : [{
-    "system" : "urn:ietf:rfc:3986",
-    "value" : "urn:oid:2.16.840.1.113762.1.4.1222.752"
-  }],
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113762.1.4.1222.752"
+    }
+  ],
   "version" : "20210915",
   "name" : "PrimaryAldosteronism",
   "title" : "Primary Aldosteronism",
-  "status" : "active",
+  "status" : "retired",
   "experimental" : false,
   "date" : "2021-09-15T01:01:30-04:00",
   "publisher" : "HL7 Patient Care WG Steward",
-  "description" : "Documented diagnosis of Primary Aldosteronism (Business ID: Entry 1216694)",
-  "jurisdiction" : [{
-    "extension" : [{
-      "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
-      "valueString" : "UNKNOWN"
-    }]
-  }],
+  "jurisdiction" : [
+    {
+      "coding" : [
+        {
+          "system" : "urn:iso:std:iso:3166",
+          "code" : "US"
+        }
+      ]
+    }
+  ],
   "purpose" : "(Clinical Focus: This set of values addresses terms representing Primary Aldosteronism.),(Data Element Scope: The intent of this set of values is to identify patients who have a/an documented diagnosis of primary aldosteronism.),(Inclusion Criteria: Includes ICD10CM codes for Primary Aldosteronism.),(Exclusion Criteria: Terms not representative of observable encoded terms that may have values indicating Primary Aldosteronism.)",
   "compose" : {
-    "include" : [{
-      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-      "version" : "2024",
-      "filter" : [{
-        "property" : "concept",
-        "op" : "is-a",
-        "value" : "E26.0"
-      }]
-    },
-    {
-      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-      "version" : "2024",
-      "filter" : [{
-        "property" : "concept",
-        "op" : "is-a",
-        "value" : "E26.01"
-      }]
-    },
-    {
-      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-      "version" : "2024",
-      "filter" : [{
-        "property" : "concept",
-        "op" : "is-a",
-        "value" : "E26.02"
-      }]
-    },
-    {
-      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-      "version" : "2024",
-      "filter" : [{
-        "property" : "concept",
-        "op" : "is-a",
-        "value" : "E26.09"
-      }]
-    }]
+    "include" : [
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2024",
+        "filter" : [
+          {
+            "property" : "concept",
+            "op" : "is-a",
+            "value" : "E26.0"
+          }
+        ]
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2024",
+        "filter" : [
+          {
+            "property" : "concept",
+            "op" : "is-a",
+            "value" : "E26.01"
+          }
+        ]
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2024",
+        "filter" : [
+          {
+            "property" : "concept",
+            "op" : "is-a",
+            "value" : "E26.02"
+          }
+        ]
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2024",
+        "filter" : [
+          {
+            "property" : "concept",
+            "op" : "is-a",
+            "value" : "E26.09"
+          }
+        ]
+      }
+    ]
   },
   "expansion" : {
-    "identifier" : "urn:uuid:877a3b03-6d83-4c97-9f9b-43a220f18971",
-    "timestamp" : "2023-09-26T12:42:13-04:00",
+    "identifier" : "urn:uuid:1c3d0ceb-2b4a-4c8e-baae-0ec7ba9d5624",
+    "timestamp" : "2024-06-14T14:29:12-04:00",
     "total" : 4,
-    "offset" : 0,
-    "parameter" : [{
-      "name" : "count",
-      "valueInteger" : 1000
-    },
-    {
-      "name" : "offset",
-      "valueInteger" : 0
-    }],
-    "contains" : [{
-      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-      "version" : "2024",
-      "code" : "E26.0",
-      "display" : "Primary hyperaldosteronism"
-    },
-    {
-      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-      "version" : "2024",
-      "code" : "E26.01",
-      "display" : "Conn's syndrome"
-    },
-    {
-      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-      "version" : "2024",
-      "code" : "E26.02",
-      "display" : "Glucocorticoid-remediable aldosteronism"
-    },
-    {
-      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-      "version" : "2024",
-      "code" : "E26.09",
-      "display" : "Other primary hyperaldosteronism"
-    }]
+    "contains" : [
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2024",
+        "code" : "E26.0",
+        "display" : "Primary hyperaldosteronism"
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2024",
+        "code" : "E26.01",
+        "display" : "Conn's syndrome"
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2024",
+        "code" : "E26.02",
+        "display" : "Glucocorticoid-remediable aldosteronism"
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2024",
+        "code" : "E26.09",
+        "display" : "Other primary hyperaldosteronism"
+      }
+    ]
   }
 }

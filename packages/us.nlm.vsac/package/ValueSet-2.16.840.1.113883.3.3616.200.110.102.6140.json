@@ -3,78 +3,86 @@
   "id" : "2.16.840.1.113883.3.3616.200.110.102.6140",
   "meta" : {
     "versionId" : "5",
-    "lastUpdated" : "2020-08-18T10:21:27.000-04:00",
-    "profile" : ["http://hl7.org/fhir/StructureDefinition/shareablevalueset",
-    "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"]
+    "lastUpdated" : "2023-12-21T17:43:03.000-05:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-valueset-cqfm",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "extension" : [{
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
-    "valueString" : "Clinical Architecture"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
-    "valueDate" : "2023-06-21"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
-    "valueDate" : "2020-08-18"
-  }],
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "Clinical Architecture"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2023-06-21"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2020-07-10"
+    }
+  ],
   "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.3616.200.110.102.6140",
-  "identifier" : [{
-    "system" : "urn:ietf:rfc:3986",
-    "value" : "urn:oid:2.16.840.1.113883.3.3616.200.110.102.6140"
-  }],
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113883.3.3616.200.110.102.6140"
+    }
+  ],
   "version" : "20200710",
   "name" : "COVID19SNOMEDValueSetForHistoryOfDeepVeinThrombosis",
   "title" : "COVID19 SNOMED Value Set for History of Deep Vein Thrombosis",
-  "status" : "active",
+  "status" : "retired",
   "experimental" : false,
   "date" : "2023-06-21T18:16:37-04:00",
   "publisher" : "Clinical Architecture",
-  "jurisdiction" : [{
-    "extension" : [{
-      "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
-      "valueString" : "UNKNOWN"
-    }]
-  }],
+  "jurisdiction" : [
+    {
+      "coding" : [
+        {
+          "system" : "urn:iso:std:iso:3166",
+          "code" : "US"
+        }
+      ]
+    }
+  ],
   "purpose" : "(Clinical Focus: This set of values contains terms related to personal history of deep vein thrombosis and is listed as a cardiovascular disease on the CDC SARS-CoV-2 hospitalization surveillance case report form.),(Data Element Scope: ),(Inclusion Criteria: Includes personal history of deep vein thrombosis.),(Exclusion Criteria: )",
   "compose" : {
-    "include" : [{
-      "system" : "http://snomed.info/sct",
-      "concept" : [{
+    "include" : [
+      {
+        "system" : "http://snomed.info/sct",
+        "concept" : [
+          {
+            "code" : "141911000119100",
+            "display" : "History of recurrent deep vein thrombosis (situation)"
+          },
+          {
+            "code" : "161508001",
+            "display" : "History of deep vein thrombosis (situation)"
+          }
+        ]
+      }
+    ]
+  },
+  "expansion" : {
+    "identifier" : "urn:uuid:c117f803-4b12-4da5-b0d4-453c863a2be3",
+    "timestamp" : "2024-06-14T16:22:55-04:00",
+    "total" : 2,
+    "contains" : [
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
         "code" : "141911000119100",
         "display" : "History of recurrent deep vein thrombosis (situation)"
       },
       {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
         "code" : "161508001",
         "display" : "History of deep vein thrombosis (situation)"
-      }]
-    }]
-  },
-  "expansion" : {
-    "identifier" : "urn:uuid:7e096763-c206-47f8-b8fc-c164d1020061",
-    "timestamp" : "2023-09-26T09:47:45-04:00",
-    "total" : 2,
-    "offset" : 0,
-    "parameter" : [{
-      "name" : "count",
-      "valueInteger" : 1000
-    },
-    {
-      "name" : "offset",
-      "valueInteger" : 0
-    }],
-    "contains" : [{
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "141911000119100",
-      "display" : "History of recurrent deep vein thrombosis (situation)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "161508001",
-      "display" : "History of deep vein thrombosis (situation)"
-    }]
+      }
+    ]
   }
 }

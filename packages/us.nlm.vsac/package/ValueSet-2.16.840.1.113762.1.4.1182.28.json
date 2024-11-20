@@ -3,68 +3,76 @@
   "id" : "2.16.840.1.113762.1.4.1182.28",
   "meta" : {
     "versionId" : "5",
-    "lastUpdated" : "2018-05-26T01:39:50.000-04:00",
-    "profile" : ["http://hl7.org/fhir/StructureDefinition/shareablevalueset",
-    "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"]
+    "lastUpdated" : "2023-12-21T17:43:03.000-05:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-valueset-cqfm",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "extension" : [{
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
-    "valueString" : "Change Healthcare Author"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
-    "valueDate" : "2022-12-15"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
-    "valueDate" : "2018-05-26"
-  }],
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "Change Healthcare Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2024-06-03"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2018-05-26"
+    }
+  ],
   "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1182.28",
-  "identifier" : [{
-    "system" : "urn:ietf:rfc:3986",
-    "value" : "urn:oid:2.16.840.1.113762.1.4.1182.28"
-  }],
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113762.1.4.1182.28"
+    }
+  ],
   "version" : "20180526",
   "name" : "PatientWasReferredToProviderOrSpecialist",
   "title" : "Patient was Referred to Provider or Specialist",
-  "status" : "active",
+  "status" : "retired",
   "experimental" : false,
   "date" : "2018-05-26T01:00:04-04:00",
   "publisher" : "Change Healthcare Steward",
-  "jurisdiction" : [{
-    "extension" : [{
-      "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
-      "valueString" : "UNKNOWN"
-    }]
-  }],
+  "jurisdiction" : [
+    {
+      "coding" : [
+        {
+          "system" : "urn:iso:std:iso:3166",
+          "code" : "US"
+        }
+      ]
+    }
+  ],
   "purpose" : "(Clinical Focus: Effective Communication and Care Coordination),(Data Element Scope: HCPCS G code represents Pt was referred.),(Inclusion Criteria: Indicates a referral was performed),(Exclusion Criteria: n/a)",
   "compose" : {
-    "include" : [{
-      "system" : "http://www.nlm.nih.gov/research/umls/hcpcs",
-      "concept" : [{
-        "code" : "G9968",
-        "display" : "Patient was referred to another provider or specialist during the performance period"
-      }]
-    }]
+    "include" : [
+      {
+        "system" : "http://www.nlm.nih.gov/research/umls/hcpcs",
+        "concept" : [
+          {
+            "code" : "G9968",
+            "display" : "Patient was referred to another provider or specialist during the performance period"
+          }
+        ]
+      }
+    ]
   },
   "expansion" : {
-    "identifier" : "urn:uuid:3d4f2e70-c53e-49a6-bd85-932c22ed7add",
-    "timestamp" : "2023-09-26T12:27:00-04:00",
+    "identifier" : "urn:uuid:4ac466e7-6379-42ea-bc62-0467439fa3e0",
+    "timestamp" : "2024-06-14T12:54:03-04:00",
     "total" : 1,
-    "offset" : 0,
-    "parameter" : [{
-      "name" : "count",
-      "valueInteger" : 1000
-    },
-    {
-      "name" : "offset",
-      "valueInteger" : 0
-    }],
-    "contains" : [{
-      "system" : "http://www.nlm.nih.gov/research/umls/hcpcs",
-      "version" : "2023",
-      "code" : "G9968",
-      "display" : "Patient was referred to another clinician or specialist during the measurement period"
-    }]
+    "contains" : [
+      {
+        "system" : "http://www.nlm.nih.gov/research/umls/hcpcs",
+        "version" : "2024",
+        "code" : "G9968",
+        "display" : "Patient was referred to another clinician or specialist during the measurement period"
+      }
+    ]
   }
 }

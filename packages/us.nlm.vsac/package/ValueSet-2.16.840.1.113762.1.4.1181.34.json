@@ -3,78 +3,86 @@
   "id" : "2.16.840.1.113762.1.4.1181.34",
   "meta" : {
     "versionId" : "5",
-    "lastUpdated" : "2019-07-10T01:00:18.000-04:00",
-    "profile" : ["http://hl7.org/fhir/StructureDefinition/shareablevalueset",
-    "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"]
+    "lastUpdated" : "2023-12-21T17:43:03.000-05:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-valueset-cqfm",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "extension" : [{
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
-    "valueString" : "HSPC Author"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
-    "valueDate" : "2022-12-15"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
-    "valueDate" : "2019-07-10"
-  }],
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "HSPC Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2024-06-03"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2019-07-10"
+    }
+  ],
   "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1181.34",
-  "identifier" : [{
-    "system" : "urn:ietf:rfc:3986",
-    "value" : "urn:oid:2.16.840.1.113762.1.4.1181.34"
-  }],
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113762.1.4.1181.34"
+    }
+  ],
   "version" : "20190710",
   "name" : "RespiratoryRateMeasurementDeviceReferenceSet",
   "title" : "Respiratory rate measurement device reference set",
-  "status" : "active",
+  "status" : "retired",
   "experimental" : false,
   "date" : "2019-07-10T01:00:18-04:00",
   "publisher" : "HSPC Steward",
-  "jurisdiction" : [{
-    "extension" : [{
-      "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
-      "valueString" : "UNKNOWN"
-    }]
-  }],
+  "jurisdiction" : [
+    {
+      "coding" : [
+        {
+          "system" : "urn:iso:std:iso:3166",
+          "code" : "US"
+        }
+      ]
+    }
+  ],
   "purpose" : "(Clinical Focus: Respiratory rate measurement device value set as defined by the Clinical Information Modeling Initiative.),(Data Element Scope: This reference set contains concepts used to result the type of device used to measure respiratory rate and related indicators of respiratory function (such as concentration of carbon dioxide), referencing the LOINC term \"Type of Breath rate device\" 9277-5, resulting the SNOMED CT concept: Respiratory rate measurement device reference set (foundation metadata concept)\n23851000205109),(Inclusion Criteria: This value set is missing 2 concepts from the HSPC extension namespace: Capnograph sensor device (physical object) 23861000205107,  Respiration strain gauge (physical object) 23921000205109.),(Exclusion Criteria: )",
   "compose" : {
-    "include" : [{
-      "system" : "http://snomed.info/sct",
-      "concept" : [{
+    "include" : [
+      {
+        "system" : "http://snomed.info/sct",
+        "concept" : [
+          {
+            "code" : "334990001",
+            "display" : "Peak flow meter (physical object)"
+          },
+          {
+            "code" : "717730001",
+            "display" : "Impedance pneumography recording/analysis system (physical object)"
+          }
+        ]
+      }
+    ]
+  },
+  "expansion" : {
+    "identifier" : "urn:uuid:900840ff-c0dd-4d87-98cf-74e210c8ad7a",
+    "timestamp" : "2024-06-14T12:40:03-04:00",
+    "total" : 2,
+    "contains" : [
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
         "code" : "334990001",
         "display" : "Peak flow meter (physical object)"
       },
       {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
         "code" : "717730001",
         "display" : "Impedance pneumography recording/analysis system (physical object)"
-      }]
-    }]
-  },
-  "expansion" : {
-    "identifier" : "urn:uuid:e8411ebd-f80f-47ba-915d-c82e7b42020c",
-    "timestamp" : "2023-09-26T12:57:28-04:00",
-    "total" : 2,
-    "offset" : 0,
-    "parameter" : [{
-      "name" : "count",
-      "valueInteger" : 1000
-    },
-    {
-      "name" : "offset",
-      "valueInteger" : 0
-    }],
-    "contains" : [{
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "334990001",
-      "display" : "Peak flow meter (physical object)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "717730001",
-      "display" : "Impedance pneumography recording/analysis system (physical object)"
-    }]
+      }
+    ]
   }
 }

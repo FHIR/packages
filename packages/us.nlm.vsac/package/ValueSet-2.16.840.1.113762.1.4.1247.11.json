@@ -2,953 +2,1052 @@
   "resourceType" : "ValueSet",
   "id" : "2.16.840.1.113762.1.4.1247.11",
   "meta" : {
-    "versionId" : "8",
-    "lastUpdated" : "2022-03-02T18:04:09.000-05:00",
-    "profile" : ["http://hl7.org/fhir/StructureDefinition/shareablevalueset",
-    "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"]
+    "versionId" : "14",
+    "lastUpdated" : "2024-06-04T01:21:19.000-04:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-valueset-cqfm",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "extension" : [{
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
-    "valueString" : "The Gravity Project Author"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
-    "valueDate" : "2022-12-15"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
-    "valueDate" : "2022-03-02"
-  }],
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "The Gravity Project Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2024-06-04"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2024-06-04"
+    }
+  ],
   "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1247.11",
-  "identifier" : [{
-    "system" : "urn:ietf:rfc:3986",
-    "value" : "urn:oid:2.16.840.1.113762.1.4.1247.11"
-  }],
-  "version" : "20211113",
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113762.1.4.1247.11"
+    }
+  ],
+  "version" : "20240604",
   "name" : "FoodInsecurityServiceRequests",
   "title" : "Food Insecurity Service Requests",
   "status" : "active",
-  "experimental" : false,
-  "date" : "2022-03-03T18:46:01-05:00",
+  "date" : "2024-06-04T01:21:19-04:00",
   "publisher" : "The Gravity Project Steward",
-  "jurisdiction" : [{
-    "extension" : [{
-      "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
-      "valueString" : "UNKNOWN"
-    }]
-  }],
-  "purpose" : "(Clinical Focus: <insert metadata>\n\nThe value sets in this group represent the interventions associated with food insecurity as identified by the Gravity Project),(Data Element Scope: Supports the Gravity SDOH Clinical Care FHIR Implementation guide for the exchange of servicerequest.code elements.),(Inclusion Criteria: Includes SNOMED CT, CPT, HCPCS interventions  that have been identified through the Gravity Project community consensus voting process),(Exclusion Criteria: N/A)",
+  "description" : "Although values in the value sets for Procedure and ServiceRequest may initially be identical, they are anticipated to diverge over time. For this reason, there are separate value sets for Procedure and ServiceRequest.",
+  "jurisdiction" : [
+    {
+      "coding" : [
+        {
+          "system" : "urn:iso:std:iso:3166",
+          "code" : "US"
+        }
+      ]
+    }
+  ],
+  "purpose" : "(Clinical Focus: This set of values represent interventions for Food Insecurity as selected by the Gravity Project.),(Data Element Scope: In the FHIR ServiceRequest resource, these values may be used for ServiceRequest.code (e.g., for the SDOHCC ServiceRequest profile in the Gravity SDOH Clinical Care FHIR Implementation Guide).),(Inclusion Criteria: Includes SNOMED CT, CPT, and HCPCS interventions for Food Insecurity as selected by the Gravity Project.),(Exclusion Criteria: NA)",
   "compose" : {
-    "include" : [{
-      "valueSet" : ["http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1247.15"]
-    },
-    {
-      "valueSet" : ["http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1247.5"]
-    },
-    {
-      "valueSet" : ["http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1247.9"]
-    },
-    {
-      "valueSet" : ["http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1247.8"]
-    },
-    {
-      "valueSet" : ["http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1247.6"]
-    }]
+    "include" : [
+      {
+        "valueSet" : [
+          "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1247.8"
+        ]
+      },
+      {
+        "valueSet" : [
+          "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1247.9"
+        ]
+      },
+      {
+        "valueSet" : [
+          "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1247.6"
+        ]
+      },
+      {
+        "valueSet" : [
+          "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1247.15"
+        ]
+      },
+      {
+        "valueSet" : [
+          "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1247.5"
+        ]
+      },
+      {
+        "valueSet" : [
+          "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1247.253"
+        ]
+      }
+    ]
   },
   "expansion" : {
-    "identifier" : "urn:uuid:588ef6ac-b4ea-47d2-a95c-e526b096f5ea",
-    "timestamp" : "2023-09-26T10:31:11-04:00",
-    "total" : 147,
-    "offset" : 0,
-    "parameter" : [{
-      "name" : "count",
-      "valueInteger" : 1000
-    },
-    {
-      "name" : "offset",
-      "valueInteger" : 0
-    }],
-    "contains" : [{
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "1002223009",
-      "display" : "Assessment of progress toward goals to achieve food security (procedure)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "1002224003",
-      "display" : "Assessment for food insecurity (procedure)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "1002225002",
-      "display" : "Assessment of barriers in food insecurity care plan (procedure)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "1004109000",
-      "display" : "Assessment of goals to achieve food security (procedure)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "1004110005",
-      "display" : "Coordination of resources to address food insecurity (procedure)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "103699006",
-      "display" : "Patient referral to dietitian (procedure)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "1148446004",
-      "display" : "Education about legal aid (procedure)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "1162436000",
-      "display" : "Referral to legal aid (procedure)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "1230338004",
-      "display" : "Referral to charitable organization (procedure)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "1759002",
-      "display" : "Assessment of nutritional status (procedure)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "308440001",
-      "display" : "Referral to social worker (procedure)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "385767005",
-      "display" : "Meals on wheels provision education (procedure)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "441041000124100",
-      "display" : "Counseling about nutrition (regime/therapy)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "441201000124108",
-      "display" : "Counseling about nutrition using cognitive behavioral theoretical approach (regime/therapy)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "441231000124100",
-      "display" : "Counseling about nutrition using health belief model (regime/therapy)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "441241000124105",
-      "display" : "Counseling about nutrition using social learning theory approach (regime/therapy)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "441251000124107",
-      "display" : "Counseling about nutrition using transtheoretical model and stages of change approach (regime/therapy)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "441261000124109",
-      "display" : "Counseling about nutrition using motivational interviewing technique (regime/therapy)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "441271000124102",
-      "display" : "Counseling about nutrition using goal setting strategy (regime/therapy)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "441281000124104",
-      "display" : "Counseling about nutrition using self-monitoring strategy (regime/therapy)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "441291000124101",
-      "display" : "Counseling about nutrition using problem solving strategy (regime/therapy)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "441301000124100",
-      "display" : "Counseling about nutrition using social support strategy (regime/therapy)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "441311000124102",
-      "display" : "Counseling about nutrition using stress management strategy (regime/therapy)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "441321000124105",
-      "display" : "Counseling about nutrition using stimulus control strategy (regime/therapy)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "441331000124108",
-      "display" : "Counseling about nutrition using cognitive restructuring strategy (regime/therapy)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "441341000124103",
-      "display" : "Counseling about nutrition using relapse prevention strategy (regime/therapy)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "441351000124101",
-      "display" : "Counseling about nutrition using rewards and contingency management strategy (regime/therapy)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "445291000124103",
-      "display" : "Nutrition-related skill education (procedure)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "445301000124102",
-      "display" : "Content-related nutrition education (procedure)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "445641000124105",
-      "display" : "Technical nutrition education (procedure)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "461481000124109",
-      "display" : "Referral to peer support (procedure)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "462481000124102",
-      "display" : "Referral to Community Action Agency program (procedure)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "462491000124104",
-      "display" : "Referral to benefits enrollment assistance program (procedure)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "464001000124109",
-      "display" : "Referral to case manager (procedure)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "464011000124107",
-      "display" : "Referral to care manager (procedure)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "464021000124104",
-      "display" : "Referral to care navigator (procedure)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "464031000124101",
-      "display" : "Referral to food pantry program (procedure)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "464041000124106",
-      "display" : "Referral to Child and Adult Care Food Program (procedure)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "464051000124108",
-      "display" : "Referral to Gus Schumacher Nutrition Incentive Program (procedure)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "464061000124105",
-      "display" : "Referral to food prescription program (procedure)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "464071000124103",
-      "display" : "Referral to garden program (procedure)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "464081000124100",
-      "display" : "Referral to home-delivered meals program (procedure)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "464091000124102",
-      "display" : "Referral to medically tailored meal program (procedure)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "464101000124108",
-      "display" : "Referral to Supplemental Nutrition Assistance Program (procedure)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "464111000124106",
-      "display" : "Referral to Special Supplemental Nutrition Program for Women, Infants and Children (procedure)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "464121000124103",
-      "display" : "Referral to Summer Food Service Program (procedure)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "464131000124100",
-      "display" : "Referral to community health worker (procedure)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "464141000124105",
-      "display" : "Referral to Meals on Wheels Program (procedure)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "464151000124107",
-      "display" : "Referral to congregate meal program (procedure)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "464161000124109",
-      "display" : "Referral to community resource network program (procedure)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "464171000124102",
-      "display" : "Referral to Senior Farmers' Market Nutrition Program (procedure)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "464181000124104",
-      "display" : "Referral to Farmers' Market Nutrition Program for Women, Infants and Children (procedure)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "464191000124101",
-      "display" : "Referral to Food Distribution Program on Indian Reservations (procedure)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "464201000124103",
-      "display" : "Education about Child and Adult Care Food Program (procedure)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "464211000124100",
-      "display" : "Education about Community Meals Program (procedure)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "464221000124108",
-      "display" : "Education about Gus Schumacher Nutrition Incentive Program (procedure)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "464231000124106",
-      "display" : "Education about food pantry program (procedure)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "464241000124101",
-      "display" : "Education about food prescription program (procedure)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "464251000124104",
-      "display" : "Education about garden program (procedure)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "464261000124102",
-      "display" : "Education about home-delivered meals program (procedure)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "464271000124109",
-      "display" : "Education about medically tailored meal program (procedure)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "464281000124107",
-      "display" : "Education about Special Supplement Nutrition Program for Women, Infants and Children (procedure)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "464291000124105",
-      "display" : "Education about community resource network program (procedure)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "464301000124106",
-      "display" : "Education about benefits enrollment assistance program (procedure)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "464311000124109",
-      "display" : "Education about Community Action Agency program (procedure)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "464321000124101",
-      "display" : "Education about Food Distribution Program on Indian Reservations (procedure)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "464331000124103",
-      "display" : "Education about Farmers' Market Nutrition Program for Women, Infants and Children (procedure)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "464341000124108",
-      "display" : "Education about Senior Farmers' Market Nutrition Program (procedure)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "464351000124105",
-      "display" : "Education about congregate meal program (procedure)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "464361000124107",
-      "display" : "Education about Supplemental Nutrition Assistance Program (procedure)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "464371000124100",
-      "display" : "Education about Summer Food Service Program (procedure)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "464381000124102",
-      "display" : "Provision of prescription for infant formula (procedure)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "464401000124102",
-      "display" : "Provision of fresh fruit and vegetable voucher (procedure)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "464411000124104",
-      "display" : "Provision of food voucher (procedure)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "464421000124107",
-      "display" : "Provision of home-delivered meals (procedure)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "464431000124105",
-      "display" : "Provision of medically tailored meals (procedure)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "464611000124102",
-      "display" : "Coordination of care team (procedure)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "464621000124105",
-      "display" : "Evaluation of eligibility for home-delivered meals program (procedure)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "464631000124108",
-      "display" : "Evaluation of eligibility for Meals on Wheels program (procedure)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "464641000124103",
-      "display" : "Evaluation of eligibility for medically tailored meals program (procedure)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "464651000124101",
-      "display" : "Evaluation of eligibility for Senior Farmers' Market Nutrition Program (procedure)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "464661000124104",
-      "display" : "Evaluation of eligibility for Special Supplemental Nutrition Program for Women, Infants and Children (procedure)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "464671000124106",
-      "display" : "Counseling for readiness to implement food insecurity care plan (procedure)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "464681000124109",
-      "display" : "Counseling for food insecurity care plan participation barriers (procedure)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "464691000124107",
-      "display" : "Counseling for barriers to achieving food security (procedure)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "464701000124107",
-      "display" : "Counseling for readiness to achieve food security goals (procedure)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "464721000124102",
-      "display" : "Provision of food prescription (procedure)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "467591000124102",
-      "display" : "Evaluation of eligibility for food pantry program (procedure)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "467601000124105",
-      "display" : "Evaluation of eligibility for Food Distribution Program on Indian Reservations (procedure)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "467611000124108",
-      "display" : "Evaluation of eligibility for Farmers' Market Nutrition Program for Women, Infants and Children (procedure)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "467621000124100",
-      "display" : "Evaluation of eligibility for Supplemental Nutrition Assistance Program (procedure)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "467631000124102",
-      "display" : "Evaluation of eligibility for Summer Food Service Program (procedure)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "467641000124107",
-      "display" : "Evaluation of eligibility for Gus Schumacher Nutrition Incentive funded program (procedure)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "467651000124109",
-      "display" : "Evaluation of eligibility for garden program (procedure)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "467661000124106",
-      "display" : "Evaluation of eligibility for Community Meal Program (procedure)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "467671000124104",
-      "display" : "Evaluation of eligibility for Child and Adult Care Food Program (procedure)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "467681000124101",
-      "display" : "Assistance with application for Summer Food Service Program (procedure)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "467691000124103",
-      "display" : "Assistance with application for Special Supplemental Nutrition Program for Women, Infants and Children (procedure)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "467711000124100",
-      "display" : "Assistance with application for Senior Farmers' Market Nutrition Program (procedure)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "467721000124108",
-      "display" : "Assistance with application for Medically Tailored Meals Program (procedure)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "467731000124106",
-      "display" : "Assistance with application for Home-Delivered Meals Program (procedure)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "467741000124101",
-      "display" : "Assistance with Application for Gus Schumacher Nutrition Incentive Program (procedure)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "467751000124104",
-      "display" : "Assistance with application for garden program (procedure)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "467761000124102",
-      "display" : "Assistance with application for food prescription program (procedure)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "467771000124109",
-      "display" : "Assistance with application for food pantry program (procedure)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "467781000124107",
-      "display" : "Assistance with application for Child and Adult Care Food Program (procedure)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "467791000124105",
-      "display" : "Assistance with application for Food Distribution Program on Indian Reservations (procedure)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "467801000124106",
-      "display" : "Assistance with application for Community Meal Program (procedure)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "467811000124109",
-      "display" : "Assistance with application for Farmers' Market Nutrition Program for Women, Infants and Children (procedure)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "467821000124101",
-      "display" : "Assistance with application for Supplemental Nutrition Assistance Program (procedure)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "468401000124109",
-      "display" : "Evaluation of eligibility for food prescription program (procedure)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "470231000124107",
-      "display" : "Counseling for social determinant of health risk (procedure)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "470241000124102",
-      "display" : "Assistance with application for national school lunch program (procedure)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "470261000124103",
-      "display" : "Assistance with application for school breakfast program (procedure)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "470281000124108",
-      "display" : "Evaluation of eligibility for school breakfast program (procedure)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "470291000124106",
-      "display" : "Referral to national school lunch program (procedure)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "470301000124107",
-      "display" : "Referral to school breakfast program (procedure)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "470311000124105",
-      "display" : "Education about national school lunch program (procedure)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "470321000124102",
-      "display" : "Education about school breakfast program (procedure)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "470591000124109",
-      "display" : "Education about community development financial institution (procedure)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "470601000124101",
-      "display" : "Education about community development corporation (procedure)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "470611000124103",
-      "display" : "Education about area agency on aging program (procedure)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "471111000124101",
-      "display" : "Referral to community development financial institution (procedure)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "471121000124109",
-      "display" : "Referral to community development corporation (procedure)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "471131000124107",
-      "display" : "Referral to area agency on aging (procedure)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "472151000124109",
-      "display" : "Referral to medical legal partnership program (procedure)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "472331000124100",
-      "display" : "Education about medical legal partnership program (procedure)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "551101000124107",
-      "display" : "Referral to lawyer (procedure)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "61310001",
-      "display" : "Nutrition education (procedure)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "661101000124109",
-      "display" : "Education about State Funded Food Assistance Program (procedure)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "661181000124100",
-      "display" : "Education about peer support specialist service (procedure)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "662151000124104",
-      "display" : "Assistance with application for State Funded Food Assistance Program (procedure)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "662651000124105",
-      "display" : "Evaluation of eligibility for State Funded Food Assistance Program (procedure)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "663081000124100",
-      "display" : "Referral to State Funded Food Assistance Program (procedure)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "663211000124100",
-      "display" : "Referral to peer support specialist (procedure)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "710824005",
-      "display" : "Assessment of health and social care needs (procedure)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "710925007",
-      "display" : "Provision of food (procedure)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "711069006",
-      "display" : "Coordination of care plan (procedure)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "713109004",
-      "display" : "Referral to community meals service (procedure)"
-    },
-    {
-      "system" : "http://www.ama-assn.org/go/cpt",
-      "version" : "2023",
-      "code" : "96156",
-      "display" : "Health behavior assessment, or re-assessment (ie, health-focused clinical interview, behavioral observations, clinical decision making)"
-    },
-    {
-      "system" : "http://www.ama-assn.org/go/cpt",
-      "version" : "2023",
-      "code" : "96160",
-      "display" : "Administration of patient-focused health risk assessment instrument (eg, health hazard appraisal) with scoring and documentation, per standardized instrument"
-    },
-    {
-      "system" : "http://www.ama-assn.org/go/cpt",
-      "version" : "2023",
-      "code" : "96161",
-      "display" : "Administration of caregiver-focused health risk assessment instrument (eg, depression inventory) for the benefit of the patient, with scoring and documentation, per standardized instrument"
-    },
-    {
-      "system" : "http://www.ama-assn.org/go/cpt",
-      "version" : "2023",
-      "code" : "97802",
-      "display" : "Medical nutrition therapy; initial assessment and intervention, individual, face-to-face with the patient, each 15 minutes"
-    },
-    {
-      "system" : "http://www.ama-assn.org/go/cpt",
-      "version" : "2023",
-      "code" : "97803",
-      "display" : "Medical nutrition therapy; re-assessment and intervention, individual, face-to-face with the patient, each 15 minutes"
-    },
-    {
-      "system" : "http://www.ama-assn.org/go/cpt",
-      "version" : "2023",
-      "code" : "97804",
-      "display" : "Medical nutrition therapy; group (2 or more individual(s)), each 30 minutes"
-    },
-    {
-      "system" : "http://www.nlm.nih.gov/research/umls/hcpcs",
-      "version" : "2023",
-      "code" : "S5170",
-      "display" : "Home delivered meals, including preparation; per meal"
-    },
-    {
-      "system" : "http://www.nlm.nih.gov/research/umls/hcpcs",
-      "version" : "2023",
-      "code" : "S9470",
-      "display" : "Nutritional counseling, dietitian visit"
-    }]
+    "identifier" : "urn:uuid:f363165c-e336-4d6e-a15a-53063a704497",
+    "timestamp" : "2024-06-14T14:55:21-04:00",
+    "total" : 160,
+    "contains" : [
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "1002223009",
+        "display" : "Assessment of progress toward goals to achieve food security (procedure)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "1002224003",
+        "display" : "Assessment for food insecurity (procedure)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "1002225002",
+        "display" : "Assessment of barriers in food insecurity care plan (procedure)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "1004109000",
+        "display" : "Assessment of goals to achieve food security (procedure)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "1004110005",
+        "display" : "Coordination of resources to address food insecurity (procedure)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "103699006",
+        "display" : "Referral to dietitian (procedure)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "1148446004",
+        "display" : "Education about legal aid (procedure)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "1162436000",
+        "display" : "Referral to legal aid (procedure)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "1230338004",
+        "display" : "Referral to charitable organization (procedure)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "1268662008",
+        "display" : "Coordination of resources to address social needs (procedure)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "1268726004",
+        "display" : "Education about peer support program (procedure)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "1268727008",
+        "display" : "Education about charitable organization (procedure)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "1269404007",
+        "display" : "Adjustment of clinical plan to accommodate social risk (procedure)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "1759002",
+        "display" : "Assessment of nutritional status (procedure)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "308440001",
+        "display" : "Referral to social worker (procedure)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "385767005",
+        "display" : "Meals on wheels provision education (procedure)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "441041000124100",
+        "display" : "Counseling about nutrition (regime/therapy)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "441201000124108",
+        "display" : "Counseling about nutrition using cognitive behavioral theoretical approach (regime/therapy)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "441231000124100",
+        "display" : "Counseling about nutrition using health belief model (regime/therapy)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "441241000124105",
+        "display" : "Counseling about nutrition using social learning theory approach (regime/therapy)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "441251000124107",
+        "display" : "Counseling about nutrition using transtheoretical model and stages of change approach (regime/therapy)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "441261000124109",
+        "display" : "Counseling about nutrition using motivational interviewing technique (regime/therapy)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "441271000124102",
+        "display" : "Counseling about nutrition using goal setting strategy (regime/therapy)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "441281000124104",
+        "display" : "Counseling about nutrition using self-monitoring strategy (regime/therapy)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "441291000124101",
+        "display" : "Counseling about nutrition using problem solving strategy (regime/therapy)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "441301000124100",
+        "display" : "Counseling about nutrition using social support strategy (regime/therapy)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "441311000124102",
+        "display" : "Counseling about nutrition using stress management strategy (regime/therapy)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "441321000124105",
+        "display" : "Counseling about nutrition using stimulus control strategy (regime/therapy)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "441331000124108",
+        "display" : "Counseling about nutrition using cognitive restructuring strategy (regime/therapy)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "441341000124103",
+        "display" : "Counseling about nutrition using relapse prevention strategy (regime/therapy)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "441351000124101",
+        "display" : "Counseling about nutrition using rewards and contingency management strategy (regime/therapy)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "445291000124103",
+        "display" : "Nutrition-related skill education (procedure)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "445301000124102",
+        "display" : "Content-related nutrition education (procedure)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "445641000124105",
+        "display" : "Technical nutrition education (procedure)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "461481000124109",
+        "display" : "Referral to peer support (procedure)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "462481000124102",
+        "display" : "Referral to Community Action Agency program (procedure)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "462491000124104",
+        "display" : "Referral to benefits enrollment assistance program (procedure)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "464001000124109",
+        "display" : "Referral to case manager (procedure)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "464011000124107",
+        "display" : "Referral to care manager (procedure)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "464021000124104",
+        "display" : "Referral to care navigator (procedure)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "464031000124101",
+        "display" : "Referral to food pantry program (procedure)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "464041000124106",
+        "display" : "Referral to Child and Adult Care Food Program (procedure)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "464051000124108",
+        "display" : "Referral to Gus Schumacher Nutrition Incentive-funded Program (procedure)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "464061000124105",
+        "display" : "Referral to food prescription program (procedure)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "464071000124103",
+        "display" : "Referral to garden program (procedure)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "464081000124100",
+        "display" : "Referral to home-delivered meals program (procedure)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "464091000124102",
+        "display" : "Referral to medically tailored meal program (procedure)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "464101000124108",
+        "display" : "Referral to Supplemental Nutrition Assistance Program (procedure)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "464111000124106",
+        "display" : "Referral to Special Supplemental Nutrition Program for Women, Infants and Children (procedure)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "464121000124103",
+        "display" : "Referral to Summer Food Service Program (procedure)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "464131000124100",
+        "display" : "Referral to community health worker (procedure)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "464141000124105",
+        "display" : "Referral to Meals on Wheels Program (procedure)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "464151000124107",
+        "display" : "Referral to congregate meal program (procedure)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "464161000124109",
+        "display" : "Referral to community resource network program (procedure)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "464171000124102",
+        "display" : "Referral to Senior Farmers' Market Nutrition Program (procedure)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "464181000124104",
+        "display" : "Referral to Farmers' Market Nutrition Program for Women, Infants and Children (procedure)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "464191000124101",
+        "display" : "Referral to Food Distribution Program on Indian Reservations (procedure)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "464201000124103",
+        "display" : "Education about Child and Adult Care Food Program (procedure)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "464211000124100",
+        "display" : "Education about Community Meals Program (procedure)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "464221000124108",
+        "display" : "Education about Gus Schumacher Nutrition Incentive-funded Program (procedure)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "464231000124106",
+        "display" : "Education about food pantry program (procedure)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "464241000124101",
+        "display" : "Education about food prescription program (procedure)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "464251000124104",
+        "display" : "Education about garden program (procedure)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "464261000124102",
+        "display" : "Education about home-delivered meals program (procedure)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "464271000124109",
+        "display" : "Education about medically tailored meals program (procedure)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "464281000124107",
+        "display" : "Education about Special Supplement Nutrition Program for Women, Infants and Children (procedure)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "464291000124105",
+        "display" : "Education about community resource network program (procedure)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "464301000124106",
+        "display" : "Education about benefits enrollment assistance program (procedure)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "464311000124109",
+        "display" : "Education about Community Action Agency Program (procedure)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "464321000124101",
+        "display" : "Education about Food Distribution Program on Indian Reservations (procedure)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "464331000124103",
+        "display" : "Education about Farmers' Market Nutrition Program for Women, Infants and Children (procedure)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "464341000124108",
+        "display" : "Education about Senior Farmers' Market Nutrition Program (procedure)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "464351000124105",
+        "display" : "Education about congregate meal program (procedure)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "464361000124107",
+        "display" : "Education about Supplemental Nutrition Assistance Program (procedure)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "464371000124100",
+        "display" : "Education about Summer Food Service Program (procedure)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "464381000124102",
+        "display" : "Provision of prescription for infant formula (procedure)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "464401000124102",
+        "display" : "Provision of fresh fruit and vegetable voucher (procedure)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "464411000124104",
+        "display" : "Provision of food voucher (procedure)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "464421000124107",
+        "display" : "Provision of home-delivered meals (procedure)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "464431000124105",
+        "display" : "Provision of medically tailored meals (procedure)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "464611000124102",
+        "display" : "Coordination of care team (procedure)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "464621000124105",
+        "display" : "Evaluation of eligibility for home-delivered meals program (procedure)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "464631000124108",
+        "display" : "Evaluation of eligibility for Meals on Wheels Program (procedure)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "464641000124103",
+        "display" : "Evaluation of eligibility for medically tailored meals program (procedure)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "464651000124101",
+        "display" : "Evaluation of eligibility for Senior Farmers' Market Nutrition Program (procedure)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "464661000124104",
+        "display" : "Evaluation of eligibility for Special Supplemental Nutrition Program for Women, Infants and Children (procedure)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "464671000124106",
+        "display" : "Counseling for readiness to implement food insecurity care plan (procedure)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "464681000124109",
+        "display" : "Counseling for food insecurity care plan participation barriers (procedure)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "464691000124107",
+        "display" : "Counseling for barriers to achieving food security (procedure)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "464701000124107",
+        "display" : "Counseling for readiness to achieve food security goals (procedure)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "464721000124102",
+        "display" : "Provision of food prescription (procedure)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "467591000124102",
+        "display" : "Evaluation of eligibility for food pantry program (procedure)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "467601000124105",
+        "display" : "Evaluation of eligibility for Food Distribution Program on Indian Reservations (procedure)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "467611000124108",
+        "display" : "Evaluation of eligibility for Farmers' Market Nutrition Program for Women, Infants and Children (procedure)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "467621000124100",
+        "display" : "Evaluation of eligibility for Supplemental Nutrition Assistance Program (procedure)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "467631000124102",
+        "display" : "Evaluation of eligibility for Summer Food Service Program (procedure)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "467641000124107",
+        "display" : "Evaluation of eligibility for Gus Schumacher Nutrition Incentive-funded Program (procedure)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "467651000124109",
+        "display" : "Evaluation of eligibility for garden program (procedure)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "467661000124106",
+        "display" : "Evaluation of eligibility for Community Meal Program (procedure)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "467671000124104",
+        "display" : "Evaluation of eligibility for Child and Adult Care Food Program (procedure)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "467681000124101",
+        "display" : "Assistance with application for Summer Food Service Program (procedure)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "467691000124103",
+        "display" : "Assistance with application for Special Supplemental Nutrition Program for Women, Infants and Children (procedure)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "467711000124100",
+        "display" : "Assistance with application for Senior Farmers' Market Nutrition Program (procedure)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "467721000124108",
+        "display" : "Assistance with application for medically tailored meals program (procedure)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "467731000124106",
+        "display" : "Assistance with application for home-delivered meals program (procedure)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "467741000124101",
+        "display" : "Assistance with application for Gus Schumacher Nutrition Incentive-funded Program (procedure)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "467751000124104",
+        "display" : "Assistance with application for garden program (procedure)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "467761000124102",
+        "display" : "Assistance with application for food prescription program (procedure)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "467771000124109",
+        "display" : "Assistance with application for food pantry program (procedure)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "467781000124107",
+        "display" : "Assistance with application for Child and Adult Care Food Program (procedure)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "467791000124105",
+        "display" : "Assistance with application for Food Distribution Program on Indian Reservations (procedure)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "467801000124106",
+        "display" : "Assistance with application for Community Meal Program (procedure)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "467811000124109",
+        "display" : "Assistance with application for Farmers' Market Nutrition Program for Women, Infants and Children (procedure)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "467821000124101",
+        "display" : "Assistance with application for Supplemental Nutrition Assistance Program (procedure)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "468401000124109",
+        "display" : "Evaluation of eligibility for food prescription program (procedure)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "470231000124107",
+        "display" : "Counseling for social determinant of health risk (procedure)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "470241000124102",
+        "display" : "Assistance with application for national school lunch program (procedure)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "470261000124103",
+        "display" : "Assistance with application for school breakfast program (procedure)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "470281000124108",
+        "display" : "Evaluation of eligibility for school breakfast program (procedure)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "470291000124106",
+        "display" : "Referral to national school lunch program (procedure)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "470301000124107",
+        "display" : "Referral to school breakfast program (procedure)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "470311000124105",
+        "display" : "Education about national school lunch program (procedure)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "470321000124102",
+        "display" : "Education about school breakfast program (procedure)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "470591000124109",
+        "display" : "Education about community development financial institution (procedure)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "470601000124101",
+        "display" : "Education about community development corporation (procedure)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "470611000124103",
+        "display" : "Education about area agency on aging program (procedure)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "471111000124101",
+        "display" : "Referral to community development financial institution (procedure)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "471121000124109",
+        "display" : "Referral to community development corporation (procedure)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "471131000124107",
+        "display" : "Referral to area agency on aging (procedure)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "472151000124109",
+        "display" : "Referral to medical legal partnership program (procedure)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "472331000124100",
+        "display" : "Education about medical legal partnership program (procedure)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "551101000124107",
+        "display" : "Referral to lawyer (procedure)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "61310001",
+        "display" : "Nutrition education (procedure)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "661101000124109",
+        "display" : "Education about State Funded Food Assistance Program (procedure)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "661181000124100",
+        "display" : "Education about peer support specialist service (procedure)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "662151000124104",
+        "display" : "Assistance with application for State Funded Food Assistance Program (procedure)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "662651000124105",
+        "display" : "Evaluation of eligibility for State Funded Food Assistance Program (procedure)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "663081000124100",
+        "display" : "Referral to State Funded Food Assistance Program (procedure)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "663211000124100",
+        "display" : "Referral to peer support specialist (procedure)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "710824005",
+        "display" : "Assessment of health and social care needs (procedure)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "710925007",
+        "display" : "Provision of food (procedure)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "711069006",
+        "display" : "Coordination of care plan (procedure)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "713109004",
+        "display" : "Referral to community meals service (procedure)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "761131000124106",
+        "display" : "Assistance with application for child financial support (procedure)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "761291000124101",
+        "display" : "Education about child financial support (procedure)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "761301000124100",
+        "display" : "Education about library educational programs (procedure)"
+      },
+      {
+        "system" : "http://www.ama-assn.org/go/cpt",
+        "version" : "2024",
+        "code" : "96156",
+        "display" : "Health behavior assessment, or re-assessment (ie, health-focused clinical interview, behavioral observations, clinical decision making)"
+      },
+      {
+        "system" : "http://www.ama-assn.org/go/cpt",
+        "version" : "2024",
+        "code" : "96160",
+        "display" : "Administration of patient-focused health risk assessment instrument (eg, health hazard appraisal) with scoring and documentation, per standardized instrument"
+      },
+      {
+        "system" : "http://www.ama-assn.org/go/cpt",
+        "version" : "2024",
+        "code" : "96161",
+        "display" : "Administration of caregiver-focused health risk assessment instrument (eg, depression inventory) for the benefit of the patient, with scoring and documentation, per standardized instrument"
+      },
+      {
+        "system" : "http://www.ama-assn.org/go/cpt",
+        "version" : "2024",
+        "code" : "97802",
+        "display" : "Medical nutrition therapy; initial assessment and intervention, individual, face-to-face with the patient, each 15 minutes"
+      },
+      {
+        "system" : "http://www.ama-assn.org/go/cpt",
+        "version" : "2024",
+        "code" : "97803",
+        "display" : "Medical nutrition therapy; re-assessment and intervention, individual, face-to-face with the patient, each 15 minutes"
+      },
+      {
+        "system" : "http://www.ama-assn.org/go/cpt",
+        "version" : "2024",
+        "code" : "97804",
+        "display" : "Medical nutrition therapy; group (2 or more individual(s)), each 30 minutes"
+      },
+      {
+        "system" : "http://www.nlm.nih.gov/research/umls/hcpcs",
+        "version" : "2024",
+        "code" : "G0019",
+        "display" : "Community health integration services performed by certified or trained auxiliary personnel, including a community health worker, under the direction of a physician or other practitioner; 60 minutes per calendar month, in the following activities to address social determinants of health (sdoh) need(s) that are significantly limiting the ability to diagnose or treat problem(s) addressed in an initiating visit: person-centered assessment, performed to better understand the individualized context of the intersection between the sdoh need(s) and the problem(s) addressed in the initiating visit. ++ conducting a person-centered assessment to understand patient's life story, strengths, needs, goals, preferences and desired outcomes, including understanding cultural and linguistic factors and including unmet sdoh needs (that are not separately billed). ++ facilitating patient-driven goal-setting and establishing an action plan. ++ providing tailored support to the patient as needed to accomplish the practitioner's treatment plan. practitioner, home-, and community-based care coordination. ++ coordinating receipt of needed services from healthcare practitioners, providers, and facilities; and from home- and community-based service providers, social service providers, and caregiver (if applicable). ++ communication with practitioners, home- and community-based service providers, hospitals, and skilled nursing facilities (or other health care facilities) regarding the patient's psychosocial strengths and needs, functional deficits, goals, preferences, and desired outcomes, including cultural and linguistic factors. ++ coordination of care transitions between and among health care practitioners and settings, including transitions involving referral to other clinicians; follow-up after an emergency department visit; or follow-up after discharges from hospitals, skilled nursing facilities or other health care facilities. ++ facilitating access to community-based social services (e.g., housing, utilities, transportation, food assistance) to address the sdoh need(s). health education- helping the patient contextualize health education provided by the patient's treatment team with the patient's individual needs, goals, and preferences, in the context of the sdoh need(s), and educating the patient on how to best participate in medical decision-making. building patient self-advocacy skills, so that the patient can interact with members of the health care team and related community-based services addressing the sdoh need(s), in ways that are more likely to promote personalized and effective diagnosis or treatment. health care access / health system navigation. ++ helping the patient access healthcare, including identifying appropriate practitioners or providers for clinical care and helping secure appointments with them. facilitating behavioral change as necessary for meeting diagnosis and treatment goals, including promoting patient motivation to participate in care and reach person-centered diagnosis or treatment goals. facilitating and providing social and emotional support to help the patient cope with the problem(s) addressed in the initiating visit, the sdoh need(s), and adjust daily routines to better meet diagnosis and treatment goals. leveraging lived experience when applicable to provide support, mentorship, or inspiration to meet treatment goals"
+      },
+      {
+        "system" : "http://www.nlm.nih.gov/research/umls/hcpcs",
+        "version" : "2024",
+        "code" : "G0022",
+        "display" : "Community health integration services, each additional 30 minutes per calendar month (list separately in addition to g0019)"
+      },
+      {
+        "system" : "http://www.nlm.nih.gov/research/umls/hcpcs",
+        "version" : "2024",
+        "code" : "G0023",
+        "display" : "Principal illness navigation services by certified or trained auxiliary personnel under the direction of a physician or other practitioner, including a patient navigator; 60 minutes per calendar month, in the following activities: person-centered assessment, performed to better understand the individual context of the serious, high-risk condition. ++ conducting a person-centered assessment to understand the patient's life story, strengths, needs, goals, preferences, and desired outcomes, including understanding cultural and linguistic factors and including unmet sdoh needs (that are not separately billed). ++ facilitating patient-driven goal setting and establishing an action plan. ++ providing tailored support as needed to accomplish the practitioner's treatment plan. identifying or referring patient (and caregiver or family, if applicable) to appropriate supportive services. practitioner, home, and community-based care coordination. ++ coordinating receipt of needed services from healthcare practitioners, providers, and facilities; home- and community-based service providers; and caregiver (if applicable). ++ communication with practitioners, home-, and community-based service providers, hospitals, and skilled nursing facilities (or other health care facilities) regarding the patient's psychosocial strengths and needs, functional deficits, goals, preferences, and desired outcomes, including cultural and linguistic factors. ++ coordination of care transitions between and among health care practitioners and settings, including transitions involving referral to other clinicians; follow-up after an emergency department visit; or follow-up after discharges from hospitals, skilled nursing facilities or other health care facilities. ++ facilitating access to community-based social services (e.g., housing, utilities, transportation, food assistance) as needed to address sdoh need(s). health education- helping the patient contextualize health education provided by the patient's treatment team with the patient's individual needs, goals, preferences, and sdoh need(s), and educating the patient (and caregiver if applicable) on how to best participate in medical decision-making. building patient self-advocacy skills, so that the patient can interact with members of the health care team and related community-based services (as needed), in ways that are more likely to promote personalized and effective treatment of their condition. health care access / health system navigation. ++ helping the patient access healthcare, including identifying appropriate practitioners or providers for clinical care, and helping secure appointments with them. ++ providing the patient with information/resources to consider participation in clinical trials or clinical research as applicable. facilitating behavioral change as necessary for meeting diagnosis and treatment goals, including promoting patient motivation to participate in care and reach person-centered diagnosis or treatment goals. facilitating and providing social and emotional support to help the patient cope with the condition, sdoh need(s), and adjust daily routines to better meet diagnosis and treatment goals. leverage knowledge of the serious, high-risk condition and/or lived experience when applicable to provide support, mentorship, or inspiration to meet treatment goals"
+      },
+      {
+        "system" : "http://www.nlm.nih.gov/research/umls/hcpcs",
+        "version" : "2024",
+        "code" : "G0024",
+        "display" : "Principal illness navigation services, additional 30 minutes per calendar month (list separately in addition to g0023)"
+      },
+      {
+        "system" : "http://www.nlm.nih.gov/research/umls/hcpcs",
+        "version" : "2024",
+        "code" : "G0136",
+        "display" : "Administration of a standardized, evidence-based social determinants of health risk assessment tool, 5-15 minutes"
+      },
+      {
+        "system" : "http://www.nlm.nih.gov/research/umls/hcpcs",
+        "version" : "2024",
+        "code" : "G0511",
+        "display" : "Rural health clinic or federally qualified health center (rhc or fqhc) only, general care management, 20 minutes or more of clinical staff time for chronic care management services or behavioral health integration services directed by an rhc or fqhc practitioner (physician, np, pa, or cnm), per calendar month"
+      },
+      {
+        "system" : "http://www.nlm.nih.gov/research/umls/hcpcs",
+        "version" : "2024",
+        "code" : "S5170",
+        "display" : "Home delivered meals, including preparation; per meal"
+      },
+      {
+        "system" : "http://www.nlm.nih.gov/research/umls/hcpcs",
+        "version" : "2024",
+        "code" : "S9470",
+        "display" : "Nutritional counseling, dietitian visit"
+      }
+    ]
   }
 }

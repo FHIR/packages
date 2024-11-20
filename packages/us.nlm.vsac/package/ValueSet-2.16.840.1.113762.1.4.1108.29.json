@@ -2,179 +2,186 @@
   "resourceType" : "ValueSet",
   "id" : "2.16.840.1.113762.1.4.1108.29",
   "meta" : {
-    "versionId" : "6",
-    "lastUpdated" : "2018-05-08T01:08:23.000-04:00",
-    "profile" : ["http://hl7.org/fhir/StructureDefinition/shareablevalueset",
-    "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"]
+    "versionId" : "11",
+    "lastUpdated" : "2024-06-04T01:21:19.000-04:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-valueset-cqfm",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "extension" : [{
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
-    "valueString" : "Mathematica EP"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
-    "valueDate" : "2022-12-15"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
-    "valueDate" : "2018-05-08"
-  }],
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "Mathematica EP"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2024-06-04"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2024-06-04"
+    }
+  ],
   "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1108.29",
-  "identifier" : [{
-    "system" : "urn:ietf:rfc:3986",
-    "value" : "urn:oid:2.16.840.1.113762.1.4.1108.29"
-  }],
-  "version" : "20180508",
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113762.1.4.1108.29"
+    }
+  ],
+  "version" : "20240604",
   "name" : "NonAcuteEncounterCodesHCPCS",
   "title" : "Non Acute Encounter Codes HCPCS",
   "status" : "active",
-  "experimental" : false,
-  "date" : "2018-05-08T01:00:05-04:00",
+  "date" : "2024-06-04T01:21:19-04:00",
   "publisher" : "Mathematica",
-  "jurisdiction" : [{
-    "extension" : [{
-      "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
-      "valueString" : "UNKNOWN"
-    }]
-  }],
+  "jurisdiction" : [
+    {
+      "coding" : [
+        {
+          "system" : "urn:iso:std:iso:3166",
+          "code" : "US"
+        }
+      ]
+    }
+  ],
   "purpose" : "(Clinical Focus: This set of values contains procedure codes for wellness visit, preventive care, and maintenance care encounters that are appropriate for ambulatory patients on anticoagulant medications.),(Data Element Scope: The intent of this data element is to identify patients on anticoagulant medications who had a qualifying encounter with an Eligible Professional during the measurement period. Using the Quality Data Model, this particular element would map to the Encounter, Performed element.),(Inclusion Criteria: Procedure codes that indicate wellness visit, preventive care, and maintenance care encounters should be included in this value set.),(Exclusion Criteria: Procedure codes that indicate urgent care encounters or encounters that result from acute illness should be excluded from this value set.)",
   "compose" : {
-    "include" : [{
-      "system" : "http://www.nlm.nih.gov/research/umls/hcpcs",
-      "concept" : [{
+    "include" : [
+      {
+        "system" : "http://www.nlm.nih.gov/research/umls/hcpcs",
+        "concept" : [
+          {
+            "code" : "G0270",
+            "display" : "Medical nutrition therapy; reassessment and subsequent intervention(s) following second referral in same year for change in diagnosis, medical condition or treatment regimen (including additional hours needed for renal disease), individual, face to face with the patient, each 15 minutes"
+          },
+          {
+            "code" : "G0271",
+            "display" : "Medical nutrition therapy, reassessment and subsequent intervention(s) following second referral in same year for change in diagnosis, medical condition, or treatment regimen (including additional hours needed for renal disease), group (2 or more individuals), each 30 minutes"
+          },
+          {
+            "code" : "G0402",
+            "display" : "Initial preventive physical examination; face-to-face visit, services limited to new beneficiary during the first 12 months of medicare enrollment"
+          },
+          {
+            "code" : "G0438",
+            "display" : "Annual wellness visit; includes a personalized prevention plan of service (pps), initial visit"
+          },
+          {
+            "code" : "G0439",
+            "display" : "Annual wellness visit, includes a personalized prevention plan of service (pps), subsequent visit"
+          },
+          {
+            "code" : "G0447",
+            "display" : "Face-to-face behavioral counseling for obesity, 15 minutes"
+          },
+          {
+            "code" : "G0463",
+            "display" : "Hospital outpatient clinic visit for assessment and management of a patient"
+          },
+          {
+            "code" : "G0466",
+            "display" : "Federally qualified health center (fqhc) visit, new patient; a medically-necessary, face-to-face encounter (one-on-one) between a new patient and a fqhc practitioner during which time one or more fqhc services are rendered and includes a typical bundle of medicare-covered services that would be furnished per diem to a patient receiving a fqhc visit"
+          },
+          {
+            "code" : "G0467",
+            "display" : "Federally qualified health center (fqhc) visit, established patient; a medically-necessary, face-to-face encounter (one-on-one) between an established patient and a fqhc practitioner during which time one or more fqhc services are rendered and includes a typical bundle of medicare-covered services that would be furnished per diem to a patient receiving a fqhc visit"
+          },
+          {
+            "code" : "G0468",
+            "display" : "Federally qualified health center (fqhc) visit, ippe or awv; a fqhc visit that includes an initial preventive physical examination (ippe) or annual wellness visit (awv) and includes a typical bundle of medicare-covered services that would be furnished per diem to a patient receiving an ippe or awv"
+          },
+          {
+            "code" : "G0469",
+            "display" : "Federally qualified health center (fqhc) visit, mental health, new patient; a medically-necessary, face-to-face mental health encounter (one-on-one) between a new patient and a fqhc practitioner during which time one or more fqhc services are rendered and includes a typical bundle of medicare-covered services that would be furnished per diem to a patient receiving a mental health visit"
+          },
+          {
+            "code" : "G0470",
+            "display" : "Federally qualified health center (fqhc) visit, mental health, established patient; a medically-necessary, face-to-face mental health encounter (one-on-one) between an established patient and a fqhc practitioner during which time one or more fqhc services are rendered and includes a typical bundle of medicare-covered services that would be furnished per diem to a patient receiving a mental health visit"
+          }
+        ]
+      }
+    ]
+  },
+  "expansion" : {
+    "identifier" : "urn:uuid:858c00f0-b676-4dad-9cbb-12ba2e76a3e6",
+    "timestamp" : "2024-06-14T11:14:49-04:00",
+    "total" : 12,
+    "contains" : [
+      {
+        "system" : "http://www.nlm.nih.gov/research/umls/hcpcs",
+        "version" : "2024",
         "code" : "G0270",
         "display" : "Medical nutrition therapy; reassessment and subsequent intervention(s) following second referral in same year for change in diagnosis, medical condition or treatment regimen (including additional hours needed for renal disease), individual, face to face with the patient, each 15 minutes"
       },
       {
+        "system" : "http://www.nlm.nih.gov/research/umls/hcpcs",
+        "version" : "2024",
         "code" : "G0271",
         "display" : "Medical nutrition therapy, reassessment and subsequent intervention(s) following second referral in same year for change in diagnosis, medical condition, or treatment regimen (including additional hours needed for renal disease), group (2 or more individuals), each 30 minutes"
       },
       {
+        "system" : "http://www.nlm.nih.gov/research/umls/hcpcs",
+        "version" : "2024",
         "code" : "G0402",
         "display" : "Initial preventive physical examination; face-to-face visit, services limited to new beneficiary during the first 12 months of medicare enrollment"
       },
       {
+        "system" : "http://www.nlm.nih.gov/research/umls/hcpcs",
+        "version" : "2024",
         "code" : "G0438",
         "display" : "Annual wellness visit; includes a personalized prevention plan of service (pps), initial visit"
       },
       {
+        "system" : "http://www.nlm.nih.gov/research/umls/hcpcs",
+        "version" : "2024",
         "code" : "G0439",
         "display" : "Annual wellness visit, includes a personalized prevention plan of service (pps), subsequent visit"
       },
       {
+        "system" : "http://www.nlm.nih.gov/research/umls/hcpcs",
+        "version" : "2024",
         "code" : "G0447",
         "display" : "Face-to-face behavioral counseling for obesity, 15 minutes"
       },
       {
+        "system" : "http://www.nlm.nih.gov/research/umls/hcpcs",
+        "version" : "2024",
         "code" : "G0463",
         "display" : "Hospital outpatient clinic visit for assessment and management of a patient"
       },
       {
+        "system" : "http://www.nlm.nih.gov/research/umls/hcpcs",
+        "version" : "2024",
         "code" : "G0466",
         "display" : "Federally qualified health center (fqhc) visit, new patient; a medically-necessary, face-to-face encounter (one-on-one) between a new patient and a fqhc practitioner during which time one or more fqhc services are rendered and includes a typical bundle of medicare-covered services that would be furnished per diem to a patient receiving a fqhc visit"
       },
       {
+        "system" : "http://www.nlm.nih.gov/research/umls/hcpcs",
+        "version" : "2024",
         "code" : "G0467",
         "display" : "Federally qualified health center (fqhc) visit, established patient; a medically-necessary, face-to-face encounter (one-on-one) between an established patient and a fqhc practitioner during which time one or more fqhc services are rendered and includes a typical bundle of medicare-covered services that would be furnished per diem to a patient receiving a fqhc visit"
       },
       {
+        "system" : "http://www.nlm.nih.gov/research/umls/hcpcs",
+        "version" : "2024",
         "code" : "G0468",
         "display" : "Federally qualified health center (fqhc) visit, ippe or awv; a fqhc visit that includes an initial preventive physical examination (ippe) or annual wellness visit (awv) and includes a typical bundle of medicare-covered services that would be furnished per diem to a patient receiving an ippe or awv"
       },
       {
+        "system" : "http://www.nlm.nih.gov/research/umls/hcpcs",
+        "version" : "2024",
         "code" : "G0469",
         "display" : "Federally qualified health center (fqhc) visit, mental health, new patient; a medically-necessary, face-to-face mental health encounter (one-on-one) between a new patient and a fqhc practitioner during which time one or more fqhc services are rendered and includes a typical bundle of medicare-covered services that would be furnished per diem to a patient receiving a mental health visit"
       },
       {
+        "system" : "http://www.nlm.nih.gov/research/umls/hcpcs",
+        "version" : "2024",
         "code" : "G0470",
         "display" : "Federally qualified health center (fqhc) visit, mental health, established patient; a medically-necessary, face-to-face mental health encounter (one-on-one) between an established patient and a fqhc practitioner during which time one or more fqhc services are rendered and includes a typical bundle of medicare-covered services that would be furnished per diem to a patient receiving a mental health visit"
-      }]
-    }]
-  },
-  "expansion" : {
-    "identifier" : "urn:uuid:2601e5c7-b690-43f8-b51e-c2fee175fd50",
-    "timestamp" : "2023-09-26T12:04:36-04:00",
-    "total" : 12,
-    "offset" : 0,
-    "parameter" : [{
-      "name" : "count",
-      "valueInteger" : 1000
-    },
-    {
-      "name" : "offset",
-      "valueInteger" : 0
-    }],
-    "contains" : [{
-      "system" : "http://www.nlm.nih.gov/research/umls/hcpcs",
-      "version" : "2023",
-      "code" : "G0270",
-      "display" : "Medical nutrition therapy; reassessment and subsequent intervention(s) following second referral in same year for change in diagnosis, medical condition or treatment regimen (including additional hours needed for renal disease), individual, face to face with the patient, each 15 minutes"
-    },
-    {
-      "system" : "http://www.nlm.nih.gov/research/umls/hcpcs",
-      "version" : "2023",
-      "code" : "G0271",
-      "display" : "Medical nutrition therapy, reassessment and subsequent intervention(s) following second referral in same year for change in diagnosis, medical condition, or treatment regimen (including additional hours needed for renal disease), group (2 or more individuals), each 30 minutes"
-    },
-    {
-      "system" : "http://www.nlm.nih.gov/research/umls/hcpcs",
-      "version" : "2023",
-      "code" : "G0402",
-      "display" : "Initial preventive physical examination; face-to-face visit, services limited to new beneficiary during the first 12 months of medicare enrollment"
-    },
-    {
-      "system" : "http://www.nlm.nih.gov/research/umls/hcpcs",
-      "version" : "2023",
-      "code" : "G0438",
-      "display" : "Annual wellness visit; includes a personalized prevention plan of service (pps), initial visit"
-    },
-    {
-      "system" : "http://www.nlm.nih.gov/research/umls/hcpcs",
-      "version" : "2023",
-      "code" : "G0439",
-      "display" : "Annual wellness visit, includes a personalized prevention plan of service (pps), subsequent visit"
-    },
-    {
-      "system" : "http://www.nlm.nih.gov/research/umls/hcpcs",
-      "version" : "2023",
-      "code" : "G0447",
-      "display" : "Face-to-face behavioral counseling for obesity, 15 minutes"
-    },
-    {
-      "system" : "http://www.nlm.nih.gov/research/umls/hcpcs",
-      "version" : "2023",
-      "code" : "G0463",
-      "display" : "Hospital outpatient clinic visit for assessment and management of a patient"
-    },
-    {
-      "system" : "http://www.nlm.nih.gov/research/umls/hcpcs",
-      "version" : "2023",
-      "code" : "G0466",
-      "display" : "Federally qualified health center (fqhc) visit, new patient; a medically-necessary, face-to-face encounter (one-on-one) between a new patient and a fqhc practitioner during which time one or more fqhc services are rendered and includes a typical bundle of medicare-covered services that would be furnished per diem to a patient receiving a fqhc visit"
-    },
-    {
-      "system" : "http://www.nlm.nih.gov/research/umls/hcpcs",
-      "version" : "2023",
-      "code" : "G0467",
-      "display" : "Federally qualified health center (fqhc) visit, established patient; a medically-necessary, face-to-face encounter (one-on-one) between an established patient and a fqhc practitioner during which time one or more fqhc services are rendered and includes a typical bundle of medicare-covered services that would be furnished per diem to a patient receiving a fqhc visit"
-    },
-    {
-      "system" : "http://www.nlm.nih.gov/research/umls/hcpcs",
-      "version" : "2023",
-      "code" : "G0468",
-      "display" : "Federally qualified health center (fqhc) visit, ippe or awv; a fqhc visit that includes an initial preventive physical examination (ippe) or annual wellness visit (awv) and includes a typical bundle of medicare-covered services that would be furnished per diem to a patient receiving an ippe or awv"
-    },
-    {
-      "system" : "http://www.nlm.nih.gov/research/umls/hcpcs",
-      "version" : "2023",
-      "code" : "G0469",
-      "display" : "Federally qualified health center (fqhc) visit, mental health, new patient; a medically-necessary, face-to-face mental health encounter (one-on-one) between a new patient and a fqhc practitioner during which time one or more fqhc services are rendered and includes a typical bundle of medicare-covered services that would be furnished per diem to a patient receiving a mental health visit"
-    },
-    {
-      "system" : "http://www.nlm.nih.gov/research/umls/hcpcs",
-      "version" : "2023",
-      "code" : "G0470",
-      "display" : "Federally qualified health center (fqhc) visit, mental health, established patient; a medically-necessary, face-to-face mental health encounter (one-on-one) between an established patient and a fqhc practitioner during which time one or more fqhc services are rendered and includes a typical bundle of medicare-covered services that would be furnished per diem to a patient receiving a mental health visit"
-    }]
+      }
+    ]
   }
 }

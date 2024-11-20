@@ -3,102 +3,110 @@
   "id" : "2.16.840.1.113762.1.4.1116.270",
   "meta" : {
     "versionId" : "14",
-    "lastUpdated" : "2023-04-03T16:12:04.000-04:00",
-    "profile" : ["http://hl7.org/fhir/StructureDefinition/shareablevalueset",
-    "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"]
+    "lastUpdated" : "2023-12-21T17:43:03.000-05:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-valueset-cqfm",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "extension" : [{
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
-    "valueString" : "CancerLinQ Author"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
-    "valueDate" : "2022-12-15"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
-    "valueDate" : "2023-04-03"
-  }],
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "CancerLinQ Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2024-06-03"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2018-01-30"
+    }
+  ],
   "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1116.270",
-  "identifier" : [{
-    "system" : "urn:ietf:rfc:3986",
-    "value" : "urn:oid:2.16.840.1.113762.1.4.1116.270"
-  }],
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113762.1.4.1116.270"
+    }
+  ],
   "version" : "20180130",
   "name" : "TumorStaging",
   "title" : "Tumor Staging",
-  "status" : "active",
+  "status" : "retired",
   "experimental" : false,
   "date" : "2018-01-30T01:00:04-05:00",
   "publisher" : "CancerLinQ Steward",
-  "jurisdiction" : [{
-    "extension" : [{
-      "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
-      "valueString" : "UNKNOWN"
-    }]
-  }],
+  "jurisdiction" : [
+    {
+      "coding" : [
+        {
+          "system" : "urn:iso:std:iso:3166",
+          "code" : "US"
+        }
+      ]
+    }
+  ],
   "purpose" : "(Clinical Focus: ),(Data Element Scope: ),(Inclusion Criteria: ),(Exclusion Criteria: )",
   "compose" : {
-    "include" : [{
-      "system" : "http://snomed.info/sct",
-      "concept" : [{
+    "include" : [
+      {
+        "system" : "http://snomed.info/sct",
+        "concept" : [
+          {
+            "code" : "116783008",
+            "display" : "Pathologist evaluation (procedure)"
+          },
+          {
+            "code" : "260760003",
+            "display" : "Staging of disease (attribute)"
+          },
+          {
+            "code" : "260998006",
+            "display" : "Clinical staging (qualifier value)"
+          },
+          {
+            "code" : "261023001",
+            "display" : "Pathological staging (qualifier value)"
+          },
+          {
+            "code" : "277649004",
+            "display" : "y - During therapy/following treatment (tumor staging)"
+          }
+        ]
+      }
+    ]
+  },
+  "expansion" : {
+    "identifier" : "urn:uuid:1e10ba3d-a3c4-4249-92d1-3575cde16ff3",
+    "timestamp" : "2024-06-14T11:25:16-04:00",
+    "total" : 4,
+    "contains" : [
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
         "code" : "116783008",
         "display" : "Pathologist evaluation (procedure)"
       },
       {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
         "code" : "260760003",
         "display" : "Staging of disease (attribute)"
       },
       {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
         "code" : "260998006",
         "display" : "Clinical staging (qualifier value)"
       },
       {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
         "code" : "261023001",
         "display" : "Pathological staging (qualifier value)"
-      },
-      {
-        "code" : "277649004",
-        "display" : "y - During therapy/following treatment (tumor staging)"
-      }]
-    }]
-  },
-  "expansion" : {
-    "identifier" : "urn:uuid:f317c51f-e3e5-435a-aba0-17b8fb2d38a3",
-    "timestamp" : "2023-09-26T13:43:21-04:00",
-    "total" : 4,
-    "offset" : 0,
-    "parameter" : [{
-      "name" : "count",
-      "valueInteger" : 1000
-    },
-    {
-      "name" : "offset",
-      "valueInteger" : 0
-    }],
-    "contains" : [{
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "116783008",
-      "display" : "Pathologist evaluation (procedure)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "260760003",
-      "display" : "Staging of disease (attribute)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "260998006",
-      "display" : "Clinical staging (qualifier value)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "261023001",
-      "display" : "Pathological staging (qualifier value)"
-    }]
+      }
+    ]
   }
 }

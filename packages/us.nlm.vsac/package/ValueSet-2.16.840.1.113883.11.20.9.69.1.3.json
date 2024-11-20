@@ -3,27 +3,34 @@
   "id" : "2.16.840.1.113883.11.20.9.69.1.3",
   "meta" : {
     "versionId" : "6",
-    "lastUpdated" : "2022-03-02T18:03:02.000-05:00",
-    "profile" : ["http://hl7.org/fhir/StructureDefinition/shareablevalueset",
-    "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"]
+    "lastUpdated" : "2023-12-21T17:43:03.000-05:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-valueset-cqfm",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "extension" : [{
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
-    "valueString" : "ADVault Author"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
-    "valueDate" : "2022-12-15"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
-    "valueDate" : "2022-03-02"
-  }],
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "ADVault Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2024-02-16"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2018-01-19"
+    }
+  ],
   "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.11.20.9.69.1.3",
-  "identifier" : [{
-    "system" : "urn:ietf:rfc:3986",
-    "value" : "urn:oid:2.16.840.1.113883.11.20.9.69.1.3"
-  }],
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113883.11.20.9.69.1.3"
+    }
+  ],
   "version" : "20180119",
   "name" : "AdvanceCarePlanningServicesGrouping",
   "title" : "Advance Care Planning Services Grouping",
@@ -32,63 +39,66 @@
   "date" : "2022-03-03T18:46:01-05:00",
   "publisher" : "ADVault",
   "description" : "A grouping value set that includes Advance Care Planning Services expressed as CPT or SNOMED CT",
-  "jurisdiction" : [{
-    "extension" : [{
-      "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
-      "valueString" : "UNKNOWN"
-    }]
-  }],
+  "jurisdiction" : [
+    {
+      "coding" : [
+        {
+          "system" : "urn:iso:std:iso:3166",
+          "code" : "US"
+        }
+      ]
+    }
+  ],
   "purpose" : "(Clinical Focus: Concepts that express advance care planning services.),(Data Element Scope: Advance care planning service.),(Inclusion Criteria: Codes from member value sets used to indicate advance care planning services expressed as CPT or SNOMED CT.),(Exclusion Criteria: )",
   "compose" : {
-    "include" : [{
-      "valueSet" : ["http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.11.20.9.69.1.1"]
-    },
-    {
-      "valueSet" : ["http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.11.20.9.69.1.2"]
-    }]
+    "include" : [
+      {
+        "valueSet" : [
+          "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.11.20.9.69.1.1"
+        ]
+      },
+      {
+        "valueSet" : [
+          "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.11.20.9.69.1.2"
+        ]
+      }
+    ]
   },
   "expansion" : {
-    "identifier" : "urn:uuid:7dbc5598-88c1-46f4-ac00-be4c990609bf",
-    "timestamp" : "2023-09-26T07:43:26-04:00",
+    "identifier" : "urn:uuid:41ab46dd-3e9f-4316-b847-d0241bdce91f",
+    "timestamp" : "2024-06-14T15:20:40-04:00",
     "total" : 5,
-    "offset" : 0,
-    "parameter" : [{
-      "name" : "count",
-      "valueInteger" : 1000
-    },
-    {
-      "name" : "offset",
-      "valueInteger" : 0
-    }],
-    "contains" : [{
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "713603004",
-      "display" : "Advance care planning (procedure)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "713604005",
-      "display" : "Education about advance care planning (procedure)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "713662007",
-      "display" : "Discussion about advance care planning (procedure)"
-    },
-    {
-      "system" : "http://www.ama-assn.org/go/cpt",
-      "version" : "2023",
-      "code" : "99497",
-      "display" : "Advance care planning including the explanation and discussion of advance directives such as standard forms (with completion of such forms, when performed), by the physician or other qualified health care professional; first 30 minutes, face-to-face with the patient, family member(s), and/or surrogate"
-    },
-    {
-      "system" : "http://www.ama-assn.org/go/cpt",
-      "version" : "2023",
-      "code" : "99498",
-      "display" : "Advance care planning including the explanation and discussion of advance directives such as standard forms (with completion of such forms, when performed), by the physician or other qualified health care professional; each additional 30 minutes (List separately in addition to code for primary procedure)"
-    }]
+    "contains" : [
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "713603004",
+        "display" : "Advance care planning (procedure)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "713604005",
+        "display" : "Education about advance care planning (procedure)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "713662007",
+        "display" : "Discussion about advance care planning (procedure)"
+      },
+      {
+        "system" : "http://www.ama-assn.org/go/cpt",
+        "version" : "2024",
+        "code" : "99497",
+        "display" : "Advance care planning including the explanation and discussion of advance directives such as standard forms (with completion of such forms, when performed), by the physician or other qualified health care professional; first 30 minutes, face-to-face with the patient, family member(s), and/or surrogate"
+      },
+      {
+        "system" : "http://www.ama-assn.org/go/cpt",
+        "version" : "2024",
+        "code" : "99498",
+        "display" : "Advance care planning including the explanation and discussion of advance directives such as standard forms (with completion of such forms, when performed), by the physician or other qualified health care professional; each additional 30 minutes (List separately in addition to code for primary procedure)"
+      }
+    ]
   }
 }

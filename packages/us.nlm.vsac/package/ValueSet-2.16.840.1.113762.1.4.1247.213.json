@@ -2,68 +2,86 @@
   "resourceType" : "ValueSet",
   "id" : "2.16.840.1.113762.1.4.1247.213",
   "meta" : {
-    "versionId" : "6",
-    "lastUpdated" : "2023-07-25T01:37:12.000-04:00",
-    "profile" : ["http://hl7.org/fhir/StructureDefinition/shareablevalueset",
-    "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"]
+    "versionId" : "12",
+    "lastUpdated" : "2024-06-04T01:21:19.000-04:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-valueset-cqfm",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "extension" : [{
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
-    "valueString" : "The Gravity Project Author"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
-    "valueDate" : "2023-07-25"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
-    "valueDate" : "2023-07-25"
-  }],
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "The Gravity Project Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2024-06-04"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2024-06-04"
+    }
+  ],
   "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1247.213",
-  "identifier" : [{
-    "system" : "urn:ietf:rfc:3986",
-    "value" : "urn:oid:2.16.840.1.113762.1.4.1247.213"
-  }],
-  "version" : "20230725",
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113762.1.4.1247.213"
+    }
+  ],
+  "version" : "20240604",
   "name" : "HealthInsuranceCoverageStatusDiagnosesSNOMEDCT",
   "title" : "Health Insurance Coverage Status Diagnoses SNOMED CT",
   "status" : "active",
-  "date" : "2023-07-25T01:37:12-04:00",
+  "date" : "2024-06-04T01:21:19-04:00",
   "publisher" : "The Gravity Project Steward",
-  "jurisdiction" : [{
-    "extension" : [{
-      "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
-      "valueString" : "UNKNOWN"
-    }]
-  }],
-  "purpose" : "(Clinical Focus: <insert metadata>\n\nThe terms in this value set represent the diagnoses associated with health insurance coverage status as identified by the Gravity Project),(Data Element Scope: Supports the exchange of data for the Gravity SDOH Clinical Care FHIR implementation guide as well as other uses of this SDOH terms),(Inclusion Criteria: Includes SNOMED CT diagnoses that have been identified through the Gravity Project community consensus voting process),(Exclusion Criteria: N/A)",
+  "jurisdiction" : [
+    {
+      "coding" : [
+        {
+          "system" : "urn:iso:std:iso:3166",
+          "code" : "US"
+        }
+      ]
+    }
+  ],
+  "purpose" : "(Clinical Focus: This set of values represent diagnoses for Health Insurance Coverage Status as selected by the Gravity Project.),(Data Element Scope: In the FHIR Condition resource, these values may be used for Condition.code (e.g., for the SDOHCC Condition profile in the Gravity SDOH Clinical Care FHIR Implementation Guide).),(Inclusion Criteria: Includes SNOMED CT diagnoses for Health Insurance Coverage Status as selected by the Gravity Project.),(Exclusion Criteria: NA)",
   "compose" : {
-    "include" : [{
-      "system" : "http://snomed.info/sct",
-      "concept" : [{
-        "code" : "671211000124105",
-        "display" : "Not enrolled in health insurance plan (finding)"
-      }]
-    }]
+    "include" : [
+      {
+        "system" : "http://snomed.info/sct",
+        "concept" : [
+          {
+            "code" : "671211000124105",
+            "display" : "Not enrolled in health insurance plan (finding)"
+          },
+          {
+            "code" : "761551000124109",
+            "display" : "Unable to obtain health insurance coverage due to limited financial resources (finding)"
+          }
+        ]
+      }
+    ]
   },
   "expansion" : {
-    "identifier" : "urn:uuid:ff08c495-37e7-4618-ad93-c9113f88aa6b",
-    "timestamp" : "2023-09-26T10:42:38-04:00",
-    "total" : 1,
-    "offset" : 0,
-    "parameter" : [{
-      "name" : "count",
-      "valueInteger" : 1000
-    },
-    {
-      "name" : "offset",
-      "valueInteger" : 0
-    }],
-    "contains" : [{
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "671211000124105",
-      "display" : "Not enrolled in health insurance plan (finding)"
-    }]
+    "identifier" : "urn:uuid:1f1a38e5-730b-46ed-87ba-dcd1f9f7c9c5",
+    "timestamp" : "2024-06-14T14:57:54-04:00",
+    "total" : 2,
+    "contains" : [
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "671211000124105",
+        "display" : "Not enrolled in health insurance plan (finding)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "761551000124109",
+        "display" : "Unable to obtain health insurance coverage due to limited financial resources (finding)"
+      }
+    ]
   }
 }

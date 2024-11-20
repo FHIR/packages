@@ -3,78 +3,86 @@
   "id" : "2.16.840.1.113762.1.4.1116.437",
   "meta" : {
     "versionId" : "5",
-    "lastUpdated" : "2023-04-03T16:09:02.000-04:00",
-    "profile" : ["http://hl7.org/fhir/StructureDefinition/shareablevalueset",
-    "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"]
+    "lastUpdated" : "2023-12-21T17:43:03.000-05:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-valueset-cqfm",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "extension" : [{
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
-    "valueString" : "CancerLinQ Author"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
-    "valueDate" : "2022-12-15"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
-    "valueDate" : "2023-04-03"
-  }],
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "CancerLinQ Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2024-06-03"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2018-03-24"
+    }
+  ],
   "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1116.437",
-  "identifier" : [{
-    "system" : "urn:ietf:rfc:3986",
-    "value" : "urn:oid:2.16.840.1.113762.1.4.1116.437"
-  }],
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113762.1.4.1116.437"
+    }
+  ],
   "version" : "20180324",
   "name" : "TobaccoScreeningNotDoneMedicalReason",
   "title" : "Tobacco Screening not Done, Medical Reason",
-  "status" : "active",
+  "status" : "retired",
   "experimental" : false,
   "date" : "2018-03-24T01:00:04-04:00",
   "publisher" : "CancerLinQ Steward",
-  "jurisdiction" : [{
-    "extension" : [{
-      "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
-      "valueString" : "UNKNOWN"
-    }]
-  }],
+  "jurisdiction" : [
+    {
+      "coding" : [
+        {
+          "system" : "urn:iso:std:iso:3166",
+          "code" : "US"
+        }
+      ]
+    }
+  ],
   "purpose" : "(Clinical Focus: ),(Data Element Scope: ),(Inclusion Criteria: ),(Exclusion Criteria: )",
   "compose" : {
-    "include" : [{
-      "system" : "http://www.ama-assn.org/go/cpt",
-      "concept" : [{
+    "include" : [
+      {
+        "system" : "http://www.ama-assn.org/go/cpt",
+        "concept" : [
+          {
+            "code" : "1P",
+            "display" : "Performance Measure Exclusion Modifier due to Medical Reasons"
+          },
+          {
+            "code" : "4004F",
+            "display" : "Patient screened for tobacco use and received tobacco cessation intervention (counseling, pharmacotherapy, or both), if identified as a tobacco user (PV, CAD)"
+          }
+        ]
+      }
+    ]
+  },
+  "expansion" : {
+    "identifier" : "urn:uuid:09acb3c9-d538-4a21-a73e-918013a5c504",
+    "timestamp" : "2024-06-14T11:29:10-04:00",
+    "total" : 2,
+    "contains" : [
+      {
+        "system" : "http://www.ama-assn.org/go/cpt",
+        "version" : "2024",
         "code" : "1P",
         "display" : "Performance Measure Exclusion Modifier due to Medical Reasons"
       },
       {
+        "system" : "http://www.ama-assn.org/go/cpt",
+        "version" : "2024",
         "code" : "4004F",
         "display" : "Patient screened for tobacco use and received tobacco cessation intervention (counseling, pharmacotherapy, or both), if identified as a tobacco user (PV, CAD)"
-      }]
-    }]
-  },
-  "expansion" : {
-    "identifier" : "urn:uuid:afd5e22d-3d72-484e-bf10-7bd12a2b0051",
-    "timestamp" : "2023-09-26T13:32:42-04:00",
-    "total" : 2,
-    "offset" : 0,
-    "parameter" : [{
-      "name" : "count",
-      "valueInteger" : 1000
-    },
-    {
-      "name" : "offset",
-      "valueInteger" : 0
-    }],
-    "contains" : [{
-      "system" : "http://www.ama-assn.org/go/cpt",
-      "version" : "2023",
-      "code" : "1P",
-      "display" : "Performance Measure Exclusion Modifier due to Medical Reasons"
-    },
-    {
-      "system" : "http://www.ama-assn.org/go/cpt",
-      "version" : "2023",
-      "code" : "4004F",
-      "display" : "Patient screened for tobacco use and received tobacco cessation intervention (counseling, pharmacotherapy, or both), if identified as a tobacco user (PV, CAD)"
-    }]
+      }
+    ]
   }
 }

@@ -3,98 +3,106 @@
   "id" : "2.16.840.1.113762.1.4.1164.8",
   "meta" : {
     "versionId" : "5",
-    "lastUpdated" : "2017-06-20T01:00:03.000-04:00",
-    "profile" : ["http://hl7.org/fhir/StructureDefinition/shareablevalueset",
-    "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"]
+    "lastUpdated" : "2023-12-21T17:43:03.000-05:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-valueset-cqfm",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "extension" : [{
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
-    "valueString" : "LUGPA Author"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
-    "valueDate" : "2022-12-15"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
-    "valueDate" : "2017-06-20"
-  }],
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "LUGPA Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2024-06-03"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2017-06-20"
+    }
+  ],
   "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1164.8",
-  "identifier" : [{
-    "system" : "urn:ietf:rfc:3986",
-    "value" : "urn:oid:2.16.840.1.113762.1.4.1164.8"
-  }],
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113762.1.4.1164.8"
+    }
+  ],
   "version" : "20170620",
   "name" : "CalciumTotal",
   "title" : "Calcium, total",
-  "status" : "active",
+  "status" : "retired",
   "experimental" : false,
   "date" : "2017-06-20T01:00:03-04:00",
   "publisher" : "LUGPA Steward",
-  "jurisdiction" : [{
-    "extension" : [{
-      "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
-      "valueString" : "UNKNOWN"
-    }]
-  }],
+  "jurisdiction" : [
+    {
+      "coding" : [
+        {
+          "system" : "urn:iso:std:iso:3166",
+          "code" : "US"
+        }
+      ]
+    }
+  ],
   "purpose" : "(Clinical Focus: This set of values contains LOINC codes for laboratory tests ordered to determine total serum calcium for patients receiving urology care.),(Data Element Scope: The intent of this data element is to identify appropriate laboratory test LOINC codes for serum total calcium for patients receiving urology care.),(Inclusion Criteria: Common laboratory tests exclusively used to measure total serum calcium and laboratory tests that include total serum calcium in the panel.),(Exclusion Criteria: Ionized calcium level)",
   "compose" : {
-    "include" : [{
-      "system" : "http://loinc.org",
-      "concept" : [{
+    "include" : [
+      {
+        "system" : "http://loinc.org",
+        "concept" : [
+          {
+            "code" : "17861-6",
+            "display" : "Calcium [Mass/volume] in Serum or Plasma"
+          },
+          {
+            "code" : "24321-2",
+            "display" : "Basic metabolic 2000 panel - Serum or Plasma"
+          },
+          {
+            "code" : "24323-8",
+            "display" : "Comprehensive metabolic 2000 panel - Serum or Plasma"
+          },
+          {
+            "code" : "24362-6",
+            "display" : "Renal function 2000 panel - Serum or Plasma"
+          }
+        ]
+      }
+    ]
+  },
+  "expansion" : {
+    "identifier" : "urn:uuid:937d7e57-8456-420a-abb9-99bc3d5d3e8a",
+    "timestamp" : "2024-06-14T12:32:35-04:00",
+    "total" : 4,
+    "contains" : [
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
         "code" : "17861-6",
         "display" : "Calcium [Mass/volume] in Serum or Plasma"
       },
       {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
         "code" : "24321-2",
         "display" : "Basic metabolic 2000 panel - Serum or Plasma"
       },
       {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
         "code" : "24323-8",
         "display" : "Comprehensive metabolic 2000 panel - Serum or Plasma"
       },
       {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
         "code" : "24362-6",
         "display" : "Renal function 2000 panel - Serum or Plasma"
-      }]
-    }]
-  },
-  "expansion" : {
-    "identifier" : "urn:uuid:a2aa42c6-0d7c-4f7a-b03e-b3dc89b61e16",
-    "timestamp" : "2023-09-26T08:58:09-04:00",
-    "total" : 4,
-    "offset" : 0,
-    "parameter" : [{
-      "name" : "count",
-      "valueInteger" : 1000
-    },
-    {
-      "name" : "offset",
-      "valueInteger" : 0
-    }],
-    "contains" : [{
-      "system" : "http://loinc.org",
-      "version" : "2.74",
-      "code" : "17861-6",
-      "display" : "Calcium [Mass/volume] in Serum or Plasma"
-    },
-    {
-      "system" : "http://loinc.org",
-      "version" : "2.74",
-      "code" : "24321-2",
-      "display" : "Basic metabolic 2000 panel - Serum or Plasma"
-    },
-    {
-      "system" : "http://loinc.org",
-      "version" : "2.74",
-      "code" : "24323-8",
-      "display" : "Comprehensive metabolic 2000 panel - Serum or Plasma"
-    },
-    {
-      "system" : "http://loinc.org",
-      "version" : "2.74",
-      "code" : "24362-6",
-      "display" : "Renal function 2000 panel - Serum or Plasma"
-    }]
+      }
+    ]
   }
 }

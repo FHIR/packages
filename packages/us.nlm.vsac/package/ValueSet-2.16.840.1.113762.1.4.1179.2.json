@@ -3,82 +3,90 @@
   "id" : "2.16.840.1.113762.1.4.1179.2",
   "meta" : {
     "versionId" : "8",
-    "lastUpdated" : "2019-03-19T08:03:02.000-04:00",
-    "profile" : ["http://hl7.org/fhir/StructureDefinition/shareablevalueset",
-    "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"]
+    "lastUpdated" : "2023-12-21T17:43:03.000-05:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-valueset-cqfm",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "extension" : [{
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
-    "valueString" : "IMPAQ Author"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
-    "valueDate" : "2022-12-15"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
-    "valueDate" : "2019-03-19"
-  }],
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "IMPAQ Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2024-03-05"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2018-05-31"
+    }
+  ],
   "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1179.2",
-  "identifier" : [{
-    "system" : "urn:ietf:rfc:3986",
-    "value" : "urn:oid:2.16.840.1.113762.1.4.1179.2"
-  }],
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113762.1.4.1179.2"
+    }
+  ],
   "version" : "20180531",
   "name" : "OperatingRoomLocation",
   "title" : "Operating room location",
-  "status" : "active",
+  "status" : "retired",
   "experimental" : false,
   "date" : "2018-05-31T01:00:01-04:00",
   "publisher" : "IMPAQ Steward",
-  "jurisdiction" : [{
-    "extension" : [{
-      "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
-      "valueString" : "UNKNOWN"
-    }]
-  }],
+  "jurisdiction" : [
+    {
+      "coding" : [
+        {
+          "system" : "urn:iso:std:iso:3166",
+          "code" : "US"
+        }
+      ]
+    }
+  ],
   "purpose" : "(Clinical Focus: Locations within the hospital setting where surgeries are performed.),(Data Element Scope: Location attribute),(Inclusion Criteria: Include codes for hospital based operating rooms or suites where sedation or anesthesia are administered by licensed staff.),(Exclusion Criteria: Exclude codes for any other location in the hospital.)",
   "compose" : {
-    "include" : [{
-      "system" : "https://www.cdc.gov/nhsn/cdaportal/terminology/codesystem/hsloc.html",
-      "concept" : [{
-        "code" : "1094-2",
-        "display" : "Operating and recovery rooms"
-      },
+    "include" : [
       {
+        "system" : "https://www.cdc.gov/nhsn/cdaportal/terminology/codesystem/hsloc.html",
+        "concept" : [
+          {
+            "code" : "1094-2",
+            "display" : "Operating and recovery rooms"
+          },
+          {
+            "code" : "1096-7",
+            "display" : "Operating Room/Suite"
+          },
+          {
+            "code" : "1097-5",
+            "display" : "Post-Anesthesia Care Unit/Recovery Room"
+          }
+        ]
+      }
+    ]
+  },
+  "expansion" : {
+    "identifier" : "urn:uuid:4f8335f3-a836-47e2-a331-f3c9f4ce17f1",
+    "timestamp" : "2024-06-14T12:39:04-04:00",
+    "total" : 2,
+    "contains" : [
+      {
+        "system" : "https://www.cdc.gov/nhsn/cdaportal/terminology/codesystem/hsloc.html",
+        "version" : "2022",
         "code" : "1096-7",
         "display" : "Operating Room/Suite"
       },
       {
+        "system" : "https://www.cdc.gov/nhsn/cdaportal/terminology/codesystem/hsloc.html",
+        "version" : "2022",
         "code" : "1097-5",
         "display" : "Post-Anesthesia Care Unit/Recovery Room"
-      }]
-    }]
-  },
-  "expansion" : {
-    "identifier" : "urn:uuid:6f459bbe-04cb-47ce-a8f2-4cc7a2ee8c21",
-    "timestamp" : "2023-09-26T12:13:35-04:00",
-    "total" : 2,
-    "offset" : 0,
-    "parameter" : [{
-      "name" : "count",
-      "valueInteger" : 1000
-    },
-    {
-      "name" : "offset",
-      "valueInteger" : 0
-    }],
-    "contains" : [{
-      "system" : "https://www.cdc.gov/nhsn/cdaportal/terminology/codesystem/hsloc.html",
-      "version" : "2022",
-      "code" : "1096-7",
-      "display" : "Operating Room/Suite"
-    },
-    {
-      "system" : "https://www.cdc.gov/nhsn/cdaportal/terminology/codesystem/hsloc.html",
-      "version" : "2022",
-      "code" : "1097-5",
-      "display" : "Post-Anesthesia Care Unit/Recovery Room"
-    }]
+      }
+    ]
   }
 }

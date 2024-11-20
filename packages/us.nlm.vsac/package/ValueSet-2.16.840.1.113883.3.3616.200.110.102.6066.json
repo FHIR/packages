@@ -3,88 +3,96 @@
   "id" : "2.16.840.1.113883.3.3616.200.110.102.6066",
   "meta" : {
     "versionId" : "5",
-    "lastUpdated" : "2020-08-18T10:21:27.000-04:00",
-    "profile" : ["http://hl7.org/fhir/StructureDefinition/shareablevalueset",
-    "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"]
+    "lastUpdated" : "2023-12-21T17:43:03.000-05:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-valueset-cqfm",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "extension" : [{
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
-    "valueString" : "Clinical Architecture"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
-    "valueDate" : "2023-06-21"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
-    "valueDate" : "2020-08-18"
-  }],
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "Clinical Architecture"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2023-06-21"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2020-07-10"
+    }
+  ],
   "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.3616.200.110.102.6066",
-  "identifier" : [{
-    "system" : "urn:ietf:rfc:3986",
-    "value" : "urn:oid:2.16.840.1.113883.3.3616.200.110.102.6066"
-  }],
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113883.3.3616.200.110.102.6066"
+    }
+  ],
   "version" : "20200710",
   "name" : "COVID19SNOMEDValueSetForChronicLungDiseaseOfPrematurity",
   "title" : "COVID19 SNOMED Value Set for Chronic Lung Disease of Prematurity",
-  "status" : "active",
+  "status" : "retired",
   "experimental" : false,
   "date" : "2023-06-21T18:16:37-04:00",
   "publisher" : "Clinical Architecture",
-  "jurisdiction" : [{
-    "extension" : [{
-      "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
-      "valueString" : "UNKNOWN"
-    }]
-  }],
+  "jurisdiction" : [
+    {
+      "coding" : [
+        {
+          "system" : "urn:iso:std:iso:3166",
+          "code" : "US"
+        }
+      ]
+    }
+  ],
   "purpose" : "(Clinical Focus: This set of values contains terms related to chronic lung diseases of prematurity and is listed as an underlying medical condition, for pediatric cases only, on the CDC SARS-CoV-2 hospitalization surveillance case report form.),(Data Element Scope: ),(Inclusion Criteria: Includes chronic lung diseases of prematurity or bronchopulmonary dysplasia.),(Exclusion Criteria: )",
   "compose" : {
-    "include" : [{
-      "system" : "http://snomed.info/sct",
-      "concept" : [{
+    "include" : [
+      {
+        "system" : "http://snomed.info/sct",
+        "concept" : [
+          {
+            "code" : "51577008",
+            "display" : "Wilson-Mikity syndrome (disorder)"
+          },
+          {
+            "code" : "67569000",
+            "display" : "Bronchopulmonary dysplasia of newborn (disorder)"
+          },
+          {
+            "code" : "90610005",
+            "display" : "Interstitial pulmonary fibrosis of prematurity (disorder)"
+          }
+        ]
+      }
+    ]
+  },
+  "expansion" : {
+    "identifier" : "urn:uuid:bfa6fc41-db28-4c73-b9ae-b7dd1d7ab79e",
+    "timestamp" : "2024-06-14T16:21:06-04:00",
+    "total" : 3,
+    "contains" : [
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
         "code" : "51577008",
         "display" : "Wilson-Mikity syndrome (disorder)"
       },
       {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
         "code" : "67569000",
         "display" : "Bronchopulmonary dysplasia of newborn (disorder)"
       },
       {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
         "code" : "90610005",
         "display" : "Interstitial pulmonary fibrosis of prematurity (disorder)"
-      }]
-    }]
-  },
-  "expansion" : {
-    "identifier" : "urn:uuid:3f4b6900-e27f-433e-ba5c-91263b3dba6e",
-    "timestamp" : "2023-09-26T09:46:07-04:00",
-    "total" : 3,
-    "offset" : 0,
-    "parameter" : [{
-      "name" : "count",
-      "valueInteger" : 1000
-    },
-    {
-      "name" : "offset",
-      "valueInteger" : 0
-    }],
-    "contains" : [{
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "51577008",
-      "display" : "Wilson-Mikity syndrome (disorder)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "67569000",
-      "display" : "Bronchopulmonary dysplasia of newborn (disorder)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "90610005",
-      "display" : "Interstitial pulmonary fibrosis of prematurity (disorder)"
-    }]
+      }
+    ]
   }
 }

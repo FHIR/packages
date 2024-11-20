@@ -3,92 +3,100 @@
   "id" : "2.16.840.1.113883.3.7643.2.1025",
   "meta" : {
     "versionId" : "6",
-    "lastUpdated" : "2019-01-08T01:00:08.000-05:00",
-    "profile" : ["http://hl7.org/fhir/StructureDefinition/shareablevalueset",
-    "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"]
+    "lastUpdated" : "2023-12-21T17:43:03.000-05:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-valueset-cqfm",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "extension" : [{
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
-    "valueString" : "Oncology Nursing Society Author"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
-    "valueDate" : "2022-12-15"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
-    "valueDate" : "2019-01-08"
-  }],
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "Oncology Nursing Society Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2024-06-03"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2019-01-08"
+    }
+  ],
   "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.7643.2.1025",
-  "identifier" : [{
-    "system" : "urn:ietf:rfc:3986",
-    "value" : "urn:oid:2.16.840.1.113883.3.7643.2.1025"
-  }],
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113883.3.7643.2.1025"
+    }
+  ],
   "version" : "20190108",
   "name" : "MusculoskeletalAssessment",
   "title" : "Musculoskeletal Assessment",
-  "status" : "active",
+  "status" : "retired",
   "experimental" : false,
   "date" : "2019-01-08T01:00:08-05:00",
   "publisher" : "Oncology Nursing Society Steward",
-  "jurisdiction" : [{
-    "extension" : [{
-      "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
-      "valueString" : "UNKNOWN"
-    }]
-  }],
+  "jurisdiction" : [
+    {
+      "coding" : [
+        {
+          "system" : "urn:iso:std:iso:3166",
+          "code" : "US"
+        }
+      ]
+    }
+  ],
   "purpose" : "(Clinical Focus: This value set captures musculoskeletal assessments with the goal of obtaining information about patient's gait, stability, use of assistive devices for walking, and falls.),(Data Element Scope: This would use \"Assessment\" QDM category.),(Inclusion Criteria: Generic concepts related to types of musculoskeletal assessments.),(Exclusion Criteria: Specific assessment tools.)",
   "compose" : {
-    "include" : [{
-      "system" : "http://snomed.info/sct",
-      "concept" : [{
+    "include" : [
+      {
+        "system" : "http://snomed.info/sct",
+        "concept" : [
+          {
+            "code" : "414191008",
+            "display" : "Fall risk assessment (procedure)"
+          },
+          {
+            "code" : "429081002",
+            "display" : "Timed unsupported steady stand test (procedure)"
+          },
+          {
+            "code" : "430481008",
+            "display" : "Assessment of mobility (procedure)"
+          },
+          {
+            "code" : "69212005",
+            "display" : "Range of motion testing (procedure)"
+          }
+        ]
+      }
+    ]
+  },
+  "expansion" : {
+    "identifier" : "urn:uuid:4bad8089-5099-4997-ad75-95edc447991d",
+    "timestamp" : "2024-06-14T18:07:41-04:00",
+    "total" : 3,
+    "contains" : [
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
         "code" : "414191008",
         "display" : "Fall risk assessment (procedure)"
       },
       {
-        "code" : "429081002",
-        "display" : "Timed unsupported steady stand test (procedure)"
-      },
-      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
         "code" : "430481008",
         "display" : "Assessment of mobility (procedure)"
       },
       {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
         "code" : "69212005",
         "display" : "Range of motion testing (procedure)"
-      }]
-    }]
-  },
-  "expansion" : {
-    "identifier" : "urn:uuid:54d6a513-b33d-4f90-a71d-2c3b5ddbb9b6",
-    "timestamp" : "2023-09-26T11:56:09-04:00",
-    "total" : 3,
-    "offset" : 0,
-    "parameter" : [{
-      "name" : "count",
-      "valueInteger" : 1000
-    },
-    {
-      "name" : "offset",
-      "valueInteger" : 0
-    }],
-    "contains" : [{
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "414191008",
-      "display" : "Fall risk assessment (procedure)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "430481008",
-      "display" : "Assessment of mobility (procedure)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "69212005",
-      "display" : "Range of motion testing (procedure)"
-    }]
+      }
+    ]
   }
 }

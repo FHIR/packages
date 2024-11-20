@@ -2,84 +2,91 @@
   "resourceType" : "ValueSet",
   "id" : "2.16.840.1.113762.1.4.1222.1587",
   "meta" : {
-    "versionId" : "5",
-    "lastUpdated" : "2022-11-14T01:02:54.000-05:00",
-    "profile" : ["http://hl7.org/fhir/StructureDefinition/shareablevalueset",
-    "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"]
+    "versionId" : "10",
+    "lastUpdated" : "2024-06-13T01:21:43.000-04:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-valueset-cqfm",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "extension" : [{
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
-    "valueString" : "MCC eCare Plan Author"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-keyWord",
-    "valueString" : "MCC_IG"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
-    "valueDate" : "2022-12-15"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
-    "valueDate" : "2022-11-14"
-  }],
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "MCC eCare Plan Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-keyWord",
+      "valueString" : "MCC_IG"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2024-06-13"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2024-06-13"
+    }
+  ],
   "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1222.1587",
-  "identifier" : [{
-    "system" : "urn:ietf:rfc:3986",
-    "value" : "urn:oid:2.16.840.1.113762.1.4.1222.1587"
-  }],
-  "version" : "20221114",
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113762.1.4.1222.1587"
+    }
+  ],
+  "version" : "20240613",
   "name" : "KidneyDiseaseRelatedQuestionnairePanelCodes",
   "title" : "Kidney Disease Related Questionnaire Panel Codes",
   "status" : "active",
-  "experimental" : false,
-  "date" : "2022-11-14T01:02:54-05:00",
+  "date" : "2024-06-13T01:21:43-04:00",
   "publisher" : "HL7 Patient Care WG Steward",
   "description" : "This value set may undergo changes until the HL7 Multiple Chronic Care FHIR IG is formally published in 2024.",
-  "jurisdiction" : [{
-    "extension" : [{
-      "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
-      "valueString" : "UNKNOWN"
-    }]
-  }],
+  "jurisdiction" : [
+    {
+      "coding" : [
+        {
+          "system" : "urn:iso:std:iso:3166",
+          "code" : "US"
+        }
+      ]
+    }
+  ],
   "purpose" : "(Clinical Focus: This set of values contain LOINC Panel codes pertaining to kidney disease questionnaire panels.),(Data Element Scope: The intent of this set of values is to find questionnaires patients have completed or to find patients that have completed questionnaires. The codes may also be used to generate questionnaire forms and conformant FHIR Questionnaire and QuestionnaireResponse Resources using the NIH LHC Forms Widget.),(Inclusion Criteria: High-level kidney disease questionnaire LOINC panel codes),(Exclusion Criteria: Codes contained inside the panels as they can be derived with tooling.)",
   "compose" : {
-    "include" : [{
-      "system" : "http://loinc.org",
-      "concept" : [{
+    "include" : [
+      {
+        "system" : "http://loinc.org",
+        "concept" : [
+          {
+            "code" : "85597-3",
+            "display" : "Renal replacement therapy goals panel NKDEP"
+          },
+          {
+            "code" : "85626-0",
+            "display" : "Kidney failure 2-year and 5-year risk panel by KFRE"
+          }
+        ]
+      }
+    ]
+  },
+  "expansion" : {
+    "identifier" : "urn:uuid:e9a91126-3705-4f27-b20d-ef279d06d37a",
+    "timestamp" : "2024-06-14T14:17:57-04:00",
+    "total" : 2,
+    "contains" : [
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
         "code" : "85597-3",
         "display" : "Renal replacement therapy goals panel NKDEP"
       },
       {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
         "code" : "85626-0",
         "display" : "Kidney failure 2-year and 5-year risk panel by KFRE"
-      }]
-    }]
-  },
-  "expansion" : {
-    "identifier" : "urn:uuid:487feb7b-3374-45b7-93bb-1f3936585b80",
-    "timestamp" : "2023-09-26T11:18:27-04:00",
-    "total" : 2,
-    "offset" : 0,
-    "parameter" : [{
-      "name" : "count",
-      "valueInteger" : 1000
-    },
-    {
-      "name" : "offset",
-      "valueInteger" : 0
-    }],
-    "contains" : [{
-      "system" : "http://loinc.org",
-      "version" : "2.74",
-      "code" : "85597-3",
-      "display" : "Renal replacement therapy goals panel NKDEP"
-    },
-    {
-      "system" : "http://loinc.org",
-      "version" : "2.74",
-      "code" : "85626-0",
-      "display" : "Kidney failure 2-year and 5-year risk panel by KFRE"
-    }]
+      }
+    ]
   }
 }

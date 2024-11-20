@@ -3,27 +3,34 @@
   "id" : "2.16.840.1.113762.1.4.1247.63",
   "meta" : {
     "versionId" : "9",
-    "lastUpdated" : "2022-04-27T14:46:52.000-04:00",
-    "profile" : ["http://hl7.org/fhir/StructureDefinition/shareablevalueset",
-    "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"]
+    "lastUpdated" : "2024-05-07T11:53:26.000-04:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-valueset-cqfm",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "extension" : [{
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
-    "valueString" : "The Gravity Project Author"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
-    "valueDate" : "2022-12-15"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
-    "valueDate" : "2022-04-27"
-  }],
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "The Gravity Project Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2024-02-22"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2022-01-06"
+    }
+  ],
   "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1247.63",
-  "identifier" : [{
-    "system" : "urn:ietf:rfc:3986",
-    "value" : "urn:oid:2.16.840.1.113762.1.4.1247.63"
-  }],
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113762.1.4.1247.63"
+    }
+  ],
   "version" : "20220106",
   "name" : "ElderAbuseDiagnoses",
   "title" : "Elder Abuse Diagnoses",
@@ -31,429 +38,438 @@
   "experimental" : false,
   "date" : "2022-01-06T01:02:13-05:00",
   "publisher" : "The Gravity Project Steward",
-  "jurisdiction" : [{
-    "extension" : [{
-      "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
-      "valueString" : "UNKNOWN"
-    }]
-  }],
-  "purpose" : "(Clinical Focus: <insert metadata> \nThe value sets in this group represent the diagnoses associated with Elder Abuse as identified by the Gravity Project),(Data Element Scope: Supports the Gravity SDOH Clinical Care FHIR Implementation Guide for the exchange of condition.code.),(Inclusion Criteria: Includes ICD-10-CM and SNOMED CT diagnoses that have been identified through the Gravity Project community consensus voting process),(Exclusion Criteria: N/A)",
-  "compose" : {
-    "include" : [{
-      "valueSet" : ["http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1247.61"]
-    },
+  "jurisdiction" : [
     {
-      "valueSet" : ["http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1247.62"]
-    }]
+      "coding" : [
+        {
+          "system" : "urn:iso:std:iso:3166",
+          "code" : "US"
+        }
+      ]
+    }
+  ],
+  "purpose" : "(Clinical Focus: This set of values represent diagnoses for Elder Abuse as selected by the Gravity Project.),(Data Element Scope: In the FHIR Condition resource, these values may be used for Condition.code (e.g., for the SDOHCC Condition profile in the Gravity SDOH Clinical Care FHIR Implementation Guide).),(Inclusion Criteria: Includes SNOMED CT and ICD 10 CM diagnoses for Elder Abuse as selected by the Gravity Project.),(Exclusion Criteria: NA)",
+  "compose" : {
+    "include" : [
+      {
+        "valueSet" : [
+          "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1247.61"
+        ]
+      },
+      {
+        "valueSet" : [
+          "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1247.62"
+        ]
+      }
+    ]
   },
   "expansion" : {
-    "identifier" : "urn:uuid:1885e422-0798-427b-a77c-830531345654",
-    "timestamp" : "2023-09-26T10:15:10-04:00",
-    "total" : 66,
-    "offset" : 0,
-    "parameter" : [{
-      "name" : "count",
-      "valueInteger" : 1000
-    },
-    {
-      "name" : "offset",
-      "valueInteger" : 0
-    }],
-    "contains" : [{
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "12242911000119107",
-      "display" : "Suspected victim of elder physical abuse (situation)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "12399491000119102",
-      "display" : "Suspected victim of elder sexual abuse (situation)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "12399531000119102",
-      "display" : "Suspected victim of elder emotional abuse (situation)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "15912911000119102",
-      "display" : "Suspected victim of elder neglect (situation)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "459601000124108",
-      "display" : "Victim of elder physical abuse (finding)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "459611000124106",
-      "display" : "History of victim of elder physical abuse (situation)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "459901000124103",
-      "display" : "History of victim of elder sexual abuse (situation)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "551461000124100",
-      "display" : "Victim of elder financial abuse (finding)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "551471000124107",
-      "display" : "Victim of elder sexual abuse (finding)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "551561000124104",
-      "display" : "History of victim of elder abuse (situation)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "551571000124106",
-      "display" : "History of victim of elder financial abuse (situation)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "551581000124109",
-      "display" : "History of victim of elder neglect (situation)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "551591000124107",
-      "display" : "History of victim of elder emotional abuse (situation)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "551601000124104",
-      "display" : "Suspected victim of elder financial abuse (situation)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "611191000124101",
-      "display" : "Victim of elder abuse by unrelated caregiver (finding)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "611201000124103",
-      "display" : "Victim of elder abuse by related caregiver (finding)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "697957000",
-      "display" : "Suspected elderly person maltreatment (situation)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "704349002",
-      "display" : "At risk of elder abuse (finding)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "706872008",
-      "display" : "Victim of elder abuse (finding)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "706874009",
-      "display" : "At risk of elder neglect (finding)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "95929000",
-      "display" : "Psychologically abused elder (finding)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "95933007",
-      "display" : "Neglected elder (finding)"
-    },
-    {
-      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-      "version" : "2024",
-      "code" : "T74.01XA",
-      "display" : "Adult neglect or abandonment, confirmed, initial encounter"
-    },
-    {
-      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-      "version" : "2024",
-      "code" : "T74.01XD",
-      "display" : "Adult neglect or abandonment, confirmed, subsequent encounter"
-    },
-    {
-      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-      "version" : "2024",
-      "code" : "T74.01XS",
-      "display" : "Adult neglect or abandonment, confirmed, sequela"
-    },
-    {
-      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-      "version" : "2024",
-      "code" : "T74.11XA",
-      "display" : "Adult physical abuse, confirmed, initial encounter"
-    },
-    {
-      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-      "version" : "2024",
-      "code" : "T74.11XD",
-      "display" : "Adult physical abuse, confirmed, subsequent encounter"
-    },
-    {
-      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-      "version" : "2024",
-      "code" : "T74.11XS",
-      "display" : "Adult physical abuse, confirmed, sequela"
-    },
-    {
-      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-      "version" : "2024",
-      "code" : "T74.21XA",
-      "display" : "Adult sexual abuse, confirmed, initial encounter"
-    },
-    {
-      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-      "version" : "2024",
-      "code" : "T74.21XD",
-      "display" : "Adult sexual abuse, confirmed, subsequent encounter"
-    },
-    {
-      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-      "version" : "2024",
-      "code" : "T74.21XS",
-      "display" : "Adult sexual abuse, confirmed, sequela"
-    },
-    {
-      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-      "version" : "2024",
-      "code" : "T74.31XA",
-      "display" : "Adult psychological abuse, confirmed, initial encounter"
-    },
-    {
-      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-      "version" : "2024",
-      "code" : "T74.31XD",
-      "display" : "Adult psychological abuse, confirmed, subsequent encounter"
-    },
-    {
-      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-      "version" : "2024",
-      "code" : "T74.31XS",
-      "display" : "Adult psychological abuse, confirmed, sequela"
-    },
-    {
-      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-      "version" : "2024",
-      "code" : "T74.91XA",
-      "display" : "Unspecified adult maltreatment, confirmed, initial encounter"
-    },
-    {
-      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-      "version" : "2024",
-      "code" : "T74.91XD",
-      "display" : "Unspecified adult maltreatment, confirmed, subsequent encounter"
-    },
-    {
-      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-      "version" : "2024",
-      "code" : "T74.91XS",
-      "display" : "Unspecified adult maltreatment, confirmed, sequela"
-    },
-    {
-      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-      "version" : "2024",
-      "code" : "T74.A1",
-      "display" : "Adult financial abuse, confirmed"
-    },
-    {
-      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-      "version" : "2024",
-      "code" : "T74.A1XA",
-      "display" : "Adult financial abuse, confirmed, initial encounter"
-    },
-    {
-      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-      "version" : "2024",
-      "code" : "T74.A1XD",
-      "display" : "Adult financial abuse, confirmed, subsequent encounter"
-    },
-    {
-      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-      "version" : "2024",
-      "code" : "T74.A1XS",
-      "display" : "Adult financial abuse, confirmed, sequela"
-    },
-    {
-      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-      "version" : "2024",
-      "code" : "T76.01XA",
-      "display" : "Adult neglect or abandonment, suspected, initial encounter"
-    },
-    {
-      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-      "version" : "2024",
-      "code" : "T76.01XD",
-      "display" : "Adult neglect or abandonment, suspected, subsequent encounter"
-    },
-    {
-      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-      "version" : "2024",
-      "code" : "T76.01XS",
-      "display" : "Adult neglect or abandonment, suspected, sequela"
-    },
-    {
-      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-      "version" : "2024",
-      "code" : "T76.11XA",
-      "display" : "Adult physical abuse, suspected, initial encounter"
-    },
-    {
-      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-      "version" : "2024",
-      "code" : "T76.11XD",
-      "display" : "Adult physical abuse, suspected, subsequent encounter"
-    },
-    {
-      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-      "version" : "2024",
-      "code" : "T76.11XS",
-      "display" : "Adult physical abuse, suspected, sequela"
-    },
-    {
-      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-      "version" : "2024",
-      "code" : "T76.21XA",
-      "display" : "Adult sexual abuse, suspected, initial encounter"
-    },
-    {
-      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-      "version" : "2024",
-      "code" : "T76.21XD",
-      "display" : "Adult sexual abuse, suspected, subsequent encounter"
-    },
-    {
-      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-      "version" : "2024",
-      "code" : "T76.21XS",
-      "display" : "Adult sexual abuse, suspected, sequela"
-    },
-    {
-      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-      "version" : "2024",
-      "code" : "T76.31XA",
-      "display" : "Adult psychological abuse, suspected, initial encounter"
-    },
-    {
-      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-      "version" : "2024",
-      "code" : "T76.31XD",
-      "display" : "Adult psychological abuse, suspected, subsequent encounter"
-    },
-    {
-      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-      "version" : "2024",
-      "code" : "T76.31XS",
-      "display" : "Adult psychological abuse, suspected, sequela"
-    },
-    {
-      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-      "version" : "2024",
-      "code" : "T76.91XA",
-      "display" : "Unspecified adult maltreatment, suspected, initial encounter"
-    },
-    {
-      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-      "version" : "2024",
-      "code" : "T76.91XD",
-      "display" : "Unspecified adult maltreatment, suspected, subsequent encounter"
-    },
-    {
-      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-      "version" : "2024",
-      "code" : "T76.91XS",
-      "display" : "Unspecified adult maltreatment, suspected, sequela"
-    },
-    {
-      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-      "version" : "2024",
-      "code" : "T76.A1",
-      "display" : "Adult financial abuse, suspected"
-    },
-    {
-      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-      "version" : "2024",
-      "code" : "T76.A1XA",
-      "display" : "Adult financial abuse, suspected, initial encounter"
-    },
-    {
-      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-      "version" : "2024",
-      "code" : "T76.A1XD",
-      "display" : "Adult financial abuse, suspected, subsequent encounter"
-    },
-    {
-      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-      "version" : "2024",
-      "code" : "T76.A1XS",
-      "display" : "Adult financial abuse, suspected, sequela"
-    },
-    {
-      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-      "version" : "2024",
-      "code" : "Z71.88",
-      "display" : "Encounter for counseling for socioeconomic factors"
-    },
-    {
-      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-      "version" : "2024",
-      "code" : "Z91.410",
-      "display" : "Personal history of adult physical and sexual abuse"
-    },
-    {
-      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-      "version" : "2024",
-      "code" : "Z91.411",
-      "display" : "Personal history of adult psychological abuse"
-    },
-    {
-      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-      "version" : "2024",
-      "code" : "Z91.412",
-      "display" : "Personal history of adult neglect"
-    },
-    {
-      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-      "version" : "2024",
-      "code" : "Z91.413",
-      "display" : "Personal history of adult financial abuse"
-    },
-    {
-      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-      "version" : "2024",
-      "code" : "Z91.419",
-      "display" : "Personal history of unspecified adult abuse"
-    }]
+    "identifier" : "urn:uuid:c6a8dfdd-c8d6-42bd-b56b-6a1f581f900d",
+    "timestamp" : "2024-06-14T14:59:37-04:00",
+    "total" : 67,
+    "contains" : [
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "12242911000119107",
+        "display" : "Suspected victim of elder physical abuse (situation)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "12399491000119102",
+        "display" : "Suspected victim of elder sexual abuse (situation)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "12399531000119102",
+        "display" : "Suspected victim of elder emotional abuse (situation)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "15912911000119102",
+        "display" : "Suspected victim of elder neglect (situation)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "459601000124108",
+        "display" : "Victim of elder physical abuse (finding)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "459611000124106",
+        "display" : "History of victim of elder physical abuse (situation)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "459901000124103",
+        "display" : "History of victim of elder sexual abuse (situation)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "551461000124100",
+        "display" : "Victim of elder financial abuse (finding)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "551471000124107",
+        "display" : "Victim of elder sexual abuse (finding)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "551561000124104",
+        "display" : "History of victim of elder abuse (situation)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "551571000124106",
+        "display" : "History of victim of elder financial abuse (situation)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "551581000124109",
+        "display" : "History of victim of elder neglect (situation)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "551591000124107",
+        "display" : "History of victim of elder emotional abuse (situation)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "551601000124104",
+        "display" : "Suspected victim of elder financial abuse (situation)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "611191000124101",
+        "display" : "Victim of elder abuse by unrelated caregiver (finding)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "611201000124103",
+        "display" : "Victim of elder abuse by related caregiver (finding)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "697957000",
+        "display" : "Suspected elderly person maltreatment (situation)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "704349002",
+        "display" : "At increased risk of elder abuse (finding)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "706872008",
+        "display" : "Victim of elder abuse (finding)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "706874009",
+        "display" : "At increased risk of elder neglect (finding)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "761141000124101",
+        "display" : "Victim of elder financial exploitation (finding)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "95929000",
+        "display" : "Psychologically abused elder (finding)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "95933007",
+        "display" : "Neglected elder (finding)"
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2024",
+        "code" : "T74.01XA",
+        "display" : "Adult neglect or abandonment, confirmed, initial encounter"
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2024",
+        "code" : "T74.01XD",
+        "display" : "Adult neglect or abandonment, confirmed, subsequent encounter"
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2024",
+        "code" : "T74.01XS",
+        "display" : "Adult neglect or abandonment, confirmed, sequela"
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2024",
+        "code" : "T74.11XA",
+        "display" : "Adult physical abuse, confirmed, initial encounter"
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2024",
+        "code" : "T74.11XD",
+        "display" : "Adult physical abuse, confirmed, subsequent encounter"
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2024",
+        "code" : "T74.11XS",
+        "display" : "Adult physical abuse, confirmed, sequela"
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2024",
+        "code" : "T74.21XA",
+        "display" : "Adult sexual abuse, confirmed, initial encounter"
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2024",
+        "code" : "T74.21XD",
+        "display" : "Adult sexual abuse, confirmed, subsequent encounter"
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2024",
+        "code" : "T74.21XS",
+        "display" : "Adult sexual abuse, confirmed, sequela"
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2024",
+        "code" : "T74.31XA",
+        "display" : "Adult psychological abuse, confirmed, initial encounter"
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2024",
+        "code" : "T74.31XD",
+        "display" : "Adult psychological abuse, confirmed, subsequent encounter"
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2024",
+        "code" : "T74.31XS",
+        "display" : "Adult psychological abuse, confirmed, sequela"
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2024",
+        "code" : "T74.91XA",
+        "display" : "Unspecified adult maltreatment, confirmed, initial encounter"
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2024",
+        "code" : "T74.91XD",
+        "display" : "Unspecified adult maltreatment, confirmed, subsequent encounter"
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2024",
+        "code" : "T74.91XS",
+        "display" : "Unspecified adult maltreatment, confirmed, sequela"
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2024",
+        "code" : "T74.A1",
+        "display" : "Adult financial abuse, confirmed"
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2024",
+        "code" : "T74.A1XA",
+        "display" : "Adult financial abuse, confirmed, initial encounter"
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2024",
+        "code" : "T74.A1XD",
+        "display" : "Adult financial abuse, confirmed, subsequent encounter"
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2024",
+        "code" : "T74.A1XS",
+        "display" : "Adult financial abuse, confirmed, sequela"
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2024",
+        "code" : "T76.01XA",
+        "display" : "Adult neglect or abandonment, suspected, initial encounter"
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2024",
+        "code" : "T76.01XD",
+        "display" : "Adult neglect or abandonment, suspected, subsequent encounter"
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2024",
+        "code" : "T76.01XS",
+        "display" : "Adult neglect or abandonment, suspected, sequela"
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2024",
+        "code" : "T76.11XA",
+        "display" : "Adult physical abuse, suspected, initial encounter"
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2024",
+        "code" : "T76.11XD",
+        "display" : "Adult physical abuse, suspected, subsequent encounter"
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2024",
+        "code" : "T76.11XS",
+        "display" : "Adult physical abuse, suspected, sequela"
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2024",
+        "code" : "T76.21XA",
+        "display" : "Adult sexual abuse, suspected, initial encounter"
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2024",
+        "code" : "T76.21XD",
+        "display" : "Adult sexual abuse, suspected, subsequent encounter"
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2024",
+        "code" : "T76.21XS",
+        "display" : "Adult sexual abuse, suspected, sequela"
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2024",
+        "code" : "T76.31XA",
+        "display" : "Adult psychological abuse, suspected, initial encounter"
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2024",
+        "code" : "T76.31XD",
+        "display" : "Adult psychological abuse, suspected, subsequent encounter"
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2024",
+        "code" : "T76.31XS",
+        "display" : "Adult psychological abuse, suspected, sequela"
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2024",
+        "code" : "T76.91XA",
+        "display" : "Unspecified adult maltreatment, suspected, initial encounter"
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2024",
+        "code" : "T76.91XD",
+        "display" : "Unspecified adult maltreatment, suspected, subsequent encounter"
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2024",
+        "code" : "T76.91XS",
+        "display" : "Unspecified adult maltreatment, suspected, sequela"
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2024",
+        "code" : "T76.A1",
+        "display" : "Adult financial abuse, suspected"
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2024",
+        "code" : "T76.A1XA",
+        "display" : "Adult financial abuse, suspected, initial encounter"
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2024",
+        "code" : "T76.A1XD",
+        "display" : "Adult financial abuse, suspected, subsequent encounter"
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2024",
+        "code" : "T76.A1XS",
+        "display" : "Adult financial abuse, suspected, sequela"
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2024",
+        "code" : "Z71.88",
+        "display" : "Encounter for counseling for socioeconomic factors"
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2024",
+        "code" : "Z91.410",
+        "display" : "Personal history of adult physical and sexual abuse"
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2024",
+        "code" : "Z91.411",
+        "display" : "Personal history of adult psychological abuse"
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2024",
+        "code" : "Z91.412",
+        "display" : "Personal history of adult neglect"
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2024",
+        "code" : "Z91.413",
+        "display" : "Personal history of adult financial abuse"
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2024",
+        "code" : "Z91.419",
+        "display" : "Personal history of unspecified adult abuse"
+      }
+    ]
   }
 }

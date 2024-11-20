@@ -3,68 +3,80 @@
   "id" : "2.16.840.1.113883.3.117.1.7.1.357",
   "meta" : {
     "versionId" : "18",
-    "lastUpdated" : "2017-07-26T01:00:04.000-04:00",
-    "profile" : ["http://hl7.org/fhir/StructureDefinition/shareablevalueset",
-    "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"]
+    "lastUpdated" : "2023-12-21T17:43:03.000-05:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-valueset-cqfm",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "extension" : [{
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
-    "valueString" : "TJC EH Author"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
-    "valueDate" : "2022-12-15"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
-    "valueDate" : "2017-07-26"
-  }],
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "TJC EH Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-keyWord",
+      "valueString" : "Not_In_Use"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2024-06-03"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2017-07-26"
+    }
+  ],
   "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.117.1.7.1.357",
-  "identifier" : [{
-    "system" : "urn:ietf:rfc:3986",
-    "value" : "urn:oid:2.16.840.1.113883.3.117.1.7.1.357"
-  }],
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113883.3.117.1.7.1.357"
+    }
+  ],
   "version" : "20170726",
   "name" : "VTERiskAssessment",
   "title" : "VTE Risk Assessment",
-  "status" : "active",
+  "status" : "retired",
   "experimental" : false,
   "date" : "2017-07-26T01:00:04-04:00",
   "publisher" : "TJC EH Steward",
-  "jurisdiction" : [{
-    "extension" : [{
-      "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
-      "valueString" : "UNKNOWN"
-    }]
-  }],
+  "jurisdiction" : [
+    {
+      "coding" : [
+        {
+          "system" : "urn:iso:std:iso:3166",
+          "code" : "US"
+        }
+      ]
+    }
+  ],
   "purpose" : "(Clinical Focus: This set of values identify a tool used to assess the amount of risk that a patient has to develop a VTE.),(Data Element Scope: The intent of this data element is to identify patients who have an assessment of their risk to develop a VTE.  Using the Quality Data Model, this particular element will map to the Risk Category Assessment category with a result attribute.),(Inclusion Criteria: Only use codes which represent a risk assessment tool used to assess a patient's risk to develop a VTE.  Codes used are to be LOINC only.),(Exclusion Criteria: Exclude any codes which are not LOINC or which are LOINC, but which do not represent a risk assessment tool used to assess a patient's risk to develop a VTE.)",
   "compose" : {
-    "include" : [{
-      "system" : "http://loinc.org",
-      "concept" : [{
-        "code" : "72136-5",
-        "display" : "Risk for venous thromboembolism"
-      }]
-    }]
+    "include" : [
+      {
+        "system" : "http://loinc.org",
+        "concept" : [
+          {
+            "code" : "72136-5",
+            "display" : "Risk for venous thromboembolism"
+          }
+        ]
+      }
+    ]
   },
   "expansion" : {
-    "identifier" : "urn:uuid:868dd154-47de-4c7b-87f2-cc3dcc8e5d01",
-    "timestamp" : "2023-09-26T13:54:42-04:00",
+    "identifier" : "urn:uuid:7a0d67db-0463-44ae-a719-a788bb9c3a17",
+    "timestamp" : "2024-06-14T15:41:33-04:00",
     "total" : 1,
-    "offset" : 0,
-    "parameter" : [{
-      "name" : "count",
-      "valueInteger" : 1000
-    },
-    {
-      "name" : "offset",
-      "valueInteger" : 0
-    }],
-    "contains" : [{
-      "system" : "http://loinc.org",
-      "version" : "2.74",
-      "code" : "72136-5",
-      "display" : "Risk for venous thromboembolism"
-    }]
+    "contains" : [
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
+        "code" : "72136-5",
+        "display" : "Risk for venous thromboembolism"
+      }
+    ]
   }
 }

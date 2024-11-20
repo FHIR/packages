@@ -3,27 +3,34 @@
   "id" : "2.16.840.1.113883.3.1444.3.108",
   "meta" : {
     "versionId" : "6",
-    "lastUpdated" : "2020-10-28T01:00:29.000-04:00",
-    "profile" : ["http://hl7.org/fhir/StructureDefinition/shareablevalueset",
-    "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"]
+    "lastUpdated" : "2023-12-21T17:43:03.000-05:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-valueset-cqfm",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "extension" : [{
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
-    "valueString" : "American Society of Clinical Oncology Author"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
-    "valueDate" : "2023-07-06"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
-    "valueDate" : "2020-10-28"
-  }],
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "American Society of Clinical Oncology Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2023-07-06"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2020-10-28"
+    }
+  ],
   "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.1444.3.108",
-  "identifier" : [{
-    "system" : "urn:ietf:rfc:3986",
-    "value" : "urn:oid:2.16.840.1.113883.3.1444.3.108"
-  }],
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113883.3.1444.3.108"
+    }
+  ],
   "version" : "20201028",
   "name" : "NauseaOrVomitingAssessment",
   "title" : "Nausea or Vomiting Assessment",
@@ -31,60 +38,61 @@
   "experimental" : false,
   "date" : "2020-10-28T01:00:29-04:00",
   "publisher" : "American Society of Clinical Oncology Steward",
-  "jurisdiction" : [{
-    "extension" : [{
-      "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
-      "valueString" : "UNKNOWN"
-    }]
-  }],
+  "jurisdiction" : [
+    {
+      "coding" : [
+        {
+          "system" : "urn:iso:std:iso:3166",
+          "code" : "US"
+        }
+      ]
+    }
+  ],
   "purpose" : "(Clinical Focus: This value set contains concepts that represent assessment that measures the degree of nausea or vomiting.),(Data Element Scope: This value set may use Quality Data Model (QDM) category related to Assessment.),(Inclusion Criteria: Includes only relevant concepts associated with nausea or vomiting assessment.),(Exclusion Criteria: No exclusions.)",
   "compose" : {
-    "include" : [{
-      "system" : "http://loinc.org",
-      "concept" : [{
+    "include" : [
+      {
+        "system" : "http://loinc.org",
+        "concept" : [
+          {
+            "code" : "70406-4",
+            "display" : "I have nausea in the past 7 days [FACIT]"
+          },
+          {
+            "code" : "70479-1",
+            "display" : "I have been vomiting in the past 7 days [FACIT]"
+          },
+          {
+            "code" : "81660-3",
+            "display" : "Nausea [Presence]"
+          }
+        ]
+      }
+    ]
+  },
+  "expansion" : {
+    "identifier" : "urn:uuid:20289244-746b-4e9c-8afb-280249a42cf3",
+    "timestamp" : "2024-06-14T15:48:29-04:00",
+    "total" : 3,
+    "contains" : [
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
         "code" : "70406-4",
         "display" : "I have nausea in the past 7 days [FACIT]"
       },
       {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
         "code" : "70479-1",
         "display" : "I have been vomiting in the past 7 days [FACIT]"
       },
       {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
         "code" : "81660-3",
         "display" : "Nausea [Presence]"
-      }]
-    }]
-  },
-  "expansion" : {
-    "identifier" : "urn:uuid:69758184-60f5-4342-84a3-2ffec6dbe824",
-    "timestamp" : "2023-09-26T11:57:59-04:00",
-    "total" : 3,
-    "offset" : 0,
-    "parameter" : [{
-      "name" : "count",
-      "valueInteger" : 1000
-    },
-    {
-      "name" : "offset",
-      "valueInteger" : 0
-    }],
-    "contains" : [{
-      "system" : "http://loinc.org",
-      "version" : "2.74",
-      "code" : "70406-4",
-      "display" : "I have nausea in the past 7 days [FACIT]"
-    },
-    {
-      "system" : "http://loinc.org",
-      "version" : "2.74",
-      "code" : "70479-1",
-      "display" : "I have been vomiting in the past 7 days [FACIT]"
-    },
-    {
-      "system" : "http://loinc.org",
-      "version" : "2.74",
-      "code" : "81660-3",
-      "display" : "Nausea [Presence]"
-    }]
+      }
+    ]
   }
 }

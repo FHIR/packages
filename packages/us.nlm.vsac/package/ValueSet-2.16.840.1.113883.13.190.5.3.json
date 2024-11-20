@@ -3,129 +3,137 @@
   "id" : "2.16.840.1.113883.13.190.5.3",
   "meta" : {
     "versionId" : "8",
-    "lastUpdated" : "2016-02-10T11:07:47.000-05:00",
-    "profile" : ["http://hl7.org/fhir/StructureDefinition/shareablevalueset",
-    "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"]
+    "lastUpdated" : "2023-12-21T17:43:03.000-05:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-valueset-cqfm",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "extension" : [{
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
-    "valueString" : "Mathematica-CCDE"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
-    "valueDate" : "2022-12-15"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
-    "valueDate" : "2016-02-10"
-  }],
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "Mathematica-CCDE"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2024-06-03"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2015-01-28"
+    }
+  ],
   "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.13.190.5.3",
-  "identifier" : [{
-    "system" : "urn:ietf:rfc:3986",
-    "value" : "urn:oid:2.16.840.1.113883.13.190.5.3"
-  }],
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113883.13.190.5.3"
+    }
+  ],
   "version" : "20150128",
   "name" : "TroponinLabTest",
   "title" : "Troponin Lab Test",
-  "status" : "active",
+  "status" : "retired",
   "experimental" : false,
   "date" : "2015-01-28T01:00:02-05:00",
   "publisher" : "Yale",
   "description" : "LOINC Value Set Cardiac I, T Yale de novo measure",
-  "jurisdiction" : [{
-    "extension" : [{
-      "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
-      "valueString" : "UNKNOWN"
-    }]
-  }],
+  "jurisdiction" : [
+    {
+      "coding" : [
+        {
+          "system" : "urn:iso:std:iso:3166",
+          "code" : "US"
+        }
+      ]
+    }
+  ],
   "purpose" : "(Clinical Focus: This value set contains codes for concepts which identify patients who had a lab test for Troponin using a source of blood, serum, or plasma.),(Data Element Scope: The intent of this data element is to identify patients who had a blood, serum, plasma lab test performed for a troponin level. Using the Quality Data Model this particular element will map to the Laboratory, Result or Laboratory, Order datatype.),(Inclusion Criteria: Troponin laboratory test using a source of blood, serum, or plasma codes with a reporting scale of mass/volume represented using LOINC codes.),(Exclusion Criteria: Do not include any codes which do not represent Troponin from any source other than blood, serum or plasma.)",
   "compose" : {
-    "include" : [{
-      "system" : "http://loinc.org",
-      "concept" : [{
+    "include" : [
+      {
+        "system" : "http://loinc.org",
+        "concept" : [
+          {
+            "code" : "10839-9",
+            "display" : "Troponin I.cardiac [Mass/volume] in Serum or Plasma"
+          },
+          {
+            "code" : "42757-5",
+            "display" : "Troponin I.cardiac [Mass/volume] in Blood"
+          },
+          {
+            "code" : "48425-3",
+            "display" : "Troponin T.cardiac [Mass/volume] in Blood"
+          },
+          {
+            "code" : "49563-0",
+            "display" : "Troponin I.cardiac [Mass/volume] in Serum or Plasma by Detection limit <= 0.01 ng/mL"
+          },
+          {
+            "code" : "6597-9",
+            "display" : "Troponin T.cardiac [Mass/volume] in Venous blood"
+          },
+          {
+            "code" : "6598-7",
+            "display" : "Troponin T.cardiac [Mass/volume] in Serum or Plasma"
+          },
+          {
+            "code" : "67151-1",
+            "display" : "Troponin T.cardiac [Mass/volume] in Serum or Plasma by Detection limit <= 5 ng/L"
+          }
+        ]
+      }
+    ]
+  },
+  "expansion" : {
+    "identifier" : "urn:uuid:3f916313-c70c-493a-a2b0-382dcc820f8e",
+    "timestamp" : "2024-06-14T15:21:43-04:00",
+    "total" : 7,
+    "contains" : [
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
         "code" : "10839-9",
         "display" : "Troponin I.cardiac [Mass/volume] in Serum or Plasma"
       },
       {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
         "code" : "42757-5",
         "display" : "Troponin I.cardiac [Mass/volume] in Blood"
       },
       {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
         "code" : "48425-3",
         "display" : "Troponin T.cardiac [Mass/volume] in Blood"
       },
       {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
         "code" : "49563-0",
         "display" : "Troponin I.cardiac [Mass/volume] in Serum or Plasma by Detection limit <= 0.01 ng/mL"
       },
       {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
         "code" : "6597-9",
         "display" : "Troponin T.cardiac [Mass/volume] in Venous blood"
       },
       {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
         "code" : "6598-7",
         "display" : "Troponin T.cardiac [Mass/volume] in Serum or Plasma"
       },
       {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
         "code" : "67151-1",
-        "display" : "Troponin T.cardiac [Mass/volume] in Serum or Plasma by Detection limit <= 5 ng/L"
-      }]
-    }]
-  },
-  "expansion" : {
-    "identifier" : "urn:uuid:8f221f07-3727-4e02-80cf-b31a4dd2468a",
-    "timestamp" : "2023-09-26T13:42:40-04:00",
-    "total" : 7,
-    "offset" : 0,
-    "parameter" : [{
-      "name" : "count",
-      "valueInteger" : 1000
-    },
-    {
-      "name" : "offset",
-      "valueInteger" : 0
-    }],
-    "contains" : [{
-      "system" : "http://loinc.org",
-      "version" : "2.74",
-      "code" : "10839-9",
-      "display" : "Troponin I.cardiac [Mass/volume] in Serum or Plasma"
-    },
-    {
-      "system" : "http://loinc.org",
-      "version" : "2.74",
-      "code" : "42757-5",
-      "display" : "Troponin I.cardiac [Mass/volume] in Blood"
-    },
-    {
-      "system" : "http://loinc.org",
-      "version" : "2.74",
-      "code" : "48425-3",
-      "display" : "Troponin T.cardiac [Mass/volume] in Blood"
-    },
-    {
-      "system" : "http://loinc.org",
-      "version" : "2.74",
-      "code" : "49563-0",
-      "display" : "Troponin I.cardiac [Mass/volume] in Serum or Plasma by Detection limit <= 0.01 ng/mL"
-    },
-    {
-      "system" : "http://loinc.org",
-      "version" : "2.74",
-      "code" : "6597-9",
-      "display" : "Troponin T.cardiac [Mass/volume] in Venous blood"
-    },
-    {
-      "system" : "http://loinc.org",
-      "version" : "2.74",
-      "code" : "6598-7",
-      "display" : "Troponin T.cardiac [Mass/volume] in Serum or Plasma"
-    },
-    {
-      "system" : "http://loinc.org",
-      "version" : "2.74",
-      "code" : "67151-1",
-      "display" : "Troponin T.cardiac [Mass/volume] in Serum or Plasma by High sensitivity method"
-    }]
+        "display" : "Troponin T.cardiac [Mass/volume] in Serum or Plasma by High sensitivity method"
+      }
+    ]
   }
 }

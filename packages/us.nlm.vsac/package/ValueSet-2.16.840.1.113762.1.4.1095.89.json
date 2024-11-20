@@ -2,65 +2,107 @@
   "resourceType" : "ValueSet",
   "id" : "2.16.840.1.113762.1.4.1095.89",
   "meta" : {
-    "versionId" : "5",
-    "lastUpdated" : "2018-06-19T01:09:08.000-04:00",
-    "profile" : ["http://hl7.org/fhir/StructureDefinition/shareablevalueset",
-    "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"]
+    "versionId" : "12",
+    "lastUpdated" : "2024-01-17T01:08:53.000-05:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-valueset-cqfm",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "extension" : [{
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
-    "valueString" : "AND Author"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
-    "valueDate" : "2023-06-13"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
-    "valueDate" : "2018-06-19"
-  }],
-  "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1095.89",
-  "identifier" : [{
-    "system" : "urn:ietf:rfc:3986",
-    "value" : "urn:oid:2.16.840.1.113762.1.4.1095.89"
-  }],
-  "version" : "20180619",
-  "name" : "MalnutritionScreeningAtRisk",
-  "title" : "Malnutrition Screening At Risk",
-  "status" : "active",
-  "experimental" : false,
-  "date" : "2018-06-19T01:00:04-04:00",
-  "publisher" : "AND Steward",
-  "jurisdiction" : [{
-    "extension" : [{
-      "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
-      "valueString" : "UNKNOWN"
-    }]
-  }],
-  "purpose" : "(Clinical Focus: Combines the malnutrition Screening at Risk data sets.),(Data Element Scope: Data that indicates a patient is at risk for malnutrition.),(Inclusion Criteria: As above),(Exclusion Criteria: N/A)",
-  "compose" : {
-    "include" : [{
-      "valueSet" : ["http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1095.31"]
-    }]
-  },
-  "expansion" : {
-    "identifier" : "urn:uuid:f5b6fb85-e7ed-496f-9c4e-95298a5fc630",
-    "timestamp" : "2023-09-26T11:37:45-04:00",
-    "total" : 1,
-    "offset" : 0,
-    "parameter" : [{
-      "name" : "count",
-      "valueInteger" : 1000
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "AND Author"
     },
     {
-      "name" : "offset",
-      "valueInteger" : 0
-    }],
-    "contains" : [{
-      "system" : "http://hl7.org/fhir/sid/icd-9-cm",
-      "version" : "2013",
-      "code" : "V77.2",
-      "display" : "Screening for malnutrition"
-    }]
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2024-01-17"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2024-01-17"
+    }
+  ],
+  "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1095.89",
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113762.1.4.1095.89"
+    }
+  ],
+  "version" : "20240117",
+  "name" : "MalnutritionScreeningFindingOfAtRiskResult",
+  "title" : "Malnutrition Screening Finding of At Risk Result",
+  "status" : "active",
+  "date" : "2024-01-17T01:08:53-05:00",
+  "publisher" : "AND Steward",
+  "jurisdiction" : [
+    {
+      "coding" : [
+        {
+          "system" : "urn:iso:std:iso:3166",
+          "code" : "US"
+        }
+      ]
+    }
+  ],
+  "purpose" : "(Clinical Focus: Malnutrition screening result of at risk for malnutrition.),(Data Element Scope: Result finding that indicates a patient is at risk for malnutrition.),(Inclusion Criteria: Positive at risk finding for malnutrition.),(Exclusion Criteria: Not at risk finding for malnutrition.)",
+  "compose" : {
+    "include" : [
+      {
+        "valueSet" : [
+          "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1095.94"
+        ]
+      },
+      {
+        "valueSet" : [
+          "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1095.38"
+        ]
+      }
+    ]
+  },
+  "expansion" : {
+    "identifier" : "urn:uuid:6f94da0e-efd1-4c67-97e9-6c6f716e32e6",
+    "timestamp" : "2024-06-14T11:04:03-04:00",
+    "total" : 6,
+    "contains" : [
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "129689002",
+        "display" : "At increased risk for nutritional problem (finding)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "129845004",
+        "display" : "At risk for imbalanced nutrition, less than body requirements (finding)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "700361001",
+        "display" : "Predicted inadequate nutrient intake (finding)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "704358009",
+        "display" : "At increased risk of nutritional deficit (finding)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "704361005",
+        "display" : "At risk of deficient food intake (finding)"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
+        "code" : "LA27538-0",
+        "display" : "At risk for malnutrition"
+      }
+    ]
   }
 }

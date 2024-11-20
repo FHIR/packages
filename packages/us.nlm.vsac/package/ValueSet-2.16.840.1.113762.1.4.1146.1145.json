@@ -2,93 +2,120 @@
   "resourceType" : "ValueSet",
   "id" : "2.16.840.1.113762.1.4.1146.1145",
   "meta" : {
-    "versionId" : "5",
-    "lastUpdated" : "2020-05-15T01:00:21.000-04:00",
-    "profile" : ["http://hl7.org/fhir/StructureDefinition/shareablevalueset",
-    "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"]
+    "versionId" : "10",
+    "lastUpdated" : "2024-01-22T01:09:37.000-05:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-valueset-cqfm",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "extension" : [{
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
-    "valueString" : "CSTE Author"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-keyWord",
-    "valueString" : "G_Common"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
-    "valueDate" : "2022-12-15"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
-    "valueDate" : "2020-05-15"
-  }],
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "CSTE Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-keyWord",
+      "valueString" : "G_Common"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2024-01-22"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2024-01-22"
+    }
+  ],
   "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1146.1145",
-  "identifier" : [{
-    "system" : "urn:ietf:rfc:3986",
-    "value" : "urn:oid:2.16.840.1.113762.1.4.1146.1145"
-  }],
-  "version" : "20200515",
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113762.1.4.1146.1145"
+    }
+  ],
+  "version" : "20240122",
   "name" : "ResistantLabResultValue",
   "title" : "Resistant Lab Result Value",
   "status" : "active",
-  "experimental" : false,
-  "date" : "2020-05-15T01:00:21-04:00",
+  "date" : "2024-01-22T01:09:37-05:00",
   "publisher" : "CSTE Steward",
-  "jurisdiction" : [{
-    "extension" : [{
-      "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
-      "valueString" : "UNKNOWN"
-    }]
-  }],
+  "jurisdiction" : [
+    {
+      "coding" : [
+        {
+          "system" : "urn:iso:std:iso:3166",
+          "code" : "US"
+        }
+      ]
+    }
+  ],
   "purpose" : "(Clinical Focus: Coded values for qualitative test results indicating antimicrobial resistance),(Data Element Scope: Lab result values),(Inclusion Criteria: concepts indicating resistance),(Exclusion Criteria: concepts indicating moderate or intermediate resistance)",
   "compose" : {
-    "include" : [{
-      "system" : "http://snomed.info/sct",
-      "concept" : [{
+    "include" : [
+      {
+        "system" : "http://snomed.info/sct",
+        "concept" : [
+          {
+            "code" : "1285113001",
+            "display" : "Type of antimicrobial resistant organism (observable entity)"
+          },
+          {
+            "code" : "30714006",
+            "display" : "Resistant (qualifier value)"
+          },
+          {
+            "code" : "371064006",
+            "display" : "Therapy failure due to antibiotic resistance (finding)"
+          },
+          {
+            "code" : "56285002",
+            "display" : "Viral resistance, function (observable entity)"
+          },
+          {
+            "code" : "71219004",
+            "display" : "Bacterial resistance, function (observable entity)"
+          }
+        ]
+      }
+    ]
+  },
+  "expansion" : {
+    "identifier" : "urn:uuid:74789bac-0d70-4fb7-a95b-8993b3278124",
+    "timestamp" : "2024-06-14T11:43:46-04:00",
+    "total" : 5,
+    "contains" : [
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "1285113001",
+        "display" : "Type of antimicrobial resistant organism (observable entity)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
         "code" : "30714006",
         "display" : "Resistant (qualifier value)"
       },
       {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "371064006",
+        "display" : "Therapy failure due to antibiotic resistance (finding)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
         "code" : "56285002",
         "display" : "Viral resistance, function (observable entity)"
       },
       {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
         "code" : "71219004",
         "display" : "Bacterial resistance, function (observable entity)"
-      }]
-    }]
-  },
-  "expansion" : {
-    "identifier" : "urn:uuid:af638d03-bbdf-4111-9863-56b9c2c37ba2",
-    "timestamp" : "2023-09-26T12:56:42-04:00",
-    "total" : 3,
-    "offset" : 0,
-    "parameter" : [{
-      "name" : "count",
-      "valueInteger" : 1000
-    },
-    {
-      "name" : "offset",
-      "valueInteger" : 0
-    }],
-    "contains" : [{
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "30714006",
-      "display" : "Resistant (qualifier value)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "56285002",
-      "display" : "Viral resistance, function (observable entity)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "71219004",
-      "display" : "Bacterial resistance, function (observable entity)"
-    }]
+      }
+    ]
   }
 }

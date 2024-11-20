@@ -2,145 +2,158 @@
   "resourceType" : "ValueSet",
   "id" : "2.16.840.1.113762.1.4.1032.265",
   "meta" : {
-    "versionId" : "13",
-    "lastUpdated" : "2022-03-26T01:02:03.000-04:00",
-    "profile" : ["http://hl7.org/fhir/StructureDefinition/shareablevalueset",
-    "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"]
+    "versionId" : "18",
+    "lastUpdated" : "2024-06-06T01:23:01.000-04:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-valueset-cqfm",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "extension" : [{
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
-    "valueString" : "MITRE Author"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-keyWord",
-    "valueString" : "CDS"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
-    "valueDate" : "2022-12-15"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
-    "valueDate" : "2022-03-26"
-  }],
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "MITRE Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-keyWord",
+      "valueString" : "CDS"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2024-06-06"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2024-06-06"
+    }
+  ],
   "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1032.265",
-  "identifier" : [{
-    "system" : "urn:ietf:rfc:3986",
-    "value" : "urn:oid:2.16.840.1.113762.1.4.1032.265"
-  }],
-  "version" : "20220326",
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113762.1.4.1032.265"
+    }
+  ],
+  "version" : "20240606",
   "name" : "CDSPregnancyIntensional",
   "title" : "CDS Pregnancy Intensional",
   "status" : "active",
-  "experimental" : false,
-  "date" : "2022-03-26T01:02:03-04:00",
+  "date" : "2024-06-06T01:23:01-04:00",
   "publisher" : "MITRE Steward",
   "description" : "This value set is currently undergoing testing. Until it is validated, please use caution if using this value set.",
-  "jurisdiction" : [{
-    "extension" : [{
-      "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
-      "valueString" : "UNKNOWN"
-    }]
-  }],
+  "jurisdiction" : [
+    {
+      "coding" : [
+        {
+          "system" : "urn:iso:std:iso:3166",
+          "code" : "US"
+        }
+      ]
+    }
+  ],
   "purpose" : "(Clinical Focus: Pregnancy),(Data Element Scope: This value set was created to expand the AHA pregnancy value set (2.16.840.1.113883.3.526.3.378) for use in Clinical Decision Support (CDS) artifacts),(Inclusion Criteria: ICD10 codes that represent an active pregnancy),(Exclusion Criteria: Exclude codes already in the AHA valueset from different branches of the ICD10CM hierarchy)",
   "compose" : {
-    "include" : [{
-      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-      "version" : "2024",
-      "filter" : [{
-        "property" : "concept",
-        "op" : "descendent-of",
-        "value" : "O00.11"
-      }]
-    },
-    {
-      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-      "version" : "2024",
-      "filter" : [{
-        "property" : "concept",
-        "op" : "descendent-of",
-        "value" : "O00.21"
-      }]
-    },
-    {
-      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-      "version" : "2024",
-      "filter" : [{
-        "property" : "concept",
-        "op" : "=",
-        "value" : "O34.22"
-      }]
-    },
-    {
-      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-      "version" : "2024",
-      "filter" : [{
-        "property" : "concept",
-        "op" : "=",
-        "value" : "O99.891"
-      }]
-    }]
+    "include" : [
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2024",
+        "filter" : [
+          {
+            "property" : "concept",
+            "op" : "descendent-of",
+            "value" : "O00.11"
+          }
+        ]
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2024",
+        "filter" : [
+          {
+            "property" : "concept",
+            "op" : "descendent-of",
+            "value" : "O00.21"
+          }
+        ]
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2024",
+        "filter" : [
+          {
+            "property" : "concept",
+            "op" : "=",
+            "value" : "O34.22"
+          }
+        ]
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2024",
+        "filter" : [
+          {
+            "property" : "concept",
+            "op" : "=",
+            "value" : "O99.891"
+          }
+        ]
+      }
+    ]
   },
   "expansion" : {
-    "identifier" : "urn:uuid:b5b162d6-7af3-414e-aac4-af59e1b8b650",
-    "timestamp" : "2023-09-26T09:15:00-04:00",
+    "identifier" : "urn:uuid:5af2a6c9-cbc8-41a2-9344-30d20ff40b56",
+    "timestamp" : "2024-06-14T09:32:00-04:00",
     "total" : 8,
-    "offset" : 0,
-    "parameter" : [{
-      "name" : "count",
-      "valueInteger" : 1000
-    },
-    {
-      "name" : "offset",
-      "valueInteger" : 0
-    }],
-    "contains" : [{
-      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-      "version" : "2024",
-      "code" : "O00.111",
-      "display" : "Right tubal pregnancy with intrauterine pregnancy"
-    },
-    {
-      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-      "version" : "2024",
-      "code" : "O00.112",
-      "display" : "Left tubal pregnancy with intrauterine pregnancy"
-    },
-    {
-      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-      "version" : "2024",
-      "code" : "O00.119",
-      "display" : "Unspecified tubal pregnancy with intrauterine pregnancy"
-    },
-    {
-      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-      "version" : "2024",
-      "code" : "O00.211",
-      "display" : "Right ovarian pregnancy with intrauterine pregnancy"
-    },
-    {
-      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-      "version" : "2024",
-      "code" : "O00.212",
-      "display" : "Left ovarian pregnancy with intrauterine pregnancy"
-    },
-    {
-      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-      "version" : "2024",
-      "code" : "O00.219",
-      "display" : "Unspecified ovarian pregnancy with intrauterine pregnancy"
-    },
-    {
-      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-      "version" : "2024",
-      "code" : "O34.22",
-      "display" : "Maternal care for cesarean scar defect (isthmocele)"
-    },
-    {
-      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-      "version" : "2024",
-      "code" : "O99.891",
-      "display" : "Other specified diseases and conditions complicating pregnancy"
-    }]
+    "contains" : [
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2024",
+        "code" : "O00.111",
+        "display" : "Right tubal pregnancy with intrauterine pregnancy"
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2024",
+        "code" : "O00.112",
+        "display" : "Left tubal pregnancy with intrauterine pregnancy"
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2024",
+        "code" : "O00.119",
+        "display" : "Unspecified tubal pregnancy with intrauterine pregnancy"
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2024",
+        "code" : "O00.211",
+        "display" : "Right ovarian pregnancy with intrauterine pregnancy"
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2024",
+        "code" : "O00.212",
+        "display" : "Left ovarian pregnancy with intrauterine pregnancy"
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2024",
+        "code" : "O00.219",
+        "display" : "Unspecified ovarian pregnancy with intrauterine pregnancy"
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2024",
+        "code" : "O34.22",
+        "display" : "Maternal care for cesarean scar defect (isthmocele)"
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2024",
+        "code" : "O99.891",
+        "display" : "Other specified diseases and conditions complicating pregnancy"
+      }
+    ]
   }
 }

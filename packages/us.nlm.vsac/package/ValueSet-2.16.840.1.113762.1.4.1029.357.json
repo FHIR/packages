@@ -3,31 +3,38 @@
   "id" : "2.16.840.1.113762.1.4.1029.357",
   "meta" : {
     "versionId" : "6",
-    "lastUpdated" : "2022-03-01T01:02:09.000-05:00",
-    "profile" : ["http://hl7.org/fhir/StructureDefinition/shareablevalueset",
-    "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"]
+    "lastUpdated" : "2024-03-22T12:16:48.000-04:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-valueset-cqfm",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "extension" : [{
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
-    "valueString" : "Joint Commission Author"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-keyWord",
-    "valueString" : "PC-07"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
-    "valueDate" : "2022-12-15"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
-    "valueDate" : "2022-03-01"
-  }],
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "Joint Commission Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-keyWord",
+      "valueString" : "PC-07"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2024-03-22"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2021-01-21"
+    }
+  ],
   "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1029.357",
-  "identifier" : [{
-    "system" : "urn:ietf:rfc:3986",
-    "value" : "urn:oid:2.16.840.1.113762.1.4.1029.357"
-  }],
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113762.1.4.1029.357"
+    }
+  ],
   "version" : "20210121",
   "name" : "ConversionOfCardiacRhythm",
   "title" : "Conversion of Cardiac Rhythm",
@@ -35,51 +42,54 @@
   "experimental" : false,
   "date" : "2022-03-07T11:14:02-05:00",
   "publisher" : "Joint Commission",
-  "jurisdiction" : [{
-    "extension" : [{
-      "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
-      "valueString" : "UNKNOWN"
-    }]
-  }],
-  "purpose" : "(Clinical Focus: ),(Data Element Scope: ),(Inclusion Criteria: ),(Exclusion Criteria: )",
-  "compose" : {
-    "include" : [{
-      "valueSet" : ["http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1029.247"]
-    },
+  "jurisdiction" : [
     {
-      "valueSet" : ["http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1029.248"]
-    }]
+      "coding" : [
+        {
+          "system" : "urn:iso:std:iso:3166",
+          "code" : "US"
+        }
+      ]
+    }
+  ],
+  "purpose" : "(Clinical Focus: The purpose of this value set is to represent a grouping of procedures of conversion of cardiac rhythm.),(Data Element Scope: This value set may use a model element related to procedure.),(Inclusion Criteria: Includes concepts that represent procedures of a conversion of cardiac rhythm.),(Exclusion Criteria: No exclusions.)",
+  "compose" : {
+    "include" : [
+      {
+        "valueSet" : [
+          "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1029.247"
+        ]
+      },
+      {
+        "valueSet" : [
+          "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1029.248"
+        ]
+      }
+    ]
   },
   "expansion" : {
-    "identifier" : "urn:uuid:b8ddf768-71b3-498c-bd4e-b468e2be75fa",
-    "timestamp" : "2023-09-26T09:36:37-04:00",
+    "identifier" : "urn:uuid:31d32c94-8582-4051-99c7-64cc3fda95ec",
+    "timestamp" : "2024-06-14T09:26:04-04:00",
     "total" : 3,
-    "offset" : 0,
-    "parameter" : [{
-      "name" : "count",
-      "valueInteger" : 1000
-    },
-    {
-      "name" : "offset",
-      "valueInteger" : 0
-    }],
-    "contains" : [{
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "250041003",
-      "display" : "Conversion of cardiac rhythm to sinus rhythm (procedure)"
-    },
-    {
-      "system" : "http://www.cms.gov/Medicare/Coding/ICD10",
-      "version" : "2024",
-      "code" : "5A12012",
-      "display" : "Performance of Cardiac Output, Single, Manual"
-    },
-    {
-      "system" : "http://www.cms.gov/Medicare/Coding/ICD10",
-      "version" : "2024",
-      "code" : "5A2204Z",
-      "display" : "Restoration of Cardiac Rhythm, Single"
-    }]
+    "contains" : [
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "250041003",
+        "display" : "Conversion of cardiac rhythm to sinus rhythm (procedure)"
+      },
+      {
+        "system" : "http://www.cms.gov/Medicare/Coding/ICD10",
+        "version" : "2024",
+        "code" : "5A12012",
+        "display" : "Performance of Cardiac Output, Single, Manual"
+      },
+      {
+        "system" : "http://www.cms.gov/Medicare/Coding/ICD10",
+        "version" : "2024",
+        "code" : "5A2204Z",
+        "display" : "Restoration of Cardiac Rhythm, Single"
+      }
+    ]
   }
 }

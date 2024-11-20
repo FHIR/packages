@@ -2,90 +2,91 @@
   "resourceType" : "ValueSet",
   "id" : "2.16.840.1.113883.11.20.9.90",
   "meta" : {
-    "versionId" : "6",
-    "lastUpdated" : "2019-05-02T01:01:08.000-04:00",
-    "profile" : ["http://hl7.org/fhir/StructureDefinition/shareablevalueset",
-    "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"]
+    "versionId" : "13",
+    "lastUpdated" : "2024-06-07T01:23:26.000-04:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-valueset-cqfm",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "extension" : [{
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
-    "valueString" : "HL7 Structured Documents WG"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
-    "valueDate" : "2022-12-15"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
-    "valueDate" : "2019-05-02"
-  }],
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "HL7 US Realm Program Management Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2024-06-07"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2024-06-07"
+    }
+  ],
   "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.11.20.9.90",
-  "identifier" : [{
-    "system" : "urn:ietf:rfc:3986",
-    "value" : "urn:oid:2.16.840.1.113883.11.20.9.90"
-  }],
-  "version" : "20190502",
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113883.11.20.9.90"
+    }
+  ],
+  "version" : "20240607",
   "name" : "DRhSensitized",
   "title" : "D(Rh) Sensitized",
   "status" : "active",
-  "experimental" : false,
-  "date" : "2019-05-02T01:01:08-04:00",
-  "publisher" : "HL7 Terminology",
+  "date" : "2024-06-07T01:23:26-04:00",
+  "publisher" : "HL7 US Realm Program Management Steward",
   "description" : "The value set is intensionally defined as the SNOMED CT codes in the hierarchy below and including 44795003 |Rhesus isoimmunization affecting pregnancy (disorder).",
-  "jurisdiction" : [{
-    "extension" : [{
-      "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
-      "valueString" : "UNKNOWN"
-    }]
-  }],
+  "jurisdiction" : [
+    {
+      "coding" : [
+        {
+          "system" : "urn:iso:std:iso:3166",
+          "code" : "US"
+        }
+      ]
+    }
+  ],
   "purpose" : "(Clinical Focus: This value set contains codes specifying the D(Rh) sensitized status of a patient.),(Data Element Scope: Values describing the D(Rh) sensitized status of a patient.),(Inclusion Criteria: SNOMED CT codes in the hierarchy below and including 44795003 |Rhesus isoimmunization affecting pregnancy (disorder).),(Exclusion Criteria: None)",
   "compose" : {
-    "include" : [{
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "filter" : [{
-        "property" : "concept",
-        "op" : "is-a",
-        "value" : "44795003"
-      }]
-    }]
+    "include" : [
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "filter" : [
+          {
+            "property" : "concept",
+            "op" : "is-a",
+            "value" : "44795003"
+          }
+        ]
+      }
+    ]
   },
   "expansion" : {
-    "identifier" : "urn:uuid:402e86da-4f93-43ea-ac76-95d3783c3b9a",
-    "timestamp" : "2023-09-26T09:55:28-04:00",
-    "total" : 4,
-    "offset" : 0,
-    "parameter" : [{
-      "name" : "count",
-      "valueInteger" : 1000
-    },
-    {
-      "name" : "offset",
-      "valueInteger" : 0
-    }],
-    "contains" : [{
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "199582007",
-      "display" : "Rhesus isoimmunization - delivered (disorder)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "199583002",
-      "display" : "Rhesus isoimmunization with antenatal problem (disorder)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "44795003",
-      "display" : "Rhesus isoimmunization affecting pregnancy (disorder)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "699950009",
-      "display" : "Anti-D isoimmunization affecting pregnancy (disorder)"
-    }]
+    "identifier" : "urn:uuid:a7a3408f-bcd6-4b91-8960-64cc3ccf4804",
+    "timestamp" : "2024-06-14T15:21:09-04:00",
+    "total" : 3,
+    "contains" : [
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "199583002",
+        "display" : "Rhesus isoimmunization with antenatal problem (disorder)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "44795003",
+        "display" : "Rhesus isoimmunization affecting pregnancy (disorder)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "699950009",
+        "display" : "Anti-D isoimmunization affecting pregnancy (disorder)"
+      }
+    ]
   }
 }

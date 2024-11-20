@@ -3,31 +3,38 @@
   "id" : "2.16.840.1.113762.1.4.1096.5",
   "meta" : {
     "versionId" : "19",
-    "lastUpdated" : "2017-08-01T01:00:05.000-04:00",
-    "profile" : ["http://hl7.org/fhir/StructureDefinition/shareablevalueset",
-    "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"]
+    "lastUpdated" : "2023-12-21T17:43:03.000-05:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-valueset-cqfm",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "extension" : [{
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
-    "valueString" : "PharmacyHIT Author"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-keyWord",
-    "valueString" : "Active"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
-    "valueDate" : "2022-12-27"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
-    "valueDate" : "2017-08-01"
-  }],
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "PharmacyHIT Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-keyWord",
+      "valueString" : "Active"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2024-04-01"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2017-08-01"
+    }
+  ],
   "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1096.5",
-  "identifier" : [{
-    "system" : "urn:ietf:rfc:3986",
-    "value" : "urn:oid:2.16.840.1.113762.1.4.1096.5"
-  }],
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113762.1.4.1096.5"
+    }
+  ],
   "version" : "20170801",
   "name" : "ReasonsForInterventionsRelatedToMedicationManagementUnnecessaryTherapy",
   "title" : "Reasons for Interventions Related to Medication Management, Unnecessary Therapy",
@@ -35,120 +42,121 @@
   "experimental" : false,
   "date" : "2017-08-01T01:00:05-04:00",
   "publisher" : "PharmacyHIT",
-  "jurisdiction" : [{
-    "extension" : [{
-      "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
-      "valueString" : "UNKNOWN"
-    }]
-  }],
+  "jurisdiction" : [
+    {
+      "coding" : [
+        {
+          "system" : "urn:iso:std:iso:3166",
+          "code" : "US"
+        }
+      ]
+    }
+  ],
   "purpose" : "(Clinical Focus: This set of values contains reasons why a specific medication therapy is unnecessary for an individual patient.  The most common intervention would be to discontinue the particular medication in question.),(Data Element Scope: Datatype Attribute: Reason\nDatatype: Intervention\n\nThe intent of this data element is to describe reasons why a particular medication is unnecessary in a clinical situation.),(Inclusion Criteria: Reasons why a particular medication is unnecessary for a patient.),(Exclusion Criteria: Any reason not related to a medication not being necessary.)",
   "compose" : {
-    "include" : [{
-      "system" : "http://snomed.info/sct",
-      "concept" : [{
+    "include" : [
+      {
+        "system" : "http://snomed.info/sct",
+        "concept" : [
+          {
+            "code" : "110483000",
+            "display" : "Tobacco user (finding)"
+          },
+          {
+            "code" : "15167005",
+            "display" : "Alcohol abuse (disorder)"
+          },
+          {
+            "code" : "183966005",
+            "display" : "Drug treatment not indicated (situation)"
+          },
+          {
+            "code" : "26416006",
+            "display" : "Drug abuse (disorder)"
+          },
+          {
+            "code" : "424848002",
+            "display" : "Recreational drug user (finding)"
+          },
+          {
+            "code" : "429621000124102",
+            "display" : "Medication therapy unnecessary (finding)"
+          },
+          {
+            "code" : "435461000124106",
+            "display" : "Medication taken to to treat adverse drug reaction (finding)"
+          },
+          {
+            "code" : "435481000124101",
+            "display" : "Multiple medications taken for condition appropriately treated with single medication therapy (finding)"
+          },
+          {
+            "code" : "435521000124101",
+            "display" : "Patient condition appropriate for non-medication therapy (finding)"
+          }
+        ]
+      }
+    ]
+  },
+  "expansion" : {
+    "identifier" : "urn:uuid:204f8fd5-9ca0-4757-9441-f6f590e2ed7b",
+    "timestamp" : "2024-06-14T11:06:42-04:00",
+    "total" : 9,
+    "contains" : [
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
         "code" : "110483000",
         "display" : "Tobacco user (finding)"
       },
       {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
         "code" : "15167005",
         "display" : "Alcohol abuse (disorder)"
       },
       {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
         "code" : "183966005",
         "display" : "Drug treatment not indicated (situation)"
       },
       {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
         "code" : "26416006",
         "display" : "Drug abuse (disorder)"
       },
       {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
         "code" : "424848002",
         "display" : "Recreational drug user (finding)"
       },
       {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
         "code" : "429621000124102",
         "display" : "Medication therapy unnecessary (finding)"
       },
       {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
         "code" : "435461000124106",
-        "display" : "Medication taken to to treat adverse drug reaction (finding)"
+        "display" : "Medication taken to treat adverse drug reaction (finding)"
       },
       {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
         "code" : "435481000124101",
         "display" : "Multiple medications taken for condition appropriately treated with single medication therapy (finding)"
       },
       {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
         "code" : "435521000124101",
         "display" : "Patient condition appropriate for non-medication therapy (finding)"
-      }]
-    }]
-  },
-  "expansion" : {
-    "identifier" : "urn:uuid:8e9db4ad-28fe-4115-af98-e868a4da0c1b",
-    "timestamp" : "2023-09-26T12:51:49-04:00",
-    "total" : 9,
-    "offset" : 0,
-    "parameter" : [{
-      "name" : "count",
-      "valueInteger" : 1000
-    },
-    {
-      "name" : "offset",
-      "valueInteger" : 0
-    }],
-    "contains" : [{
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "110483000",
-      "display" : "Tobacco user (finding)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "15167005",
-      "display" : "Alcohol abuse (disorder)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "183966005",
-      "display" : "Drug treatment not indicated (situation)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "26416006",
-      "display" : "Drug abuse (disorder)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "424848002",
-      "display" : "Recreational drug user (finding)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "429621000124102",
-      "display" : "Medication therapy unnecessary (finding)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "435461000124106",
-      "display" : "Medication taken to treat adverse drug reaction (finding)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "435481000124101",
-      "display" : "Multiple medications taken for condition appropriately treated with single medication therapy (finding)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "435521000124101",
-      "display" : "Patient condition appropriate for non-medication therapy (finding)"
-    }]
+      }
+    ]
   }
 }

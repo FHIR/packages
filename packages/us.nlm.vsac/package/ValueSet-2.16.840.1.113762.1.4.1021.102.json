@@ -3,78 +3,86 @@
   "id" : "2.16.840.1.113762.1.4.1021.102",
   "meta" : {
     "versionId" : "5",
-    "lastUpdated" : "2021-11-12T10:46:16.000-05:00",
-    "profile" : ["http://hl7.org/fhir/StructureDefinition/shareablevalueset",
-    "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"]
+    "lastUpdated" : "2024-05-08T10:00:13.000-04:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-valueset-cqfm",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "extension" : [{
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
-    "valueString" : "MD Partners Author"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
-    "valueDate" : "2022-12-15"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
-    "valueDate" : "2021-11-12"
-  }],
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "HL7 US Realm Program Management Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2024-06-05"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2021-10-28"
+    }
+  ],
   "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1021.102",
-  "identifier" : [{
-    "system" : "urn:ietf:rfc:3986",
-    "value" : "urn:oid:2.16.840.1.113762.1.4.1021.102"
-  }],
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113762.1.4.1021.102"
+    }
+  ],
   "version" : "20211028",
   "name" : "UnknownOrRefusedToAnswer",
   "title" : "Unknown or refused to answer",
   "status" : "active",
   "experimental" : false,
   "date" : "2021-10-28T01:01:40-04:00",
-  "publisher" : "MD Partners Steward",
-  "jurisdiction" : [{
-    "extension" : [{
-      "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
-      "valueString" : "UNKNOWN"
-    }]
-  }],
+  "publisher" : "HL7 US Realm Program Management Steward",
+  "jurisdiction" : [
+    {
+      "coding" : [
+        {
+          "system" : "urn:iso:std:iso:3166",
+          "code" : "US"
+        }
+      ]
+    }
+  ],
   "purpose" : "(Clinical Focus: Codes used to represent unknown and refused to answer),(Data Element Scope: ),(Inclusion Criteria: ),(Exclusion Criteria: )",
   "compose" : {
-    "include" : [{
-      "system" : "http://terminology.hl7.org/CodeSystem/v3-NullFlavor",
-      "concept" : [{
+    "include" : [
+      {
+        "system" : "http://terminology.hl7.org/CodeSystem/v3-NullFlavor",
+        "concept" : [
+          {
+            "code" : "ASKU",
+            "display" : "asked but unknown"
+          },
+          {
+            "code" : "UNK",
+            "display" : "unknown"
+          }
+        ]
+      }
+    ]
+  },
+  "expansion" : {
+    "identifier" : "urn:uuid:6ee8372c-7d24-42dc-8438-7cff1f8ee034",
+    "timestamp" : "2024-06-14T09:15:25-04:00",
+    "total" : 2,
+    "contains" : [
+      {
+        "system" : "http://terminology.hl7.org/CodeSystem/v3-NullFlavor",
+        "version" : "2023-02-01",
         "code" : "ASKU",
         "display" : "asked but unknown"
       },
       {
+        "system" : "http://terminology.hl7.org/CodeSystem/v3-NullFlavor",
+        "version" : "2023-02-01",
         "code" : "UNK",
         "display" : "unknown"
-      }]
-    }]
-  },
-  "expansion" : {
-    "identifier" : "urn:uuid:e6999e35-8de8-4a6c-9ece-2b88617433bd",
-    "timestamp" : "2023-09-26T13:46:12-04:00",
-    "total" : 2,
-    "offset" : 0,
-    "parameter" : [{
-      "name" : "count",
-      "valueInteger" : 1000
-    },
-    {
-      "name" : "offset",
-      "valueInteger" : 0
-    }],
-    "contains" : [{
-      "system" : "http://terminology.hl7.org/CodeSystem/v3-NullFlavor",
-      "version" : "2023-02-01",
-      "code" : "ASKU",
-      "display" : "asked but unknown"
-    },
-    {
-      "system" : "http://terminology.hl7.org/CodeSystem/v3-NullFlavor",
-      "version" : "2023-02-01",
-      "code" : "UNK",
-      "display" : "unknown"
-    }]
+      }
+    ]
   }
 }

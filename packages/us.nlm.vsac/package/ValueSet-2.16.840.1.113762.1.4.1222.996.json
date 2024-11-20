@@ -3,31 +3,38 @@
   "id" : "2.16.840.1.113762.1.4.1222.996",
   "meta" : {
     "versionId" : "29",
-    "lastUpdated" : "2023-07-20T01:01:20.000-04:00",
-    "profile" : ["http://hl7.org/fhir/StructureDefinition/shareablevalueset",
-    "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"]
+    "lastUpdated" : "2023-12-21T17:43:03.000-05:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-valueset-cqfm",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "extension" : [{
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
-    "valueString" : "MCC eCare Plan Author"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-keyWord",
-    "valueString" : "MCC_IG"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
-    "valueDate" : "2023-07-20"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
-    "valueDate" : "2023-07-20"
-  }],
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "MCC eCare Plan Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-keyWord",
+      "valueString" : "MCC_IG"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2023-07-20"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2023-07-20"
+    }
+  ],
   "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1222.996",
-  "identifier" : [{
-    "system" : "urn:ietf:rfc:3986",
-    "value" : "urn:oid:2.16.840.1.113762.1.4.1222.996"
-  }],
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113762.1.4.1222.996"
+    }
+  ],
   "version" : "20230720",
   "name" : "PainIntensityOrSeverity",
   "title" : "Pain Intensity or Severity",
@@ -35,222 +42,233 @@
   "date" : "2023-07-20T01:01:20-04:00",
   "publisher" : "HL7 Patient Care WG Steward",
   "description" : "This value set may undergo changes until the HL7 Multiple Chronic Care FHIR IG is formally published in 2024.",
-  "jurisdiction" : [{
-    "extension" : [{
-      "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
-      "valueString" : "UNKNOWN"
-    }]
-  }],
+  "jurisdiction" : [
+    {
+      "coding" : [
+        {
+          "system" : "urn:iso:std:iso:3166",
+          "code" : "US"
+        }
+      ]
+    }
+  ],
   "purpose" : "(Clinical Focus: This set of values addresses terms representing questions about pain intensity or severity.),(Data Element Scope: The intent of this set of values is to identify patients who have documentation of the person's self-reported level of pain.),(Inclusion Criteria: Includes LOINC codes for Pain Intensity or Severity.),(Exclusion Criteria: Terms not representative of observable encoded terms that may have values indicating Pain Intensity or Severity.)",
   "compose" : {
-    "include" : [{
-      "system" : "http://loinc.org",
-      "version" : "2.74",
-      "filter" : [{
-        "property" : "concept",
-        "op" : "in",
-        "value" : "75262-6,38219-2,38221-8,38217-6,38220-0,82227-0,56841-0,38214-3,62969-1,75261-8,45711-9,38218-4,38213-5,77825-8,64008-6,72514-3,54560-8,90036-5,38215-0,52742-4,57696-7,54833-9,75259-2,38208-5,75893-8,75260-0,54834-7,72350-2,38216-8"
-      }]
-    }],
-    "exclude" : [{
-      "system" : "http://loinc.org",
-      "version" : "2.74",
-      "filter" : [{
-        "property" : "concept",
-        "op" : "=",
-        "value" : "38213-5"
-      }]
-    },
-    {
-      "system" : "http://loinc.org",
-      "version" : "2.74",
-      "filter" : [{
-        "property" : "concept",
-        "op" : "=",
-        "value" : "54560-8"
-      }]
-    },
-    {
-      "system" : "http://loinc.org",
-      "version" : "2.74",
-      "filter" : [{
-        "property" : "concept",
-        "op" : "=",
-        "value" : "62969-1"
-      }]
-    },
-    {
-      "system" : "http://loinc.org",
-      "version" : "2.74",
-      "filter" : [{
-        "property" : "concept",
-        "op" : "=",
-        "value" : "75259-2"
-      }]
-    }]
+    "include" : [
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
+        "filter" : [
+          {
+            "property" : "concept",
+            "op" : "in",
+            "value" : "75262-6,38219-2,38221-8,38217-6,38220-0,82227-0,56841-0,38214-3,62969-1,75261-8,45711-9,38218-4,38213-5,77825-8,64008-6,72514-3,54560-8,90036-5,38215-0,52742-4,57696-7,54833-9,75259-2,38208-5,75893-8,75260-0,54834-7,72350-2,38216-8"
+          }
+        ]
+      }
+    ],
+    "exclude" : [
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
+        "filter" : [
+          {
+            "property" : "concept",
+            "op" : "=",
+            "value" : "38213-5"
+          }
+        ]
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
+        "filter" : [
+          {
+            "property" : "concept",
+            "op" : "=",
+            "value" : "54560-8"
+          }
+        ]
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
+        "filter" : [
+          {
+            "property" : "concept",
+            "op" : "=",
+            "value" : "62969-1"
+          }
+        ]
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
+        "filter" : [
+          {
+            "property" : "concept",
+            "op" : "=",
+            "value" : "75259-2"
+          }
+        ]
+      }
+    ]
   },
   "expansion" : {
-    "identifier" : "urn:uuid:f6a45fd3-cac2-440e-8521-8e5004b8f1fc",
-    "timestamp" : "2023-09-26T12:21:58-04:00",
+    "identifier" : "urn:uuid:cd728303-e574-424f-ab8c-2a8db795662e",
+    "timestamp" : "2024-06-14T14:36:48-04:00",
     "total" : 25,
-    "offset" : 0,
-    "parameter" : [{
-      "name" : "count",
-      "valueInteger" : 1000
-    },
-    {
-      "name" : "offset",
-      "valueInteger" : 0
-    }],
-    "contains" : [{
-      "system" : "http://loinc.org",
-      "version" : "2.74",
-      "code" : "38208-5",
-      "display" : "Pain severity - Reported"
-    },
-    {
-      "system" : "http://loinc.org",
-      "version" : "2.74",
-      "code" : "38214-3",
-      "display" : "Pain severity [Score] Visual analog score"
-    },
-    {
-      "system" : "http://loinc.org",
-      "version" : "2.74",
-      "code" : "38215-0",
-      "display" : "Pain severity total [Score] FLACC"
-    },
-    {
-      "system" : "http://loinc.org",
-      "version" : "2.74",
-      "code" : "38216-8",
-      "display" : "Pain severity Face FLACC"
-    },
-    {
-      "system" : "http://loinc.org",
-      "version" : "2.74",
-      "code" : "38217-6",
-      "display" : "Pain severity Legs FLACC"
-    },
-    {
-      "system" : "http://loinc.org",
-      "version" : "2.74",
-      "code" : "38218-4",
-      "display" : "Pain severity Activity FLACC"
-    },
-    {
-      "system" : "http://loinc.org",
-      "version" : "2.74",
-      "code" : "38219-2",
-      "display" : "Pain severity Cry FLACC"
-    },
-    {
-      "system" : "http://loinc.org",
-      "version" : "2.74",
-      "code" : "38220-0",
-      "display" : "Pain severity Consolability FLACC"
-    },
-    {
-      "system" : "http://loinc.org",
-      "version" : "2.74",
-      "code" : "38221-8",
-      "display" : "Pain severity Wong-Baker FACES pain rating scale"
-    },
-    {
-      "system" : "http://loinc.org",
-      "version" : "2.74",
-      "code" : "45711-9",
-      "display" : "Pain intensity [Minimum Data Set]"
-    },
-    {
-      "system" : "http://loinc.org",
-      "version" : "2.74",
-      "code" : "52742-4",
-      "display" : "Pain severity during last 2 days [Reported]"
-    },
-    {
-      "system" : "http://loinc.org",
-      "version" : "2.74",
-      "code" : "54833-9",
-      "display" : "Pain severity during assessment period [CMS Assessment]"
-    },
-    {
-      "system" : "http://loinc.org",
-      "version" : "2.74",
-      "code" : "54834-7",
-      "display" : "Rate pain severity during assessment period using verbal descriptor scale"
-    },
-    {
-      "system" : "http://loinc.org",
-      "version" : "2.74",
-      "code" : "56841-0",
-      "display" : "Pain severity descriptive category"
-    },
-    {
-      "system" : "http://loinc.org",
-      "version" : "2.74",
-      "code" : "57696-7",
-      "display" : "Pain severity FPS-R"
-    },
-    {
-      "system" : "http://loinc.org",
-      "version" : "2.74",
-      "code" : "64008-6",
-      "display" : "Pain severity [Score] [PhenX]"
-    },
-    {
-      "system" : "http://loinc.org",
-      "version" : "2.74",
-      "code" : "72350-2",
-      "display" : "Severity of pain on average over the past 1 month [Reported]"
-    },
-    {
-      "system" : "http://loinc.org",
-      "version" : "2.74",
-      "code" : "72514-3",
-      "display" : "Pain severity - 0-10 verbal numeric rating [Score] - Reported"
-    },
-    {
-      "system" : "http://loinc.org",
-      "version" : "2.74",
-      "code" : "75260-0",
-      "display" : "What is your level of pain right now [PROMIS]"
-    },
-    {
-      "system" : "http://loinc.org",
-      "version" : "2.74",
-      "code" : "75261-8",
-      "display" : "How intense was your average pain in the past 7 days [PROMIS]"
-    },
-    {
-      "system" : "http://loinc.org",
-      "version" : "2.74",
-      "code" : "75262-6",
-      "display" : "How intense was your pain at its worse in the past 7 days [PROMIS]"
-    },
-    {
-      "system" : "http://loinc.org",
-      "version" : "2.74",
-      "code" : "75893-8",
-      "display" : "Pain severity in the past week - 0-10 numeric rating [Reported]"
-    },
-    {
-      "system" : "http://loinc.org",
-      "version" : "2.74",
-      "code" : "77825-8",
-      "display" : "PROMIS short form - pain intensity 3a - version 1.0 raw score"
-    },
-    {
-      "system" : "http://loinc.org",
-      "version" : "2.74",
-      "code" : "82227-0",
-      "display" : "Pain intensity [NDI]"
-    },
-    {
-      "system" : "http://loinc.org",
-      "version" : "2.74",
-      "code" : "90036-5",
-      "display" : "Pain severity in the past week- 0-10 (0.5 increments) numeric rating [Reported]"
-    }]
+    "contains" : [
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
+        "code" : "38208-5",
+        "display" : "Pain severity - Reported"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
+        "code" : "38214-3",
+        "display" : "Pain severity [Score] Visual analog score"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
+        "code" : "38215-0",
+        "display" : "Pain severity total [Score] FLACC"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
+        "code" : "38216-8",
+        "display" : "Pain severity Face FLACC"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
+        "code" : "38217-6",
+        "display" : "Pain severity Legs FLACC"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
+        "code" : "38218-4",
+        "display" : "Pain severity Activity FLACC"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
+        "code" : "38219-2",
+        "display" : "Pain severity Cry FLACC"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
+        "code" : "38220-0",
+        "display" : "Pain severity Consolability FLACC"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
+        "code" : "38221-8",
+        "display" : "Pain severity Wong-Baker FACES pain rating scale"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
+        "code" : "45711-9",
+        "display" : "Pain intensity [Minimum Data Set]"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
+        "code" : "52742-4",
+        "display" : "Pain severity during last 2 days [Reported]"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
+        "code" : "54833-9",
+        "display" : "Pain severity during assessment period [CMS Assessment]"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
+        "code" : "54834-7",
+        "display" : "Rate pain severity during assessment period using verbal descriptor scale"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
+        "code" : "56841-0",
+        "display" : "Pain severity descriptive category"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
+        "code" : "57696-7",
+        "display" : "Pain severity FPS-R"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
+        "code" : "64008-6",
+        "display" : "Pain severity [Score] [PhenX]"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
+        "code" : "72350-2",
+        "display" : "Severity of pain on average over the past 1 month [Reported]"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
+        "code" : "72514-3",
+        "display" : "Pain severity - 0-10 verbal numeric rating [Score] - Reported"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
+        "code" : "75260-0",
+        "display" : "What is your level of pain right now [PROMIS]"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
+        "code" : "75261-8",
+        "display" : "How intense was your average pain in the past 7 days [PROMIS]"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
+        "code" : "75262-6",
+        "display" : "How intense was your pain at its worse in the past 7 days [PROMIS]"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
+        "code" : "75893-8",
+        "display" : "Pain severity in the past week - 0-10 numeric rating [Reported]"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
+        "code" : "77825-8",
+        "display" : "PROMIS short form - pain intensity 3a - version 1.0 raw score"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
+        "code" : "82227-0",
+        "display" : "Pain intensity [NDI]"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
+        "code" : "90036-5",
+        "display" : "Pain severity in the past week- 0-10 (0.5 increments) numeric rating [Reported]"
+      }
+    ]
   }
 }

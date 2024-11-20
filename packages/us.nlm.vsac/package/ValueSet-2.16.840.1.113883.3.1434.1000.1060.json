@@ -3,88 +3,96 @@
   "id" : "2.16.840.1.113883.3.1434.1000.1060",
   "meta" : {
     "versionId" : "5",
-    "lastUpdated" : "2018-12-01T01:11:01.000-05:00",
-    "profile" : ["http://hl7.org/fhir/StructureDefinition/shareablevalueset",
-    "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"]
+    "lastUpdated" : "2023-12-21T17:43:03.000-05:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-valueset-cqfm",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "extension" : [{
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
-    "valueString" : "CAP Author"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
-    "valueDate" : "2022-12-15"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
-    "valueDate" : "2018-12-01"
-  }],
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "CAP Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2024-06-03"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2018-12-01"
+    }
+  ],
   "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.1434.1000.1060",
-  "identifier" : [{
-    "system" : "urn:ietf:rfc:3986",
-    "value" : "urn:oid:2.16.840.1.113883.3.1434.1000.1060"
-  }],
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113883.3.1434.1000.1060"
+    }
+  ],
   "version" : "20181201",
   "name" : "MolecularGeneticTest",
   "title" : "Molecular Genetic Test",
-  "status" : "active",
+  "status" : "retired",
   "experimental" : false,
   "date" : "2018-12-01T01:00:05-05:00",
   "publisher" : "CAP Steward",
-  "jurisdiction" : [{
-    "extension" : [{
-      "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
-      "valueString" : "UNKNOWN"
-    }]
-  }],
+  "jurisdiction" : [
+    {
+      "coding" : [
+        {
+          "system" : "urn:iso:std:iso:3166",
+          "code" : "US"
+        }
+      ]
+    }
+  ],
   "purpose" : "(Clinical Focus: Under Development),(Data Element Scope: Under Development),(Inclusion Criteria: Under Development),(Exclusion Criteria: Under Development)",
   "compose" : {
-    "include" : [{
-      "system" : "http://loinc.org",
-      "concept" : [{
+    "include" : [
+      {
+        "system" : "http://loinc.org",
+        "concept" : [
+          {
+            "code" : "35474-6",
+            "display" : "Gene XXX targeted mutation analysis in Blood or Tissue by Molecular genetics method Narrative"
+          },
+          {
+            "code" : "50397-9",
+            "display" : "Molecular diagnostic overall interpretation [Presence] in Blood or Tissue by Molecular genetics method"
+          },
+          {
+            "code" : "82939-0",
+            "display" : "Genetic variant details in Blood or Tissue by Molecular genetics method Narrative"
+          }
+        ]
+      }
+    ]
+  },
+  "expansion" : {
+    "identifier" : "urn:uuid:090e1351-bc53-4412-8f53-7debaf36bef4",
+    "timestamp" : "2024-06-14T15:45:56-04:00",
+    "total" : 3,
+    "contains" : [
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
         "code" : "35474-6",
-        "display" : "Gene XXX targeted mutation analysis in Blood or Tissue by Molecular genetics method Narrative"
+        "display" : "Gene XXX targeted mutation analysis in Blood or Tissue by Molecular genetics method"
       },
       {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
         "code" : "50397-9",
         "display" : "Molecular diagnostic overall interpretation [Presence] in Blood or Tissue by Molecular genetics method"
       },
       {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
         "code" : "82939-0",
         "display" : "Genetic variant details in Blood or Tissue by Molecular genetics method Narrative"
-      }]
-    }]
-  },
-  "expansion" : {
-    "identifier" : "urn:uuid:037a7ed5-cf53-4e6e-8062-c00152f54964",
-    "timestamp" : "2023-09-26T11:51:49-04:00",
-    "total" : 3,
-    "offset" : 0,
-    "parameter" : [{
-      "name" : "count",
-      "valueInteger" : 1000
-    },
-    {
-      "name" : "offset",
-      "valueInteger" : 0
-    }],
-    "contains" : [{
-      "system" : "http://loinc.org",
-      "version" : "2.74",
-      "code" : "35474-6",
-      "display" : "Gene XXX targeted mutation analysis in Blood or Tissue by Molecular genetics method"
-    },
-    {
-      "system" : "http://loinc.org",
-      "version" : "2.74",
-      "code" : "50397-9",
-      "display" : "Molecular diagnostic overall interpretation [Presence] in Blood or Tissue by Molecular genetics method"
-    },
-    {
-      "system" : "http://loinc.org",
-      "version" : "2.74",
-      "code" : "82939-0",
-      "display" : "Genetic variant details in Blood or Tissue by Molecular genetics method Narrative"
-    }]
+      }
+    ]
   }
 }

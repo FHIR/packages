@@ -3,78 +3,86 @@
   "id" : "2.16.840.1.113883.3.3157.1002.84",
   "meta" : {
     "versionId" : "3",
-    "lastUpdated" : "2015-10-13T01:00:01.000-04:00",
-    "profile" : ["http://hl7.org/fhir/StructureDefinition/shareablevalueset",
-    "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"]
+    "lastUpdated" : "2023-12-21T17:43:03.000-05:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-valueset-cqfm",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "extension" : [{
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
-    "valueString" : "Lewin EH Author"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
-    "valueDate" : "2022-12-15"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
-    "valueDate" : "2015-10-13"
-  }],
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "Lewin EH Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2024-06-03"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2015-10-13"
+    }
+  ],
   "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.3157.1002.84",
-  "identifier" : [{
-    "system" : "urn:ietf:rfc:3986",
-    "value" : "urn:oid:2.16.840.1.113883.3.3157.1002.84"
-  }],
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113883.3.3157.1002.84"
+    }
+  ],
   "version" : "20151013",
   "name" : "TransferToHospiceCare",
   "title" : "Transfer to Hospice Care",
-  "status" : "active",
+  "status" : "retired",
   "experimental" : false,
   "date" : "2015-10-13T01:00:01-04:00",
   "publisher" : "Lewin EH Steward",
-  "jurisdiction" : [{
-    "extension" : [{
-      "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
-      "valueString" : "UNKNOWN"
-    }]
-  }],
+  "jurisdiction" : [
+    {
+      "coding" : [
+        {
+          "system" : "urn:iso:std:iso:3166",
+          "code" : "US"
+        }
+      ]
+    }
+  ],
   "purpose" : "(Clinical Focus: This set of values contains SNOMEDCT codes associated with discharge to hospice care.),(Data Element Scope: The intent of this data element is to identify patients who are discharged from the hospital to hospice care. Using the Quality Data Model, this particular element would map to the \"Transfer To\" element.),(Inclusion Criteria: This value set includes SNOMEDCT codes associated with patient discharge to hospice care.),(Exclusion Criteria: Discharge to non-hospice care settings is not captured by this value set.)",
   "compose" : {
-    "include" : [{
-      "system" : "http://snomed.info/sct",
-      "concept" : [{
+    "include" : [
+      {
+        "system" : "http://snomed.info/sct",
+        "concept" : [
+          {
+            "code" : "428361000124107",
+            "display" : "Discharge to home for hospice care (procedure)"
+          },
+          {
+            "code" : "428371000124100",
+            "display" : "Discharge to healthcare facility for hospice care (procedure)"
+          }
+        ]
+      }
+    ]
+  },
+  "expansion" : {
+    "identifier" : "urn:uuid:cf4f3c04-0e5e-4743-83fe-d597e667eb35",
+    "timestamp" : "2024-06-14T15:52:54-04:00",
+    "total" : 2,
+    "contains" : [
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
         "code" : "428361000124107",
         "display" : "Discharge to home for hospice care (procedure)"
       },
       {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
         "code" : "428371000124100",
         "display" : "Discharge to healthcare facility for hospice care (procedure)"
-      }]
-    }]
-  },
-  "expansion" : {
-    "identifier" : "urn:uuid:b014f2f7-b577-46b3-9b45-9be124a53ea5",
-    "timestamp" : "2023-09-26T13:36:31-04:00",
-    "total" : 2,
-    "offset" : 0,
-    "parameter" : [{
-      "name" : "count",
-      "valueInteger" : 1000
-    },
-    {
-      "name" : "offset",
-      "valueInteger" : 0
-    }],
-    "contains" : [{
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "428361000124107",
-      "display" : "Discharge to home for hospice care (procedure)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "428371000124100",
-      "display" : "Discharge to healthcare facility for hospice care (procedure)"
-    }]
+      }
+    ]
   }
 }

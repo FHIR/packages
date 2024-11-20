@@ -3,77 +3,85 @@
   "id" : "2.16.840.1.113762.1.4.1247.172",
   "meta" : {
     "versionId" : "7",
-    "lastUpdated" : "2023-07-19T01:01:15.000-04:00",
-    "profile" : ["http://hl7.org/fhir/StructureDefinition/shareablevalueset",
-    "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"]
+    "lastUpdated" : "2023-12-21T17:43:03.000-05:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-valueset-cqfm",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "extension" : [{
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
-    "valueString" : "The Gravity Project Author"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
-    "valueDate" : "2023-07-19"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
-    "valueDate" : "2023-07-19"
-  }],
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "The Gravity Project Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2023-07-19"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2023-07-19"
+    }
+  ],
   "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1247.172",
-  "identifier" : [{
-    "system" : "urn:ietf:rfc:3986",
-    "value" : "urn:oid:2.16.840.1.113762.1.4.1247.172"
-  }],
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113762.1.4.1247.172"
+    }
+  ],
   "version" : "20230719",
   "name" : "VeteranStatusScreeningAssessmentsQuestions",
   "title" : "Veteran Status Screening Assessments Questions",
   "status" : "active",
   "date" : "2023-07-19T01:01:15-04:00",
   "publisher" : "The Gravity Project Steward",
-  "jurisdiction" : [{
-    "extension" : [{
-      "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
-      "valueString" : "UNKNOWN"
-    }]
-  }],
+  "jurisdiction" : [
+    {
+      "coding" : [
+        {
+          "system" : "urn:iso:std:iso:3166",
+          "code" : "US"
+        }
+      ]
+    }
+  ],
   "purpose" : "(Clinical Focus: This set of values represents screening assessment questions for Veteran Status as selected by the Gravity Project.),(Data Element Scope: This set of values may be used to represent screening assessment questions in observations, questionnaires, and questionnaire responses for this SDOH domain (e.g., for the SDOHCC Observation Screening Response profile in the Gravity SDOH Clinical Care FHIR Implementation Guide).),(Inclusion Criteria: Includes LOINC codes for SDOH screening assessment questions as selected by the Gravity Project.),(Exclusion Criteria: Excludes the questions not selected by the Gravity Project from SDOH screening assessments.)",
   "compose" : {
-    "include" : [{
-      "system" : "http://loinc.org",
-      "concept" : [{
+    "include" : [
+      {
+        "system" : "http://loinc.org",
+        "concept" : [
+          {
+            "code" : "68507-3",
+            "display" : "Did you ever serve on active duty in the armed forces of the U.S. [SAMHSA]"
+          },
+          {
+            "code" : "93034-7",
+            "display" : "Discharged from the U.S. Armed Forces"
+          }
+        ]
+      }
+    ]
+  },
+  "expansion" : {
+    "identifier" : "urn:uuid:2d361d8e-e519-4ec1-91a0-28a4dc2b7db7",
+    "timestamp" : "2024-06-14T14:56:48-04:00",
+    "total" : 2,
+    "contains" : [
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
         "code" : "68507-3",
         "display" : "Did you ever serve on active duty in the armed forces of the U.S. [SAMHSA]"
       },
       {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
         "code" : "93034-7",
         "display" : "Discharged from the U.S. Armed Forces"
-      }]
-    }]
-  },
-  "expansion" : {
-    "identifier" : "urn:uuid:4bfc22fe-bc4a-4e9e-a5ca-9b1ed7155319",
-    "timestamp" : "2023-09-26T13:51:51-04:00",
-    "total" : 2,
-    "offset" : 0,
-    "parameter" : [{
-      "name" : "count",
-      "valueInteger" : 1000
-    },
-    {
-      "name" : "offset",
-      "valueInteger" : 0
-    }],
-    "contains" : [{
-      "system" : "http://loinc.org",
-      "version" : "2.74",
-      "code" : "68507-3",
-      "display" : "Did you ever serve on active duty in the armed forces of the U.S. [SAMHSA]"
-    },
-    {
-      "system" : "http://loinc.org",
-      "version" : "2.74",
-      "code" : "93034-7",
-      "display" : "Discharged from the U.S. Armed Forces"
-    }]
+      }
+    ]
   }
 }

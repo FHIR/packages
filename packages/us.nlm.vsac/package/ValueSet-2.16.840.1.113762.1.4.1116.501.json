@@ -3,98 +3,106 @@
   "id" : "2.16.840.1.113762.1.4.1116.501",
   "meta" : {
     "versionId" : "5",
-    "lastUpdated" : "2023-04-03T13:49:24.000-04:00",
-    "profile" : ["http://hl7.org/fhir/StructureDefinition/shareablevalueset",
-    "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"]
+    "lastUpdated" : "2023-12-21T17:43:03.000-05:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-valueset-cqfm",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "extension" : [{
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
-    "valueString" : "CancerLinQ Author"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
-    "valueDate" : "2022-12-15"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
-    "valueDate" : "2023-04-03"
-  }],
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "CancerLinQ Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2024-06-03"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2018-07-21"
+    }
+  ],
   "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1116.501",
-  "identifier" : [{
-    "system" : "urn:ietf:rfc:3986",
-    "value" : "urn:oid:2.16.840.1.113762.1.4.1116.501"
-  }],
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113762.1.4.1116.501"
+    }
+  ],
   "version" : "20180721",
   "name" : "CytogeneticTesting",
   "title" : "Cytogenetic Testing",
-  "status" : "active",
+  "status" : "retired",
   "experimental" : false,
   "date" : "2018-07-21T01:00:04-04:00",
   "publisher" : "CancerLinQ Steward",
-  "jurisdiction" : [{
-    "extension" : [{
-      "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
-      "valueString" : "UNKNOWN"
-    }]
-  }],
+  "jurisdiction" : [
+    {
+      "coding" : [
+        {
+          "system" : "urn:iso:std:iso:3166",
+          "code" : "US"
+        }
+      ]
+    }
+  ],
   "purpose" : "(Clinical Focus: ),(Data Element Scope: ),(Inclusion Criteria: ),(Exclusion Criteria: )",
   "compose" : {
-    "include" : [{
-      "system" : "http://loinc.org",
-      "concept" : [{
+    "include" : [
+      {
+        "system" : "http://loinc.org",
+        "concept" : [
+          {
+            "code" : "48807-2",
+            "display" : "Bone marrow aspiration report"
+          },
+          {
+            "code" : "77314-3",
+            "display" : "Chromosome analysis basic associated observations panel - Blood or Tissue by Cytogenetics"
+          },
+          {
+            "code" : "82255-1",
+            "display" : "Marker and derivative chromosome analysis in Blood or Tissue Document by Cytogenetics"
+          },
+          {
+            "code" : "LP6215-0",
+            "display" : "Cytogenetics"
+          }
+        ]
+      }
+    ]
+  },
+  "expansion" : {
+    "identifier" : "urn:uuid:c866167f-8540-40cc-9a4f-b6c3c124a099",
+    "timestamp" : "2024-06-14T11:30:58-04:00",
+    "total" : 4,
+    "contains" : [
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
         "code" : "48807-2",
         "display" : "Bone marrow aspiration report"
       },
       {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
         "code" : "77314-3",
         "display" : "Chromosome analysis basic associated observations panel - Blood or Tissue by Cytogenetics"
       },
       {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
         "code" : "82255-1",
         "display" : "Marker and derivative chromosome analysis in Blood or Tissue Document by Cytogenetics"
       },
       {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
         "code" : "LP6215-0",
         "display" : "Cytogenetics"
-      }]
-    }]
-  },
-  "expansion" : {
-    "identifier" : "urn:uuid:9bd37b38-a570-4ce2-a48f-7a86a8409d8a",
-    "timestamp" : "2023-09-26T09:55:15-04:00",
-    "total" : 4,
-    "offset" : 0,
-    "parameter" : [{
-      "name" : "count",
-      "valueInteger" : 1000
-    },
-    {
-      "name" : "offset",
-      "valueInteger" : 0
-    }],
-    "contains" : [{
-      "system" : "http://loinc.org",
-      "version" : "2.74",
-      "code" : "48807-2",
-      "display" : "Bone marrow aspiration report"
-    },
-    {
-      "system" : "http://loinc.org",
-      "version" : "2.74",
-      "code" : "77314-3",
-      "display" : "Chromosome analysis basic associated observations panel - Blood or Tissue by Cytogenetics"
-    },
-    {
-      "system" : "http://loinc.org",
-      "version" : "2.74",
-      "code" : "82255-1",
-      "display" : "Marker and derivative chromosome analysis in Blood or Tissue Document by Cytogenetics"
-    },
-    {
-      "system" : "http://loinc.org",
-      "version" : "2.74",
-      "code" : "LP6215-0",
-      "display" : "Cytogenetics"
-    }]
+      }
+    ]
   }
 }

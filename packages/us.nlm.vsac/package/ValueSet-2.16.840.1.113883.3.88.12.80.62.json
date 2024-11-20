@@ -2,264 +2,276 @@
   "resourceType" : "ValueSet",
   "id" : "2.16.840.1.113883.3.88.12.80.62",
   "meta" : {
-    "versionId" : "32",
-    "lastUpdated" : "2021-06-30T01:01:07.000-04:00",
-    "profile" : ["http://hl7.org/fhir/StructureDefinition/shareablevalueset",
-    "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"]
+    "versionId" : "44",
+    "lastUpdated" : "2024-04-26T15:32:52.000-04:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-valueset-cqfm",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "extension" : [{
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
-    "valueString" : "HL7 Structured Documents WG"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-keyWord",
-    "valueString" : "C-CDA,CCDAr1_1,CCDAr21"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
-    "valueDate" : "2022-12-15"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
-    "valueDate" : "2021-06-30"
-  }],
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "HL7 US Realm Program Management Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2024-06-05"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2024-03-22"
+    }
+  ],
   "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.88.12.80.62",
-  "identifier" : [{
-    "system" : "urn:ietf:rfc:3986",
-    "value" : "urn:oid:2.16.840.1.113883.3.88.12.80.62"
-  }],
-  "version" : "20210630",
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113883.3.88.12.80.62"
+    }
+  ],
+  "version" : "20240322",
   "name" : "VitalSignResultType",
   "title" : "Vital Sign Result Type",
   "status" : "active",
-  "experimental" : false,
-  "date" : "2021-06-30T01:01:07-04:00",
-  "publisher" : "HL7 Terminology",
-  "description" : "Value Set: HITSP Vital Sign Result Type 2.16.840.1.113883.3.88.12.80.62 DYNAMIC\nCode System(s):\tLOINC 2.16.840.1.113883.6.1\n\nCode\tCode System\tPrint Name\n9279-1 \tLOINC\tRespiratory Rate \n8867-4 \tLOINC\tHeart Rate \n2710-2 \tLOINC\tO2 % BldC Oximetry \n8480-6 \tLOINC\tBP Systolic \n8462-4 \tLOINC\tBP Diastolic \n8310-5 \tLOINC\tBody Temperature \n8302-2 \tLOINC\tHeight \n8306-3 \tLOINC\tHeight (Lying) \n8287-5 \tLOINC\tHead Circumference \n3141-9 \tLOINC\tWeight Measured\n39156-5\tLOINC\tBMI (Body Mass Index)\n3140-1\tLOINC\tBSA (Body Surface Area)",
-  "jurisdiction" : [{
-    "extension" : [{
-      "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
-      "valueString" : "UNKNOWN"
-    }]
-  }],
-  "purpose" : "(Clinical Focus: A clinical observation classified as a vital sign, optionally including a method),(Data Element Scope: observation),(Inclusion Criteria: Specific set of concepts selected),(Exclusion Criteria: None needed)",
+  "date" : "2024-03-22T01:10:41-04:00",
+  "publisher" : "HL7 US Realm Program Management Steward",
+  "jurisdiction" : [
+    {
+      "coding" : [
+        {
+          "system" : "urn:iso:std:iso:3166",
+          "code" : "US"
+        }
+      ]
+    }
+  ],
+  "purpose" : "(Clinical Focus: This set of values represent clinical observations classified as vital signs. Some terms include a method. Basic oxygen rate and flow terms are also included.),(Data Element Scope: observation),(Inclusion Criteria: Specific set of concepts selected),(Exclusion Criteria: None needed)",
   "compose" : {
-    "include" : [{
-      "system" : "http://loinc.org",
-      "concept" : [{
+    "include" : [
+      {
+        "system" : "http://loinc.org",
+        "concept" : [
+          {
+            "code" : "2708-6",
+            "display" : "Oxygen saturation in Arterial blood"
+          },
+          {
+            "code" : "29463-7",
+            "display" : "Body weight"
+          },
+          {
+            "code" : "3140-1",
+            "display" : "Body surface area Derived from formula"
+          },
+          {
+            "code" : "3150-0",
+            "display" : "Inhaled oxygen concentration"
+          },
+          {
+            "code" : "3151-8",
+            "display" : "Inhaled oxygen flow rate"
+          },
+          {
+            "code" : "39156-5",
+            "display" : "Body mass index (BMI) [Ratio]"
+          },
+          {
+            "code" : "59408-5",
+            "display" : "Oxygen saturation in Arterial blood by Pulse oximetry"
+          },
+          {
+            "code" : "59575-1",
+            "display" : "Body mass index (BMI) [Percentile] Per age"
+          },
+          {
+            "code" : "59576-9",
+            "display" : "Body mass index (BMI) [Percentile] Per age and sex"
+          },
+          {
+            "code" : "77606-2",
+            "display" : "Weight-for-length Per age and sex"
+          },
+          {
+            "code" : "8287-5",
+            "display" : "Head Occipital-frontal circumference by Tape measure"
+          },
+          {
+            "code" : "8289-1",
+            "display" : "Head Occipital-frontal circumference Percentile"
+          },
+          {
+            "code" : "8302-2",
+            "display" : "Body height"
+          },
+          {
+            "code" : "8306-3",
+            "display" : "Body height --lying"
+          },
+          {
+            "code" : "8310-5",
+            "display" : "Body temperature"
+          },
+          {
+            "code" : "8462-4",
+            "display" : "Diastolic blood pressure"
+          },
+          {
+            "code" : "8478-0",
+            "display" : "Mean blood pressure"
+          },
+          {
+            "code" : "8480-6",
+            "display" : "Systolic blood pressure"
+          },
+          {
+            "code" : "8867-4",
+            "display" : "Heart rate"
+          },
+          {
+            "code" : "9279-1",
+            "display" : "Respiratory rate"
+          },
+          {
+            "code" : "9843-4",
+            "display" : "Head Occipital-frontal circumference"
+          }
+        ]
+      }
+    ]
+  },
+  "expansion" : {
+    "identifier" : "urn:uuid:328eda84-200e-47ab-9ba1-5402b5d699fe",
+    "timestamp" : "2024-06-14T18:48:51-04:00",
+    "total" : 21,
+    "contains" : [
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
         "code" : "2708-6",
         "display" : "Oxygen saturation in Arterial blood"
       },
       {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
         "code" : "29463-7",
         "display" : "Body weight"
       },
       {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
         "code" : "3140-1",
         "display" : "Body surface area Derived from formula"
       },
       {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
         "code" : "3150-0",
         "display" : "Inhaled oxygen concentration"
       },
       {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
         "code" : "3151-8",
         "display" : "Inhaled oxygen flow rate"
       },
       {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
         "code" : "39156-5",
         "display" : "Body mass index (BMI) [Ratio]"
       },
       {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
         "code" : "59408-5",
         "display" : "Oxygen saturation in Arterial blood by Pulse oximetry"
       },
       {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
         "code" : "59575-1",
         "display" : "Body mass index (BMI) [Percentile] Per age"
       },
       {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
         "code" : "59576-9",
         "display" : "Body mass index (BMI) [Percentile] Per age and sex"
       },
       {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
         "code" : "77606-2",
         "display" : "Weight-for-length Per age and sex"
       },
       {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
         "code" : "8287-5",
         "display" : "Head Occipital-frontal circumference by Tape measure"
       },
       {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
         "code" : "8289-1",
         "display" : "Head Occipital-frontal circumference Percentile"
       },
       {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
         "code" : "8302-2",
         "display" : "Body height"
       },
       {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
         "code" : "8306-3",
         "display" : "Body height --lying"
       },
       {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
         "code" : "8310-5",
         "display" : "Body temperature"
       },
       {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
         "code" : "8462-4",
         "display" : "Diastolic blood pressure"
       },
       {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
+        "code" : "8478-0",
+        "display" : "Mean blood pressure"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
         "code" : "8480-6",
         "display" : "Systolic blood pressure"
       },
       {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
         "code" : "8867-4",
         "display" : "Heart rate"
       },
       {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
         "code" : "9279-1",
         "display" : "Respiratory rate"
       },
       {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
         "code" : "9843-4",
         "display" : "Head Occipital-frontal circumference"
-      }]
-    }]
-  },
-  "expansion" : {
-    "identifier" : "urn:uuid:f4bae8b1-b702-41f8-8ed4-2f4aaa340391",
-    "timestamp" : "2023-09-26T13:53:35-04:00",
-    "total" : 20,
-    "offset" : 0,
-    "parameter" : [{
-      "name" : "count",
-      "valueInteger" : 1000
-    },
-    {
-      "name" : "offset",
-      "valueInteger" : 0
-    }],
-    "contains" : [{
-      "system" : "http://loinc.org",
-      "version" : "2.74",
-      "code" : "2708-6",
-      "display" : "Oxygen saturation in Arterial blood"
-    },
-    {
-      "system" : "http://loinc.org",
-      "version" : "2.74",
-      "code" : "29463-7",
-      "display" : "Body weight"
-    },
-    {
-      "system" : "http://loinc.org",
-      "version" : "2.74",
-      "code" : "3140-1",
-      "display" : "Body surface area Derived from formula"
-    },
-    {
-      "system" : "http://loinc.org",
-      "version" : "2.74",
-      "code" : "3150-0",
-      "display" : "Inhaled oxygen concentration"
-    },
-    {
-      "system" : "http://loinc.org",
-      "version" : "2.74",
-      "code" : "3151-8",
-      "display" : "Inhaled oxygen flow rate"
-    },
-    {
-      "system" : "http://loinc.org",
-      "version" : "2.74",
-      "code" : "39156-5",
-      "display" : "Body mass index (BMI) [Ratio]"
-    },
-    {
-      "system" : "http://loinc.org",
-      "version" : "2.74",
-      "code" : "59408-5",
-      "display" : "Oxygen saturation in Arterial blood by Pulse oximetry"
-    },
-    {
-      "system" : "http://loinc.org",
-      "version" : "2.74",
-      "code" : "59575-1",
-      "display" : "Body mass index (BMI) [Percentile] Per age"
-    },
-    {
-      "system" : "http://loinc.org",
-      "version" : "2.74",
-      "code" : "59576-9",
-      "display" : "Body mass index (BMI) [Percentile] Per age and sex"
-    },
-    {
-      "system" : "http://loinc.org",
-      "version" : "2.74",
-      "code" : "77606-2",
-      "display" : "Weight-for-length Per age and sex"
-    },
-    {
-      "system" : "http://loinc.org",
-      "version" : "2.74",
-      "code" : "8287-5",
-      "display" : "Head Occipital-frontal circumference by Tape measure"
-    },
-    {
-      "system" : "http://loinc.org",
-      "version" : "2.74",
-      "code" : "8289-1",
-      "display" : "Head Occipital-frontal circumference Percentile"
-    },
-    {
-      "system" : "http://loinc.org",
-      "version" : "2.74",
-      "code" : "8302-2",
-      "display" : "Body height"
-    },
-    {
-      "system" : "http://loinc.org",
-      "version" : "2.74",
-      "code" : "8306-3",
-      "display" : "Body height --lying"
-    },
-    {
-      "system" : "http://loinc.org",
-      "version" : "2.74",
-      "code" : "8310-5",
-      "display" : "Body temperature"
-    },
-    {
-      "system" : "http://loinc.org",
-      "version" : "2.74",
-      "code" : "8462-4",
-      "display" : "Diastolic blood pressure"
-    },
-    {
-      "system" : "http://loinc.org",
-      "version" : "2.74",
-      "code" : "8480-6",
-      "display" : "Systolic blood pressure"
-    },
-    {
-      "system" : "http://loinc.org",
-      "version" : "2.74",
-      "code" : "8867-4",
-      "display" : "Heart rate"
-    },
-    {
-      "system" : "http://loinc.org",
-      "version" : "2.74",
-      "code" : "9279-1",
-      "display" : "Respiratory rate"
-    },
-    {
-      "system" : "http://loinc.org",
-      "version" : "2.74",
-      "code" : "9843-4",
-      "display" : "Head Occipital-frontal circumference"
-    }]
+      }
+    ]
   }
 }

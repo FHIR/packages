@@ -3,27 +3,34 @@
   "id" : "2.16.840.1.113762.1.4.1078.217",
   "meta" : {
     "versionId" : "7",
-    "lastUpdated" : "2023-03-22T01:03:14.000-04:00",
-    "profile" : ["http://hl7.org/fhir/StructureDefinition/shareablevalueset",
-    "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"]
+    "lastUpdated" : "2023-12-21T17:43:03.000-05:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-valueset-cqfm",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "extension" : [{
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
-    "valueString" : "Optum Author"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
-    "valueDate" : "2023-03-22"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
-    "valueDate" : "2023-03-22"
-  }],
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "Optum Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2023-03-22"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2023-03-22"
+    }
+  ],
   "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1078.217",
-  "identifier" : [{
-    "system" : "urn:ietf:rfc:3986",
-    "value" : "urn:oid:2.16.840.1.113762.1.4.1078.217"
-  }],
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113762.1.4.1078.217"
+    }
+  ],
   "version" : "20230322",
   "name" : "StageCHeartFailureI10",
   "title" : "Stage C Heart Failure I10",
@@ -31,116 +38,125 @@
   "date" : "2023-03-22T01:03:14-04:00",
   "publisher" : "Optum Steward",
   "description" : "I10 billable codes for systolic stage C heart failure",
-  "jurisdiction" : [{
-    "extension" : [{
-      "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
-      "valueString" : "UNKNOWN"
-    }]
-  }],
+  "jurisdiction" : [
+    {
+      "coding" : [
+        {
+          "system" : "urn:iso:std:iso:3166",
+          "code" : "US"
+        }
+      ]
+    }
+  ],
   "purpose" : "(Clinical Focus: I10 billable codes for systolic stage C heart failure),(Data Element Scope: CONDITIONS:CLINICAL_DRIVER:),(Inclusion Criteria: I50.2*, I50.4*, I50.9),(Exclusion Criteria: Diastolic heart failure and Stages A,B and D heart failure)",
   "compose" : {
-    "include" : [{
-      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-      "version" : "2024",
-      "filter" : [{
-        "modifierExtension" : [{
-          "url" : "vsacOpModifier",
-          "valueString" : "leafOf"
-        }],
-        "property" : "concept",
-        "op" : "is-a",
-        "value" : "I50.2"
-      }]
-    },
-    {
-      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-      "version" : "2024",
-      "filter" : [{
-        "modifierExtension" : [{
-          "url" : "vsacOpModifier",
-          "valueString" : "leafOf"
-        }],
-        "property" : "concept",
-        "op" : "is-a",
-        "value" : "I50.4"
-      }]
-    },
-    {
-      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-      "version" : "2024",
-      "filter" : [{
-        "property" : "concept",
-        "op" : "in",
-        "value" : "I50.9"
-      }]
-    }]
+    "include" : [
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2024",
+        "filter" : [
+          {
+            "modifierExtension" : [
+              {
+                "url" : "vsacOpModifier",
+                "valueString" : "leafOf"
+              }
+            ],
+            "property" : "concept",
+            "op" : "is-a",
+            "value" : "I50.2"
+          }
+        ]
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2024",
+        "filter" : [
+          {
+            "modifierExtension" : [
+              {
+                "url" : "vsacOpModifier",
+                "valueString" : "leafOf"
+              }
+            ],
+            "property" : "concept",
+            "op" : "is-a",
+            "value" : "I50.4"
+          }
+        ]
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2024",
+        "filter" : [
+          {
+            "property" : "concept",
+            "op" : "in",
+            "value" : "I50.9"
+          }
+        ]
+      }
+    ]
   },
   "expansion" : {
-    "identifier" : "urn:uuid:290d7bd5-b338-42eb-b163-afb2ade3c946",
-    "timestamp" : "2023-09-26T13:19:09-04:00",
+    "identifier" : "urn:uuid:fc0e6464-48b5-4bc0-adcd-8390ca65a7c6",
+    "timestamp" : "2024-06-14T10:39:19-04:00",
     "total" : 9,
-    "offset" : 0,
-    "parameter" : [{
-      "name" : "count",
-      "valueInteger" : 1000
-    },
-    {
-      "name" : "offset",
-      "valueInteger" : 0
-    }],
-    "contains" : [{
-      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-      "version" : "2024",
-      "code" : "I50.20",
-      "display" : "Unspecified systolic (congestive) heart failure"
-    },
-    {
-      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-      "version" : "2024",
-      "code" : "I50.21",
-      "display" : "Acute systolic (congestive) heart failure"
-    },
-    {
-      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-      "version" : "2024",
-      "code" : "I50.22",
-      "display" : "Chronic systolic (congestive) heart failure"
-    },
-    {
-      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-      "version" : "2024",
-      "code" : "I50.23",
-      "display" : "Acute on chronic systolic (congestive) heart failure"
-    },
-    {
-      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-      "version" : "2024",
-      "code" : "I50.40",
-      "display" : "Unspecified combined systolic (congestive) and diastolic (congestive) heart failure"
-    },
-    {
-      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-      "version" : "2024",
-      "code" : "I50.41",
-      "display" : "Acute combined systolic (congestive) and diastolic (congestive) heart failure"
-    },
-    {
-      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-      "version" : "2024",
-      "code" : "I50.42",
-      "display" : "Chronic combined systolic (congestive) and diastolic (congestive) heart failure"
-    },
-    {
-      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-      "version" : "2024",
-      "code" : "I50.43",
-      "display" : "Acute on chronic combined systolic (congestive) and diastolic (congestive) heart failure"
-    },
-    {
-      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-      "version" : "2024",
-      "code" : "I50.9",
-      "display" : "Heart failure, unspecified"
-    }]
+    "contains" : [
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2024",
+        "code" : "I50.20",
+        "display" : "Unspecified systolic (congestive) heart failure"
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2024",
+        "code" : "I50.21",
+        "display" : "Acute systolic (congestive) heart failure"
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2024",
+        "code" : "I50.22",
+        "display" : "Chronic systolic (congestive) heart failure"
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2024",
+        "code" : "I50.23",
+        "display" : "Acute on chronic systolic (congestive) heart failure"
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2024",
+        "code" : "I50.40",
+        "display" : "Unspecified combined systolic (congestive) and diastolic (congestive) heart failure"
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2024",
+        "code" : "I50.41",
+        "display" : "Acute combined systolic (congestive) and diastolic (congestive) heart failure"
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2024",
+        "code" : "I50.42",
+        "display" : "Chronic combined systolic (congestive) and diastolic (congestive) heart failure"
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2024",
+        "code" : "I50.43",
+        "display" : "Acute on chronic combined systolic (congestive) and diastolic (congestive) heart failure"
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2024",
+        "code" : "I50.9",
+        "display" : "Heart failure, unspecified"
+      }
+    ]
   }
 }

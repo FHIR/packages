@@ -3,71 +3,79 @@
   "id" : "2.16.840.1.113762.1.4.1213.92",
   "meta" : {
     "versionId" : "7",
-    "lastUpdated" : "2022-05-14T01:02:33.000-04:00",
-    "profile" : ["http://hl7.org/fhir/StructureDefinition/shareablevalueset",
-    "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"]
+    "lastUpdated" : "2023-12-21T17:43:03.000-05:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-valueset-cqfm",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "extension" : [{
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
-    "valueString" : "Meaningful Drug Interaction Alerts Author"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
-    "valueDate" : "2022-12-15"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
-    "valueDate" : "2022-05-14"
-  }],
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "Meaningful Drug Interaction Alerts Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2024-06-03"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2022-05-14"
+    }
+  ],
   "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1213.92",
-  "identifier" : [{
-    "system" : "urn:ietf:rfc:3986",
-    "value" : "urn:oid:2.16.840.1.113762.1.4.1213.92"
-  }],
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113762.1.4.1213.92"
+    }
+  ],
   "version" : "20220514",
   "name" : "PotassiumRxNorm",
   "title" : "Potassium RxNorm",
-  "status" : "active",
+  "status" : "retired",
   "experimental" : false,
   "date" : "2022-05-14T01:02:33-04:00",
   "publisher" : "Meaningful Drug Interaction Alerts Steward",
   "description" : "Simple rule for getting potassiums",
-  "jurisdiction" : [{
-    "extension" : [{
-      "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
-      "valueString" : "UNKNOWN"
-    }]
-  }],
+  "jurisdiction" : [
+    {
+      "coding" : [
+        {
+          "system" : "urn:iso:std:iso:3166",
+          "code" : "US"
+        }
+      ]
+    }
+  ],
   "purpose" : "(Clinical Focus: Drug-drug interaction CDS),(Data Element Scope: RxNorm clinical and branded drugs),(Inclusion Criteria: clinical and branded drugs that include potassium),(Exclusion Criteria: None)",
   "compose" : {
-    "include" : [{
-      "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version" : "09052023",
-      "filter" : [{
-        "property" : "concept",
-        "op" : "=",
-        "value" : "1000479"
-      }]
-    }]
+    "include" : [
+      {
+        "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "version" : "05062024",
+        "filter" : [
+          {
+            "property" : "concept",
+            "op" : "=",
+            "value" : "1000479"
+          }
+        ]
+      }
+    ]
   },
   "expansion" : {
-    "identifier" : "urn:uuid:10b8dc26-c3ba-4062-b973-3071cb9f3ec3",
-    "timestamp" : "2023-09-26T12:36:41-04:00",
+    "identifier" : "urn:uuid:7d0fa9de-813b-499f-a44e-46d8878991d7",
+    "timestamp" : "2024-06-14T13:38:22-04:00",
     "total" : 1,
-    "offset" : 0,
-    "parameter" : [{
-      "name" : "count",
-      "valueInteger" : 1000
-    },
-    {
-      "name" : "offset",
-      "valueInteger" : 0
-    }],
-    "contains" : [{
-      "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version" : "09052023",
-      "code" : "1000479",
-      "display" : "{1 (bisacodyl 5 MG Delayed Release Oral Tablet) / 1 (2000 ML) (polyethylene glycol 3350 210000 MG / potassium chloride 740 MG / sodium bicarbonate 2860 MG / sodium chloride 5600 MG Powder for Oral Solution) } Pack"
-    }]
+    "contains" : [
+      {
+        "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "version" : "05062024",
+        "code" : "1000479",
+        "display" : "{1 (bisacodyl 5 MG Delayed Release Oral Tablet) / 1 (2000 ML) (polyethylene glycol 3350 210000 MG / potassium chloride 740 MG / sodium bicarbonate 2860 MG / sodium chloride 5600 MG Powder for Oral Solution) } Pack"
+      }
+    ]
   }
 }

@@ -3,78 +3,86 @@
   "id" : "2.16.840.1.113762.1.4.1195.66",
   "meta" : {
     "versionId" : "5",
-    "lastUpdated" : "2019-01-18T01:00:10.000-05:00",
-    "profile" : ["http://hl7.org/fhir/StructureDefinition/shareablevalueset",
-    "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"]
+    "lastUpdated" : "2023-12-21T17:43:03.000-05:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-valueset-cqfm",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "extension" : [{
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
-    "valueString" : "NJII Author"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
-    "valueDate" : "2022-12-15"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
-    "valueDate" : "2019-01-18"
-  }],
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "NJII Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2024-06-03"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2019-01-18"
+    }
+  ],
   "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1195.66",
-  "identifier" : [{
-    "system" : "urn:ietf:rfc:3986",
-    "value" : "urn:oid:2.16.840.1.113762.1.4.1195.66"
-  }],
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113762.1.4.1195.66"
+    }
+  ],
   "version" : "20190118",
   "name" : "PainAssessment",
   "title" : "Pain Assessment",
-  "status" : "active",
+  "status" : "retired",
   "experimental" : false,
   "date" : "2019-01-18T01:00:10-05:00",
   "publisher" : "NJII Steward",
-  "jurisdiction" : [{
-    "extension" : [{
-      "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
-      "valueString" : "UNKNOWN"
-    }]
-  }],
+  "jurisdiction" : [
+    {
+      "coding" : [
+        {
+          "system" : "urn:iso:std:iso:3166",
+          "code" : "US"
+        }
+      ]
+    }
+  ],
   "purpose" : "(Clinical Focus: Describes numerator criteria for STARSC11-HEDISCOAPA Care For Older Adults - Pain Assessment.),(Data Element Scope: CPT codes for Pain Assessment.),(Inclusion Criteria: As defined by STARSC11-HEDISCOAPA.),(Exclusion Criteria: As defined by STARSC11-HEDISCOAPA.)",
   "compose" : {
-    "include" : [{
-      "system" : "http://www.ama-assn.org/go/cpt",
-      "concept" : [{
+    "include" : [
+      {
+        "system" : "http://www.ama-assn.org/go/cpt",
+        "concept" : [
+          {
+            "code" : "1125F",
+            "display" : "Pain severity quantified; pain present (COA) (ONC)"
+          },
+          {
+            "code" : "1126F",
+            "display" : "Pain severity quantified; no pain present (COA) (ONC)"
+          }
+        ]
+      }
+    ]
+  },
+  "expansion" : {
+    "identifier" : "urn:uuid:ea79a0b9-5cca-41db-b982-bb07fe46babd",
+    "timestamp" : "2024-06-14T13:14:21-04:00",
+    "total" : 2,
+    "contains" : [
+      {
+        "system" : "http://www.ama-assn.org/go/cpt",
+        "version" : "2024",
         "code" : "1125F",
         "display" : "Pain severity quantified; pain present (COA) (ONC)"
       },
       {
+        "system" : "http://www.ama-assn.org/go/cpt",
+        "version" : "2024",
         "code" : "1126F",
         "display" : "Pain severity quantified; no pain present (COA) (ONC)"
-      }]
-    }]
-  },
-  "expansion" : {
-    "identifier" : "urn:uuid:60cf2d9d-325c-4ab6-9905-cfa9d5040f61",
-    "timestamp" : "2023-09-26T12:21:33-04:00",
-    "total" : 2,
-    "offset" : 0,
-    "parameter" : [{
-      "name" : "count",
-      "valueInteger" : 1000
-    },
-    {
-      "name" : "offset",
-      "valueInteger" : 0
-    }],
-    "contains" : [{
-      "system" : "http://www.ama-assn.org/go/cpt",
-      "version" : "2023",
-      "code" : "1125F",
-      "display" : "Pain severity quantified; pain present (COA) (ONC)"
-    },
-    {
-      "system" : "http://www.ama-assn.org/go/cpt",
-      "version" : "2023",
-      "code" : "1126F",
-      "display" : "Pain severity quantified; no pain present (COA) (ONC)"
-    }]
+      }
+    ]
   }
 }

@@ -3,27 +3,34 @@
   "id" : "2.16.840.1.113883.3.464.1003.101.11.1233",
   "meta" : {
     "versionId" : "10",
-    "lastUpdated" : "2021-01-18T17:28:09.000-05:00",
-    "profile" : ["http://hl7.org/fhir/StructureDefinition/shareablevalueset",
-    "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"]
+    "lastUpdated" : "2023-12-21T17:43:03.000-05:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-valueset-cqfm",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "extension" : [{
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
-    "valueString" : "NCQA PHEMUR Author"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
-    "valueDate" : "2022-12-15"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
-    "valueDate" : "2021-01-18"
-  }],
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "NCQA PHEMUR Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2024-02-14"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2019-03-27"
+    }
+  ],
   "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.101.11.1233",
-  "identifier" : [{
-    "system" : "urn:ietf:rfc:3986",
-    "value" : "urn:oid:2.16.840.1.113883.3.464.1003.101.11.1233"
-  }],
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113883.3.464.1003.101.11.1233"
+    }
+  ],
   "version" : "20190327",
   "name" : "MedicalDisabilityExam",
   "title" : "Medical Disability Exam",
@@ -31,50 +38,51 @@
   "experimental" : false,
   "date" : "2019-03-27T01:00:08-04:00",
   "publisher" : "NCQA PHEMUR",
-  "jurisdiction" : [{
-    "extension" : [{
-      "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
-      "valueString" : "UNKNOWN"
-    }]
-  }],
+  "jurisdiction" : [
+    {
+      "coding" : [
+        {
+          "system" : "urn:iso:std:iso:3166",
+          "code" : "US"
+        }
+      ]
+    }
+  ],
   "purpose" : "(Clinical Focus: The purpose of this value set is to represent concepts for encounters for work related or medical disability examinations.),(Data Element Scope: This value set may use a model element related to Encounter.),(Inclusion Criteria: Includes concepts that represent an encounter for work related or medical disability examinations.),(Exclusion Criteria: No exclusions.)",
   "compose" : {
-    "include" : [{
-      "system" : "http://www.ama-assn.org/go/cpt",
-      "concept" : [{
+    "include" : [
+      {
+        "system" : "http://www.ama-assn.org/go/cpt",
+        "concept" : [
+          {
+            "code" : "99455",
+            "display" : "Work related or medical disability examination by the treating physician that includes: Completion of a medical history commensurate with the patient's condition; Performance of an examination commensurate with the patient's condition; Formulation of a diagnosis, assessment of capabilities and stability, and calculation of impairment; Development of future medical treatment plan; and Completion of necessary documentation/certificates and report."
+          },
+          {
+            "code" : "99456",
+            "display" : "Work related or medical disability examination by other than the treating physician that includes: Completion of a medical history commensurate with the patient's condition; Performance of an examination commensurate with the patient's condition; Formulation of a diagnosis, assessment of capabilities and stability, and calculation of impairment; Development of future medical treatment plan; and Completion of necessary documentation/certificates and report."
+          }
+        ]
+      }
+    ]
+  },
+  "expansion" : {
+    "identifier" : "urn:uuid:26ede3b3-eba8-4bec-9a9f-dff23fc21749",
+    "timestamp" : "2024-06-14T16:33:29-04:00",
+    "total" : 2,
+    "contains" : [
+      {
+        "system" : "http://www.ama-assn.org/go/cpt",
+        "version" : "2024",
         "code" : "99455",
         "display" : "Work related or medical disability examination by the treating physician that includes: Completion of a medical history commensurate with the patient's condition; Performance of an examination commensurate with the patient's condition; Formulation of a diagnosis, assessment of capabilities and stability, and calculation of impairment; Development of future medical treatment plan; and Completion of necessary documentation/certificates and report."
       },
       {
+        "system" : "http://www.ama-assn.org/go/cpt",
+        "version" : "2024",
         "code" : "99456",
         "display" : "Work related or medical disability examination by other than the treating physician that includes: Completion of a medical history commensurate with the patient's condition; Performance of an examination commensurate with the patient's condition; Formulation of a diagnosis, assessment of capabilities and stability, and calculation of impairment; Development of future medical treatment plan; and Completion of necessary documentation/certificates and report."
-      }]
-    }]
-  },
-  "expansion" : {
-    "identifier" : "urn:uuid:530473b7-974f-4017-8f25-b836da72ffa8",
-    "timestamp" : "2023-09-26T11:41:19-04:00",
-    "total" : 2,
-    "offset" : 0,
-    "parameter" : [{
-      "name" : "count",
-      "valueInteger" : 1000
-    },
-    {
-      "name" : "offset",
-      "valueInteger" : 0
-    }],
-    "contains" : [{
-      "system" : "http://www.ama-assn.org/go/cpt",
-      "version" : "2023",
-      "code" : "99455",
-      "display" : "Work related or medical disability examination by the treating physician that includes: Completion of a medical history commensurate with the patient's condition; Performance of an examination commensurate with the patient's condition; Formulation of a diagnosis, assessment of capabilities and stability, and calculation of impairment; Development of future medical treatment plan; and Completion of necessary documentation/certificates and report."
-    },
-    {
-      "system" : "http://www.ama-assn.org/go/cpt",
-      "version" : "2023",
-      "code" : "99456",
-      "display" : "Work related or medical disability examination by other than the treating physician that includes: Completion of a medical history commensurate with the patient's condition; Performance of an examination commensurate with the patient's condition; Formulation of a diagnosis, assessment of capabilities and stability, and calculation of impairment; Development of future medical treatment plan; and Completion of necessary documentation/certificates and report."
-    }]
+      }
+    ]
   }
 }

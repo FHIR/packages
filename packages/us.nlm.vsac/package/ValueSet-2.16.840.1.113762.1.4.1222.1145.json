@@ -3,89 +3,97 @@
   "id" : "2.16.840.1.113762.1.4.1222.1145",
   "meta" : {
     "versionId" : "5",
-    "lastUpdated" : "2021-09-27T01:00:36.000-04:00",
-    "profile" : ["http://hl7.org/fhir/StructureDefinition/shareablevalueset",
-    "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"]
+    "lastUpdated" : "2023-12-21T17:43:03.000-05:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-valueset-cqfm",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "extension" : [{
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
-    "valueString" : "MCC eCare Plan Author"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
-    "valueDate" : "2022-12-15"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
-    "valueDate" : "2021-09-27"
-  }],
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "MCC eCare Plan Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2024-05-20"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2021-09-27"
+    }
+  ],
   "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1222.1145",
-  "identifier" : [{
-    "system" : "urn:ietf:rfc:3986",
-    "value" : "urn:oid:2.16.840.1.113762.1.4.1222.1145"
-  }],
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113762.1.4.1222.1145"
+    }
+  ],
   "version" : "20210927",
   "name" : "TransportationAccess",
   "title" : "Transportation Access",
-  "status" : "active",
+  "status" : "retired",
   "experimental" : false,
-  "date" : "2021-09-27T01:00:36-04:00",
+  "date" : "2024-05-20T14:48:09-04:00",
   "publisher" : "HL7 Patient Care WG Steward",
   "description" : "Assessment of the patient's ability to access transportion to reach health related resources (Business ID: Entry 2729865)",
-  "jurisdiction" : [{
-    "extension" : [{
-      "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
-      "valueString" : "UNKNOWN"
-    }]
-  }],
+  "jurisdiction" : [
+    {
+      "coding" : [
+        {
+          "system" : "urn:iso:std:iso:3166",
+          "code" : "US"
+        }
+      ]
+    }
+  ],
   "purpose" : "(Clinical Focus: This set of values addresses terms representing Transportation Access.),(Data Element Scope: The intent of this set of values is to identify patients who have a/an assessment of the patient's ability to access transportion to reach health related resources.),(Inclusion Criteria: Includes SNOMEDCT codes for Transportation Access.),(Exclusion Criteria: Terms not representative of observable encoded terms that may have values indicating Transportation Access.)",
   "compose" : {
-    "include" : [{
-      "system" : "http://loinc.org",
-      "version" : "2.74",
-      "filter" : [{
-        "property" : "concept",
-        "op" : "in",
-        "value" : "89569-8,92358-1,93671-6,93030-5"
-      }]
-    }]
+    "include" : [
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
+        "filter" : [
+          {
+            "property" : "concept",
+            "op" : "in",
+            "value" : "89569-8,92358-1,93671-6,93030-5"
+          }
+        ]
+      }
+    ]
   },
   "expansion" : {
-    "identifier" : "urn:uuid:7e11ae50-2d55-4fa6-9fe4-e792078af87f",
-    "timestamp" : "2023-09-26T13:36:52-04:00",
+    "identifier" : "urn:uuid:043f8a7d-87fe-4732-90b7-2a78795e24a3",
+    "timestamp" : "2024-06-14T14:04:27-04:00",
     "total" : 4,
-    "offset" : 0,
-    "parameter" : [{
-      "name" : "count",
-      "valueInteger" : 1000
-    },
-    {
-      "name" : "offset",
-      "valueInteger" : 0
-    }],
-    "contains" : [{
-      "system" : "http://loinc.org",
-      "version" : "2.74",
-      "code" : "89569-8",
-      "display" : "Access to transportation/mobility status [CUBS]"
-    },
-    {
-      "system" : "http://loinc.org",
-      "version" : "2.74",
-      "code" : "92358-1",
-      "display" : "Current level of confidence I can use public transportation [PROMIS]"
-    },
-    {
-      "system" : "http://loinc.org",
-      "version" : "2.74",
-      "code" : "93030-5",
-      "display" : "Has lack of transportation kept you from medical appointments, meetings, work, or from getting things needed for daily living"
-    },
-    {
-      "system" : "http://loinc.org",
-      "version" : "2.74",
-      "code" : "93671-6",
-      "display" : "Do you have trouble finding or paying for transportation [WellRx]"
-    }]
+    "contains" : [
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
+        "code" : "89569-8",
+        "display" : "Access to transportation/mobility status [CUBS]"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
+        "code" : "92358-1",
+        "display" : "Current level of confidence I can use public transportation [PROMIS]"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
+        "code" : "93030-5",
+        "display" : "Has lack of transportation kept you from medical appointments, meetings, work, or from getting things needed for daily living"
+      },
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
+        "code" : "93671-6",
+        "display" : "Do you have trouble finding or paying for transportation [WellRx]"
+      }
+    ]
   }
 }

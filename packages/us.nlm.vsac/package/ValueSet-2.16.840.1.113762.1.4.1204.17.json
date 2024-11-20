@@ -3,128 +3,136 @@
   "id" : "2.16.840.1.113762.1.4.1204.17",
   "meta" : {
     "versionId" : "5",
-    "lastUpdated" : "2019-05-24T01:00:11.000-04:00",
-    "profile" : ["http://hl7.org/fhir/StructureDefinition/shareablevalueset",
-    "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"]
+    "lastUpdated" : "2023-12-21T17:43:03.000-05:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-valueset-cqfm",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "extension" : [{
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
-    "valueString" : "National EMS Quality Alliance Author"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
-    "valueDate" : "2022-12-15"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
-    "valueDate" : "2019-05-24"
-  }],
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "National EMS Quality Alliance Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2024-06-03"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2019-05-24"
+    }
+  ],
   "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1204.17",
-  "identifier" : [{
-    "system" : "urn:ietf:rfc:3986",
-    "value" : "urn:oid:2.16.840.1.113762.1.4.1204.17"
-  }],
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113762.1.4.1204.17"
+    }
+  ],
   "version" : "20190524",
   "name" : "PatientWeight",
   "title" : "Patient Weight",
-  "status" : "active",
+  "status" : "retired",
   "experimental" : false,
   "date" : "2019-05-24T01:00:11-04:00",
   "publisher" : "National EMS Quality Alliance Steward",
-  "jurisdiction" : [{
-    "extension" : [{
-      "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
-      "valueString" : "UNKNOWN"
-    }]
-  }],
+  "jurisdiction" : [
+    {
+      "coding" : [
+        {
+          "system" : "urn:iso:std:iso:3166",
+          "code" : "US"
+        }
+      ]
+    }
+  ],
   "purpose" : "(Clinical Focus: This set of values contains patient weight values that are used to make decisions in providing care, specifically for prescribing weight-based medications.),(Data Element Scope: The intent of this data element is to identify patients who had a documented weight during their encounter. Using the Quality Data Model, this particular element would map to the Assessment category.),(Inclusion Criteria: Measurements and estimations of body weight.),(Exclusion Criteria: None)",
   "compose" : {
-    "include" : [{
-      "system" : "http://loinc.org",
-      "concept" : [{
+    "include" : [
+      {
+        "system" : "http://loinc.org",
+        "concept" : [
+          {
+            "code" : "18833-4",
+            "display" : "First Body weight"
+          },
+          {
+            "code" : "29463-7",
+            "display" : "Body weight"
+          },
+          {
+            "code" : "3141-9",
+            "display" : "Body weight Measured"
+          },
+          {
+            "code" : "3142-7",
+            "display" : "Body weight Stated"
+          },
+          {
+            "code" : "8341-0",
+            "display" : "Dry body weight Measured"
+          },
+          {
+            "code" : "8350-1",
+            "display" : "Body weight Measured --with clothes"
+          },
+          {
+            "code" : "8351-9",
+            "display" : "Body weight Measured --without clothes"
+          }
+        ]
+      }
+    ]
+  },
+  "expansion" : {
+    "identifier" : "urn:uuid:a534fe64-c801-4602-a79a-a479a11311e0",
+    "timestamp" : "2024-06-14T13:30:25-04:00",
+    "total" : 7,
+    "contains" : [
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
         "code" : "18833-4",
         "display" : "First Body weight"
       },
       {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
         "code" : "29463-7",
         "display" : "Body weight"
       },
       {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
         "code" : "3141-9",
         "display" : "Body weight Measured"
       },
       {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
         "code" : "3142-7",
         "display" : "Body weight Stated"
       },
       {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
         "code" : "8341-0",
         "display" : "Dry body weight Measured"
       },
       {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
         "code" : "8350-1",
         "display" : "Body weight Measured --with clothes"
       },
       {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
         "code" : "8351-9",
         "display" : "Body weight Measured --without clothes"
-      }]
-    }]
-  },
-  "expansion" : {
-    "identifier" : "urn:uuid:344323ad-55e7-459e-ad35-795f4abe4420",
-    "timestamp" : "2023-09-26T12:27:01-04:00",
-    "total" : 7,
-    "offset" : 0,
-    "parameter" : [{
-      "name" : "count",
-      "valueInteger" : 1000
-    },
-    {
-      "name" : "offset",
-      "valueInteger" : 0
-    }],
-    "contains" : [{
-      "system" : "http://loinc.org",
-      "version" : "2.74",
-      "code" : "18833-4",
-      "display" : "First Body weight"
-    },
-    {
-      "system" : "http://loinc.org",
-      "version" : "2.74",
-      "code" : "29463-7",
-      "display" : "Body weight"
-    },
-    {
-      "system" : "http://loinc.org",
-      "version" : "2.74",
-      "code" : "3141-9",
-      "display" : "Body weight Measured"
-    },
-    {
-      "system" : "http://loinc.org",
-      "version" : "2.74",
-      "code" : "3142-7",
-      "display" : "Body weight Stated"
-    },
-    {
-      "system" : "http://loinc.org",
-      "version" : "2.74",
-      "code" : "8341-0",
-      "display" : "Dry body weight Measured"
-    },
-    {
-      "system" : "http://loinc.org",
-      "version" : "2.74",
-      "code" : "8350-1",
-      "display" : "Body weight Measured --with clothes"
-    },
-    {
-      "system" : "http://loinc.org",
-      "version" : "2.74",
-      "code" : "8351-9",
-      "display" : "Body weight Measured --without clothes"
-    }]
+      }
+    ]
   }
 }

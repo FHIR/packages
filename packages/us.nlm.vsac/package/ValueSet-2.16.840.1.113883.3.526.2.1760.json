@@ -3,98 +3,106 @@
   "id" : "2.16.840.1.113883.3.526.2.1760",
   "meta" : {
     "versionId" : "6",
-    "lastUpdated" : "2021-01-20T11:58:21.000-05:00",
-    "profile" : ["http://hl7.org/fhir/StructureDefinition/shareablevalueset",
-    "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"]
+    "lastUpdated" : "2023-12-21T17:43:03.000-05:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-valueset-cqfm",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "extension" : [{
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
-    "valueString" : "NCQA PHEMUR Author"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
-    "valueDate" : "2022-12-15"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
-    "valueDate" : "2021-01-20"
-  }],
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "NCQA PHEMUR Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2024-06-03"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2017-05-04"
+    }
+  ],
   "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.526.2.1760",
-  "identifier" : [{
-    "system" : "urn:ietf:rfc:3986",
-    "value" : "urn:oid:2.16.840.1.113883.3.526.2.1760"
-  }],
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113883.3.526.2.1760"
+    }
+  ],
   "version" : "20170504",
   "name" : "AllergyToEggs",
   "title" : "Allergy to Eggs",
-  "status" : "active",
+  "status" : "retired",
   "experimental" : false,
   "date" : "2017-05-04T01:00:13-04:00",
   "publisher" : "NCQA PHEMUR",
-  "jurisdiction" : [{
-    "extension" : [{
-      "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
-      "valueString" : "UNKNOWN"
-    }]
-  }],
+  "jurisdiction" : [
+    {
+      "coding" : [
+        {
+          "system" : "urn:iso:std:iso:3166",
+          "code" : "US"
+        }
+      ]
+    }
+  ],
   "purpose" : "(Clinical Focus: The purpose of this value set is to represent concepts for a diagnosis of  an allergy to eggs.),(Data Element Scope: This value set may use a model element related to Diagnosis.),(Inclusion Criteria: Includes concepts that represent a diagnosis of an allergy to eggs.),(Exclusion Criteria: No exclusions.)",
   "compose" : {
-    "include" : [{
-      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-      "concept" : [{
+    "include" : [
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "concept" : [
+          {
+            "code" : "T78.08XA",
+            "display" : "Anaphylactic reaction due to eggs, initial encounter"
+          },
+          {
+            "code" : "T78.08XD",
+            "display" : "Anaphylactic reaction due to eggs, subsequent encounter"
+          },
+          {
+            "code" : "T78.08XS",
+            "display" : "Anaphylactic reaction due to eggs, sequela"
+          },
+          {
+            "code" : "Z91.012",
+            "display" : "Allergy to eggs"
+          }
+        ]
+      }
+    ]
+  },
+  "expansion" : {
+    "identifier" : "urn:uuid:144b4efa-4732-4898-82e1-5c293de698dc",
+    "timestamp" : "2024-06-14T17:34:21-04:00",
+    "total" : 4,
+    "contains" : [
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2024",
         "code" : "T78.08XA",
         "display" : "Anaphylactic reaction due to eggs, initial encounter"
       },
       {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2024",
         "code" : "T78.08XD",
         "display" : "Anaphylactic reaction due to eggs, subsequent encounter"
       },
       {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2024",
         "code" : "T78.08XS",
         "display" : "Anaphylactic reaction due to eggs, sequela"
       },
       {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2024",
         "code" : "Z91.012",
         "display" : "Allergy to eggs"
-      }]
-    }]
-  },
-  "expansion" : {
-    "identifier" : "urn:uuid:20185b94-3dfe-496e-9521-52cbfa1acd20",
-    "timestamp" : "2023-09-26T07:48:33-04:00",
-    "total" : 4,
-    "offset" : 0,
-    "parameter" : [{
-      "name" : "count",
-      "valueInteger" : 1000
-    },
-    {
-      "name" : "offset",
-      "valueInteger" : 0
-    }],
-    "contains" : [{
-      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-      "version" : "2024",
-      "code" : "T78.08XA",
-      "display" : "Anaphylactic reaction due to eggs, initial encounter"
-    },
-    {
-      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-      "version" : "2024",
-      "code" : "T78.08XD",
-      "display" : "Anaphylactic reaction due to eggs, subsequent encounter"
-    },
-    {
-      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-      "version" : "2024",
-      "code" : "T78.08XS",
-      "display" : "Anaphylactic reaction due to eggs, sequela"
-    },
-    {
-      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-      "version" : "2024",
-      "code" : "Z91.012",
-      "display" : "Allergy to eggs"
-    }]
+      }
+    ]
   }
 }

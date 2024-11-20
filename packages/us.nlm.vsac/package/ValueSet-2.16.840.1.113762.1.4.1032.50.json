@@ -2,173 +2,180 @@
   "resourceType" : "ValueSet",
   "id" : "2.16.840.1.113762.1.4.1032.50",
   "meta" : {
-    "versionId" : "12",
-    "lastUpdated" : "2019-11-28T01:00:18.000-05:00",
-    "profile" : ["http://hl7.org/fhir/StructureDefinition/shareablevalueset",
-    "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"]
+    "versionId" : "17",
+    "lastUpdated" : "2024-06-06T01:23:01.000-04:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-valueset-cqfm",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "extension" : [{
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
-    "valueString" : "MITRE Author"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-keyWord",
-    "valueString" : "CDS"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
-    "valueDate" : "2022-12-15"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
-    "valueDate" : "2019-11-28"
-  }],
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "MITRE Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-keyWord",
+      "valueString" : "CDS,Pain"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2024-06-06"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2024-06-06"
+    }
+  ],
   "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1032.50",
-  "identifier" : [{
-    "system" : "urn:ietf:rfc:3986",
-    "value" : "urn:oid:2.16.840.1.113762.1.4.1032.50"
-  }],
-  "version" : "20191128",
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113762.1.4.1032.50"
+    }
+  ],
+  "version" : "20240606",
   "name" : "SleepDisorderedBreathing",
   "title" : "Sleep disordered breathing",
   "status" : "active",
-  "experimental" : false,
-  "date" : "2019-11-28T01:00:18-05:00",
+  "date" : "2024-06-06T01:23:01-04:00",
   "publisher" : "MITRE Steward",
-  "jurisdiction" : [{
-    "extension" : [{
-      "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
-      "valueString" : "UNKNOWN"
-    }]
-  }],
+  "jurisdiction" : [
+    {
+      "coding" : [
+        {
+          "system" : "urn:iso:std:iso:3166",
+          "code" : "US"
+        }
+      ]
+    }
+  ],
   "purpose" : "(Clinical Focus: This value set contains codes for conditions which are associated with sleep-related disordered breathing.),(Data Element Scope: This value set contains ICD10CM codes representing sleep-related breathing disorders, including arena and sleep hypoventilation.),(Inclusion Criteria: ICD10CM diagnosis codes for sleep-disordered breathing, primarily related to apnea and sleep hypoventilation. Some of the primary codes such as G47.31 \"Primary Central Sleep Apnea\", contained back codes which included areas such as diseases of the nervous system, sleep disorders, sleep apnea.  For all of the back references, codes relevant to sleep obstructed breathing are included.),(Exclusion Criteria: Codes related to infants. Conditions such as \"sleep disorder, unspecified\" and \"insufficient sleep syndrome\" are also excluded.)",
   "compose" : {
-    "include" : [{
-      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-      "concept" : [{
+    "include" : [
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "concept" : [
+          {
+            "code" : "E66.2",
+            "display" : "Morbid (severe) obesity with alveolar hypoventilation"
+          },
+          {
+            "code" : "G47.30",
+            "display" : "Sleep apnea, unspecified"
+          },
+          {
+            "code" : "G47.31",
+            "display" : "Primary central sleep apnea"
+          },
+          {
+            "code" : "G47.32",
+            "display" : "High altitude periodic breathing"
+          },
+          {
+            "code" : "G47.33",
+            "display" : "Obstructive sleep apnea (adult) (pediatric)"
+          },
+          {
+            "code" : "G47.34",
+            "display" : "Idiopathic sleep related nonobstructive alveolar hypoventilation"
+          },
+          {
+            "code" : "G47.36",
+            "display" : "Sleep related hypoventilation in conditions classified elsewhere"
+          },
+          {
+            "code" : "G47.37",
+            "display" : "Central sleep apnea in conditions classified elsewhere"
+          },
+          {
+            "code" : "G47.39",
+            "display" : "Other sleep apnea"
+          },
+          {
+            "code" : "R06.3",
+            "display" : "Periodic breathing"
+          },
+          {
+            "code" : "R06.81",
+            "display" : "Apnea, not elsewhere classified"
+          }
+        ]
+      }
+    ]
+  },
+  "expansion" : {
+    "identifier" : "urn:uuid:06e7e3f4-003b-42b5-99a9-e42122142f30",
+    "timestamp" : "2024-06-14T10:16:29-04:00",
+    "total" : 11,
+    "contains" : [
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2024",
         "code" : "E66.2",
         "display" : "Morbid (severe) obesity with alveolar hypoventilation"
       },
       {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2024",
         "code" : "G47.30",
         "display" : "Sleep apnea, unspecified"
       },
       {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2024",
         "code" : "G47.31",
         "display" : "Primary central sleep apnea"
       },
       {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2024",
         "code" : "G47.32",
         "display" : "High altitude periodic breathing"
       },
       {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2024",
         "code" : "G47.33",
         "display" : "Obstructive sleep apnea (adult) (pediatric)"
       },
       {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2024",
         "code" : "G47.34",
         "display" : "Idiopathic sleep related nonobstructive alveolar hypoventilation"
       },
       {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2024",
         "code" : "G47.36",
         "display" : "Sleep related hypoventilation in conditions classified elsewhere"
       },
       {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2024",
         "code" : "G47.37",
         "display" : "Central sleep apnea in conditions classified elsewhere"
       },
       {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2024",
         "code" : "G47.39",
         "display" : "Other sleep apnea"
       },
       {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2024",
         "code" : "R06.3",
         "display" : "Periodic breathing"
       },
       {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2024",
         "code" : "R06.81",
         "display" : "Apnea, not elsewhere classified"
-      }]
-    }]
-  },
-  "expansion" : {
-    "identifier" : "urn:uuid:42f4fc41-deb9-4941-8a86-462bfd42a47b",
-    "timestamp" : "2023-09-26T13:13:01-04:00",
-    "total" : 11,
-    "offset" : 0,
-    "parameter" : [{
-      "name" : "count",
-      "valueInteger" : 1000
-    },
-    {
-      "name" : "offset",
-      "valueInteger" : 0
-    }],
-    "contains" : [{
-      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-      "version" : "2024",
-      "code" : "E66.2",
-      "display" : "Morbid (severe) obesity with alveolar hypoventilation"
-    },
-    {
-      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-      "version" : "2024",
-      "code" : "G47.30",
-      "display" : "Sleep apnea, unspecified"
-    },
-    {
-      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-      "version" : "2024",
-      "code" : "G47.31",
-      "display" : "Primary central sleep apnea"
-    },
-    {
-      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-      "version" : "2024",
-      "code" : "G47.32",
-      "display" : "High altitude periodic breathing"
-    },
-    {
-      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-      "version" : "2024",
-      "code" : "G47.33",
-      "display" : "Obstructive sleep apnea (adult) (pediatric)"
-    },
-    {
-      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-      "version" : "2024",
-      "code" : "G47.34",
-      "display" : "Idiopathic sleep related nonobstructive alveolar hypoventilation"
-    },
-    {
-      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-      "version" : "2024",
-      "code" : "G47.36",
-      "display" : "Sleep related hypoventilation in conditions classified elsewhere"
-    },
-    {
-      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-      "version" : "2024",
-      "code" : "G47.37",
-      "display" : "Central sleep apnea in conditions classified elsewhere"
-    },
-    {
-      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-      "version" : "2024",
-      "code" : "G47.39",
-      "display" : "Other sleep apnea"
-    },
-    {
-      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-      "version" : "2024",
-      "code" : "R06.3",
-      "display" : "Periodic breathing"
-    },
-    {
-      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-      "version" : "2024",
-      "code" : "R06.81",
-      "display" : "Apnea, not elsewhere classified"
-    }]
+      }
+    ]
   }
 }

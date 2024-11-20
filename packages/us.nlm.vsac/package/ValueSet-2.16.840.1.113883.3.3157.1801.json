@@ -3,89 +3,97 @@
   "id" : "2.16.840.1.113883.3.3157.1801",
   "meta" : {
     "versionId" : "3",
-    "lastUpdated" : "2017-05-13T01:00:05.000-04:00",
-    "profile" : ["http://hl7.org/fhir/StructureDefinition/shareablevalueset",
-    "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"]
+    "lastUpdated" : "2023-12-21T17:43:03.000-05:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-valueset-cqfm",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "extension" : [{
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
-    "valueString" : "Lewin EH Author"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
-    "valueDate" : "2022-12-15"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
-    "valueDate" : "2017-05-13"
-  }],
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "Lewin EH Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2024-06-03"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2017-05-13"
+    }
+  ],
   "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.3157.1801",
-  "identifier" : [{
-    "system" : "urn:ietf:rfc:3986",
-    "value" : "urn:oid:2.16.840.1.113883.3.3157.1801"
-  }],
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113883.3.3157.1801"
+    }
+  ],
   "version" : "20170513",
   "name" : "MRILumbarSpineProcedures",
   "title" : "MRI Lumbar Spine Procedures",
-  "status" : "active",
+  "status" : "retired",
   "experimental" : false,
   "date" : "2017-05-13T01:00:05-04:00",
   "publisher" : "Lewin EH Steward",
   "description" : "OP-8",
-  "jurisdiction" : [{
-    "extension" : [{
-      "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
-      "valueString" : "UNKNOWN"
-    }]
-  }],
+  "jurisdiction" : [
+    {
+      "coding" : [
+        {
+          "system" : "urn:iso:std:iso:3166",
+          "code" : "US"
+        }
+      ]
+    }
+  ],
   "purpose" : "(Clinical Focus: This set of values contains CPT codes associated with MRI Lumbar Spine Procedures.),(Data Element Scope: The intent of this data element is to identify patients with MRI Lumbar Spine Procedures.),(Inclusion Criteria: CPT codes associated with MRI Lumbar Spine Procedures are included in this value set.),(Exclusion Criteria: Codes not associated with MRI Lumbar Spine Procedures are excluded from this value set. Codes captured in systems other than CPT are also excluded from the value set.)",
   "compose" : {
-    "include" : [{
-      "system" : "http://www.ama-assn.org/go/cpt",
-      "concept" : [{
+    "include" : [
+      {
+        "system" : "http://www.ama-assn.org/go/cpt",
+        "concept" : [
+          {
+            "code" : "72148",
+            "display" : "Magnetic resonance (eg, proton) imaging, spinal canal and contents, lumbar; without contrast material"
+          },
+          {
+            "code" : "72149",
+            "display" : "Magnetic resonance (eg, proton) imaging, spinal canal and contents, lumbar; with contrast material(s)"
+          },
+          {
+            "code" : "72158",
+            "display" : "Magnetic resonance (eg, proton) imaging, spinal canal and contents, without contrast material, followed by contrast material(s) and further sequences; lumbar"
+          }
+        ]
+      }
+    ]
+  },
+  "expansion" : {
+    "identifier" : "urn:uuid:166dcc67-74a8-4f5e-8764-fe8b00c8c0bc",
+    "timestamp" : "2024-06-14T15:57:46-04:00",
+    "total" : 3,
+    "contains" : [
+      {
+        "system" : "http://www.ama-assn.org/go/cpt",
+        "version" : "2024",
         "code" : "72148",
         "display" : "Magnetic resonance (eg, proton) imaging, spinal canal and contents, lumbar; without contrast material"
       },
       {
+        "system" : "http://www.ama-assn.org/go/cpt",
+        "version" : "2024",
         "code" : "72149",
         "display" : "Magnetic resonance (eg, proton) imaging, spinal canal and contents, lumbar; with contrast material(s)"
       },
       {
+        "system" : "http://www.ama-assn.org/go/cpt",
+        "version" : "2024",
         "code" : "72158",
         "display" : "Magnetic resonance (eg, proton) imaging, spinal canal and contents, without contrast material, followed by contrast material(s) and further sequences; lumbar"
-      }]
-    }]
-  },
-  "expansion" : {
-    "identifier" : "urn:uuid:e8da6e5d-6177-4669-ab49-d97a09d2c460",
-    "timestamp" : "2023-09-26T11:53:47-04:00",
-    "total" : 3,
-    "offset" : 0,
-    "parameter" : [{
-      "name" : "count",
-      "valueInteger" : 1000
-    },
-    {
-      "name" : "offset",
-      "valueInteger" : 0
-    }],
-    "contains" : [{
-      "system" : "http://www.ama-assn.org/go/cpt",
-      "version" : "2023",
-      "code" : "72148",
-      "display" : "Magnetic resonance (eg, proton) imaging, spinal canal and contents, lumbar; without contrast material"
-    },
-    {
-      "system" : "http://www.ama-assn.org/go/cpt",
-      "version" : "2023",
-      "code" : "72149",
-      "display" : "Magnetic resonance (eg, proton) imaging, spinal canal and contents, lumbar; with contrast material(s)"
-    },
-    {
-      "system" : "http://www.ama-assn.org/go/cpt",
-      "version" : "2023",
-      "code" : "72158",
-      "display" : "Magnetic resonance (eg, proton) imaging, spinal canal and contents, without contrast material, followed by contrast material(s) and further sequences; lumbar"
-    }]
+      }
+    ]
   }
 }

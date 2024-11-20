@@ -3,86 +3,94 @@
   "id" : "2.16.840.1.113762.1.4.1181.41",
   "meta" : {
     "versionId" : "10",
-    "lastUpdated" : "2020-06-30T01:02:38.000-04:00",
-    "profile" : ["http://hl7.org/fhir/StructureDefinition/shareablevalueset",
-    "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"]
+    "lastUpdated" : "2023-12-21T17:43:03.000-05:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-valueset-cqfm",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "extension" : [{
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
-    "valueString" : "HSPC Author"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
-    "valueDate" : "2022-12-15"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
-    "valueDate" : "2020-06-30"
-  }],
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "HSPC Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2024-06-03"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2020-06-30"
+    }
+  ],
   "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1181.41",
-  "identifier" : [{
-    "system" : "urn:ietf:rfc:3986",
-    "value" : "urn:oid:2.16.840.1.113762.1.4.1181.41"
-  }],
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113762.1.4.1181.41"
+    }
+  ],
   "version" : "20200630",
   "name" : "BloodPressureDeviceCuffSizeReferenceSet",
   "title" : "Blood pressure device cuff size reference set",
-  "status" : "active",
+  "status" : "retired",
   "experimental" : false,
   "date" : "2020-06-30T01:02:38-04:00",
   "publisher" : "HSPC Steward",
-  "jurisdiction" : [{
-    "extension" : [{
-      "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
-      "valueString" : "UNKNOWN"
-    }]
-  }],
+  "jurisdiction" : [
+    {
+      "coding" : [
+        {
+          "system" : "urn:iso:std:iso:3166",
+          "code" : "US"
+        }
+      ]
+    }
+  ],
   "purpose" : "(Clinical Focus: Blood pressure device cuff size value set as defined by the Clinical Information Modeling Initiative.),(Data Element Scope: This reference set contains concepts used to result the size of a blood pressure cuff used during a blood pressure measurement, referencing the SNOMED Code 722471002 \"Size of blood pressure cuff (observable entity)\" and the LOINC term \"Blood pressure device Cuff size\" 8358-4, resulting the SNOMED CT concept: [Blood pressure device cuff size reference set 1481000205107]),(Inclusion Criteria: This value set is missing 10 concept from the HSPC extension namespace: [Blood pressure cuff, ankle type (physical object)\t8741000205104], [Blood pressure cuff, extra large adult thigh cuff (physical object)\t8731000205109], [Blood pressure cuff, infant size 8861000205108], [Blood pressure cuff, neonatal size 1 8841000205107], [Blood pressure cuff, neonatal size 2 8851000205105], [Blood pressure cuff, neonatal size 3 8821000205104], [Blood pressure cuff, neonatal size 4 8811000205106], [Blood pressure cuff, neonatal size 5 8801000205109], [Blood pressure cuff, adult size medium (physical object) 24811000205108], \n[Blood pressure cuff, upper arm, adult size universal (physical object) 24821000205101].),(Exclusion Criteria: )",
   "compose" : {
-    "include" : [{
-      "system" : "http://snomed.info/sct",
-      "concept" : [{
+    "include" : [
+      {
+        "system" : "http://snomed.info/sct",
+        "concept" : [
+          {
+            "code" : "720736009",
+            "display" : "Blood pressure cuff, pediatric size (physical object)"
+          },
+          {
+            "code" : "720738005",
+            "display" : "Blood pressure cuff, adult size large (physical object)"
+          },
+          {
+            "code" : "720739002",
+            "display" : "Blood pressure cuff, adult size small (physical object)"
+          },
+          {
+            "code" : "720740000",
+            "display" : "Blood pressure cuff, adult thigh type (physical object)"
+          }
+        ]
+      }
+    ]
+  },
+  "expansion" : {
+    "identifier" : "urn:uuid:f2f4c5f9-7989-4e70-829b-8cf50778b2cd",
+    "timestamp" : "2024-06-14T12:40:10-04:00",
+    "total" : 2,
+    "contains" : [
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
         "code" : "720736009",
         "display" : "Blood pressure cuff, pediatric size (physical object)"
       },
       {
-        "code" : "720738005",
-        "display" : "Blood pressure cuff, adult size large (physical object)"
-      },
-      {
-        "code" : "720739002",
-        "display" : "Blood pressure cuff, adult size small (physical object)"
-      },
-      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
         "code" : "720740000",
         "display" : "Blood pressure cuff, adult thigh type (physical object)"
-      }]
-    }]
-  },
-  "expansion" : {
-    "identifier" : "urn:uuid:81b405da-260e-4f62-a247-f39af5e460fd",
-    "timestamp" : "2023-09-26T08:49:18-04:00",
-    "total" : 2,
-    "offset" : 0,
-    "parameter" : [{
-      "name" : "count",
-      "valueInteger" : 1000
-    },
-    {
-      "name" : "offset",
-      "valueInteger" : 0
-    }],
-    "contains" : [{
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "720736009",
-      "display" : "Blood pressure cuff, pediatric size (physical object)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "720740000",
-      "display" : "Blood pressure cuff, adult thigh type (physical object)"
-    }]
+      }
+    ]
   }
 }

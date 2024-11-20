@@ -3,31 +3,38 @@
   "id" : "2.16.840.1.113762.1.4.1029.360",
   "meta" : {
     "versionId" : "6",
-    "lastUpdated" : "2022-03-01T01:04:38.000-05:00",
-    "profile" : ["http://hl7.org/fhir/StructureDefinition/shareablevalueset",
-    "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"]
+    "lastUpdated" : "2024-03-22T12:22:25.000-04:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-valueset-cqfm",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "extension" : [{
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
-    "valueString" : "Joint Commission Author"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-keyWord",
-    "valueString" : "PC-07"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
-    "valueDate" : "2022-12-15"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
-    "valueDate" : "2022-03-01"
-  }],
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "Joint Commission Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-keyWord",
+      "valueString" : "PC-07"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2024-03-22"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2021-01-21"
+    }
+  ],
   "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1029.360",
-  "identifier" : [{
-    "system" : "urn:ietf:rfc:3986",
-    "value" : "urn:oid:2.16.840.1.113762.1.4.1029.360"
-  }],
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113762.1.4.1029.360"
+    }
+  ],
   "version" : "20210121",
   "name" : "Ventilation",
   "title" : "Ventilation",
@@ -35,57 +42,72 @@
   "experimental" : false,
   "date" : "2022-03-07T11:14:02-05:00",
   "publisher" : "Joint Commission",
-  "jurisdiction" : [{
-    "extension" : [{
-      "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
-      "valueString" : "UNKNOWN"
-    }]
-  }],
-  "purpose" : "(Clinical Focus: ),(Data Element Scope: ),(Inclusion Criteria: ),(Exclusion Criteria: )",
-  "compose" : {
-    "include" : [{
-      "valueSet" : ["http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1029.253"]
-    },
+  "jurisdiction" : [
     {
-      "valueSet" : ["http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1029.254"]
-    }]
+      "coding" : [
+        {
+          "system" : "urn:iso:std:iso:3166",
+          "code" : "US"
+        }
+      ]
+    }
+  ],
+  "purpose" : "(Clinical Focus: The purpose of this value set is to represent a grouping of procedures for ventilation.),(Data Element Scope: This value set may use a model element related to procedure.),(Inclusion Criteria: Includes concepts that represent procedures of a ventilation.),(Exclusion Criteria: No exclusions.)",
+  "compose" : {
+    "include" : [
+      {
+        "valueSet" : [
+          "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1029.253"
+        ]
+      },
+      {
+        "valueSet" : [
+          "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1029.254"
+        ]
+      }
+    ]
   },
   "expansion" : {
-    "identifier" : "urn:uuid:9f929b58-613d-4cc7-9e05-e38b1426ee41",
-    "timestamp" : "2023-09-26T13:51:09-04:00",
-    "total" : 4,
-    "offset" : 0,
-    "parameter" : [{
-      "name" : "count",
-      "valueInteger" : 1000
-    },
-    {
-      "name" : "offset",
-      "valueInteger" : 0
-    }],
-    "contains" : [{
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "47545007",
-      "display" : "Continuous positive airway pressure ventilation treatment (regime/therapy)"
-    },
-    {
-      "system" : "http://www.cms.gov/Medicare/Coding/ICD10",
-      "version" : "2024",
-      "code" : "5A1935Z",
-      "display" : "Respiratory Ventilation, Less than 24 Consecutive Hours"
-    },
-    {
-      "system" : "http://www.cms.gov/Medicare/Coding/ICD10",
-      "version" : "2024",
-      "code" : "5A1945Z",
-      "display" : "Respiratory Ventilation, 24-96 Consecutive Hours"
-    },
-    {
-      "system" : "http://www.cms.gov/Medicare/Coding/ICD10",
-      "version" : "2024",
-      "code" : "5A1955Z",
-      "display" : "Respiratory Ventilation, Greater than 96 Consecutive Hours"
-    }]
+    "identifier" : "urn:uuid:e8e5906a-d32e-4631-ba90-c719049d340f",
+    "timestamp" : "2024-06-14T09:26:09-04:00",
+    "total" : 6,
+    "contains" : [
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "1186678006",
+        "display" : "Continuous positive airway pressure with an assured constant airway pressure adjunct (regime/therapy)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "448134000",
+        "display" : "Continuous positive airway pressure to nonventilated lung (regime/therapy)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "47545007",
+        "display" : "Continuous positive airway pressure ventilation treatment (regime/therapy)"
+      },
+      {
+        "system" : "http://www.cms.gov/Medicare/Coding/ICD10",
+        "version" : "2024",
+        "code" : "5A1935Z",
+        "display" : "Respiratory Ventilation, Less than 24 Consecutive Hours"
+      },
+      {
+        "system" : "http://www.cms.gov/Medicare/Coding/ICD10",
+        "version" : "2024",
+        "code" : "5A1945Z",
+        "display" : "Respiratory Ventilation, 24-96 Consecutive Hours"
+      },
+      {
+        "system" : "http://www.cms.gov/Medicare/Coding/ICD10",
+        "version" : "2024",
+        "code" : "5A1955Z",
+        "display" : "Respiratory Ventilation, Greater than 96 Consecutive Hours"
+      }
+    ]
   }
 }

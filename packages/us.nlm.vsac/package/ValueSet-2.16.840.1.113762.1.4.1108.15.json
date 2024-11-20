@@ -2,78 +2,96 @@
   "resourceType" : "ValueSet",
   "id" : "2.16.840.1.113762.1.4.1108.15",
   "meta" : {
-    "versionId" : "29",
-    "lastUpdated" : "2023-01-18T01:03:05.000-05:00",
-    "profile" : ["http://hl7.org/fhir/StructureDefinition/shareablevalueset",
-    "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"]
+    "versionId" : "39",
+    "lastUpdated" : "2024-02-07T01:03:02.000-05:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-valueset-cqfm",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "extension" : [{
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
-    "valueString" : "NCQA PHEMUR Author"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
-    "valueDate" : "2023-01-18"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
-    "valueDate" : "2023-01-18"
-  }],
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "NCQA PHEMUR Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2024-02-07"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2024-02-07"
+    }
+  ],
   "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1108.15",
-  "identifier" : [{
-    "system" : "urn:ietf:rfc:3986",
-    "value" : "urn:oid:2.16.840.1.113762.1.4.1108.15"
-  }],
-  "version" : "20230118",
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113762.1.4.1108.15"
+    }
+  ],
+  "version" : "20240207",
   "name" : "HospiceCareAmbulatory",
   "title" : "Hospice Care Ambulatory",
   "status" : "active",
-  "date" : "2023-01-18T01:03:05-05:00",
+  "date" : "2024-02-07T01:03:02-05:00",
   "publisher" : "NCQA PHEMUR",
-  "jurisdiction" : [{
-    "extension" : [{
-      "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
-      "valueString" : "UNKNOWN"
-    }]
-  }],
+  "jurisdiction" : [
+    {
+      "coding" : [
+        {
+          "system" : "urn:iso:std:iso:3166",
+          "code" : "US"
+        }
+      ]
+    }
+  ],
   "purpose" : "(Clinical Focus: The purpose of this value set is to represent concepts of interventions to identify patients receiving hospice care outside of a hospital or long term care facility.),(Data Element Scope: This value set may use a model element related to Procedure or Intervention.),(Inclusion Criteria: Includes concepts that represent a procedure or intervention for hospice care.),(Exclusion Criteria: Excludes concepts that represent palliative care or comfort measures.)",
   "compose" : {
-    "include" : [{
-      "system" : "http://snomed.info/sct",
-      "concept" : [{
-        "code" : "385763009",
-        "display" : "Hospice care (regime/therapy)"
-      },
+    "include" : [
       {
-        "code" : "385765002",
-        "display" : "Hospice care management (procedure)"
-      }]
-    }]
+        "system" : "http://snomed.info/sct",
+        "concept" : [
+          {
+            "code" : "170935008",
+            "display" : "Full care by hospice (finding)"
+          },
+          {
+            "code" : "170936009",
+            "display" : "Shared care - hospice and general practitioner (finding)"
+          },
+          {
+            "code" : "385763009",
+            "display" : "Hospice care (regime/therapy)"
+          }
+        ]
+      }
+    ]
   },
   "expansion" : {
-    "identifier" : "urn:uuid:e7914c79-c336-422a-93c8-ee75037a31d1",
-    "timestamp" : "2023-09-26T10:55:01-04:00",
-    "total" : 2,
-    "offset" : 0,
-    "parameter" : [{
-      "name" : "count",
-      "valueInteger" : 1000
-    },
-    {
-      "name" : "offset",
-      "valueInteger" : 0
-    }],
-    "contains" : [{
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "385763009",
-      "display" : "Hospice care (regime/therapy)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/731000124108/version/20230301",
-      "code" : "385765002",
-      "display" : "Hospice care management (procedure)"
-    }]
+    "identifier" : "urn:uuid:855eade8-87a0-4b58-9d7f-1b2cea02ae7e",
+    "timestamp" : "2024-06-14T11:14:45-04:00",
+    "total" : 3,
+    "contains" : [
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "170935008",
+        "display" : "Full care by hospice (finding)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "170936009",
+        "display" : "Shared care - hospice and general practitioner (finding)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20240301",
+        "code" : "385763009",
+        "display" : "Hospice care (regime/therapy)"
+      }
+    ]
   }
 }

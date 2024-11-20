@@ -3,78 +3,90 @@
   "id" : "2.16.840.1.113762.1.4.1046.117",
   "meta" : {
     "versionId" : "8",
-    "lastUpdated" : "2015-11-05T01:00:01.000-05:00",
-    "profile" : ["http://hl7.org/fhir/StructureDefinition/shareablevalueset",
-    "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"]
+    "lastUpdated" : "2023-12-21T17:43:03.000-05:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-valueset-cqfm",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "extension" : [{
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
-    "valueString" : "Lantana Author"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
-    "valueDate" : "2022-12-15"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
-    "valueDate" : "2015-11-05"
-  }],
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "Lantana Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-keyWord",
+      "valueString" : "Not_In_Use"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2024-06-03"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2015-11-05"
+    }
+  ],
   "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1046.117",
-  "identifier" : [{
-    "system" : "urn:ietf:rfc:3986",
-    "value" : "urn:oid:2.16.840.1.113762.1.4.1046.117"
-  }],
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113762.1.4.1046.117"
+    }
+  ],
   "version" : "20151105",
   "name" : "GlasgowComaScoreMotor",
   "title" : "Glasgow Coma Score Motor",
-  "status" : "active",
+  "status" : "retired",
   "experimental" : false,
   "date" : "2015-11-05T01:00:01-05:00",
   "publisher" : "Joint Commission",
-  "jurisdiction" : [{
-    "extension" : [{
-      "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
-      "valueString" : "UNKNOWN"
-    }]
-  }],
+  "jurisdiction" : [
+    {
+      "coding" : [
+        {
+          "system" : "urn:iso:std:iso:3166",
+          "code" : "US"
+        }
+      ]
+    }
+  ],
   "purpose" : "(Clinical Focus: This set of values is part of a neurological assessment tool-the Glasgow Coma Score Motor.  The person performing the physical exam determines based on clinical judgment and Glasgow Coma Score parameters at what level the motor response is currently.),(Data Element Scope: The intent of this data element is to identify patients who have had physical exam performed which includes the Glasgow Coma Score Motor Response.  Using the Quality Data Model, this element maps to the Physical, Exam: Performed datatype.),(Inclusion Criteria: This value set includes concepts that identify Glasgow Coma Score Motor Component for the best motor response score by a patient.),(Exclusion Criteria: None.)",
   "compose" : {
-    "include" : [{
-      "system" : "http://loinc.org",
-      "concept" : [{
+    "include" : [
+      {
+        "system" : "http://loinc.org",
+        "concept" : [
+          {
+            "code" : "11325-8",
+            "display" : "Glasgow coma score motor at First encounter"
+          },
+          {
+            "code" : "9268-4",
+            "display" : "Glasgow coma score motor"
+          }
+        ]
+      }
+    ]
+  },
+  "expansion" : {
+    "identifier" : "urn:uuid:c047012d-9da9-4c9b-82f3-eed7bf630e40",
+    "timestamp" : "2024-06-14T10:27:19-04:00",
+    "total" : 2,
+    "contains" : [
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
         "code" : "11325-8",
         "display" : "Glasgow coma score motor at First encounter"
       },
       {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
         "code" : "9268-4",
         "display" : "Glasgow coma score motor"
-      }]
-    }]
-  },
-  "expansion" : {
-    "identifier" : "urn:uuid:2b493156-cc65-47f9-a7b5-6c0ca326f266",
-    "timestamp" : "2023-09-26T10:37:36-04:00",
-    "total" : 2,
-    "offset" : 0,
-    "parameter" : [{
-      "name" : "count",
-      "valueInteger" : 1000
-    },
-    {
-      "name" : "offset",
-      "valueInteger" : 0
-    }],
-    "contains" : [{
-      "system" : "http://loinc.org",
-      "version" : "2.74",
-      "code" : "11325-8",
-      "display" : "Glasgow coma score motor at First encounter"
-    },
-    {
-      "system" : "http://loinc.org",
-      "version" : "2.74",
-      "code" : "9268-4",
-      "display" : "Glasgow coma score motor"
-    }]
+      }
+    ]
   }
 }

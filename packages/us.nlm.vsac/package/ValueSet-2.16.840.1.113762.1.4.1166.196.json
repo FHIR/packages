@@ -3,27 +3,34 @@
   "id" : "2.16.840.1.113762.1.4.1166.196",
   "meta" : {
     "versionId" : "7",
-    "lastUpdated" : "2021-10-12T01:01:47.000-04:00",
-    "profile" : ["http://hl7.org/fhir/StructureDefinition/shareablevalueset",
-    "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"]
+    "lastUpdated" : "2023-12-21T17:43:03.000-05:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-valueset-cqfm",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "extension" : [{
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
-    "valueString" : "OPA Author"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
-    "valueDate" : "2022-12-15"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
-    "valueDate" : "2021-10-12"
-  }],
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "OPA Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2024-03-05"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2021-10-12"
+    }
+  ],
   "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1166.196",
-  "identifier" : [{
-    "system" : "urn:ietf:rfc:3986",
-    "value" : "urn:oid:2.16.840.1.113762.1.4.1166.196"
-  }],
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113762.1.4.1166.196"
+    }
+  ],
   "version" : "20211012",
   "name" : "OralContraceptivePillLOINC",
   "title" : "Oral Contraceptive Pill LOINC",
@@ -31,50 +38,51 @@
   "experimental" : false,
   "date" : "2021-10-12T01:01:47-04:00",
   "publisher" : "OPA Steward",
-  "jurisdiction" : [{
-    "extension" : [{
-      "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
-      "valueString" : "UNKNOWN"
-    }]
-  }],
+  "jurisdiction" : [
+    {
+      "coding" : [
+        {
+          "system" : "urn:iso:std:iso:3166",
+          "code" : "US"
+        }
+      ]
+    }
+  ],
   "purpose" : "(Clinical Focus: Family planning - provision and use of most and moderately effective contraceptive methods),(Data Element Scope: Procedure codes for surveillance of oral contraceptive pill, a moderately effective method of contraception),(Inclusion Criteria: Procedure codes for surveillance of oral contraceptive pill, a moderately effective method of contraception),(Exclusion Criteria: Contraceptive methods that are not an oral pill; Most effective (i.e., sterilization, contraceptive implants, intrauterine devices or systems) or moderately effective (i.e., injectables, contraceptive patch or contraceptive ring) methods of contraception; Less effective methods of contraception (i.e., diaphragm, male condom, female condom, withdrawal, sponge, fertility-awareness based methods, spermicide); excludes oral pills for emergency contraception and hormone replacement therapy)",
   "compose" : {
-    "include" : [{
-      "system" : "http://loinc.org",
-      "concept" : [{
+    "include" : [
+      {
+        "system" : "http://loinc.org",
+        "concept" : [
+          {
+            "code" : "LA27908-5",
+            "display" : "Combined oral contraceptive pills"
+          },
+          {
+            "code" : "LA27909-3",
+            "display" : "Progestin only contraceptive pills"
+          }
+        ]
+      }
+    ]
+  },
+  "expansion" : {
+    "identifier" : "urn:uuid:f4e09897-4adb-439f-97f4-c6593dd28ce3",
+    "timestamp" : "2024-06-14T12:34:53-04:00",
+    "total" : 2,
+    "contains" : [
+      {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
         "code" : "LA27908-5",
         "display" : "Combined oral contraceptive pills"
       },
       {
+        "system" : "http://loinc.org",
+        "version" : "2.77",
         "code" : "LA27909-3",
         "display" : "Progestin only contraceptive pills"
-      }]
-    }]
-  },
-  "expansion" : {
-    "identifier" : "urn:uuid:d0754fd3-4560-4de6-a8e8-45fca414b408",
-    "timestamp" : "2023-09-26T12:15:40-04:00",
-    "total" : 2,
-    "offset" : 0,
-    "parameter" : [{
-      "name" : "count",
-      "valueInteger" : 1000
-    },
-    {
-      "name" : "offset",
-      "valueInteger" : 0
-    }],
-    "contains" : [{
-      "system" : "http://loinc.org",
-      "version" : "2.74",
-      "code" : "LA27908-5",
-      "display" : "Combined oral contraceptive pills"
-    },
-    {
-      "system" : "http://loinc.org",
-      "version" : "2.74",
-      "code" : "LA27909-3",
-      "display" : "Progestin only contraceptive pills"
-    }]
+      }
+    ]
   }
 }

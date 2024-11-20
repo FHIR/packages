@@ -3,27 +3,34 @@
   "id" : "2.16.840.1.113762.1.4.1116.210",
   "meta" : {
     "versionId" : "12",
-    "lastUpdated" : "2022-01-12T01:02:12.000-05:00",
-    "profile" : ["http://hl7.org/fhir/StructureDefinition/shareablevalueset",
-    "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"]
+    "lastUpdated" : "2023-12-21T17:43:03.000-05:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-valueset-cqfm",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "extension" : [{
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
-    "valueString" : "American Society of Clinical Oncology Author"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
-    "valueDate" : "2023-04-06"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
-    "valueDate" : "2022-01-12"
-  }],
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "American Society of Clinical Oncology Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2023-04-06"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2022-01-12"
+    }
+  ],
   "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1116.210",
-  "identifier" : [{
-    "system" : "urn:ietf:rfc:3986",
-    "value" : "urn:oid:2.16.840.1.113762.1.4.1116.210"
-  }],
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113762.1.4.1116.210"
+    }
+  ],
   "version" : "20220112",
   "name" : "CapecitabineOral",
   "title" : "Capecitabine Oral",
@@ -31,50 +38,51 @@
   "experimental" : false,
   "date" : "2022-01-12T01:02:12-05:00",
   "publisher" : "American Society of Clinical Oncology Steward",
-  "jurisdiction" : [{
-    "extension" : [{
-      "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
-      "valueString" : "UNKNOWN"
-    }]
-  }],
+  "jurisdiction" : [
+    {
+      "coding" : [
+        {
+          "system" : "urn:iso:std:iso:3166",
+          "code" : "US"
+        }
+      ]
+    }
+  ],
   "purpose" : "(Clinical Focus: This value set contains concepts that represent the medication Capecitabine.),(Data Element Scope: This value set may use the Quality Data Model (QDM) category related to Medication.),(Inclusion Criteria: Includes only relevant concepts associated with semantic clinical drugs (concepts associated with component, form and strength); generic; prescribable; oral Capecitabine.),(Exclusion Criteria: Excludes branded drugs; components or ingredients only; non-prescribable.)",
   "compose" : {
-    "include" : [{
-      "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "concept" : [{
+    "include" : [
+      {
+        "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "concept" : [
+          {
+            "code" : "200327",
+            "display" : "capecitabine 150 MG Oral Tablet"
+          },
+          {
+            "code" : "200328",
+            "display" : "capecitabine 500 MG Oral Tablet"
+          }
+        ]
+      }
+    ]
+  },
+  "expansion" : {
+    "identifier" : "urn:uuid:e4d4b041-ab16-48b9-aa79-2085cf58059a",
+    "timestamp" : "2024-06-14T11:23:20-04:00",
+    "total" : 2,
+    "contains" : [
+      {
+        "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "version" : "05062024",
         "code" : "200327",
         "display" : "capecitabine 150 MG Oral Tablet"
       },
       {
+        "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "version" : "05062024",
         "code" : "200328",
         "display" : "capecitabine 500 MG Oral Tablet"
-      }]
-    }]
-  },
-  "expansion" : {
-    "identifier" : "urn:uuid:0710a23c-1402-4d80-9ce4-2985613bf6c9",
-    "timestamp" : "2023-09-26T09:01:48-04:00",
-    "total" : 2,
-    "offset" : 0,
-    "parameter" : [{
-      "name" : "count",
-      "valueInteger" : 1000
-    },
-    {
-      "name" : "offset",
-      "valueInteger" : 0
-    }],
-    "contains" : [{
-      "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version" : "09052023",
-      "code" : "200327",
-      "display" : "capecitabine 150 MG Oral Tablet"
-    },
-    {
-      "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version" : "09052023",
-      "code" : "200328",
-      "display" : "capecitabine 500 MG Oral Tablet"
-    }]
+      }
+    ]
   }
 }

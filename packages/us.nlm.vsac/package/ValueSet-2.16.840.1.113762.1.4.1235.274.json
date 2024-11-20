@@ -3,27 +3,34 @@
   "id" : "2.16.840.1.113762.1.4.1235.274",
   "meta" : {
     "versionId" : "6",
-    "lastUpdated" : "2023-05-18T01:12:46.000-04:00",
-    "profile" : ["http://hl7.org/fhir/StructureDefinition/shareablevalueset",
-    "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"]
+    "lastUpdated" : "2023-12-21T17:43:03.000-05:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-valueset-cqfm",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "extension" : [{
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
-    "valueString" : "B.well Connected Health Author"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
-    "valueDate" : "2023-05-18"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
-    "valueDate" : "2023-05-18"
-  }],
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "B.well Connected Health Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2024-06-04"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2023-05-18"
+    }
+  ],
   "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1235.274",
-  "identifier" : [{
-    "system" : "urn:ietf:rfc:3986",
-    "value" : "urn:oid:2.16.840.1.113762.1.4.1235.274"
-  }],
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113762.1.4.1235.274"
+    }
+  ],
   "version" : "20230518",
   "name" : "TotalCholesterol_CPT",
   "title" : "Total Cholesterol_CPT",
@@ -31,60 +38,61 @@
   "date" : "2023-05-18T01:12:46-04:00",
   "publisher" : "B.well Connected Health Steward",
   "description" : "b.well created value set by Sr. Clinical Business Analyst for Total Cholesterol lab.",
-  "jurisdiction" : [{
-    "extension" : [{
-      "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
-      "valueString" : "UNKNOWN"
-    }]
-  }],
+  "jurisdiction" : [
+    {
+      "coding" : [
+        {
+          "system" : "urn:iso:std:iso:3166",
+          "code" : "US"
+        }
+      ]
+    }
+  ],
   "purpose" : "(Clinical Focus: The intent of this value set is for the purpose of defining the clinical codes that constitute Total Cholesterol labs for inclusion and utilization in patients/users connected heath.),(Data Element Scope: Total Cholesterol labs for b.well.),(Inclusion Criteria: Total Cholesterol Codes that constitute the Clinical Grouping Lab for b.well.),(Exclusion Criteria: N/A)",
   "compose" : {
-    "include" : [{
-      "system" : "http://www.ama-assn.org/go/cpt",
-      "concept" : [{
+    "include" : [
+      {
+        "system" : "http://www.ama-assn.org/go/cpt",
+        "concept" : [
+          {
+            "code" : "3011F",
+            "display" : "Lipid panel results documented and reviewed (must include total cholesterol, HDL-C, triglycerides and calculated LDL-C) (CAD)"
+          },
+          {
+            "code" : "80061",
+            "display" : "Lipid panel This panel must include the following: Cholesterol, serum, total (82465) Lipoprotein, direct measurement, high density cholesterol (HDL cholesterol) (83718) Triglycerides (84478)"
+          },
+          {
+            "code" : "82465",
+            "display" : "Cholesterol, serum or whole blood, total"
+          }
+        ]
+      }
+    ]
+  },
+  "expansion" : {
+    "identifier" : "urn:uuid:e38ccc54-664c-4055-9a13-ef8c0553db30",
+    "timestamp" : "2024-06-14T14:43:58-04:00",
+    "total" : 3,
+    "contains" : [
+      {
+        "system" : "http://www.ama-assn.org/go/cpt",
+        "version" : "2024",
         "code" : "3011F",
         "display" : "Lipid panel results documented and reviewed (must include total cholesterol, HDL-C, triglycerides and calculated LDL-C) (CAD)"
       },
       {
+        "system" : "http://www.ama-assn.org/go/cpt",
+        "version" : "2024",
         "code" : "80061",
         "display" : "Lipid panel This panel must include the following: Cholesterol, serum, total (82465) Lipoprotein, direct measurement, high density cholesterol (HDL cholesterol) (83718) Triglycerides (84478)"
       },
       {
+        "system" : "http://www.ama-assn.org/go/cpt",
+        "version" : "2024",
         "code" : "82465",
         "display" : "Cholesterol, serum or whole blood, total"
-      }]
-    }]
-  },
-  "expansion" : {
-    "identifier" : "urn:uuid:8ea486cc-bec0-4e5b-a559-b2a2009b280d",
-    "timestamp" : "2023-09-26T13:34:00-04:00",
-    "total" : 3,
-    "offset" : 0,
-    "parameter" : [{
-      "name" : "count",
-      "valueInteger" : 1000
-    },
-    {
-      "name" : "offset",
-      "valueInteger" : 0
-    }],
-    "contains" : [{
-      "system" : "http://www.ama-assn.org/go/cpt",
-      "version" : "2023",
-      "code" : "3011F",
-      "display" : "Lipid panel results documented and reviewed (must include total cholesterol, HDL-C, triglycerides and calculated LDL-C) (CAD)"
-    },
-    {
-      "system" : "http://www.ama-assn.org/go/cpt",
-      "version" : "2023",
-      "code" : "80061",
-      "display" : "Lipid panel This panel must include the following: Cholesterol, serum, total (82465) Lipoprotein, direct measurement, high density cholesterol (HDL cholesterol) (83718) Triglycerides (84478)"
-    },
-    {
-      "system" : "http://www.ama-assn.org/go/cpt",
-      "version" : "2023",
-      "code" : "82465",
-      "display" : "Cholesterol, serum or whole blood, total"
-    }]
+      }
+    ]
   }
 }

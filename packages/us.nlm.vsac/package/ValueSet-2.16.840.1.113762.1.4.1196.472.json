@@ -3,226 +3,234 @@
   "id" : "2.16.840.1.113762.1.4.1196.472",
   "meta" : {
     "versionId" : "22",
-    "lastUpdated" : "2021-09-09T01:00:51.000-04:00",
-    "profile" : ["http://hl7.org/fhir/StructureDefinition/shareablevalueset",
-    "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"]
+    "lastUpdated" : "2023-12-21T17:43:03.000-05:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-valueset-cqfm",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
   },
-  "extension" : [{
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
-    "valueString" : "NHLBI Implementation Science and Health Care Innovation Author"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
-    "valueDate" : "2022-12-15"
-  },
-  {
-    "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
-    "valueDate" : "2021-09-09"
-  }],
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueString" : "NHLBI Implementation Science and Health Care Innovation Author"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2024-06-03"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2021-09-09"
+    }
+  ],
   "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1196.472",
-  "identifier" : [{
-    "system" : "urn:ietf:rfc:3986",
-    "value" : "urn:oid:2.16.840.1.113762.1.4.1196.472"
-  }],
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113762.1.4.1196.472"
+    }
+  ],
   "version" : "20210909",
   "name" : "NonComboLowDoseICSPreparationsForAsthmaInChildren5To11YearsOfAge",
   "title" : "Non Combo Low Dose ICS Preparations for Asthma in Children 5 to 11 Years of Age",
-  "status" : "active",
+  "status" : "retired",
   "experimental" : false,
   "date" : "2021-09-09T01:00:51-04:00",
   "publisher" : "NHLBI Implementation Science and Health Care Innovation Steward",
-  "jurisdiction" : [{
-    "extension" : [{
-      "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
-      "valueString" : "UNKNOWN"
-    }]
-  }],
+  "jurisdiction" : [
+    {
+      "coding" : [
+        {
+          "system" : "urn:iso:std:iso:3166",
+          "code" : "US"
+        }
+      ]
+    }
+  ],
   "purpose" : "(Clinical Focus: This valueset contains preparations that are oral inhaled corticosteroid (ICS) medications used for low-dose maintenance controller therapy in asthmatic children ages 5 to 11 years.),(Data Element Scope: FHIR \nMedicationStatement.medicationCodeableConcept, MedicationRequest.medicationCodeableConcept),(Inclusion Criteria: Includes oral ICS inhaler preparations that might typically and reasonably be used to treat asthmatics ages 5-11 years within the low-dose range as per the NHLBI NAEPP EPR3 Guidelines for the Diagnosis and Management of Asthma (2007).  Use of an ICS preparation for maintenance therapy in an atypical fashion (greater or fewer inhalations per day than is typical or expected) may not align with the partitioning of an ICS preparation into this dose-ranged valueset.  The utility of this approach has not been clinically validated, but the rationale comes from observations of inconsistency and lack of usability of structured dosage information for inhaled medications in CDA and FHIR data across vendor systems and implementations.),(Exclusion Criteria: Excludes withdrawn preparations and retired codes (although they may still be available from pharmacies until supplies are exhausted).  Excludes preparations with a small dose-number size (~14 inhalations or fewer) that would not be prescribed for maintenance therapy.)",
   "compose" : {
-    "include" : [{
-      "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "concept" : [{
+    "include" : [
+      {
+        "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "concept" : [
+          {
+            "code" : "1490773",
+            "display" : "120 ACTUAT beclomethasone dipropionate 0.04 MG/ACTUAT Metered Dose Inhaler"
+          },
+          {
+            "code" : "1490774",
+            "display" : "120 ACTUAT beclomethasone dipropionate 0.04 MG/ACTUAT Metered Dose Inhaler [Qvar]"
+          },
+          {
+            "code" : "1941611",
+            "display" : "60 ACTUAT fluticasone propionate 0.055 MG/ACTUAT Dry Powder Inhaler"
+          },
+          {
+            "code" : "1941613",
+            "display" : "60 ACTUAT fluticasone propionate 0.055 MG/ACTUAT Dry Powder Inhaler [Armonair]"
+          },
+          {
+            "code" : "1998773",
+            "display" : "Breath-Actuated 120 ACTUAT beclomethasone dipropionate 0.04 MG/ACTUAT Metered Dose Inhaler"
+          },
+          {
+            "code" : "1998774",
+            "display" : "Breath-Actuated 120 ACTUAT beclomethasone dipropionate 0.04 MG/ACTUAT Metered Dose Inhaler [Qvar]"
+          },
+          {
+            "code" : "349094",
+            "display" : "budesonide 0.125 MG/ML Inhalation Suspension"
+          },
+          {
+            "code" : "616830",
+            "display" : "budesonide 0.125 MG/ML Inhalation Suspension [Pulmicort]"
+          },
+          {
+            "code" : "790283",
+            "display" : "30 ACTUAT mometasone furoate 0.11 MG/ACTUAT Dry Powder Inhaler"
+          },
+          {
+            "code" : "790284",
+            "display" : "30 ACTUAT mometasone furoate 0.11 MG/ACTUAT Dry Powder Inhaler [Asmanex]"
+          },
+          {
+            "code" : "895994",
+            "display" : "120 ACTUAT fluticasone propionate 0.044 MG/ACTUAT Metered Dose Inhaler"
+          },
+          {
+            "code" : "895996",
+            "display" : "120 ACTUAT fluticasone propionate 0.044 MG/ACTUAT Metered Dose Inhaler [Flovent]"
+          },
+          {
+            "code" : "896018",
+            "display" : "60 ACTUAT fluticasone propionate 0.05 MG/ACTUAT Dry Powder Inhaler"
+          },
+          {
+            "code" : "896019",
+            "display" : "60 ACTUAT fluticasone propionate 0.05 MG/ACTUAT Dry Powder Inhaler [Flovent]"
+          },
+          {
+            "code" : "966527",
+            "display" : "60 ACTUAT budesonide 0.09 MG/ACTUAT Dry Powder Inhaler"
+          },
+          {
+            "code" : "966529",
+            "display" : "60 ACTUAT budesonide 0.09 MG/ACTUAT Dry Powder Inhaler [Pulmicort]"
+          },
+          {
+            "code" : "966536",
+            "display" : "100 ACTUAT beclomethasone dipropionate 0.04 MG/ACTUAT Metered Dose Inhaler"
+          },
+          {
+            "code" : "966538",
+            "display" : "100 ACTUAT beclomethasone dipropionate 0.04 MG/ACTUAT Metered Dose Inhaler [Qvar]"
+          }
+        ]
+      }
+    ]
+  },
+  "expansion" : {
+    "identifier" : "urn:uuid:485f4d7c-ac58-4cce-88d5-62aa9ee3126c",
+    "timestamp" : "2024-06-14T13:17:12-04:00",
+    "total" : 16,
+    "contains" : [
+      {
+        "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "version" : "05062024",
         "code" : "1490773",
         "display" : "120 ACTUAT beclomethasone dipropionate 0.04 MG/ACTUAT Metered Dose Inhaler"
       },
       {
+        "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "version" : "05062024",
         "code" : "1490774",
         "display" : "120 ACTUAT beclomethasone dipropionate 0.04 MG/ACTUAT Metered Dose Inhaler [Qvar]"
       },
       {
-        "code" : "1941611",
-        "display" : "60 ACTUAT fluticasone propionate 0.055 MG/ACTUAT Dry Powder Inhaler"
-      },
-      {
-        "code" : "1941613",
-        "display" : "60 ACTUAT fluticasone propionate 0.055 MG/ACTUAT Dry Powder Inhaler [Armonair]"
-      },
-      {
+        "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "version" : "05062024",
         "code" : "1998773",
         "display" : "Breath-Actuated 120 ACTUAT beclomethasone dipropionate 0.04 MG/ACTUAT Metered Dose Inhaler"
       },
       {
+        "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "version" : "05062024",
         "code" : "1998774",
         "display" : "Breath-Actuated 120 ACTUAT beclomethasone dipropionate 0.04 MG/ACTUAT Metered Dose Inhaler [Qvar]"
       },
       {
+        "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "version" : "05062024",
         "code" : "349094",
         "display" : "budesonide 0.125 MG/ML Inhalation Suspension"
       },
       {
+        "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "version" : "05062024",
         "code" : "616830",
         "display" : "budesonide 0.125 MG/ML Inhalation Suspension [Pulmicort]"
       },
       {
+        "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "version" : "05062024",
         "code" : "790283",
         "display" : "30 ACTUAT mometasone furoate 0.11 MG/ACTUAT Dry Powder Inhaler"
       },
       {
+        "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "version" : "05062024",
         "code" : "790284",
         "display" : "30 ACTUAT mometasone furoate 0.11 MG/ACTUAT Dry Powder Inhaler [Asmanex]"
       },
       {
+        "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "version" : "05062024",
         "code" : "895994",
         "display" : "120 ACTUAT fluticasone propionate 0.044 MG/ACTUAT Metered Dose Inhaler"
       },
       {
+        "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "version" : "05062024",
         "code" : "895996",
         "display" : "120 ACTUAT fluticasone propionate 0.044 MG/ACTUAT Metered Dose Inhaler [Flovent]"
       },
       {
+        "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "version" : "05062024",
         "code" : "896018",
         "display" : "60 ACTUAT fluticasone propionate 0.05 MG/ACTUAT Dry Powder Inhaler"
       },
       {
+        "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "version" : "05062024",
         "code" : "896019",
         "display" : "60 ACTUAT fluticasone propionate 0.05 MG/ACTUAT Dry Powder Inhaler [Flovent]"
       },
       {
+        "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "version" : "05062024",
         "code" : "966527",
         "display" : "60 ACTUAT budesonide 0.09 MG/ACTUAT Dry Powder Inhaler"
       },
       {
+        "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "version" : "05062024",
         "code" : "966529",
         "display" : "60 ACTUAT budesonide 0.09 MG/ACTUAT Dry Powder Inhaler [Pulmicort]"
       },
       {
+        "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "version" : "05062024",
         "code" : "966536",
         "display" : "100 ACTUAT beclomethasone dipropionate 0.04 MG/ACTUAT Metered Dose Inhaler"
       },
       {
+        "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "version" : "05062024",
         "code" : "966538",
         "display" : "100 ACTUAT beclomethasone dipropionate 0.04 MG/ACTUAT Metered Dose Inhaler [Qvar]"
-      }]
-    }]
-  },
-  "expansion" : {
-    "identifier" : "urn:uuid:af61af5e-3301-4599-9eff-ac191f08ee9c",
-    "timestamp" : "2023-09-26T12:04:43-04:00",
-    "total" : 16,
-    "offset" : 0,
-    "parameter" : [{
-      "name" : "count",
-      "valueInteger" : 1000
-    },
-    {
-      "name" : "offset",
-      "valueInteger" : 0
-    }],
-    "contains" : [{
-      "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version" : "09052023",
-      "code" : "1490773",
-      "display" : "120 ACTUAT beclomethasone dipropionate 0.04 MG/ACTUAT Metered Dose Inhaler"
-    },
-    {
-      "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version" : "09052023",
-      "code" : "1490774",
-      "display" : "120 ACTUAT beclomethasone dipropionate 0.04 MG/ACTUAT Metered Dose Inhaler [Qvar]"
-    },
-    {
-      "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version" : "09052023",
-      "code" : "1998773",
-      "display" : "Breath-Actuated 120 ACTUAT beclomethasone dipropionate 0.04 MG/ACTUAT Metered Dose Inhaler"
-    },
-    {
-      "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version" : "09052023",
-      "code" : "1998774",
-      "display" : "Breath-Actuated 120 ACTUAT beclomethasone dipropionate 0.04 MG/ACTUAT Metered Dose Inhaler [Qvar]"
-    },
-    {
-      "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version" : "09052023",
-      "code" : "349094",
-      "display" : "budesonide 0.125 MG/ML Inhalation Suspension"
-    },
-    {
-      "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version" : "09052023",
-      "code" : "616830",
-      "display" : "budesonide 0.125 MG/ML Inhalation Suspension [Pulmicort]"
-    },
-    {
-      "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version" : "09052023",
-      "code" : "790283",
-      "display" : "30 ACTUAT mometasone furoate 0.11 MG/ACTUAT Dry Powder Inhaler"
-    },
-    {
-      "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version" : "09052023",
-      "code" : "790284",
-      "display" : "30 ACTUAT mometasone furoate 0.11 MG/ACTUAT Dry Powder Inhaler [Asmanex]"
-    },
-    {
-      "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version" : "09052023",
-      "code" : "895994",
-      "display" : "120 ACTUAT fluticasone propionate 0.044 MG/ACTUAT Metered Dose Inhaler"
-    },
-    {
-      "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version" : "09052023",
-      "code" : "895996",
-      "display" : "120 ACTUAT fluticasone propionate 0.044 MG/ACTUAT Metered Dose Inhaler [Flovent]"
-    },
-    {
-      "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version" : "09052023",
-      "code" : "896018",
-      "display" : "60 ACTUAT fluticasone propionate 0.05 MG/ACTUAT Dry Powder Inhaler"
-    },
-    {
-      "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version" : "09052023",
-      "code" : "896019",
-      "display" : "60 ACTUAT fluticasone propionate 0.05 MG/ACTUAT Dry Powder Inhaler [Flovent]"
-    },
-    {
-      "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version" : "09052023",
-      "code" : "966527",
-      "display" : "60 ACTUAT budesonide 0.09 MG/ACTUAT Dry Powder Inhaler"
-    },
-    {
-      "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version" : "09052023",
-      "code" : "966529",
-      "display" : "60 ACTUAT budesonide 0.09 MG/ACTUAT Dry Powder Inhaler [Pulmicort]"
-    },
-    {
-      "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version" : "09052023",
-      "code" : "966536",
-      "display" : "100 ACTUAT beclomethasone dipropionate 0.04 MG/ACTUAT Metered Dose Inhaler"
-    },
-    {
-      "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version" : "09052023",
-      "code" : "966538",
-      "display" : "100 ACTUAT beclomethasone dipropionate 0.04 MG/ACTUAT Metered Dose Inhaler [Qvar]"
-    }]
+      }
+    ]
   }
 }
