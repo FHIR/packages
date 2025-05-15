@@ -27,6 +27,24 @@
       "value" : "concept.code"
     }
   ],
+   "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/codesystem-reserved-space",
+      "extension": [
+        {
+          "url": "description",
+          "valueString": "## User-assigned codes\n\nIf users need code elements to represent country names not included in ISO 3166-1, the following codes are available:\n\n### Alpha-2 codes (2-letter)\n\n- AA\n- QM to QZ\n- XA to XZ\n- ZZ\n\n### Alpha-3 codes (3-letter)\n- AAA to AAZ\n- QMA to QZZ\n- XAA to XZZ\n- ZZA to ZZZ\n\n### Numeric codes\n- 900 to 999\n\n> **NOTE:** Please be advised that the above series of codes are not universal, those code elements are not compatible between different entities."
+        },
+        {
+          "url": "codes",
+          "valueExpression": {
+            "language" : "text/fhirpath",
+            "expression": "matches('^(AA|Q[M-Z]|X[A-Z]|ZZ|AA[A-Z]|Q[M-Z][A-Z]|X[A-Z][A-Z]|ZZ[A-Z]|9[0-9]{2})$')"
+          }
+        }
+      ]
+    }
+  ],
   "property" : [
     {
       "code" : "french",
