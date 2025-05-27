@@ -1,0 +1,106 @@
+{
+  "resourceType" : "ValueSet",
+  "id" : "2.16.840.1.113762.1.4.1078.973",
+  "meta" : {
+    "versionId" : "9",
+    "lastUpdated" : "2025-02-20T01:12:38.000-05:00",
+    "profile" : [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-valueset-cqfm",
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/publishable-valueset-cqfm"
+    ]
+  },
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueContactDetail" : {
+        "name" : "Optum Author"
+      }
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
+      "valueDate" : "2025-02-20"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
+      "valueDate" : "2025-02-20"
+    }
+  ],
+  "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1078.973",
+  "identifier" : [
+    {
+      "system" : "urn:ietf:rfc:3986",
+      "value" : "urn:oid:2.16.840.1.113762.1.4.1078.973"
+    }
+  ],
+  "version" : "20250220",
+  "name" : "MASLDSCT",
+  "title" : "MASLD SCT",
+  "status" : "active",
+  "date" : "2025-02-20T01:12:38-05:00",
+  "publisher" : "Optum Steward",
+  "jurisdiction" : [
+    {
+      "coding" : [
+        {
+          "system" : "urn:iso:std:iso:3166",
+          "code" : "US"
+        }
+      ]
+    }
+  ],
+  "purpose" : "(Clinical Focus: SNOMEDCT codes for Metabolic dysfunction-associated steatotic liver disease (MASLD)),(Data Element Scope: Codes that represent MASLD, including MASH),(Inclusion Criteria: Valid codes for MASLD and MASH),(Exclusion Criteria: Codes for other causes of steatotic liver disease, such as fatty liver of pregnancy)",
+  "compose" : {
+    "include" : [
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20250301",
+        "filter" : [
+          {
+            "property" : "concept",
+            "op" : "is-a",
+            "value" : "1231824009"
+          }
+        ]
+      }
+    ],
+    "exclude" : [
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20250301",
+        "filter" : [
+          {
+            "property" : "concept",
+            "op" : "=",
+            "value" : "716379000"
+          }
+        ]
+      }
+    ]
+  },
+  "expansion" : {
+    "identifier" : "urn:uuid:11a43f77-17bc-4198-9d84-f3db62e1cdc6",
+    "timestamp" : "2025-05-23T18:04:05-04:00",
+    "total" : 3,
+    "contains" : [
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20250301",
+        "code" : "1231824009",
+        "display" : "Metabolic dysfunction-associated steatotic liver disease (disorder)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20250301",
+        "code" : "442685003",
+        "display" : "Metabolic dysfunction-associated steatohepatitis (disorder)"
+      },
+      {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108/version/20250301",
+        "code" : "722866000",
+        "display" : "Metabolic dysfunction-associated steatotic liver (disorder)"
+      }
+    ]
+  }
+}

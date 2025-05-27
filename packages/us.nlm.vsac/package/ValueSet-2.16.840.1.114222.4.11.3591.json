@@ -2,8 +2,8 @@
   "resourceType" : "ValueSet",
   "id" : "2.16.840.1.114222.4.11.3591",
   "meta" : {
-    "versionId" : "18",
-    "lastUpdated" : "2024-05-09T13:59:01.000-04:00",
+    "versionId" : "32",
+    "lastUpdated" : "2025-04-19T06:02:35.000-04:00",
     "profile" : [
       "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
       "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-valueset-cqfm",
@@ -19,11 +19,11 @@
     },
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
-      "valueDate" : "2024-06-05"
+      "valueDate" : "2025-04-19"
     },
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
-      "valueDate" : "2022-11-18"
+      "valueDate" : "2025-04-19"
     }
   ],
   "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.114222.4.11.3591",
@@ -33,14 +33,13 @@
       "value" : "urn:oid:2.16.840.1.114222.4.11.3591"
     }
   ],
-  "version" : "20221118",
+  "version" : "20250419",
   "name" : "PayerType",
   "title" : "Payer Type",
   "status" : "active",
-  "experimental" : false,
-  "date" : "2022-11-18T01:02:49-05:00",
+  "date" : "2025-04-19T06:02:35-04:00",
   "publisher" : "HL7 US Realm Program Management Steward",
-  "description" : "Name changed on 2023-06-02 per JIRA https://jira.hl7.org/browse/FHIR-39982",
+  "description" : "2025 April version was changed to reduce the amount of granular vs higher level categories of insurance (payer) types. Note that the code system from where these codes are drawn is now owned by the CDC and not owned by NAHDO. CDC Contact: sopt@cdc.gov",
   "jurisdiction" : [
     {
       "coding" : [
@@ -51,19 +50,208 @@
       ]
     }
   ],
-  "purpose" : "(Clinical Focus: Categories of types of health care payer entities as defined by the US Public Health Data Consortium SOP code system),(Data Element Scope: @code in CCDA r2.1 template Planned Coverage [act: identifier urn:oid:2.16.840.1.113883.10.20.22.4.129 (open)] DYNAMIC),(Inclusion Criteria: All codes in the code system),(Exclusion Criteria: none)",
+  "purpose" : "(Clinical Focus: Categories of types of health care payer entities as defined by the US Public Health Data Consortium SOP code system),(Data Element Scope: Concepts intended to represent categories of insurance (payer) types.),(Inclusion Criteria: Codes representing high level categories of insurance (payer) types),(Exclusion Criteria: Codes representing, subdivisions of insurance categories and or specific private insurance companies)",
   "compose" : {
     "include" : [
       {
         "system" : "https://nahdo.org/sopt",
         "version" : "9.2"
       }
+    ],
+    "exclude" : [
+      {
+        "system" : "https://nahdo.org/sopt",
+        "version" : "9.2",
+        "filter" : [
+          {
+            "property" : "concept",
+            "op" : "=",
+            "value" : "111"
+          }
+        ]
+      },
+      {
+        "system" : "https://nahdo.org/sopt",
+        "version" : "9.2",
+        "filter" : [
+          {
+            "property" : "concept",
+            "op" : "=",
+            "value" : "1112"
+          }
+        ]
+      },
+      {
+        "system" : "https://nahdo.org/sopt",
+        "version" : "9.2",
+        "filter" : [
+          {
+            "property" : "concept",
+            "op" : "=",
+            "value" : "3111"
+          }
+        ]
+      },
+      {
+        "system" : "https://nahdo.org/sopt",
+        "version" : "9.2",
+        "filter" : [
+          {
+            "property" : "concept",
+            "op" : "=",
+            "value" : "3112"
+          }
+        ]
+      },
+      {
+        "system" : "https://nahdo.org/sopt",
+        "version" : "9.2",
+        "filter" : [
+          {
+            "property" : "concept",
+            "op" : "=",
+            "value" : "3114"
+          }
+        ]
+      },
+      {
+        "system" : "https://nahdo.org/sopt",
+        "version" : "9.2",
+        "filter" : [
+          {
+            "property" : "concept",
+            "op" : "=",
+            "value" : "3115"
+          }
+        ]
+      },
+      {
+        "system" : "https://nahdo.org/sopt",
+        "version" : "9.2",
+        "filter" : [
+          {
+            "property" : "concept",
+            "op" : "=",
+            "value" : "3116"
+          }
+        ]
+      },
+      {
+        "system" : "https://nahdo.org/sopt",
+        "version" : "9.2",
+        "filter" : [
+          {
+            "property" : "concept",
+            "op" : "=",
+            "value" : "3119"
+          }
+        ]
+      },
+      {
+        "system" : "https://nahdo.org/sopt",
+        "version" : "9.2",
+        "filter" : [
+          {
+            "property" : "concept",
+            "op" : "=",
+            "value" : "3121"
+          }
+        ]
+      },
+      {
+        "system" : "https://nahdo.org/sopt",
+        "version" : "9.2",
+        "filter" : [
+          {
+            "property" : "concept",
+            "op" : "=",
+            "value" : "3122"
+          }
+        ]
+      },
+      {
+        "system" : "https://nahdo.org/sopt",
+        "version" : "9.2",
+        "filter" : [
+          {
+            "property" : "concept",
+            "op" : "descendent-of",
+            "value" : "321"
+          }
+        ]
+      },
+      {
+        "system" : "https://nahdo.org/sopt",
+        "version" : "9.2",
+        "filter" : [
+          {
+            "property" : "concept",
+            "op" : "=",
+            "value" : "3222"
+          }
+        ]
+      },
+      {
+        "system" : "https://nahdo.org/sopt",
+        "version" : "9.2",
+        "filter" : [
+          {
+            "property" : "concept",
+            "op" : "=",
+            "value" : "3223"
+          }
+        ]
+      },
+      {
+        "system" : "https://nahdo.org/sopt",
+        "version" : "9.2",
+        "filter" : [
+          {
+            "property" : "concept",
+            "op" : "=",
+            "value" : "3229"
+          }
+        ]
+      },
+      {
+        "system" : "https://nahdo.org/sopt",
+        "version" : "9.2",
+        "filter" : [
+          {
+            "property" : "concept",
+            "op" : "descendent-of",
+            "value" : "371"
+          }
+        ]
+      },
+      {
+        "system" : "https://nahdo.org/sopt",
+        "version" : "9.2",
+        "filter" : [
+          {
+            "property" : "concept",
+            "op" : "descendent-of",
+            "value" : "381"
+          }
+        ]
+      },
+      {
+        "system" : "https://nahdo.org/sopt",
+        "version" : "9.2",
+        "filter" : [
+          {
+            "property" : "concept",
+            "op" : "is-a",
+            "value" : "6"
+          }
+        ]
+      }
     ]
   },
   "expansion" : {
-    "identifier" : "urn:uuid:6c01f241-f190-43f5-a836-f8e741006428",
-    "timestamp" : "2024-12-10T11:55:36-05:00",
-    "total" : 167,
+    "identifier" : "urn:uuid:62110e75-c901-4e94-a050-3f41fc525b78",
+    "timestamp" : "2025-05-23T23:55:31-04:00",
+    "total" : 125,
     "contains" : [
       {
         "system" : "https://nahdo.org/sopt",
@@ -80,20 +268,8 @@
       {
         "system" : "https://nahdo.org/sopt",
         "version" : "9.2",
-        "code" : "111",
-        "display" : "Medicare HMO"
-      },
-      {
-        "system" : "https://nahdo.org/sopt",
-        "version" : "9.2",
         "code" : "1111",
         "display" : "Medicare Chronic Condition Special Needs Plan (C-SNP)"
-      },
-      {
-        "system" : "https://nahdo.org/sopt",
-        "version" : "9.2",
-        "code" : "1112",
-        "display" : "Medicare Institutional Special Needs Plan (I-SNP)"
       },
       {
         "system" : "https://nahdo.org/sopt",
@@ -278,62 +454,14 @@
       {
         "system" : "https://nahdo.org/sopt",
         "version" : "9.2",
-        "code" : "3111",
-        "display" : "TRICARE Prime--HMO"
-      },
-      {
-        "system" : "https://nahdo.org/sopt",
-        "version" : "9.2",
-        "code" : "3112",
-        "display" : "TRICARE Extra--PPO"
-      },
-      {
-        "system" : "https://nahdo.org/sopt",
-        "version" : "9.2",
         "code" : "3113",
         "display" : "TRICARE Standard - Fee For Service"
       },
       {
         "system" : "https://nahdo.org/sopt",
         "version" : "9.2",
-        "code" : "3114",
-        "display" : "TRICARE For Life--Medicare Supplement"
-      },
-      {
-        "system" : "https://nahdo.org/sopt",
-        "version" : "9.2",
-        "code" : "3115",
-        "display" : "TRICARE Reserve Select"
-      },
-      {
-        "system" : "https://nahdo.org/sopt",
-        "version" : "9.2",
-        "code" : "3116",
-        "display" : "Uniformed Services Family Health Plan (USFHP) -- HMO"
-      },
-      {
-        "system" : "https://nahdo.org/sopt",
-        "version" : "9.2",
-        "code" : "3119",
-        "display" : "Department of Defense - (other)"
-      },
-      {
-        "system" : "https://nahdo.org/sopt",
-        "version" : "9.2",
         "code" : "312",
         "display" : "Military Treatment Facility"
-      },
-      {
-        "system" : "https://nahdo.org/sopt",
-        "version" : "9.2",
-        "code" : "3121",
-        "display" : "Enrolled Prime--HMO"
-      },
-      {
-        "system" : "https://nahdo.org/sopt",
-        "version" : "9.2",
-        "code" : "3122",
-        "display" : "Non-enrolled Space Available"
       },
       {
         "system" : "https://nahdo.org/sopt",
@@ -362,66 +490,6 @@
       {
         "system" : "https://nahdo.org/sopt",
         "version" : "9.2",
-        "code" : "3211",
-        "display" : "Direct Care-Care provided in VA facilities"
-      },
-      {
-        "system" : "https://nahdo.org/sopt",
-        "version" : "9.2",
-        "code" : "3212",
-        "display" : "Indirect Care-Care provided outside VA facilities"
-      },
-      {
-        "system" : "https://nahdo.org/sopt",
-        "version" : "9.2",
-        "code" : "32121",
-        "display" : "Fee Basis"
-      },
-      {
-        "system" : "https://nahdo.org/sopt",
-        "version" : "9.2",
-        "code" : "32122",
-        "display" : "Foreign Fee/Foreign Medical Program (FMP)"
-      },
-      {
-        "system" : "https://nahdo.org/sopt",
-        "version" : "9.2",
-        "code" : "32123",
-        "display" : "Contract Nursing Home/Community Nursing Home"
-      },
-      {
-        "system" : "https://nahdo.org/sopt",
-        "version" : "9.2",
-        "code" : "32124",
-        "display" : "State Veterans Home"
-      },
-      {
-        "system" : "https://nahdo.org/sopt",
-        "version" : "9.2",
-        "code" : "32125",
-        "display" : "Sharing Agreements"
-      },
-      {
-        "system" : "https://nahdo.org/sopt",
-        "version" : "9.2",
-        "code" : "32126",
-        "display" : "Other Federal Agency"
-      },
-      {
-        "system" : "https://nahdo.org/sopt",
-        "version" : "9.2",
-        "code" : "32127",
-        "display" : "Dental Care"
-      },
-      {
-        "system" : "https://nahdo.org/sopt",
-        "version" : "9.2",
-        "code" : "32128",
-        "display" : "Vision Care"
-      },
-      {
-        "system" : "https://nahdo.org/sopt",
-        "version" : "9.2",
         "code" : "322",
         "display" : "Non-veteran care"
       },
@@ -430,24 +498,6 @@
         "version" : "9.2",
         "code" : "3221",
         "display" : "Civilian Health and Medical Program for the VA (CHAMPVA)"
-      },
-      {
-        "system" : "https://nahdo.org/sopt",
-        "version" : "9.2",
-        "code" : "3222",
-        "display" : "Spina Bifida Health Care Program (SB)"
-      },
-      {
-        "system" : "https://nahdo.org/sopt",
-        "version" : "9.2",
-        "code" : "3223",
-        "display" : "Children of Women Vietnam Veterans (CWVV)"
-      },
-      {
-        "system" : "https://nahdo.org/sopt",
-        "version" : "9.2",
-        "code" : "3229",
-        "display" : "Other non-veteran care"
       },
       {
         "system" : "https://nahdo.org/sopt",
@@ -560,24 +610,6 @@
       {
         "system" : "https://nahdo.org/sopt",
         "version" : "9.2",
-        "code" : "3711",
-        "display" : "HMO"
-      },
-      {
-        "system" : "https://nahdo.org/sopt",
-        "version" : "9.2",
-        "code" : "3712",
-        "display" : "PPO"
-      },
-      {
-        "system" : "https://nahdo.org/sopt",
-        "version" : "9.2",
-        "code" : "3713",
-        "display" : "POS"
-      },
-      {
-        "system" : "https://nahdo.org/sopt",
-        "version" : "9.2",
         "code" : "372",
         "display" : "FFS/Indemnity"
       },
@@ -598,30 +630,6 @@
         "version" : "9.2",
         "code" : "381",
         "display" : "Federal, State, Local not specified managed care"
-      },
-      {
-        "system" : "https://nahdo.org/sopt",
-        "version" : "9.2",
-        "code" : "3811",
-        "display" : "Federal, State, Local not specified - HMO"
-      },
-      {
-        "system" : "https://nahdo.org/sopt",
-        "version" : "9.2",
-        "code" : "3812",
-        "display" : "Federal, State, Local not specified - PPO"
-      },
-      {
-        "system" : "https://nahdo.org/sopt",
-        "version" : "9.2",
-        "code" : "3813",
-        "display" : "Federal, State, Local not specified - POS"
-      },
-      {
-        "system" : "https://nahdo.org/sopt",
-        "version" : "9.2",
-        "code" : "3819",
-        "display" : "Federal, State, Local not specified - not specified managed care"
       },
       {
         "system" : "https://nahdo.org/sopt",
@@ -814,78 +822,6 @@
         "version" : "9.2",
         "code" : "59",
         "display" : "Other Private Insurance"
-      },
-      {
-        "system" : "https://nahdo.org/sopt",
-        "version" : "9.2",
-        "code" : "6",
-        "display" : "BLUE CROSS/BLUE SHIELD"
-      },
-      {
-        "system" : "https://nahdo.org/sopt",
-        "version" : "9.2",
-        "code" : "61",
-        "display" : "BC Managed Care"
-      },
-      {
-        "system" : "https://nahdo.org/sopt",
-        "version" : "9.2",
-        "code" : "611",
-        "display" : "BC Managed Care - HMO"
-      },
-      {
-        "system" : "https://nahdo.org/sopt",
-        "version" : "9.2",
-        "code" : "612",
-        "display" : "BC Managed Care - PPO"
-      },
-      {
-        "system" : "https://nahdo.org/sopt",
-        "version" : "9.2",
-        "code" : "613",
-        "display" : "BC Managed Care - POS"
-      },
-      {
-        "system" : "https://nahdo.org/sopt",
-        "version" : "9.2",
-        "code" : "614",
-        "display" : "BC Managed Care - Dental"
-      },
-      {
-        "system" : "https://nahdo.org/sopt",
-        "version" : "9.2",
-        "code" : "619",
-        "display" : "BC Managed Care - Other"
-      },
-      {
-        "system" : "https://nahdo.org/sopt",
-        "version" : "9.2",
-        "code" : "62",
-        "display" : "BC Insurance Indemnity"
-      },
-      {
-        "system" : "https://nahdo.org/sopt",
-        "version" : "9.2",
-        "code" : "621",
-        "display" : "BC Indemnity"
-      },
-      {
-        "system" : "https://nahdo.org/sopt",
-        "version" : "9.2",
-        "code" : "622",
-        "display" : "BC Self-insured (ERISA) Administrative Services Only (ASO)Plan"
-      },
-      {
-        "system" : "https://nahdo.org/sopt",
-        "version" : "9.2",
-        "code" : "623",
-        "display" : "BC Medicare Supplemental Plan"
-      },
-      {
-        "system" : "https://nahdo.org/sopt",
-        "version" : "9.2",
-        "code" : "629",
-        "display" : "BC Indemnity - Dental"
       },
       {
         "system" : "https://nahdo.org/sopt",

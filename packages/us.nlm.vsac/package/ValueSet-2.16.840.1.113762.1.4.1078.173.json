@@ -2,8 +2,8 @@
   "resourceType" : "ValueSet",
   "id" : "2.16.840.1.113762.1.4.1078.173",
   "meta" : {
-    "versionId" : "14",
-    "lastUpdated" : "2023-12-21T17:43:03.000-05:00",
+    "versionId" : "20",
+    "lastUpdated" : "2025-05-06T01:09:00.000-04:00",
     "profile" : [
       "http://hl7.org/fhir/StructureDefinition/shareablevalueset",
       "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-valueset-cqfm",
@@ -19,11 +19,11 @@
     },
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/resource-lastReviewDate",
-      "valueDate" : "2023-09-13"
+      "valueDate" : "2025-05-06"
     },
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate",
-      "valueDate" : "2023-09-13"
+      "valueDate" : "2025-05-06"
     }
   ],
   "url" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1078.173",
@@ -33,11 +33,11 @@
       "value" : "urn:oid:2.16.840.1.113762.1.4.1078.173"
     }
   ],
-  "version" : "20230913",
+  "version" : "20250506",
   "name" : "AsthmaI10",
   "title" : "Asthma I10",
   "status" : "active",
-  "date" : "2023-09-13T01:01:11-04:00",
+  "date" : "2025-05-06T01:09:00-04:00",
   "publisher" : "Optum Steward",
   "description" : "J45.90 became non-billable FY 2023",
   "jurisdiction" : [
@@ -58,14 +58,8 @@
         "version" : "2025",
         "filter" : [
           {
-            "modifierExtension" : [
-              {
-                "url" : "vsacOpModifier",
-                "valueString" : "leafOf"
-              }
-            ],
             "property" : "concept",
-            "op" : "is-a",
+            "op" : "descendent-of",
             "value" : "J45"
           }
         ]
@@ -76,18 +70,35 @@
         "filter" : [
           {
             "property" : "concept",
-            "op" : "=",
+            "op" : "descendent-of",
             "value" : "J45.90"
+          }
+        ]
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2025",
+        "filter" : [
+          {
+            "property" : "concept",
+            "op" : "=",
+            "value" : "J82.83"
           }
         ]
       }
     ]
   },
   "expansion" : {
-    "identifier" : "urn:uuid:12ed6a62-894c-4a9f-b061-5cc35311e15a",
-    "timestamp" : "2024-12-10T05:36:38-05:00",
-    "total" : 19,
+    "identifier" : "urn:uuid:14b9ab5f-1629-4b5d-9b8b-0315f37c0f0f",
+    "timestamp" : "2025-05-23T17:47:51-04:00",
+    "total" : 26,
     "contains" : [
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2025",
+        "code" : "J45.2",
+        "display" : "Mild intermittent asthma"
+      },
       {
         "system" : "http://hl7.org/fhir/sid/icd-10-cm",
         "version" : "2025",
@@ -105,6 +116,12 @@
         "version" : "2025",
         "code" : "J45.22",
         "display" : "Mild intermittent asthma with status asthmaticus"
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2025",
+        "code" : "J45.3",
+        "display" : "Mild persistent asthma"
       },
       {
         "system" : "http://hl7.org/fhir/sid/icd-10-cm",
@@ -127,6 +144,12 @@
       {
         "system" : "http://hl7.org/fhir/sid/icd-10-cm",
         "version" : "2025",
+        "code" : "J45.4",
+        "display" : "Moderate persistent asthma"
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2025",
         "code" : "J45.40",
         "display" : "Moderate persistent asthma, uncomplicated"
       },
@@ -145,6 +168,12 @@
       {
         "system" : "http://hl7.org/fhir/sid/icd-10-cm",
         "version" : "2025",
+        "code" : "J45.5",
+        "display" : "Severe persistent asthma"
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2025",
         "code" : "J45.50",
         "display" : "Severe persistent asthma, uncomplicated"
       },
@@ -159,6 +188,12 @@
         "version" : "2025",
         "code" : "J45.52",
         "display" : "Severe persistent asthma with status asthmaticus"
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2025",
+        "code" : "J45.9",
+        "display" : "Other and unspecified asthma"
       },
       {
         "system" : "http://hl7.org/fhir/sid/icd-10-cm",
@@ -187,6 +222,12 @@
       {
         "system" : "http://hl7.org/fhir/sid/icd-10-cm",
         "version" : "2025",
+        "code" : "J45.99",
+        "display" : "Other asthma"
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2025",
         "code" : "J45.990",
         "display" : "Exercise induced bronchospasm"
       },
@@ -201,6 +242,12 @@
         "version" : "2025",
         "code" : "J45.998",
         "display" : "Other asthma"
+      },
+      {
+        "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+        "version" : "2025",
+        "code" : "J82.83",
+        "display" : "Eosinophilic asthma"
       }
     ]
   }
