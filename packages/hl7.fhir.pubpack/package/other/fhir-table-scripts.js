@@ -158,8 +158,8 @@ function filterDesc(table, prop, value, panel) {
     if (cell) {
       for (let i = 0; i < cell.children.length; i++) {
         const childElement = cell.children[i];
-        let role = childElement.getAttribute('data-role');
-        if (role == prop) {
+        let role = childElement.getAttribute('class');
+        if (role && role.split(' ').includes(prop)) {
           childElement.style.display = v;
         }
       }
