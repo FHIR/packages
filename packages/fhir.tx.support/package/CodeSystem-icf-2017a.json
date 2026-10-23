@@ -50,25 +50,61 @@
   {
     "code" : "kind",
     "uri" : "http://hl7.org/fhir/sid/icf#kind",
-    "description" : "Whether the concept is a primary ICF category (primary), or a qualifier value, and if so which qualifier scale (extent, nature, localization)",
+    "description" : "Whether the concept is a primary ICF category (primary), or a qualifier value, and if so which qualifier scale (extent, nature, localization, problem, barrier, facilitator)",
     "type" : "code"
   },
   {
     "code" : "extent",
     "uri" : "http://hl7.org/fhir/sid/icf#extent",
-    "description" : "Extent of impairment: the first qualifier on a qualified ICF code (a q1 code)",
+    "description" : "Extent of impairment: the first qualifier on a body function (b) or body structure (s) code (a q1 code)",
     "type" : "code"
   },
   {
     "code" : "nature",
     "uri" : "http://hl7.org/fhir/sid/icf#nature",
-    "description" : "Nature of the change in the respective body structure: the second qualifier on a qualified ICF code (a q2 code)",
+    "description" : "Nature of the change in the respective body structure: the second qualifier on a body structure (s) code (a q2 code)",
     "type" : "code"
   },
   {
     "code" : "localization",
     "uri" : "http://hl7.org/fhir/sid/icf#localization",
-    "description" : "Localization: the third qualifier on a qualified ICF code (a q3 code)",
+    "description" : "Localization: the third qualifier on a body structure (s) code (a q3 code)",
+    "type" : "code"
+  },
+  {
+    "code" : "performance",
+    "uri" : "http://hl7.org/fhir/sid/icf#performance",
+    "description" : "Performance: the first qualifier on an activities and participation (d) code - what the person does in their current environment (a q4 code)",
+    "type" : "code"
+  },
+  {
+    "code" : "capacity",
+    "uri" : "http://hl7.org/fhir/sid/icf#capacity",
+    "description" : "Capacity (without assistance): the second qualifier on an activities and participation (d) code (a q4 code)",
+    "type" : "code"
+  },
+  {
+    "code" : "capacity-with-assistance",
+    "uri" : "http://hl7.org/fhir/sid/icf#capacity-with-assistance",
+    "description" : "Capacity with assistance: the optional third qualifier on an activities and participation (d) code (a q4 code)",
+    "type" : "code"
+  },
+  {
+    "code" : "performance-without-assistance",
+    "uri" : "http://hl7.org/fhir/sid/icf#performance-without-assistance",
+    "description" : "Performance without assistance: the optional fourth qualifier on an activities and participation (d) code (a q4 code)",
+    "type" : "code"
+  },
+  {
+    "code" : "barrier",
+    "uri" : "http://hl7.org/fhir/sid/icf#barrier",
+    "description" : "Barrier: the qualifier on an environmental factor (e) code written with '.' (a q5 code)",
+    "type" : "code"
+  },
+  {
+    "code" : "facilitator",
+    "uri" : "http://hl7.org/fhir/sid/icf#facilitator",
+    "description" : "Facilitator: the qualifier on an environmental factor (e) code written with '+' (a q6 code)",
     "type" : "code"
   }],
   "concept" : [{
@@ -30257,6 +30293,385 @@
     {
       "code" : "kind",
       "valueCode" : "localization"
+    }]
+  },
+  {
+    "code" : "q4",
+    "display" : "Extent of problem (generic qualifier for activities and participation)",
+    "definition" : "The generic qualifier as used for each of the performance and capacity qualifiers on an activities and participation (d) code",
+    "property" : [{
+      "code" : "notSelectable",
+      "valueBoolean" : true
+    },
+    {
+      "code" : "kind",
+      "valueCode" : "problem"
+    }]
+  },
+  {
+    "code" : "q4-0",
+    "display" : "NO problem",
+    "definition" : "none, absent, negligible: 0-4%",
+    "property" : [{
+      "code" : "parent",
+      "valueCode" : "q4"
+    },
+    {
+      "code" : "notSelectable",
+      "valueBoolean" : false
+    },
+    {
+      "code" : "kind",
+      "valueCode" : "problem"
+    }]
+  },
+  {
+    "code" : "q4-1",
+    "display" : "MILD problem",
+    "definition" : "slight, low: 5-24%",
+    "property" : [{
+      "code" : "parent",
+      "valueCode" : "q4"
+    },
+    {
+      "code" : "notSelectable",
+      "valueBoolean" : false
+    },
+    {
+      "code" : "kind",
+      "valueCode" : "problem"
+    }]
+  },
+  {
+    "code" : "q4-2",
+    "display" : "MODERATE problem",
+    "definition" : "medium, fair: 25-49%",
+    "property" : [{
+      "code" : "parent",
+      "valueCode" : "q4"
+    },
+    {
+      "code" : "notSelectable",
+      "valueBoolean" : false
+    },
+    {
+      "code" : "kind",
+      "valueCode" : "problem"
+    }]
+  },
+  {
+    "code" : "q4-3",
+    "display" : "SEVERE problem",
+    "definition" : "high, extreme: 50-95%",
+    "property" : [{
+      "code" : "parent",
+      "valueCode" : "q4"
+    },
+    {
+      "code" : "notSelectable",
+      "valueBoolean" : false
+    },
+    {
+      "code" : "kind",
+      "valueCode" : "problem"
+    }]
+  },
+  {
+    "code" : "q4-4",
+    "display" : "COMPLETE problem",
+    "definition" : "total: 96-100%",
+    "property" : [{
+      "code" : "parent",
+      "valueCode" : "q4"
+    },
+    {
+      "code" : "notSelectable",
+      "valueBoolean" : false
+    },
+    {
+      "code" : "kind",
+      "valueCode" : "problem"
+    }]
+  },
+  {
+    "code" : "q4-8",
+    "display" : "not specified",
+    "definition" : "Used when information is insufficient to grade the severity",
+    "property" : [{
+      "code" : "parent",
+      "valueCode" : "q4"
+    },
+    {
+      "code" : "notSelectable",
+      "valueBoolean" : false
+    },
+    {
+      "code" : "kind",
+      "valueCode" : "problem"
+    }]
+  },
+  {
+    "code" : "q4-9",
+    "display" : "not applicable",
+    "definition" : "Used when it is inappropriate to apply the qualifier",
+    "property" : [{
+      "code" : "parent",
+      "valueCode" : "q4"
+    },
+    {
+      "code" : "notSelectable",
+      "valueBoolean" : false
+    },
+    {
+      "code" : "kind",
+      "valueCode" : "problem"
+    }]
+  },
+  {
+    "code" : "q5",
+    "display" : "Extent of barrier",
+    "definition" : "The qualifier on an environmental factor (e) that is a barrier, written after a '.'",
+    "property" : [{
+      "code" : "notSelectable",
+      "valueBoolean" : true
+    },
+    {
+      "code" : "kind",
+      "valueCode" : "barrier"
+    }]
+  },
+  {
+    "code" : "q5-0",
+    "display" : "NO barrier",
+    "definition" : "0-4%",
+    "property" : [{
+      "code" : "parent",
+      "valueCode" : "q5"
+    },
+    {
+      "code" : "notSelectable",
+      "valueBoolean" : false
+    },
+    {
+      "code" : "kind",
+      "valueCode" : "barrier"
+    }]
+  },
+  {
+    "code" : "q5-1",
+    "display" : "MILD barrier",
+    "definition" : "5-24%",
+    "property" : [{
+      "code" : "parent",
+      "valueCode" : "q5"
+    },
+    {
+      "code" : "notSelectable",
+      "valueBoolean" : false
+    },
+    {
+      "code" : "kind",
+      "valueCode" : "barrier"
+    }]
+  },
+  {
+    "code" : "q5-2",
+    "display" : "MODERATE barrier",
+    "definition" : "25-49%",
+    "property" : [{
+      "code" : "parent",
+      "valueCode" : "q5"
+    },
+    {
+      "code" : "notSelectable",
+      "valueBoolean" : false
+    },
+    {
+      "code" : "kind",
+      "valueCode" : "barrier"
+    }]
+  },
+  {
+    "code" : "q5-3",
+    "display" : "SEVERE barrier",
+    "definition" : "50-95%",
+    "property" : [{
+      "code" : "parent",
+      "valueCode" : "q5"
+    },
+    {
+      "code" : "notSelectable",
+      "valueBoolean" : false
+    },
+    {
+      "code" : "kind",
+      "valueCode" : "barrier"
+    }]
+  },
+  {
+    "code" : "q5-4",
+    "display" : "COMPLETE barrier",
+    "definition" : "96-100%",
+    "property" : [{
+      "code" : "parent",
+      "valueCode" : "q5"
+    },
+    {
+      "code" : "notSelectable",
+      "valueBoolean" : false
+    },
+    {
+      "code" : "kind",
+      "valueCode" : "barrier"
+    }]
+  },
+  {
+    "code" : "q5-8",
+    "display" : "barrier, not specified",
+    "definition" : "Used when the factor is a barrier, but information is insufficient to grade it",
+    "property" : [{
+      "code" : "parent",
+      "valueCode" : "q5"
+    },
+    {
+      "code" : "notSelectable",
+      "valueBoolean" : false
+    },
+    {
+      "code" : "kind",
+      "valueCode" : "barrier"
+    }]
+  },
+  {
+    "code" : "q5-9",
+    "display" : "not applicable",
+    "definition" : "Used when it is inappropriate to apply the qualifier",
+    "property" : [{
+      "code" : "parent",
+      "valueCode" : "q5"
+    },
+    {
+      "code" : "notSelectable",
+      "valueBoolean" : false
+    },
+    {
+      "code" : "kind",
+      "valueCode" : "barrier"
+    }]
+  },
+  {
+    "code" : "q6",
+    "display" : "Extent of facilitator",
+    "definition" : "The qualifier on an environmental factor (e) that is a facilitator, written after a '+' in place of the '.'",
+    "property" : [{
+      "code" : "notSelectable",
+      "valueBoolean" : true
+    },
+    {
+      "code" : "kind",
+      "valueCode" : "facilitator"
+    }]
+  },
+  {
+    "code" : "q6-0",
+    "display" : "NO facilitator",
+    "definition" : "0-4%",
+    "property" : [{
+      "code" : "parent",
+      "valueCode" : "q6"
+    },
+    {
+      "code" : "notSelectable",
+      "valueBoolean" : false
+    },
+    {
+      "code" : "kind",
+      "valueCode" : "facilitator"
+    }]
+  },
+  {
+    "code" : "q6-1",
+    "display" : "MILD facilitator",
+    "definition" : "5-24%",
+    "property" : [{
+      "code" : "parent",
+      "valueCode" : "q6"
+    },
+    {
+      "code" : "notSelectable",
+      "valueBoolean" : false
+    },
+    {
+      "code" : "kind",
+      "valueCode" : "facilitator"
+    }]
+  },
+  {
+    "code" : "q6-2",
+    "display" : "MODERATE facilitator",
+    "definition" : "25-49%",
+    "property" : [{
+      "code" : "parent",
+      "valueCode" : "q6"
+    },
+    {
+      "code" : "notSelectable",
+      "valueBoolean" : false
+    },
+    {
+      "code" : "kind",
+      "valueCode" : "facilitator"
+    }]
+  },
+  {
+    "code" : "q6-3",
+    "display" : "SUBSTANTIAL facilitator",
+    "definition" : "50-95%",
+    "property" : [{
+      "code" : "parent",
+      "valueCode" : "q6"
+    },
+    {
+      "code" : "notSelectable",
+      "valueBoolean" : false
+    },
+    {
+      "code" : "kind",
+      "valueCode" : "facilitator"
+    }]
+  },
+  {
+    "code" : "q6-4",
+    "display" : "COMPLETE facilitator",
+    "definition" : "96-100%",
+    "property" : [{
+      "code" : "parent",
+      "valueCode" : "q6"
+    },
+    {
+      "code" : "notSelectable",
+      "valueBoolean" : false
+    },
+    {
+      "code" : "kind",
+      "valueCode" : "facilitator"
+    }]
+  },
+  {
+    "code" : "q6-8",
+    "display" : "facilitator, not specified",
+    "definition" : "Used when the factor is a facilitator, but information is insufficient to grade it",
+    "property" : [{
+      "code" : "parent",
+      "valueCode" : "q6"
+    },
+    {
+      "code" : "notSelectable",
+      "valueBoolean" : false
+    },
+    {
+      "code" : "kind",
+      "valueCode" : "facilitator"
     }]
   }]
 }
